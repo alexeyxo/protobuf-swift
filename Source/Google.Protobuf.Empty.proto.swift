@@ -6,15 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct EmptyRoot {
     public static var sharedInstance : EmptyRoot {
@@ -41,6 +32,16 @@ public extension Google.Protobuf {
   //       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
   //     }
   final public class Empty : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }

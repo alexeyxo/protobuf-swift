@@ -6,17 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Duration, rhs: Google.Protobuf.Duration) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasSeconds == rhs.hasSeconds) && (!lhs.hasSeconds || lhs.seconds == rhs.seconds)
-  fieldCheck = fieldCheck && (lhs.hasNanos == rhs.hasNanos) && (!lhs.hasNanos || lhs.nanos == rhs.nanos)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct DurationRoot {
     public static var sharedInstance : DurationRoot {
@@ -69,6 +58,18 @@ public extension Google.Protobuf {
   //       end.nanos -= 1000000000;
   //     }
   final public class Duration : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Duration, rhs: Google.Protobuf.Duration) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasSeconds == rhs.hasSeconds) && (!lhs.hasSeconds || lhs.seconds == rhs.seconds)
+      fieldCheck = fieldCheck && (lhs.hasNanos == rhs.hasNanos) && (!lhs.hasNanos || lhs.nanos == rhs.nanos)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Signed seconds of the span of time. Must be from -315,576,000,000
     // to +315,576,000,000 inclusive.
     public fileprivate(set) var seconds:Int64 = Int64(0)
@@ -140,10 +141,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasSeconds {
-        jsonMap["seconds"] = "\(seconds)"
+        jsonMap["seconds"] = seconds
       }
       if hasNanos {
-        jsonMap["nanos"] = NSNumber(value:nanos)
+        jsonMap["nanos"] = nanos
       }
       return jsonMap
     }
@@ -305,11 +306,11 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Duration.Builder {
         let resultDecodedBuilder = Google.Protobuf.Duration.Builder()
-        if let jsonValueSeconds = jsonMap["seconds"] as? String {
-          resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
+        if let jsonValueSeconds = jsonMap["seconds"] as? Int64 {
+          resultDecodedBuilder.seconds = jsonValueSeconds
         }
-        if let jsonValueNanos = jsonMap["nanos"] as? NSNumber {
-          resultDecodedBuilder.nanos = jsonValueNanos.int32Value
+        if let jsonValueNanos = jsonMap["nanos"] as? Int32 {
+          resultDecodedBuilder.nanos = jsonValueNanos
         }
         return resultDecodedBuilder
       }

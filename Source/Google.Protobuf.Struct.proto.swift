@@ -6,52 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Struct, rhs: Google.Protobuf.Struct) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFields == rhs.hasFields) && (!lhs.hasFields || lhs.fields == rhs.fields)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Struct.FieldsEntry, rhs: Google.Protobuf.Struct.FieldsEntry) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasKey == rhs.hasKey) && (!lhs.hasKey || lhs.key == rhs.key)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Value, rhs: Google.Protobuf.Value) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasNullValue == rhs.hasNullValue) && (!lhs.hasNullValue || lhs.nullValue == rhs.nullValue)
-  fieldCheck = fieldCheck && (lhs.hasNumberValue == rhs.hasNumberValue) && (!lhs.hasNumberValue || lhs.numberValue == rhs.numberValue)
-  fieldCheck = fieldCheck && (lhs.hasStringValue == rhs.hasStringValue) && (!lhs.hasStringValue || lhs.stringValue == rhs.stringValue)
-  fieldCheck = fieldCheck && (lhs.hasBoolValue == rhs.hasBoolValue) && (!lhs.hasBoolValue || lhs.boolValue == rhs.boolValue)
-  fieldCheck = fieldCheck && (lhs.hasStructValue == rhs.hasStructValue) && (!lhs.hasStructValue || lhs.structValue == rhs.structValue)
-  fieldCheck = fieldCheck && (lhs.hasListValue == rhs.hasListValue) && (!lhs.hasListValue || lhs.listValue == rhs.listValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.ListValue, rhs: Google.Protobuf.ListValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.values == rhs.values)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct StructRoot {
     public static var sharedInstance : StructRoot {
@@ -110,10 +64,33 @@ public extension Google.Protobuf {
   // with the proto support for the language.
   final public class Struct : GeneratedMessage {
 
+    public static func == (lhs: Google.Protobuf.Struct, rhs: Google.Protobuf.Struct) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFields == rhs.hasFields) && (!lhs.hasFields || lhs.fields == rhs.fields)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class FieldsEntry : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.Struct.FieldsEntry, rhs: Google.Protobuf.Struct.FieldsEntry) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasKey == rhs.hasKey) && (!lhs.hasKey || lhs.key == rhs.key)
+          fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var key:String = ""
         public fileprivate(set) var hasKey:Bool = false
 
@@ -629,6 +606,22 @@ public extension Google.Protobuf {
   // variants, absence of any variant indicates an error.
   final public class Value : GeneratedMessage {
 
+    public static func == (lhs: Google.Protobuf.Value, rhs: Google.Protobuf.Value) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasNullValue == rhs.hasNullValue) && (!lhs.hasNullValue || lhs.nullValue == rhs.nullValue)
+      fieldCheck = fieldCheck && (lhs.hasNumberValue == rhs.hasNumberValue) && (!lhs.hasNumberValue || lhs.numberValue == rhs.numberValue)
+      fieldCheck = fieldCheck && (lhs.hasStringValue == rhs.hasStringValue) && (!lhs.hasStringValue || lhs.stringValue == rhs.stringValue)
+      fieldCheck = fieldCheck && (lhs.hasBoolValue == rhs.hasBoolValue) && (!lhs.hasBoolValue || lhs.boolValue == rhs.boolValue)
+      fieldCheck = fieldCheck && (lhs.hasStructValue == rhs.hasStructValue) && (!lhs.hasStructValue || lhs.structValue == rhs.structValue)
+      fieldCheck = fieldCheck && (lhs.hasListValue == rhs.hasListValue) && (!lhs.hasListValue || lhs.listValue == rhs.listValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //OneOf declaration start
 
@@ -910,7 +903,7 @@ public extension Google.Protobuf {
         jsonMap["nullValue"] = nullValue.toString()
       }
       if hasNumberValue {
-        jsonMap["numberValue"] = NSNumber(value:numberValue)
+        jsonMap["numberValue"] = numberValue
       }
       if hasStringValue {
         jsonMap["stringValue"] = stringValue
@@ -1310,8 +1303,8 @@ public extension Google.Protobuf {
         if let jsonValueNullValue = jsonMap["nullValue"] as? String {
           resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(str: jsonValueNullValue)
         }
-        if let jsonValueNumberValue = jsonMap["numberValue"] as? NSNumber {
-          resultDecodedBuilder.numberValue = jsonValueNumberValue.doubleValue
+        if let jsonValueNumberValue = jsonMap["numberValue"] as? Double {
+          resultDecodedBuilder.numberValue = jsonValueNumberValue
         }
         if let jsonValueStringValue = jsonMap["stringValue"] as? String {
           resultDecodedBuilder.stringValue = jsonValueStringValue
@@ -1342,6 +1335,17 @@ public extension Google.Protobuf {
 
   // `ListValue` is a wrapper around a repeated field of values.
   final public class ListValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.ListValue, rhs: Google.Protobuf.ListValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.values == rhs.values)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var values:Array<Google.Protobuf.Value>  = Array<Google.Protobuf.Value>()
     required public init() {
          super.init()

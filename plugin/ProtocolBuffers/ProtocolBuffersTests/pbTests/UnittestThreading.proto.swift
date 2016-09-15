@@ -6,16 +6,6 @@ import Foundation
 import ProtocolBuffers
 
 
-public func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasTestString == rhs.hasTestString) && (!lhs.hasTestString || lhs.testString == rhs.testString)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public struct UnittestThreadingRoot {
   public static var sharedInstance : UnittestThreadingRoot {
    struct Static {
@@ -34,6 +24,17 @@ public struct UnittestThreadingRoot {
 }
 
 final public class ThreadingMessages : GeneratedMessage {
+
+  public static func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasTestString == rhs.hasTestString) && (!lhs.hasTestString || lhs.testString == rhs.testString)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   public fileprivate(set) var testString:String = ""
   public fileprivate(set) var hasTestString:Bool = false
 

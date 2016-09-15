@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUnittest.TestLiteImportsNonlite) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasMessage == rhs.hasMessage) && (!lhs.hasMessage || lhs.message == rhs.message)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittest {
   public struct UnittestLiteImportsNonliteRoot {
     public static var sharedInstance : UnittestLiteImportsNonliteRoot {
@@ -38,6 +28,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestLiteImportsNonlite : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUnittest.TestLiteImportsNonlite) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasMessage == rhs.hasMessage) && (!lhs.hasMessage || lhs.message == rhs.message)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var message:ProtobufUnittest.TestAllTypes!
     public fileprivate(set) var hasMessage:Bool = false
     required public init() {

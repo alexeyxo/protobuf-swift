@@ -6,16 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFileName == rhs.hasFileName) && (!lhs.hasFileName || lhs.fileName == rhs.fileName)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct SourceContextRoot {
     public static var sharedInstance : SourceContextRoot {
@@ -38,6 +28,17 @@ public extension Google.Protobuf {
   // `SourceContext` represents information about the source of a
   // protobuf element, like the file in which it is defined.
   final public class SourceContext : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFileName == rhs.hasFileName) && (!lhs.hasFileName || lhs.fileName == rhs.fileName)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The path-qualified name of the .proto file that contained the associated
     // protobuf element.  For example: `"google/protobuf/source.proto"`.
     public fileprivate(set) var fileName:String = ""

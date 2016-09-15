@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public extension Proto2ArenaUnittest{}
 
-public func == (lhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage, rhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Proto2ArenaUnittest {
   public struct UnittestNoArenaImportRoot {
     public static var sharedInstance : UnittestNoArenaImportRoot {
@@ -37,6 +27,17 @@ public extension Proto2ArenaUnittest {
   }
 
   final public class ImportNoArenaNestedMessage : GeneratedMessage {
+
+    public static func == (lhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage, rhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var d:Int32 = Int32(0)
     public fileprivate(set) var hasD:Bool = false
 
@@ -91,7 +92,7 @@ public extension Proto2ArenaUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
-        jsonMap["d"] = NSNumber(value:d)
+        jsonMap["d"] = d
       }
       return jsonMap
     }
@@ -218,8 +219,8 @@ public extension Proto2ArenaUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
-        if let jsonValueD = jsonMap["d"] as? NSNumber {
-          resultDecodedBuilder.d = jsonValueD.int32Value
+        if let jsonValueD = jsonMap["d"] as? Int32 {
+          resultDecodedBuilder.d = jsonValueD
         }
         return resultDecodedBuilder
       }

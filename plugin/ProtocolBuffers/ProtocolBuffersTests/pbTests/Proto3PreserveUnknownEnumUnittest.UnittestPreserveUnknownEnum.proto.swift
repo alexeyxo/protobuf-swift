@@ -8,36 +8,6 @@ import ProtocolBuffers
 
 public struct Proto3PreserveUnknownEnumUnittest { }
 
-public func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
-  fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
-  fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
-  fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
-  fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
-  fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
-  fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Proto3PreserveUnknownEnumUnittest {
   public struct UnittestPreserveUnknownEnumRoot {
     public static var sharedInstance : UnittestPreserveUnknownEnumRoot {
@@ -133,6 +103,22 @@ public extension Proto3PreserveUnknownEnumUnittest {
   //Enum type declaration end 
 
   final public class MyMessage : GeneratedMessage {
+
+    public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
+      fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
+      fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
+      fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
     //OneOf declaration start
@@ -714,6 +700,22 @@ public extension Proto3PreserveUnknownEnumUnittest {
   }
 
   final public class MyMessagePlusExtra : GeneratedMessage {
+
+    public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
+      fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
+      fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
+      fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
     //OneOf declaration start

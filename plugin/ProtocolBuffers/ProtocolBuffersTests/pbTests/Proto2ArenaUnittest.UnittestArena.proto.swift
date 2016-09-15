@@ -8,27 +8,6 @@ import ProtocolBuffers
 
 public struct Proto2ArenaUnittest { }
 
-public func == (lhs: Proto2ArenaUnittest.NestedMessage, rhs: Proto2ArenaUnittest.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Proto2ArenaUnittest.ArenaMessage, rhs: Proto2ArenaUnittest.ArenaMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.repeatedNestedMessage == rhs.repeatedNestedMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedImportNoArenaMessage == rhs.repeatedImportNoArenaMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Proto2ArenaUnittest {
   public struct UnittestArenaRoot {
     public static var sharedInstance : UnittestArenaRoot {
@@ -49,6 +28,17 @@ public extension Proto2ArenaUnittest {
   }
 
   final public class NestedMessage : GeneratedMessage {
+
+    public static func == (lhs: Proto2ArenaUnittest.NestedMessage, rhs: Proto2ArenaUnittest.NestedMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var d:Int32 = Int32(0)
     public fileprivate(set) var hasD:Bool = false
 
@@ -103,7 +93,7 @@ public extension Proto2ArenaUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
-        jsonMap["d"] = NSNumber(value:d)
+        jsonMap["d"] = d
       }
       return jsonMap
     }
@@ -230,8 +220,8 @@ public extension Proto2ArenaUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
-        if let jsonValueD = jsonMap["d"] as? NSNumber {
-          resultDecodedBuilder.d = jsonValueD.int32Value
+        if let jsonValueD = jsonMap["d"] as? Int32 {
+          resultDecodedBuilder.d = jsonValueD
         }
         return resultDecodedBuilder
       }
@@ -247,6 +237,18 @@ public extension Proto2ArenaUnittest {
   }
 
   final public class ArenaMessage : GeneratedMessage {
+
+    public static func == (lhs: Proto2ArenaUnittest.ArenaMessage, rhs: Proto2ArenaUnittest.ArenaMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.repeatedNestedMessage == rhs.repeatedNestedMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedImportNoArenaMessage == rhs.repeatedImportNoArenaMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage>  = Array<Proto2ArenaUnittest.NestedMessage>()
     public fileprivate(set) var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>  = Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>()
     required public init() {

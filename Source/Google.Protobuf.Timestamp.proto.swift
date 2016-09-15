@@ -6,17 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Timestamp, rhs: Google.Protobuf.Timestamp) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasSeconds == rhs.hasSeconds) && (!lhs.hasSeconds || lhs.seconds == rhs.seconds)
-  fieldCheck = fieldCheck && (lhs.hasNanos == rhs.hasNanos) && (!lhs.hasNanos || lhs.nanos == rhs.nanos)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct TimestampRoot {
     public static var sharedInstance : TimestampRoot {
@@ -76,6 +65,18 @@ public extension Google.Protobuf {
   //     nanos = now.microsecond * 1000
   //     timestamp = Timestamp(seconds=seconds, nanos=nanos)
   final public class Timestamp : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Timestamp, rhs: Google.Protobuf.Timestamp) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasSeconds == rhs.hasSeconds) && (!lhs.hasSeconds || lhs.seconds == rhs.seconds)
+      fieldCheck = fieldCheck && (lhs.hasNanos == rhs.hasNanos) && (!lhs.hasNanos || lhs.nanos == rhs.nanos)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Represents seconds of UTC time since Unix epoch
     // 1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
     // 9999-12-31T23:59:59Z inclusive.
@@ -146,10 +147,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasSeconds {
-        jsonMap["seconds"] = "\(seconds)"
+        jsonMap["seconds"] = seconds
       }
       if hasNanos {
-        jsonMap["nanos"] = NSNumber(value:nanos)
+        jsonMap["nanos"] = nanos
       }
       return jsonMap
     }
@@ -311,11 +312,11 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Timestamp.Builder {
         let resultDecodedBuilder = Google.Protobuf.Timestamp.Builder()
-        if let jsonValueSeconds = jsonMap["seconds"] as? String {
-          resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
+        if let jsonValueSeconds = jsonMap["seconds"] as? Int64 {
+          resultDecodedBuilder.seconds = jsonValueSeconds
         }
-        if let jsonValueNanos = jsonMap["nanos"] as? NSNumber {
-          resultDecodedBuilder.nanos = jsonValueNanos.int32Value
+        if let jsonValueNanos = jsonMap["nanos"] as? Int32 {
+          resultDecodedBuilder.nanos = jsonValueNanos
         }
         return resultDecodedBuilder
       }

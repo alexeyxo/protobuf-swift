@@ -8,67 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4, endExclusive:2147483647)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMessageSetContainer, rhs: ProtobufUnittest.TestMessageSetContainer) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasMessageSet == rhs.hasMessageSet) && (!lhs.hasMessageSet || lhs.messageSet == rhs.messageSet)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMessageSetExtension1, rhs: ProtobufUnittest.TestMessageSetExtension1) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMessageSetExtension2, rhs: ProtobufUnittest.TestMessageSetExtension2) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.RawMessageSet) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.item == rhs.item)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.RawMessageSet.Item, rhs: ProtobufUnittest.RawMessageSet.Item) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasTypeId == rhs.hasTypeId) && (!lhs.hasTypeId || lhs.typeId == rhs.typeId)
-  fieldCheck = fieldCheck && (lhs.hasMessage == rhs.hasMessage) && (!lhs.hasMessage || lhs.message == rhs.message)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
@@ -105,6 +44,17 @@ public extension ProtobufUnittest {
 
   // A message with message_set_wire_format.
   final public class TestMessageSet : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4, endExclusive:2147483647)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -261,6 +211,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetContainer : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMessageSetContainer, rhs: ProtobufUnittest.TestMessageSetContainer) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasMessageSet == rhs.hasMessageSet) && (!lhs.hasMessageSet || lhs.messageSet == rhs.messageSet)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var messageSet:ProtobufUnittest.TestMessageSet!
     public fileprivate(set) var hasMessageSet:Bool = false
     required public init() {
@@ -505,6 +466,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension1 : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMessageSetExtension1, rhs: ProtobufUnittest.TestMessageSetExtension1) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var i:Int32 = Int32(0)
     public fileprivate(set) var hasI:Bool = false
 
@@ -562,7 +534,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = NSNumber(value:i)
+        jsonMap["i"] = i
       }
       return jsonMap
     }
@@ -689,8 +661,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetExtension1.Builder()
-        if let jsonValueI = jsonMap["i"] as? NSNumber {
-          resultDecodedBuilder.i = jsonValueI.int32Value
+        if let jsonValueI = jsonMap["i"] as? Int32 {
+          resultDecodedBuilder.i = jsonValueI
         }
         return resultDecodedBuilder
       }
@@ -706,6 +678,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMessageSetExtension2 : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMessageSetExtension2, rhs: ProtobufUnittest.TestMessageSetExtension2) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var str:String = ""
     public fileprivate(set) var hasStr:Bool = false
 
@@ -909,10 +892,33 @@ public extension ProtobufUnittest {
   // MessageSet wire format is equivalent to this.
   final public class RawMessageSet : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.RawMessageSet) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.item == rhs.item)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class Item : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.RawMessageSet.Item, rhs: ProtobufUnittest.RawMessageSet.Item) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasTypeId == rhs.hasTypeId) && (!lhs.hasTypeId || lhs.typeId == rhs.typeId)
+          fieldCheck = fieldCheck && (lhs.hasMessage == rhs.hasMessage) && (!lhs.hasMessage || lhs.message == rhs.message)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var typeId:Int32 = Int32(0)
         public fileprivate(set) var hasTypeId:Bool = false
 
@@ -982,7 +988,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasTypeId {
-            jsonMap["typeId"] = NSNumber(value:typeId)
+            jsonMap["typeId"] = typeId
           }
           if hasMessage {
             jsonMap["message"] = message.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
@@ -1147,8 +1153,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
             let resultDecodedBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
-            if let jsonValueTypeId = jsonMap["typeId"] as? NSNumber {
-              resultDecodedBuilder.typeId = jsonValueTypeId.int32Value
+            if let jsonValueTypeId = jsonMap["typeId"] as? Int32 {
+              resultDecodedBuilder.typeId = jsonValueTypeId
             }
             if let jsonValueMessage = jsonMap["message"] as? String {
               resultDecodedBuilder.message = Data(base64Encoded:jsonValueMessage, options: Data.Base64DecodingOptions(rawValue:0))!

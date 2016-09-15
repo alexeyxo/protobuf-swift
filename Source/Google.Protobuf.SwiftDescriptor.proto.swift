@@ -6,39 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasClassPrefix == rhs.hasClassPrefix) && (!lhs.hasClassPrefix || lhs.classPrefix == rhs.classPrefix)
-  fieldCheck = fieldCheck && (lhs.hasEntitiesAccessControl == rhs.hasEntitiesAccessControl) && (!lhs.hasEntitiesAccessControl || lhs.entitiesAccessControl == rhs.entitiesAccessControl)
-  fieldCheck = fieldCheck && (lhs.hasCompileForFramework == rhs.hasCompileForFramework) && (!lhs.hasCompileForFramework || lhs.compileForFramework == rhs.compileForFramework)
-  fieldCheck = fieldCheck && (lhs.hasGenerateStruct == rhs.hasGenerateStruct) && (!lhs.hasGenerateStruct || lhs.generateStruct == rhs.generateStruct)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.SwiftMessageOptions, rhs: Google.Protobuf.SwiftMessageOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
        return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
@@ -124,6 +91,20 @@ public extension Google.Protobuf {
   //Enum type declaration end 
 
   final public class SwiftFileOptions : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasClassPrefix == rhs.hasClassPrefix) && (!lhs.hasClassPrefix || lhs.classPrefix == rhs.classPrefix)
+      fieldCheck = fieldCheck && (lhs.hasEntitiesAccessControl == rhs.hasEntitiesAccessControl) && (!lhs.hasEntitiesAccessControl || lhs.entitiesAccessControl == rhs.entitiesAccessControl)
+      fieldCheck = fieldCheck && (lhs.hasCompileForFramework == rhs.hasCompileForFramework) && (!lhs.hasCompileForFramework || lhs.compileForFramework == rhs.compileForFramework)
+      fieldCheck = fieldCheck && (lhs.hasGenerateStruct == rhs.hasGenerateStruct) && (!lhs.hasGenerateStruct || lhs.generateStruct == rhs.generateStruct)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var classPrefix:String = ""
     public fileprivate(set) var hasClassPrefix:Bool = false
 
@@ -476,6 +457,17 @@ public extension Google.Protobuf {
   }
 
   final public class SwiftMessageOptions : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.SwiftMessageOptions, rhs: Google.Protobuf.SwiftMessageOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var generateErrorType:Bool = false
     public fileprivate(set) var hasGenerateErrorType:Bool = false
 
@@ -674,6 +666,17 @@ public extension Google.Protobuf {
   }
 
   final public class SwiftEnumOptions : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var generateErrorType:Bool = false
     public fileprivate(set) var hasGenerateErrorType:Bool = false
 

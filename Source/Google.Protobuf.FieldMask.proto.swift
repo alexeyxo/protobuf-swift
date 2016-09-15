@@ -6,16 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.paths == rhs.paths)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct FieldMaskRoot {
     public static var sharedInstance : FieldMaskRoot {
@@ -131,6 +121,17 @@ public extension Google.Protobuf {
   //       mask: "user.displayName,photo"
   //     }
   final public class FieldMask : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.paths == rhs.paths)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The set of field mask paths.
     public fileprivate(set) var paths:Array<String> = Array<String>()
     required public init() {
@@ -189,7 +190,11 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !paths.isEmpty {
-        jsonMap["paths"] = paths
+        var jsonArrayPaths:Array<String> = []
+          for oneValuePaths in paths {
+            jsonArrayPaths.append(oneValuePaths)
+          }
+        jsonMap["paths"] = jsonArrayPaths
       }
       return jsonMap
     }
@@ -312,7 +317,11 @@ public extension Google.Protobuf {
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldMask.Builder {
         let resultDecodedBuilder = Google.Protobuf.FieldMask.Builder()
         if let jsonValuePaths = jsonMap["paths"] as? Array<String> {
-          resultDecodedBuilder.paths = jsonValuePaths
+          var jsonArrayPaths:Array<String> = []
+          for oneValuePaths in jsonValuePaths {
+            jsonArrayPaths.append(oneValuePaths)
+          }
+          resultDecodedBuilder.paths = jsonArrayPaths
         }
         return resultDecodedBuilder
       }

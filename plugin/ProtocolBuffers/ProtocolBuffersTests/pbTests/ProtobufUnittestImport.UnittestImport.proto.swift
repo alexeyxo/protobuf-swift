@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public struct ProtobufUnittestImport { }
 
-public func == (lhs: ProtobufUnittestImport.ImportMessage, rhs: ProtobufUnittestImport.ImportMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittestImport {
   public struct UnittestImportRoot {
     public static var sharedInstance : UnittestImportRoot {
@@ -74,6 +64,17 @@ public extension ProtobufUnittestImport {
   //Enum type declaration end 
 
   final public class ImportMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittestImport.ImportMessage, rhs: ProtobufUnittestImport.ImportMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var d:Int32 = Int32(0)
     public fileprivate(set) var hasD:Bool = false
 
@@ -128,7 +129,7 @@ public extension ProtobufUnittestImport {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
-        jsonMap["d"] = NSNumber(value:d)
+        jsonMap["d"] = d
       }
       return jsonMap
     }
@@ -255,8 +256,8 @@ public extension ProtobufUnittestImport {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.ImportMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittestImport.ImportMessage.Builder()
-        if let jsonValueD = jsonMap["d"] as? NSNumber {
-          resultDecodedBuilder.d = jsonValueD.int32Value
+        if let jsonValueD = jsonMap["d"] as? Int32 {
+          resultDecodedBuilder.d = jsonValueD
         }
         return resultDecodedBuilder
       }

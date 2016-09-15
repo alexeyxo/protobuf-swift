@@ -8,40 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
-  fieldCheck = fieldCheck && (lhs.hasIntegerField == rhs.hasIntegerField) && (!lhs.hasIntegerField || lhs.integerField == rhs.integerField)
-  fieldCheck = fieldCheck && (lhs.hasStringField == rhs.hasStringField) && (!lhs.hasStringField || lhs.stringField == rhs.stringField)
-  fieldCheck = fieldCheck && (lhs.hasMsg == rhs.hasMsg) && (!lhs.hasMsg || lhs.msg == rhs.msg)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: ProtobufUnittest.TestRequiredOptimizedForSize) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasX == rhs.hasX) && (!lhs.hasX || lhs.x == rhs.x)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: ProtobufUnittest.TestOptionalOptimizedForSize) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasO == rhs.hasO) && (!lhs.hasO || lhs.o == rhs.o)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public var TestOptimizedForSizetestExtension:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
@@ -78,6 +44,21 @@ public extension ProtobufUnittest {
   }
 
   final public class TestOptimizedForSize : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
+      fieldCheck = fieldCheck && (lhs.hasIntegerField == rhs.hasIntegerField) && (!lhs.hasIntegerField || lhs.integerField == rhs.integerField)
+      fieldCheck = fieldCheck && (lhs.hasStringField == rhs.hasStringField) && (!lhs.hasStringField || lhs.stringField == rhs.stringField)
+      fieldCheck = fieldCheck && (lhs.hasMsg == rhs.hasMsg) && (!lhs.hasMsg || lhs.msg == rhs.msg)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
     //OneOf declaration start
@@ -244,13 +225,13 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = NSNumber(value:i)
+        jsonMap["i"] = i
       }
       if hasMsg {
         jsonMap["msg"] = try msg.encode()
       }
       if hasIntegerField {
-        jsonMap["integerField"] = NSNumber(value:integerField)
+        jsonMap["integerField"] = integerField
       }
       if hasStringField {
         jsonMap["stringField"] = stringField
@@ -527,15 +508,15 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
-        if let jsonValueI = jsonMap["i"] as? NSNumber {
-          resultDecodedBuilder.i = jsonValueI.int32Value
+        if let jsonValueI = jsonMap["i"] as? Int32 {
+          resultDecodedBuilder.i = jsonValueI
         }
         if let jsonValueMsg = jsonMap["msg"] as? Dictionary<String,Any> {
           resultDecodedBuilder.msg = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMsg).build()
 
         }
-        if let jsonValueIntegerField = jsonMap["integerField"] as? NSNumber {
-          resultDecodedBuilder.integerField = jsonValueIntegerField.int32Value
+        if let jsonValueIntegerField = jsonMap["integerField"] as? Int32 {
+          resultDecodedBuilder.integerField = jsonValueIntegerField
         }
         if let jsonValueStringField = jsonMap["stringField"] as? String {
           resultDecodedBuilder.stringField = jsonValueStringField
@@ -554,6 +535,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestRequiredOptimizedForSize : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: ProtobufUnittest.TestRequiredOptimizedForSize) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasX == rhs.hasX) && (!lhs.hasX || lhs.x == rhs.x)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var x:Int32 = Int32(0)
     public fileprivate(set) var hasX:Bool = false
 
@@ -611,7 +603,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasX {
-        jsonMap["x"] = NSNumber(value:x)
+        jsonMap["x"] = x
       }
       return jsonMap
     }
@@ -738,8 +730,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
-        if let jsonValueX = jsonMap["x"] as? NSNumber {
-          resultDecodedBuilder.x = jsonValueX.int32Value
+        if let jsonValueX = jsonMap["x"] as? Int32 {
+          resultDecodedBuilder.x = jsonValueX
         }
         return resultDecodedBuilder
       }
@@ -755,6 +747,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestOptionalOptimizedForSize : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: ProtobufUnittest.TestOptionalOptimizedForSize) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasO == rhs.hasO) && (!lhs.hasO || lhs.o == rhs.o)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var o:ProtobufUnittest.TestRequiredOptimizedForSize!
     public fileprivate(set) var hasO:Bool = false
     required public init() {

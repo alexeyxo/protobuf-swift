@@ -8,25 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestWellKnownTypes, rhs: ProtobufUnittest.TestWellKnownTypes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasAnyField == rhs.hasAnyField) && (!lhs.hasAnyField || lhs.anyField == rhs.anyField)
-  fieldCheck = fieldCheck && (lhs.hasApiField == rhs.hasApiField) && (!lhs.hasApiField || lhs.apiField == rhs.apiField)
-  fieldCheck = fieldCheck && (lhs.hasDurationField == rhs.hasDurationField) && (!lhs.hasDurationField || lhs.durationField == rhs.durationField)
-  fieldCheck = fieldCheck && (lhs.hasEmptyField == rhs.hasEmptyField) && (!lhs.hasEmptyField || lhs.emptyField == rhs.emptyField)
-  fieldCheck = fieldCheck && (lhs.hasFieldMaskField == rhs.hasFieldMaskField) && (!lhs.hasFieldMaskField || lhs.fieldMaskField == rhs.fieldMaskField)
-  fieldCheck = fieldCheck && (lhs.hasSourceContextField == rhs.hasSourceContextField) && (!lhs.hasSourceContextField || lhs.sourceContextField == rhs.sourceContextField)
-  fieldCheck = fieldCheck && (lhs.hasStructField == rhs.hasStructField) && (!lhs.hasStructField || lhs.structField == rhs.structField)
-  fieldCheck = fieldCheck && (lhs.hasTimestampField == rhs.hasTimestampField) && (!lhs.hasTimestampField || lhs.timestampField == rhs.timestampField)
-  fieldCheck = fieldCheck && (lhs.hasTypeField == rhs.hasTypeField) && (!lhs.hasTypeField || lhs.typeField == rhs.typeField)
-  fieldCheck = fieldCheck && (lhs.hasInt32Field == rhs.hasInt32Field) && (!lhs.hasInt32Field || lhs.int32Field == rhs.int32Field)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittest {
   public struct UnittestWellKnownTypesRoot {
     public static var sharedInstance : UnittestWellKnownTypesRoot {
@@ -57,6 +38,26 @@ public extension ProtobufUnittest {
 
   // Test that we can include all well-known types.
   final public class TestWellKnownTypes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestWellKnownTypes, rhs: ProtobufUnittest.TestWellKnownTypes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasAnyField == rhs.hasAnyField) && (!lhs.hasAnyField || lhs.anyField == rhs.anyField)
+      fieldCheck = fieldCheck && (lhs.hasApiField == rhs.hasApiField) && (!lhs.hasApiField || lhs.apiField == rhs.apiField)
+      fieldCheck = fieldCheck && (lhs.hasDurationField == rhs.hasDurationField) && (!lhs.hasDurationField || lhs.durationField == rhs.durationField)
+      fieldCheck = fieldCheck && (lhs.hasEmptyField == rhs.hasEmptyField) && (!lhs.hasEmptyField || lhs.emptyField == rhs.emptyField)
+      fieldCheck = fieldCheck && (lhs.hasFieldMaskField == rhs.hasFieldMaskField) && (!lhs.hasFieldMaskField || lhs.fieldMaskField == rhs.fieldMaskField)
+      fieldCheck = fieldCheck && (lhs.hasSourceContextField == rhs.hasSourceContextField) && (!lhs.hasSourceContextField || lhs.sourceContextField == rhs.sourceContextField)
+      fieldCheck = fieldCheck && (lhs.hasStructField == rhs.hasStructField) && (!lhs.hasStructField || lhs.structField == rhs.structField)
+      fieldCheck = fieldCheck && (lhs.hasTimestampField == rhs.hasTimestampField) && (!lhs.hasTimestampField || lhs.timestampField == rhs.timestampField)
+      fieldCheck = fieldCheck && (lhs.hasTypeField == rhs.hasTypeField) && (!lhs.hasTypeField || lhs.typeField == rhs.typeField)
+      fieldCheck = fieldCheck && (lhs.hasInt32Field == rhs.hasInt32Field) && (!lhs.hasInt32Field || lhs.int32Field == rhs.int32Field)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var anyField:Google.Protobuf.`Any`!
     public fileprivate(set) var hasAnyField:Bool = false
     public fileprivate(set) var apiField:Google.Protobuf.Api!

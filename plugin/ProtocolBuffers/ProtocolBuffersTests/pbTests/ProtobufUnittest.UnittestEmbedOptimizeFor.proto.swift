@@ -8,17 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittest {
   public struct UnittestEmbedOptimizeForRoot {
     public static var sharedInstance : UnittestEmbedOptimizeForRoot {
@@ -39,6 +28,18 @@ public extension ProtobufUnittest {
   }
 
   final public class TestEmbedOptimizedForSize : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
     public fileprivate(set) var hasOptionalMessage:Bool = false
     public fileprivate(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize>  = Array<ProtobufUnittest.TestOptimizedForSize>()

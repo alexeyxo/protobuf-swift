@@ -8,17 +8,6 @@ import ProtocolBuffers
 
 public extension Google.Protobuf{ public struct NoGenericServicesTest { }}
 
-public func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: Google.Protobuf.NoGenericServicesTest.TestMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
    get {
        return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
@@ -77,6 +66,18 @@ public extension Google.Protobuf.NoGenericServicesTest {
   //Enum type declaration end 
 
   final public class TestMessage : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: Google.Protobuf.NoGenericServicesTest.TestMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:Int32 = Int32(0)
     public fileprivate(set) var hasA:Bool = false
 
@@ -136,7 +137,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       return jsonMap
     }
@@ -266,8 +267,8 @@ public extension Google.Protobuf.NoGenericServicesTest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let resultDecodedBuilder = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
         return resultDecodedBuilder
       }

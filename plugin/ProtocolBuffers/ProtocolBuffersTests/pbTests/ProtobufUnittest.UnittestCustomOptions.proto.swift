@@ -8,256 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
-  fieldCheck = fieldCheck && (lhs.hasFoo2 == rhs.hasFoo2) && (!lhs.hasFoo2 || lhs.foo2 == rhs.foo2)
-  fieldCheck = fieldCheck && (lhs.hasFoo3 == rhs.hasFoo3) && (!lhs.hasFoo3 || lhs.foo3 == rhs.foo3)
-  fieldCheck = fieldCheck && (lhs.foo4 == rhs.foo4)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:100, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
-  fieldCheck = fieldCheck && (lhs.hasBaz == rhs.hasBaz) && (!lhs.hasBaz || lhs.baz == rhs.baz)
-  fieldCheck = fieldCheck && (lhs.hasFred == rhs.hasFred) && (!lhs.hasFred || lhs.fred == rhs.fred)
-  fieldCheck = fieldCheck && (lhs.barney == rhs.barney)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:100, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasWaldo == rhs.hasWaldo) && (!lhs.hasWaldo || lhs.waldo == rhs.waldo)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasQux == rhs.hasQux) && (!lhs.hasQux || lhs.qux == rhs.qux)
-  fieldCheck = fieldCheck && (lhs.hasComplexOptionType5 == rhs.hasComplexOptionType5) && (!lhs.hasComplexOptionType5 || lhs.complexOptionType5 == rhs.complexOptionType5)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasPlugh == rhs.hasPlugh) && (!lhs.hasPlugh || lhs.plugh == rhs.plugh)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasXyzzy == rhs.hasXyzzy) && (!lhs.hasXyzzy || lhs.xyzzy == rhs.xyzzy)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4, endExclusive:2147483647)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasS == rhs.hasS) && (!lhs.hasS || lhs.s == rhs.s)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
-  fieldCheck = fieldCheck && (lhs.hasS == rhs.hasS) && (!lhs.hasS || lhs.s == rhs.s)
-  fieldCheck = fieldCheck && (lhs.hasSub == rhs.hasSub) && (!lhs.hasSub || lhs.sub == rhs.sub)
-  fieldCheck = fieldCheck && (lhs.hasFile == rhs.hasFile) && (!lhs.hasFile || lhs.file == rhs.file)
-  fieldCheck = fieldCheck && (lhs.hasMset == rhs.hasMset) && (!lhs.hasMset || lhs.mset == rhs.mset)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFieldname == rhs.hasFieldname) && (!lhs.hasFieldname || lhs.fieldname == rhs.fieldname)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasNestedField == rhs.hasNestedField) && (!lhs.hasNestedField || lhs.nestedField == rhs.nestedField)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public var UnittestCustomOptionsRootfileOpt1:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestCustomOptionsRoot.sharedInstance.UnittestCustomOptionsRootfileOpt1Static
@@ -815,6 +565,17 @@ public extension ProtobufUnittest {
   // regular options, to make sure they interact nicely).
   final public class TestMessageWithCustomOptions : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
       //Enum type declaration start 
 
@@ -1046,6 +807,16 @@ public extension ProtobufUnittest {
   // A test RPC service with custom options at all possible locations (and also
   // some regular options, to make sure they interact nicely).
   final public class CustomOptionFooRequest : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -1194,6 +965,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionFooResponse : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -1342,6 +1123,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionFooClientMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -1490,6 +1281,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionFooServerMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -1638,6 +1439,16 @@ public extension ProtobufUnittest {
   }
 
   final public class DummyMessageContainingEnum : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -1818,6 +1629,16 @@ public extension ProtobufUnittest {
   }
 
   final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -1966,6 +1787,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionMinIntegerValues : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -2114,6 +1945,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionMaxIntegerValues : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -2262,6 +2103,16 @@ public extension ProtobufUnittest {
   }
 
   final public class CustomOptionOtherValues : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -2410,6 +2261,16 @@ public extension ProtobufUnittest {
   }
 
   final public class SettingRealsFromPositiveInts : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -2558,6 +2419,16 @@ public extension ProtobufUnittest {
   }
 
   final public class SettingRealsFromNegativeInts : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -2706,6 +2577,21 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOptionType1 : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
+      fieldCheck = fieldCheck && (lhs.hasFoo2 == rhs.hasFoo2) && (!lhs.hasFoo2 || lhs.foo2 == rhs.foo2)
+      fieldCheck = fieldCheck && (lhs.hasFoo3 == rhs.hasFoo3) && (!lhs.hasFoo3 || lhs.foo3 == rhs.foo3)
+      fieldCheck = fieldCheck && (lhs.foo4 == rhs.foo4)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:100, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var foo:Int32 = Int32(0)
     public fileprivate(set) var hasFoo:Bool = false
 
@@ -2795,18 +2681,18 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFoo {
-        jsonMap["foo"] = NSNumber(value:foo)
+        jsonMap["foo"] = foo
       }
       if hasFoo2 {
-        jsonMap["foo2"] = NSNumber(value:foo2)
+        jsonMap["foo2"] = foo2
       }
       if hasFoo3 {
-        jsonMap["foo3"] = NSNumber(value:foo3)
+        jsonMap["foo3"] = foo3
       }
       if !foo4.isEmpty {
-        var jsonArrayFoo4:Array<NSNumber> = []
+        var jsonArrayFoo4:Array<Int32> = []
           for oneValueFoo4 in foo4 {
-            jsonArrayFoo4.append(NSNumber(value:oneValueFoo4))
+            jsonArrayFoo4.append(oneValueFoo4)
           }
         jsonMap["foo4"] = jsonArrayFoo4
       }
@@ -3038,19 +2924,19 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType1.Builder()
-        if let jsonValueFoo = jsonMap["foo"] as? NSNumber {
-          resultDecodedBuilder.foo = jsonValueFoo.int32Value
+        if let jsonValueFoo = jsonMap["foo"] as? Int32 {
+          resultDecodedBuilder.foo = jsonValueFoo
         }
-        if let jsonValueFoo2 = jsonMap["foo2"] as? NSNumber {
-          resultDecodedBuilder.foo2 = jsonValueFoo2.int32Value
+        if let jsonValueFoo2 = jsonMap["foo2"] as? Int32 {
+          resultDecodedBuilder.foo2 = jsonValueFoo2
         }
-        if let jsonValueFoo3 = jsonMap["foo3"] as? NSNumber {
-          resultDecodedBuilder.foo3 = jsonValueFoo3.int32Value
+        if let jsonValueFoo3 = jsonMap["foo3"] as? Int32 {
+          resultDecodedBuilder.foo3 = jsonValueFoo3
         }
-        if let jsonValueFoo4 = jsonMap["foo4"] as? Array<NSNumber> {
+        if let jsonValueFoo4 = jsonMap["foo4"] as? Array<Int32> {
           var jsonArrayFoo4:Array<Int32> = []
           for oneValueFoo4 in jsonValueFoo4 {
-            jsonArrayFoo4.append(oneValueFoo4.int32Value)
+            jsonArrayFoo4.append(oneValueFoo4)
           }
           resultDecodedBuilder.foo4 = jsonArrayFoo4
         }
@@ -3069,10 +2955,36 @@ public extension ProtobufUnittest {
 
   final public class ComplexOptionType2 : ExtendableMessage {
 
+    public static func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
+      fieldCheck = fieldCheck && (lhs.hasBaz == rhs.hasBaz) && (!lhs.hasBaz || lhs.baz == rhs.baz)
+      fieldCheck = fieldCheck && (lhs.hasFred == rhs.hasFred) && (!lhs.hasFred || lhs.fred == rhs.fred)
+      fieldCheck = fieldCheck && (lhs.barney == rhs.barney)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:100, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class ComplexOptionType4 : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasWaldo == rhs.hasWaldo) && (!lhs.hasWaldo || lhs.waldo == rhs.waldo)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var waldo:Int32 = Int32(0)
         public fileprivate(set) var hasWaldo:Bool = false
 
@@ -3130,7 +3042,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasWaldo {
-            jsonMap["waldo"] = NSNumber(value:waldo)
+            jsonMap["waldo"] = waldo
           }
           return jsonMap
         }
@@ -3257,8 +3169,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
-            if let jsonValueWaldo = jsonMap["waldo"] as? NSNumber {
-              resultDecodedBuilder.waldo = jsonValueWaldo.int32Value
+            if let jsonValueWaldo = jsonMap["waldo"] as? Int32 {
+              resultDecodedBuilder.waldo = jsonValueWaldo
             }
             return resultDecodedBuilder
           }
@@ -3369,7 +3281,7 @@ public extension ProtobufUnittest {
         jsonMap["bar"] = try bar.encode()
       }
       if hasBaz {
-        jsonMap["baz"] = NSNumber(value:baz)
+        jsonMap["baz"] = baz
       }
       if hasFred {
         jsonMap["fred"] = try fred.encode()
@@ -3696,8 +3608,8 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.bar = try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsonValueBar).build()
 
         }
-        if let jsonValueBaz = jsonMap["baz"] as? NSNumber {
-          resultDecodedBuilder.baz = jsonValueBaz.int32Value
+        if let jsonValueBaz = jsonMap["baz"] as? Int32 {
+          resultDecodedBuilder.baz = jsonValueBaz
         }
         if let jsonValueFred = jsonMap["fred"] as? Dictionary<String,Any> {
           resultDecodedBuilder.fred = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsonValueFred).build()
@@ -3727,10 +3639,33 @@ public extension ProtobufUnittest {
 
   final public class ComplexOptionType3 : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasQux == rhs.hasQux) && (!lhs.hasQux || lhs.qux == rhs.qux)
+      fieldCheck = fieldCheck && (lhs.hasComplexOptionType5 == rhs.hasComplexOptionType5) && (!lhs.hasComplexOptionType5 || lhs.complexOptionType5 == rhs.complexOptionType5)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class ComplexOptionType5 : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasPlugh == rhs.hasPlugh) && (!lhs.hasPlugh || lhs.plugh == rhs.plugh)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var plugh:Int32 = Int32(0)
         public fileprivate(set) var hasPlugh:Bool = false
 
@@ -3785,7 +3720,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasPlugh {
-            jsonMap["plugh"] = NSNumber(value:plugh)
+            jsonMap["plugh"] = plugh
           }
           return jsonMap
         }
@@ -3912,8 +3847,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
-            if let jsonValuePlugh = jsonMap["plugh"] as? NSNumber {
-              resultDecodedBuilder.plugh = jsonValuePlugh.int32Value
+            if let jsonValuePlugh = jsonMap["plugh"] as? Int32 {
+              resultDecodedBuilder.plugh = jsonValuePlugh
             }
             return resultDecodedBuilder
           }
@@ -3994,7 +3929,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasQux {
-        jsonMap["qux"] = NSNumber(value:qux)
+        jsonMap["qux"] = qux
       }
       if hasComplexOptionType5 {
         jsonMap["complexoptiontype5"] = try complexOptionType5.encode()
@@ -4198,8 +4133,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.Builder()
-        if let jsonValueQux = jsonMap["qux"] as? NSNumber {
-          resultDecodedBuilder.qux = jsonValueQux.int32Value
+        if let jsonValueQux = jsonMap["qux"] as? Int32 {
+          resultDecodedBuilder.qux = jsonValueQux
         }
         if let jsonValueComplexOptionType5 = jsonMap["complexoptiontype5"] as? Dictionary<String,Any> {
           resultDecodedBuilder.complexOptionType5 = try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsonValueComplexOptionType5).build()
@@ -4219,6 +4154,17 @@ public extension ProtobufUnittest {
   }
 
   final public class ComplexOpt6 : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasXyzzy == rhs.hasXyzzy) && (!lhs.hasXyzzy || lhs.xyzzy == rhs.xyzzy)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var xyzzy:Int32 = Int32(0)
     public fileprivate(set) var hasXyzzy:Bool = false
 
@@ -4273,7 +4219,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasXyzzy {
-        jsonMap["xyzzy"] = NSNumber(value:xyzzy)
+        jsonMap["xyzzy"] = xyzzy
       }
       return jsonMap
     }
@@ -4400,8 +4346,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOpt6.Builder()
-        if let jsonValueXyzzy = jsonMap["xyzzy"] as? NSNumber {
-          resultDecodedBuilder.xyzzy = jsonValueXyzzy.int32Value
+        if let jsonValueXyzzy = jsonMap["xyzzy"] as? Int32 {
+          resultDecodedBuilder.xyzzy = jsonValueXyzzy
         }
         return resultDecodedBuilder
       }
@@ -4418,6 +4364,16 @@ public extension ProtobufUnittest {
 
   // Note that we try various different ways of naming the same extension.
   final public class VariousComplexOptions : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -4566,6 +4522,17 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessageSet : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4, endExclusive:2147483647)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -4722,6 +4689,17 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessageSetElement : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasS == rhs.hasS) && (!lhs.hasS || lhs.s == rhs.s)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var s:String = ""
     public fileprivate(set) var hasS:Bool = false
 
@@ -4924,6 +4902,21 @@ public extension ProtobufUnittest {
 
   // A helper type used to test aggregate option parsing
   final public class Aggregate : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
+      fieldCheck = fieldCheck && (lhs.hasS == rhs.hasS) && (!lhs.hasS || lhs.s == rhs.s)
+      fieldCheck = fieldCheck && (lhs.hasSub == rhs.hasSub) && (!lhs.hasSub || lhs.sub == rhs.sub)
+      fieldCheck = fieldCheck && (lhs.hasFile == rhs.hasFile) && (!lhs.hasFile || lhs.file == rhs.file)
+      fieldCheck = fieldCheck && (lhs.hasMset == rhs.hasMset) && (!lhs.hasMset || lhs.mset == rhs.mset)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var i:Int32 = Int32(0)
     public fileprivate(set) var hasI:Bool = false
 
@@ -5035,7 +5028,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = NSNumber(value:i)
+        jsonMap["i"] = i
       }
       if hasS {
         jsonMap["s"] = s
@@ -5431,8 +5424,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Aggregate.Builder()
-        if let jsonValueI = jsonMap["i"] as? NSNumber {
-          resultDecodedBuilder.i = jsonValueI.int32Value
+        if let jsonValueI = jsonMap["i"] as? Int32 {
+          resultDecodedBuilder.i = jsonValueI
         }
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
@@ -5463,6 +5456,17 @@ public extension ProtobufUnittest {
   }
 
   final public class AggregateMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFieldname == rhs.hasFieldname) && (!lhs.hasFieldname || lhs.fieldname == rhs.fieldname)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var fieldname:Int32 = Int32(0)
     public fileprivate(set) var hasFieldname:Bool = false
 
@@ -5517,7 +5521,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFieldname {
-        jsonMap["fieldname"] = NSNumber(value:fieldname)
+        jsonMap["fieldname"] = fieldname
       }
       return jsonMap
     }
@@ -5644,8 +5648,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessage.Builder()
-        if let jsonValueFieldname = jsonMap["fieldname"] as? NSNumber {
-          resultDecodedBuilder.fieldname = jsonValueFieldname.int32Value
+        if let jsonValueFieldname = jsonMap["fieldname"] as? Int32 {
+          resultDecodedBuilder.fieldname = jsonValueFieldname
         }
         return resultDecodedBuilder
       }
@@ -5663,10 +5667,31 @@ public extension ProtobufUnittest {
   // Test custom options for nested type.
   final public class NestedOptionType : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasNestedField == rhs.hasNestedField) && (!lhs.hasNestedField || lhs.nestedField == rhs.nestedField)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var nestedField:Int32 = Int32(0)
         public fileprivate(set) var hasNestedField:Bool = false
 
@@ -5721,7 +5746,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasNestedField {
-            jsonMap["nestedField"] = NSNumber(value:nestedField)
+            jsonMap["nestedField"] = nestedField
           }
           return jsonMap
         }
@@ -5848,8 +5873,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
-            if let jsonValueNestedField = jsonMap["nestedField"] as? NSNumber {
-              resultDecodedBuilder.nestedField = jsonValueNestedField.int32Value
+            if let jsonValueNestedField = jsonMap["nestedField"] as? Int32 {
+              resultDecodedBuilder.nestedField = jsonValueNestedField
             }
             return resultDecodedBuilder
           }

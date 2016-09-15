@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public struct Bar { }
 
-public func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasHello == rhs.hasHello) && (!lhs.hasHello || lhs.hello == rhs.hello)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Bar {
   public struct FooRoot {
     public static var sharedInstance : FooRoot {
@@ -37,6 +27,17 @@ public extension Bar {
   }
 
   final public class Foo : GeneratedMessage {
+
+    public static func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasHello == rhs.hasHello) && (!lhs.hasHello || lhs.hello == rhs.hello)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var hello:String = ""
     public fileprivate(set) var hasHello:Bool = false
 

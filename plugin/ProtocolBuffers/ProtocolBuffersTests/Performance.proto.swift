@@ -6,105 +6,6 @@ import Foundation
 import ProtocolBuffers
 
 
-internal func == (lhs: PBUser, rhs: PBUser) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasGroup == rhs.hasGroup) && (!lhs.hasGroup || lhs.group == rhs.group)
-  fieldCheck = fieldCheck && (lhs.hasGroupName == rhs.hasGroupName) && (!lhs.hasGroupName || lhs.groupName == rhs.groupName)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOwner == rhs.hasOwner) && (!lhs.hasOwner || lhs.owner == rhs.owner)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasInts == rhs.hasInts) && (!lhs.hasInts || lhs.ints == rhs.ints)
-  fieldCheck = fieldCheck && (lhs.hasInts64 == rhs.hasInts64) && (!lhs.hasInts64 || lhs.ints64 == rhs.ints64)
-  fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
-  fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
-  fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
-  fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
-  fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasLatitude == rhs.hasLatitude) && (!lhs.hasLatitude || lhs.latitude == rhs.latitude)
-  fieldCheck = fieldCheck && (lhs.hasLongitude == rhs.hasLongitude) && (!lhs.hasLongitude || lhs.longitude == rhs.longitude)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
-  fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasVal == rhs.hasVal) && (!lhs.hasVal || lhs.val == rhs.val)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBBar, rhs: PBBar) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBBaz, rhs: PBBaz) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 internal struct PerformanceRoot {
   internal static var sharedInstance : PerformanceRoot {
    struct Static {
@@ -124,6 +25,18 @@ internal struct PerformanceRoot {
 }
 
 final internal class PBUser : GeneratedMessage {
+
+  internal static func == (lhs: PBUser, rhs: PBUser) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasGroup == rhs.hasGroup) && (!lhs.hasGroup || lhs.group == rhs.group)
+    fieldCheck = fieldCheck && (lhs.hasGroupName == rhs.hasGroupName) && (!lhs.hasGroupName || lhs.groupName == rhs.groupName)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var group:PBGroup!
   internal fileprivate(set) var hasGroup:Bool = false
   internal fileprivate(set) var groupName:String = ""
@@ -413,6 +326,17 @@ final internal class PBUser : GeneratedMessage {
 }
 
 final internal class PBGroup : GeneratedMessage {
+
+  internal static func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasOwner == rhs.hasOwner) && (!lhs.hasOwner || lhs.owner == rhs.owner)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var owner:PBUser!
   internal fileprivate(set) var hasOwner:Bool = false
   required internal init() {
@@ -652,6 +576,17 @@ final internal class PBGroup : GeneratedMessage {
 }
 
 final internal class PBPerfomanceBatch : GeneratedMessage {
+
+  internal static func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var batch:Array<PBPerfomance>  = Array<PBPerfomance>()
   required internal init() {
        super.init()
@@ -868,6 +803,23 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
 }
 
 final internal class PBPerfomance : GeneratedMessage {
+
+  internal static func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasInts == rhs.hasInts) && (!lhs.hasInts || lhs.ints == rhs.ints)
+    fieldCheck = fieldCheck && (lhs.hasInts64 == rhs.hasInts64) && (!lhs.hasInts64 || lhs.ints64 == rhs.ints64)
+    fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
+    fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
+    fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
+    fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
+    fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var ints:Int32 = Int32(0)
   internal fileprivate(set) var hasInts:Bool = false
 
@@ -988,16 +940,16 @@ final internal class PBPerfomance : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasInts {
-      jsonMap["ints"] = NSNumber(value:ints)
+      jsonMap["ints"] = ints
     }
     if hasInts64 {
-      jsonMap["ints64"] = "\(ints64)"
+      jsonMap["ints64"] = ints64
     }
     if hasDoubles {
-      jsonMap["doubles"] = NSNumber(value:doubles)
+      jsonMap["doubles"] = doubles
     }
     if hasFloats {
-      jsonMap["floats"] = NSNumber(value:floats)
+      jsonMap["floats"] = floats
     }
     if hasStr {
       jsonMap["str"] = str
@@ -1343,17 +1295,17 @@ final internal class PBPerfomance : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance.Builder {
       let resultDecodedBuilder = PBPerfomance.Builder()
-      if let jsonValueInts = jsonMap["ints"] as? NSNumber {
-        resultDecodedBuilder.ints = jsonValueInts.int32Value
+      if let jsonValueInts = jsonMap["ints"] as? Int32 {
+        resultDecodedBuilder.ints = jsonValueInts
       }
-      if let jsonValueInts64 = jsonMap["ints64"] as? String {
-        resultDecodedBuilder.ints64 = Int64(jsonValueInts64)!
+      if let jsonValueInts64 = jsonMap["ints64"] as? Int64 {
+        resultDecodedBuilder.ints64 = jsonValueInts64
       }
-      if let jsonValueDoubles = jsonMap["doubles"] as? NSNumber {
-        resultDecodedBuilder.doubles = jsonValueDoubles.doubleValue
+      if let jsonValueDoubles = jsonMap["doubles"] as? Double {
+        resultDecodedBuilder.doubles = jsonValueDoubles
       }
-      if let jsonValueFloats = jsonMap["floats"] as? NSNumber {
-        resultDecodedBuilder.floats = jsonValueFloats.floatValue
+      if let jsonValueFloats = jsonMap["floats"] as? Float {
+        resultDecodedBuilder.floats = jsonValueFloats
       }
       if let jsonValueStr = jsonMap["str"] as? String {
         resultDecodedBuilder.str = jsonValueStr
@@ -1378,6 +1330,18 @@ final internal class PBPerfomance : GeneratedMessage {
 }
 
 final internal class PBProtoPoint : GeneratedMessage {
+
+  internal static func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasLatitude == rhs.hasLatitude) && (!lhs.hasLatitude || lhs.latitude == rhs.latitude)
+    fieldCheck = fieldCheck && (lhs.hasLongitude == rhs.hasLongitude) && (!lhs.hasLongitude || lhs.longitude == rhs.longitude)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var latitude:Float = Float(0)
   internal fileprivate(set) var hasLatitude:Bool = false
 
@@ -1447,10 +1411,10 @@ final internal class PBProtoPoint : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasLatitude {
-      jsonMap["latitude"] = NSNumber(value:latitude)
+      jsonMap["latitude"] = latitude
     }
     if hasLongitude {
-      jsonMap["longitude"] = NSNumber(value:longitude)
+      jsonMap["longitude"] = longitude
     }
     return jsonMap
   }
@@ -1612,11 +1576,11 @@ final internal class PBProtoPoint : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint.Builder {
       let resultDecodedBuilder = PBProtoPoint.Builder()
-      if let jsonValueLatitude = jsonMap["latitude"] as? NSNumber {
-        resultDecodedBuilder.latitude = jsonValueLatitude.floatValue
+      if let jsonValueLatitude = jsonMap["latitude"] as? Float {
+        resultDecodedBuilder.latitude = jsonValueLatitude
       }
-      if let jsonValueLongitude = jsonMap["longitude"] as? NSNumber {
-        resultDecodedBuilder.longitude = jsonValueLongitude.floatValue
+      if let jsonValueLongitude = jsonMap["longitude"] as? Float {
+        resultDecodedBuilder.longitude = jsonValueLongitude
       }
       return resultDecodedBuilder
     }
@@ -1632,6 +1596,18 @@ final internal class PBProtoPoint : GeneratedMessage {
 }
 
 final internal class PBIceCreamCone : GeneratedMessage {
+
+  internal static func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
+    fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
 
 
     //Enum type declaration start 
@@ -1726,7 +1702,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasScoops {
-      jsonMap["scoops"] = NSNumber(value:scoops)
+      jsonMap["scoops"] = scoops
     }
     if hasFlavor {
       jsonMap["flavor"] = flavor.toString()
@@ -1896,8 +1872,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone.Builder {
       let resultDecodedBuilder = PBIceCreamCone.Builder()
-      if let jsonValueScoops = jsonMap["scoops"] as? NSNumber {
-        resultDecodedBuilder.scoops = jsonValueScoops.int32Value
+      if let jsonValueScoops = jsonMap["scoops"] as? Int32 {
+        resultDecodedBuilder.scoops = jsonValueScoops
       }
       if let jsonValueFlavor = jsonMap["flavor"] as? String {
         resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(str: jsonValueFlavor)
@@ -1917,6 +1893,17 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
 //Subuilders
 final internal class PBFoo : GeneratedMessage {
+
+  internal static func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasVal == rhs.hasVal) && (!lhs.hasVal || lhs.val == rhs.val)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   // some other fields.
   internal fileprivate(set) var val:Int32 = Int32(0)
   internal fileprivate(set) var hasVal:Bool = false
@@ -1972,7 +1959,7 @@ final internal class PBFoo : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasVal {
-      jsonMap["val"] = NSNumber(value:val)
+      jsonMap["val"] = val
     }
     return jsonMap
   }
@@ -2099,8 +2086,8 @@ final internal class PBFoo : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBFoo.Builder {
       let resultDecodedBuilder = PBFoo.Builder()
-      if let jsonValueVal = jsonMap["val"] as? NSNumber {
-        resultDecodedBuilder.val = jsonValueVal.int32Value
+      if let jsonValueVal = jsonMap["val"] as? Int32 {
+        resultDecodedBuilder.val = jsonValueVal
       }
       return resultDecodedBuilder
     }
@@ -2116,6 +2103,17 @@ final internal class PBFoo : GeneratedMessage {
 }
 
 final internal class PBBar : GeneratedMessage {
+
+  internal static func == (lhs: PBBar, rhs: PBBar) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var foo:PBFoo!
   internal fileprivate(set) var hasFoo:Bool = false
   required internal init() {
@@ -2355,6 +2353,17 @@ final internal class PBBar : GeneratedMessage {
 }
 
 final internal class PBBaz : GeneratedMessage {
+
+  internal static func == (lhs: PBBaz, rhs: PBBaz) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var bar:PBBar!
   internal fileprivate(set) var hasBar:Bool = false
   required internal init() {

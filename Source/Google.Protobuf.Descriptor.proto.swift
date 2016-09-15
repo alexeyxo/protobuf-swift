@@ -6,314 +6,6 @@ import Foundation
 
 public struct Google { public struct Protobuf { }}
 
-public func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.file == rhs.file)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.FileDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasPackage == rhs.hasPackage) && (!lhs.hasPackage || lhs.package == rhs.package)
-  fieldCheck = fieldCheck && (lhs.dependency == rhs.dependency)
-  fieldCheck = fieldCheck && (lhs.messageType == rhs.messageType)
-  fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
-  fieldCheck = fieldCheck && (lhs.service == rhs.service)
-  fieldCheck = fieldCheck && (lhs.`extension` == rhs.`extension`)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasSourceCodeInfo == rhs.hasSourceCodeInfo) && (!lhs.hasSourceCodeInfo || lhs.sourceCodeInfo == rhs.sourceCodeInfo)
-  fieldCheck = fieldCheck && (lhs.publicDependency == rhs.publicDependency)
-  fieldCheck = fieldCheck && (lhs.weakDependency == rhs.weakDependency)
-  fieldCheck = fieldCheck && (lhs.hasSyntax == rhs.hasSyntax) && (!lhs.hasSyntax || lhs.syntax == rhs.syntax)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.field == rhs.field)
-  fieldCheck = fieldCheck && (lhs.nestedType == rhs.nestedType)
-  fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
-  fieldCheck = fieldCheck && (lhs.extensionRange == rhs.extensionRange)
-  fieldCheck = fieldCheck && (lhs.`extension` == rhs.`extension`)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.oneofDecl == rhs.oneofDecl)
-  fieldCheck = fieldCheck && (lhs.reservedRange == rhs.reservedRange)
-  fieldCheck = fieldCheck && (lhs.reservedName == rhs.reservedName)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google.Protobuf.DescriptorProto.ExtensionRange) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
-  fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.DescriptorProto.ReservedRange, rhs: Google.Protobuf.DescriptorProto.ReservedRange) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
-  fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.FieldDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasExtendee == rhs.hasExtendee) && (!lhs.hasExtendee || lhs.extendee == rhs.extendee)
-  fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
-  fieldCheck = fieldCheck && (lhs.hasLabel == rhs.hasLabel) && (!lhs.hasLabel || lhs.label == rhs.label)
-  fieldCheck = fieldCheck && (lhs.hasType == rhs.hasType) && (!lhs.hasType || lhs.type == rhs.type)
-  fieldCheck = fieldCheck && (lhs.hasTypeName == rhs.hasTypeName) && (!lhs.hasTypeName || lhs.typeName == rhs.typeName)
-  fieldCheck = fieldCheck && (lhs.hasDefaultValue == rhs.hasDefaultValue) && (!lhs.hasDefaultValue || lhs.defaultValue == rhs.defaultValue)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasOneofIndex == rhs.hasOneofIndex) && (!lhs.hasOneofIndex || lhs.oneofIndex == rhs.oneofIndex)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.OneofDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.EnumDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.value == rhs.value)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Protobuf.EnumValueDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobuf.ServiceDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.method == rhs.method)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf.MethodDescriptorProto) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasInputType == rhs.hasInputType) && (!lhs.hasInputType || lhs.inputType == rhs.inputType)
-  fieldCheck = fieldCheck && (lhs.hasOutputType == rhs.hasOutputType) && (!lhs.hasOutputType || lhs.outputType == rhs.outputType)
-  fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasClientStreaming == rhs.hasClientStreaming) && (!lhs.hasClientStreaming || lhs.clientStreaming == rhs.clientStreaming)
-  fieldCheck = fieldCheck && (lhs.hasServerStreaming == rhs.hasServerStreaming) && (!lhs.hasServerStreaming || lhs.serverStreaming == rhs.serverStreaming)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasJavaPackage == rhs.hasJavaPackage) && (!lhs.hasJavaPackage || lhs.javaPackage == rhs.javaPackage)
-  fieldCheck = fieldCheck && (lhs.hasJavaOuterClassname == rhs.hasJavaOuterClassname) && (!lhs.hasJavaOuterClassname || lhs.javaOuterClassname == rhs.javaOuterClassname)
-  fieldCheck = fieldCheck && (lhs.hasOptimizeFor == rhs.hasOptimizeFor) && (!lhs.hasOptimizeFor || lhs.optimizeFor == rhs.optimizeFor)
-  fieldCheck = fieldCheck && (lhs.hasJavaMultipleFiles == rhs.hasJavaMultipleFiles) && (!lhs.hasJavaMultipleFiles || lhs.javaMultipleFiles == rhs.javaMultipleFiles)
-  fieldCheck = fieldCheck && (lhs.hasGoPackage == rhs.hasGoPackage) && (!lhs.hasGoPackage || lhs.goPackage == rhs.goPackage)
-  fieldCheck = fieldCheck && (lhs.hasCcGenericServices == rhs.hasCcGenericServices) && (!lhs.hasCcGenericServices || lhs.ccGenericServices == rhs.ccGenericServices)
-  fieldCheck = fieldCheck && (lhs.hasJavaGenericServices == rhs.hasJavaGenericServices) && (!lhs.hasJavaGenericServices || lhs.javaGenericServices == rhs.javaGenericServices)
-  fieldCheck = fieldCheck && (lhs.hasPyGenericServices == rhs.hasPyGenericServices) && (!lhs.hasPyGenericServices || lhs.pyGenericServices == rhs.pyGenericServices)
-  fieldCheck = fieldCheck && (lhs.hasJavaGenerateEqualsAndHash == rhs.hasJavaGenerateEqualsAndHash) && (!lhs.hasJavaGenerateEqualsAndHash || lhs.javaGenerateEqualsAndHash == rhs.javaGenerateEqualsAndHash)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.hasJavaStringCheckUtf8 == rhs.hasJavaStringCheckUtf8) && (!lhs.hasJavaStringCheckUtf8 || lhs.javaStringCheckUtf8 == rhs.javaStringCheckUtf8)
-  fieldCheck = fieldCheck && (lhs.hasCcEnableArenas == rhs.hasCcEnableArenas) && (!lhs.hasCcEnableArenas || lhs.ccEnableArenas == rhs.ccEnableArenas)
-  fieldCheck = fieldCheck && (lhs.hasObjcClassPrefix == rhs.hasObjcClassPrefix) && (!lhs.hasObjcClassPrefix || lhs.objcClassPrefix == rhs.objcClassPrefix)
-  fieldCheck = fieldCheck && (lhs.hasCsharpNamespace == rhs.hasCsharpNamespace) && (!lhs.hasCsharpNamespace || lhs.csharpNamespace == rhs.csharpNamespace)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.MessageOptions, rhs: Google.Protobuf.MessageOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasMessageSetWireFormat == rhs.hasMessageSetWireFormat) && (!lhs.hasMessageSetWireFormat || lhs.messageSetWireFormat == rhs.messageSetWireFormat)
-  fieldCheck = fieldCheck && (lhs.hasNoStandardDescriptorAccessor == rhs.hasNoStandardDescriptorAccessor) && (!lhs.hasNoStandardDescriptorAccessor || lhs.noStandardDescriptorAccessor == rhs.noStandardDescriptorAccessor)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.hasMapEntry == rhs.hasMapEntry) && (!lhs.hasMapEntry || lhs.mapEntry == rhs.mapEntry)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasCtype == rhs.hasCtype) && (!lhs.hasCtype || lhs.ctype == rhs.ctype)
-  fieldCheck = fieldCheck && (lhs.hasPacked == rhs.hasPacked) && (!lhs.hasPacked || lhs.packed == rhs.packed)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.hasLazy == rhs.hasLazy) && (!lhs.hasLazy || lhs.`lazy` == rhs.`lazy`)
-  fieldCheck = fieldCheck && (lhs.hasJstype == rhs.hasJstype) && (!lhs.hasJstype || lhs.jstype == rhs.jstype)
-  fieldCheck = fieldCheck && (lhs.hasWeak == rhs.hasWeak) && (!lhs.hasWeak || lhs.`weak` == rhs.`weak`)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.EnumOptions, rhs: Google.Protobuf.EnumOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasAllowAlias == rhs.hasAllowAlias) && (!lhs.hasAllowAlias || lhs.allowAlias == rhs.allowAlias)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.EnumValueOptions, rhs: Google.Protobuf.EnumValueOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.ServiceOptions, rhs: Google.Protobuf.ServiceOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.MethodOptions, rhs: Google.Protobuf.MethodOptions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
-  fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasIdentifierValue == rhs.hasIdentifierValue) && (!lhs.hasIdentifierValue || lhs.identifierValue == rhs.identifierValue)
-  fieldCheck = fieldCheck && (lhs.hasPositiveIntValue == rhs.hasPositiveIntValue) && (!lhs.hasPositiveIntValue || lhs.positiveIntValue == rhs.positiveIntValue)
-  fieldCheck = fieldCheck && (lhs.hasNegativeIntValue == rhs.hasNegativeIntValue) && (!lhs.hasNegativeIntValue || lhs.negativeIntValue == rhs.negativeIntValue)
-  fieldCheck = fieldCheck && (lhs.hasDoubleValue == rhs.hasDoubleValue) && (!lhs.hasDoubleValue || lhs.doubleValue == rhs.doubleValue)
-  fieldCheck = fieldCheck && (lhs.hasStringValue == rhs.hasStringValue) && (!lhs.hasStringValue || lhs.stringValue == rhs.stringValue)
-  fieldCheck = fieldCheck && (lhs.hasAggregateValue == rhs.hasAggregateValue) && (!lhs.hasAggregateValue || lhs.aggregateValue == rhs.aggregateValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.Protobuf.UninterpretedOption.NamePart) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasNamePart == rhs.hasNamePart) && (!lhs.hasNamePart || lhs.namePart == rhs.namePart)
-  fieldCheck = fieldCheck && (lhs.hasIsExtension == rhs.hasIsExtension) && (!lhs.hasIsExtension || lhs.isExtension == rhs.isExtension)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.location == rhs.location)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protobuf.SourceCodeInfo.Location) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.path == rhs.path)
-  fieldCheck = fieldCheck && (lhs.span == rhs.span)
-  fieldCheck = fieldCheck && (lhs.hasLeadingComments == rhs.hasLeadingComments) && (!lhs.hasLeadingComments || lhs.leadingComments == rhs.leadingComments)
-  fieldCheck = fieldCheck && (lhs.hasTrailingComments == rhs.hasTrailingComments) && (!lhs.hasTrailingComments || lhs.trailingComments == rhs.trailingComments)
-  fieldCheck = fieldCheck && (lhs.leadingDetachedComments == rhs.leadingDetachedComments)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct DescriptorRoot {
     public static var sharedInstance : DescriptorRoot {
@@ -335,6 +27,17 @@ public extension Google.Protobuf {
   // The protocol compiler can output a FileDescriptorSet containing the .proto
   // files it parses.
   final public class FileDescriptorSet : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.file == rhs.file)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var file:Array<Google.Protobuf.FileDescriptorProto>  = Array<Google.Protobuf.FileDescriptorProto>()
     required public init() {
          super.init()
@@ -552,6 +255,28 @@ public extension Google.Protobuf {
 
   // Describes a complete .proto file.
   final public class FileDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.FileDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasPackage == rhs.hasPackage) && (!lhs.hasPackage || lhs.package == rhs.package)
+      fieldCheck = fieldCheck && (lhs.dependency == rhs.dependency)
+      fieldCheck = fieldCheck && (lhs.messageType == rhs.messageType)
+      fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
+      fieldCheck = fieldCheck && (lhs.service == rhs.service)
+      fieldCheck = fieldCheck && (lhs.`extension` == rhs.`extension`)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasSourceCodeInfo == rhs.hasSourceCodeInfo) && (!lhs.hasSourceCodeInfo || lhs.sourceCodeInfo == rhs.sourceCodeInfo)
+      fieldCheck = fieldCheck && (lhs.publicDependency == rhs.publicDependency)
+      fieldCheck = fieldCheck && (lhs.weakDependency == rhs.weakDependency)
+      fieldCheck = fieldCheck && (lhs.hasSyntax == rhs.hasSyntax) && (!lhs.hasSyntax || lhs.syntax == rhs.syntax)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // file name, relative to root of source tree
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -767,19 +492,23 @@ public extension Google.Protobuf {
         jsonMap["package"] = package
       }
       if !dependency.isEmpty {
-        jsonMap["dependency"] = dependency
+        var jsonArrayDependency:Array<String> = []
+          for oneValueDependency in dependency {
+            jsonArrayDependency.append(oneValueDependency)
+          }
+        jsonMap["dependency"] = jsonArrayDependency
       }
       if !publicDependency.isEmpty {
-        var jsonArrayPublicDependency:Array<NSNumber> = []
+        var jsonArrayPublicDependency:Array<Int32> = []
           for oneValuePublicDependency in publicDependency {
-            jsonArrayPublicDependency.append(NSNumber(value:oneValuePublicDependency))
+            jsonArrayPublicDependency.append(oneValuePublicDependency)
           }
         jsonMap["publicDependency"] = jsonArrayPublicDependency
       }
       if !weakDependency.isEmpty {
-        var jsonArrayWeakDependency:Array<NSNumber> = []
+        var jsonArrayWeakDependency:Array<Int32> = []
           for oneValueWeakDependency in weakDependency {
-            jsonArrayWeakDependency.append(NSNumber(value:oneValueWeakDependency))
+            jsonArrayWeakDependency.append(oneValueWeakDependency)
           }
         jsonMap["weakDependency"] = jsonArrayWeakDependency
       }
@@ -1400,19 +1129,23 @@ public extension Google.Protobuf {
           resultDecodedBuilder.package = jsonValuePackage
         }
         if let jsonValueDependency = jsonMap["dependency"] as? Array<String> {
-          resultDecodedBuilder.dependency = jsonValueDependency
+          var jsonArrayDependency:Array<String> = []
+          for oneValueDependency in jsonValueDependency {
+            jsonArrayDependency.append(oneValueDependency)
+          }
+          resultDecodedBuilder.dependency = jsonArrayDependency
         }
-        if let jsonValuePublicDependency = jsonMap["publicDependency"] as? Array<NSNumber> {
+        if let jsonValuePublicDependency = jsonMap["publicDependency"] as? Array<Int32> {
           var jsonArrayPublicDependency:Array<Int32> = []
           for oneValuePublicDependency in jsonValuePublicDependency {
-            jsonArrayPublicDependency.append(oneValuePublicDependency.int32Value)
+            jsonArrayPublicDependency.append(oneValuePublicDependency)
           }
           resultDecodedBuilder.publicDependency = jsonArrayPublicDependency
         }
-        if let jsonValueWeakDependency = jsonMap["weakDependency"] as? Array<NSNumber> {
+        if let jsonValueWeakDependency = jsonMap["weakDependency"] as? Array<Int32> {
           var jsonArrayWeakDependency:Array<Int32> = []
           for oneValueWeakDependency in jsonValueWeakDependency {
-            jsonArrayWeakDependency.append(oneValueWeakDependency.int32Value)
+            jsonArrayWeakDependency.append(oneValueWeakDependency)
           }
           resultDecodedBuilder.weakDependency = jsonArrayWeakDependency
         }
@@ -1479,10 +1212,42 @@ public extension Google.Protobuf {
   // Describes a message type.
   final public class DescriptorProto : GeneratedMessage {
 
+    public static func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.field == rhs.field)
+      fieldCheck = fieldCheck && (lhs.nestedType == rhs.nestedType)
+      fieldCheck = fieldCheck && (lhs.enumType == rhs.enumType)
+      fieldCheck = fieldCheck && (lhs.extensionRange == rhs.extensionRange)
+      fieldCheck = fieldCheck && (lhs.`extension` == rhs.`extension`)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.oneofDecl == rhs.oneofDecl)
+      fieldCheck = fieldCheck && (lhs.reservedRange == rhs.reservedRange)
+      fieldCheck = fieldCheck && (lhs.reservedName == rhs.reservedName)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class ExtensionRange : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google.Protobuf.DescriptorProto.ExtensionRange) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
+          fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var start:Int32 = Int32(0)
         public fileprivate(set) var hasStart:Bool = false
 
@@ -1546,10 +1311,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasStart {
-            jsonMap["start"] = NSNumber(value:start)
+            jsonMap["start"] = start
           }
           if hasEnd {
-            jsonMap["end"] = NSNumber(value:end)
+            jsonMap["end"] = end
           }
           return jsonMap
         }
@@ -1711,11 +1476,11 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ExtensionRange.Builder()
-            if let jsonValueStart = jsonMap["start"] as? NSNumber {
-              resultDecodedBuilder.start = jsonValueStart.int32Value
+            if let jsonValueStart = jsonMap["start"] as? Int32 {
+              resultDecodedBuilder.start = jsonValueStart
             }
-            if let jsonValueEnd = jsonMap["end"] as? NSNumber {
-              resultDecodedBuilder.end = jsonValueEnd.int32Value
+            if let jsonValueEnd = jsonMap["end"] as? Int32 {
+              resultDecodedBuilder.end = jsonValueEnd
             }
             return resultDecodedBuilder
           }
@@ -1740,6 +1505,18 @@ public extension Google.Protobuf {
       // fields or extension ranges in the same message. Reserved ranges may
       // not overlap.
       final public class ReservedRange : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.DescriptorProto.ReservedRange, rhs: Google.Protobuf.DescriptorProto.ReservedRange) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
+          fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         // Inclusive.
         public fileprivate(set) var start:Int32 = Int32(0)
         public fileprivate(set) var hasStart:Bool = false
@@ -1805,10 +1582,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasStart {
-            jsonMap["start"] = NSNumber(value:start)
+            jsonMap["start"] = start
           }
           if hasEnd {
-            jsonMap["end"] = NSNumber(value:end)
+            jsonMap["end"] = end
           }
           return jsonMap
         }
@@ -1970,11 +1747,11 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ReservedRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ReservedRange.Builder()
-            if let jsonValueStart = jsonMap["start"] as? NSNumber {
-              resultDecodedBuilder.start = jsonValueStart.int32Value
+            if let jsonValueStart = jsonMap["start"] as? Int32 {
+              resultDecodedBuilder.start = jsonValueStart
             }
-            if let jsonValueEnd = jsonMap["end"] as? NSNumber {
-              resultDecodedBuilder.end = jsonValueEnd.int32Value
+            if let jsonValueEnd = jsonMap["end"] as? Int32 {
+              resultDecodedBuilder.end = jsonValueEnd
             }
             return resultDecodedBuilder
           }
@@ -2225,7 +2002,11 @@ public extension Google.Protobuf {
         jsonMap["reservedRange"] = jsonArrayReservedRange
       }
       if !reservedName.isEmpty {
-        jsonMap["reservedName"] = reservedName
+        var jsonArrayReservedName:Array<String> = []
+          for oneValueReservedName in reservedName {
+            jsonArrayReservedName.append(oneValueReservedName)
+          }
+        jsonMap["reservedName"] = jsonArrayReservedName
       }
       return jsonMap
     }
@@ -2765,7 +2546,11 @@ public extension Google.Protobuf {
           resultDecodedBuilder.reservedRange = jsonArrayReservedRange
         }
         if let jsonValueReservedName = jsonMap["reservedName"] as? Array<String> {
-          resultDecodedBuilder.reservedName = jsonValueReservedName
+          var jsonArrayReservedName:Array<String> = []
+          for oneValueReservedName in jsonValueReservedName {
+            jsonArrayReservedName.append(oneValueReservedName)
+          }
+          resultDecodedBuilder.reservedName = jsonArrayReservedName
         }
         return resultDecodedBuilder
       }
@@ -2782,6 +2567,25 @@ public extension Google.Protobuf {
 
   // Describes a field within a message.
   final public class FieldDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.FieldDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasExtendee == rhs.hasExtendee) && (!lhs.hasExtendee || lhs.extendee == rhs.extendee)
+      fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
+      fieldCheck = fieldCheck && (lhs.hasLabel == rhs.hasLabel) && (!lhs.hasLabel || lhs.label == rhs.label)
+      fieldCheck = fieldCheck && (lhs.hasType == rhs.hasType) && (!lhs.hasType || lhs.type == rhs.type)
+      fieldCheck = fieldCheck && (lhs.hasTypeName == rhs.hasTypeName) && (!lhs.hasTypeName || lhs.typeName == rhs.typeName)
+      fieldCheck = fieldCheck && (lhs.hasDefaultValue == rhs.hasDefaultValue) && (!lhs.hasDefaultValue || lhs.defaultValue == rhs.defaultValue)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasOneofIndex == rhs.hasOneofIndex) && (!lhs.hasOneofIndex || lhs.oneofIndex == rhs.oneofIndex)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -3082,7 +2886,7 @@ public extension Google.Protobuf {
         jsonMap["name"] = name
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = number
       }
       if hasLabel {
         jsonMap["label"] = label.toString()
@@ -3100,7 +2904,7 @@ public extension Google.Protobuf {
         jsonMap["defaultValue"] = defaultValue
       }
       if hasOneofIndex {
-        jsonMap["oneofIndex"] = NSNumber(value:oneofIndex)
+        jsonMap["oneofIndex"] = oneofIndex
       }
       if hasOptions {
         jsonMap["options"] = try options.encode()
@@ -3562,8 +3366,8 @@ public extension Google.Protobuf {
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
         }
-        if let jsonValueNumber = jsonMap["number"] as? NSNumber {
-          resultDecodedBuilder.number = jsonValueNumber.int32Value
+        if let jsonValueNumber = jsonMap["number"] as? Int32 {
+          resultDecodedBuilder.number = jsonValueNumber
         }
         if let jsonValueLabel = jsonMap["label"] as? String {
           resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(str: jsonValueLabel)
@@ -3580,8 +3384,8 @@ public extension Google.Protobuf {
         if let jsonValueDefaultValue = jsonMap["defaultValue"] as? String {
           resultDecodedBuilder.defaultValue = jsonValueDefaultValue
         }
-        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? NSNumber {
-          resultDecodedBuilder.oneofIndex = jsonValueOneofIndex.int32Value
+        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? Int32 {
+          resultDecodedBuilder.oneofIndex = jsonValueOneofIndex
         }
         if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
           resultDecodedBuilder.options = try Google.Protobuf.FieldOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
@@ -3602,6 +3406,17 @@ public extension Google.Protobuf {
 
   // Describes a oneof.
   final public class OneofDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.OneofDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -3801,6 +3616,19 @@ public extension Google.Protobuf {
 
   // Describes an enum type.
   final public class EnumDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.EnumDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.value == rhs.value)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -4164,6 +3992,19 @@ public extension Google.Protobuf {
 
   // Describes a value within an enum.
   final public class EnumValueDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Protobuf.EnumValueDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -4245,7 +4086,7 @@ public extension Google.Protobuf {
         jsonMap["name"] = name
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = number
       }
       if hasOptions {
         jsonMap["options"] = try options.encode()
@@ -4487,8 +4328,8 @@ public extension Google.Protobuf {
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
         }
-        if let jsonValueNumber = jsonMap["number"] as? NSNumber {
-          resultDecodedBuilder.number = jsonValueNumber.int32Value
+        if let jsonValueNumber = jsonMap["number"] as? Int32 {
+          resultDecodedBuilder.number = jsonValueNumber
         }
         if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
           resultDecodedBuilder.options = try Google.Protobuf.EnumValueOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
@@ -4509,6 +4350,19 @@ public extension Google.Protobuf {
 
   // Describes a service.
   final public class ServiceDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobuf.ServiceDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.method == rhs.method)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -4872,6 +4726,22 @@ public extension Google.Protobuf {
 
   // Describes a method of a service.
   final public class MethodDescriptorProto : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf.MethodDescriptorProto) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasInputType == rhs.hasInputType) && (!lhs.hasInputType || lhs.inputType == rhs.inputType)
+      fieldCheck = fieldCheck && (lhs.hasOutputType == rhs.hasOutputType) && (!lhs.hasOutputType || lhs.outputType == rhs.outputType)
+      fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasClientStreaming == rhs.hasClientStreaming) && (!lhs.hasClientStreaming || lhs.clientStreaming == rhs.clientStreaming)
+      fieldCheck = fieldCheck && (lhs.hasServerStreaming == rhs.hasServerStreaming) && (!lhs.hasServerStreaming || lhs.serverStreaming == rhs.serverStreaming)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -5370,6 +5240,32 @@ public extension Google.Protobuf {
   }
 
   final public class FileOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasJavaPackage == rhs.hasJavaPackage) && (!lhs.hasJavaPackage || lhs.javaPackage == rhs.javaPackage)
+      fieldCheck = fieldCheck && (lhs.hasJavaOuterClassname == rhs.hasJavaOuterClassname) && (!lhs.hasJavaOuterClassname || lhs.javaOuterClassname == rhs.javaOuterClassname)
+      fieldCheck = fieldCheck && (lhs.hasOptimizeFor == rhs.hasOptimizeFor) && (!lhs.hasOptimizeFor || lhs.optimizeFor == rhs.optimizeFor)
+      fieldCheck = fieldCheck && (lhs.hasJavaMultipleFiles == rhs.hasJavaMultipleFiles) && (!lhs.hasJavaMultipleFiles || lhs.javaMultipleFiles == rhs.javaMultipleFiles)
+      fieldCheck = fieldCheck && (lhs.hasGoPackage == rhs.hasGoPackage) && (!lhs.hasGoPackage || lhs.goPackage == rhs.goPackage)
+      fieldCheck = fieldCheck && (lhs.hasCcGenericServices == rhs.hasCcGenericServices) && (!lhs.hasCcGenericServices || lhs.ccGenericServices == rhs.ccGenericServices)
+      fieldCheck = fieldCheck && (lhs.hasJavaGenericServices == rhs.hasJavaGenericServices) && (!lhs.hasJavaGenericServices || lhs.javaGenericServices == rhs.javaGenericServices)
+      fieldCheck = fieldCheck && (lhs.hasPyGenericServices == rhs.hasPyGenericServices) && (!lhs.hasPyGenericServices || lhs.pyGenericServices == rhs.pyGenericServices)
+      fieldCheck = fieldCheck && (lhs.hasJavaGenerateEqualsAndHash == rhs.hasJavaGenerateEqualsAndHash) && (!lhs.hasJavaGenerateEqualsAndHash || lhs.javaGenerateEqualsAndHash == rhs.javaGenerateEqualsAndHash)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.hasJavaStringCheckUtf8 == rhs.hasJavaStringCheckUtf8) && (!lhs.hasJavaStringCheckUtf8 || lhs.javaStringCheckUtf8 == rhs.javaStringCheckUtf8)
+      fieldCheck = fieldCheck && (lhs.hasCcEnableArenas == rhs.hasCcEnableArenas) && (!lhs.hasCcEnableArenas || lhs.ccEnableArenas == rhs.ccEnableArenas)
+      fieldCheck = fieldCheck && (lhs.hasObjcClassPrefix == rhs.hasObjcClassPrefix) && (!lhs.hasObjcClassPrefix || lhs.objcClassPrefix == rhs.objcClassPrefix)
+      fieldCheck = fieldCheck && (lhs.hasCsharpNamespace == rhs.hasCsharpNamespace) && (!lhs.hasCsharpNamespace || lhs.csharpNamespace == rhs.csharpNamespace)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -6394,6 +6290,22 @@ public extension Google.Protobuf {
   }
 
   final public class MessageOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.MessageOptions, rhs: Google.Protobuf.MessageOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasMessageSetWireFormat == rhs.hasMessageSetWireFormat) && (!lhs.hasMessageSetWireFormat || lhs.messageSetWireFormat == rhs.messageSetWireFormat)
+      fieldCheck = fieldCheck && (lhs.hasNoStandardDescriptorAccessor == rhs.hasNoStandardDescriptorAccessor) && (!lhs.hasNoStandardDescriptorAccessor || lhs.noStandardDescriptorAccessor == rhs.noStandardDescriptorAccessor)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.hasMapEntry == rhs.hasMapEntry) && (!lhs.hasMapEntry || lhs.mapEntry == rhs.mapEntry)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Set true to use the old proto1 MessageSet wire format for extensions.
     // This is provided for backwards-compatibility with the MessageSet wire
     // format.  You should not use this for any other reason:  It's less
@@ -6858,6 +6770,24 @@ public extension Google.Protobuf {
   }
 
   final public class FieldOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasCtype == rhs.hasCtype) && (!lhs.hasCtype || lhs.ctype == rhs.ctype)
+      fieldCheck = fieldCheck && (lhs.hasPacked == rhs.hasPacked) && (!lhs.hasPacked || lhs.packed == rhs.packed)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.hasLazy == rhs.hasLazy) && (!lhs.hasLazy || lhs.`lazy` == rhs.`lazy`)
+      fieldCheck = fieldCheck && (lhs.hasJstype == rhs.hasJstype) && (!lhs.hasJstype || lhs.jstype == rhs.jstype)
+      fieldCheck = fieldCheck && (lhs.hasWeak == rhs.hasWeak) && (!lhs.hasWeak || lhs.`weak` == rhs.`weak`)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -7502,6 +7432,20 @@ public extension Google.Protobuf {
   }
 
   final public class EnumOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.EnumOptions, rhs: Google.Protobuf.EnumOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasAllowAlias == rhs.hasAllowAlias) && (!lhs.hasAllowAlias || lhs.allowAlias == rhs.allowAlias)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Set this option to true to allow mapping different tag names to the same
     // value.
     public fileprivate(set) var allowAlias:Bool = false
@@ -7832,6 +7776,19 @@ public extension Google.Protobuf {
   }
 
   final public class EnumValueOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.EnumValueOptions, rhs: Google.Protobuf.EnumValueOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Is this enum value deprecated?
     // Depending on the target platform, this can emit Deprecated annotations
     // for the enum value, or it will be completely ignored; in the very least,
@@ -8110,6 +8067,19 @@ public extension Google.Protobuf {
   }
 
   final public class ServiceOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.ServiceOptions, rhs: Google.Protobuf.ServiceOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Is this service deprecated?
     // Depending on the target platform, this can emit Deprecated annotations
     // for the service, or it will be completely ignored; in the very least,
@@ -8388,6 +8358,19 @@ public extension Google.Protobuf {
   }
 
   final public class MethodOptions : ExtendableMessage {
+
+    public static func == (lhs: Google.Protobuf.MethodOptions, rhs: Google.Protobuf.MethodOptions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Is this method deprecated?
     // Depending on the target platform, this can emit Deprecated annotations
     // for the method, or it will be completely ignored; in the very least,
@@ -8673,6 +8656,23 @@ public extension Google.Protobuf {
   // in them.
   final public class UninterpretedOption : GeneratedMessage {
 
+    public static func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasIdentifierValue == rhs.hasIdentifierValue) && (!lhs.hasIdentifierValue || lhs.identifierValue == rhs.identifierValue)
+      fieldCheck = fieldCheck && (lhs.hasPositiveIntValue == rhs.hasPositiveIntValue) && (!lhs.hasPositiveIntValue || lhs.positiveIntValue == rhs.positiveIntValue)
+      fieldCheck = fieldCheck && (lhs.hasNegativeIntValue == rhs.hasNegativeIntValue) && (!lhs.hasNegativeIntValue || lhs.negativeIntValue == rhs.negativeIntValue)
+      fieldCheck = fieldCheck && (lhs.hasDoubleValue == rhs.hasDoubleValue) && (!lhs.hasDoubleValue || lhs.doubleValue == rhs.doubleValue)
+      fieldCheck = fieldCheck && (lhs.hasStringValue == rhs.hasStringValue) && (!lhs.hasStringValue || lhs.stringValue == rhs.stringValue)
+      fieldCheck = fieldCheck && (lhs.hasAggregateValue == rhs.hasAggregateValue) && (!lhs.hasAggregateValue || lhs.aggregateValue == rhs.aggregateValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
@@ -8682,6 +8682,18 @@ public extension Google.Protobuf {
       // E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
       // "foo.(bar.baz).qux".
       final public class NamePart : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.Protobuf.UninterpretedOption.NamePart) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasNamePart == rhs.hasNamePart) && (!lhs.hasNamePart || lhs.namePart == rhs.namePart)
+          fieldCheck = fieldCheck && (lhs.hasIsExtension == rhs.hasIsExtension) && (!lhs.hasIsExtension || lhs.isExtension == rhs.isExtension)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var namePart:String = ""
         public fileprivate(set) var hasNamePart:Bool = false
 
@@ -9066,13 +9078,13 @@ public extension Google.Protobuf {
         jsonMap["identifierValue"] = identifierValue
       }
       if hasPositiveIntValue {
-        jsonMap["positiveIntValue"] = "\(positiveIntValue)"
+        jsonMap["positiveIntValue"] = positiveIntValue
       }
       if hasNegativeIntValue {
-        jsonMap["negativeIntValue"] = "\(negativeIntValue)"
+        jsonMap["negativeIntValue"] = negativeIntValue
       }
       if hasDoubleValue {
-        jsonMap["doubleValue"] = NSNumber(value:doubleValue)
+        jsonMap["doubleValue"] = doubleValue
       }
       if hasStringValue {
         jsonMap["stringValue"] = stringValue.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
@@ -9426,14 +9438,14 @@ public extension Google.Protobuf {
         if let jsonValueIdentifierValue = jsonMap["identifierValue"] as? String {
           resultDecodedBuilder.identifierValue = jsonValueIdentifierValue
         }
-        if let jsonValuePositiveIntValue = jsonMap["positiveIntValue"] as? String {
-          resultDecodedBuilder.positiveIntValue = UInt64(jsonValuePositiveIntValue)!
+        if let jsonValuePositiveIntValue = jsonMap["positiveIntValue"] as? UInt64 {
+          resultDecodedBuilder.positiveIntValue = jsonValuePositiveIntValue
         }
-        if let jsonValueNegativeIntValue = jsonMap["negativeIntValue"] as? String {
-          resultDecodedBuilder.negativeIntValue = Int64(jsonValueNegativeIntValue)!
+        if let jsonValueNegativeIntValue = jsonMap["negativeIntValue"] as? Int64 {
+          resultDecodedBuilder.negativeIntValue = jsonValueNegativeIntValue
         }
-        if let jsonValueDoubleValue = jsonMap["doubleValue"] as? NSNumber {
-          resultDecodedBuilder.doubleValue = jsonValueDoubleValue.doubleValue
+        if let jsonValueDoubleValue = jsonMap["doubleValue"] as? Double {
+          resultDecodedBuilder.doubleValue = jsonValueDoubleValue
         }
         if let jsonValueStringValue = jsonMap["stringValue"] as? String {
           resultDecodedBuilder.stringValue = Data(base64Encoded:jsonValueStringValue, options: Data.Base64DecodingOptions(rawValue:0))!
@@ -9458,10 +9470,36 @@ public extension Google.Protobuf {
   // FileDescriptorProto was generated.
   final public class SourceCodeInfo : GeneratedMessage {
 
+    public static func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.location == rhs.location)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class Location : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protobuf.SourceCodeInfo.Location) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.path == rhs.path)
+          fieldCheck = fieldCheck && (lhs.span == rhs.span)
+          fieldCheck = fieldCheck && (lhs.hasLeadingComments == rhs.hasLeadingComments) && (!lhs.hasLeadingComments || lhs.leadingComments == rhs.leadingComments)
+          fieldCheck = fieldCheck && (lhs.hasTrailingComments == rhs.hasTrailingComments) && (!lhs.hasTrailingComments || lhs.trailingComments == rhs.trailingComments)
+          fieldCheck = fieldCheck && (lhs.leadingDetachedComments == rhs.leadingDetachedComments)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         // Identifies which part of the FileDescriptorProto was defined at this
         // location.
         // Each element is a field number or an index.  They form a path from
@@ -9637,16 +9675,16 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if !path.isEmpty {
-            var jsonArrayPath:Array<NSNumber> = []
+            var jsonArrayPath:Array<Int32> = []
               for oneValuePath in path {
-                jsonArrayPath.append(NSNumber(value:oneValuePath))
+                jsonArrayPath.append(oneValuePath)
               }
             jsonMap["path"] = jsonArrayPath
           }
           if !span.isEmpty {
-            var jsonArraySpan:Array<NSNumber> = []
+            var jsonArraySpan:Array<Int32> = []
               for oneValueSpan in span {
-                jsonArraySpan.append(NSNumber(value:oneValueSpan))
+                jsonArraySpan.append(oneValueSpan)
               }
             jsonMap["span"] = jsonArraySpan
           }
@@ -9657,7 +9695,11 @@ public extension Google.Protobuf {
             jsonMap["trailingComments"] = trailingComments
           }
           if !leadingDetachedComments.isEmpty {
-            jsonMap["leadingDetachedComments"] = leadingDetachedComments
+            var jsonArrayLeadingDetachedComments:Array<String> = []
+              for oneValueLeadingDetachedComments in leadingDetachedComments {
+                jsonArrayLeadingDetachedComments.append(oneValueLeadingDetachedComments)
+              }
+            jsonMap["leadingDetachedComments"] = jsonArrayLeadingDetachedComments
           }
           return jsonMap
         }
@@ -9919,17 +9961,17 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Location.Builder {
             let resultDecodedBuilder = Google.Protobuf.SourceCodeInfo.Location.Builder()
-            if let jsonValuePath = jsonMap["path"] as? Array<NSNumber> {
+            if let jsonValuePath = jsonMap["path"] as? Array<Int32> {
               var jsonArrayPath:Array<Int32> = []
               for oneValuePath in jsonValuePath {
-                jsonArrayPath.append(oneValuePath.int32Value)
+                jsonArrayPath.append(oneValuePath)
               }
               resultDecodedBuilder.path = jsonArrayPath
             }
-            if let jsonValueSpan = jsonMap["span"] as? Array<NSNumber> {
+            if let jsonValueSpan = jsonMap["span"] as? Array<Int32> {
               var jsonArraySpan:Array<Int32> = []
               for oneValueSpan in jsonValueSpan {
-                jsonArraySpan.append(oneValueSpan.int32Value)
+                jsonArraySpan.append(oneValueSpan)
               }
               resultDecodedBuilder.span = jsonArraySpan
             }
@@ -9940,7 +9982,11 @@ public extension Google.Protobuf {
               resultDecodedBuilder.trailingComments = jsonValueTrailingComments
             }
             if let jsonValueLeadingDetachedComments = jsonMap["leadingDetachedComments"] as? Array<String> {
-              resultDecodedBuilder.leadingDetachedComments = jsonValueLeadingDetachedComments
+              var jsonArrayLeadingDetachedComments:Array<String> = []
+              for oneValueLeadingDetachedComments in jsonValueLeadingDetachedComments {
+                jsonArrayLeadingDetachedComments.append(oneValueLeadingDetachedComments)
+              }
+              resultDecodedBuilder.leadingDetachedComments = jsonArrayLeadingDetachedComments
             }
             return resultDecodedBuilder
           }

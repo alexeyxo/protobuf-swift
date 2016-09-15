@@ -6,17 +6,6 @@ import Foundation
 import ProtocolBuffers
 
 
-public func == (lhs: UnitTestStruct, rhs: UnitTestStruct) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasTestStr == rhs.hasTestStr) && (!lhs.hasTestStr || lhs.testStr == rhs.testStr)
-  fieldCheck = fieldCheck && (lhs.hasTestInt == rhs.hasTestInt) && (!lhs.hasTestInt || lhs.testInt == rhs.testInt)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public struct UnittestStructRoot {
   public static var sharedInstance : UnittestStructRoot {
    struct Static {
@@ -36,6 +25,18 @@ public struct UnittestStructRoot {
 }
 
 final public class UnitTestStruct : GeneratedMessage {
+
+  public static func == (lhs: UnitTestStruct, rhs: UnitTestStruct) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasTestStr == rhs.hasTestStr) && (!lhs.hasTestStr || lhs.testStr == rhs.testStr)
+    fieldCheck = fieldCheck && (lhs.hasTestInt == rhs.hasTestInt) && (!lhs.hasTestInt || lhs.testInt == rhs.testInt)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   public fileprivate(set) var testStr:String = ""
   public fileprivate(set) var hasTestStr:Bool = false
 
@@ -102,7 +103,7 @@ final public class UnitTestStruct : GeneratedMessage {
       jsonMap["testStr"] = testStr
     }
     if hasTestInt {
-      jsonMap["testInt"] = NSNumber(value:testInt)
+      jsonMap["testInt"] = testInt
     }
     return jsonMap
   }
@@ -267,8 +268,8 @@ final public class UnitTestStruct : GeneratedMessage {
       if let jsonValueTestStr = jsonMap["testStr"] as? String {
         resultDecodedBuilder.testStr = jsonValueTestStr
       }
-      if let jsonValueTestInt = jsonMap["testInt"] as? NSNumber {
-        resultDecodedBuilder.testInt = jsonValueTestInt.int32Value
+      if let jsonValueTestInt = jsonMap["testInt"] as? Int32 {
+        resultDecodedBuilder.testInt = jsonValueTestInt
       }
       return resultDecodedBuilder
     }
