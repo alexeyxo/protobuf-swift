@@ -231,6 +231,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
         let returnMe:Google.Protobuf.NoGenericServicesTest.TestMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.NoGenericServicesTest.TestMessage) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         if other == Google.Protobuf.NoGenericServicesTest.TestMessage() {
          return self
@@ -238,10 +239,11 @@ public extension Google.Protobuf.NoGenericServicesTest {
         if other.hasA {
              a = other.a
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

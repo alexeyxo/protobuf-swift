@@ -184,6 +184,7 @@ public extension Bar {
         let returnMe:Bar.Foo = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Bar.Foo) throws -> Bar.Foo.Builder {
         if other == Bar.Foo() {
          return self
@@ -191,9 +192,10 @@ public extension Bar {
         if other.hasHello {
              hello = other.hello
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Bar.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

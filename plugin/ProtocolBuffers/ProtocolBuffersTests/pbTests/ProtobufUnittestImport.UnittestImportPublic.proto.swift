@@ -184,6 +184,7 @@ public extension ProtobufUnittestImport {
         let returnMe:ProtobufUnittestImport.PublicImportMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittestImport.PublicImportMessage) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
         if other == ProtobufUnittestImport.PublicImportMessage() {
          return self
@@ -191,9 +192,10 @@ public extension ProtobufUnittestImport {
         if other.hasE {
              e = other.e
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

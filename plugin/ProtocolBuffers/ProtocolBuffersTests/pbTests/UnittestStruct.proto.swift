@@ -224,6 +224,7 @@ final public class UnitTestStruct : GeneratedMessage {
       let returnMe:UnitTestStruct = builderResult
       return returnMe
     }
+    @discardableResult
     public func mergeFrom(other:UnitTestStruct) throws -> UnitTestStruct.Builder {
       if other == UnitTestStruct() {
        return self
@@ -234,9 +235,10 @@ final public class UnitTestStruct : GeneratedMessage {
       if other.hasTestInt {
            testInt = other.testInt
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }

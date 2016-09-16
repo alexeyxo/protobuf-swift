@@ -176,7 +176,7 @@ public extension ProtobufUnittest {
            messageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.message = messageBuilder_.getMessage()
            if message != nil {
-              _ = try! messageBuilder_.mergeFrom(other: message)
+              try! messageBuilder_.mergeFrom(other: message)
            }
         }
         return messageBuilder_
@@ -185,6 +185,7 @@ public extension ProtobufUnittest {
         self.message = value
         return self
       }
+      @discardableResult
       public func mergeMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         if builderResult.hasMessage {
           builderResult.message = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.message).mergeFrom(other: value).buildPartial()
@@ -220,16 +221,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestLiteImportsNonlite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestLiteImportsNonlite) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         if other == ProtobufUnittest.TestLiteImportsNonlite() {
          return self
         }
         if (other.hasMessage) {
-            _ = try mergeMessage(value: other.message)
+            try mergeMessage(value: other.message)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -245,7 +248,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasMessage {
-              _ = try subBuilder.mergeFrom(other: message)
+              try subBuilder.mergeFrom(other: message)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             message = subBuilder.buildPartial()

@@ -296,6 +296,7 @@ public extension Proto3ArenaUnittest {
             let returnMe:Proto3ArenaUnittest.TestAllTypes.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
             if other == Proto3ArenaUnittest.TestAllTypes.NestedMessage() {
              return self
@@ -303,9 +304,10 @@ public extension Proto3ArenaUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -2226,7 +2228,7 @@ public extension Proto3ArenaUnittest {
            optionalNestedMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -2235,6 +2237,7 @@ public extension Proto3ArenaUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -2277,7 +2280,7 @@ public extension Proto3ArenaUnittest {
            optionalForeignMessageBuilder_ = Proto3ArenaUnittest.ForeignMessage.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
+              try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
@@ -2286,6 +2289,7 @@ public extension Proto3ArenaUnittest {
         self.optionalForeignMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalForeignMessage(value:Proto3ArenaUnittest.ForeignMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalForeignMessage {
           builderResult.optionalForeignMessage = try Proto3ArenaUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
@@ -2328,7 +2332,7 @@ public extension Proto3ArenaUnittest {
            optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessage.Builder()
            builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
            if optionalImportMessage != nil {
-              _ = try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
+              try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
            }
         }
         return optionalImportMessageBuilder_
@@ -2337,6 +2341,7 @@ public extension Proto3ArenaUnittest {
         self.optionalImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalImportMessage {
           builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.builderWithPrototype(prototype:builderResult.optionalImportMessage).mergeFrom(other: value).buildPartial()
@@ -2471,7 +2476,7 @@ public extension Proto3ArenaUnittest {
            optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessage.Builder()
            builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
            if optionalPublicImportMessage != nil {
-              _ = try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
+              try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
            }
         }
         return optionalPublicImportMessageBuilder_
@@ -2480,6 +2485,7 @@ public extension Proto3ArenaUnittest {
         self.optionalPublicImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalPublicImportMessage {
           builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(prototype:builderResult.optionalPublicImportMessage).mergeFrom(other: value).buildPartial()
@@ -2522,7 +2528,7 @@ public extension Proto3ArenaUnittest {
            optionalLazyMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
+              try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
@@ -2531,6 +2537,7 @@ public extension Proto3ArenaUnittest {
         self.optionalLazyMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalLazyMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalLazyMessage {
           builderResult.optionalLazyMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
@@ -2964,7 +2971,7 @@ public extension Proto3ArenaUnittest {
            oneofNestedMessageBuilder_ = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
+              try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
@@ -2973,6 +2980,7 @@ public extension Proto3ArenaUnittest {
         self.oneofNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOneofNestedMessage(value:Proto3ArenaUnittest.TestAllTypes.NestedMessage) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if builderResult.hasOneofNestedMessage {
           builderResult.oneofNestedMessage = try Proto3ArenaUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
@@ -3054,6 +3062,7 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.TestAllTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.TestAllTypes) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
         if other == Proto3ArenaUnittest.TestAllTypes() {
          return self
@@ -3104,13 +3113,13 @@ public extension Proto3ArenaUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
+            try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
         if (other.hasOptionalImportMessage) {
-            _ = try mergeOptionalImportMessage(value: other.optionalImportMessage)
+            try mergeOptionalImportMessage(value: other.optionalImportMessage)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -3125,10 +3134,10 @@ public extension Proto3ArenaUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalPublicImportMessage) {
-            _ = try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
+            try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
         }
         if (other.hasOptionalLazyMessage) {
-            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
+            try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -3203,7 +3212,7 @@ public extension Proto3ArenaUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
+            try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -3211,9 +3220,10 @@ public extension Proto3ArenaUnittest {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -3274,7 +3284,7 @@ public extension Proto3ArenaUnittest {
           case 146:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -3282,7 +3292,7 @@ public extension Proto3ArenaUnittest {
           case 154:
             let subBuilder:Proto3ArenaUnittest.ForeignMessage.Builder = Proto3ArenaUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
-              _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
+              try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
@@ -3290,7 +3300,7 @@ public extension Proto3ArenaUnittest {
           case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalImportMessage)
+              try subBuilder.mergeFrom(other: optionalImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
@@ -3300,7 +3310,7 @@ public extension Proto3ArenaUnittest {
             if let enumsoptionalNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176:
@@ -3308,7 +3318,7 @@ public extension Proto3ArenaUnittest {
             if let enumsoptionalForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 194:
@@ -3320,7 +3330,7 @@ public extension Proto3ArenaUnittest {
           case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalPublicImportMessage)
+              try subBuilder.mergeFrom(other: optionalPublicImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
@@ -3328,7 +3338,7 @@ public extension Proto3ArenaUnittest {
           case 218:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
+              try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
@@ -3466,7 +3476,7 @@ public extension Proto3ArenaUnittest {
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -3479,7 +3489,7 @@ public extension Proto3ArenaUnittest {
             if let enumsrepeatedForeignEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -3501,7 +3511,7 @@ public extension Proto3ArenaUnittest {
           case 898:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
+              try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
@@ -4612,6 +4622,7 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.TestPackedTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.TestPackedTypes) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
         if other == Proto3ArenaUnittest.TestPackedTypes() {
          return self
@@ -4658,9 +4669,10 @@ public extension Proto3ArenaUnittest {
         if !other.packedEnum.isEmpty {
            builderResult.packedEnum += other.packedEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestPackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -4785,7 +4797,7 @@ public extension Proto3ArenaUnittest {
             if let enumspackedEnum = Proto3ArenaUnittest.ForeignEnum(rawValue:valueIntpackedEnum) {
                  builderResult.packedEnum.append(enumspackedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -5729,6 +5741,7 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.TestUnpackedTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.TestUnpackedTypes) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
         if other == Proto3ArenaUnittest.TestUnpackedTypes() {
          return self
@@ -5775,9 +5788,10 @@ public extension Proto3ArenaUnittest {
         if !other.repeatedNestedEnum.isEmpty {
            builderResult.repeatedNestedEnum += other.repeatedNestedEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestUnpackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -5902,7 +5916,7 @@ public extension Proto3ArenaUnittest {
             if let enumsrepeatedNestedEnum = Proto3ArenaUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 14, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 14, value:Int64(valueIntrepeatedNestedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -6205,7 +6219,7 @@ public extension Proto3ArenaUnittest {
            childBuilder_ = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
            builderResult.child = childBuilder_.getMessage()
            if child != nil {
-              _ = try! childBuilder_.mergeFrom(other: child)
+              try! childBuilder_.mergeFrom(other: child)
            }
         }
         return childBuilder_
@@ -6214,6 +6228,7 @@ public extension Proto3ArenaUnittest {
         self.child = value
         return self
       }
+      @discardableResult
       public func mergeChild(value:Proto3ArenaUnittest.NestedTestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasChild {
           builderResult.child = try Proto3ArenaUnittest.NestedTestAllTypes.builderWithPrototype(prototype:builderResult.child).mergeFrom(other: value).buildPartial()
@@ -6256,7 +6271,7 @@ public extension Proto3ArenaUnittest {
            payloadBuilder_ = Proto3ArenaUnittest.TestAllTypes.Builder()
            builderResult.payload = payloadBuilder_.getMessage()
            if payload != nil {
-              _ = try! payloadBuilder_.mergeFrom(other: payload)
+              try! payloadBuilder_.mergeFrom(other: payload)
            }
         }
         return payloadBuilder_
@@ -6265,6 +6280,7 @@ public extension Proto3ArenaUnittest {
         self.payload = value
         return self
       }
+      @discardableResult
       public func mergePayload(value:Proto3ArenaUnittest.TestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasPayload {
           builderResult.payload = try Proto3ArenaUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.payload).mergeFrom(other: value).buildPartial()
@@ -6300,19 +6316,21 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.NestedTestAllTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.NestedTestAllTypes) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
         if other == Proto3ArenaUnittest.NestedTestAllTypes() {
          return self
         }
         if (other.hasChild) {
-            _ = try mergeChild(value: other.child)
+            try mergeChild(value: other.child)
         }
         if (other.hasPayload) {
-            _ = try mergePayload(value: other.payload)
+            try mergePayload(value: other.payload)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.NestedTestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -6328,7 +6346,7 @@ public extension Proto3ArenaUnittest {
           case 10:
             let subBuilder:Proto3ArenaUnittest.NestedTestAllTypes.Builder = Proto3ArenaUnittest.NestedTestAllTypes.Builder()
             if hasChild {
-              _ = try subBuilder.mergeFrom(other: child)
+              try subBuilder.mergeFrom(other: child)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             child = subBuilder.buildPartial()
@@ -6336,7 +6354,7 @@ public extension Proto3ArenaUnittest {
           case 18:
             let subBuilder:Proto3ArenaUnittest.TestAllTypes.Builder = Proto3ArenaUnittest.TestAllTypes.Builder()
             if hasPayload {
-              _ = try subBuilder.mergeFrom(other: payload)
+              try subBuilder.mergeFrom(other: payload)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             payload = subBuilder.buildPartial()
@@ -6532,6 +6550,7 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.ForeignMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.ForeignMessage) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
         if other == Proto3ArenaUnittest.ForeignMessage() {
          return self
@@ -6539,9 +6558,10 @@ public extension Proto3ArenaUnittest {
         if other.hasC {
              c = other.c
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -6700,13 +6720,15 @@ public extension Proto3ArenaUnittest {
         let returnMe:Proto3ArenaUnittest.TestEmptyMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3ArenaUnittest.TestEmptyMessage) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
         if other == Proto3ArenaUnittest.TestEmptyMessage() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3ArenaUnittest.TestEmptyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

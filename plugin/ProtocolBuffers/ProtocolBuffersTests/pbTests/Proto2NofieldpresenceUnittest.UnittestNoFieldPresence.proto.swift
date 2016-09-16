@@ -288,6 +288,7 @@ public extension Proto2NofieldpresenceUnittest {
             let returnMe:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             if other == Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage() {
              return self
@@ -295,9 +296,10 @@ public extension Proto2NofieldpresenceUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -2185,7 +2187,7 @@ public extension Proto2NofieldpresenceUnittest {
            optionalNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -2194,6 +2196,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -2236,7 +2239,7 @@ public extension Proto2NofieldpresenceUnittest {
            optionalForeignMessageBuilder_ = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
+              try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
@@ -2245,6 +2248,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.optionalForeignMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalForeignMessage(value:Proto2NofieldpresenceUnittest.ForeignMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalForeignMessage {
           builderResult.optionalForeignMessage = try Proto2NofieldpresenceUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
@@ -2287,7 +2291,7 @@ public extension Proto2NofieldpresenceUnittest {
            optionalProto2MessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.optionalProto2Message = optionalProto2MessageBuilder_.getMessage()
            if optionalProto2Message != nil {
-              _ = try! optionalProto2MessageBuilder_.mergeFrom(other: optionalProto2Message)
+              try! optionalProto2MessageBuilder_.mergeFrom(other: optionalProto2Message)
            }
         }
         return optionalProto2MessageBuilder_
@@ -2296,6 +2300,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.optionalProto2Message = value
         return self
       }
+      @discardableResult
       public func mergeOptionalProto2Message(value:ProtobufUnittest.TestAllTypes) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalProto2Message {
           builderResult.optionalProto2Message = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.optionalProto2Message).mergeFrom(other: value).buildPartial()
@@ -2430,7 +2435,7 @@ public extension Proto2NofieldpresenceUnittest {
            optionalLazyMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
+              try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
@@ -2439,6 +2444,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.optionalLazyMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalLazyMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalLazyMessage {
           builderResult.optionalLazyMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
@@ -2872,7 +2878,7 @@ public extension Proto2NofieldpresenceUnittest {
            oneofNestedMessageBuilder_ = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
+              try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
@@ -2881,6 +2887,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.oneofNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOneofNestedMessage(value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if builderResult.hasOneofNestedMessage {
           builderResult.oneofNestedMessage = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
@@ -2962,6 +2969,7 @@ public extension Proto2NofieldpresenceUnittest {
         let returnMe:Proto2NofieldpresenceUnittest.TestAllTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto2NofieldpresenceUnittest.TestAllTypes) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         if other == Proto2NofieldpresenceUnittest.TestAllTypes() {
          return self
@@ -3012,13 +3020,13 @@ public extension Proto2NofieldpresenceUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
+            try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
         if (other.hasOptionalProto2Message) {
-            _ = try mergeOptionalProto2Message(value: other.optionalProto2Message)
+            try mergeOptionalProto2Message(value: other.optionalProto2Message)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -3033,7 +3041,7 @@ public extension Proto2NofieldpresenceUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalLazyMessage) {
-            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
+            try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -3108,7 +3116,7 @@ public extension Proto2NofieldpresenceUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
+            try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -3116,9 +3124,10 @@ public extension Proto2NofieldpresenceUnittest {
         if other.hasOneofEnum {
              oneofEnum = other.oneofEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -3179,7 +3188,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 146:
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -3187,7 +3196,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 154:
             let subBuilder:Proto2NofieldpresenceUnittest.ForeignMessage.Builder = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
-              _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
+              try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
@@ -3195,7 +3204,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 162:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasOptionalProto2Message {
-              _ = try subBuilder.mergeFrom(other: optionalProto2Message)
+              try subBuilder.mergeFrom(other: optionalProto2Message)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalProto2Message = subBuilder.buildPartial()
@@ -3205,7 +3214,7 @@ public extension Proto2NofieldpresenceUnittest {
             if let enumsoptionalNestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176:
@@ -3213,7 +3222,7 @@ public extension Proto2NofieldpresenceUnittest {
             if let enumsoptionalForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 194:
@@ -3225,7 +3234,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 242:
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
+              try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
@@ -3363,7 +3372,7 @@ public extension Proto2NofieldpresenceUnittest {
             if let enumsrepeatedNestedEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -3376,7 +3385,7 @@ public extension Proto2NofieldpresenceUnittest {
             if let enumsrepeatedForeignEnum = Proto2NofieldpresenceUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -3398,7 +3407,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 898:
             let subBuilder:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
+              try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
@@ -3411,7 +3420,7 @@ public extension Proto2NofieldpresenceUnittest {
             if let enumsoneofEnum = Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoneofEnum){
                  oneofEnum = enumsoneofEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 114, value:Int64(valueIntoneofEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 114, value:Int64(valueIntoneofEnum))
             }
 
           default:
@@ -3848,7 +3857,7 @@ public extension Proto2NofieldpresenceUnittest {
            proto2Builder_ = ProtobufUnittest.TestRequired.Builder()
            builderResult.proto2 = proto2Builder_.getMessage()
            if proto2 != nil {
-              _ = try! proto2Builder_.mergeFrom(other: proto2)
+              try! proto2Builder_.mergeFrom(other: proto2)
            }
         }
         return proto2Builder_
@@ -3857,6 +3866,7 @@ public extension Proto2NofieldpresenceUnittest {
         self.proto2 = value
         return self
       }
+      @discardableResult
       public func mergeProto2(value:ProtobufUnittest.TestRequired) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         if builderResult.hasProto2 {
           builderResult.proto2 = try ProtobufUnittest.TestRequired.builderWithPrototype(prototype:builderResult.proto2).mergeFrom(other: value).buildPartial()
@@ -3892,16 +3902,18 @@ public extension Proto2NofieldpresenceUnittest {
         let returnMe:Proto2NofieldpresenceUnittest.TestProto2Required = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto2NofieldpresenceUnittest.TestProto2Required) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         if other == Proto2NofieldpresenceUnittest.TestProto2Required() {
          return self
         }
         if (other.hasProto2) {
-            _ = try mergeProto2(value: other.proto2)
+            try mergeProto2(value: other.proto2)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -3917,7 +3929,7 @@ public extension Proto2NofieldpresenceUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestRequired.Builder = ProtobufUnittest.TestRequired.Builder()
             if hasProto2 {
-              _ = try subBuilder.mergeFrom(other: proto2)
+              try subBuilder.mergeFrom(other: proto2)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             proto2 = subBuilder.buildPartial()
@@ -4109,6 +4121,7 @@ public extension Proto2NofieldpresenceUnittest {
         let returnMe:Proto2NofieldpresenceUnittest.ForeignMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto2NofieldpresenceUnittest.ForeignMessage) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         if other == Proto2NofieldpresenceUnittest.ForeignMessage() {
          return self
@@ -4116,9 +4129,10 @@ public extension Proto2NofieldpresenceUnittest {
         if other.hasC {
              c = other.c
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

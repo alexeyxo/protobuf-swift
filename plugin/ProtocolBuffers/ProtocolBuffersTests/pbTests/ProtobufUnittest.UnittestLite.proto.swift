@@ -1319,6 +1319,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.NestedMessage() {
              return self
@@ -1326,9 +1327,10 @@ public extension ProtobufUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1534,6 +1536,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.OptionalGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.OptionalGroup() {
              return self
@@ -1541,9 +1544,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1749,6 +1753,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypesLite.RepeatedGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestAllTypesLite.RepeatedGroup() {
              return self
@@ -1756,9 +1761,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -4014,7 +4020,7 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
+              try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
@@ -4023,6 +4029,7 @@ public extension ProtobufUnittest {
         self.optionalGroup = value
         return self
       }
+      @discardableResult
       public func mergeOptionalGroup(value:ProtobufUnittest.TestAllTypesLite.OptionalGroup) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalGroup {
           builderResult.optionalGroup = try ProtobufUnittest.TestAllTypesLite.OptionalGroup.builderWithPrototype(prototype:builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
@@ -4065,7 +4072,7 @@ public extension ProtobufUnittest {
            optionalNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -4074,6 +4081,7 @@ public extension ProtobufUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -4116,7 +4124,7 @@ public extension ProtobufUnittest {
            optionalForeignMessageBuilder_ = ProtobufUnittest.ForeignMessageLite.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
+              try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
@@ -4125,6 +4133,7 @@ public extension ProtobufUnittest {
         self.optionalForeignMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalForeignMessage(value:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalForeignMessage {
           builderResult.optionalForeignMessage = try ProtobufUnittest.ForeignMessageLite.builderWithPrototype(prototype:builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
@@ -4167,7 +4176,7 @@ public extension ProtobufUnittest {
            optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessageLite.Builder()
            builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
            if optionalImportMessage != nil {
-              _ = try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
+              try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
            }
         }
         return optionalImportMessageBuilder_
@@ -4176,6 +4185,7 @@ public extension ProtobufUnittest {
         self.optionalImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalImportMessage {
           builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessageLite.builderWithPrototype(prototype:builderResult.optionalImportMessage).mergeFrom(other: value).buildPartial()
@@ -4333,7 +4343,7 @@ public extension ProtobufUnittest {
            optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessageLite.Builder()
            builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
            if optionalPublicImportMessage != nil {
-              _ = try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
+              try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
            }
         }
         return optionalPublicImportMessageBuilder_
@@ -4342,6 +4352,7 @@ public extension ProtobufUnittest {
         self.optionalPublicImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessageLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalPublicImportMessage {
           builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessageLite.builderWithPrototype(prototype:builderResult.optionalPublicImportMessage).mergeFrom(other: value).buildPartial()
@@ -4384,7 +4395,7 @@ public extension ProtobufUnittest {
            optionalLazyMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
+              try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
@@ -4393,6 +4404,7 @@ public extension ProtobufUnittest {
         self.optionalLazyMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalLazyMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOptionalLazyMessage {
           builderResult.optionalLazyMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype:builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
@@ -5318,7 +5330,7 @@ public extension ProtobufUnittest {
            oneofNestedMessageBuilder_ = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
+              try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
@@ -5327,6 +5339,7 @@ public extension ProtobufUnittest {
         self.oneofNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOneofNestedMessage(value:ProtobufUnittest.TestAllTypesLite.NestedMessage) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if builderResult.hasOneofNestedMessage {
           builderResult.oneofNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.builderWithPrototype(prototype:builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
@@ -5408,6 +5421,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllTypesLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         if other == ProtobufUnittest.TestAllTypesLite() {
          return self
@@ -5458,16 +5472,16 @@ public extension ProtobufUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalGroup) {
-            _ = try mergeOptionalGroup(value: other.optionalGroup)
+            try mergeOptionalGroup(value: other.optionalGroup)
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
+            try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
         if (other.hasOptionalImportMessage) {
-            _ = try mergeOptionalImportMessage(value: other.optionalImportMessage)
+            try mergeOptionalImportMessage(value: other.optionalImportMessage)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -5485,10 +5499,10 @@ public extension ProtobufUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalPublicImportMessage) {
-            _ = try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
+            try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
         }
         if (other.hasOptionalLazyMessage) {
-            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
+            try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -5629,7 +5643,7 @@ public extension ProtobufUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
+            try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -5637,9 +5651,10 @@ public extension ProtobufUnittest {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -5700,7 +5715,7 @@ public extension ProtobufUnittest {
           case 131:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
             if hasOptionalGroup {
-              _ = try subBuilder.mergeFrom(other: optionalGroup)
+              try subBuilder.mergeFrom(other: optionalGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 16, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
@@ -5708,7 +5723,7 @@ public extension ProtobufUnittest {
           case 146:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -5716,7 +5731,7 @@ public extension ProtobufUnittest {
           case 154:
             let subBuilder:ProtobufUnittest.ForeignMessageLite.Builder = ProtobufUnittest.ForeignMessageLite.Builder()
             if hasOptionalForeignMessage {
-              _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
+              try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
@@ -5724,7 +5739,7 @@ public extension ProtobufUnittest {
           case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessageLite.Builder = ProtobufUnittestImport.ImportMessageLite.Builder()
             if hasOptionalImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalImportMessage)
+              try subBuilder.mergeFrom(other: optionalImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
@@ -5734,7 +5749,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176:
@@ -5742,7 +5757,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 184:
@@ -5750,7 +5765,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntoptionalImportEnum){
                  optionalImportEnum = enumsoptionalImportEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 23, value:Int64(valueIntoptionalImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 23, value:Int64(valueIntoptionalImportEnum))
             }
 
           case 194:
@@ -5762,7 +5777,7 @@ public extension ProtobufUnittest {
           case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessageLite.Builder = ProtobufUnittestImport.PublicImportMessageLite.Builder()
             if hasOptionalPublicImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalPublicImportMessage)
+              try subBuilder.mergeFrom(other: optionalPublicImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
@@ -5770,7 +5785,7 @@ public extension ProtobufUnittest {
           case 218:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
+              try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
@@ -5845,7 +5860,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
           case 416:
@@ -5853,7 +5868,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
           case 424:
@@ -5861,7 +5876,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntrepeatedImportEnum) {
                  builderResult.repeatedImportEnum.append(enumsrepeatedImportEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 53, value:Int64(valueIntrepeatedImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 53, value:Int64(valueIntrepeatedImportEnum))
             }
 
           case 434:
@@ -5925,7 +5940,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultNestedEnum = ProtobufUnittest.TestAllTypesLite.NestedEnum(rawValue:valueIntdefaultNestedEnum){
                  defaultNestedEnum = enumsdefaultNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 81, value:Int64(valueIntdefaultNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 81, value:Int64(valueIntdefaultNestedEnum))
             }
 
           case 656:
@@ -5933,7 +5948,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultForeignEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntdefaultForeignEnum){
                  defaultForeignEnum = enumsdefaultForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 82, value:Int64(valueIntdefaultForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 82, value:Int64(valueIntdefaultForeignEnum))
             }
 
           case 664:
@@ -5941,7 +5956,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnumLite(rawValue:valueIntdefaultImportEnum){
                  defaultImportEnum = enumsdefaultImportEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 83, value:Int64(valueIntdefaultImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 83, value:Int64(valueIntdefaultImportEnum))
             }
 
           case 674:
@@ -5956,7 +5971,7 @@ public extension ProtobufUnittest {
           case 898:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
+              try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
@@ -6493,6 +6508,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ForeignMessageLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.ForeignMessageLite) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
         if other == ProtobufUnittest.ForeignMessageLite() {
          return self
@@ -6500,9 +6516,10 @@ public extension ProtobufUnittest {
         if other.hasC {
              c = other.c
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -7360,6 +7377,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedTypesLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestPackedTypesLite) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
         if other == ProtobufUnittest.TestPackedTypesLite() {
          return self
@@ -7406,9 +7424,10 @@ public extension ProtobufUnittest {
         if !other.packedEnum.isEmpty {
            builderResult.packedEnum += other.packedEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -7533,7 +7552,7 @@ public extension ProtobufUnittest {
             if let enumspackedEnum = ProtobufUnittest.ForeignEnumLite(rawValue:valueIntpackedEnum) {
                  builderResult.packedEnum.append(enumspackedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -7784,14 +7803,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllExtensionsLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestAllExtensionsLite) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
         if other == ProtobufUnittest.TestAllExtensionsLite() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -7985,6 +8006,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.OptionalGroupExtensionLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.OptionalGroupExtensionLite) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
         if other == ProtobufUnittest.OptionalGroupExtensionLite() {
          return self
@@ -7992,9 +8014,10 @@ public extension ProtobufUnittest {
         if other.hasA {
              a = other.a
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8194,6 +8217,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.RepeatedGroupExtensionLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.RepeatedGroupExtensionLite) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
         if other == ProtobufUnittest.RepeatedGroupExtensionLite() {
          return self
@@ -8201,9 +8225,10 @@ public extension ProtobufUnittest {
         if other.hasA {
              a = other.a
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8369,14 +8394,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedExtensionsLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestPackedExtensionsLite) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
         if other == ProtobufUnittest.TestPackedExtensionsLite() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8531,13 +8558,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestNestedExtensionLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestNestedExtensionLite) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
         if other == ProtobufUnittest.TestNestedExtensionLite() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8734,6 +8763,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestDeprecatedLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestDeprecatedLite) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
         if other == ProtobufUnittest.TestDeprecatedLite() {
          return self
@@ -8741,9 +8771,10 @@ public extension ProtobufUnittest {
         if other.hasDeprecatedField {
              deprecatedField = other.deprecatedField
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8978,7 +9009,7 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      _ = try! field1Builder_.mergeFrom(other: field1)
+                      try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
@@ -8987,6 +9018,7 @@ public extension ProtobufUnittest {
                 self.field1 = value
                 return self
               }
+              @discardableResult
               public func mergeField1(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 if builderResult.hasField1 {
                   builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.field1).mergeFrom(other: value).buildPartial()
@@ -9022,16 +9054,18 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1 = builderResult
                 return returnMe
               }
+              @discardableResult
               public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1() {
                  return self
                 }
                 if (other.hasField1) {
-                    _ = try mergeField1(value: other.field1)
+                    try mergeField1(value: other.field1)
                 }
-                _ = try merge(unknownField: other.unknownFields)
+                try merge(unknownField: other.unknownFields)
                 return self
               }
+              @discardableResult
               override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
@@ -9047,7 +9081,7 @@ public extension ProtobufUnittest {
                   case 90:
                     let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                     if hasField1 {
-                      _ = try subBuilder.mergeFrom(other: field1)
+                      try subBuilder.mergeFrom(other: field1)
                     }
                     try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
@@ -9234,7 +9268,7 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      _ = try! field1Builder_.mergeFrom(other: field1)
+                      try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
@@ -9243,6 +9277,7 @@ public extension ProtobufUnittest {
                 self.field1 = value
                 return self
               }
+              @discardableResult
               public func mergeField1(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 if builderResult.hasField1 {
                   builderResult.field1 = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.field1).mergeFrom(other: value).buildPartial()
@@ -9278,16 +9313,18 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2 = builderResult
                 return returnMe
               }
+              @discardableResult
               public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2() {
                  return self
                 }
                 if (other.hasField1) {
-                    _ = try mergeField1(value: other.field1)
+                    try mergeField1(value: other.field1)
                 }
-                _ = try merge(unknownField: other.unknownFields)
+                try merge(unknownField: other.unknownFields)
                 return self
               }
+              @discardableResult
               override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
@@ -9303,7 +9340,7 @@ public extension ProtobufUnittest {
                   case 170:
                     let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                     if hasField1 {
-                      _ = try subBuilder.mergeFrom(other: field1)
+                      try subBuilder.mergeFrom(other: field1)
                     }
                     try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
@@ -9729,6 +9766,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator() {
              return self
@@ -9754,9 +9792,10 @@ public extension ProtobufUnittest {
             if !other.ext2.isEmpty  {
                builderResult.ext2 += other.ext2
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -10045,7 +10084,7 @@ public extension ProtobufUnittest {
                optionalGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                builderResult.optionalGroupAllTypes = optionalGroupAllTypesBuilder_.getMessage()
                if optionalGroupAllTypes != nil {
-                  _ = try! optionalGroupAllTypesBuilder_.mergeFrom(other: optionalGroupAllTypes)
+                  try! optionalGroupAllTypesBuilder_.mergeFrom(other: optionalGroupAllTypes)
                }
             }
             return optionalGroupAllTypesBuilder_
@@ -10054,6 +10093,7 @@ public extension ProtobufUnittest {
             self.optionalGroupAllTypes = value
             return self
           }
+          @discardableResult
           public func mergeOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             if builderResult.hasOptionalGroupAllTypes {
               builderResult.optionalGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.optionalGroupAllTypes).mergeFrom(other: value).buildPartial()
@@ -10089,16 +10129,18 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.OptionalGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.OptionalGroup() {
              return self
             }
             if (other.hasOptionalGroupAllTypes) {
-                _ = try mergeOptionalGroupAllTypes(value: other.optionalGroupAllTypes)
+                try mergeOptionalGroupAllTypes(value: other.optionalGroupAllTypes)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -10114,7 +10156,7 @@ public extension ProtobufUnittest {
               case 90:
                 let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                 if hasOptionalGroupAllTypes {
-                  _ = try subBuilder.mergeFrom(other: optionalGroupAllTypes)
+                  try subBuilder.mergeFrom(other: optionalGroupAllTypes)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 optionalGroupAllTypes = subBuilder.buildPartial()
@@ -10301,7 +10343,7 @@ public extension ProtobufUnittest {
                repeatedGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
                builderResult.repeatedGroupAllTypes = repeatedGroupAllTypesBuilder_.getMessage()
                if repeatedGroupAllTypes != nil {
-                  _ = try! repeatedGroupAllTypesBuilder_.mergeFrom(other: repeatedGroupAllTypes)
+                  try! repeatedGroupAllTypesBuilder_.mergeFrom(other: repeatedGroupAllTypes)
                }
             }
             return repeatedGroupAllTypesBuilder_
@@ -10310,6 +10352,7 @@ public extension ProtobufUnittest {
             self.repeatedGroupAllTypes = value
             return self
           }
+          @discardableResult
           public func mergeRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             if builderResult.hasRepeatedGroupAllTypes {
               builderResult.repeatedGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.repeatedGroupAllTypes).mergeFrom(other: value).buildPartial()
@@ -10345,16 +10388,18 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestParsingMergeLite.RepeatedGroup() {
              return self
             }
             if (other.hasRepeatedGroupAllTypes) {
-                _ = try mergeRepeatedGroupAllTypes(value: other.repeatedGroupAllTypes)
+                try mergeRepeatedGroupAllTypes(value: other.repeatedGroupAllTypes)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -10370,7 +10415,7 @@ public extension ProtobufUnittest {
               case 170:
                 let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
                 if hasRepeatedGroupAllTypes {
-                  _ = try subBuilder.mergeFrom(other: repeatedGroupAllTypes)
+                  try subBuilder.mergeFrom(other: repeatedGroupAllTypes)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 repeatedGroupAllTypes = subBuilder.buildPartial()
@@ -10657,7 +10702,7 @@ public extension ProtobufUnittest {
            requiredAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
            builderResult.requiredAllTypes = requiredAllTypesBuilder_.getMessage()
            if requiredAllTypes != nil {
-              _ = try! requiredAllTypesBuilder_.mergeFrom(other: requiredAllTypes)
+              try! requiredAllTypesBuilder_.mergeFrom(other: requiredAllTypes)
            }
         }
         return requiredAllTypesBuilder_
@@ -10666,6 +10711,7 @@ public extension ProtobufUnittest {
         self.requiredAllTypes = value
         return self
       }
+      @discardableResult
       public func mergeRequiredAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasRequiredAllTypes {
           builderResult.requiredAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.requiredAllTypes).mergeFrom(other: value).buildPartial()
@@ -10708,7 +10754,7 @@ public extension ProtobufUnittest {
            optionalAllTypesBuilder_ = ProtobufUnittest.TestAllTypesLite.Builder()
            builderResult.optionalAllTypes = optionalAllTypesBuilder_.getMessage()
            if optionalAllTypes != nil {
-              _ = try! optionalAllTypesBuilder_.mergeFrom(other: optionalAllTypes)
+              try! optionalAllTypesBuilder_.mergeFrom(other: optionalAllTypes)
            }
         }
         return optionalAllTypesBuilder_
@@ -10717,6 +10763,7 @@ public extension ProtobufUnittest {
         self.optionalAllTypes = value
         return self
       }
+      @discardableResult
       public func mergeOptionalAllTypes(value:ProtobufUnittest.TestAllTypesLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasOptionalAllTypes {
           builderResult.optionalAllTypes = try ProtobufUnittest.TestAllTypesLite.builderWithPrototype(prototype:builderResult.optionalAllTypes).mergeFrom(other: value).buildPartial()
@@ -10775,7 +10822,7 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
+              try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
@@ -10784,6 +10831,7 @@ public extension ProtobufUnittest {
         self.optionalGroup = value
         return self
       }
+      @discardableResult
       public func mergeOptionalGroup(value:ProtobufUnittest.TestParsingMergeLite.OptionalGroup) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if builderResult.hasOptionalGroup {
           builderResult.optionalGroup = try ProtobufUnittest.TestParsingMergeLite.OptionalGroup.builderWithPrototype(prototype:builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
@@ -10835,29 +10883,31 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestParsingMergeLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestParsingMergeLite) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         if other == ProtobufUnittest.TestParsingMergeLite() {
          return self
         }
         if (other.hasRequiredAllTypes) {
-            _ = try mergeRequiredAllTypes(value: other.requiredAllTypes)
+            try mergeRequiredAllTypes(value: other.requiredAllTypes)
         }
         if (other.hasOptionalAllTypes) {
-            _ = try mergeOptionalAllTypes(value: other.optionalAllTypes)
+            try mergeOptionalAllTypes(value: other.optionalAllTypes)
         }
         if !other.repeatedAllTypes.isEmpty  {
            builderResult.repeatedAllTypes += other.repeatedAllTypes
         }
         if (other.hasOptionalGroup) {
-            _ = try mergeOptionalGroup(value: other.optionalGroup)
+            try mergeOptionalGroup(value: other.optionalGroup)
         }
         if !other.repeatedGroup.isEmpty  {
            builderResult.repeatedGroup += other.repeatedGroup
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -10873,7 +10923,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
             if hasRequiredAllTypes {
-              _ = try subBuilder.mergeFrom(other: requiredAllTypes)
+              try subBuilder.mergeFrom(other: requiredAllTypes)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             requiredAllTypes = subBuilder.buildPartial()
@@ -10881,7 +10931,7 @@ public extension ProtobufUnittest {
           case 18:
             let subBuilder:ProtobufUnittest.TestAllTypesLite.Builder = ProtobufUnittest.TestAllTypesLite.Builder()
             if hasOptionalAllTypes {
-              _ = try subBuilder.mergeFrom(other: optionalAllTypes)
+              try subBuilder.mergeFrom(other: optionalAllTypes)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalAllTypes = subBuilder.buildPartial()
@@ -10894,7 +10944,7 @@ public extension ProtobufUnittest {
           case 83:
             let subBuilder:ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder = ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
             if hasOptionalGroup {
-              _ = try subBuilder.mergeFrom(other: optionalGroup)
+              try subBuilder.mergeFrom(other: optionalGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 10, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
@@ -11074,13 +11124,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessageLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEmptyMessageLite) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
         if other == ProtobufUnittest.TestEmptyMessageLite() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11242,14 +11294,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessageWithExtensionsLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEmptyMessageWithExtensionsLite) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
         if other == ProtobufUnittest.TestEmptyMessageWithExtensionsLite() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

@@ -184,6 +184,7 @@ public extension SwiftProtobufUnittest {
         let returnMe:SwiftProtobufUnittest.MapMessageValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         if other == SwiftProtobufUnittest.MapMessageValue() {
          return self
@@ -191,9 +192,10 @@ public extension SwiftProtobufUnittest {
         if other.hasValueInMapMessage {
              valueInMapMessage = other.valueInMapMessage
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -456,6 +458,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry() {
              return self
@@ -466,9 +469,10 @@ public extension SwiftProtobufUnittest {
             if other.hasValue {
                  value = other.value
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -722,6 +726,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry() {
              return self
@@ -732,9 +737,10 @@ public extension SwiftProtobufUnittest {
             if other.hasValue {
                  value = other.value
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -988,6 +994,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry() {
              return self
@@ -998,9 +1005,10 @@ public extension SwiftProtobufUnittest {
             if other.hasValue {
                  value = other.value
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1254,6 +1262,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry() {
              return self
@@ -1264,9 +1273,10 @@ public extension SwiftProtobufUnittest {
             if other.hasValue {
                  value = other.value
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1511,7 +1521,7 @@ public extension SwiftProtobufUnittest {
                valueBuilder_ = SwiftProtobufUnittest.MapMessageValue.Builder()
                builderResult.value = valueBuilder_.getMessage()
                if value != nil {
-                  _ = try! valueBuilder_.mergeFrom(other: value)
+                  try! valueBuilder_.mergeFrom(other: value)
                }
             }
             return valueBuilder_
@@ -1520,6 +1530,7 @@ public extension SwiftProtobufUnittest {
             self.value = value
             return self
           }
+          @discardableResult
           public func mergeValue(value:SwiftProtobufUnittest.MapMessageValue) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             if builderResult.hasValue {
               builderResult.value = try SwiftProtobufUnittest.MapMessageValue.builderWithPrototype(prototype:builderResult.value).mergeFrom(other: value).buildPartial()
@@ -1555,6 +1566,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry() {
              return self
@@ -1563,11 +1575,12 @@ public extension SwiftProtobufUnittest {
                  key = other.key
             }
             if (other.hasValue) {
-                _ = try mergeValue(value: other.value)
+                try mergeValue(value: other.value)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1586,7 +1599,7 @@ public extension SwiftProtobufUnittest {
               case 18:
                 let subBuilder:SwiftProtobufUnittest.MapMessageValue.Builder = SwiftProtobufUnittest.MapMessageValue.Builder()
                 if hasValue {
-                  _ = try subBuilder.mergeFrom(other: value)
+                  try subBuilder.mergeFrom(other: value)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 value = subBuilder.buildPartial()
@@ -1826,6 +1839,7 @@ public extension SwiftProtobufUnittest {
             let returnMe:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             if other == SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry() {
              return self
@@ -1836,9 +1850,10 @@ public extension SwiftProtobufUnittest {
             if other.hasValue {
                  value = other.value
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -1859,7 +1874,7 @@ public extension SwiftProtobufUnittest {
                 if let enumsvalue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue(rawValue:valueIntvalue){
                      value = enumsvalue
                 } else {
-                     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntvalue))
+                     try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntvalue))
                 }
 
               default:
@@ -2354,6 +2369,7 @@ public extension SwiftProtobufUnittest {
         let returnMe:SwiftProtobufUnittest.MessageContainsMap = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:SwiftProtobufUnittest.MessageContainsMap) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         if other == SwiftProtobufUnittest.MessageContainsMap() {
          return self
@@ -2376,9 +2392,10 @@ public extension SwiftProtobufUnittest {
         if other.hasMapInt32Enum {
              mapInt32Enum = other.mapInt32Enum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

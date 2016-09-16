@@ -261,6 +261,7 @@ public extension UnittestDropUnknownFields {
         let returnMe:UnittestDropUnknownFields.Foo = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
         if other == UnittestDropUnknownFields.Foo() {
          return self
@@ -271,9 +272,10 @@ public extension UnittestDropUnknownFields {
         if other.hasEnumValue {
              enumValue = other.enumValue
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -294,7 +296,7 @@ public extension UnittestDropUnknownFields {
             if let enumsenumValue = UnittestDropUnknownFields.Foo.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
             }
 
           default:
@@ -607,6 +609,7 @@ public extension UnittestDropUnknownFields {
         let returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         if other == UnittestDropUnknownFields.FooWithExtraFields() {
          return self
@@ -620,9 +623,10 @@ public extension UnittestDropUnknownFields {
         if other.hasExtraInt32Value {
              extraInt32Value = other.extraInt32Value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -643,7 +647,7 @@ public extension UnittestDropUnknownFields {
             if let enumsenumValue = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
             }
 
           case 24:
