@@ -187,6 +187,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SourceContext = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.SourceContext) throws -> Google.Protobuf.SourceContext.Builder {
         if other == Google.Protobuf.SourceContext() {
          return self
@@ -194,9 +195,10 @@ public extension Google.Protobuf {
         if other.hasFileName {
              fileName = other.fileName
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

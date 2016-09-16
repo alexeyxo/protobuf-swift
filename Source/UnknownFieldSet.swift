@@ -141,7 +141,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             fields = Dictionary()
             lastFieldNumber = 0
         }
-        
+        @discardableResult
         public func addField(field:Field, number:Int32) throws -> UnknownFieldSet.Builder {
             guard number != 0 else {
                 throw ProtocolBuffersError.illegalArgument("Illegal Field Number")
@@ -211,7 +211,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             
             return number == lastFieldNumber || (fields[number] != nil)
         }
-        
+        @discardableResult
         public func mergeField(field:Field, number:Int32) throws -> UnknownFieldSet.Builder {
             guard number != 0 else {
                 throw ProtocolBuffersError.illegalArgument("Illegal Field Number")
@@ -225,7 +225,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             }
             return self
         }
-        
+        @discardableResult
         public func merge(unknownFields:UnknownFieldSet) throws -> UnknownFieldSet.Builder {
             for number in unknownFields.fields.keys {
                 let field:Field = unknownFields.fields[number]!
@@ -234,10 +234,10 @@ public class UnknownFieldSet:Hashable,Equatable {
             return self
         }
         
-        
+        @discardableResult
         public func mergeFrom(data:Data) throws -> UnknownFieldSet.Builder {
             let input:CodedInputStream = CodedInputStream(data: data)
-            _ = try mergeFrom(codedInputStream: input)
+            try mergeFrom(codedInputStream: input)
             try input.checkLastTagWas(value: 0)
             return self
         }
@@ -248,7 +248,7 @@ public class UnknownFieldSet:Hashable,Equatable {
         public func mergeFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder {
             throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
-        
+        @discardableResult
         public func mergeVarintField(fieldNumber:Int32, value:Int64) throws -> UnknownFieldSet.Builder {
             guard fieldNumber != 0 else
             {
@@ -257,7 +257,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             try getFieldBuilder(number: fieldNumber)?.variantArray.append(value)
             return self
         }
-        
+        @discardableResult
         public func mergeFieldFrom(tag:Int32, input:CodedInputStream) throws -> Bool {
             
             let number = WireFormat.getTagFieldNumber(tag: tag)
@@ -294,7 +294,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             }
         }
         
-        
+        @discardableResult
         public func mergeFrom(codedInputStream:CodedInputStream) throws -> UnknownFieldSet.Builder {
             while (true) {
                 let tag:Int32 = try codedInputStream.readTag()
@@ -310,14 +310,14 @@ public class UnknownFieldSet:Hashable,Equatable {
         public func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder {
             throw ProtocolBuffersError.obvious("UnsupportedMethod")
         }
-        
+        @discardableResult
         public func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> UnknownFieldSet.Builder {
             let input = CodedInputStream(data: data)
             _ = try mergeFrom(codedInputStream:input, extensionRegistry:extensionRegistry)
             try input.checkLastTagWas(value: 0)
             return self
         }
-        
+        @discardableResult
         public func clear() ->UnknownFieldSet.Builder {
             fields = Dictionary()
             lastFieldNumber = 0

@@ -177,7 +177,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
                        "     $name_reserved$ = enums$name$\n"
                        "} else {\n"
-                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
@@ -313,7 +313,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
                        "     builderResult.$name_reserved$.append(enums$name$)\n"
                        "} else {\n"
-                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (isPackedTypeProto3(descriptor_)) {

@@ -271,6 +271,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Timestamp = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Timestamp) throws -> Google.Protobuf.Timestamp.Builder {
         if other == Google.Protobuf.Timestamp() {
          return self
@@ -281,9 +282,10 @@ public extension Google.Protobuf {
         if other.hasNanos {
              nanos = other.nanos
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

@@ -373,6 +373,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SwiftFileOptions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.SwiftFileOptions) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         if other == Google.Protobuf.SwiftFileOptions() {
          return self
@@ -389,9 +390,10 @@ public extension Google.Protobuf {
         if other.hasGenerateStruct {
              generateStruct = other.generateStruct
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -412,7 +414,7 @@ public extension Google.Protobuf {
             if let enumsentitiesAccessControl = Google.Protobuf.AccessControl(rawValue:valueIntentitiesAccessControl){
                  entitiesAccessControl = enumsentitiesAccessControl
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntentitiesAccessControl))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntentitiesAccessControl))
             }
 
           case 24:
@@ -614,6 +616,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SwiftMessageOptions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.SwiftMessageOptions) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
         if other == Google.Protobuf.SwiftMessageOptions() {
          return self
@@ -621,9 +624,10 @@ public extension Google.Protobuf {
         if other.hasGenerateErrorType {
              generateErrorType = other.generateErrorType
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -823,6 +827,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SwiftEnumOptions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.SwiftEnumOptions) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
         if other == Google.Protobuf.SwiftEnumOptions() {
          return self
@@ -830,9 +835,10 @@ public extension Google.Protobuf {
         if other.hasGenerateErrorType {
              generateErrorType = other.generateErrorType
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

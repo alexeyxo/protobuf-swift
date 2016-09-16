@@ -103,7 +103,7 @@ open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
     {
         return internalGetResult.isInitialized()
     }
-    
+    @discardableResult
     override open func merge(unknownField: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
