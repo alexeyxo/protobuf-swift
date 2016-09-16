@@ -8,17 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-public func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittest {
   public struct UnittestEmbedOptimizeForRoot {
     public static var sharedInstance : UnittestEmbedOptimizeForRoot {
@@ -39,6 +28,18 @@ public extension ProtobufUnittest {
   }
 
   final public class TestEmbedOptimizedForSize : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var optionalMessage:ProtobufUnittest.TestOptimizedForSize!
     public fileprivate(set) var hasOptionalMessage:Bool = false
     public fileprivate(set) var repeatedMessage:Array<ProtobufUnittest.TestOptimizedForSize>  = Array<ProtobufUnittest.TestOptimizedForSize>()
@@ -216,7 +217,7 @@ public extension ProtobufUnittest {
            optionalMessageBuilder_ = ProtobufUnittest.TestOptimizedForSize.Builder()
            builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
            if optionalMessage != nil {
-              _ = try! optionalMessageBuilder_.mergeFrom(other: optionalMessage)
+              try! optionalMessageBuilder_.mergeFrom(other: optionalMessage)
            }
         }
         return optionalMessageBuilder_
@@ -225,6 +226,7 @@ public extension ProtobufUnittest {
         self.optionalMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalMessage(value:ProtobufUnittest.TestOptimizedForSize) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         if builderResult.hasOptionalMessage {
           builderResult.optionalMessage = try ProtobufUnittest.TestOptimizedForSize.builderWithPrototype(prototype:builderResult.optionalMessage).mergeFrom(other: value).buildPartial()
@@ -276,19 +278,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmbedOptimizedForSize = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEmbedOptimizedForSize) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         if other == ProtobufUnittest.TestEmbedOptimizedForSize() {
          return self
         }
         if (other.hasOptionalMessage) {
-            _ = try mergeOptionalMessage(value: other.optionalMessage)
+            try mergeOptionalMessage(value: other.optionalMessage)
         }
         if !other.repeatedMessage.isEmpty  {
            builderResult.repeatedMessage += other.repeatedMessage
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -304,7 +308,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestOptimizedForSize.Builder = ProtobufUnittest.TestOptimizedForSize.Builder()
             if hasOptionalMessage {
-              _ = try subBuilder.mergeFrom(other: optionalMessage)
+              try subBuilder.mergeFrom(other: optionalMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalMessage = subBuilder.buildPartial()

@@ -6,35 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Api, rhs: Google.Protobuf.Api) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.methods == rhs.methods)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasVersion == rhs.hasVersion) && (!lhs.hasVersion || lhs.version == rhs.version)
-  fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Method, rhs: Google.Protobuf.Method) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasRequestTypeUrl == rhs.hasRequestTypeUrl) && (!lhs.hasRequestTypeUrl || lhs.requestTypeUrl == rhs.requestTypeUrl)
-  fieldCheck = fieldCheck && (lhs.hasRequestStreaming == rhs.hasRequestStreaming) && (!lhs.hasRequestStreaming || lhs.requestStreaming == rhs.requestStreaming)
-  fieldCheck = fieldCheck && (lhs.hasResponseTypeUrl == rhs.hasResponseTypeUrl) && (!lhs.hasResponseTypeUrl || lhs.responseTypeUrl == rhs.responseTypeUrl)
-  fieldCheck = fieldCheck && (lhs.hasResponseStreaming == rhs.hasResponseStreaming) && (!lhs.hasResponseStreaming || lhs.responseStreaming == rhs.responseStreaming)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct ApiRoot {
     public static var sharedInstance : ApiRoot {
@@ -58,6 +29,21 @@ public extension Google.Protobuf {
 
   // Api is a light-weight descriptor for a protocol buffer service.
   final public class Api : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Api, rhs: Google.Protobuf.Api) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.methods == rhs.methods)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasVersion == rhs.hasVersion) && (!lhs.hasVersion || lhs.version == rhs.version)
+      fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The fully qualified name of this api, including package name
     // followed by the api's simple name.
     public fileprivate(set) var name:String = ""
@@ -380,7 +366,7 @@ public extension Google.Protobuf {
            sourceContextBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContext = sourceContextBuilder_.getMessage()
            if sourceContext != nil {
-              _ = try! sourceContextBuilder_.mergeFrom(other: sourceContext)
+              try! sourceContextBuilder_.mergeFrom(other: sourceContext)
            }
         }
         return sourceContextBuilder_
@@ -389,6 +375,7 @@ public extension Google.Protobuf {
         self.sourceContext = value
         return self
       }
+      @discardableResult
       public func mergeSourceContext(value:Google.Protobuf.SourceContext) throws -> Google.Protobuf.Api.Builder {
         if builderResult.hasSourceContext {
           builderResult.sourceContext = try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult.sourceContext).mergeFrom(other: value).buildPartial()
@@ -424,6 +411,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Api = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Api) throws -> Google.Protobuf.Api.Builder {
         if other == Google.Protobuf.Api() {
          return self
@@ -441,11 +429,12 @@ public extension Google.Protobuf {
              version = other.version
         }
         if (other.hasSourceContext) {
-            _ = try mergeSourceContext(value: other.sourceContext)
+            try mergeSourceContext(value: other.sourceContext)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Api.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -477,7 +466,7 @@ public extension Google.Protobuf {
           case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
-              _ = try subBuilder.mergeFrom(other: sourceContext)
+              try subBuilder.mergeFrom(other: sourceContext)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             sourceContext = subBuilder.buildPartial()
@@ -535,6 +524,22 @@ public extension Google.Protobuf {
 
   // Method represents a method of an api.
   final public class Method : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Method, rhs: Google.Protobuf.Method) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasRequestTypeUrl == rhs.hasRequestTypeUrl) && (!lhs.hasRequestTypeUrl || lhs.requestTypeUrl == rhs.requestTypeUrl)
+      fieldCheck = fieldCheck && (lhs.hasRequestStreaming == rhs.hasRequestStreaming) && (!lhs.hasRequestStreaming || lhs.requestStreaming == rhs.requestStreaming)
+      fieldCheck = fieldCheck && (lhs.hasResponseTypeUrl == rhs.hasResponseTypeUrl) && (!lhs.hasResponseTypeUrl || lhs.responseTypeUrl == rhs.responseTypeUrl)
+      fieldCheck = fieldCheck && (lhs.hasResponseStreaming == rhs.hasResponseStreaming) && (!lhs.hasResponseStreaming || lhs.responseStreaming == rhs.responseStreaming)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The simple name of this method.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -891,6 +896,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Method = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Method) throws -> Google.Protobuf.Method.Builder {
         if other == Google.Protobuf.Method() {
          return self
@@ -913,9 +919,10 @@ public extension Google.Protobuf {
         if !other.options.isEmpty  {
            builderResult.options += other.options
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Method.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

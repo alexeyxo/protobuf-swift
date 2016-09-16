@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public extension ProtobufUnittestImport{}
 
-public func == (lhs: ProtobufUnittestImport.ImportMessageLite, rhs: ProtobufUnittestImport.ImportMessageLite) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension ProtobufUnittestImport {
   public struct UnittestImportLiteRoot {
     public static var sharedInstance : UnittestImportLiteRoot {
@@ -74,6 +64,17 @@ public extension ProtobufUnittestImport {
   //Enum type declaration end 
 
   final public class ImportMessageLite : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittestImport.ImportMessageLite, rhs: ProtobufUnittestImport.ImportMessageLite) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasD == rhs.hasD) && (!lhs.hasD || lhs.d == rhs.d)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var d:Int32 = Int32(0)
     public fileprivate(set) var hasD:Bool = false
 
@@ -128,7 +129,7 @@ public extension ProtobufUnittestImport {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
-        jsonMap["d"] = NSNumber(value:d)
+        jsonMap["d"] = d
       }
       return jsonMap
     }
@@ -220,6 +221,7 @@ public extension ProtobufUnittestImport {
         let returnMe:ProtobufUnittestImport.ImportMessageLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittestImport.ImportMessageLite) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         if other == ProtobufUnittestImport.ImportMessageLite() {
          return self
@@ -227,9 +229,10 @@ public extension ProtobufUnittestImport {
         if other.hasD {
              d = other.d
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -255,8 +258,8 @@ public extension ProtobufUnittestImport {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         let resultDecodedBuilder = ProtobufUnittestImport.ImportMessageLite.Builder()
-        if let jsonValueD = jsonMap["d"] as? NSNumber {
-          resultDecodedBuilder.d = jsonValueD.int32Value
+        if let jsonValueD = jsonMap["d"] as? Int32 {
+          resultDecodedBuilder.d = jsonValueD
         }
         return resultDecodedBuilder
       }

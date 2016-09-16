@@ -175,7 +175,7 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     open func isInitialized() -> Bool {
         return false
     }
-    
+    @discardableResult
     open func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self {
         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -183,13 +183,13 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     open func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self {
         throw ProtocolBuffersError.obvious("Override")
     }
-    
+    @discardableResult
     open func merge(unknownField: UnknownFieldSet) throws ->  Self {
         let merged:UnknownFieldSet = try UnknownFieldSet.builderWithUnknownFields(copyFrom: unknownFields).merge(unknownFields: unknownField).build()
         unknownFields = merged
         return self
     }
-    
+    @discardableResult
     final public func mergeFrom(data:Data) throws ->  Self {
         let input:CodedInputStream = CodedInputStream(data:data)
         _ = try mergeFrom(codedInputStream: input)
@@ -197,14 +197,14 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         return self
     }
     
-    
+    @discardableResult
     final public func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws ->  Self {
         let input:CodedInputStream = CodedInputStream(data:data)
         _ = try mergeFrom(codedInputStream: input, extensionRegistry:extensionRegistry)
         try input.checkLastTagWas(value: 0)
         return self
     }
-    
+    @discardableResult
     final public func mergeFrom(inputStream: InputStream) throws -> Self {
         let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
         _ = try mergeFrom(codedInputStream: codedInput)
@@ -213,6 +213,7 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         
         
     }
+    @discardableResult
     final public func mergeFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Self {
         let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
         _ = try mergeFrom(codedInputStream: codedInput, extensionRegistry:extensionRegistry)
@@ -221,6 +222,7 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     }
     
     //Delimited Encoding/Decoding
+    @discardableResult
     public func mergeDelimitedFrom(inputStream: InputStream) throws -> Self? {
         var firstByte:UInt8 = 0
         if inputStream.read(&firstByte, maxLength: 1) != 1 {

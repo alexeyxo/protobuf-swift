@@ -8,29 +8,6 @@ import ProtocolBuffers
 
 public struct UnittestDropUnknownFields { }
 
-public func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFields.Foo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasInt32Value == rhs.hasInt32Value) && (!lhs.hasInt32Value || lhs.int32Value == rhs.int32Value)
-  fieldCheck = fieldCheck && (lhs.hasEnumValue == rhs.hasEnumValue) && (!lhs.hasEnumValue || lhs.enumValue == rhs.enumValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: UnittestDropUnknownFields.FooWithExtraFields) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasInt32Value == rhs.hasInt32Value) && (!lhs.hasInt32Value || lhs.int32Value == rhs.int32Value)
-  fieldCheck = fieldCheck && (lhs.hasEnumValue == rhs.hasEnumValue) && (!lhs.hasEnumValue || lhs.enumValue == rhs.enumValue)
-  fieldCheck = fieldCheck && (lhs.hasExtraInt32Value == rhs.hasExtraInt32Value) && (!lhs.hasExtraInt32Value || lhs.extraInt32Value == rhs.extraInt32Value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension UnittestDropUnknownFields {
   public struct UnittestDropUnknownFieldsRoot {
     public static var sharedInstance : UnittestDropUnknownFieldsRoot {
@@ -50,6 +27,18 @@ public extension UnittestDropUnknownFields {
   }
 
   final public class Foo : GeneratedMessage {
+
+    public static func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFields.Foo) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasInt32Value == rhs.hasInt32Value) && (!lhs.hasInt32Value || lhs.int32Value == rhs.int32Value)
+      fieldCheck = fieldCheck && (lhs.hasEnumValue == rhs.hasEnumValue) && (!lhs.hasEnumValue || lhs.enumValue == rhs.enumValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -148,7 +137,7 @@ public extension UnittestDropUnknownFields {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
-        jsonMap["int32Value"] = NSNumber(value:int32Value)
+        jsonMap["int32Value"] = int32Value
       }
       if hasEnumValue {
         jsonMap["enumValue"] = enumValue.toString()
@@ -272,6 +261,7 @@ public extension UnittestDropUnknownFields {
         let returnMe:UnittestDropUnknownFields.Foo = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:UnittestDropUnknownFields.Foo) throws -> UnittestDropUnknownFields.Foo.Builder {
         if other == UnittestDropUnknownFields.Foo() {
          return self
@@ -282,9 +272,10 @@ public extension UnittestDropUnknownFields {
         if other.hasEnumValue {
              enumValue = other.enumValue
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -305,7 +296,7 @@ public extension UnittestDropUnknownFields {
             if let enumsenumValue = UnittestDropUnknownFields.Foo.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
             }
 
           default:
@@ -318,8 +309,8 @@ public extension UnittestDropUnknownFields {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
-        if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
-          resultDecodedBuilder.int32Value = jsonValueInt32Value.int32Value
+        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int32 {
+          resultDecodedBuilder.int32Value = jsonValueInt32Value
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(str: jsonValueEnumValue)
@@ -338,6 +329,19 @@ public extension UnittestDropUnknownFields {
   }
 
   final public class FooWithExtraFields : GeneratedMessage {
+
+    public static func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: UnittestDropUnknownFields.FooWithExtraFields) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasInt32Value == rhs.hasInt32Value) && (!lhs.hasInt32Value || lhs.int32Value == rhs.int32Value)
+      fieldCheck = fieldCheck && (lhs.hasEnumValue == rhs.hasEnumValue) && (!lhs.hasEnumValue || lhs.enumValue == rhs.enumValue)
+      fieldCheck = fieldCheck && (lhs.hasExtraInt32Value == rhs.hasExtraInt32Value) && (!lhs.hasExtraInt32Value || lhs.extraInt32Value == rhs.extraInt32Value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -449,13 +453,13 @@ public extension UnittestDropUnknownFields {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
-        jsonMap["int32Value"] = NSNumber(value:int32Value)
+        jsonMap["int32Value"] = int32Value
       }
       if hasEnumValue {
         jsonMap["enumValue"] = enumValue.toString()
       }
       if hasExtraInt32Value {
-        jsonMap["extraInt32Value"] = NSNumber(value:extraInt32Value)
+        jsonMap["extraInt32Value"] = extraInt32Value
       }
       return jsonMap
     }
@@ -605,6 +609,7 @@ public extension UnittestDropUnknownFields {
         let returnMe:UnittestDropUnknownFields.FooWithExtraFields = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:UnittestDropUnknownFields.FooWithExtraFields) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         if other == UnittestDropUnknownFields.FooWithExtraFields() {
          return self
@@ -618,9 +623,10 @@ public extension UnittestDropUnknownFields {
         if other.hasExtraInt32Value {
              extraInt32Value = other.extraInt32Value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -641,7 +647,7 @@ public extension UnittestDropUnknownFields {
             if let enumsenumValue = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum(rawValue:valueIntenumValue){
                  enumValue = enumsenumValue
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntenumValue))
             }
 
           case 24:
@@ -657,14 +663,14 @@ public extension UnittestDropUnknownFields {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
-        if let jsonValueInt32Value = jsonMap["int32Value"] as? NSNumber {
-          resultDecodedBuilder.int32Value = jsonValueInt32Value.int32Value
+        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int32 {
+          resultDecodedBuilder.int32Value = jsonValueInt32Value
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.fromString(str: jsonValueEnumValue)
         }
-        if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? NSNumber {
-          resultDecodedBuilder.extraInt32Value = jsonValueExtraInt32Value.int32Value
+        if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? Int32 {
+          resultDecodedBuilder.extraInt32Value = jsonValueExtraInt32Value
         }
         return resultDecodedBuilder
       }

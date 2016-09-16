@@ -6,16 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFileName == rhs.hasFileName) && (!lhs.hasFileName || lhs.fileName == rhs.fileName)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct SourceContextRoot {
     public static var sharedInstance : SourceContextRoot {
@@ -38,6 +28,17 @@ public extension Google.Protobuf {
   // `SourceContext` represents information about the source of a
   // protobuf element, like the file in which it is defined.
   final public class SourceContext : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFileName == rhs.hasFileName) && (!lhs.hasFileName || lhs.fileName == rhs.fileName)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The path-qualified name of the .proto file that contained the associated
     // protobuf element.  For example: `"google/protobuf/source.proto"`.
     public fileprivate(set) var fileName:String = ""
@@ -186,6 +187,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.SourceContext = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.SourceContext) throws -> Google.Protobuf.SourceContext.Builder {
         if other == Google.Protobuf.SourceContext() {
          return self
@@ -193,9 +195,10 @@ public extension Google.Protobuf {
         if other.hasFileName {
              fileName = other.fileName
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

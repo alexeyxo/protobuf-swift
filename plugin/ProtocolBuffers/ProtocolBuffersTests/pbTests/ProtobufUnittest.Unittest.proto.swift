@@ -8,954 +8,6 @@ import ProtocolBuffers
 
 public struct ProtobufUnittest { }
 
-public func == (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.TestAllTypes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalInt32 == rhs.hasOptionalInt32) && (!lhs.hasOptionalInt32 || lhs.optionalInt32 == rhs.optionalInt32)
-  fieldCheck = fieldCheck && (lhs.hasOptionalInt64 == rhs.hasOptionalInt64) && (!lhs.hasOptionalInt64 || lhs.optionalInt64 == rhs.optionalInt64)
-  fieldCheck = fieldCheck && (lhs.hasOptionalUint32 == rhs.hasOptionalUint32) && (!lhs.hasOptionalUint32 || lhs.optionalUint32 == rhs.optionalUint32)
-  fieldCheck = fieldCheck && (lhs.hasOptionalUint64 == rhs.hasOptionalUint64) && (!lhs.hasOptionalUint64 || lhs.optionalUint64 == rhs.optionalUint64)
-  fieldCheck = fieldCheck && (lhs.hasOptionalSint32 == rhs.hasOptionalSint32) && (!lhs.hasOptionalSint32 || lhs.optionalSint32 == rhs.optionalSint32)
-  fieldCheck = fieldCheck && (lhs.hasOptionalSint64 == rhs.hasOptionalSint64) && (!lhs.hasOptionalSint64 || lhs.optionalSint64 == rhs.optionalSint64)
-  fieldCheck = fieldCheck && (lhs.hasOptionalFixed32 == rhs.hasOptionalFixed32) && (!lhs.hasOptionalFixed32 || lhs.optionalFixed32 == rhs.optionalFixed32)
-  fieldCheck = fieldCheck && (lhs.hasOptionalFixed64 == rhs.hasOptionalFixed64) && (!lhs.hasOptionalFixed64 || lhs.optionalFixed64 == rhs.optionalFixed64)
-  fieldCheck = fieldCheck && (lhs.hasOptionalSfixed32 == rhs.hasOptionalSfixed32) && (!lhs.hasOptionalSfixed32 || lhs.optionalSfixed32 == rhs.optionalSfixed32)
-  fieldCheck = fieldCheck && (lhs.hasOptionalSfixed64 == rhs.hasOptionalSfixed64) && (!lhs.hasOptionalSfixed64 || lhs.optionalSfixed64 == rhs.optionalSfixed64)
-  fieldCheck = fieldCheck && (lhs.hasOptionalFloat == rhs.hasOptionalFloat) && (!lhs.hasOptionalFloat || lhs.optionalFloat == rhs.optionalFloat)
-  fieldCheck = fieldCheck && (lhs.hasOptionalDouble == rhs.hasOptionalDouble) && (!lhs.hasOptionalDouble || lhs.optionalDouble == rhs.optionalDouble)
-  fieldCheck = fieldCheck && (lhs.hasOptionalBool == rhs.hasOptionalBool) && (!lhs.hasOptionalBool || lhs.optionalBool == rhs.optionalBool)
-  fieldCheck = fieldCheck && (lhs.hasOptionalString == rhs.hasOptionalString) && (!lhs.hasOptionalString || lhs.optionalString == rhs.optionalString)
-  fieldCheck = fieldCheck && (lhs.hasOptionalBytes == rhs.hasOptionalBytes) && (!lhs.hasOptionalBytes || lhs.optionalBytes == rhs.optionalBytes)
-  fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
-  fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
-  fieldCheck = fieldCheck && (lhs.hasOptionalForeignMessage == rhs.hasOptionalForeignMessage) && (!lhs.hasOptionalForeignMessage || lhs.optionalForeignMessage == rhs.optionalForeignMessage)
-  fieldCheck = fieldCheck && (lhs.hasOptionalImportMessage == rhs.hasOptionalImportMessage) && (!lhs.hasOptionalImportMessage || lhs.optionalImportMessage == rhs.optionalImportMessage)
-  fieldCheck = fieldCheck && (lhs.hasOptionalNestedEnum == rhs.hasOptionalNestedEnum) && (!lhs.hasOptionalNestedEnum || lhs.optionalNestedEnum == rhs.optionalNestedEnum)
-  fieldCheck = fieldCheck && (lhs.hasOptionalForeignEnum == rhs.hasOptionalForeignEnum) && (!lhs.hasOptionalForeignEnum || lhs.optionalForeignEnum == rhs.optionalForeignEnum)
-  fieldCheck = fieldCheck && (lhs.hasOptionalImportEnum == rhs.hasOptionalImportEnum) && (!lhs.hasOptionalImportEnum || lhs.optionalImportEnum == rhs.optionalImportEnum)
-  fieldCheck = fieldCheck && (lhs.hasOptionalStringPiece == rhs.hasOptionalStringPiece) && (!lhs.hasOptionalStringPiece || lhs.optionalStringPiece == rhs.optionalStringPiece)
-  fieldCheck = fieldCheck && (lhs.hasOptionalCord == rhs.hasOptionalCord) && (!lhs.hasOptionalCord || lhs.optionalCord == rhs.optionalCord)
-  fieldCheck = fieldCheck && (lhs.hasOptionalPublicImportMessage == rhs.hasOptionalPublicImportMessage) && (!lhs.hasOptionalPublicImportMessage || lhs.optionalPublicImportMessage == rhs.optionalPublicImportMessage)
-  fieldCheck = fieldCheck && (lhs.hasOptionalLazyMessage == rhs.hasOptionalLazyMessage) && (!lhs.hasOptionalLazyMessage || lhs.optionalLazyMessage == rhs.optionalLazyMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedInt32 == rhs.repeatedInt32)
-  fieldCheck = fieldCheck && (lhs.repeatedInt64 == rhs.repeatedInt64)
-  fieldCheck = fieldCheck && (lhs.repeatedUint32 == rhs.repeatedUint32)
-  fieldCheck = fieldCheck && (lhs.repeatedUint64 == rhs.repeatedUint64)
-  fieldCheck = fieldCheck && (lhs.repeatedSint32 == rhs.repeatedSint32)
-  fieldCheck = fieldCheck && (lhs.repeatedSint64 == rhs.repeatedSint64)
-  fieldCheck = fieldCheck && (lhs.repeatedFixed32 == rhs.repeatedFixed32)
-  fieldCheck = fieldCheck && (lhs.repeatedFixed64 == rhs.repeatedFixed64)
-  fieldCheck = fieldCheck && (lhs.repeatedSfixed32 == rhs.repeatedSfixed32)
-  fieldCheck = fieldCheck && (lhs.repeatedSfixed64 == rhs.repeatedSfixed64)
-  fieldCheck = fieldCheck && (lhs.repeatedFloat == rhs.repeatedFloat)
-  fieldCheck = fieldCheck && (lhs.repeatedDouble == rhs.repeatedDouble)
-  fieldCheck = fieldCheck && (lhs.repeatedBool == rhs.repeatedBool)
-  fieldCheck = fieldCheck && (lhs.repeatedString == rhs.repeatedString)
-  fieldCheck = fieldCheck && (lhs.repeatedBytes == rhs.repeatedBytes)
-  fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
-  fieldCheck = fieldCheck && (lhs.repeatedNestedMessage == rhs.repeatedNestedMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedForeignMessage == rhs.repeatedForeignMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedImportMessage == rhs.repeatedImportMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedNestedEnum == rhs.repeatedNestedEnum)
-  fieldCheck = fieldCheck && (lhs.repeatedForeignEnum == rhs.repeatedForeignEnum)
-  fieldCheck = fieldCheck && (lhs.repeatedImportEnum == rhs.repeatedImportEnum)
-  fieldCheck = fieldCheck && (lhs.repeatedStringPiece == rhs.repeatedStringPiece)
-  fieldCheck = fieldCheck && (lhs.repeatedCord == rhs.repeatedCord)
-  fieldCheck = fieldCheck && (lhs.repeatedLazyMessage == rhs.repeatedLazyMessage)
-  fieldCheck = fieldCheck && (lhs.hasDefaultInt32 == rhs.hasDefaultInt32) && (!lhs.hasDefaultInt32 || lhs.defaultInt32 == rhs.defaultInt32)
-  fieldCheck = fieldCheck && (lhs.hasDefaultInt64 == rhs.hasDefaultInt64) && (!lhs.hasDefaultInt64 || lhs.defaultInt64 == rhs.defaultInt64)
-  fieldCheck = fieldCheck && (lhs.hasDefaultUint32 == rhs.hasDefaultUint32) && (!lhs.hasDefaultUint32 || lhs.defaultUint32 == rhs.defaultUint32)
-  fieldCheck = fieldCheck && (lhs.hasDefaultUint64 == rhs.hasDefaultUint64) && (!lhs.hasDefaultUint64 || lhs.defaultUint64 == rhs.defaultUint64)
-  fieldCheck = fieldCheck && (lhs.hasDefaultSint32 == rhs.hasDefaultSint32) && (!lhs.hasDefaultSint32 || lhs.defaultSint32 == rhs.defaultSint32)
-  fieldCheck = fieldCheck && (lhs.hasDefaultSint64 == rhs.hasDefaultSint64) && (!lhs.hasDefaultSint64 || lhs.defaultSint64 == rhs.defaultSint64)
-  fieldCheck = fieldCheck && (lhs.hasDefaultFixed32 == rhs.hasDefaultFixed32) && (!lhs.hasDefaultFixed32 || lhs.defaultFixed32 == rhs.defaultFixed32)
-  fieldCheck = fieldCheck && (lhs.hasDefaultFixed64 == rhs.hasDefaultFixed64) && (!lhs.hasDefaultFixed64 || lhs.defaultFixed64 == rhs.defaultFixed64)
-  fieldCheck = fieldCheck && (lhs.hasDefaultSfixed32 == rhs.hasDefaultSfixed32) && (!lhs.hasDefaultSfixed32 || lhs.defaultSfixed32 == rhs.defaultSfixed32)
-  fieldCheck = fieldCheck && (lhs.hasDefaultSfixed64 == rhs.hasDefaultSfixed64) && (!lhs.hasDefaultSfixed64 || lhs.defaultSfixed64 == rhs.defaultSfixed64)
-  fieldCheck = fieldCheck && (lhs.hasDefaultFloat == rhs.hasDefaultFloat) && (!lhs.hasDefaultFloat || lhs.defaultFloat == rhs.defaultFloat)
-  fieldCheck = fieldCheck && (lhs.hasDefaultDouble == rhs.hasDefaultDouble) && (!lhs.hasDefaultDouble || lhs.defaultDouble == rhs.defaultDouble)
-  fieldCheck = fieldCheck && (lhs.hasDefaultBool == rhs.hasDefaultBool) && (!lhs.hasDefaultBool || lhs.defaultBool == rhs.defaultBool)
-  fieldCheck = fieldCheck && (lhs.hasDefaultString == rhs.hasDefaultString) && (!lhs.hasDefaultString || lhs.defaultString == rhs.defaultString)
-  fieldCheck = fieldCheck && (lhs.hasDefaultBytes == rhs.hasDefaultBytes) && (!lhs.hasDefaultBytes || lhs.defaultBytes == rhs.defaultBytes)
-  fieldCheck = fieldCheck && (lhs.hasDefaultNestedEnum == rhs.hasDefaultNestedEnum) && (!lhs.hasDefaultNestedEnum || lhs.defaultNestedEnum == rhs.defaultNestedEnum)
-  fieldCheck = fieldCheck && (lhs.hasDefaultForeignEnum == rhs.hasDefaultForeignEnum) && (!lhs.hasDefaultForeignEnum || lhs.defaultForeignEnum == rhs.defaultForeignEnum)
-  fieldCheck = fieldCheck && (lhs.hasDefaultImportEnum == rhs.hasDefaultImportEnum) && (!lhs.hasDefaultImportEnum || lhs.defaultImportEnum == rhs.defaultImportEnum)
-  fieldCheck = fieldCheck && (lhs.hasDefaultStringPiece == rhs.hasDefaultStringPiece) && (!lhs.hasDefaultStringPiece || lhs.defaultStringPiece == rhs.defaultStringPiece)
-  fieldCheck = fieldCheck && (lhs.hasDefaultCord == rhs.hasDefaultCord) && (!lhs.hasDefaultCord || lhs.defaultCord == rhs.defaultCord)
-  fieldCheck = fieldCheck && (lhs.hasOneofUint32 == rhs.hasOneofUint32) && (!lhs.hasOneofUint32 || lhs.oneofUint32 == rhs.oneofUint32)
-  fieldCheck = fieldCheck && (lhs.hasOneofNestedMessage == rhs.hasOneofNestedMessage) && (!lhs.hasOneofNestedMessage || lhs.oneofNestedMessage == rhs.oneofNestedMessage)
-  fieldCheck = fieldCheck && (lhs.hasOneofString == rhs.hasOneofString) && (!lhs.hasOneofString || lhs.oneofString == rhs.oneofString)
-  fieldCheck = fieldCheck && (lhs.hasOneofBytes == rhs.hasOneofBytes) && (!lhs.hasOneofBytes || lhs.oneofBytes == rhs.oneofBytes)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittest.NestedTestAllTypes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasChild == rhs.hasChild) && (!lhs.hasChild || lhs.child == rhs.child)
-  fieldCheck = fieldCheck && (lhs.hasPayload == rhs.hasPayload) && (!lhs.hasPayload || lhs.payload == rhs.payload)
-  fieldCheck = fieldCheck && (lhs.repeatedChild == rhs.repeatedChild)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnittest.TestDeprecatedFields) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDeprecatedInt32 == rhs.hasDeprecatedInt32) && (!lhs.hasDeprecatedInt32 || lhs.deprecatedInt32 == rhs.deprecatedInt32)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.ForeignMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasC == rhs.hasC) && (!lhs.hasC || lhs.c == rhs.c)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestReservedFields, rhs: ProtobufUnittest.TestReservedFields) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest.TestAllExtensions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUnittest.OptionalGroupExtension) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUnittest.RepeatedGroupExtension) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestNestedExtension, rhs: ProtobufUnittest.TestNestedExtension) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.TestRequired) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasDummy2 == rhs.hasDummy2) && (!lhs.hasDummy2 || lhs.dummy2 == rhs.dummy2)
-  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
-  fieldCheck = fieldCheck && (lhs.hasDummy4 == rhs.hasDummy4) && (!lhs.hasDummy4 || lhs.dummy4 == rhs.dummy4)
-  fieldCheck = fieldCheck && (lhs.hasDummy5 == rhs.hasDummy5) && (!lhs.hasDummy5 || lhs.dummy5 == rhs.dummy5)
-  fieldCheck = fieldCheck && (lhs.hasDummy6 == rhs.hasDummy6) && (!lhs.hasDummy6 || lhs.dummy6 == rhs.dummy6)
-  fieldCheck = fieldCheck && (lhs.hasDummy7 == rhs.hasDummy7) && (!lhs.hasDummy7 || lhs.dummy7 == rhs.dummy7)
-  fieldCheck = fieldCheck && (lhs.hasDummy8 == rhs.hasDummy8) && (!lhs.hasDummy8 || lhs.dummy8 == rhs.dummy8)
-  fieldCheck = fieldCheck && (lhs.hasDummy9 == rhs.hasDummy9) && (!lhs.hasDummy9 || lhs.dummy9 == rhs.dummy9)
-  fieldCheck = fieldCheck && (lhs.hasDummy10 == rhs.hasDummy10) && (!lhs.hasDummy10 || lhs.dummy10 == rhs.dummy10)
-  fieldCheck = fieldCheck && (lhs.hasDummy11 == rhs.hasDummy11) && (!lhs.hasDummy11 || lhs.dummy11 == rhs.dummy11)
-  fieldCheck = fieldCheck && (lhs.hasDummy12 == rhs.hasDummy12) && (!lhs.hasDummy12 || lhs.dummy12 == rhs.dummy12)
-  fieldCheck = fieldCheck && (lhs.hasDummy13 == rhs.hasDummy13) && (!lhs.hasDummy13 || lhs.dummy13 == rhs.dummy13)
-  fieldCheck = fieldCheck && (lhs.hasDummy14 == rhs.hasDummy14) && (!lhs.hasDummy14 || lhs.dummy14 == rhs.dummy14)
-  fieldCheck = fieldCheck && (lhs.hasDummy15 == rhs.hasDummy15) && (!lhs.hasDummy15 || lhs.dummy15 == rhs.dummy15)
-  fieldCheck = fieldCheck && (lhs.hasDummy16 == rhs.hasDummy16) && (!lhs.hasDummy16 || lhs.dummy16 == rhs.dummy16)
-  fieldCheck = fieldCheck && (lhs.hasDummy17 == rhs.hasDummy17) && (!lhs.hasDummy17 || lhs.dummy17 == rhs.dummy17)
-  fieldCheck = fieldCheck && (lhs.hasDummy18 == rhs.hasDummy18) && (!lhs.hasDummy18 || lhs.dummy18 == rhs.dummy18)
-  fieldCheck = fieldCheck && (lhs.hasDummy19 == rhs.hasDummy19) && (!lhs.hasDummy19 || lhs.dummy19 == rhs.dummy19)
-  fieldCheck = fieldCheck && (lhs.hasDummy20 == rhs.hasDummy20) && (!lhs.hasDummy20 || lhs.dummy20 == rhs.dummy20)
-  fieldCheck = fieldCheck && (lhs.hasDummy21 == rhs.hasDummy21) && (!lhs.hasDummy21 || lhs.dummy21 == rhs.dummy21)
-  fieldCheck = fieldCheck && (lhs.hasDummy22 == rhs.hasDummy22) && (!lhs.hasDummy22 || lhs.dummy22 == rhs.dummy22)
-  fieldCheck = fieldCheck && (lhs.hasDummy23 == rhs.hasDummy23) && (!lhs.hasDummy23 || lhs.dummy23 == rhs.dummy23)
-  fieldCheck = fieldCheck && (lhs.hasDummy24 == rhs.hasDummy24) && (!lhs.hasDummy24 || lhs.dummy24 == rhs.dummy24)
-  fieldCheck = fieldCheck && (lhs.hasDummy25 == rhs.hasDummy25) && (!lhs.hasDummy25 || lhs.dummy25 == rhs.dummy25)
-  fieldCheck = fieldCheck && (lhs.hasDummy26 == rhs.hasDummy26) && (!lhs.hasDummy26 || lhs.dummy26 == rhs.dummy26)
-  fieldCheck = fieldCheck && (lhs.hasDummy27 == rhs.hasDummy27) && (!lhs.hasDummy27 || lhs.dummy27 == rhs.dummy27)
-  fieldCheck = fieldCheck && (lhs.hasDummy28 == rhs.hasDummy28) && (!lhs.hasDummy28 || lhs.dummy28 == rhs.dummy28)
-  fieldCheck = fieldCheck && (lhs.hasDummy29 == rhs.hasDummy29) && (!lhs.hasDummy29 || lhs.dummy29 == rhs.dummy29)
-  fieldCheck = fieldCheck && (lhs.hasDummy30 == rhs.hasDummy30) && (!lhs.hasDummy30 || lhs.dummy30 == rhs.dummy30)
-  fieldCheck = fieldCheck && (lhs.hasDummy31 == rhs.hasDummy31) && (!lhs.hasDummy31 || lhs.dummy31 == rhs.dummy31)
-  fieldCheck = fieldCheck && (lhs.hasDummy32 == rhs.hasDummy32) && (!lhs.hasDummy32 || lhs.dummy32 == rhs.dummy32)
-  fieldCheck = fieldCheck && (lhs.hasC == rhs.hasC) && (!lhs.hasC || lhs.c == rhs.c)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnittest.TestRequiredForeign) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
-  fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
-  fieldCheck = fieldCheck && (lhs.hasDummy == rhs.hasDummy) && (!lhs.hasDummy || lhs.dummy == rhs.dummy)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest.TestForeignNested) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasForeignNested == rhs.hasForeignNested) && (!lhs.hasForeignNested || lhs.foreignNested == rhs.foreignNested)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.TestEmptyMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: ProtobufUnittest.TestEmptyMessageWithExtensions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: ProtobufUnittest.TestMultipleExtensionRanges) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:42, endExclusive:43)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4143, endExclusive:4244)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:65536, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufUnittest.TestReallyLargeTagNumber) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnittest.TestRecursiveMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnittest.TestMutualRecursionA) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnittest.TestMutualRecursionB) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasOptionalInt32 == rhs.hasOptionalInt32) && (!lhs.hasOptionalInt32 || lhs.optionalInt32 == rhs.optionalInt32)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittest.TestDupFieldNumber) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
-  fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.TestEagerMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasSubMessage == rhs.hasSubMessage) && (!lhs.hasSubMessage || lhs.subMessage == rhs.subMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.TestLazyMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasSubMessage == rhs.hasSubMessage) && (!lhs.hasSubMessage || lhs.subMessage == rhs.subMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufUnittest.TestNestedMessageHasBits) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedInt32 == rhs.nestedmessageRepeatedInt32)
-  fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedForeignmessage == rhs.nestedmessageRepeatedForeignmessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUnittest.TestCamelCaseFieldNames) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasPrimitiveField == rhs.hasPrimitiveField) && (!lhs.hasPrimitiveField || lhs.primitiveField == rhs.primitiveField)
-  fieldCheck = fieldCheck && (lhs.hasStringField == rhs.hasStringField) && (!lhs.hasStringField || lhs.stringField == rhs.stringField)
-  fieldCheck = fieldCheck && (lhs.hasEnumField == rhs.hasEnumField) && (!lhs.hasEnumField || lhs.enumField == rhs.enumField)
-  fieldCheck = fieldCheck && (lhs.hasMessageField == rhs.hasMessageField) && (!lhs.hasMessageField || lhs.messageField == rhs.messageField)
-  fieldCheck = fieldCheck && (lhs.hasStringPieceField == rhs.hasStringPieceField) && (!lhs.hasStringPieceField || lhs.stringPieceField == rhs.stringPieceField)
-  fieldCheck = fieldCheck && (lhs.hasCordField == rhs.hasCordField) && (!lhs.hasCordField || lhs.cordField == rhs.cordField)
-  fieldCheck = fieldCheck && (lhs.repeatedPrimitiveField == rhs.repeatedPrimitiveField)
-  fieldCheck = fieldCheck && (lhs.repeatedStringField == rhs.repeatedStringField)
-  fieldCheck = fieldCheck && (lhs.repeatedEnumField == rhs.repeatedEnumField)
-  fieldCheck = fieldCheck && (lhs.repeatedMessageField == rhs.repeatedMessageField)
-  fieldCheck = fieldCheck && (lhs.repeatedStringPieceField == rhs.repeatedStringPieceField)
-  fieldCheck = fieldCheck && (lhs.repeatedCordField == rhs.repeatedCordField)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittest.TestFieldOrderings) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasMyInt == rhs.hasMyInt) && (!lhs.hasMyInt || lhs.myInt == rhs.myInt)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:2, endExclusive:11)
-  fieldCheck = fieldCheck && (lhs.hasMyString == rhs.hasMyString) && (!lhs.hasMyString || lhs.myString == rhs.myString)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:12, endExclusive:101)
-  fieldCheck = fieldCheck && (lhs.hasMyFloat == rhs.hasMyFloat) && (!lhs.hasMyFloat || lhs.myFloat == rhs.myFloat)
-  fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestFieldOrderings.NestedMessage, rhs: ProtobufUnittest.TestFieldOrderings.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
-  fieldCheck = fieldCheck && (lhs.hasOo == rhs.hasOo) && (!lhs.hasOo || lhs.oo == rhs.oo)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufUnittest.TestExtremeDefaultValues) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasEscapedBytes == rhs.hasEscapedBytes) && (!lhs.hasEscapedBytes || lhs.escapedBytes == rhs.escapedBytes)
-  fieldCheck = fieldCheck && (lhs.hasLargeUint32 == rhs.hasLargeUint32) && (!lhs.hasLargeUint32 || lhs.largeUint32 == rhs.largeUint32)
-  fieldCheck = fieldCheck && (lhs.hasLargeUint64 == rhs.hasLargeUint64) && (!lhs.hasLargeUint64 || lhs.largeUint64 == rhs.largeUint64)
-  fieldCheck = fieldCheck && (lhs.hasSmallInt32 == rhs.hasSmallInt32) && (!lhs.hasSmallInt32 || lhs.smallInt32 == rhs.smallInt32)
-  fieldCheck = fieldCheck && (lhs.hasSmallInt64 == rhs.hasSmallInt64) && (!lhs.hasSmallInt64 || lhs.smallInt64 == rhs.smallInt64)
-  fieldCheck = fieldCheck && (lhs.hasUtf8String == rhs.hasUtf8String) && (!lhs.hasUtf8String || lhs.utf8String == rhs.utf8String)
-  fieldCheck = fieldCheck && (lhs.hasZeroFloat == rhs.hasZeroFloat) && (!lhs.hasZeroFloat || lhs.zeroFloat == rhs.zeroFloat)
-  fieldCheck = fieldCheck && (lhs.hasOneFloat == rhs.hasOneFloat) && (!lhs.hasOneFloat || lhs.oneFloat == rhs.oneFloat)
-  fieldCheck = fieldCheck && (lhs.hasSmallFloat == rhs.hasSmallFloat) && (!lhs.hasSmallFloat || lhs.smallFloat == rhs.smallFloat)
-  fieldCheck = fieldCheck && (lhs.hasNegativeOneFloat == rhs.hasNegativeOneFloat) && (!lhs.hasNegativeOneFloat || lhs.negativeOneFloat == rhs.negativeOneFloat)
-  fieldCheck = fieldCheck && (lhs.hasNegativeFloat == rhs.hasNegativeFloat) && (!lhs.hasNegativeFloat || lhs.negativeFloat == rhs.negativeFloat)
-  fieldCheck = fieldCheck && (lhs.hasLargeFloat == rhs.hasLargeFloat) && (!lhs.hasLargeFloat || lhs.largeFloat == rhs.largeFloat)
-  fieldCheck = fieldCheck && (lhs.hasSmallNegativeFloat == rhs.hasSmallNegativeFloat) && (!lhs.hasSmallNegativeFloat || lhs.smallNegativeFloat == rhs.smallNegativeFloat)
-  fieldCheck = fieldCheck && (lhs.hasInfDouble == rhs.hasInfDouble) && (!lhs.hasInfDouble || lhs.infDouble == rhs.infDouble)
-  fieldCheck = fieldCheck && (lhs.hasNegInfDouble == rhs.hasNegInfDouble) && (!lhs.hasNegInfDouble || lhs.negInfDouble == rhs.negInfDouble)
-  fieldCheck = fieldCheck && (lhs.hasNanDouble == rhs.hasNanDouble) && (!lhs.hasNanDouble || lhs.nanDouble == rhs.nanDouble)
-  fieldCheck = fieldCheck && (lhs.hasInfFloat == rhs.hasInfFloat) && (!lhs.hasInfFloat || lhs.infFloat == rhs.infFloat)
-  fieldCheck = fieldCheck && (lhs.hasNegInfFloat == rhs.hasNegInfFloat) && (!lhs.hasNegInfFloat || lhs.negInfFloat == rhs.negInfFloat)
-  fieldCheck = fieldCheck && (lhs.hasNanFloat == rhs.hasNanFloat) && (!lhs.hasNanFloat || lhs.nanFloat == rhs.nanFloat)
-  fieldCheck = fieldCheck && (lhs.hasCppTrigraph == rhs.hasCppTrigraph) && (!lhs.hasCppTrigraph || lhs.cppTrigraph == rhs.cppTrigraph)
-  fieldCheck = fieldCheck && (lhs.hasReallySmallInt32 == rhs.hasReallySmallInt32) && (!lhs.hasReallySmallInt32 || lhs.reallySmallInt32 == rhs.reallySmallInt32)
-  fieldCheck = fieldCheck && (lhs.hasReallySmallInt64 == rhs.hasReallySmallInt64) && (!lhs.hasReallySmallInt64 || lhs.reallySmallInt64 == rhs.reallySmallInt64)
-  fieldCheck = fieldCheck && (lhs.hasStringWithZero == rhs.hasStringWithZero) && (!lhs.hasStringWithZero || lhs.stringWithZero == rhs.stringWithZero)
-  fieldCheck = fieldCheck && (lhs.hasBytesWithZero == rhs.hasBytesWithZero) && (!lhs.hasBytesWithZero || lhs.bytesWithZero == rhs.bytesWithZero)
-  fieldCheck = fieldCheck && (lhs.hasStringPieceWithZero == rhs.hasStringPieceWithZero) && (!lhs.hasStringPieceWithZero || lhs.stringPieceWithZero == rhs.stringPieceWithZero)
-  fieldCheck = fieldCheck && (lhs.hasCordWithZero == rhs.hasCordWithZero) && (!lhs.hasCordWithZero || lhs.cordWithZero == rhs.cordWithZero)
-  fieldCheck = fieldCheck && (lhs.hasReplacementString == rhs.hasReplacementString) && (!lhs.hasReplacementString || lhs.replacementString == rhs.replacementString)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest.SparseEnumMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasSparseEnum == rhs.hasSparseEnum) && (!lhs.hasSparseEnum || lhs.sparseEnum == rhs.sparseEnum)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneString) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreString) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreBytes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int32Message) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uint32Message) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int64Message) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uint64Message) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOneof) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
-  fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
-  fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
-  fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: ProtobufUnittest.TestOneofBackwardsCompatible) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
-  fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
-  fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
-  fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOneof2) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
-  fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
-  fieldCheck = fieldCheck && (lhs.hasFooCord == rhs.hasFooCord) && (!lhs.hasFooCord || lhs.fooCord == rhs.fooCord)
-  fieldCheck = fieldCheck && (lhs.hasFooStringPiece == rhs.hasFooStringPiece) && (!lhs.hasFooStringPiece || lhs.fooStringPiece == rhs.fooStringPiece)
-  fieldCheck = fieldCheck && (lhs.hasFooBytes == rhs.hasFooBytes) && (!lhs.hasFooBytes || lhs.fooBytes == rhs.fooBytes)
-  fieldCheck = fieldCheck && (lhs.hasFooEnum == rhs.hasFooEnum) && (!lhs.hasFooEnum || lhs.fooEnum == rhs.fooEnum)
-  fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
-  fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
-  fieldCheck = fieldCheck && (lhs.hasFooLazyMessage == rhs.hasFooLazyMessage) && (!lhs.hasFooLazyMessage || lhs.fooLazyMessage == rhs.fooLazyMessage)
-  fieldCheck = fieldCheck && (lhs.hasBarInt == rhs.hasBarInt) && (!lhs.hasBarInt || lhs.barInt == rhs.barInt)
-  fieldCheck = fieldCheck && (lhs.hasBarString == rhs.hasBarString) && (!lhs.hasBarString || lhs.barString == rhs.barString)
-  fieldCheck = fieldCheck && (lhs.hasBarCord == rhs.hasBarCord) && (!lhs.hasBarCord || lhs.barCord == rhs.barCord)
-  fieldCheck = fieldCheck && (lhs.hasBarStringPiece == rhs.hasBarStringPiece) && (!lhs.hasBarStringPiece || lhs.barStringPiece == rhs.barStringPiece)
-  fieldCheck = fieldCheck && (lhs.hasBarBytes == rhs.hasBarBytes) && (!lhs.hasBarBytes || lhs.barBytes == rhs.barBytes)
-  fieldCheck = fieldCheck && (lhs.hasBarEnum == rhs.hasBarEnum) && (!lhs.hasBarEnum || lhs.barEnum == rhs.barEnum)
-  fieldCheck = fieldCheck && (lhs.hasBazInt == rhs.hasBazInt) && (!lhs.hasBazInt || lhs.bazInt == rhs.bazInt)
-  fieldCheck = fieldCheck && (lhs.hasBazString == rhs.hasBazString) && (!lhs.hasBazString || lhs.bazString == rhs.bazString)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasQuxInt == rhs.hasQuxInt) && (!lhs.hasQuxInt || lhs.quxInt == rhs.quxInt)
-  fieldCheck = fieldCheck && (lhs.corgeInt == rhs.corgeInt)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest.TestRequiredOneof) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
-  fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
-  fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasRequiredDouble == rhs.hasRequiredDouble) && (!lhs.hasRequiredDouble || lhs.requiredDouble == rhs.requiredDouble)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.TestPackedTypes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.packedInt32 == rhs.packedInt32)
-  fieldCheck = fieldCheck && (lhs.packedInt64 == rhs.packedInt64)
-  fieldCheck = fieldCheck && (lhs.packedUint32 == rhs.packedUint32)
-  fieldCheck = fieldCheck && (lhs.packedUint64 == rhs.packedUint64)
-  fieldCheck = fieldCheck && (lhs.packedSint32 == rhs.packedSint32)
-  fieldCheck = fieldCheck && (lhs.packedSint64 == rhs.packedSint64)
-  fieldCheck = fieldCheck && (lhs.packedFixed32 == rhs.packedFixed32)
-  fieldCheck = fieldCheck && (lhs.packedFixed64 == rhs.packedFixed64)
-  fieldCheck = fieldCheck && (lhs.packedSfixed32 == rhs.packedSfixed32)
-  fieldCheck = fieldCheck && (lhs.packedSfixed64 == rhs.packedSfixed64)
-  fieldCheck = fieldCheck && (lhs.packedFloat == rhs.packedFloat)
-  fieldCheck = fieldCheck && (lhs.packedDouble == rhs.packedDouble)
-  fieldCheck = fieldCheck && (lhs.packedBool == rhs.packedBool)
-  fieldCheck = fieldCheck && (lhs.packedEnum == rhs.packedEnum)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest.TestUnpackedTypes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.unpackedInt32 == rhs.unpackedInt32)
-  fieldCheck = fieldCheck && (lhs.unpackedInt64 == rhs.unpackedInt64)
-  fieldCheck = fieldCheck && (lhs.unpackedUint32 == rhs.unpackedUint32)
-  fieldCheck = fieldCheck && (lhs.unpackedUint64 == rhs.unpackedUint64)
-  fieldCheck = fieldCheck && (lhs.unpackedSint32 == rhs.unpackedSint32)
-  fieldCheck = fieldCheck && (lhs.unpackedSint64 == rhs.unpackedSint64)
-  fieldCheck = fieldCheck && (lhs.unpackedFixed32 == rhs.unpackedFixed32)
-  fieldCheck = fieldCheck && (lhs.unpackedFixed64 == rhs.unpackedFixed64)
-  fieldCheck = fieldCheck && (lhs.unpackedSfixed32 == rhs.unpackedSfixed32)
-  fieldCheck = fieldCheck && (lhs.unpackedSfixed64 == rhs.unpackedSfixed64)
-  fieldCheck = fieldCheck && (lhs.unpackedFloat == rhs.unpackedFloat)
-  fieldCheck = fieldCheck && (lhs.unpackedDouble == rhs.unpackedDouble)
-  fieldCheck = fieldCheck && (lhs.unpackedBool == rhs.unpackedBool)
-  fieldCheck = fieldCheck && (lhs.unpackedEnum == rhs.unpackedEnum)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnittest.TestPackedExtensions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUnittest.TestUnpackedExtensions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnittest.TestDynamicExtensions) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasScalarExtension == rhs.hasScalarExtension) && (!lhs.hasScalarExtension || lhs.scalarExtension == rhs.scalarExtension)
-  fieldCheck = fieldCheck && (lhs.hasEnumExtension == rhs.hasEnumExtension) && (!lhs.hasEnumExtension || lhs.enumExtension == rhs.enumExtension)
-  fieldCheck = fieldCheck && (lhs.hasDynamicEnumExtension == rhs.hasDynamicEnumExtension) && (!lhs.hasDynamicEnumExtension || lhs.dynamicEnumExtension == rhs.dynamicEnumExtension)
-  fieldCheck = fieldCheck && (lhs.hasMessageExtension == rhs.hasMessageExtension) && (!lhs.hasMessageExtension || lhs.messageExtension == rhs.messageExtension)
-  fieldCheck = fieldCheck && (lhs.hasDynamicMessageExtension == rhs.hasDynamicMessageExtension) && (!lhs.hasDynamicMessageExtension || lhs.dynamicMessageExtension == rhs.dynamicMessageExtension)
-  fieldCheck = fieldCheck && (lhs.repeatedExtension == rhs.repeatedExtension)
-  fieldCheck = fieldCheck && (lhs.packedExtension == rhs.packedExtension)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasDynamicField == rhs.hasDynamicField) && (!lhs.hasDynamicField || lhs.dynamicField == rhs.dynamicField)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.repeatedFixed32 == rhs.repeatedFixed32)
-  fieldCheck = fieldCheck && (lhs.repeatedInt32 == rhs.repeatedInt32)
-  fieldCheck = fieldCheck && (lhs.repeatedFixed64 == rhs.repeatedFixed64)
-  fieldCheck = fieldCheck && (lhs.repeatedInt64 == rhs.repeatedInt64)
-  fieldCheck = fieldCheck && (lhs.repeatedFloat == rhs.repeatedFloat)
-  fieldCheck = fieldCheck && (lhs.repeatedUint64 == rhs.repeatedUint64)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasRequiredAllTypes == rhs.hasRequiredAllTypes) && (!lhs.hasRequiredAllTypes || lhs.requiredAllTypes == rhs.requiredAllTypes)
-  fieldCheck = fieldCheck && (lhs.hasOptionalAllTypes == rhs.hasOptionalAllTypes) && (!lhs.hasOptionalAllTypes || lhs.optionalAllTypes == rhs.optionalAllTypes)
-  fieldCheck = fieldCheck && (lhs.repeatedAllTypes == rhs.repeatedAllTypes)
-  fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
-  fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
-  fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.field1 == rhs.field1)
-  fieldCheck = fieldCheck && (lhs.field2 == rhs.field2)
-  fieldCheck = fieldCheck && (lhs.field3 == rhs.field3)
-  fieldCheck = fieldCheck && (lhs.group1 == rhs.group1)
-  fieldCheck = fieldCheck && (lhs.group2 == rhs.group2)
-  fieldCheck = fieldCheck && (lhs.ext1 == rhs.ext1)
-  fieldCheck = fieldCheck && (lhs.ext2 == rhs.ext2)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: ProtobufUnittest.TestParsingMerge.OptionalGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOptionalGroupAllTypes == rhs.hasOptionalGroupAllTypes) && (!lhs.hasOptionalGroupAllTypes || lhs.optionalGroupAllTypes == rhs.optionalGroupAllTypes)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasRepeatedGroupAllTypes == rhs.hasRepeatedGroupAllTypes) && (!lhs.hasRepeatedGroupAllTypes || lhs.repeatedGroupAllTypes == rhs.repeatedGroupAllTypes)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: ProtobufUnittest.TestCommentInjectionMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.FooRequest, rhs: ProtobufUnittest.FooRequest) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooResponse) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.FooClientMessage, rhs: ProtobufUnittest.FooClientMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.FooServerMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarRequest) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarResponse) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 // Singular
 public var UnittestRootoptionalInt32Extension:ConcreateExtensionField {
    get {
@@ -2316,10 +1368,106 @@ public extension ProtobufUnittest {
   // forms.
   final public class TestAllTypes : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.TestAllTypes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasOptionalInt32 == rhs.hasOptionalInt32) && (!lhs.hasOptionalInt32 || lhs.optionalInt32 == rhs.optionalInt32)
+      fieldCheck = fieldCheck && (lhs.hasOptionalInt64 == rhs.hasOptionalInt64) && (!lhs.hasOptionalInt64 || lhs.optionalInt64 == rhs.optionalInt64)
+      fieldCheck = fieldCheck && (lhs.hasOptionalUint32 == rhs.hasOptionalUint32) && (!lhs.hasOptionalUint32 || lhs.optionalUint32 == rhs.optionalUint32)
+      fieldCheck = fieldCheck && (lhs.hasOptionalUint64 == rhs.hasOptionalUint64) && (!lhs.hasOptionalUint64 || lhs.optionalUint64 == rhs.optionalUint64)
+      fieldCheck = fieldCheck && (lhs.hasOptionalSint32 == rhs.hasOptionalSint32) && (!lhs.hasOptionalSint32 || lhs.optionalSint32 == rhs.optionalSint32)
+      fieldCheck = fieldCheck && (lhs.hasOptionalSint64 == rhs.hasOptionalSint64) && (!lhs.hasOptionalSint64 || lhs.optionalSint64 == rhs.optionalSint64)
+      fieldCheck = fieldCheck && (lhs.hasOptionalFixed32 == rhs.hasOptionalFixed32) && (!lhs.hasOptionalFixed32 || lhs.optionalFixed32 == rhs.optionalFixed32)
+      fieldCheck = fieldCheck && (lhs.hasOptionalFixed64 == rhs.hasOptionalFixed64) && (!lhs.hasOptionalFixed64 || lhs.optionalFixed64 == rhs.optionalFixed64)
+      fieldCheck = fieldCheck && (lhs.hasOptionalSfixed32 == rhs.hasOptionalSfixed32) && (!lhs.hasOptionalSfixed32 || lhs.optionalSfixed32 == rhs.optionalSfixed32)
+      fieldCheck = fieldCheck && (lhs.hasOptionalSfixed64 == rhs.hasOptionalSfixed64) && (!lhs.hasOptionalSfixed64 || lhs.optionalSfixed64 == rhs.optionalSfixed64)
+      fieldCheck = fieldCheck && (lhs.hasOptionalFloat == rhs.hasOptionalFloat) && (!lhs.hasOptionalFloat || lhs.optionalFloat == rhs.optionalFloat)
+      fieldCheck = fieldCheck && (lhs.hasOptionalDouble == rhs.hasOptionalDouble) && (!lhs.hasOptionalDouble || lhs.optionalDouble == rhs.optionalDouble)
+      fieldCheck = fieldCheck && (lhs.hasOptionalBool == rhs.hasOptionalBool) && (!lhs.hasOptionalBool || lhs.optionalBool == rhs.optionalBool)
+      fieldCheck = fieldCheck && (lhs.hasOptionalString == rhs.hasOptionalString) && (!lhs.hasOptionalString || lhs.optionalString == rhs.optionalString)
+      fieldCheck = fieldCheck && (lhs.hasOptionalBytes == rhs.hasOptionalBytes) && (!lhs.hasOptionalBytes || lhs.optionalBytes == rhs.optionalBytes)
+      fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
+      fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
+      fieldCheck = fieldCheck && (lhs.hasOptionalForeignMessage == rhs.hasOptionalForeignMessage) && (!lhs.hasOptionalForeignMessage || lhs.optionalForeignMessage == rhs.optionalForeignMessage)
+      fieldCheck = fieldCheck && (lhs.hasOptionalImportMessage == rhs.hasOptionalImportMessage) && (!lhs.hasOptionalImportMessage || lhs.optionalImportMessage == rhs.optionalImportMessage)
+      fieldCheck = fieldCheck && (lhs.hasOptionalNestedEnum == rhs.hasOptionalNestedEnum) && (!lhs.hasOptionalNestedEnum || lhs.optionalNestedEnum == rhs.optionalNestedEnum)
+      fieldCheck = fieldCheck && (lhs.hasOptionalForeignEnum == rhs.hasOptionalForeignEnum) && (!lhs.hasOptionalForeignEnum || lhs.optionalForeignEnum == rhs.optionalForeignEnum)
+      fieldCheck = fieldCheck && (lhs.hasOptionalImportEnum == rhs.hasOptionalImportEnum) && (!lhs.hasOptionalImportEnum || lhs.optionalImportEnum == rhs.optionalImportEnum)
+      fieldCheck = fieldCheck && (lhs.hasOptionalStringPiece == rhs.hasOptionalStringPiece) && (!lhs.hasOptionalStringPiece || lhs.optionalStringPiece == rhs.optionalStringPiece)
+      fieldCheck = fieldCheck && (lhs.hasOptionalCord == rhs.hasOptionalCord) && (!lhs.hasOptionalCord || lhs.optionalCord == rhs.optionalCord)
+      fieldCheck = fieldCheck && (lhs.hasOptionalPublicImportMessage == rhs.hasOptionalPublicImportMessage) && (!lhs.hasOptionalPublicImportMessage || lhs.optionalPublicImportMessage == rhs.optionalPublicImportMessage)
+      fieldCheck = fieldCheck && (lhs.hasOptionalLazyMessage == rhs.hasOptionalLazyMessage) && (!lhs.hasOptionalLazyMessage || lhs.optionalLazyMessage == rhs.optionalLazyMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedInt32 == rhs.repeatedInt32)
+      fieldCheck = fieldCheck && (lhs.repeatedInt64 == rhs.repeatedInt64)
+      fieldCheck = fieldCheck && (lhs.repeatedUint32 == rhs.repeatedUint32)
+      fieldCheck = fieldCheck && (lhs.repeatedUint64 == rhs.repeatedUint64)
+      fieldCheck = fieldCheck && (lhs.repeatedSint32 == rhs.repeatedSint32)
+      fieldCheck = fieldCheck && (lhs.repeatedSint64 == rhs.repeatedSint64)
+      fieldCheck = fieldCheck && (lhs.repeatedFixed32 == rhs.repeatedFixed32)
+      fieldCheck = fieldCheck && (lhs.repeatedFixed64 == rhs.repeatedFixed64)
+      fieldCheck = fieldCheck && (lhs.repeatedSfixed32 == rhs.repeatedSfixed32)
+      fieldCheck = fieldCheck && (lhs.repeatedSfixed64 == rhs.repeatedSfixed64)
+      fieldCheck = fieldCheck && (lhs.repeatedFloat == rhs.repeatedFloat)
+      fieldCheck = fieldCheck && (lhs.repeatedDouble == rhs.repeatedDouble)
+      fieldCheck = fieldCheck && (lhs.repeatedBool == rhs.repeatedBool)
+      fieldCheck = fieldCheck && (lhs.repeatedString == rhs.repeatedString)
+      fieldCheck = fieldCheck && (lhs.repeatedBytes == rhs.repeatedBytes)
+      fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
+      fieldCheck = fieldCheck && (lhs.repeatedNestedMessage == rhs.repeatedNestedMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedForeignMessage == rhs.repeatedForeignMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedImportMessage == rhs.repeatedImportMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedNestedEnum == rhs.repeatedNestedEnum)
+      fieldCheck = fieldCheck && (lhs.repeatedForeignEnum == rhs.repeatedForeignEnum)
+      fieldCheck = fieldCheck && (lhs.repeatedImportEnum == rhs.repeatedImportEnum)
+      fieldCheck = fieldCheck && (lhs.repeatedStringPiece == rhs.repeatedStringPiece)
+      fieldCheck = fieldCheck && (lhs.repeatedCord == rhs.repeatedCord)
+      fieldCheck = fieldCheck && (lhs.repeatedLazyMessage == rhs.repeatedLazyMessage)
+      fieldCheck = fieldCheck && (lhs.hasDefaultInt32 == rhs.hasDefaultInt32) && (!lhs.hasDefaultInt32 || lhs.defaultInt32 == rhs.defaultInt32)
+      fieldCheck = fieldCheck && (lhs.hasDefaultInt64 == rhs.hasDefaultInt64) && (!lhs.hasDefaultInt64 || lhs.defaultInt64 == rhs.defaultInt64)
+      fieldCheck = fieldCheck && (lhs.hasDefaultUint32 == rhs.hasDefaultUint32) && (!lhs.hasDefaultUint32 || lhs.defaultUint32 == rhs.defaultUint32)
+      fieldCheck = fieldCheck && (lhs.hasDefaultUint64 == rhs.hasDefaultUint64) && (!lhs.hasDefaultUint64 || lhs.defaultUint64 == rhs.defaultUint64)
+      fieldCheck = fieldCheck && (lhs.hasDefaultSint32 == rhs.hasDefaultSint32) && (!lhs.hasDefaultSint32 || lhs.defaultSint32 == rhs.defaultSint32)
+      fieldCheck = fieldCheck && (lhs.hasDefaultSint64 == rhs.hasDefaultSint64) && (!lhs.hasDefaultSint64 || lhs.defaultSint64 == rhs.defaultSint64)
+      fieldCheck = fieldCheck && (lhs.hasDefaultFixed32 == rhs.hasDefaultFixed32) && (!lhs.hasDefaultFixed32 || lhs.defaultFixed32 == rhs.defaultFixed32)
+      fieldCheck = fieldCheck && (lhs.hasDefaultFixed64 == rhs.hasDefaultFixed64) && (!lhs.hasDefaultFixed64 || lhs.defaultFixed64 == rhs.defaultFixed64)
+      fieldCheck = fieldCheck && (lhs.hasDefaultSfixed32 == rhs.hasDefaultSfixed32) && (!lhs.hasDefaultSfixed32 || lhs.defaultSfixed32 == rhs.defaultSfixed32)
+      fieldCheck = fieldCheck && (lhs.hasDefaultSfixed64 == rhs.hasDefaultSfixed64) && (!lhs.hasDefaultSfixed64 || lhs.defaultSfixed64 == rhs.defaultSfixed64)
+      fieldCheck = fieldCheck && (lhs.hasDefaultFloat == rhs.hasDefaultFloat) && (!lhs.hasDefaultFloat || lhs.defaultFloat == rhs.defaultFloat)
+      fieldCheck = fieldCheck && (lhs.hasDefaultDouble == rhs.hasDefaultDouble) && (!lhs.hasDefaultDouble || lhs.defaultDouble == rhs.defaultDouble)
+      fieldCheck = fieldCheck && (lhs.hasDefaultBool == rhs.hasDefaultBool) && (!lhs.hasDefaultBool || lhs.defaultBool == rhs.defaultBool)
+      fieldCheck = fieldCheck && (lhs.hasDefaultString == rhs.hasDefaultString) && (!lhs.hasDefaultString || lhs.defaultString == rhs.defaultString)
+      fieldCheck = fieldCheck && (lhs.hasDefaultBytes == rhs.hasDefaultBytes) && (!lhs.hasDefaultBytes || lhs.defaultBytes == rhs.defaultBytes)
+      fieldCheck = fieldCheck && (lhs.hasDefaultNestedEnum == rhs.hasDefaultNestedEnum) && (!lhs.hasDefaultNestedEnum || lhs.defaultNestedEnum == rhs.defaultNestedEnum)
+      fieldCheck = fieldCheck && (lhs.hasDefaultForeignEnum == rhs.hasDefaultForeignEnum) && (!lhs.hasDefaultForeignEnum || lhs.defaultForeignEnum == rhs.defaultForeignEnum)
+      fieldCheck = fieldCheck && (lhs.hasDefaultImportEnum == rhs.hasDefaultImportEnum) && (!lhs.hasDefaultImportEnum || lhs.defaultImportEnum == rhs.defaultImportEnum)
+      fieldCheck = fieldCheck && (lhs.hasDefaultStringPiece == rhs.hasDefaultStringPiece) && (!lhs.hasDefaultStringPiece || lhs.defaultStringPiece == rhs.defaultStringPiece)
+      fieldCheck = fieldCheck && (lhs.hasDefaultCord == rhs.hasDefaultCord) && (!lhs.hasDefaultCord || lhs.defaultCord == rhs.defaultCord)
+      fieldCheck = fieldCheck && (lhs.hasOneofUint32 == rhs.hasOneofUint32) && (!lhs.hasOneofUint32 || lhs.oneofUint32 == rhs.oneofUint32)
+      fieldCheck = fieldCheck && (lhs.hasOneofNestedMessage == rhs.hasOneofNestedMessage) && (!lhs.hasOneofNestedMessage || lhs.oneofNestedMessage == rhs.oneofNestedMessage)
+      fieldCheck = fieldCheck && (lhs.hasOneofString == rhs.hasOneofString) && (!lhs.hasOneofString || lhs.oneofString == rhs.oneofString)
+      fieldCheck = fieldCheck && (lhs.hasOneofBytes == rhs.hasOneofBytes) && (!lhs.hasOneofBytes || lhs.oneofBytes == rhs.oneofBytes)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         // The field name "b" fails to compile in proto1 because it conflicts with
         // a local variable named "b" in one of the generated methods.  Doh.
         // This file needs to compile in proto1 to test backwards-compatibility.
@@ -2377,7 +1525,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasBb {
-            jsonMap["bb"] = NSNumber(value:bb)
+            jsonMap["bb"] = bb
           }
           return jsonMap
         }
@@ -2469,6 +1617,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypes.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             if other == ProtobufUnittest.TestAllTypes.NestedMessage() {
              return self
@@ -2476,9 +1625,10 @@ public extension ProtobufUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -2504,8 +1654,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
-            if let jsonValueBb = jsonMap["bb"] as? NSNumber {
-              resultDecodedBuilder.bb = jsonValueBb.int32Value
+            if let jsonValueBb = jsonMap["bb"] as? Int32 {
+              resultDecodedBuilder.bb = jsonValueBb
             }
             return resultDecodedBuilder
           }
@@ -2527,6 +1677,17 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class OptionalGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -2581,7 +1742,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           return jsonMap
         }
@@ -2673,6 +1834,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypes.OptionalGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypes.OptionalGroup) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestAllTypes.OptionalGroup() {
              return self
@@ -2680,9 +1842,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -2708,8 +1871,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             return resultDecodedBuilder
           }
@@ -2731,6 +1894,17 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class RepeatedGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -2785,7 +1959,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           return jsonMap
         }
@@ -2877,6 +2051,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestAllTypes.RepeatedGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestAllTypes.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestAllTypes.RepeatedGroup() {
              return self
@@ -2884,9 +2059,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -2912,8 +2088,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             return resultDecodedBuilder
           }
@@ -3854,40 +3030,40 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasOptionalInt32 {
-        jsonMap["optionalInt32"] = NSNumber(value:optionalInt32)
+        jsonMap["optionalInt32"] = optionalInt32
       }
       if hasOptionalInt64 {
-        jsonMap["optionalInt64"] = "\(optionalInt64)"
+        jsonMap["optionalInt64"] = optionalInt64
       }
       if hasOptionalUint32 {
-        jsonMap["optionalUint32"] = NSNumber(value:optionalUint32)
+        jsonMap["optionalUint32"] = optionalUint32
       }
       if hasOptionalUint64 {
-        jsonMap["optionalUint64"] = "\(optionalUint64)"
+        jsonMap["optionalUint64"] = optionalUint64
       }
       if hasOptionalSint32 {
-        jsonMap["optionalSint32"] = NSNumber(value:optionalSint32)
+        jsonMap["optionalSint32"] = optionalSint32
       }
       if hasOptionalSint64 {
-        jsonMap["optionalSint64"] = "\(optionalSint64)"
+        jsonMap["optionalSint64"] = optionalSint64
       }
       if hasOptionalFixed32 {
-        jsonMap["optionalFixed32"] = NSNumber(value:optionalFixed32)
+        jsonMap["optionalFixed32"] = optionalFixed32
       }
       if hasOptionalFixed64 {
-        jsonMap["optionalFixed64"] = "\(optionalFixed64)"
+        jsonMap["optionalFixed64"] = optionalFixed64
       }
       if hasOptionalSfixed32 {
-        jsonMap["optionalSfixed32"] = NSNumber(value:optionalSfixed32)
+        jsonMap["optionalSfixed32"] = optionalSfixed32
       }
       if hasOptionalSfixed64 {
-        jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
+        jsonMap["optionalSfixed64"] = optionalSfixed64
       }
       if hasOptionalFloat {
-        jsonMap["optionalFloat"] = NSNumber(value:optionalFloat)
+        jsonMap["optionalFloat"] = optionalFloat
       }
       if hasOptionalDouble {
-        jsonMap["optionalDouble"] = NSNumber(value:optionalDouble)
+        jsonMap["optionalDouble"] = optionalDouble
       }
       if hasOptionalBool {
         jsonMap["optionalBool"] = optionalBool
@@ -3932,94 +3108,102 @@ public extension ProtobufUnittest {
         jsonMap["optionalLazyMessage"] = try optionalLazyMessage.encode()
       }
       if !repeatedInt32.isEmpty {
-        var jsonArrayRepeatedInt32:Array<NSNumber> = []
+        var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
-            jsonArrayRepeatedInt32.append(NSNumber(value:oneValueRepeatedInt32))
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
           }
         jsonMap["repeatedInt32"] = jsonArrayRepeatedInt32
       }
       if !repeatedInt64.isEmpty {
-        var jsonArrayRepeatedInt64:Array<String> = []
+        var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in repeatedInt64 {
-            jsonArrayRepeatedInt64.append("\(oneValueRepeatedInt64)")
+            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
           }
         jsonMap["repeatedInt64"] = jsonArrayRepeatedInt64
       }
       if !repeatedUint32.isEmpty {
-        var jsonArrayRepeatedUint32:Array<NSNumber> = []
+        var jsonArrayRepeatedUint32:Array<UInt32> = []
           for oneValueRepeatedUint32 in repeatedUint32 {
-            jsonArrayRepeatedUint32.append(NSNumber(value:oneValueRepeatedUint32))
+            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32)
           }
         jsonMap["repeatedUint32"] = jsonArrayRepeatedUint32
       }
       if !repeatedUint64.isEmpty {
-        var jsonArrayRepeatedUint64:Array<String> = []
+        var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in repeatedUint64 {
-            jsonArrayRepeatedUint64.append("\(oneValueRepeatedUint64)")
+            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
           }
         jsonMap["repeatedUint64"] = jsonArrayRepeatedUint64
       }
       if !repeatedSint32.isEmpty {
-        var jsonArrayRepeatedSint32:Array<NSNumber> = []
+        var jsonArrayRepeatedSint32:Array<Int32> = []
           for oneValueRepeatedSint32 in repeatedSint32 {
-            jsonArrayRepeatedSint32.append(NSNumber(value:oneValueRepeatedSint32))
+            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32)
           }
         jsonMap["repeatedSint32"] = jsonArrayRepeatedSint32
       }
       if !repeatedSint64.isEmpty {
-        var jsonArrayRepeatedSint64:Array<String> = []
+        var jsonArrayRepeatedSint64:Array<Int64> = []
           for oneValueRepeatedSint64 in repeatedSint64 {
-            jsonArrayRepeatedSint64.append("\(oneValueRepeatedSint64)")
+            jsonArrayRepeatedSint64.append(oneValueRepeatedSint64)
           }
         jsonMap["repeatedSint64"] = jsonArrayRepeatedSint64
       }
       if !repeatedFixed32.isEmpty {
-        var jsonArrayRepeatedFixed32:Array<NSNumber> = []
+        var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in repeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(NSNumber(value:oneValueRepeatedFixed32))
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
           }
         jsonMap["repeatedFixed32"] = jsonArrayRepeatedFixed32
       }
       if !repeatedFixed64.isEmpty {
-        var jsonArrayRepeatedFixed64:Array<String> = []
+        var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in repeatedFixed64 {
-            jsonArrayRepeatedFixed64.append("\(oneValueRepeatedFixed64)")
+            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
           }
         jsonMap["repeatedFixed64"] = jsonArrayRepeatedFixed64
       }
       if !repeatedSfixed32.isEmpty {
-        var jsonArrayRepeatedSfixed32:Array<NSNumber> = []
+        var jsonArrayRepeatedSfixed32:Array<Int32> = []
           for oneValueRepeatedSfixed32 in repeatedSfixed32 {
-            jsonArrayRepeatedSfixed32.append(NSNumber(value:oneValueRepeatedSfixed32))
+            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32)
           }
         jsonMap["repeatedSfixed32"] = jsonArrayRepeatedSfixed32
       }
       if !repeatedSfixed64.isEmpty {
-        var jsonArrayRepeatedSfixed64:Array<String> = []
+        var jsonArrayRepeatedSfixed64:Array<Int64> = []
           for oneValueRepeatedSfixed64 in repeatedSfixed64 {
-            jsonArrayRepeatedSfixed64.append("\(oneValueRepeatedSfixed64)")
+            jsonArrayRepeatedSfixed64.append(oneValueRepeatedSfixed64)
           }
         jsonMap["repeatedSfixed64"] = jsonArrayRepeatedSfixed64
       }
       if !repeatedFloat.isEmpty {
-        var jsonArrayRepeatedFloat:Array<NSNumber> = []
+        var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in repeatedFloat {
-            jsonArrayRepeatedFloat.append(NSNumber(value:oneValueRepeatedFloat))
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
           }
         jsonMap["repeatedFloat"] = jsonArrayRepeatedFloat
       }
       if !repeatedDouble.isEmpty {
-        var jsonArrayRepeatedDouble:Array<NSNumber> = []
+        var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in repeatedDouble {
-            jsonArrayRepeatedDouble.append(NSNumber(value:oneValueRepeatedDouble))
+            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble)
           }
         jsonMap["repeatedDouble"] = jsonArrayRepeatedDouble
       }
       if !repeatedBool.isEmpty {
-        jsonMap["repeatedBool"] = repeatedBool
+        var jsonArrayRepeatedBool:Array<Bool> = []
+          for oneValueRepeatedBool in repeatedBool {
+            jsonArrayRepeatedBool.append(oneValueRepeatedBool)
+          }
+        jsonMap["repeatedBool"] = jsonArrayRepeatedBool
       }
       if !repeatedString.isEmpty {
-        jsonMap["repeatedString"] = repeatedString
+        var jsonArrayRepeatedString:Array<String> = []
+          for oneValueRepeatedString in repeatedString {
+            jsonArrayRepeatedString.append(oneValueRepeatedString)
+          }
+        jsonMap["repeatedString"] = jsonArrayRepeatedString
       }
       if !repeatedBytes.isEmpty {
         var jsonArrayRepeatedBytes:Array<String> = []
@@ -4082,10 +3266,18 @@ public extension ProtobufUnittest {
         jsonMap["repeatedImportEnum"] = jsonArrayRepeatedImportEnum
       }
       if !repeatedStringPiece.isEmpty {
-        jsonMap["repeatedStringPiece"] = repeatedStringPiece
+        var jsonArrayRepeatedStringPiece:Array<String> = []
+          for oneValueRepeatedStringPiece in repeatedStringPiece {
+            jsonArrayRepeatedStringPiece.append(oneValueRepeatedStringPiece)
+          }
+        jsonMap["repeatedStringPiece"] = jsonArrayRepeatedStringPiece
       }
       if !repeatedCord.isEmpty {
-        jsonMap["repeatedCord"] = repeatedCord
+        var jsonArrayRepeatedCord:Array<String> = []
+          for oneValueRepeatedCord in repeatedCord {
+            jsonArrayRepeatedCord.append(oneValueRepeatedCord)
+          }
+        jsonMap["repeatedCord"] = jsonArrayRepeatedCord
       }
       if !repeatedLazyMessage.isEmpty {
         var jsonArrayRepeatedLazyMessage:Array<Dictionary<String,Any>> = []
@@ -4096,40 +3288,40 @@ public extension ProtobufUnittest {
         jsonMap["repeatedLazyMessage"] = jsonArrayRepeatedLazyMessage
       }
       if hasDefaultInt32 {
-        jsonMap["defaultInt32"] = NSNumber(value:defaultInt32)
+        jsonMap["defaultInt32"] = defaultInt32
       }
       if hasDefaultInt64 {
-        jsonMap["defaultInt64"] = "\(defaultInt64)"
+        jsonMap["defaultInt64"] = defaultInt64
       }
       if hasDefaultUint32 {
-        jsonMap["defaultUint32"] = NSNumber(value:defaultUint32)
+        jsonMap["defaultUint32"] = defaultUint32
       }
       if hasDefaultUint64 {
-        jsonMap["defaultUint64"] = "\(defaultUint64)"
+        jsonMap["defaultUint64"] = defaultUint64
       }
       if hasDefaultSint32 {
-        jsonMap["defaultSint32"] = NSNumber(value:defaultSint32)
+        jsonMap["defaultSint32"] = defaultSint32
       }
       if hasDefaultSint64 {
-        jsonMap["defaultSint64"] = "\(defaultSint64)"
+        jsonMap["defaultSint64"] = defaultSint64
       }
       if hasDefaultFixed32 {
-        jsonMap["defaultFixed32"] = NSNumber(value:defaultFixed32)
+        jsonMap["defaultFixed32"] = defaultFixed32
       }
       if hasDefaultFixed64 {
-        jsonMap["defaultFixed64"] = "\(defaultFixed64)"
+        jsonMap["defaultFixed64"] = defaultFixed64
       }
       if hasDefaultSfixed32 {
-        jsonMap["defaultSfixed32"] = NSNumber(value:defaultSfixed32)
+        jsonMap["defaultSfixed32"] = defaultSfixed32
       }
       if hasDefaultSfixed64 {
-        jsonMap["defaultSfixed64"] = "\(defaultSfixed64)"
+        jsonMap["defaultSfixed64"] = defaultSfixed64
       }
       if hasDefaultFloat {
-        jsonMap["defaultFloat"] = NSNumber(value:defaultFloat)
+        jsonMap["defaultFloat"] = defaultFloat
       }
       if hasDefaultDouble {
-        jsonMap["defaultDouble"] = NSNumber(value:defaultDouble)
+        jsonMap["defaultDouble"] = defaultDouble
       }
       if hasDefaultBool {
         jsonMap["defaultBool"] = defaultBool
@@ -4156,7 +3348,7 @@ public extension ProtobufUnittest {
         jsonMap["defaultCord"] = defaultCord
       }
       if hasOneofUint32 {
-        jsonMap["oneofUint32"] = NSNumber(value:oneofUint32)
+        jsonMap["oneofUint32"] = oneofUint32
       }
       if hasOneofNestedMessage {
         jsonMap["oneofNestedMessage"] = try oneofNestedMessage.encode()
@@ -5132,7 +4324,7 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
+              try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
@@ -5141,6 +4333,7 @@ public extension ProtobufUnittest {
         self.optionalGroup = value
         return self
       }
+      @discardableResult
       public func mergeOptionalGroup(value:ProtobufUnittest.TestAllTypes.OptionalGroup) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalGroup {
           builderResult.optionalGroup = try ProtobufUnittest.TestAllTypes.OptionalGroup.builderWithPrototype(prototype:builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
@@ -5183,7 +4376,7 @@ public extension ProtobufUnittest {
            optionalNestedMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -5192,6 +4385,7 @@ public extension ProtobufUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -5234,7 +4428,7 @@ public extension ProtobufUnittest {
            optionalForeignMessageBuilder_ = ProtobufUnittest.ForeignMessage.Builder()
            builderResult.optionalForeignMessage = optionalForeignMessageBuilder_.getMessage()
            if optionalForeignMessage != nil {
-              _ = try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
+              try! optionalForeignMessageBuilder_.mergeFrom(other: optionalForeignMessage)
            }
         }
         return optionalForeignMessageBuilder_
@@ -5243,6 +4437,7 @@ public extension ProtobufUnittest {
         self.optionalForeignMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalForeignMessage(value:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalForeignMessage {
           builderResult.optionalForeignMessage = try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.optionalForeignMessage).mergeFrom(other: value).buildPartial()
@@ -5285,7 +4480,7 @@ public extension ProtobufUnittest {
            optionalImportMessageBuilder_ = ProtobufUnittestImport.ImportMessage.Builder()
            builderResult.optionalImportMessage = optionalImportMessageBuilder_.getMessage()
            if optionalImportMessage != nil {
-              _ = try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
+              try! optionalImportMessageBuilder_.mergeFrom(other: optionalImportMessage)
            }
         }
         return optionalImportMessageBuilder_
@@ -5294,6 +4489,7 @@ public extension ProtobufUnittest {
         self.optionalImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalImportMessage(value:ProtobufUnittestImport.ImportMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalImportMessage {
           builderResult.optionalImportMessage = try ProtobufUnittestImport.ImportMessage.builderWithPrototype(prototype:builderResult.optionalImportMessage).mergeFrom(other: value).buildPartial()
@@ -5451,7 +4647,7 @@ public extension ProtobufUnittest {
            optionalPublicImportMessageBuilder_ = ProtobufUnittestImport.PublicImportMessage.Builder()
            builderResult.optionalPublicImportMessage = optionalPublicImportMessageBuilder_.getMessage()
            if optionalPublicImportMessage != nil {
-              _ = try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
+              try! optionalPublicImportMessageBuilder_.mergeFrom(other: optionalPublicImportMessage)
            }
         }
         return optionalPublicImportMessageBuilder_
@@ -5460,6 +4656,7 @@ public extension ProtobufUnittest {
         self.optionalPublicImportMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalPublicImportMessage(value:ProtobufUnittestImport.PublicImportMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalPublicImportMessage {
           builderResult.optionalPublicImportMessage = try ProtobufUnittestImport.PublicImportMessage.builderWithPrototype(prototype:builderResult.optionalPublicImportMessage).mergeFrom(other: value).buildPartial()
@@ -5502,7 +4699,7 @@ public extension ProtobufUnittest {
            optionalLazyMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.optionalLazyMessage = optionalLazyMessageBuilder_.getMessage()
            if optionalLazyMessage != nil {
-              _ = try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
+              try! optionalLazyMessageBuilder_.mergeFrom(other: optionalLazyMessage)
            }
         }
         return optionalLazyMessageBuilder_
@@ -5511,6 +4708,7 @@ public extension ProtobufUnittest {
         self.optionalLazyMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalLazyMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOptionalLazyMessage {
           builderResult.optionalLazyMessage = try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.optionalLazyMessage).mergeFrom(other: value).buildPartial()
@@ -6436,7 +5634,7 @@ public extension ProtobufUnittest {
            oneofNestedMessageBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.oneofNestedMessage = oneofNestedMessageBuilder_.getMessage()
            if oneofNestedMessage != nil {
-              _ = try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
+              try! oneofNestedMessageBuilder_.mergeFrom(other: oneofNestedMessage)
            }
         }
         return oneofNestedMessageBuilder_
@@ -6445,6 +5643,7 @@ public extension ProtobufUnittest {
         self.oneofNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOneofNestedMessage(value:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if builderResult.hasOneofNestedMessage {
           builderResult.oneofNestedMessage = try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.oneofNestedMessage).mergeFrom(other: value).buildPartial()
@@ -6526,6 +5725,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestAllTypes.Builder {
         if other == ProtobufUnittest.TestAllTypes() {
          return self
@@ -6576,16 +5776,16 @@ public extension ProtobufUnittest {
              optionalBytes = other.optionalBytes
         }
         if (other.hasOptionalGroup) {
-            _ = try mergeOptionalGroup(value: other.optionalGroup)
+            try mergeOptionalGroup(value: other.optionalGroup)
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
         if (other.hasOptionalForeignMessage) {
-            _ = try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
+            try mergeOptionalForeignMessage(value: other.optionalForeignMessage)
         }
         if (other.hasOptionalImportMessage) {
-            _ = try mergeOptionalImportMessage(value: other.optionalImportMessage)
+            try mergeOptionalImportMessage(value: other.optionalImportMessage)
         }
         if other.hasOptionalNestedEnum {
              optionalNestedEnum = other.optionalNestedEnum
@@ -6603,10 +5803,10 @@ public extension ProtobufUnittest {
              optionalCord = other.optionalCord
         }
         if (other.hasOptionalPublicImportMessage) {
-            _ = try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
+            try mergeOptionalPublicImportMessage(value: other.optionalPublicImportMessage)
         }
         if (other.hasOptionalLazyMessage) {
-            _ = try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
+            try mergeOptionalLazyMessage(value: other.optionalLazyMessage)
         }
         if !other.repeatedInt32.isEmpty {
             builderResult.repeatedInt32 += other.repeatedInt32
@@ -6747,7 +5947,7 @@ public extension ProtobufUnittest {
              oneofUint32 = other.oneofUint32
         }
         if (other.hasOneofNestedMessage) {
-            _ = try mergeOneofNestedMessage(value: other.oneofNestedMessage)
+            try mergeOneofNestedMessage(value: other.oneofNestedMessage)
         }
         if other.hasOneofString {
              oneofString = other.oneofString
@@ -6755,9 +5955,10 @@ public extension ProtobufUnittest {
         if other.hasOneofBytes {
              oneofBytes = other.oneofBytes
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -6818,7 +6019,7 @@ public extension ProtobufUnittest {
           case 131:
             let subBuilder:ProtobufUnittest.TestAllTypes.OptionalGroup.Builder = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
             if hasOptionalGroup {
-              _ = try subBuilder.mergeFrom(other: optionalGroup)
+              try subBuilder.mergeFrom(other: optionalGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 16, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
@@ -6826,7 +6027,7 @@ public extension ProtobufUnittest {
           case 146:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -6834,7 +6035,7 @@ public extension ProtobufUnittest {
           case 154:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasOptionalForeignMessage {
-              _ = try subBuilder.mergeFrom(other: optionalForeignMessage)
+              try subBuilder.mergeFrom(other: optionalForeignMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalForeignMessage = subBuilder.buildPartial()
@@ -6842,7 +6043,7 @@ public extension ProtobufUnittest {
           case 162:
             let subBuilder:ProtobufUnittestImport.ImportMessage.Builder = ProtobufUnittestImport.ImportMessage.Builder()
             if hasOptionalImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalImportMessage)
+              try subBuilder.mergeFrom(other: optionalImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalImportMessage = subBuilder.buildPartial()
@@ -6852,7 +6053,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntoptionalNestedEnum){
                  optionalNestedEnum = enumsoptionalNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 21, value:Int64(valueIntoptionalNestedEnum))
             }
 
           case 176:
@@ -6860,7 +6061,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntoptionalForeignEnum){
                  optionalForeignEnum = enumsoptionalForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 22, value:Int64(valueIntoptionalForeignEnum))
             }
 
           case 184:
@@ -6868,7 +6069,7 @@ public extension ProtobufUnittest {
             if let enumsoptionalImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntoptionalImportEnum){
                  optionalImportEnum = enumsoptionalImportEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 23, value:Int64(valueIntoptionalImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 23, value:Int64(valueIntoptionalImportEnum))
             }
 
           case 194:
@@ -6880,7 +6081,7 @@ public extension ProtobufUnittest {
           case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
             if hasOptionalPublicImportMessage {
-              _ = try subBuilder.mergeFrom(other: optionalPublicImportMessage)
+              try subBuilder.mergeFrom(other: optionalPublicImportMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalPublicImportMessage = subBuilder.buildPartial()
@@ -6888,7 +6089,7 @@ public extension ProtobufUnittest {
           case 218:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOptionalLazyMessage {
-              _ = try subBuilder.mergeFrom(other: optionalLazyMessage)
+              try subBuilder.mergeFrom(other: optionalLazyMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalLazyMessage = subBuilder.buildPartial()
@@ -6963,7 +6164,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntrepeatedNestedEnum) {
                  builderResult.repeatedNestedEnum.append(enumsrepeatedNestedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 51, value:Int64(valueIntrepeatedNestedEnum))
             }
 
           case 416:
@@ -6971,7 +6172,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntrepeatedForeignEnum) {
                  builderResult.repeatedForeignEnum.append(enumsrepeatedForeignEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 52, value:Int64(valueIntrepeatedForeignEnum))
             }
 
           case 424:
@@ -6979,7 +6180,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntrepeatedImportEnum) {
                  builderResult.repeatedImportEnum.append(enumsrepeatedImportEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 53, value:Int64(valueIntrepeatedImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 53, value:Int64(valueIntrepeatedImportEnum))
             }
 
           case 434:
@@ -7043,7 +6244,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultNestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum(rawValue:valueIntdefaultNestedEnum){
                  defaultNestedEnum = enumsdefaultNestedEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 81, value:Int64(valueIntdefaultNestedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 81, value:Int64(valueIntdefaultNestedEnum))
             }
 
           case 656:
@@ -7051,7 +6252,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultForeignEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntdefaultForeignEnum){
                  defaultForeignEnum = enumsdefaultForeignEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 82, value:Int64(valueIntdefaultForeignEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 82, value:Int64(valueIntdefaultForeignEnum))
             }
 
           case 664:
@@ -7059,7 +6260,7 @@ public extension ProtobufUnittest {
             if let enumsdefaultImportEnum = ProtobufUnittestImport.ImportEnum(rawValue:valueIntdefaultImportEnum){
                  defaultImportEnum = enumsdefaultImportEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 83, value:Int64(valueIntdefaultImportEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 83, value:Int64(valueIntdefaultImportEnum))
             }
 
           case 674:
@@ -7074,7 +6275,7 @@ public extension ProtobufUnittest {
           case 898:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasOneofNestedMessage {
-              _ = try subBuilder.mergeFrom(other: oneofNestedMessage)
+              try subBuilder.mergeFrom(other: oneofNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             oneofNestedMessage = subBuilder.buildPartial()
@@ -7095,41 +6296,41 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestAllTypes.Builder()
-        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? NSNumber {
-          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32.int32Value
+        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int32 {
+          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32
         }
-        if let jsonValueOptionalInt64 = jsonMap["optionalInt64"] as? String {
-          resultDecodedBuilder.optionalInt64 = Int64(jsonValueOptionalInt64)!
+        if let jsonValueOptionalInt64 = jsonMap["optionalInt64"] as? Int64 {
+          resultDecodedBuilder.optionalInt64 = jsonValueOptionalInt64
         }
-        if let jsonValueOptionalUint32 = jsonMap["optionalUint32"] as? NSNumber {
-          resultDecodedBuilder.optionalUint32 = jsonValueOptionalUint32.uint32Value
+        if let jsonValueOptionalUint32 = jsonMap["optionalUint32"] as? UInt32 {
+          resultDecodedBuilder.optionalUint32 = jsonValueOptionalUint32
         }
-        if let jsonValueOptionalUint64 = jsonMap["optionalUint64"] as? String {
-          resultDecodedBuilder.optionalUint64 = UInt64(jsonValueOptionalUint64)!
+        if let jsonValueOptionalUint64 = jsonMap["optionalUint64"] as? UInt64 {
+          resultDecodedBuilder.optionalUint64 = jsonValueOptionalUint64
         }
-        if let jsonValueOptionalSint32 = jsonMap["optionalSint32"] as? NSNumber {
-          resultDecodedBuilder.optionalSint32 = jsonValueOptionalSint32.int32Value
+        if let jsonValueOptionalSint32 = jsonMap["optionalSint32"] as? Int32 {
+          resultDecodedBuilder.optionalSint32 = jsonValueOptionalSint32
         }
-        if let jsonValueOptionalSint64 = jsonMap["optionalSint64"] as? String {
-          resultDecodedBuilder.optionalSint64 = Int64(jsonValueOptionalSint64)!
+        if let jsonValueOptionalSint64 = jsonMap["optionalSint64"] as? Int64 {
+          resultDecodedBuilder.optionalSint64 = jsonValueOptionalSint64
         }
-        if let jsonValueOptionalFixed32 = jsonMap["optionalFixed32"] as? NSNumber {
-          resultDecodedBuilder.optionalFixed32 = jsonValueOptionalFixed32.uint32Value
+        if let jsonValueOptionalFixed32 = jsonMap["optionalFixed32"] as? UInt32 {
+          resultDecodedBuilder.optionalFixed32 = jsonValueOptionalFixed32
         }
-        if let jsonValueOptionalFixed64 = jsonMap["optionalFixed64"] as? String {
-          resultDecodedBuilder.optionalFixed64 = UInt64(jsonValueOptionalFixed64)!
+        if let jsonValueOptionalFixed64 = jsonMap["optionalFixed64"] as? UInt64 {
+          resultDecodedBuilder.optionalFixed64 = jsonValueOptionalFixed64
         }
-        if let jsonValueOptionalSfixed32 = jsonMap["optionalSfixed32"] as? NSNumber {
-          resultDecodedBuilder.optionalSfixed32 = jsonValueOptionalSfixed32.int32Value
+        if let jsonValueOptionalSfixed32 = jsonMap["optionalSfixed32"] as? Int32 {
+          resultDecodedBuilder.optionalSfixed32 = jsonValueOptionalSfixed32
         }
-        if let jsonValueOptionalSfixed64 = jsonMap["optionalSfixed64"] as? String {
-          resultDecodedBuilder.optionalSfixed64 = Int64(jsonValueOptionalSfixed64)!
+        if let jsonValueOptionalSfixed64 = jsonMap["optionalSfixed64"] as? Int64 {
+          resultDecodedBuilder.optionalSfixed64 = jsonValueOptionalSfixed64
         }
-        if let jsonValueOptionalFloat = jsonMap["optionalFloat"] as? NSNumber {
-          resultDecodedBuilder.optionalFloat = jsonValueOptionalFloat.floatValue
+        if let jsonValueOptionalFloat = jsonMap["optionalFloat"] as? Float {
+          resultDecodedBuilder.optionalFloat = jsonValueOptionalFloat
         }
-        if let jsonValueOptionalDouble = jsonMap["optionalDouble"] as? NSNumber {
-          resultDecodedBuilder.optionalDouble = jsonValueOptionalDouble.doubleValue
+        if let jsonValueOptionalDouble = jsonMap["optionalDouble"] as? Double {
+          resultDecodedBuilder.optionalDouble = jsonValueOptionalDouble
         }
         if let jsonValueOptionalBool = jsonMap["optionalBool"] as? Bool {
           resultDecodedBuilder.optionalBool = jsonValueOptionalBool
@@ -7179,95 +6380,103 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.optionalLazyMessage = try ProtobufUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalLazyMessage).build()
 
         }
-        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<Int32> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in jsonValueRepeatedInt32 {
-            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32.int32Value)
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
           }
           resultDecodedBuilder.repeatedInt32 = jsonArrayRepeatedInt32
         }
-        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<String> {
+        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<Int64> {
           var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in jsonValueRepeatedInt64 {
-            jsonArrayRepeatedInt64.append(Int64(oneValueRepeatedInt64)!)
+            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
           }
           resultDecodedBuilder.repeatedInt64 = jsonArrayRepeatedInt64
         }
-        if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<UInt32> {
           var jsonArrayRepeatedUint32:Array<UInt32> = []
           for oneValueRepeatedUint32 in jsonValueRepeatedUint32 {
-            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32.uint32Value)
+            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32)
           }
           resultDecodedBuilder.repeatedUint32 = jsonArrayRepeatedUint32
         }
-        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<String> {
+        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<UInt64> {
           var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in jsonValueRepeatedUint64 {
-            jsonArrayRepeatedUint64.append(UInt64(oneValueRepeatedUint64)!)
+            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
           }
           resultDecodedBuilder.repeatedUint64 = jsonArrayRepeatedUint64
         }
-        if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<Int32> {
           var jsonArrayRepeatedSint32:Array<Int32> = []
           for oneValueRepeatedSint32 in jsonValueRepeatedSint32 {
-            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32.int32Value)
+            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32)
           }
           resultDecodedBuilder.repeatedSint32 = jsonArrayRepeatedSint32
         }
-        if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<String> {
+        if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<Int64> {
           var jsonArrayRepeatedSint64:Array<Int64> = []
           for oneValueRepeatedSint64 in jsonValueRepeatedSint64 {
-            jsonArrayRepeatedSint64.append(Int64(oneValueRepeatedSint64)!)
+            jsonArrayRepeatedSint64.append(oneValueRepeatedSint64)
           }
           resultDecodedBuilder.repeatedSint64 = jsonArrayRepeatedSint64
         }
-        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<UInt32> {
           var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in jsonValueRepeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32.uint32Value)
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
           }
           resultDecodedBuilder.repeatedFixed32 = jsonArrayRepeatedFixed32
         }
-        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<String> {
+        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<UInt64> {
           var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in jsonValueRepeatedFixed64 {
-            jsonArrayRepeatedFixed64.append(UInt64(oneValueRepeatedFixed64)!)
+            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
           }
           resultDecodedBuilder.repeatedFixed64 = jsonArrayRepeatedFixed64
         }
-        if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<Int32> {
           var jsonArrayRepeatedSfixed32:Array<Int32> = []
           for oneValueRepeatedSfixed32 in jsonValueRepeatedSfixed32 {
-            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32.int32Value)
+            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32)
           }
           resultDecodedBuilder.repeatedSfixed32 = jsonArrayRepeatedSfixed32
         }
-        if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<String> {
+        if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<Int64> {
           var jsonArrayRepeatedSfixed64:Array<Int64> = []
           for oneValueRepeatedSfixed64 in jsonValueRepeatedSfixed64 {
-            jsonArrayRepeatedSfixed64.append(Int64(oneValueRepeatedSfixed64)!)
+            jsonArrayRepeatedSfixed64.append(oneValueRepeatedSfixed64)
           }
           resultDecodedBuilder.repeatedSfixed64 = jsonArrayRepeatedSfixed64
         }
-        if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<NSNumber> {
+        if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<Float> {
           var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in jsonValueRepeatedFloat {
-            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat.floatValue)
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
           }
           resultDecodedBuilder.repeatedFloat = jsonArrayRepeatedFloat
         }
-        if let jsonValueRepeatedDouble = jsonMap["repeatedDouble"] as? Array<NSNumber> {
+        if let jsonValueRepeatedDouble = jsonMap["repeatedDouble"] as? Array<Double> {
           var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in jsonValueRepeatedDouble {
-            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble.doubleValue)
+            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble)
           }
           resultDecodedBuilder.repeatedDouble = jsonArrayRepeatedDouble
         }
         if let jsonValueRepeatedBool = jsonMap["repeatedBool"] as? Array<Bool> {
-          resultDecodedBuilder.repeatedBool = jsonValueRepeatedBool
+          var jsonArrayRepeatedBool:Array<Bool> = []
+          for oneValueRepeatedBool in jsonValueRepeatedBool {
+            jsonArrayRepeatedBool.append(oneValueRepeatedBool)
+          }
+          resultDecodedBuilder.repeatedBool = jsonArrayRepeatedBool
         }
         if let jsonValueRepeatedString = jsonMap["repeatedString"] as? Array<String> {
-          resultDecodedBuilder.repeatedString = jsonValueRepeatedString
+          var jsonArrayRepeatedString:Array<String> = []
+          for oneValueRepeatedString in jsonValueRepeatedString {
+            jsonArrayRepeatedString.append(oneValueRepeatedString)
+          }
+          resultDecodedBuilder.repeatedString = jsonArrayRepeatedString
         }
         if let jsonValueRepeatedBytes = jsonMap["repeatedBytes"] as? Array<String> {
           var jsonArrayRepeatedBytes:Array<Data> = []
@@ -7337,10 +6546,18 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.repeatedImportEnum = jsonArrayRepeatedImportEnum
         }
         if let jsonValueRepeatedStringPiece = jsonMap["repeatedStringPiece"] as? Array<String> {
-          resultDecodedBuilder.repeatedStringPiece = jsonValueRepeatedStringPiece
+          var jsonArrayRepeatedStringPiece:Array<String> = []
+          for oneValueRepeatedStringPiece in jsonValueRepeatedStringPiece {
+            jsonArrayRepeatedStringPiece.append(oneValueRepeatedStringPiece)
+          }
+          resultDecodedBuilder.repeatedStringPiece = jsonArrayRepeatedStringPiece
         }
         if let jsonValueRepeatedCord = jsonMap["repeatedCord"] as? Array<String> {
-          resultDecodedBuilder.repeatedCord = jsonValueRepeatedCord
+          var jsonArrayRepeatedCord:Array<String> = []
+          for oneValueRepeatedCord in jsonValueRepeatedCord {
+            jsonArrayRepeatedCord.append(oneValueRepeatedCord)
+          }
+          resultDecodedBuilder.repeatedCord = jsonArrayRepeatedCord
         }
         if let jsonValueRepeatedLazyMessage = jsonMap["repeatedLazyMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedLazyMessage:Array<ProtobufUnittest.TestAllTypes.NestedMessage> = []
@@ -7351,41 +6568,41 @@ public extension ProtobufUnittest {
           }
           resultDecodedBuilder.repeatedLazyMessage = jsonArrayRepeatedLazyMessage
         }
-        if let jsonValueDefaultInt32 = jsonMap["defaultInt32"] as? NSNumber {
-          resultDecodedBuilder.defaultInt32 = jsonValueDefaultInt32.int32Value
+        if let jsonValueDefaultInt32 = jsonMap["defaultInt32"] as? Int32 {
+          resultDecodedBuilder.defaultInt32 = jsonValueDefaultInt32
         }
-        if let jsonValueDefaultInt64 = jsonMap["defaultInt64"] as? String {
-          resultDecodedBuilder.defaultInt64 = Int64(jsonValueDefaultInt64)!
+        if let jsonValueDefaultInt64 = jsonMap["defaultInt64"] as? Int64 {
+          resultDecodedBuilder.defaultInt64 = jsonValueDefaultInt64
         }
-        if let jsonValueDefaultUint32 = jsonMap["defaultUint32"] as? NSNumber {
-          resultDecodedBuilder.defaultUint32 = jsonValueDefaultUint32.uint32Value
+        if let jsonValueDefaultUint32 = jsonMap["defaultUint32"] as? UInt32 {
+          resultDecodedBuilder.defaultUint32 = jsonValueDefaultUint32
         }
-        if let jsonValueDefaultUint64 = jsonMap["defaultUint64"] as? String {
-          resultDecodedBuilder.defaultUint64 = UInt64(jsonValueDefaultUint64)!
+        if let jsonValueDefaultUint64 = jsonMap["defaultUint64"] as? UInt64 {
+          resultDecodedBuilder.defaultUint64 = jsonValueDefaultUint64
         }
-        if let jsonValueDefaultSint32 = jsonMap["defaultSint32"] as? NSNumber {
-          resultDecodedBuilder.defaultSint32 = jsonValueDefaultSint32.int32Value
+        if let jsonValueDefaultSint32 = jsonMap["defaultSint32"] as? Int32 {
+          resultDecodedBuilder.defaultSint32 = jsonValueDefaultSint32
         }
-        if let jsonValueDefaultSint64 = jsonMap["defaultSint64"] as? String {
-          resultDecodedBuilder.defaultSint64 = Int64(jsonValueDefaultSint64)!
+        if let jsonValueDefaultSint64 = jsonMap["defaultSint64"] as? Int64 {
+          resultDecodedBuilder.defaultSint64 = jsonValueDefaultSint64
         }
-        if let jsonValueDefaultFixed32 = jsonMap["defaultFixed32"] as? NSNumber {
-          resultDecodedBuilder.defaultFixed32 = jsonValueDefaultFixed32.uint32Value
+        if let jsonValueDefaultFixed32 = jsonMap["defaultFixed32"] as? UInt32 {
+          resultDecodedBuilder.defaultFixed32 = jsonValueDefaultFixed32
         }
-        if let jsonValueDefaultFixed64 = jsonMap["defaultFixed64"] as? String {
-          resultDecodedBuilder.defaultFixed64 = UInt64(jsonValueDefaultFixed64)!
+        if let jsonValueDefaultFixed64 = jsonMap["defaultFixed64"] as? UInt64 {
+          resultDecodedBuilder.defaultFixed64 = jsonValueDefaultFixed64
         }
-        if let jsonValueDefaultSfixed32 = jsonMap["defaultSfixed32"] as? NSNumber {
-          resultDecodedBuilder.defaultSfixed32 = jsonValueDefaultSfixed32.int32Value
+        if let jsonValueDefaultSfixed32 = jsonMap["defaultSfixed32"] as? Int32 {
+          resultDecodedBuilder.defaultSfixed32 = jsonValueDefaultSfixed32
         }
-        if let jsonValueDefaultSfixed64 = jsonMap["defaultSfixed64"] as? String {
-          resultDecodedBuilder.defaultSfixed64 = Int64(jsonValueDefaultSfixed64)!
+        if let jsonValueDefaultSfixed64 = jsonMap["defaultSfixed64"] as? Int64 {
+          resultDecodedBuilder.defaultSfixed64 = jsonValueDefaultSfixed64
         }
-        if let jsonValueDefaultFloat = jsonMap["defaultFloat"] as? NSNumber {
-          resultDecodedBuilder.defaultFloat = jsonValueDefaultFloat.floatValue
+        if let jsonValueDefaultFloat = jsonMap["defaultFloat"] as? Float {
+          resultDecodedBuilder.defaultFloat = jsonValueDefaultFloat
         }
-        if let jsonValueDefaultDouble = jsonMap["defaultDouble"] as? NSNumber {
-          resultDecodedBuilder.defaultDouble = jsonValueDefaultDouble.doubleValue
+        if let jsonValueDefaultDouble = jsonMap["defaultDouble"] as? Double {
+          resultDecodedBuilder.defaultDouble = jsonValueDefaultDouble
         }
         if let jsonValueDefaultBool = jsonMap["defaultBool"] as? Bool {
           resultDecodedBuilder.defaultBool = jsonValueDefaultBool
@@ -7411,8 +6628,8 @@ public extension ProtobufUnittest {
         if let jsonValueDefaultCord = jsonMap["defaultCord"] as? String {
           resultDecodedBuilder.defaultCord = jsonValueDefaultCord
         }
-        if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? NSNumber {
-          resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32.uint32Value
+        if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? UInt32 {
+          resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32
         }
         if let jsonValueOneofNestedMessage = jsonMap["oneofNestedMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.oneofNestedMessage = try ProtobufUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOneofNestedMessage).build()
@@ -7439,6 +6656,19 @@ public extension ProtobufUnittest {
 
   // This proto includes a recusively nested message.
   final public class NestedTestAllTypes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittest.NestedTestAllTypes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasChild == rhs.hasChild) && (!lhs.hasChild || lhs.child == rhs.child)
+      fieldCheck = fieldCheck && (lhs.hasPayload == rhs.hasPayload) && (!lhs.hasPayload || lhs.payload == rhs.payload)
+      fieldCheck = fieldCheck && (lhs.repeatedChild == rhs.repeatedChild)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var child:ProtobufUnittest.NestedTestAllTypes!
     public fileprivate(set) var hasChild:Bool = false
     public fileprivate(set) var payload:ProtobufUnittest.TestAllTypes!
@@ -7626,7 +6856,7 @@ public extension ProtobufUnittest {
            childBuilder_ = ProtobufUnittest.NestedTestAllTypes.Builder()
            builderResult.child = childBuilder_.getMessage()
            if child != nil {
-              _ = try! childBuilder_.mergeFrom(other: child)
+              try! childBuilder_.mergeFrom(other: child)
            }
         }
         return childBuilder_
@@ -7635,6 +6865,7 @@ public extension ProtobufUnittest {
         self.child = value
         return self
       }
+      @discardableResult
       public func mergeChild(value:ProtobufUnittest.NestedTestAllTypes) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasChild {
           builderResult.child = try ProtobufUnittest.NestedTestAllTypes.builderWithPrototype(prototype:builderResult.child).mergeFrom(other: value).buildPartial()
@@ -7677,7 +6908,7 @@ public extension ProtobufUnittest {
            payloadBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.payload = payloadBuilder_.getMessage()
            if payload != nil {
-              _ = try! payloadBuilder_.mergeFrom(other: payload)
+              try! payloadBuilder_.mergeFrom(other: payload)
            }
         }
         return payloadBuilder_
@@ -7686,6 +6917,7 @@ public extension ProtobufUnittest {
         self.payload = value
         return self
       }
+      @discardableResult
       public func mergePayload(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         if builderResult.hasPayload {
           builderResult.payload = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.payload).mergeFrom(other: value).buildPartial()
@@ -7737,22 +6969,24 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.NestedTestAllTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.NestedTestAllTypes) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         if other == ProtobufUnittest.NestedTestAllTypes() {
          return self
         }
         if (other.hasChild) {
-            _ = try mergeChild(value: other.child)
+            try mergeChild(value: other.child)
         }
         if (other.hasPayload) {
-            _ = try mergePayload(value: other.payload)
+            try mergePayload(value: other.payload)
         }
         if !other.repeatedChild.isEmpty  {
            builderResult.repeatedChild += other.repeatedChild
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -7768,7 +7002,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.NestedTestAllTypes.Builder = ProtobufUnittest.NestedTestAllTypes.Builder()
             if hasChild {
-              _ = try subBuilder.mergeFrom(other: child)
+              try subBuilder.mergeFrom(other: child)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             child = subBuilder.buildPartial()
@@ -7776,7 +7010,7 @@ public extension ProtobufUnittest {
           case 18:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasPayload {
-              _ = try subBuilder.mergeFrom(other: payload)
+              try subBuilder.mergeFrom(other: payload)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             payload = subBuilder.buildPartial()
@@ -7827,6 +7061,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestDeprecatedFields : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnittest.TestDeprecatedFields) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasDeprecatedInt32 == rhs.hasDeprecatedInt32) && (!lhs.hasDeprecatedInt32 || lhs.deprecatedInt32 == rhs.deprecatedInt32)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     @available(*, deprecated:0.1, message:"The field is marked as \"Deprecated\"")
     public fileprivate(set) var deprecatedInt32:Int32 = Int32(0)
     public fileprivate(set) var hasDeprecatedInt32:Bool = false
@@ -7882,7 +7127,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasDeprecatedInt32 {
-        jsonMap["deprecatedInt32"] = NSNumber(value:deprecatedInt32)
+        jsonMap["deprecatedInt32"] = deprecatedInt32
       }
       return jsonMap
     }
@@ -7974,6 +7219,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestDeprecatedFields = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestDeprecatedFields) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
         if other == ProtobufUnittest.TestDeprecatedFields() {
          return self
@@ -7981,9 +7227,10 @@ public extension ProtobufUnittest {
         if other.hasDeprecatedInt32 {
              deprecatedInt32 = other.deprecatedInt32
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8009,8 +7256,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestDeprecatedFields.Builder()
-        if let jsonValueDeprecatedInt32 = jsonMap["deprecatedInt32"] as? NSNumber {
-          resultDecodedBuilder.deprecatedInt32 = jsonValueDeprecatedInt32.int32Value
+        if let jsonValueDeprecatedInt32 = jsonMap["deprecatedInt32"] as? Int32 {
+          resultDecodedBuilder.deprecatedInt32 = jsonValueDeprecatedInt32
         }
         return resultDecodedBuilder
       }
@@ -8028,6 +7275,17 @@ public extension ProtobufUnittest {
   // Define these after TestAllTypes to make sure the compiler can handle
   // that.
   final public class ForeignMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.ForeignMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasC == rhs.hasC) && (!lhs.hasC || lhs.c == rhs.c)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var c:Int32 = Int32(0)
     public fileprivate(set) var hasC:Bool = false
 
@@ -8082,7 +7340,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasC {
-        jsonMap["c"] = NSNumber(value:c)
+        jsonMap["c"] = c
       }
       return jsonMap
     }
@@ -8174,6 +7432,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.ForeignMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.ForeignMessage.Builder {
         if other == ProtobufUnittest.ForeignMessage() {
          return self
@@ -8181,9 +7440,10 @@ public extension ProtobufUnittest {
         if other.hasC {
              c = other.c
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8209,8 +7469,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ForeignMessage.Builder()
-        if let jsonValueC = jsonMap["c"] as? NSNumber {
-          resultDecodedBuilder.c = jsonValueC.int32Value
+        if let jsonValueC = jsonMap["c"] as? Int32 {
+          resultDecodedBuilder.c = jsonValueC
         }
         return resultDecodedBuilder
       }
@@ -8226,6 +7486,16 @@ public extension ProtobufUnittest {
   }
 
   final public class TestReservedFields : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestReservedFields, rhs: ProtobufUnittest.TestReservedFields) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -8331,13 +7601,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestReservedFields = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestReservedFields) throws -> ProtobufUnittest.TestReservedFields.Builder {
         if other == ProtobufUnittest.TestReservedFields() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReservedFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8374,6 +7646,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestAllExtensions : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest.TestAllExtensions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -8486,14 +7769,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestAllExtensions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestAllExtensions) throws -> ProtobufUnittest.TestAllExtensions.Builder {
         if other == ProtobufUnittest.TestAllExtensions() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8530,6 +7815,17 @@ public extension ProtobufUnittest {
   }
 
   final public class OptionalGroupExtension : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUnittest.OptionalGroupExtension) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:Int32 = Int32(0)
     public fileprivate(set) var hasA:Bool = false
 
@@ -8584,7 +7880,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       return jsonMap
     }
@@ -8676,6 +7972,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.OptionalGroupExtension = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.OptionalGroupExtension) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
         if other == ProtobufUnittest.OptionalGroupExtension() {
          return self
@@ -8683,9 +7980,10 @@ public extension ProtobufUnittest {
         if other.hasA {
              a = other.a
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8711,8 +8009,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
         let resultDecodedBuilder = ProtobufUnittest.OptionalGroupExtension.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
         return resultDecodedBuilder
       }
@@ -8728,6 +8026,17 @@ public extension ProtobufUnittest {
   }
 
   final public class RepeatedGroupExtension : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUnittest.RepeatedGroupExtension) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:Int32 = Int32(0)
     public fileprivate(set) var hasA:Bool = false
 
@@ -8782,7 +8091,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       return jsonMap
     }
@@ -8874,6 +8183,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.RepeatedGroupExtension = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.RepeatedGroupExtension) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         if other == ProtobufUnittest.RepeatedGroupExtension() {
          return self
@@ -8881,9 +8191,10 @@ public extension ProtobufUnittest {
         if other.hasA {
              a = other.a
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -8909,8 +8220,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         let resultDecodedBuilder = ProtobufUnittest.RepeatedGroupExtension.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
         return resultDecodedBuilder
       }
@@ -8926,6 +8237,16 @@ public extension ProtobufUnittest {
   }
 
   final public class TestNestedExtension : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestNestedExtension, rhs: ProtobufUnittest.TestNestedExtension) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public class func test() -> ConcreateExtensionField {
          return TestNestedExtensiontest
     }
@@ -9037,13 +8358,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestNestedExtension = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestNestedExtension) throws -> ProtobufUnittest.TestNestedExtension.Builder {
         if other == ProtobufUnittest.TestNestedExtension() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -9085,6 +8408,49 @@ public extension ProtobufUnittest {
   // required filed because the code output is basically identical to
   // optional fields for all types.
   final public class TestRequired : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.TestRequired) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && (lhs.hasDummy2 == rhs.hasDummy2) && (!lhs.hasDummy2 || lhs.dummy2 == rhs.dummy2)
+      fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
+      fieldCheck = fieldCheck && (lhs.hasDummy4 == rhs.hasDummy4) && (!lhs.hasDummy4 || lhs.dummy4 == rhs.dummy4)
+      fieldCheck = fieldCheck && (lhs.hasDummy5 == rhs.hasDummy5) && (!lhs.hasDummy5 || lhs.dummy5 == rhs.dummy5)
+      fieldCheck = fieldCheck && (lhs.hasDummy6 == rhs.hasDummy6) && (!lhs.hasDummy6 || lhs.dummy6 == rhs.dummy6)
+      fieldCheck = fieldCheck && (lhs.hasDummy7 == rhs.hasDummy7) && (!lhs.hasDummy7 || lhs.dummy7 == rhs.dummy7)
+      fieldCheck = fieldCheck && (lhs.hasDummy8 == rhs.hasDummy8) && (!lhs.hasDummy8 || lhs.dummy8 == rhs.dummy8)
+      fieldCheck = fieldCheck && (lhs.hasDummy9 == rhs.hasDummy9) && (!lhs.hasDummy9 || lhs.dummy9 == rhs.dummy9)
+      fieldCheck = fieldCheck && (lhs.hasDummy10 == rhs.hasDummy10) && (!lhs.hasDummy10 || lhs.dummy10 == rhs.dummy10)
+      fieldCheck = fieldCheck && (lhs.hasDummy11 == rhs.hasDummy11) && (!lhs.hasDummy11 || lhs.dummy11 == rhs.dummy11)
+      fieldCheck = fieldCheck && (lhs.hasDummy12 == rhs.hasDummy12) && (!lhs.hasDummy12 || lhs.dummy12 == rhs.dummy12)
+      fieldCheck = fieldCheck && (lhs.hasDummy13 == rhs.hasDummy13) && (!lhs.hasDummy13 || lhs.dummy13 == rhs.dummy13)
+      fieldCheck = fieldCheck && (lhs.hasDummy14 == rhs.hasDummy14) && (!lhs.hasDummy14 || lhs.dummy14 == rhs.dummy14)
+      fieldCheck = fieldCheck && (lhs.hasDummy15 == rhs.hasDummy15) && (!lhs.hasDummy15 || lhs.dummy15 == rhs.dummy15)
+      fieldCheck = fieldCheck && (lhs.hasDummy16 == rhs.hasDummy16) && (!lhs.hasDummy16 || lhs.dummy16 == rhs.dummy16)
+      fieldCheck = fieldCheck && (lhs.hasDummy17 == rhs.hasDummy17) && (!lhs.hasDummy17 || lhs.dummy17 == rhs.dummy17)
+      fieldCheck = fieldCheck && (lhs.hasDummy18 == rhs.hasDummy18) && (!lhs.hasDummy18 || lhs.dummy18 == rhs.dummy18)
+      fieldCheck = fieldCheck && (lhs.hasDummy19 == rhs.hasDummy19) && (!lhs.hasDummy19 || lhs.dummy19 == rhs.dummy19)
+      fieldCheck = fieldCheck && (lhs.hasDummy20 == rhs.hasDummy20) && (!lhs.hasDummy20 || lhs.dummy20 == rhs.dummy20)
+      fieldCheck = fieldCheck && (lhs.hasDummy21 == rhs.hasDummy21) && (!lhs.hasDummy21 || lhs.dummy21 == rhs.dummy21)
+      fieldCheck = fieldCheck && (lhs.hasDummy22 == rhs.hasDummy22) && (!lhs.hasDummy22 || lhs.dummy22 == rhs.dummy22)
+      fieldCheck = fieldCheck && (lhs.hasDummy23 == rhs.hasDummy23) && (!lhs.hasDummy23 || lhs.dummy23 == rhs.dummy23)
+      fieldCheck = fieldCheck && (lhs.hasDummy24 == rhs.hasDummy24) && (!lhs.hasDummy24 || lhs.dummy24 == rhs.dummy24)
+      fieldCheck = fieldCheck && (lhs.hasDummy25 == rhs.hasDummy25) && (!lhs.hasDummy25 || lhs.dummy25 == rhs.dummy25)
+      fieldCheck = fieldCheck && (lhs.hasDummy26 == rhs.hasDummy26) && (!lhs.hasDummy26 || lhs.dummy26 == rhs.dummy26)
+      fieldCheck = fieldCheck && (lhs.hasDummy27 == rhs.hasDummy27) && (!lhs.hasDummy27 || lhs.dummy27 == rhs.dummy27)
+      fieldCheck = fieldCheck && (lhs.hasDummy28 == rhs.hasDummy28) && (!lhs.hasDummy28 || lhs.dummy28 == rhs.dummy28)
+      fieldCheck = fieldCheck && (lhs.hasDummy29 == rhs.hasDummy29) && (!lhs.hasDummy29 || lhs.dummy29 == rhs.dummy29)
+      fieldCheck = fieldCheck && (lhs.hasDummy30 == rhs.hasDummy30) && (!lhs.hasDummy30 || lhs.dummy30 == rhs.dummy30)
+      fieldCheck = fieldCheck && (lhs.hasDummy31 == rhs.hasDummy31) && (!lhs.hasDummy31 || lhs.dummy31 == rhs.dummy31)
+      fieldCheck = fieldCheck && (lhs.hasDummy32 == rhs.hasDummy32) && (!lhs.hasDummy32 || lhs.dummy32 == rhs.dummy32)
+      fieldCheck = fieldCheck && (lhs.hasC == rhs.hasC) && (!lhs.hasC || lhs.c == rhs.c)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:Int32 = Int32(0)
     public fileprivate(set) var hasA:Bool = false
 
@@ -9444,103 +8810,103 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       if hasDummy2 {
-        jsonMap["dummy2"] = NSNumber(value:dummy2)
+        jsonMap["dummy2"] = dummy2
       }
       if hasB {
-        jsonMap["b"] = NSNumber(value:b)
+        jsonMap["b"] = b
       }
       if hasDummy4 {
-        jsonMap["dummy4"] = NSNumber(value:dummy4)
+        jsonMap["dummy4"] = dummy4
       }
       if hasDummy5 {
-        jsonMap["dummy5"] = NSNumber(value:dummy5)
+        jsonMap["dummy5"] = dummy5
       }
       if hasDummy6 {
-        jsonMap["dummy6"] = NSNumber(value:dummy6)
+        jsonMap["dummy6"] = dummy6
       }
       if hasDummy7 {
-        jsonMap["dummy7"] = NSNumber(value:dummy7)
+        jsonMap["dummy7"] = dummy7
       }
       if hasDummy8 {
-        jsonMap["dummy8"] = NSNumber(value:dummy8)
+        jsonMap["dummy8"] = dummy8
       }
       if hasDummy9 {
-        jsonMap["dummy9"] = NSNumber(value:dummy9)
+        jsonMap["dummy9"] = dummy9
       }
       if hasDummy10 {
-        jsonMap["dummy10"] = NSNumber(value:dummy10)
+        jsonMap["dummy10"] = dummy10
       }
       if hasDummy11 {
-        jsonMap["dummy11"] = NSNumber(value:dummy11)
+        jsonMap["dummy11"] = dummy11
       }
       if hasDummy12 {
-        jsonMap["dummy12"] = NSNumber(value:dummy12)
+        jsonMap["dummy12"] = dummy12
       }
       if hasDummy13 {
-        jsonMap["dummy13"] = NSNumber(value:dummy13)
+        jsonMap["dummy13"] = dummy13
       }
       if hasDummy14 {
-        jsonMap["dummy14"] = NSNumber(value:dummy14)
+        jsonMap["dummy14"] = dummy14
       }
       if hasDummy15 {
-        jsonMap["dummy15"] = NSNumber(value:dummy15)
+        jsonMap["dummy15"] = dummy15
       }
       if hasDummy16 {
-        jsonMap["dummy16"] = NSNumber(value:dummy16)
+        jsonMap["dummy16"] = dummy16
       }
       if hasDummy17 {
-        jsonMap["dummy17"] = NSNumber(value:dummy17)
+        jsonMap["dummy17"] = dummy17
       }
       if hasDummy18 {
-        jsonMap["dummy18"] = NSNumber(value:dummy18)
+        jsonMap["dummy18"] = dummy18
       }
       if hasDummy19 {
-        jsonMap["dummy19"] = NSNumber(value:dummy19)
+        jsonMap["dummy19"] = dummy19
       }
       if hasDummy20 {
-        jsonMap["dummy20"] = NSNumber(value:dummy20)
+        jsonMap["dummy20"] = dummy20
       }
       if hasDummy21 {
-        jsonMap["dummy21"] = NSNumber(value:dummy21)
+        jsonMap["dummy21"] = dummy21
       }
       if hasDummy22 {
-        jsonMap["dummy22"] = NSNumber(value:dummy22)
+        jsonMap["dummy22"] = dummy22
       }
       if hasDummy23 {
-        jsonMap["dummy23"] = NSNumber(value:dummy23)
+        jsonMap["dummy23"] = dummy23
       }
       if hasDummy24 {
-        jsonMap["dummy24"] = NSNumber(value:dummy24)
+        jsonMap["dummy24"] = dummy24
       }
       if hasDummy25 {
-        jsonMap["dummy25"] = NSNumber(value:dummy25)
+        jsonMap["dummy25"] = dummy25
       }
       if hasDummy26 {
-        jsonMap["dummy26"] = NSNumber(value:dummy26)
+        jsonMap["dummy26"] = dummy26
       }
       if hasDummy27 {
-        jsonMap["dummy27"] = NSNumber(value:dummy27)
+        jsonMap["dummy27"] = dummy27
       }
       if hasDummy28 {
-        jsonMap["dummy28"] = NSNumber(value:dummy28)
+        jsonMap["dummy28"] = dummy28
       }
       if hasDummy29 {
-        jsonMap["dummy29"] = NSNumber(value:dummy29)
+        jsonMap["dummy29"] = dummy29
       }
       if hasDummy30 {
-        jsonMap["dummy30"] = NSNumber(value:dummy30)
+        jsonMap["dummy30"] = dummy30
       }
       if hasDummy31 {
-        jsonMap["dummy31"] = NSNumber(value:dummy31)
+        jsonMap["dummy31"] = dummy31
       }
       if hasDummy32 {
-        jsonMap["dummy32"] = NSNumber(value:dummy32)
+        jsonMap["dummy32"] = dummy32
       }
       if hasC {
-        jsonMap["c"] = NSNumber(value:c)
+        jsonMap["c"] = c
       }
       return jsonMap
     }
@@ -10560,6 +9926,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRequired = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRequired) throws -> ProtobufUnittest.TestRequired.Builder {
         if other == ProtobufUnittest.TestRequired() {
          return self
@@ -10663,9 +10030,10 @@ public extension ProtobufUnittest {
         if other.hasC {
              c = other.c
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequired.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -10787,104 +10155,104 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequired.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequired.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
-        if let jsonValueDummy2 = jsonMap["dummy2"] as? NSNumber {
-          resultDecodedBuilder.dummy2 = jsonValueDummy2.int32Value
+        if let jsonValueDummy2 = jsonMap["dummy2"] as? Int32 {
+          resultDecodedBuilder.dummy2 = jsonValueDummy2
         }
-        if let jsonValueB = jsonMap["b"] as? NSNumber {
-          resultDecodedBuilder.b = jsonValueB.int32Value
+        if let jsonValueB = jsonMap["b"] as? Int32 {
+          resultDecodedBuilder.b = jsonValueB
         }
-        if let jsonValueDummy4 = jsonMap["dummy4"] as? NSNumber {
-          resultDecodedBuilder.dummy4 = jsonValueDummy4.int32Value
+        if let jsonValueDummy4 = jsonMap["dummy4"] as? Int32 {
+          resultDecodedBuilder.dummy4 = jsonValueDummy4
         }
-        if let jsonValueDummy5 = jsonMap["dummy5"] as? NSNumber {
-          resultDecodedBuilder.dummy5 = jsonValueDummy5.int32Value
+        if let jsonValueDummy5 = jsonMap["dummy5"] as? Int32 {
+          resultDecodedBuilder.dummy5 = jsonValueDummy5
         }
-        if let jsonValueDummy6 = jsonMap["dummy6"] as? NSNumber {
-          resultDecodedBuilder.dummy6 = jsonValueDummy6.int32Value
+        if let jsonValueDummy6 = jsonMap["dummy6"] as? Int32 {
+          resultDecodedBuilder.dummy6 = jsonValueDummy6
         }
-        if let jsonValueDummy7 = jsonMap["dummy7"] as? NSNumber {
-          resultDecodedBuilder.dummy7 = jsonValueDummy7.int32Value
+        if let jsonValueDummy7 = jsonMap["dummy7"] as? Int32 {
+          resultDecodedBuilder.dummy7 = jsonValueDummy7
         }
-        if let jsonValueDummy8 = jsonMap["dummy8"] as? NSNumber {
-          resultDecodedBuilder.dummy8 = jsonValueDummy8.int32Value
+        if let jsonValueDummy8 = jsonMap["dummy8"] as? Int32 {
+          resultDecodedBuilder.dummy8 = jsonValueDummy8
         }
-        if let jsonValueDummy9 = jsonMap["dummy9"] as? NSNumber {
-          resultDecodedBuilder.dummy9 = jsonValueDummy9.int32Value
+        if let jsonValueDummy9 = jsonMap["dummy9"] as? Int32 {
+          resultDecodedBuilder.dummy9 = jsonValueDummy9
         }
-        if let jsonValueDummy10 = jsonMap["dummy10"] as? NSNumber {
-          resultDecodedBuilder.dummy10 = jsonValueDummy10.int32Value
+        if let jsonValueDummy10 = jsonMap["dummy10"] as? Int32 {
+          resultDecodedBuilder.dummy10 = jsonValueDummy10
         }
-        if let jsonValueDummy11 = jsonMap["dummy11"] as? NSNumber {
-          resultDecodedBuilder.dummy11 = jsonValueDummy11.int32Value
+        if let jsonValueDummy11 = jsonMap["dummy11"] as? Int32 {
+          resultDecodedBuilder.dummy11 = jsonValueDummy11
         }
-        if let jsonValueDummy12 = jsonMap["dummy12"] as? NSNumber {
-          resultDecodedBuilder.dummy12 = jsonValueDummy12.int32Value
+        if let jsonValueDummy12 = jsonMap["dummy12"] as? Int32 {
+          resultDecodedBuilder.dummy12 = jsonValueDummy12
         }
-        if let jsonValueDummy13 = jsonMap["dummy13"] as? NSNumber {
-          resultDecodedBuilder.dummy13 = jsonValueDummy13.int32Value
+        if let jsonValueDummy13 = jsonMap["dummy13"] as? Int32 {
+          resultDecodedBuilder.dummy13 = jsonValueDummy13
         }
-        if let jsonValueDummy14 = jsonMap["dummy14"] as? NSNumber {
-          resultDecodedBuilder.dummy14 = jsonValueDummy14.int32Value
+        if let jsonValueDummy14 = jsonMap["dummy14"] as? Int32 {
+          resultDecodedBuilder.dummy14 = jsonValueDummy14
         }
-        if let jsonValueDummy15 = jsonMap["dummy15"] as? NSNumber {
-          resultDecodedBuilder.dummy15 = jsonValueDummy15.int32Value
+        if let jsonValueDummy15 = jsonMap["dummy15"] as? Int32 {
+          resultDecodedBuilder.dummy15 = jsonValueDummy15
         }
-        if let jsonValueDummy16 = jsonMap["dummy16"] as? NSNumber {
-          resultDecodedBuilder.dummy16 = jsonValueDummy16.int32Value
+        if let jsonValueDummy16 = jsonMap["dummy16"] as? Int32 {
+          resultDecodedBuilder.dummy16 = jsonValueDummy16
         }
-        if let jsonValueDummy17 = jsonMap["dummy17"] as? NSNumber {
-          resultDecodedBuilder.dummy17 = jsonValueDummy17.int32Value
+        if let jsonValueDummy17 = jsonMap["dummy17"] as? Int32 {
+          resultDecodedBuilder.dummy17 = jsonValueDummy17
         }
-        if let jsonValueDummy18 = jsonMap["dummy18"] as? NSNumber {
-          resultDecodedBuilder.dummy18 = jsonValueDummy18.int32Value
+        if let jsonValueDummy18 = jsonMap["dummy18"] as? Int32 {
+          resultDecodedBuilder.dummy18 = jsonValueDummy18
         }
-        if let jsonValueDummy19 = jsonMap["dummy19"] as? NSNumber {
-          resultDecodedBuilder.dummy19 = jsonValueDummy19.int32Value
+        if let jsonValueDummy19 = jsonMap["dummy19"] as? Int32 {
+          resultDecodedBuilder.dummy19 = jsonValueDummy19
         }
-        if let jsonValueDummy20 = jsonMap["dummy20"] as? NSNumber {
-          resultDecodedBuilder.dummy20 = jsonValueDummy20.int32Value
+        if let jsonValueDummy20 = jsonMap["dummy20"] as? Int32 {
+          resultDecodedBuilder.dummy20 = jsonValueDummy20
         }
-        if let jsonValueDummy21 = jsonMap["dummy21"] as? NSNumber {
-          resultDecodedBuilder.dummy21 = jsonValueDummy21.int32Value
+        if let jsonValueDummy21 = jsonMap["dummy21"] as? Int32 {
+          resultDecodedBuilder.dummy21 = jsonValueDummy21
         }
-        if let jsonValueDummy22 = jsonMap["dummy22"] as? NSNumber {
-          resultDecodedBuilder.dummy22 = jsonValueDummy22.int32Value
+        if let jsonValueDummy22 = jsonMap["dummy22"] as? Int32 {
+          resultDecodedBuilder.dummy22 = jsonValueDummy22
         }
-        if let jsonValueDummy23 = jsonMap["dummy23"] as? NSNumber {
-          resultDecodedBuilder.dummy23 = jsonValueDummy23.int32Value
+        if let jsonValueDummy23 = jsonMap["dummy23"] as? Int32 {
+          resultDecodedBuilder.dummy23 = jsonValueDummy23
         }
-        if let jsonValueDummy24 = jsonMap["dummy24"] as? NSNumber {
-          resultDecodedBuilder.dummy24 = jsonValueDummy24.int32Value
+        if let jsonValueDummy24 = jsonMap["dummy24"] as? Int32 {
+          resultDecodedBuilder.dummy24 = jsonValueDummy24
         }
-        if let jsonValueDummy25 = jsonMap["dummy25"] as? NSNumber {
-          resultDecodedBuilder.dummy25 = jsonValueDummy25.int32Value
+        if let jsonValueDummy25 = jsonMap["dummy25"] as? Int32 {
+          resultDecodedBuilder.dummy25 = jsonValueDummy25
         }
-        if let jsonValueDummy26 = jsonMap["dummy26"] as? NSNumber {
-          resultDecodedBuilder.dummy26 = jsonValueDummy26.int32Value
+        if let jsonValueDummy26 = jsonMap["dummy26"] as? Int32 {
+          resultDecodedBuilder.dummy26 = jsonValueDummy26
         }
-        if let jsonValueDummy27 = jsonMap["dummy27"] as? NSNumber {
-          resultDecodedBuilder.dummy27 = jsonValueDummy27.int32Value
+        if let jsonValueDummy27 = jsonMap["dummy27"] as? Int32 {
+          resultDecodedBuilder.dummy27 = jsonValueDummy27
         }
-        if let jsonValueDummy28 = jsonMap["dummy28"] as? NSNumber {
-          resultDecodedBuilder.dummy28 = jsonValueDummy28.int32Value
+        if let jsonValueDummy28 = jsonMap["dummy28"] as? Int32 {
+          resultDecodedBuilder.dummy28 = jsonValueDummy28
         }
-        if let jsonValueDummy29 = jsonMap["dummy29"] as? NSNumber {
-          resultDecodedBuilder.dummy29 = jsonValueDummy29.int32Value
+        if let jsonValueDummy29 = jsonMap["dummy29"] as? Int32 {
+          resultDecodedBuilder.dummy29 = jsonValueDummy29
         }
-        if let jsonValueDummy30 = jsonMap["dummy30"] as? NSNumber {
-          resultDecodedBuilder.dummy30 = jsonValueDummy30.int32Value
+        if let jsonValueDummy30 = jsonMap["dummy30"] as? Int32 {
+          resultDecodedBuilder.dummy30 = jsonValueDummy30
         }
-        if let jsonValueDummy31 = jsonMap["dummy31"] as? NSNumber {
-          resultDecodedBuilder.dummy31 = jsonValueDummy31.int32Value
+        if let jsonValueDummy31 = jsonMap["dummy31"] as? Int32 {
+          resultDecodedBuilder.dummy31 = jsonValueDummy31
         }
-        if let jsonValueDummy32 = jsonMap["dummy32"] as? NSNumber {
-          resultDecodedBuilder.dummy32 = jsonValueDummy32.int32Value
+        if let jsonValueDummy32 = jsonMap["dummy32"] as? Int32 {
+          resultDecodedBuilder.dummy32 = jsonValueDummy32
         }
-        if let jsonValueC = jsonMap["c"] as? NSNumber {
-          resultDecodedBuilder.c = jsonValueC.int32Value
+        if let jsonValueC = jsonMap["c"] as? Int32 {
+          resultDecodedBuilder.c = jsonValueC
         }
         return resultDecodedBuilder
       }
@@ -10900,6 +10268,19 @@ public extension ProtobufUnittest {
   }
 
   final public class TestRequiredForeign : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnittest.TestRequiredForeign) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasOptionalMessage == rhs.hasOptionalMessage) && (!lhs.hasOptionalMessage || lhs.optionalMessage == rhs.optionalMessage)
+      fieldCheck = fieldCheck && (lhs.repeatedMessage == rhs.repeatedMessage)
+      fieldCheck = fieldCheck && (lhs.hasDummy == rhs.hasDummy) && (!lhs.hasDummy || lhs.dummy == rhs.dummy)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var optionalMessage:ProtobufUnittest.TestRequired!
     public fileprivate(set) var hasOptionalMessage:Bool = false
     public fileprivate(set) var repeatedMessage:Array<ProtobufUnittest.TestRequired>  = Array<ProtobufUnittest.TestRequired>()
@@ -10997,7 +10378,7 @@ public extension ProtobufUnittest {
         jsonMap["repeatedMessage"] = jsonArrayRepeatedMessage
       }
       if hasDummy {
-        jsonMap["dummy"] = NSNumber(value:dummy)
+        jsonMap["dummy"] = dummy
       }
       return jsonMap
     }
@@ -11095,7 +10476,7 @@ public extension ProtobufUnittest {
            optionalMessageBuilder_ = ProtobufUnittest.TestRequired.Builder()
            builderResult.optionalMessage = optionalMessageBuilder_.getMessage()
            if optionalMessage != nil {
-              _ = try! optionalMessageBuilder_.mergeFrom(other: optionalMessage)
+              try! optionalMessageBuilder_.mergeFrom(other: optionalMessage)
            }
         }
         return optionalMessageBuilder_
@@ -11104,6 +10485,7 @@ public extension ProtobufUnittest {
         self.optionalMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalMessage(value:ProtobufUnittest.TestRequired) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
         if builderResult.hasOptionalMessage {
           builderResult.optionalMessage = try ProtobufUnittest.TestRequired.builderWithPrototype(prototype:builderResult.optionalMessage).mergeFrom(other: value).buildPartial()
@@ -11178,12 +10560,13 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRequiredForeign = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRequiredForeign) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
         if other == ProtobufUnittest.TestRequiredForeign() {
          return self
         }
         if (other.hasOptionalMessage) {
-            _ = try mergeOptionalMessage(value: other.optionalMessage)
+            try mergeOptionalMessage(value: other.optionalMessage)
         }
         if !other.repeatedMessage.isEmpty  {
            builderResult.repeatedMessage += other.repeatedMessage
@@ -11191,9 +10574,10 @@ public extension ProtobufUnittest {
         if other.hasDummy {
              dummy = other.dummy
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11209,7 +10593,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestRequired.Builder = ProtobufUnittest.TestRequired.Builder()
             if hasOptionalMessage {
-              _ = try subBuilder.mergeFrom(other: optionalMessage)
+              try subBuilder.mergeFrom(other: optionalMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalMessage = subBuilder.buildPartial()
@@ -11245,8 +10629,8 @@ public extension ProtobufUnittest {
           }
           resultDecodedBuilder.repeatedMessage = jsonArrayRepeatedMessage
         }
-        if let jsonValueDummy = jsonMap["dummy"] as? NSNumber {
-          resultDecodedBuilder.dummy = jsonValueDummy.int32Value
+        if let jsonValueDummy = jsonMap["dummy"] as? Int32 {
+          resultDecodedBuilder.dummy = jsonValueDummy
         }
         return resultDecodedBuilder
       }
@@ -11263,6 +10647,17 @@ public extension ProtobufUnittest {
 
   // Test that we can use NestedMessage from outside TestAllTypes.
   final public class TestForeignNested : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest.TestForeignNested) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasForeignNested == rhs.hasForeignNested) && (!lhs.hasForeignNested || lhs.foreignNested == rhs.foreignNested)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var foreignNested:ProtobufUnittest.TestAllTypes.NestedMessage!
     public fileprivate(set) var hasForeignNested:Bool = false
     required public init() {
@@ -11400,7 +10795,7 @@ public extension ProtobufUnittest {
            foreignNestedBuilder_ = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
            builderResult.foreignNested = foreignNestedBuilder_.getMessage()
            if foreignNested != nil {
-              _ = try! foreignNestedBuilder_.mergeFrom(other: foreignNested)
+              try! foreignNestedBuilder_.mergeFrom(other: foreignNested)
            }
         }
         return foreignNestedBuilder_
@@ -11409,6 +10804,7 @@ public extension ProtobufUnittest {
         self.foreignNested = value
         return self
       }
+      @discardableResult
       public func mergeForeignNested(value:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestForeignNested.Builder {
         if builderResult.hasForeignNested {
           builderResult.foreignNested = try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult.foreignNested).mergeFrom(other: value).buildPartial()
@@ -11444,16 +10840,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestForeignNested = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestForeignNested) throws -> ProtobufUnittest.TestForeignNested.Builder {
         if other == ProtobufUnittest.TestForeignNested() {
          return self
         }
         if (other.hasForeignNested) {
-            _ = try mergeForeignNested(value: other.foreignNested)
+            try mergeForeignNested(value: other.foreignNested)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestForeignNested.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11469,7 +10867,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
             if hasForeignNested {
-              _ = try subBuilder.mergeFrom(other: foreignNested)
+              try subBuilder.mergeFrom(other: foreignNested)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             foreignNested = subBuilder.buildPartial()
@@ -11503,6 +10901,16 @@ public extension ProtobufUnittest {
 
   // TestEmptyMessage is used to test unknown field support.
   final public class TestEmptyMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.TestEmptyMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -11608,13 +11016,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEmptyMessage) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
         if other == ProtobufUnittest.TestEmptyMessage() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11653,6 +11063,17 @@ public extension ProtobufUnittest {
   // Like above, but declare all field numbers as potential extensions.  No
   // actual extensions should ever be defined for this type.
   final public class TestEmptyMessageWithExtensions : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: ProtobufUnittest.TestEmptyMessageWithExtensions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -11765,14 +11186,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEmptyMessageWithExtensions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEmptyMessageWithExtensions) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
         if other == ProtobufUnittest.TestEmptyMessageWithExtensions() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11809,6 +11232,19 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMultipleExtensionRanges : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: ProtobufUnittest.TestMultipleExtensionRanges) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:42, endExclusive:43)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:4143, endExclusive:4244)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:65536, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -11927,14 +11363,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestMultipleExtensionRanges = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestMultipleExtensionRanges) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
         if other == ProtobufUnittest.TestMultipleExtensionRanges() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -11972,6 +11410,18 @@ public extension ProtobufUnittest {
 
   // Test that really large tag numbers don't break anything.
   final public class TestReallyLargeTagNumber : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufUnittest.TestReallyLargeTagNumber) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The largest possible tag number is 2^28 - 1, since the wire format uses
     // three bits to communicate wire type.
     public fileprivate(set) var a:Int32 = Int32(0)
@@ -12037,10 +11487,10 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       if hasBb {
-        jsonMap["bb"] = NSNumber(value:bb)
+        jsonMap["bb"] = bb
       }
       return jsonMap
     }
@@ -12161,6 +11611,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestReallyLargeTagNumber = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestReallyLargeTagNumber) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         if other == ProtobufUnittest.TestReallyLargeTagNumber() {
          return self
@@ -12171,9 +11622,10 @@ public extension ProtobufUnittest {
         if other.hasBb {
              bb = other.bb
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -12202,11 +11654,11 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestReallyLargeTagNumber.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
-        if let jsonValueBb = jsonMap["bb"] as? NSNumber {
-          resultDecodedBuilder.bb = jsonValueBb.int32Value
+        if let jsonValueBb = jsonMap["bb"] as? Int32 {
+          resultDecodedBuilder.bb = jsonValueBb
         }
         return resultDecodedBuilder
       }
@@ -12222,6 +11674,18 @@ public extension ProtobufUnittest {
   }
 
   final public class TestRecursiveMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnittest.TestRecursiveMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && (lhs.hasI == rhs.hasI) && (!lhs.hasI || lhs.i == rhs.i)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:ProtobufUnittest.TestRecursiveMessage!
     public fileprivate(set) var hasA:Bool = false
     public fileprivate(set) var i:Int32 = Int32(0)
@@ -12289,7 +11753,7 @@ public extension ProtobufUnittest {
         jsonMap["a"] = try a.encode()
       }
       if hasI {
-        jsonMap["i"] = NSNumber(value:i)
+        jsonMap["i"] = i
       }
       return jsonMap
     }
@@ -12377,7 +11841,7 @@ public extension ProtobufUnittest {
            aBuilder_ = ProtobufUnittest.TestRecursiveMessage.Builder()
            builderResult.a = aBuilder_.getMessage()
            if a != nil {
-              _ = try! aBuilder_.mergeFrom(other: a)
+              try! aBuilder_.mergeFrom(other: a)
            }
         }
         return aBuilder_
@@ -12386,6 +11850,7 @@ public extension ProtobufUnittest {
         self.a = value
         return self
       }
+      @discardableResult
       public func mergeA(value:ProtobufUnittest.TestRecursiveMessage) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
         if builderResult.hasA {
           builderResult.a = try ProtobufUnittest.TestRecursiveMessage.builderWithPrototype(prototype:builderResult.a).mergeFrom(other: value).buildPartial()
@@ -12444,19 +11909,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRecursiveMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRecursiveMessage) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
         if other == ProtobufUnittest.TestRecursiveMessage() {
          return self
         }
         if (other.hasA) {
-            _ = try mergeA(value: other.a)
+            try mergeA(value: other.a)
         }
         if other.hasI {
              i = other.i
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -12472,7 +11939,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestRecursiveMessage.Builder = ProtobufUnittest.TestRecursiveMessage.Builder()
             if hasA {
-              _ = try subBuilder.mergeFrom(other: a)
+              try subBuilder.mergeFrom(other: a)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             a = subBuilder.buildPartial()
@@ -12494,8 +11961,8 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.a = try ProtobufUnittest.TestRecursiveMessage.Builder.decodeToBuilder(jsonMap:jsonValueA).build()
 
         }
-        if let jsonValueI = jsonMap["i"] as? NSNumber {
-          resultDecodedBuilder.i = jsonValueI.int32Value
+        if let jsonValueI = jsonMap["i"] as? Int32 {
+          resultDecodedBuilder.i = jsonValueI
         }
         return resultDecodedBuilder
       }
@@ -12512,6 +11979,17 @@ public extension ProtobufUnittest {
 
   // Test that mutual recursion works.
   final public class TestMutualRecursionA : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnittest.TestMutualRecursionA) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var bb:ProtobufUnittest.TestMutualRecursionB!
     public fileprivate(set) var hasBb:Bool = false
     required public init() {
@@ -12649,7 +12127,7 @@ public extension ProtobufUnittest {
            bbBuilder_ = ProtobufUnittest.TestMutualRecursionB.Builder()
            builderResult.bb = bbBuilder_.getMessage()
            if bb != nil {
-              _ = try! bbBuilder_.mergeFrom(other: bb)
+              try! bbBuilder_.mergeFrom(other: bb)
            }
         }
         return bbBuilder_
@@ -12658,6 +12136,7 @@ public extension ProtobufUnittest {
         self.bb = value
         return self
       }
+      @discardableResult
       public func mergeBb(value:ProtobufUnittest.TestMutualRecursionB) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
         if builderResult.hasBb {
           builderResult.bb = try ProtobufUnittest.TestMutualRecursionB.builderWithPrototype(prototype:builderResult.bb).mergeFrom(other: value).buildPartial()
@@ -12693,16 +12172,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestMutualRecursionA = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestMutualRecursionA) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
         if other == ProtobufUnittest.TestMutualRecursionA() {
          return self
         }
         if (other.hasBb) {
-            _ = try mergeBb(value: other.bb)
+            try mergeBb(value: other.bb)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -12718,7 +12199,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestMutualRecursionB.Builder = ProtobufUnittest.TestMutualRecursionB.Builder()
             if hasBb {
-              _ = try subBuilder.mergeFrom(other: bb)
+              try subBuilder.mergeFrom(other: bb)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             bb = subBuilder.buildPartial()
@@ -12751,6 +12232,18 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMutualRecursionB : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnittest.TestMutualRecursionB) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && (lhs.hasOptionalInt32 == rhs.hasOptionalInt32) && (!lhs.hasOptionalInt32 || lhs.optionalInt32 == rhs.optionalInt32)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var a:ProtobufUnittest.TestMutualRecursionA!
     public fileprivate(set) var hasA:Bool = false
     public fileprivate(set) var optionalInt32:Int32 = Int32(0)
@@ -12818,7 +12311,7 @@ public extension ProtobufUnittest {
         jsonMap["a"] = try a.encode()
       }
       if hasOptionalInt32 {
-        jsonMap["optionalInt32"] = NSNumber(value:optionalInt32)
+        jsonMap["optionalInt32"] = optionalInt32
       }
       return jsonMap
     }
@@ -12906,7 +12399,7 @@ public extension ProtobufUnittest {
            aBuilder_ = ProtobufUnittest.TestMutualRecursionA.Builder()
            builderResult.a = aBuilder_.getMessage()
            if a != nil {
-              _ = try! aBuilder_.mergeFrom(other: a)
+              try! aBuilder_.mergeFrom(other: a)
            }
         }
         return aBuilder_
@@ -12915,6 +12408,7 @@ public extension ProtobufUnittest {
         self.a = value
         return self
       }
+      @discardableResult
       public func mergeA(value:ProtobufUnittest.TestMutualRecursionA) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
         if builderResult.hasA {
           builderResult.a = try ProtobufUnittest.TestMutualRecursionA.builderWithPrototype(prototype:builderResult.a).mergeFrom(other: value).buildPartial()
@@ -12973,19 +12467,21 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestMutualRecursionB = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestMutualRecursionB) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
         if other == ProtobufUnittest.TestMutualRecursionB() {
          return self
         }
         if (other.hasA) {
-            _ = try mergeA(value: other.a)
+            try mergeA(value: other.a)
         }
         if other.hasOptionalInt32 {
              optionalInt32 = other.optionalInt32
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -13001,7 +12497,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestMutualRecursionA.Builder = ProtobufUnittest.TestMutualRecursionA.Builder()
             if hasA {
-              _ = try subBuilder.mergeFrom(other: a)
+              try subBuilder.mergeFrom(other: a)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             a = subBuilder.buildPartial()
@@ -13023,8 +12519,8 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.a = try ProtobufUnittest.TestMutualRecursionA.Builder.decodeToBuilder(jsonMap:jsonValueA).build()
 
         }
-        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? NSNumber {
-          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32.int32Value
+        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int32 {
+          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32
         }
         return resultDecodedBuilder
       }
@@ -13045,10 +12541,34 @@ public extension ProtobufUnittest {
   // in protobuf_unittest_proto.
   final public class TestDupFieldNumber : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittest.TestDupFieldNumber) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
+      fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class Foo : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -13103,7 +12623,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           return jsonMap
         }
@@ -13195,6 +12715,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestDupFieldNumber.Foo = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestDupFieldNumber.Foo) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             if other == ProtobufUnittest.TestDupFieldNumber.Foo() {
              return self
@@ -13202,9 +12723,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -13230,8 +12752,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             return resultDecodedBuilder
           }
@@ -13253,6 +12775,17 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class Bar : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -13307,7 +12840,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           return jsonMap
         }
@@ -13399,6 +12932,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestDupFieldNumber.Bar = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestDupFieldNumber.Bar) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             if other == ProtobufUnittest.TestDupFieldNumber.Bar() {
              return self
@@ -13406,9 +12940,10 @@ public extension ProtobufUnittest {
             if other.hasA {
                  a = other.a
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -13434,8 +12969,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             return resultDecodedBuilder
           }
@@ -13527,7 +13062,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = NSNumber(value:a)
+        jsonMap["a"] = a
       }
       if hasFoo {
         jsonMap["foo"] = try foo.encode()
@@ -13656,7 +13191,7 @@ public extension ProtobufUnittest {
            fooBuilder_ = ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
            builderResult.foo = fooBuilder_.getMessage()
            if foo != nil {
-              _ = try! fooBuilder_.mergeFrom(other: foo)
+              try! fooBuilder_.mergeFrom(other: foo)
            }
         }
         return fooBuilder_
@@ -13665,6 +13200,7 @@ public extension ProtobufUnittest {
         self.foo = value
         return self
       }
+      @discardableResult
       public func mergeFoo(value:ProtobufUnittest.TestDupFieldNumber.Foo) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         if builderResult.hasFoo {
           builderResult.foo = try ProtobufUnittest.TestDupFieldNumber.Foo.builderWithPrototype(prototype:builderResult.foo).mergeFrom(other: value).buildPartial()
@@ -13707,7 +13243,7 @@ public extension ProtobufUnittest {
            barBuilder_ = ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
            builderResult.bar = barBuilder_.getMessage()
            if bar != nil {
-              _ = try! barBuilder_.mergeFrom(other: bar)
+              try! barBuilder_.mergeFrom(other: bar)
            }
         }
         return barBuilder_
@@ -13716,6 +13252,7 @@ public extension ProtobufUnittest {
         self.bar = value
         return self
       }
+      @discardableResult
       public func mergeBar(value:ProtobufUnittest.TestDupFieldNumber.Bar) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         if builderResult.hasBar {
           builderResult.bar = try ProtobufUnittest.TestDupFieldNumber.Bar.builderWithPrototype(prototype:builderResult.bar).mergeFrom(other: value).buildPartial()
@@ -13751,6 +13288,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestDupFieldNumber = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestDupFieldNumber) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         if other == ProtobufUnittest.TestDupFieldNumber() {
          return self
@@ -13759,14 +13297,15 @@ public extension ProtobufUnittest {
              a = other.a
         }
         if (other.hasFoo) {
-            _ = try mergeFoo(value: other.foo)
+            try mergeFoo(value: other.foo)
         }
         if (other.hasBar) {
-            _ = try mergeBar(value: other.bar)
+            try mergeBar(value: other.bar)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -13785,7 +13324,7 @@ public extension ProtobufUnittest {
           case 19:
             let subBuilder:ProtobufUnittest.TestDupFieldNumber.Foo.Builder = ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
             if hasFoo {
-              _ = try subBuilder.mergeFrom(other: foo)
+              try subBuilder.mergeFrom(other: foo)
             }
             try codedInputStream.readGroup(fieldNumber: 2, builder:subBuilder, extensionRegistry:extensionRegistry)
             foo = subBuilder.buildPartial()
@@ -13793,7 +13332,7 @@ public extension ProtobufUnittest {
           case 27:
             let subBuilder:ProtobufUnittest.TestDupFieldNumber.Bar.Builder = ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
             if hasBar {
-              _ = try subBuilder.mergeFrom(other: bar)
+              try subBuilder.mergeFrom(other: bar)
             }
             try codedInputStream.readGroup(fieldNumber: 3, builder:subBuilder, extensionRegistry:extensionRegistry)
             bar = subBuilder.buildPartial()
@@ -13808,8 +13347,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestDupFieldNumber.Builder()
-        if let jsonValueA = jsonMap["a"] as? NSNumber {
-          resultDecodedBuilder.a = jsonValueA.int32Value
+        if let jsonValueA = jsonMap["a"] as? Int32 {
+          resultDecodedBuilder.a = jsonValueA
         }
         if let jsonValueFoo = jsonMap["foo"] as? Dictionary<String,Any> {
           resultDecodedBuilder.foo = try ProtobufUnittest.TestDupFieldNumber.Foo.Builder.decodeToBuilder(jsonMap:jsonValueFoo).build()
@@ -13834,6 +13373,17 @@ public extension ProtobufUnittest {
 
   // Additional messages for testing lazy fields.
   final public class TestEagerMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.TestEagerMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasSubMessage == rhs.hasSubMessage) && (!lhs.hasSubMessage || lhs.subMessage == rhs.subMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var subMessage:ProtobufUnittest.TestAllTypes!
     public fileprivate(set) var hasSubMessage:Bool = false
     required public init() {
@@ -13971,7 +13521,7 @@ public extension ProtobufUnittest {
            subMessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.subMessage = subMessageBuilder_.getMessage()
            if subMessage != nil {
-              _ = try! subMessageBuilder_.mergeFrom(other: subMessage)
+              try! subMessageBuilder_.mergeFrom(other: subMessage)
            }
         }
         return subMessageBuilder_
@@ -13980,6 +13530,7 @@ public extension ProtobufUnittest {
         self.subMessage = value
         return self
       }
+      @discardableResult
       public func mergeSubMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestEagerMessage.Builder {
         if builderResult.hasSubMessage {
           builderResult.subMessage = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.subMessage).mergeFrom(other: value).buildPartial()
@@ -14015,16 +13566,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestEagerMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestEagerMessage) throws -> ProtobufUnittest.TestEagerMessage.Builder {
         if other == ProtobufUnittest.TestEagerMessage() {
          return self
         }
         if (other.hasSubMessage) {
-            _ = try mergeSubMessage(value: other.subMessage)
+            try mergeSubMessage(value: other.subMessage)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEagerMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -14040,7 +13593,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasSubMessage {
-              _ = try subBuilder.mergeFrom(other: subMessage)
+              try subBuilder.mergeFrom(other: subMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             subMessage = subBuilder.buildPartial()
@@ -14073,6 +13626,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestLazyMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.TestLazyMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasSubMessage == rhs.hasSubMessage) && (!lhs.hasSubMessage || lhs.subMessage == rhs.subMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var subMessage:ProtobufUnittest.TestAllTypes!
     public fileprivate(set) var hasSubMessage:Bool = false
     required public init() {
@@ -14210,7 +13774,7 @@ public extension ProtobufUnittest {
            subMessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.subMessage = subMessageBuilder_.getMessage()
            if subMessage != nil {
-              _ = try! subMessageBuilder_.mergeFrom(other: subMessage)
+              try! subMessageBuilder_.mergeFrom(other: subMessage)
            }
         }
         return subMessageBuilder_
@@ -14219,6 +13783,7 @@ public extension ProtobufUnittest {
         self.subMessage = value
         return self
       }
+      @discardableResult
       public func mergeSubMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestLazyMessage.Builder {
         if builderResult.hasSubMessage {
           builderResult.subMessage = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.subMessage).mergeFrom(other: value).buildPartial()
@@ -14254,16 +13819,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestLazyMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestLazyMessage) throws -> ProtobufUnittest.TestLazyMessage.Builder {
         if other == ProtobufUnittest.TestLazyMessage() {
          return self
         }
         if (other.hasSubMessage) {
-            _ = try mergeSubMessage(value: other.subMessage)
+            try mergeSubMessage(value: other.subMessage)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLazyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -14279,7 +13846,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasSubMessage {
-              _ = try subBuilder.mergeFrom(other: subMessage)
+              try subBuilder.mergeFrom(other: subMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             subMessage = subBuilder.buildPartial()
@@ -14314,10 +13881,33 @@ public extension ProtobufUnittest {
   // Needed for a Python test.
   final public class TestNestedMessageHasBits : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufUnittest.TestNestedMessageHasBits) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedInt32 == rhs.nestedmessageRepeatedInt32)
+          fieldCheck = fieldCheck && (lhs.nestedmessageRepeatedForeignmessage == rhs.nestedmessageRepeatedForeignmessage)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var nestedmessageRepeatedInt32:Array<Int32> = Array<Int32>()
         public fileprivate(set) var nestedmessageRepeatedForeignmessage:Array<ProtobufUnittest.ForeignMessage>  = Array<ProtobufUnittest.ForeignMessage>()
         required public init() {
@@ -14382,9 +13972,9 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if !nestedmessageRepeatedInt32.isEmpty {
-            var jsonArrayNestedmessageRepeatedInt32:Array<NSNumber> = []
+            var jsonArrayNestedmessageRepeatedInt32:Array<Int32> = []
               for oneValueNestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
-                jsonArrayNestedmessageRepeatedInt32.append(NSNumber(value:oneValueNestedmessageRepeatedInt32))
+                jsonArrayNestedmessageRepeatedInt32.append(oneValueNestedmessageRepeatedInt32)
               }
             jsonMap["nestedmessageRepeatedInt32"] = jsonArrayNestedmessageRepeatedInt32
           }
@@ -14507,6 +14097,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             if other == ProtobufUnittest.TestNestedMessageHasBits.NestedMessage() {
              return self
@@ -14517,9 +14108,10 @@ public extension ProtobufUnittest {
             if !other.nestedmessageRepeatedForeignmessage.isEmpty  {
                builderResult.nestedmessageRepeatedForeignmessage += other.nestedmessageRepeatedForeignmessage
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -14550,10 +14142,10 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
-            if let jsonValueNestedmessageRepeatedInt32 = jsonMap["nestedmessageRepeatedInt32"] as? Array<NSNumber> {
+            if let jsonValueNestedmessageRepeatedInt32 = jsonMap["nestedmessageRepeatedInt32"] as? Array<Int32> {
               var jsonArrayNestedmessageRepeatedInt32:Array<Int32> = []
               for oneValueNestedmessageRepeatedInt32 in jsonValueNestedmessageRepeatedInt32 {
-                jsonArrayNestedmessageRepeatedInt32.append(oneValueNestedmessageRepeatedInt32.int32Value)
+                jsonArrayNestedmessageRepeatedInt32.append(oneValueNestedmessageRepeatedInt32)
               }
               resultDecodedBuilder.nestedmessageRepeatedInt32 = jsonArrayNestedmessageRepeatedInt32
             }
@@ -14718,7 +14310,7 @@ public extension ProtobufUnittest {
            optionalNestedMessageBuilder_ = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -14727,6 +14319,7 @@ public extension ProtobufUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -14762,16 +14355,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestNestedMessageHasBits = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestNestedMessageHasBits) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         if other == ProtobufUnittest.TestNestedMessageHasBits() {
          return self
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -14787,7 +14382,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -14822,6 +14417,28 @@ public extension ProtobufUnittest {
   // Test message with CamelCase field names.  This violates Protocol Buffer
   // standard style.
   final public class TestCamelCaseFieldNames : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUnittest.TestCamelCaseFieldNames) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasPrimitiveField == rhs.hasPrimitiveField) && (!lhs.hasPrimitiveField || lhs.primitiveField == rhs.primitiveField)
+      fieldCheck = fieldCheck && (lhs.hasStringField == rhs.hasStringField) && (!lhs.hasStringField || lhs.stringField == rhs.stringField)
+      fieldCheck = fieldCheck && (lhs.hasEnumField == rhs.hasEnumField) && (!lhs.hasEnumField || lhs.enumField == rhs.enumField)
+      fieldCheck = fieldCheck && (lhs.hasMessageField == rhs.hasMessageField) && (!lhs.hasMessageField || lhs.messageField == rhs.messageField)
+      fieldCheck = fieldCheck && (lhs.hasStringPieceField == rhs.hasStringPieceField) && (!lhs.hasStringPieceField || lhs.stringPieceField == rhs.stringPieceField)
+      fieldCheck = fieldCheck && (lhs.hasCordField == rhs.hasCordField) && (!lhs.hasCordField || lhs.cordField == rhs.cordField)
+      fieldCheck = fieldCheck && (lhs.repeatedPrimitiveField == rhs.repeatedPrimitiveField)
+      fieldCheck = fieldCheck && (lhs.repeatedStringField == rhs.repeatedStringField)
+      fieldCheck = fieldCheck && (lhs.repeatedEnumField == rhs.repeatedEnumField)
+      fieldCheck = fieldCheck && (lhs.repeatedMessageField == rhs.repeatedMessageField)
+      fieldCheck = fieldCheck && (lhs.repeatedStringPieceField == rhs.repeatedStringPieceField)
+      fieldCheck = fieldCheck && (lhs.repeatedCordField == rhs.repeatedCordField)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var primitiveField:Int32 = Int32(0)
     public fileprivate(set) var hasPrimitiveField:Bool = false
 
@@ -14987,7 +14604,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasPrimitiveField {
-        jsonMap["primitiveField"] = NSNumber(value:primitiveField)
+        jsonMap["primitiveField"] = primitiveField
       }
       if hasStringField {
         jsonMap["stringField"] = stringField
@@ -15005,14 +14622,18 @@ public extension ProtobufUnittest {
         jsonMap["cordField"] = cordField
       }
       if !repeatedPrimitiveField.isEmpty {
-        var jsonArrayRepeatedPrimitiveField:Array<NSNumber> = []
+        var jsonArrayRepeatedPrimitiveField:Array<Int32> = []
           for oneValueRepeatedPrimitiveField in repeatedPrimitiveField {
-            jsonArrayRepeatedPrimitiveField.append(NSNumber(value:oneValueRepeatedPrimitiveField))
+            jsonArrayRepeatedPrimitiveField.append(oneValueRepeatedPrimitiveField)
           }
         jsonMap["repeatedPrimitiveField"] = jsonArrayRepeatedPrimitiveField
       }
       if !repeatedStringField.isEmpty {
-        jsonMap["repeatedStringField"] = repeatedStringField
+        var jsonArrayRepeatedStringField:Array<String> = []
+          for oneValueRepeatedStringField in repeatedStringField {
+            jsonArrayRepeatedStringField.append(oneValueRepeatedStringField)
+          }
+        jsonMap["repeatedStringField"] = jsonArrayRepeatedStringField
       }
       if !repeatedEnumField.isEmpty {
         var jsonArrayRepeatedEnumField:Array<String> = []
@@ -15030,10 +14651,18 @@ public extension ProtobufUnittest {
         jsonMap["repeatedMessageField"] = jsonArrayRepeatedMessageField
       }
       if !repeatedStringPieceField.isEmpty {
-        jsonMap["repeatedStringPieceField"] = repeatedStringPieceField
+        var jsonArrayRepeatedStringPieceField:Array<String> = []
+          for oneValueRepeatedStringPieceField in repeatedStringPieceField {
+            jsonArrayRepeatedStringPieceField.append(oneValueRepeatedStringPieceField)
+          }
+        jsonMap["repeatedStringPieceField"] = jsonArrayRepeatedStringPieceField
       }
       if !repeatedCordField.isEmpty {
-        jsonMap["repeatedCordField"] = repeatedCordField
+        var jsonArrayRepeatedCordField:Array<String> = []
+          for oneValueRepeatedCordField in repeatedCordField {
+            jsonArrayRepeatedCordField.append(oneValueRepeatedCordField)
+          }
+        jsonMap["repeatedCordField"] = jsonArrayRepeatedCordField
       }
       return jsonMap
     }
@@ -15264,7 +14893,7 @@ public extension ProtobufUnittest {
            messageFieldBuilder_ = ProtobufUnittest.ForeignMessage.Builder()
            builderResult.messageField = messageFieldBuilder_.getMessage()
            if messageField != nil {
-              _ = try! messageFieldBuilder_.mergeFrom(other: messageField)
+              try! messageFieldBuilder_.mergeFrom(other: messageField)
            }
         }
         return messageFieldBuilder_
@@ -15273,6 +14902,7 @@ public extension ProtobufUnittest {
         self.messageField = value
         return self
       }
+      @discardableResult
       public func mergeMessageField(value:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         if builderResult.hasMessageField {
           builderResult.messageField = try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.messageField).mergeFrom(other: value).buildPartial()
@@ -15450,6 +15080,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestCamelCaseFieldNames = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestCamelCaseFieldNames) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         if other == ProtobufUnittest.TestCamelCaseFieldNames() {
          return self
@@ -15464,7 +15095,7 @@ public extension ProtobufUnittest {
              enumField = other.enumField
         }
         if (other.hasMessageField) {
-            _ = try mergeMessageField(value: other.messageField)
+            try mergeMessageField(value: other.messageField)
         }
         if other.hasStringPieceField {
              stringPieceField = other.stringPieceField
@@ -15490,9 +15121,10 @@ public extension ProtobufUnittest {
         if !other.repeatedCordField.isEmpty {
             builderResult.repeatedCordField += other.repeatedCordField
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -15516,13 +15148,13 @@ public extension ProtobufUnittest {
             if let enumsenumField = ProtobufUnittest.ForeignEnum(rawValue:valueIntenumField){
                  enumField = enumsenumField
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntenumField))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntenumField))
             }
 
           case 34:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasMessageField {
-              _ = try subBuilder.mergeFrom(other: messageField)
+              try subBuilder.mergeFrom(other: messageField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             messageField = subBuilder.buildPartial()
@@ -15544,7 +15176,7 @@ public extension ProtobufUnittest {
             if let enumsrepeatedEnumField = ProtobufUnittest.ForeignEnum(rawValue:valueIntrepeatedEnumField) {
                  builderResult.repeatedEnumField.append(enumsrepeatedEnumField)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 9, value:Int64(valueIntrepeatedEnumField))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 9, value:Int64(valueIntrepeatedEnumField))
             }
 
           case 82:
@@ -15568,8 +15200,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestCamelCaseFieldNames.Builder()
-        if let jsonValuePrimitiveField = jsonMap["primitiveField"] as? NSNumber {
-          resultDecodedBuilder.primitiveField = jsonValuePrimitiveField.int32Value
+        if let jsonValuePrimitiveField = jsonMap["primitiveField"] as? Int32 {
+          resultDecodedBuilder.primitiveField = jsonValuePrimitiveField
         }
         if let jsonValueStringField = jsonMap["stringField"] as? String {
           resultDecodedBuilder.stringField = jsonValueStringField
@@ -15587,15 +15219,19 @@ public extension ProtobufUnittest {
         if let jsonValueCordField = jsonMap["cordField"] as? String {
           resultDecodedBuilder.cordField = jsonValueCordField
         }
-        if let jsonValueRepeatedPrimitiveField = jsonMap["repeatedPrimitiveField"] as? Array<NSNumber> {
+        if let jsonValueRepeatedPrimitiveField = jsonMap["repeatedPrimitiveField"] as? Array<Int32> {
           var jsonArrayRepeatedPrimitiveField:Array<Int32> = []
           for oneValueRepeatedPrimitiveField in jsonValueRepeatedPrimitiveField {
-            jsonArrayRepeatedPrimitiveField.append(oneValueRepeatedPrimitiveField.int32Value)
+            jsonArrayRepeatedPrimitiveField.append(oneValueRepeatedPrimitiveField)
           }
           resultDecodedBuilder.repeatedPrimitiveField = jsonArrayRepeatedPrimitiveField
         }
         if let jsonValueRepeatedStringField = jsonMap["repeatedStringField"] as? Array<String> {
-          resultDecodedBuilder.repeatedStringField = jsonValueRepeatedStringField
+          var jsonArrayRepeatedStringField:Array<String> = []
+          for oneValueRepeatedStringField in jsonValueRepeatedStringField {
+            jsonArrayRepeatedStringField.append(oneValueRepeatedStringField)
+          }
+          resultDecodedBuilder.repeatedStringField = jsonArrayRepeatedStringField
         }
         if let jsonValueRepeatedEnumField = jsonMap["repeatedEnumField"] as? Array<String> {
           var jsonArrayRepeatedEnumField:Array<ProtobufUnittest.ForeignEnum> = []
@@ -15615,10 +15251,18 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.repeatedMessageField = jsonArrayRepeatedMessageField
         }
         if let jsonValueRepeatedStringPieceField = jsonMap["repeatedStringPieceField"] as? Array<String> {
-          resultDecodedBuilder.repeatedStringPieceField = jsonValueRepeatedStringPieceField
+          var jsonArrayRepeatedStringPieceField:Array<String> = []
+          for oneValueRepeatedStringPieceField in jsonValueRepeatedStringPieceField {
+            jsonArrayRepeatedStringPieceField.append(oneValueRepeatedStringPieceField)
+          }
+          resultDecodedBuilder.repeatedStringPieceField = jsonArrayRepeatedStringPieceField
         }
         if let jsonValueRepeatedCordField = jsonMap["repeatedCordField"] as? Array<String> {
-          resultDecodedBuilder.repeatedCordField = jsonValueRepeatedCordField
+          var jsonArrayRepeatedCordField:Array<String> = []
+          for oneValueRepeatedCordField in jsonValueRepeatedCordField {
+            jsonArrayRepeatedCordField.append(oneValueRepeatedCordField)
+          }
+          resultDecodedBuilder.repeatedCordField = jsonArrayRepeatedCordField
         }
         return resultDecodedBuilder
       }
@@ -15637,10 +15281,38 @@ public extension ProtobufUnittest {
   // field index to determine serialization order.
   final public class TestFieldOrderings : ExtendableMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittest.TestFieldOrderings) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasMyInt == rhs.hasMyInt) && (!lhs.hasMyInt || lhs.myInt == rhs.myInt)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:2, endExclusive:11)
+      fieldCheck = fieldCheck && (lhs.hasMyString == rhs.hasMyString) && (!lhs.hasMyString || lhs.myString == rhs.myString)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:12, endExclusive:101)
+      fieldCheck = fieldCheck && (lhs.hasMyFloat == rhs.hasMyFloat) && (!lhs.hasMyFloat || lhs.myFloat == rhs.myFloat)
+      fieldCheck = fieldCheck && (lhs.hasOptionalNestedMessage == rhs.hasOptionalNestedMessage) && (!lhs.hasOptionalNestedMessage || lhs.optionalNestedMessage == rhs.optionalNestedMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestFieldOrderings.NestedMessage, rhs: ProtobufUnittest.TestFieldOrderings.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasBb == rhs.hasBb) && (!lhs.hasBb || lhs.bb == rhs.bb)
+          fieldCheck = fieldCheck && (lhs.hasOo == rhs.hasOo) && (!lhs.hasOo || lhs.oo == rhs.oo)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var oo:Int64 = Int64(0)
         public fileprivate(set) var hasOo:Bool = false
 
@@ -15707,10 +15379,10 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasOo {
-            jsonMap["oo"] = "\(oo)"
+            jsonMap["oo"] = oo
           }
           if hasBb {
-            jsonMap["bb"] = NSNumber(value:bb)
+            jsonMap["bb"] = bb
           }
           return jsonMap
         }
@@ -15831,6 +15503,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestFieldOrderings.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestFieldOrderings.NestedMessage) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             if other == ProtobufUnittest.TestFieldOrderings.NestedMessage() {
              return self
@@ -15841,9 +15514,10 @@ public extension ProtobufUnittest {
             if other.hasBb {
                  bb = other.bb
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -15872,11 +15546,11 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-            if let jsonValueOo = jsonMap["oo"] as? String {
-              resultDecodedBuilder.oo = Int64(jsonValueOo)!
+            if let jsonValueOo = jsonMap["oo"] as? Int64 {
+              resultDecodedBuilder.oo = jsonValueOo
             }
-            if let jsonValueBb = jsonMap["bb"] as? NSNumber {
-              resultDecodedBuilder.bb = jsonValueBb.int32Value
+            if let jsonValueBb = jsonMap["bb"] as? Int32 {
+              resultDecodedBuilder.bb = jsonValueBb
             }
             return resultDecodedBuilder
           }
@@ -15984,10 +15658,10 @@ public extension ProtobufUnittest {
         jsonMap["myString"] = myString
       }
       if hasMyInt {
-        jsonMap["myInt"] = "\(myInt)"
+        jsonMap["myInt"] = myInt
       }
       if hasMyFloat {
-        jsonMap["myFloat"] = NSNumber(value:myFloat)
+        jsonMap["myFloat"] = myFloat
       }
       if hasOptionalNestedMessage {
         jsonMap["optionalNestedMessage"] = try optionalNestedMessage.encode()
@@ -16163,7 +15837,7 @@ public extension ProtobufUnittest {
            optionalNestedMessageBuilder_ = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
            builderResult.optionalNestedMessage = optionalNestedMessageBuilder_.getMessage()
            if optionalNestedMessage != nil {
-              _ = try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
+              try! optionalNestedMessageBuilder_.mergeFrom(other: optionalNestedMessage)
            }
         }
         return optionalNestedMessageBuilder_
@@ -16172,6 +15846,7 @@ public extension ProtobufUnittest {
         self.optionalNestedMessage = value
         return self
       }
+      @discardableResult
       public func mergeOptionalNestedMessage(value:ProtobufUnittest.TestFieldOrderings.NestedMessage) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
         if builderResult.hasOptionalNestedMessage {
           builderResult.optionalNestedMessage = try ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(prototype:builderResult.optionalNestedMessage).mergeFrom(other: value).buildPartial()
@@ -16207,6 +15882,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestFieldOrderings = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestFieldOrderings) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
         if other == ProtobufUnittest.TestFieldOrderings() {
          return self
@@ -16221,12 +15897,13 @@ public extension ProtobufUnittest {
              myFloat = other.myFloat
         }
         if (other.hasOptionalNestedMessage) {
-            _ = try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
+            try mergeOptionalNestedMessage(value: other.optionalNestedMessage)
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -16251,7 +15928,7 @@ public extension ProtobufUnittest {
           case 1602:
             let subBuilder:ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
             if hasOptionalNestedMessage {
-              _ = try subBuilder.mergeFrom(other: optionalNestedMessage)
+              try subBuilder.mergeFrom(other: optionalNestedMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalNestedMessage = subBuilder.buildPartial()
@@ -16269,11 +15946,11 @@ public extension ProtobufUnittest {
         if let jsonValueMyString = jsonMap["myString"] as? String {
           resultDecodedBuilder.myString = jsonValueMyString
         }
-        if let jsonValueMyInt = jsonMap["myInt"] as? String {
-          resultDecodedBuilder.myInt = Int64(jsonValueMyInt)!
+        if let jsonValueMyInt = jsonMap["myInt"] as? Int64 {
+          resultDecodedBuilder.myInt = jsonValueMyInt
         }
-        if let jsonValueMyFloat = jsonMap["myFloat"] as? NSNumber {
-          resultDecodedBuilder.myFloat = jsonValueMyFloat.floatValue
+        if let jsonValueMyFloat = jsonMap["myFloat"] as? Float {
+          resultDecodedBuilder.myFloat = jsonValueMyFloat
         }
         if let jsonValueOptionalNestedMessage = jsonMap["optionalNestedMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalNestedMessage = try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalNestedMessage).build()
@@ -16293,6 +15970,43 @@ public extension ProtobufUnittest {
   }
 
   final public class TestExtremeDefaultValues : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufUnittest.TestExtremeDefaultValues) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasEscapedBytes == rhs.hasEscapedBytes) && (!lhs.hasEscapedBytes || lhs.escapedBytes == rhs.escapedBytes)
+      fieldCheck = fieldCheck && (lhs.hasLargeUint32 == rhs.hasLargeUint32) && (!lhs.hasLargeUint32 || lhs.largeUint32 == rhs.largeUint32)
+      fieldCheck = fieldCheck && (lhs.hasLargeUint64 == rhs.hasLargeUint64) && (!lhs.hasLargeUint64 || lhs.largeUint64 == rhs.largeUint64)
+      fieldCheck = fieldCheck && (lhs.hasSmallInt32 == rhs.hasSmallInt32) && (!lhs.hasSmallInt32 || lhs.smallInt32 == rhs.smallInt32)
+      fieldCheck = fieldCheck && (lhs.hasSmallInt64 == rhs.hasSmallInt64) && (!lhs.hasSmallInt64 || lhs.smallInt64 == rhs.smallInt64)
+      fieldCheck = fieldCheck && (lhs.hasUtf8String == rhs.hasUtf8String) && (!lhs.hasUtf8String || lhs.utf8String == rhs.utf8String)
+      fieldCheck = fieldCheck && (lhs.hasZeroFloat == rhs.hasZeroFloat) && (!lhs.hasZeroFloat || lhs.zeroFloat == rhs.zeroFloat)
+      fieldCheck = fieldCheck && (lhs.hasOneFloat == rhs.hasOneFloat) && (!lhs.hasOneFloat || lhs.oneFloat == rhs.oneFloat)
+      fieldCheck = fieldCheck && (lhs.hasSmallFloat == rhs.hasSmallFloat) && (!lhs.hasSmallFloat || lhs.smallFloat == rhs.smallFloat)
+      fieldCheck = fieldCheck && (lhs.hasNegativeOneFloat == rhs.hasNegativeOneFloat) && (!lhs.hasNegativeOneFloat || lhs.negativeOneFloat == rhs.negativeOneFloat)
+      fieldCheck = fieldCheck && (lhs.hasNegativeFloat == rhs.hasNegativeFloat) && (!lhs.hasNegativeFloat || lhs.negativeFloat == rhs.negativeFloat)
+      fieldCheck = fieldCheck && (lhs.hasLargeFloat == rhs.hasLargeFloat) && (!lhs.hasLargeFloat || lhs.largeFloat == rhs.largeFloat)
+      fieldCheck = fieldCheck && (lhs.hasSmallNegativeFloat == rhs.hasSmallNegativeFloat) && (!lhs.hasSmallNegativeFloat || lhs.smallNegativeFloat == rhs.smallNegativeFloat)
+      fieldCheck = fieldCheck && (lhs.hasInfDouble == rhs.hasInfDouble) && (!lhs.hasInfDouble || lhs.infDouble == rhs.infDouble)
+      fieldCheck = fieldCheck && (lhs.hasNegInfDouble == rhs.hasNegInfDouble) && (!lhs.hasNegInfDouble || lhs.negInfDouble == rhs.negInfDouble)
+      fieldCheck = fieldCheck && (lhs.hasNanDouble == rhs.hasNanDouble) && (!lhs.hasNanDouble || lhs.nanDouble == rhs.nanDouble)
+      fieldCheck = fieldCheck && (lhs.hasInfFloat == rhs.hasInfFloat) && (!lhs.hasInfFloat || lhs.infFloat == rhs.infFloat)
+      fieldCheck = fieldCheck && (lhs.hasNegInfFloat == rhs.hasNegInfFloat) && (!lhs.hasNegInfFloat || lhs.negInfFloat == rhs.negInfFloat)
+      fieldCheck = fieldCheck && (lhs.hasNanFloat == rhs.hasNanFloat) && (!lhs.hasNanFloat || lhs.nanFloat == rhs.nanFloat)
+      fieldCheck = fieldCheck && (lhs.hasCppTrigraph == rhs.hasCppTrigraph) && (!lhs.hasCppTrigraph || lhs.cppTrigraph == rhs.cppTrigraph)
+      fieldCheck = fieldCheck && (lhs.hasReallySmallInt32 == rhs.hasReallySmallInt32) && (!lhs.hasReallySmallInt32 || lhs.reallySmallInt32 == rhs.reallySmallInt32)
+      fieldCheck = fieldCheck && (lhs.hasReallySmallInt64 == rhs.hasReallySmallInt64) && (!lhs.hasReallySmallInt64 || lhs.reallySmallInt64 == rhs.reallySmallInt64)
+      fieldCheck = fieldCheck && (lhs.hasStringWithZero == rhs.hasStringWithZero) && (!lhs.hasStringWithZero || lhs.stringWithZero == rhs.stringWithZero)
+      fieldCheck = fieldCheck && (lhs.hasBytesWithZero == rhs.hasBytesWithZero) && (!lhs.hasBytesWithZero || lhs.bytesWithZero == rhs.bytesWithZero)
+      fieldCheck = fieldCheck && (lhs.hasStringPieceWithZero == rhs.hasStringPieceWithZero) && (!lhs.hasStringPieceWithZero || lhs.stringPieceWithZero == rhs.stringPieceWithZero)
+      fieldCheck = fieldCheck && (lhs.hasCordWithZero == rhs.hasCordWithZero) && (!lhs.hasCordWithZero || lhs.cordWithZero == rhs.cordWithZero)
+      fieldCheck = fieldCheck && (lhs.hasReplacementString == rhs.hasReplacementString) && (!lhs.hasReplacementString || lhs.replacementString == rhs.replacementString)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var escapedBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
     public fileprivate(set) var hasEscapedBytes:Bool = false
 
@@ -16596,64 +16310,64 @@ public extension ProtobufUnittest {
         jsonMap["escapedBytes"] = escapedBytes.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
       }
       if hasLargeUint32 {
-        jsonMap["largeUint32"] = NSNumber(value:largeUint32)
+        jsonMap["largeUint32"] = largeUint32
       }
       if hasLargeUint64 {
-        jsonMap["largeUint64"] = "\(largeUint64)"
+        jsonMap["largeUint64"] = largeUint64
       }
       if hasSmallInt32 {
-        jsonMap["smallInt32"] = NSNumber(value:smallInt32)
+        jsonMap["smallInt32"] = smallInt32
       }
       if hasSmallInt64 {
-        jsonMap["smallInt64"] = "\(smallInt64)"
+        jsonMap["smallInt64"] = smallInt64
       }
       if hasReallySmallInt32 {
-        jsonMap["reallySmallInt32"] = NSNumber(value:reallySmallInt32)
+        jsonMap["reallySmallInt32"] = reallySmallInt32
       }
       if hasReallySmallInt64 {
-        jsonMap["reallySmallInt64"] = "\(reallySmallInt64)"
+        jsonMap["reallySmallInt64"] = reallySmallInt64
       }
       if hasUtf8String {
         jsonMap["utf8String"] = utf8String
       }
       if hasZeroFloat {
-        jsonMap["zeroFloat"] = NSNumber(value:zeroFloat)
+        jsonMap["zeroFloat"] = zeroFloat
       }
       if hasOneFloat {
-        jsonMap["oneFloat"] = NSNumber(value:oneFloat)
+        jsonMap["oneFloat"] = oneFloat
       }
       if hasSmallFloat {
-        jsonMap["smallFloat"] = NSNumber(value:smallFloat)
+        jsonMap["smallFloat"] = smallFloat
       }
       if hasNegativeOneFloat {
-        jsonMap["negativeOneFloat"] = NSNumber(value:negativeOneFloat)
+        jsonMap["negativeOneFloat"] = negativeOneFloat
       }
       if hasNegativeFloat {
-        jsonMap["negativeFloat"] = NSNumber(value:negativeFloat)
+        jsonMap["negativeFloat"] = negativeFloat
       }
       if hasLargeFloat {
-        jsonMap["largeFloat"] = NSNumber(value:largeFloat)
+        jsonMap["largeFloat"] = largeFloat
       }
       if hasSmallNegativeFloat {
-        jsonMap["smallNegativeFloat"] = NSNumber(value:smallNegativeFloat)
+        jsonMap["smallNegativeFloat"] = smallNegativeFloat
       }
       if hasInfDouble {
-        jsonMap["infDouble"] = NSNumber(value:infDouble)
+        jsonMap["infDouble"] = infDouble
       }
       if hasNegInfDouble {
-        jsonMap["negInfDouble"] = NSNumber(value:negInfDouble)
+        jsonMap["negInfDouble"] = negInfDouble
       }
       if hasNanDouble {
-        jsonMap["nanDouble"] = NSNumber(value:nanDouble)
+        jsonMap["nanDouble"] = nanDouble
       }
       if hasInfFloat {
-        jsonMap["infFloat"] = NSNumber(value:infFloat)
+        jsonMap["infFloat"] = infFloat
       }
       if hasNegInfFloat {
-        jsonMap["negInfFloat"] = NSNumber(value:negInfFloat)
+        jsonMap["negInfFloat"] = negInfFloat
       }
       if hasNanFloat {
-        jsonMap["nanFloat"] = NSNumber(value:nanFloat)
+        jsonMap["nanFloat"] = nanFloat
       }
       if hasCppTrigraph {
         jsonMap["cppTrigraph"] = cppTrigraph
@@ -17517,6 +17231,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestExtremeDefaultValues = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestExtremeDefaultValues) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
         if other == ProtobufUnittest.TestExtremeDefaultValues() {
          return self
@@ -17602,9 +17317,10 @@ public extension ProtobufUnittest {
         if other.hasReplacementString {
              replacementString = other.replacementString
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -17711,65 +17427,65 @@ public extension ProtobufUnittest {
         if let jsonValueEscapedBytes = jsonMap["escapedBytes"] as? String {
           resultDecodedBuilder.escapedBytes = Data(base64Encoded:jsonValueEscapedBytes, options: Data.Base64DecodingOptions(rawValue:0))!
         }
-        if let jsonValueLargeUint32 = jsonMap["largeUint32"] as? NSNumber {
-          resultDecodedBuilder.largeUint32 = jsonValueLargeUint32.uint32Value
+        if let jsonValueLargeUint32 = jsonMap["largeUint32"] as? UInt32 {
+          resultDecodedBuilder.largeUint32 = jsonValueLargeUint32
         }
-        if let jsonValueLargeUint64 = jsonMap["largeUint64"] as? String {
-          resultDecodedBuilder.largeUint64 = UInt64(jsonValueLargeUint64)!
+        if let jsonValueLargeUint64 = jsonMap["largeUint64"] as? UInt64 {
+          resultDecodedBuilder.largeUint64 = jsonValueLargeUint64
         }
-        if let jsonValueSmallInt32 = jsonMap["smallInt32"] as? NSNumber {
-          resultDecodedBuilder.smallInt32 = jsonValueSmallInt32.int32Value
+        if let jsonValueSmallInt32 = jsonMap["smallInt32"] as? Int32 {
+          resultDecodedBuilder.smallInt32 = jsonValueSmallInt32
         }
-        if let jsonValueSmallInt64 = jsonMap["smallInt64"] as? String {
-          resultDecodedBuilder.smallInt64 = Int64(jsonValueSmallInt64)!
+        if let jsonValueSmallInt64 = jsonMap["smallInt64"] as? Int64 {
+          resultDecodedBuilder.smallInt64 = jsonValueSmallInt64
         }
-        if let jsonValueReallySmallInt32 = jsonMap["reallySmallInt32"] as? NSNumber {
-          resultDecodedBuilder.reallySmallInt32 = jsonValueReallySmallInt32.int32Value
+        if let jsonValueReallySmallInt32 = jsonMap["reallySmallInt32"] as? Int32 {
+          resultDecodedBuilder.reallySmallInt32 = jsonValueReallySmallInt32
         }
-        if let jsonValueReallySmallInt64 = jsonMap["reallySmallInt64"] as? String {
-          resultDecodedBuilder.reallySmallInt64 = Int64(jsonValueReallySmallInt64)!
+        if let jsonValueReallySmallInt64 = jsonMap["reallySmallInt64"] as? Int64 {
+          resultDecodedBuilder.reallySmallInt64 = jsonValueReallySmallInt64
         }
         if let jsonValueUtf8String = jsonMap["utf8String"] as? String {
           resultDecodedBuilder.utf8String = jsonValueUtf8String
         }
-        if let jsonValueZeroFloat = jsonMap["zeroFloat"] as? NSNumber {
-          resultDecodedBuilder.zeroFloat = jsonValueZeroFloat.floatValue
+        if let jsonValueZeroFloat = jsonMap["zeroFloat"] as? Float {
+          resultDecodedBuilder.zeroFloat = jsonValueZeroFloat
         }
-        if let jsonValueOneFloat = jsonMap["oneFloat"] as? NSNumber {
-          resultDecodedBuilder.oneFloat = jsonValueOneFloat.floatValue
+        if let jsonValueOneFloat = jsonMap["oneFloat"] as? Float {
+          resultDecodedBuilder.oneFloat = jsonValueOneFloat
         }
-        if let jsonValueSmallFloat = jsonMap["smallFloat"] as? NSNumber {
-          resultDecodedBuilder.smallFloat = jsonValueSmallFloat.floatValue
+        if let jsonValueSmallFloat = jsonMap["smallFloat"] as? Float {
+          resultDecodedBuilder.smallFloat = jsonValueSmallFloat
         }
-        if let jsonValueNegativeOneFloat = jsonMap["negativeOneFloat"] as? NSNumber {
-          resultDecodedBuilder.negativeOneFloat = jsonValueNegativeOneFloat.floatValue
+        if let jsonValueNegativeOneFloat = jsonMap["negativeOneFloat"] as? Float {
+          resultDecodedBuilder.negativeOneFloat = jsonValueNegativeOneFloat
         }
-        if let jsonValueNegativeFloat = jsonMap["negativeFloat"] as? NSNumber {
-          resultDecodedBuilder.negativeFloat = jsonValueNegativeFloat.floatValue
+        if let jsonValueNegativeFloat = jsonMap["negativeFloat"] as? Float {
+          resultDecodedBuilder.negativeFloat = jsonValueNegativeFloat
         }
-        if let jsonValueLargeFloat = jsonMap["largeFloat"] as? NSNumber {
-          resultDecodedBuilder.largeFloat = jsonValueLargeFloat.floatValue
+        if let jsonValueLargeFloat = jsonMap["largeFloat"] as? Float {
+          resultDecodedBuilder.largeFloat = jsonValueLargeFloat
         }
-        if let jsonValueSmallNegativeFloat = jsonMap["smallNegativeFloat"] as? NSNumber {
-          resultDecodedBuilder.smallNegativeFloat = jsonValueSmallNegativeFloat.floatValue
+        if let jsonValueSmallNegativeFloat = jsonMap["smallNegativeFloat"] as? Float {
+          resultDecodedBuilder.smallNegativeFloat = jsonValueSmallNegativeFloat
         }
-        if let jsonValueInfDouble = jsonMap["infDouble"] as? NSNumber {
-          resultDecodedBuilder.infDouble = jsonValueInfDouble.doubleValue
+        if let jsonValueInfDouble = jsonMap["infDouble"] as? Double {
+          resultDecodedBuilder.infDouble = jsonValueInfDouble
         }
-        if let jsonValueNegInfDouble = jsonMap["negInfDouble"] as? NSNumber {
-          resultDecodedBuilder.negInfDouble = jsonValueNegInfDouble.doubleValue
+        if let jsonValueNegInfDouble = jsonMap["negInfDouble"] as? Double {
+          resultDecodedBuilder.negInfDouble = jsonValueNegInfDouble
         }
-        if let jsonValueNanDouble = jsonMap["nanDouble"] as? NSNumber {
-          resultDecodedBuilder.nanDouble = jsonValueNanDouble.doubleValue
+        if let jsonValueNanDouble = jsonMap["nanDouble"] as? Double {
+          resultDecodedBuilder.nanDouble = jsonValueNanDouble
         }
-        if let jsonValueInfFloat = jsonMap["infFloat"] as? NSNumber {
-          resultDecodedBuilder.infFloat = jsonValueInfFloat.floatValue
+        if let jsonValueInfFloat = jsonMap["infFloat"] as? Float {
+          resultDecodedBuilder.infFloat = jsonValueInfFloat
         }
-        if let jsonValueNegInfFloat = jsonMap["negInfFloat"] as? NSNumber {
-          resultDecodedBuilder.negInfFloat = jsonValueNegInfFloat.floatValue
+        if let jsonValueNegInfFloat = jsonMap["negInfFloat"] as? Float {
+          resultDecodedBuilder.negInfFloat = jsonValueNegInfFloat
         }
-        if let jsonValueNanFloat = jsonMap["nanFloat"] as? NSNumber {
-          resultDecodedBuilder.nanFloat = jsonValueNanFloat.floatValue
+        if let jsonValueNanFloat = jsonMap["nanFloat"] as? Float {
+          resultDecodedBuilder.nanFloat = jsonValueNanFloat
         }
         if let jsonValueCppTrigraph = jsonMap["cppTrigraph"] as? String {
           resultDecodedBuilder.cppTrigraph = jsonValueCppTrigraph
@@ -17803,6 +17519,17 @@ public extension ProtobufUnittest {
   }
 
   final public class SparseEnumMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest.SparseEnumMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasSparseEnum == rhs.hasSparseEnum) && (!lhs.hasSparseEnum || lhs.sparseEnum == rhs.sparseEnum)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var sparseEnum:ProtobufUnittest.TestSparseEnum = ProtobufUnittest.TestSparseEnum.sparseA
     public fileprivate(set) var hasSparseEnum:Bool = false
     required public init() {
@@ -17948,6 +17675,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.SparseEnumMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.SparseEnumMessage) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
         if other == ProtobufUnittest.SparseEnumMessage() {
          return self
@@ -17955,9 +17683,10 @@ public extension ProtobufUnittest {
         if other.hasSparseEnum {
              sparseEnum = other.sparseEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -17975,7 +17704,7 @@ public extension ProtobufUnittest {
             if let enumssparseEnum = ProtobufUnittest.TestSparseEnum(rawValue:valueIntsparseEnum){
                  sparseEnum = enumssparseEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntsparseEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntsparseEnum))
             }
 
           default:
@@ -18006,6 +17735,17 @@ public extension ProtobufUnittest {
 
   // Test String and Bytes: string is for valid UTF-8 strings
   final public class OneString : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneString) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:String = ""
     public fileprivate(set) var hasData:Bool = false
 
@@ -18152,6 +17892,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.OneString = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.OneString) throws -> ProtobufUnittest.OneString.Builder {
         if other == ProtobufUnittest.OneString() {
          return self
@@ -18159,9 +17900,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneString.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -18204,6 +17946,17 @@ public extension ProtobufUnittest {
   }
 
   final public class MoreString : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreString) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Array<String> = Array<String>()
     required public init() {
          super.init()
@@ -18261,7 +18014,11 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !data.isEmpty {
-        jsonMap["data"] = data
+        var jsonArrayData:Array<String> = []
+          for oneValueData in data {
+            jsonArrayData.append(oneValueData)
+          }
+        jsonMap["data"] = jsonArrayData
       }
       return jsonMap
     }
@@ -18348,6 +18105,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.MoreString = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.MoreString) throws -> ProtobufUnittest.MoreString.Builder {
         if other == ProtobufUnittest.MoreString() {
          return self
@@ -18355,9 +18113,10 @@ public extension ProtobufUnittest {
         if !other.data.isEmpty {
             builderResult.data += other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreString.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -18384,7 +18143,11 @@ public extension ProtobufUnittest {
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.MoreString.Builder {
         let resultDecodedBuilder = ProtobufUnittest.MoreString.Builder()
         if let jsonValueData = jsonMap["data"] as? Array<String> {
-          resultDecodedBuilder.data = jsonValueData
+          var jsonArrayData:Array<String> = []
+          for oneValueData in jsonValueData {
+            jsonArrayData.append(oneValueData)
+          }
+          resultDecodedBuilder.data = jsonArrayData
         }
         return resultDecodedBuilder
       }
@@ -18400,6 +18163,17 @@ public extension ProtobufUnittest {
   }
 
   final public class OneBytes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Data = Data()
     public fileprivate(set) var hasData:Bool = false
 
@@ -18546,6 +18320,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.OneBytes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.OneBytes) throws -> ProtobufUnittest.OneBytes.Builder {
         if other == ProtobufUnittest.OneBytes() {
          return self
@@ -18553,9 +18328,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneBytes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -18598,6 +18374,17 @@ public extension ProtobufUnittest {
   }
 
   final public class MoreBytes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreBytes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Array<Data> = Array<Data>()
     required public init() {
          super.init()
@@ -18746,6 +18533,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.MoreBytes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.MoreBytes) throws -> ProtobufUnittest.MoreBytes.Builder {
         if other == ProtobufUnittest.MoreBytes() {
          return self
@@ -18753,9 +18541,10 @@ public extension ProtobufUnittest {
         if !other.data.isEmpty {
             builderResult.data += other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreBytes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -18803,6 +18592,17 @@ public extension ProtobufUnittest {
 
   // Test int32, uint32, int64, uint64, and bool are all compatible
   final public class Int32Message : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int32Message) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Int32 = Int32(0)
     public fileprivate(set) var hasData:Bool = false
 
@@ -18857,7 +18657,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasData {
-        jsonMap["data"] = NSNumber(value:data)
+        jsonMap["data"] = data
       }
       return jsonMap
     }
@@ -18949,6 +18749,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.Int32Message = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.Int32Message) throws -> ProtobufUnittest.Int32Message.Builder {
         if other == ProtobufUnittest.Int32Message() {
          return self
@@ -18956,9 +18757,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int32Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -18984,8 +18786,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int32Message.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Int32Message.Builder()
-        if let jsonValueData = jsonMap["data"] as? NSNumber {
-          resultDecodedBuilder.data = jsonValueData.int32Value
+        if let jsonValueData = jsonMap["data"] as? Int32 {
+          resultDecodedBuilder.data = jsonValueData
         }
         return resultDecodedBuilder
       }
@@ -19001,6 +18803,17 @@ public extension ProtobufUnittest {
   }
 
   final public class Uint32Message : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uint32Message) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:UInt32 = UInt32(0)
     public fileprivate(set) var hasData:Bool = false
 
@@ -19055,7 +18868,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasData {
-        jsonMap["data"] = NSNumber(value:data)
+        jsonMap["data"] = data
       }
       return jsonMap
     }
@@ -19147,6 +18960,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.Uint32Message = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.Uint32Message) throws -> ProtobufUnittest.Uint32Message.Builder {
         if other == ProtobufUnittest.Uint32Message() {
          return self
@@ -19154,9 +18968,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint32Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -19182,8 +18997,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint32Message.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Uint32Message.Builder()
-        if let jsonValueData = jsonMap["data"] as? NSNumber {
-          resultDecodedBuilder.data = jsonValueData.uint32Value
+        if let jsonValueData = jsonMap["data"] as? UInt32 {
+          resultDecodedBuilder.data = jsonValueData
         }
         return resultDecodedBuilder
       }
@@ -19199,6 +19014,17 @@ public extension ProtobufUnittest {
   }
 
   final public class Int64Message : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int64Message) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Int64 = Int64(0)
     public fileprivate(set) var hasData:Bool = false
 
@@ -19253,7 +19079,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasData {
-        jsonMap["data"] = "\(data)"
+        jsonMap["data"] = data
       }
       return jsonMap
     }
@@ -19345,6 +19171,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.Int64Message = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.Int64Message) throws -> ProtobufUnittest.Int64Message.Builder {
         if other == ProtobufUnittest.Int64Message() {
          return self
@@ -19352,9 +19179,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int64Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -19380,8 +19208,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int64Message.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Int64Message.Builder()
-        if let jsonValueData = jsonMap["data"] as? String {
-          resultDecodedBuilder.data = Int64(jsonValueData)!
+        if let jsonValueData = jsonMap["data"] as? Int64 {
+          resultDecodedBuilder.data = jsonValueData
         }
         return resultDecodedBuilder
       }
@@ -19397,6 +19225,17 @@ public extension ProtobufUnittest {
   }
 
   final public class Uint64Message : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uint64Message) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:UInt64 = UInt64(0)
     public fileprivate(set) var hasData:Bool = false
 
@@ -19451,7 +19290,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasData {
-        jsonMap["data"] = "\(data)"
+        jsonMap["data"] = data
       }
       return jsonMap
     }
@@ -19543,6 +19382,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.Uint64Message = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.Uint64Message) throws -> ProtobufUnittest.Uint64Message.Builder {
         if other == ProtobufUnittest.Uint64Message() {
          return self
@@ -19550,9 +19390,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint64Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -19578,8 +19419,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint64Message.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Uint64Message.Builder()
-        if let jsonValueData = jsonMap["data"] as? String {
-          resultDecodedBuilder.data = UInt64(jsonValueData)!
+        if let jsonValueData = jsonMap["data"] as? UInt64 {
+          resultDecodedBuilder.data = jsonValueData
         }
         return resultDecodedBuilder
       }
@@ -19595,6 +19436,17 @@ public extension ProtobufUnittest {
   }
 
   final public class BoolMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasData == rhs.hasData) && (!lhs.hasData || lhs.data == rhs.data)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var data:Bool = false
     public fileprivate(set) var hasData:Bool = false
 
@@ -19741,6 +19593,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.BoolMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.BoolMessage) throws -> ProtobufUnittest.BoolMessage.Builder {
         if other == ProtobufUnittest.BoolMessage() {
          return self
@@ -19748,9 +19601,10 @@ public extension ProtobufUnittest {
         if other.hasData {
              data = other.data
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BoolMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -19795,10 +19649,36 @@ public extension ProtobufUnittest {
   // Test oneofs.
   final public class TestOneof : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOneof) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
+      fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
+      fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
+      fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class FooGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -19862,7 +19742,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           if hasB {
             jsonMap["b"] = b
@@ -19986,6 +19866,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestOneof.FooGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestOneof.FooGroup) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             if other == ProtobufUnittest.TestOneof.FooGroup() {
              return self
@@ -19996,9 +19877,10 @@ public extension ProtobufUnittest {
             if other.hasB {
                  b = other.b
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -20027,8 +19909,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestOneof.FooGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             if let jsonValueB = jsonMap["b"] as? String {
               resultDecodedBuilder.b = jsonValueB
@@ -20256,7 +20138,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFooInt {
-        jsonMap["fooInt"] = NSNumber(value:fooInt)
+        jsonMap["fooInt"] = fooInt
       }
       if hasFooString {
         jsonMap["fooString"] = fooString
@@ -20417,7 +20299,7 @@ public extension ProtobufUnittest {
            fooMessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.fooMessage = fooMessageBuilder_.getMessage()
            if fooMessage != nil {
-              _ = try! fooMessageBuilder_.mergeFrom(other: fooMessage)
+              try! fooMessageBuilder_.mergeFrom(other: fooMessage)
            }
         }
         return fooMessageBuilder_
@@ -20426,6 +20308,7 @@ public extension ProtobufUnittest {
         self.fooMessage = value
         return self
       }
+      @discardableResult
       public func mergeFooMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestOneof.Builder {
         if builderResult.hasFooMessage {
           builderResult.fooMessage = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.fooMessage).mergeFrom(other: value).buildPartial()
@@ -20468,7 +20351,7 @@ public extension ProtobufUnittest {
            fooGroupBuilder_ = ProtobufUnittest.TestOneof.FooGroup.Builder()
            builderResult.fooGroup = fooGroupBuilder_.getMessage()
            if fooGroup != nil {
-              _ = try! fooGroupBuilder_.mergeFrom(other: fooGroup)
+              try! fooGroupBuilder_.mergeFrom(other: fooGroup)
            }
         }
         return fooGroupBuilder_
@@ -20477,6 +20360,7 @@ public extension ProtobufUnittest {
         self.fooGroup = value
         return self
       }
+      @discardableResult
       public func mergeFooGroup(value:ProtobufUnittest.TestOneof.FooGroup) throws -> ProtobufUnittest.TestOneof.Builder {
         if builderResult.hasFooGroup {
           builderResult.fooGroup = try ProtobufUnittest.TestOneof.FooGroup.builderWithPrototype(prototype:builderResult.fooGroup).mergeFrom(other: value).buildPartial()
@@ -20512,6 +20396,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestOneof = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestOneof) throws -> ProtobufUnittest.TestOneof.Builder {
         if other == ProtobufUnittest.TestOneof() {
          return self
@@ -20523,14 +20408,15 @@ public extension ProtobufUnittest {
              fooString = other.fooString
         }
         if (other.hasFooMessage) {
-            _ = try mergeFooMessage(value: other.fooMessage)
+            try mergeFooMessage(value: other.fooMessage)
         }
         if (other.hasFooGroup) {
-            _ = try mergeFooGroup(value: other.fooGroup)
+            try mergeFooGroup(value: other.fooGroup)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -20552,7 +20438,7 @@ public extension ProtobufUnittest {
           case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasFooMessage {
-              _ = try subBuilder.mergeFrom(other: fooMessage)
+              try subBuilder.mergeFrom(other: fooMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
@@ -20560,7 +20446,7 @@ public extension ProtobufUnittest {
           case 35:
             let subBuilder:ProtobufUnittest.TestOneof.FooGroup.Builder = ProtobufUnittest.TestOneof.FooGroup.Builder()
             if hasFooGroup {
-              _ = try subBuilder.mergeFrom(other: fooGroup)
+              try subBuilder.mergeFrom(other: fooGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 4, builder:subBuilder, extensionRegistry:extensionRegistry)
             fooGroup = subBuilder.buildPartial()
@@ -20575,8 +20461,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOneof.Builder()
-        if let jsonValueFooInt = jsonMap["fooInt"] as? NSNumber {
-          resultDecodedBuilder.fooInt = jsonValueFooInt.int32Value
+        if let jsonValueFooInt = jsonMap["fooInt"] as? Int32 {
+          resultDecodedBuilder.fooInt = jsonValueFooInt
         }
         if let jsonValueFooString = jsonMap["fooString"] as? String {
           resultDecodedBuilder.fooString = jsonValueFooString
@@ -20604,10 +20490,36 @@ public extension ProtobufUnittest {
 
   final public class TestOneofBackwardsCompatible : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: ProtobufUnittest.TestOneofBackwardsCompatible) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
+      fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
+      fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
+      fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class FooGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -20671,7 +20583,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           if hasB {
             jsonMap["b"] = b
@@ -20795,6 +20707,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             if other == ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup() {
              return self
@@ -20805,9 +20718,10 @@ public extension ProtobufUnittest {
             if other.hasB {
                  b = other.b
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -20836,8 +20750,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             if let jsonValueB = jsonMap["b"] as? String {
               resultDecodedBuilder.b = jsonValueB
@@ -20940,7 +20854,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFooInt {
-        jsonMap["fooInt"] = NSNumber(value:fooInt)
+        jsonMap["fooInt"] = fooInt
       }
       if hasFooString {
         jsonMap["fooString"] = fooString
@@ -21101,7 +21015,7 @@ public extension ProtobufUnittest {
            fooMessageBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.fooMessage = fooMessageBuilder_.getMessage()
            if fooMessage != nil {
-              _ = try! fooMessageBuilder_.mergeFrom(other: fooMessage)
+              try! fooMessageBuilder_.mergeFrom(other: fooMessage)
            }
         }
         return fooMessageBuilder_
@@ -21110,6 +21024,7 @@ public extension ProtobufUnittest {
         self.fooMessage = value
         return self
       }
+      @discardableResult
       public func mergeFooMessage(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         if builderResult.hasFooMessage {
           builderResult.fooMessage = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.fooMessage).mergeFrom(other: value).buildPartial()
@@ -21152,7 +21067,7 @@ public extension ProtobufUnittest {
            fooGroupBuilder_ = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
            builderResult.fooGroup = fooGroupBuilder_.getMessage()
            if fooGroup != nil {
-              _ = try! fooGroupBuilder_.mergeFrom(other: fooGroup)
+              try! fooGroupBuilder_.mergeFrom(other: fooGroup)
            }
         }
         return fooGroupBuilder_
@@ -21161,6 +21076,7 @@ public extension ProtobufUnittest {
         self.fooGroup = value
         return self
       }
+      @discardableResult
       public func mergeFooGroup(value:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         if builderResult.hasFooGroup {
           builderResult.fooGroup = try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.builderWithPrototype(prototype:builderResult.fooGroup).mergeFrom(other: value).buildPartial()
@@ -21196,6 +21112,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestOneofBackwardsCompatible = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestOneofBackwardsCompatible) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         if other == ProtobufUnittest.TestOneofBackwardsCompatible() {
          return self
@@ -21207,14 +21124,15 @@ public extension ProtobufUnittest {
              fooString = other.fooString
         }
         if (other.hasFooMessage) {
-            _ = try mergeFooMessage(value: other.fooMessage)
+            try mergeFooMessage(value: other.fooMessage)
         }
         if (other.hasFooGroup) {
-            _ = try mergeFooGroup(value: other.fooGroup)
+            try mergeFooGroup(value: other.fooGroup)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -21236,7 +21154,7 @@ public extension ProtobufUnittest {
           case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasFooMessage {
-              _ = try subBuilder.mergeFrom(other: fooMessage)
+              try subBuilder.mergeFrom(other: fooMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
@@ -21244,7 +21162,7 @@ public extension ProtobufUnittest {
           case 35:
             let subBuilder:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
             if hasFooGroup {
-              _ = try subBuilder.mergeFrom(other: fooGroup)
+              try subBuilder.mergeFrom(other: fooGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 4, builder:subBuilder, extensionRegistry:extensionRegistry)
             fooGroup = subBuilder.buildPartial()
@@ -21259,8 +21177,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOneofBackwardsCompatible.Builder()
-        if let jsonValueFooInt = jsonMap["fooInt"] as? NSNumber {
-          resultDecodedBuilder.fooInt = jsonValueFooInt.int32Value
+        if let jsonValueFooInt = jsonMap["fooInt"] as? Int32 {
+          resultDecodedBuilder.fooInt = jsonValueFooInt
         }
         if let jsonValueFooString = jsonMap["fooString"] as? String {
           resultDecodedBuilder.fooString = jsonValueFooString
@@ -21288,10 +21206,49 @@ public extension ProtobufUnittest {
 
   final public class TestOneof2 : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOneof2) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
+      fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
+      fieldCheck = fieldCheck && (lhs.hasFooCord == rhs.hasFooCord) && (!lhs.hasFooCord || lhs.fooCord == rhs.fooCord)
+      fieldCheck = fieldCheck && (lhs.hasFooStringPiece == rhs.hasFooStringPiece) && (!lhs.hasFooStringPiece || lhs.fooStringPiece == rhs.fooStringPiece)
+      fieldCheck = fieldCheck && (lhs.hasFooBytes == rhs.hasFooBytes) && (!lhs.hasFooBytes || lhs.fooBytes == rhs.fooBytes)
+      fieldCheck = fieldCheck && (lhs.hasFooEnum == rhs.hasFooEnum) && (!lhs.hasFooEnum || lhs.fooEnum == rhs.fooEnum)
+      fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
+      fieldCheck = fieldCheck && (lhs.hasFooGroup == rhs.hasFooGroup) && (!lhs.hasFooGroup || lhs.fooGroup == rhs.fooGroup)
+      fieldCheck = fieldCheck && (lhs.hasFooLazyMessage == rhs.hasFooLazyMessage) && (!lhs.hasFooLazyMessage || lhs.fooLazyMessage == rhs.fooLazyMessage)
+      fieldCheck = fieldCheck && (lhs.hasBarInt == rhs.hasBarInt) && (!lhs.hasBarInt || lhs.barInt == rhs.barInt)
+      fieldCheck = fieldCheck && (lhs.hasBarString == rhs.hasBarString) && (!lhs.hasBarString || lhs.barString == rhs.barString)
+      fieldCheck = fieldCheck && (lhs.hasBarCord == rhs.hasBarCord) && (!lhs.hasBarCord || lhs.barCord == rhs.barCord)
+      fieldCheck = fieldCheck && (lhs.hasBarStringPiece == rhs.hasBarStringPiece) && (!lhs.hasBarStringPiece || lhs.barStringPiece == rhs.barStringPiece)
+      fieldCheck = fieldCheck && (lhs.hasBarBytes == rhs.hasBarBytes) && (!lhs.hasBarBytes || lhs.barBytes == rhs.barBytes)
+      fieldCheck = fieldCheck && (lhs.hasBarEnum == rhs.hasBarEnum) && (!lhs.hasBarEnum || lhs.barEnum == rhs.barEnum)
+      fieldCheck = fieldCheck && (lhs.hasBazInt == rhs.hasBazInt) && (!lhs.hasBazInt || lhs.bazInt == rhs.bazInt)
+      fieldCheck = fieldCheck && (lhs.hasBazString == rhs.hasBazString) && (!lhs.hasBazString || lhs.bazString == rhs.bazString)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class FooGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+          fieldCheck = fieldCheck && (lhs.hasB == rhs.hasB) && (!lhs.hasB || lhs.b == rhs.b)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var a:Int32 = Int32(0)
         public fileprivate(set) var hasA:Bool = false
 
@@ -21355,7 +21312,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = NSNumber(value:a)
+            jsonMap["a"] = a
           }
           if hasB {
             jsonMap["b"] = b
@@ -21479,6 +21436,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestOneof2.FooGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestOneof2.FooGroup) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             if other == ProtobufUnittest.TestOneof2.FooGroup() {
              return self
@@ -21489,9 +21447,10 @@ public extension ProtobufUnittest {
             if other.hasB {
                  b = other.b
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -21520,8 +21479,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestOneof2.FooGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? NSNumber {
-              resultDecodedBuilder.a = jsonValueA.int32Value
+            if let jsonValueA = jsonMap["a"] as? Int32 {
+              resultDecodedBuilder.a = jsonValueA
             }
             if let jsonValueB = jsonMap["b"] as? String {
               resultDecodedBuilder.b = jsonValueB
@@ -21546,6 +21505,18 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasQuxInt == rhs.hasQuxInt) && (!lhs.hasQuxInt || lhs.quxInt == rhs.quxInt)
+          fieldCheck = fieldCheck && (lhs.corgeInt == rhs.corgeInt)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var quxInt:Int64 = Int64(0)
         public fileprivate(set) var hasQuxInt:Bool = false
 
@@ -21612,12 +21583,12 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasQuxInt {
-            jsonMap["quxInt"] = "\(quxInt)"
+            jsonMap["quxInt"] = quxInt
           }
           if !corgeInt.isEmpty {
-            var jsonArrayCorgeInt:Array<NSNumber> = []
+            var jsonArrayCorgeInt:Array<Int32> = []
               for oneValueCorgeInt in corgeInt {
-                jsonArrayCorgeInt.append(NSNumber(value:oneValueCorgeInt))
+                jsonArrayCorgeInt.append(oneValueCorgeInt)
               }
             jsonMap["corgeInt"] = jsonArrayCorgeInt
           }
@@ -21735,6 +21706,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestOneof2.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestOneof2.NestedMessage) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             if other == ProtobufUnittest.TestOneof2.NestedMessage() {
              return self
@@ -21745,9 +21717,10 @@ public extension ProtobufUnittest {
             if !other.corgeInt.isEmpty {
                 builderResult.corgeInt += other.corgeInt
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -21776,13 +21749,13 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
-            if let jsonValueQuxInt = jsonMap["quxInt"] as? String {
-              resultDecodedBuilder.quxInt = Int64(jsonValueQuxInt)!
+            if let jsonValueQuxInt = jsonMap["quxInt"] as? Int64 {
+              resultDecodedBuilder.quxInt = jsonValueQuxInt
             }
-            if let jsonValueCorgeInt = jsonMap["corgeInt"] as? Array<NSNumber> {
+            if let jsonValueCorgeInt = jsonMap["corgeInt"] as? Array<Int32> {
               var jsonArrayCorgeInt:Array<Int32> = []
               for oneValueCorgeInt in jsonValueCorgeInt {
-                jsonArrayCorgeInt.append(oneValueCorgeInt.int32Value)
+                jsonArrayCorgeInt.append(oneValueCorgeInt)
               }
               resultDecodedBuilder.corgeInt = jsonArrayCorgeInt
             }
@@ -22462,7 +22435,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFooInt {
-        jsonMap["fooInt"] = NSNumber(value:fooInt)
+        jsonMap["fooInt"] = fooInt
       }
       if hasFooString {
         jsonMap["fooString"] = fooString
@@ -22489,7 +22462,7 @@ public extension ProtobufUnittest {
         jsonMap["fooLazyMessage"] = try fooLazyMessage.encode()
       }
       if hasBarInt {
-        jsonMap["barInt"] = NSNumber(value:barInt)
+        jsonMap["barInt"] = barInt
       }
       if hasBarString {
         jsonMap["barString"] = barString
@@ -22507,7 +22480,7 @@ public extension ProtobufUnittest {
         jsonMap["barEnum"] = barEnum.toString()
       }
       if hasBazInt {
-        jsonMap["bazInt"] = NSNumber(value:bazInt)
+        jsonMap["bazInt"] = bazInt
       }
       if hasBazString {
         jsonMap["bazString"] = bazString
@@ -22838,7 +22811,7 @@ public extension ProtobufUnittest {
            fooMessageBuilder_ = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
            builderResult.fooMessage = fooMessageBuilder_.getMessage()
            if fooMessage != nil {
-              _ = try! fooMessageBuilder_.mergeFrom(other: fooMessage)
+              try! fooMessageBuilder_.mergeFrom(other: fooMessage)
            }
         }
         return fooMessageBuilder_
@@ -22847,6 +22820,7 @@ public extension ProtobufUnittest {
         self.fooMessage = value
         return self
       }
+      @discardableResult
       public func mergeFooMessage(value:ProtobufUnittest.TestOneof2.NestedMessage) throws -> ProtobufUnittest.TestOneof2.Builder {
         if builderResult.hasFooMessage {
           builderResult.fooMessage = try ProtobufUnittest.TestOneof2.NestedMessage.builderWithPrototype(prototype:builderResult.fooMessage).mergeFrom(other: value).buildPartial()
@@ -22889,7 +22863,7 @@ public extension ProtobufUnittest {
            fooGroupBuilder_ = ProtobufUnittest.TestOneof2.FooGroup.Builder()
            builderResult.fooGroup = fooGroupBuilder_.getMessage()
            if fooGroup != nil {
-              _ = try! fooGroupBuilder_.mergeFrom(other: fooGroup)
+              try! fooGroupBuilder_.mergeFrom(other: fooGroup)
            }
         }
         return fooGroupBuilder_
@@ -22898,6 +22872,7 @@ public extension ProtobufUnittest {
         self.fooGroup = value
         return self
       }
+      @discardableResult
       public func mergeFooGroup(value:ProtobufUnittest.TestOneof2.FooGroup) throws -> ProtobufUnittest.TestOneof2.Builder {
         if builderResult.hasFooGroup {
           builderResult.fooGroup = try ProtobufUnittest.TestOneof2.FooGroup.builderWithPrototype(prototype:builderResult.fooGroup).mergeFrom(other: value).buildPartial()
@@ -22940,7 +22915,7 @@ public extension ProtobufUnittest {
            fooLazyMessageBuilder_ = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
            builderResult.fooLazyMessage = fooLazyMessageBuilder_.getMessage()
            if fooLazyMessage != nil {
-              _ = try! fooLazyMessageBuilder_.mergeFrom(other: fooLazyMessage)
+              try! fooLazyMessageBuilder_.mergeFrom(other: fooLazyMessage)
            }
         }
         return fooLazyMessageBuilder_
@@ -22949,6 +22924,7 @@ public extension ProtobufUnittest {
         self.fooLazyMessage = value
         return self
       }
+      @discardableResult
       public func mergeFooLazyMessage(value:ProtobufUnittest.TestOneof2.NestedMessage) throws -> ProtobufUnittest.TestOneof2.Builder {
         if builderResult.hasFooLazyMessage {
           builderResult.fooLazyMessage = try ProtobufUnittest.TestOneof2.NestedMessage.builderWithPrototype(prototype:builderResult.fooLazyMessage).mergeFrom(other: value).buildPartial()
@@ -23168,6 +23144,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestOneof2 = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestOneof2) throws -> ProtobufUnittest.TestOneof2.Builder {
         if other == ProtobufUnittest.TestOneof2() {
          return self
@@ -23191,13 +23168,13 @@ public extension ProtobufUnittest {
              fooEnum = other.fooEnum
         }
         if (other.hasFooMessage) {
-            _ = try mergeFooMessage(value: other.fooMessage)
+            try mergeFooMessage(value: other.fooMessage)
         }
         if (other.hasFooGroup) {
-            _ = try mergeFooGroup(value: other.fooGroup)
+            try mergeFooGroup(value: other.fooGroup)
         }
         if (other.hasFooLazyMessage) {
-            _ = try mergeFooLazyMessage(value: other.fooLazyMessage)
+            try mergeFooLazyMessage(value: other.fooLazyMessage)
         }
         if other.hasBarInt {
              barInt = other.barInt
@@ -23223,9 +23200,10 @@ public extension ProtobufUnittest {
         if other.hasBazString {
              bazString = other.bazString
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -23258,13 +23236,13 @@ public extension ProtobufUnittest {
             if let enumsfooEnum = ProtobufUnittest.TestOneof2.NestedEnum(rawValue:valueIntfooEnum){
                  fooEnum = enumsfooEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntfooEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntfooEnum))
             }
 
           case 58:
             let subBuilder:ProtobufUnittest.TestOneof2.NestedMessage.Builder = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
             if hasFooMessage {
-              _ = try subBuilder.mergeFrom(other: fooMessage)
+              try subBuilder.mergeFrom(other: fooMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
@@ -23272,7 +23250,7 @@ public extension ProtobufUnittest {
           case 67:
             let subBuilder:ProtobufUnittest.TestOneof2.FooGroup.Builder = ProtobufUnittest.TestOneof2.FooGroup.Builder()
             if hasFooGroup {
-              _ = try subBuilder.mergeFrom(other: fooGroup)
+              try subBuilder.mergeFrom(other: fooGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 8, builder:subBuilder, extensionRegistry:extensionRegistry)
             fooGroup = subBuilder.buildPartial()
@@ -23280,7 +23258,7 @@ public extension ProtobufUnittest {
           case 90:
             let subBuilder:ProtobufUnittest.TestOneof2.NestedMessage.Builder = ProtobufUnittest.TestOneof2.NestedMessage.Builder()
             if hasFooLazyMessage {
-              _ = try subBuilder.mergeFrom(other: fooLazyMessage)
+              try subBuilder.mergeFrom(other: fooLazyMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fooLazyMessage = subBuilder.buildPartial()
@@ -23305,7 +23283,7 @@ public extension ProtobufUnittest {
             if let enumsbarEnum = ProtobufUnittest.TestOneof2.NestedEnum(rawValue:valueIntbarEnum){
                  barEnum = enumsbarEnum
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 17, value:Int64(valueIntbarEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 17, value:Int64(valueIntbarEnum))
             }
 
           case 144:
@@ -23324,8 +23302,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOneof2.Builder()
-        if let jsonValueFooInt = jsonMap["fooInt"] as? NSNumber {
-          resultDecodedBuilder.fooInt = jsonValueFooInt.int32Value
+        if let jsonValueFooInt = jsonMap["fooInt"] as? Int32 {
+          resultDecodedBuilder.fooInt = jsonValueFooInt
         }
         if let jsonValueFooString = jsonMap["fooString"] as? String {
           resultDecodedBuilder.fooString = jsonValueFooString
@@ -23354,8 +23332,8 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.fooLazyMessage = try ProtobufUnittest.TestOneof2.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueFooLazyMessage).build()
 
         }
-        if let jsonValueBarInt = jsonMap["barInt"] as? NSNumber {
-          resultDecodedBuilder.barInt = jsonValueBarInt.int32Value
+        if let jsonValueBarInt = jsonMap["barInt"] as? Int32 {
+          resultDecodedBuilder.barInt = jsonValueBarInt
         }
         if let jsonValueBarString = jsonMap["barString"] as? String {
           resultDecodedBuilder.barString = jsonValueBarString
@@ -23372,8 +23350,8 @@ public extension ProtobufUnittest {
         if let jsonValueBarEnum = jsonMap["barEnum"] as? String {
           resultDecodedBuilder.barEnum = try ProtobufUnittest.TestOneof2.NestedEnum.fromString(str: jsonValueBarEnum)
         }
-        if let jsonValueBazInt = jsonMap["bazInt"] as? NSNumber {
-          resultDecodedBuilder.bazInt = jsonValueBazInt.int32Value
+        if let jsonValueBazInt = jsonMap["bazInt"] as? Int32 {
+          resultDecodedBuilder.bazInt = jsonValueBazInt
         }
         if let jsonValueBazString = jsonMap["bazString"] as? String {
           resultDecodedBuilder.bazString = jsonValueBazString
@@ -23393,10 +23371,34 @@ public extension ProtobufUnittest {
 
   final public class TestRequiredOneof : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest.TestRequiredOneof) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasFooInt == rhs.hasFooInt) && (!lhs.hasFooInt || lhs.fooInt == rhs.fooInt)
+      fieldCheck = fieldCheck && (lhs.hasFooString == rhs.hasFooString) && (!lhs.hasFooString || lhs.fooString == rhs.fooString)
+      fieldCheck = fieldCheck && (lhs.hasFooMessage == rhs.hasFooMessage) && (!lhs.hasFooMessage || lhs.fooMessage == rhs.fooMessage)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class NestedMessage : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasRequiredDouble == rhs.hasRequiredDouble) && (!lhs.hasRequiredDouble || lhs.requiredDouble == rhs.requiredDouble)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var requiredDouble:Double = Double(0)
         public fileprivate(set) var hasRequiredDouble:Bool = false
 
@@ -23454,7 +23456,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasRequiredDouble {
-            jsonMap["requiredDouble"] = NSNumber(value:requiredDouble)
+            jsonMap["requiredDouble"] = requiredDouble
           }
           return jsonMap
         }
@@ -23546,6 +23548,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestRequiredOneof.NestedMessage = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestRequiredOneof.NestedMessage) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             if other == ProtobufUnittest.TestRequiredOneof.NestedMessage() {
              return self
@@ -23553,9 +23556,10 @@ public extension ProtobufUnittest {
             if other.hasRequiredDouble {
                  requiredDouble = other.requiredDouble
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -23581,8 +23585,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
-            if let jsonValueRequiredDouble = jsonMap["requiredDouble"] as? NSNumber {
-              resultDecodedBuilder.requiredDouble = jsonValueRequiredDouble.doubleValue
+            if let jsonValueRequiredDouble = jsonMap["requiredDouble"] as? Double {
+              resultDecodedBuilder.requiredDouble = jsonValueRequiredDouble
             }
             return resultDecodedBuilder
           }
@@ -23776,7 +23780,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFooInt {
-        jsonMap["fooInt"] = NSNumber(value:fooInt)
+        jsonMap["fooInt"] = fooInt
       }
       if hasFooString {
         jsonMap["fooString"] = fooString
@@ -23922,7 +23926,7 @@ public extension ProtobufUnittest {
            fooMessageBuilder_ = ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
            builderResult.fooMessage = fooMessageBuilder_.getMessage()
            if fooMessage != nil {
-              _ = try! fooMessageBuilder_.mergeFrom(other: fooMessage)
+              try! fooMessageBuilder_.mergeFrom(other: fooMessage)
            }
         }
         return fooMessageBuilder_
@@ -23931,6 +23935,7 @@ public extension ProtobufUnittest {
         self.fooMessage = value
         return self
       }
+      @discardableResult
       public func mergeFooMessage(value:ProtobufUnittest.TestRequiredOneof.NestedMessage) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         if builderResult.hasFooMessage {
           builderResult.fooMessage = try ProtobufUnittest.TestRequiredOneof.NestedMessage.builderWithPrototype(prototype:builderResult.fooMessage).mergeFrom(other: value).buildPartial()
@@ -23966,6 +23971,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRequiredOneof = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRequiredOneof) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         if other == ProtobufUnittest.TestRequiredOneof() {
          return self
@@ -23977,11 +23983,12 @@ public extension ProtobufUnittest {
              fooString = other.fooString
         }
         if (other.hasFooMessage) {
-            _ = try mergeFooMessage(value: other.fooMessage)
+            try mergeFooMessage(value: other.fooMessage)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -24003,7 +24010,7 @@ public extension ProtobufUnittest {
           case 26:
             let subBuilder:ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder = ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
             if hasFooMessage {
-              _ = try subBuilder.mergeFrom(other: fooMessage)
+              try subBuilder.mergeFrom(other: fooMessage)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fooMessage = subBuilder.buildPartial()
@@ -24018,8 +24025,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequiredOneof.Builder()
-        if let jsonValueFooInt = jsonMap["fooInt"] as? NSNumber {
-          resultDecodedBuilder.fooInt = jsonValueFooInt.int32Value
+        if let jsonValueFooInt = jsonMap["fooInt"] as? Int32 {
+          resultDecodedBuilder.fooInt = jsonValueFooInt
         }
         if let jsonValueFooString = jsonMap["fooString"] as? String {
           resultDecodedBuilder.fooString = jsonValueFooString
@@ -24042,6 +24049,30 @@ public extension ProtobufUnittest {
   }
 
   final public class TestPackedTypes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.TestPackedTypes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.packedInt32 == rhs.packedInt32)
+      fieldCheck = fieldCheck && (lhs.packedInt64 == rhs.packedInt64)
+      fieldCheck = fieldCheck && (lhs.packedUint32 == rhs.packedUint32)
+      fieldCheck = fieldCheck && (lhs.packedUint64 == rhs.packedUint64)
+      fieldCheck = fieldCheck && (lhs.packedSint32 == rhs.packedSint32)
+      fieldCheck = fieldCheck && (lhs.packedSint64 == rhs.packedSint64)
+      fieldCheck = fieldCheck && (lhs.packedFixed32 == rhs.packedFixed32)
+      fieldCheck = fieldCheck && (lhs.packedFixed64 == rhs.packedFixed64)
+      fieldCheck = fieldCheck && (lhs.packedSfixed32 == rhs.packedSfixed32)
+      fieldCheck = fieldCheck && (lhs.packedSfixed64 == rhs.packedSfixed64)
+      fieldCheck = fieldCheck && (lhs.packedFloat == rhs.packedFloat)
+      fieldCheck = fieldCheck && (lhs.packedDouble == rhs.packedDouble)
+      fieldCheck = fieldCheck && (lhs.packedBool == rhs.packedBool)
+      fieldCheck = fieldCheck && (lhs.packedEnum == rhs.packedEnum)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var packedInt32:Array<Int32> = Array<Int32>()
     private var packedInt32MemoizedSerializedSize:Int32 = -1
     public fileprivate(set) var packedInt64:Array<Int64> = Array<Int64>()
@@ -24339,91 +24370,95 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !packedInt32.isEmpty {
-        var jsonArrayPackedInt32:Array<NSNumber> = []
+        var jsonArrayPackedInt32:Array<Int32> = []
           for oneValuePackedInt32 in packedInt32 {
-            jsonArrayPackedInt32.append(NSNumber(value:oneValuePackedInt32))
+            jsonArrayPackedInt32.append(oneValuePackedInt32)
           }
         jsonMap["packedInt32"] = jsonArrayPackedInt32
       }
       if !packedInt64.isEmpty {
-        var jsonArrayPackedInt64:Array<String> = []
+        var jsonArrayPackedInt64:Array<Int64> = []
           for oneValuePackedInt64 in packedInt64 {
-            jsonArrayPackedInt64.append("\(oneValuePackedInt64)")
+            jsonArrayPackedInt64.append(oneValuePackedInt64)
           }
         jsonMap["packedInt64"] = jsonArrayPackedInt64
       }
       if !packedUint32.isEmpty {
-        var jsonArrayPackedUint32:Array<NSNumber> = []
+        var jsonArrayPackedUint32:Array<UInt32> = []
           for oneValuePackedUint32 in packedUint32 {
-            jsonArrayPackedUint32.append(NSNumber(value:oneValuePackedUint32))
+            jsonArrayPackedUint32.append(oneValuePackedUint32)
           }
         jsonMap["packedUint32"] = jsonArrayPackedUint32
       }
       if !packedUint64.isEmpty {
-        var jsonArrayPackedUint64:Array<String> = []
+        var jsonArrayPackedUint64:Array<UInt64> = []
           for oneValuePackedUint64 in packedUint64 {
-            jsonArrayPackedUint64.append("\(oneValuePackedUint64)")
+            jsonArrayPackedUint64.append(oneValuePackedUint64)
           }
         jsonMap["packedUint64"] = jsonArrayPackedUint64
       }
       if !packedSint32.isEmpty {
-        var jsonArrayPackedSint32:Array<NSNumber> = []
+        var jsonArrayPackedSint32:Array<Int32> = []
           for oneValuePackedSint32 in packedSint32 {
-            jsonArrayPackedSint32.append(NSNumber(value:oneValuePackedSint32))
+            jsonArrayPackedSint32.append(oneValuePackedSint32)
           }
         jsonMap["packedSint32"] = jsonArrayPackedSint32
       }
       if !packedSint64.isEmpty {
-        var jsonArrayPackedSint64:Array<String> = []
+        var jsonArrayPackedSint64:Array<Int64> = []
           for oneValuePackedSint64 in packedSint64 {
-            jsonArrayPackedSint64.append("\(oneValuePackedSint64)")
+            jsonArrayPackedSint64.append(oneValuePackedSint64)
           }
         jsonMap["packedSint64"] = jsonArrayPackedSint64
       }
       if !packedFixed32.isEmpty {
-        var jsonArrayPackedFixed32:Array<NSNumber> = []
+        var jsonArrayPackedFixed32:Array<UInt32> = []
           for oneValuePackedFixed32 in packedFixed32 {
-            jsonArrayPackedFixed32.append(NSNumber(value:oneValuePackedFixed32))
+            jsonArrayPackedFixed32.append(oneValuePackedFixed32)
           }
         jsonMap["packedFixed32"] = jsonArrayPackedFixed32
       }
       if !packedFixed64.isEmpty {
-        var jsonArrayPackedFixed64:Array<String> = []
+        var jsonArrayPackedFixed64:Array<UInt64> = []
           for oneValuePackedFixed64 in packedFixed64 {
-            jsonArrayPackedFixed64.append("\(oneValuePackedFixed64)")
+            jsonArrayPackedFixed64.append(oneValuePackedFixed64)
           }
         jsonMap["packedFixed64"] = jsonArrayPackedFixed64
       }
       if !packedSfixed32.isEmpty {
-        var jsonArrayPackedSfixed32:Array<NSNumber> = []
+        var jsonArrayPackedSfixed32:Array<Int32> = []
           for oneValuePackedSfixed32 in packedSfixed32 {
-            jsonArrayPackedSfixed32.append(NSNumber(value:oneValuePackedSfixed32))
+            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32)
           }
         jsonMap["packedSfixed32"] = jsonArrayPackedSfixed32
       }
       if !packedSfixed64.isEmpty {
-        var jsonArrayPackedSfixed64:Array<String> = []
+        var jsonArrayPackedSfixed64:Array<Int64> = []
           for oneValuePackedSfixed64 in packedSfixed64 {
-            jsonArrayPackedSfixed64.append("\(oneValuePackedSfixed64)")
+            jsonArrayPackedSfixed64.append(oneValuePackedSfixed64)
           }
         jsonMap["packedSfixed64"] = jsonArrayPackedSfixed64
       }
       if !packedFloat.isEmpty {
-        var jsonArrayPackedFloat:Array<NSNumber> = []
+        var jsonArrayPackedFloat:Array<Float> = []
           for oneValuePackedFloat in packedFloat {
-            jsonArrayPackedFloat.append(NSNumber(value:oneValuePackedFloat))
+            jsonArrayPackedFloat.append(oneValuePackedFloat)
           }
         jsonMap["packedFloat"] = jsonArrayPackedFloat
       }
       if !packedDouble.isEmpty {
-        var jsonArrayPackedDouble:Array<NSNumber> = []
+        var jsonArrayPackedDouble:Array<Double> = []
           for oneValuePackedDouble in packedDouble {
-            jsonArrayPackedDouble.append(NSNumber(value:oneValuePackedDouble))
+            jsonArrayPackedDouble.append(oneValuePackedDouble)
           }
         jsonMap["packedDouble"] = jsonArrayPackedDouble
       }
       if !packedBool.isEmpty {
-        jsonMap["packedBool"] = packedBool
+        var jsonArrayPackedBool:Array<Bool> = []
+          for oneValuePackedBool in packedBool {
+            jsonArrayPackedBool.append(oneValuePackedBool)
+          }
+        jsonMap["packedBool"] = jsonArrayPackedBool
       }
       if !packedEnum.isEmpty {
         var jsonArrayPackedEnum:Array<String> = []
@@ -24829,6 +24864,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestPackedTypes) throws -> ProtobufUnittest.TestPackedTypes.Builder {
         if other == ProtobufUnittest.TestPackedTypes() {
          return self
@@ -24875,9 +24911,10 @@ public extension ProtobufUnittest {
         if !other.packedEnum.isEmpty {
            builderResult.packedEnum += other.packedEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -25002,7 +25039,7 @@ public extension ProtobufUnittest {
             if let enumspackedEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntpackedEnum) {
                  builderResult.packedEnum.append(enumspackedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntpackedEnum))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -25017,92 +25054,96 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestPackedTypes.Builder()
-        if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<NSNumber> {
+        if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<Int32> {
           var jsonArrayPackedInt32:Array<Int32> = []
           for oneValuePackedInt32 in jsonValuePackedInt32 {
-            jsonArrayPackedInt32.append(oneValuePackedInt32.int32Value)
+            jsonArrayPackedInt32.append(oneValuePackedInt32)
           }
           resultDecodedBuilder.packedInt32 = jsonArrayPackedInt32
         }
-        if let jsonValuePackedInt64 = jsonMap["packedInt64"] as? Array<String> {
+        if let jsonValuePackedInt64 = jsonMap["packedInt64"] as? Array<Int64> {
           var jsonArrayPackedInt64:Array<Int64> = []
           for oneValuePackedInt64 in jsonValuePackedInt64 {
-            jsonArrayPackedInt64.append(Int64(oneValuePackedInt64)!)
+            jsonArrayPackedInt64.append(oneValuePackedInt64)
           }
           resultDecodedBuilder.packedInt64 = jsonArrayPackedInt64
         }
-        if let jsonValuePackedUint32 = jsonMap["packedUint32"] as? Array<NSNumber> {
+        if let jsonValuePackedUint32 = jsonMap["packedUint32"] as? Array<UInt32> {
           var jsonArrayPackedUint32:Array<UInt32> = []
           for oneValuePackedUint32 in jsonValuePackedUint32 {
-            jsonArrayPackedUint32.append(oneValuePackedUint32.uint32Value)
+            jsonArrayPackedUint32.append(oneValuePackedUint32)
           }
           resultDecodedBuilder.packedUint32 = jsonArrayPackedUint32
         }
-        if let jsonValuePackedUint64 = jsonMap["packedUint64"] as? Array<String> {
+        if let jsonValuePackedUint64 = jsonMap["packedUint64"] as? Array<UInt64> {
           var jsonArrayPackedUint64:Array<UInt64> = []
           for oneValuePackedUint64 in jsonValuePackedUint64 {
-            jsonArrayPackedUint64.append(UInt64(oneValuePackedUint64)!)
+            jsonArrayPackedUint64.append(oneValuePackedUint64)
           }
           resultDecodedBuilder.packedUint64 = jsonArrayPackedUint64
         }
-        if let jsonValuePackedSint32 = jsonMap["packedSint32"] as? Array<NSNumber> {
+        if let jsonValuePackedSint32 = jsonMap["packedSint32"] as? Array<Int32> {
           var jsonArrayPackedSint32:Array<Int32> = []
           for oneValuePackedSint32 in jsonValuePackedSint32 {
-            jsonArrayPackedSint32.append(oneValuePackedSint32.int32Value)
+            jsonArrayPackedSint32.append(oneValuePackedSint32)
           }
           resultDecodedBuilder.packedSint32 = jsonArrayPackedSint32
         }
-        if let jsonValuePackedSint64 = jsonMap["packedSint64"] as? Array<String> {
+        if let jsonValuePackedSint64 = jsonMap["packedSint64"] as? Array<Int64> {
           var jsonArrayPackedSint64:Array<Int64> = []
           for oneValuePackedSint64 in jsonValuePackedSint64 {
-            jsonArrayPackedSint64.append(Int64(oneValuePackedSint64)!)
+            jsonArrayPackedSint64.append(oneValuePackedSint64)
           }
           resultDecodedBuilder.packedSint64 = jsonArrayPackedSint64
         }
-        if let jsonValuePackedFixed32 = jsonMap["packedFixed32"] as? Array<NSNumber> {
+        if let jsonValuePackedFixed32 = jsonMap["packedFixed32"] as? Array<UInt32> {
           var jsonArrayPackedFixed32:Array<UInt32> = []
           for oneValuePackedFixed32 in jsonValuePackedFixed32 {
-            jsonArrayPackedFixed32.append(oneValuePackedFixed32.uint32Value)
+            jsonArrayPackedFixed32.append(oneValuePackedFixed32)
           }
           resultDecodedBuilder.packedFixed32 = jsonArrayPackedFixed32
         }
-        if let jsonValuePackedFixed64 = jsonMap["packedFixed64"] as? Array<String> {
+        if let jsonValuePackedFixed64 = jsonMap["packedFixed64"] as? Array<UInt64> {
           var jsonArrayPackedFixed64:Array<UInt64> = []
           for oneValuePackedFixed64 in jsonValuePackedFixed64 {
-            jsonArrayPackedFixed64.append(UInt64(oneValuePackedFixed64)!)
+            jsonArrayPackedFixed64.append(oneValuePackedFixed64)
           }
           resultDecodedBuilder.packedFixed64 = jsonArrayPackedFixed64
         }
-        if let jsonValuePackedSfixed32 = jsonMap["packedSfixed32"] as? Array<NSNumber> {
+        if let jsonValuePackedSfixed32 = jsonMap["packedSfixed32"] as? Array<Int32> {
           var jsonArrayPackedSfixed32:Array<Int32> = []
           for oneValuePackedSfixed32 in jsonValuePackedSfixed32 {
-            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32.int32Value)
+            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32)
           }
           resultDecodedBuilder.packedSfixed32 = jsonArrayPackedSfixed32
         }
-        if let jsonValuePackedSfixed64 = jsonMap["packedSfixed64"] as? Array<String> {
+        if let jsonValuePackedSfixed64 = jsonMap["packedSfixed64"] as? Array<Int64> {
           var jsonArrayPackedSfixed64:Array<Int64> = []
           for oneValuePackedSfixed64 in jsonValuePackedSfixed64 {
-            jsonArrayPackedSfixed64.append(Int64(oneValuePackedSfixed64)!)
+            jsonArrayPackedSfixed64.append(oneValuePackedSfixed64)
           }
           resultDecodedBuilder.packedSfixed64 = jsonArrayPackedSfixed64
         }
-        if let jsonValuePackedFloat = jsonMap["packedFloat"] as? Array<NSNumber> {
+        if let jsonValuePackedFloat = jsonMap["packedFloat"] as? Array<Float> {
           var jsonArrayPackedFloat:Array<Float> = []
           for oneValuePackedFloat in jsonValuePackedFloat {
-            jsonArrayPackedFloat.append(oneValuePackedFloat.floatValue)
+            jsonArrayPackedFloat.append(oneValuePackedFloat)
           }
           resultDecodedBuilder.packedFloat = jsonArrayPackedFloat
         }
-        if let jsonValuePackedDouble = jsonMap["packedDouble"] as? Array<NSNumber> {
+        if let jsonValuePackedDouble = jsonMap["packedDouble"] as? Array<Double> {
           var jsonArrayPackedDouble:Array<Double> = []
           for oneValuePackedDouble in jsonValuePackedDouble {
-            jsonArrayPackedDouble.append(oneValuePackedDouble.doubleValue)
+            jsonArrayPackedDouble.append(oneValuePackedDouble)
           }
           resultDecodedBuilder.packedDouble = jsonArrayPackedDouble
         }
         if let jsonValuePackedBool = jsonMap["packedBool"] as? Array<Bool> {
-          resultDecodedBuilder.packedBool = jsonValuePackedBool
+          var jsonArrayPackedBool:Array<Bool> = []
+          for oneValuePackedBool in jsonValuePackedBool {
+            jsonArrayPackedBool.append(oneValuePackedBool)
+          }
+          resultDecodedBuilder.packedBool = jsonArrayPackedBool
         }
         if let jsonValuePackedEnum = jsonMap["packedEnum"] as? Array<String> {
           var jsonArrayPackedEnum:Array<ProtobufUnittest.ForeignEnum> = []
@@ -25128,6 +25169,30 @@ public extension ProtobufUnittest {
   // A message with the same fields as TestPackedTypes, but without packing. Used
   // to test packed <-> unpacked wire compatibility.
   final public class TestUnpackedTypes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest.TestUnpackedTypes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.unpackedInt32 == rhs.unpackedInt32)
+      fieldCheck = fieldCheck && (lhs.unpackedInt64 == rhs.unpackedInt64)
+      fieldCheck = fieldCheck && (lhs.unpackedUint32 == rhs.unpackedUint32)
+      fieldCheck = fieldCheck && (lhs.unpackedUint64 == rhs.unpackedUint64)
+      fieldCheck = fieldCheck && (lhs.unpackedSint32 == rhs.unpackedSint32)
+      fieldCheck = fieldCheck && (lhs.unpackedSint64 == rhs.unpackedSint64)
+      fieldCheck = fieldCheck && (lhs.unpackedFixed32 == rhs.unpackedFixed32)
+      fieldCheck = fieldCheck && (lhs.unpackedFixed64 == rhs.unpackedFixed64)
+      fieldCheck = fieldCheck && (lhs.unpackedSfixed32 == rhs.unpackedSfixed32)
+      fieldCheck = fieldCheck && (lhs.unpackedSfixed64 == rhs.unpackedSfixed64)
+      fieldCheck = fieldCheck && (lhs.unpackedFloat == rhs.unpackedFloat)
+      fieldCheck = fieldCheck && (lhs.unpackedDouble == rhs.unpackedDouble)
+      fieldCheck = fieldCheck && (lhs.unpackedBool == rhs.unpackedBool)
+      fieldCheck = fieldCheck && (lhs.unpackedEnum == rhs.unpackedEnum)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var unpackedInt32:Array<Int32> = Array<Int32>()
     public fileprivate(set) var unpackedInt64:Array<Int64> = Array<Int64>()
     public fileprivate(set) var unpackedUint32:Array<UInt32> = Array<UInt32>()
@@ -25326,91 +25391,95 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !unpackedInt32.isEmpty {
-        var jsonArrayUnpackedInt32:Array<NSNumber> = []
+        var jsonArrayUnpackedInt32:Array<Int32> = []
           for oneValueUnpackedInt32 in unpackedInt32 {
-            jsonArrayUnpackedInt32.append(NSNumber(value:oneValueUnpackedInt32))
+            jsonArrayUnpackedInt32.append(oneValueUnpackedInt32)
           }
         jsonMap["unpackedInt32"] = jsonArrayUnpackedInt32
       }
       if !unpackedInt64.isEmpty {
-        var jsonArrayUnpackedInt64:Array<String> = []
+        var jsonArrayUnpackedInt64:Array<Int64> = []
           for oneValueUnpackedInt64 in unpackedInt64 {
-            jsonArrayUnpackedInt64.append("\(oneValueUnpackedInt64)")
+            jsonArrayUnpackedInt64.append(oneValueUnpackedInt64)
           }
         jsonMap["unpackedInt64"] = jsonArrayUnpackedInt64
       }
       if !unpackedUint32.isEmpty {
-        var jsonArrayUnpackedUint32:Array<NSNumber> = []
+        var jsonArrayUnpackedUint32:Array<UInt32> = []
           for oneValueUnpackedUint32 in unpackedUint32 {
-            jsonArrayUnpackedUint32.append(NSNumber(value:oneValueUnpackedUint32))
+            jsonArrayUnpackedUint32.append(oneValueUnpackedUint32)
           }
         jsonMap["unpackedUint32"] = jsonArrayUnpackedUint32
       }
       if !unpackedUint64.isEmpty {
-        var jsonArrayUnpackedUint64:Array<String> = []
+        var jsonArrayUnpackedUint64:Array<UInt64> = []
           for oneValueUnpackedUint64 in unpackedUint64 {
-            jsonArrayUnpackedUint64.append("\(oneValueUnpackedUint64)")
+            jsonArrayUnpackedUint64.append(oneValueUnpackedUint64)
           }
         jsonMap["unpackedUint64"] = jsonArrayUnpackedUint64
       }
       if !unpackedSint32.isEmpty {
-        var jsonArrayUnpackedSint32:Array<NSNumber> = []
+        var jsonArrayUnpackedSint32:Array<Int32> = []
           for oneValueUnpackedSint32 in unpackedSint32 {
-            jsonArrayUnpackedSint32.append(NSNumber(value:oneValueUnpackedSint32))
+            jsonArrayUnpackedSint32.append(oneValueUnpackedSint32)
           }
         jsonMap["unpackedSint32"] = jsonArrayUnpackedSint32
       }
       if !unpackedSint64.isEmpty {
-        var jsonArrayUnpackedSint64:Array<String> = []
+        var jsonArrayUnpackedSint64:Array<Int64> = []
           for oneValueUnpackedSint64 in unpackedSint64 {
-            jsonArrayUnpackedSint64.append("\(oneValueUnpackedSint64)")
+            jsonArrayUnpackedSint64.append(oneValueUnpackedSint64)
           }
         jsonMap["unpackedSint64"] = jsonArrayUnpackedSint64
       }
       if !unpackedFixed32.isEmpty {
-        var jsonArrayUnpackedFixed32:Array<NSNumber> = []
+        var jsonArrayUnpackedFixed32:Array<UInt32> = []
           for oneValueUnpackedFixed32 in unpackedFixed32 {
-            jsonArrayUnpackedFixed32.append(NSNumber(value:oneValueUnpackedFixed32))
+            jsonArrayUnpackedFixed32.append(oneValueUnpackedFixed32)
           }
         jsonMap["unpackedFixed32"] = jsonArrayUnpackedFixed32
       }
       if !unpackedFixed64.isEmpty {
-        var jsonArrayUnpackedFixed64:Array<String> = []
+        var jsonArrayUnpackedFixed64:Array<UInt64> = []
           for oneValueUnpackedFixed64 in unpackedFixed64 {
-            jsonArrayUnpackedFixed64.append("\(oneValueUnpackedFixed64)")
+            jsonArrayUnpackedFixed64.append(oneValueUnpackedFixed64)
           }
         jsonMap["unpackedFixed64"] = jsonArrayUnpackedFixed64
       }
       if !unpackedSfixed32.isEmpty {
-        var jsonArrayUnpackedSfixed32:Array<NSNumber> = []
+        var jsonArrayUnpackedSfixed32:Array<Int32> = []
           for oneValueUnpackedSfixed32 in unpackedSfixed32 {
-            jsonArrayUnpackedSfixed32.append(NSNumber(value:oneValueUnpackedSfixed32))
+            jsonArrayUnpackedSfixed32.append(oneValueUnpackedSfixed32)
           }
         jsonMap["unpackedSfixed32"] = jsonArrayUnpackedSfixed32
       }
       if !unpackedSfixed64.isEmpty {
-        var jsonArrayUnpackedSfixed64:Array<String> = []
+        var jsonArrayUnpackedSfixed64:Array<Int64> = []
           for oneValueUnpackedSfixed64 in unpackedSfixed64 {
-            jsonArrayUnpackedSfixed64.append("\(oneValueUnpackedSfixed64)")
+            jsonArrayUnpackedSfixed64.append(oneValueUnpackedSfixed64)
           }
         jsonMap["unpackedSfixed64"] = jsonArrayUnpackedSfixed64
       }
       if !unpackedFloat.isEmpty {
-        var jsonArrayUnpackedFloat:Array<NSNumber> = []
+        var jsonArrayUnpackedFloat:Array<Float> = []
           for oneValueUnpackedFloat in unpackedFloat {
-            jsonArrayUnpackedFloat.append(NSNumber(value:oneValueUnpackedFloat))
+            jsonArrayUnpackedFloat.append(oneValueUnpackedFloat)
           }
         jsonMap["unpackedFloat"] = jsonArrayUnpackedFloat
       }
       if !unpackedDouble.isEmpty {
-        var jsonArrayUnpackedDouble:Array<NSNumber> = []
+        var jsonArrayUnpackedDouble:Array<Double> = []
           for oneValueUnpackedDouble in unpackedDouble {
-            jsonArrayUnpackedDouble.append(NSNumber(value:oneValueUnpackedDouble))
+            jsonArrayUnpackedDouble.append(oneValueUnpackedDouble)
           }
         jsonMap["unpackedDouble"] = jsonArrayUnpackedDouble
       }
       if !unpackedBool.isEmpty {
-        jsonMap["unpackedBool"] = unpackedBool
+        var jsonArrayUnpackedBool:Array<Bool> = []
+          for oneValueUnpackedBool in unpackedBool {
+            jsonArrayUnpackedBool.append(oneValueUnpackedBool)
+          }
+        jsonMap["unpackedBool"] = jsonArrayUnpackedBool
       }
       if !unpackedEnum.isEmpty {
         var jsonArrayUnpackedEnum:Array<String> = []
@@ -25816,6 +25885,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestUnpackedTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestUnpackedTypes) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
         if other == ProtobufUnittest.TestUnpackedTypes() {
          return self
@@ -25862,9 +25932,10 @@ public extension ProtobufUnittest {
         if !other.unpackedEnum.isEmpty {
            builderResult.unpackedEnum += other.unpackedEnum
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -25921,7 +25992,7 @@ public extension ProtobufUnittest {
             if let enumsunpackedEnum = ProtobufUnittest.ForeignEnum(rawValue:valueIntunpackedEnum) {
                  builderResult.unpackedEnum.append(enumsunpackedEnum)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntunpackedEnum))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 103, value:Int64(valueIntunpackedEnum))
             }
 
           default:
@@ -25934,92 +26005,96 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestUnpackedTypes.Builder()
-        if let jsonValueUnpackedInt32 = jsonMap["unpackedInt32"] as? Array<NSNumber> {
+        if let jsonValueUnpackedInt32 = jsonMap["unpackedInt32"] as? Array<Int32> {
           var jsonArrayUnpackedInt32:Array<Int32> = []
           for oneValueUnpackedInt32 in jsonValueUnpackedInt32 {
-            jsonArrayUnpackedInt32.append(oneValueUnpackedInt32.int32Value)
+            jsonArrayUnpackedInt32.append(oneValueUnpackedInt32)
           }
           resultDecodedBuilder.unpackedInt32 = jsonArrayUnpackedInt32
         }
-        if let jsonValueUnpackedInt64 = jsonMap["unpackedInt64"] as? Array<String> {
+        if let jsonValueUnpackedInt64 = jsonMap["unpackedInt64"] as? Array<Int64> {
           var jsonArrayUnpackedInt64:Array<Int64> = []
           for oneValueUnpackedInt64 in jsonValueUnpackedInt64 {
-            jsonArrayUnpackedInt64.append(Int64(oneValueUnpackedInt64)!)
+            jsonArrayUnpackedInt64.append(oneValueUnpackedInt64)
           }
           resultDecodedBuilder.unpackedInt64 = jsonArrayUnpackedInt64
         }
-        if let jsonValueUnpackedUint32 = jsonMap["unpackedUint32"] as? Array<NSNumber> {
+        if let jsonValueUnpackedUint32 = jsonMap["unpackedUint32"] as? Array<UInt32> {
           var jsonArrayUnpackedUint32:Array<UInt32> = []
           for oneValueUnpackedUint32 in jsonValueUnpackedUint32 {
-            jsonArrayUnpackedUint32.append(oneValueUnpackedUint32.uint32Value)
+            jsonArrayUnpackedUint32.append(oneValueUnpackedUint32)
           }
           resultDecodedBuilder.unpackedUint32 = jsonArrayUnpackedUint32
         }
-        if let jsonValueUnpackedUint64 = jsonMap["unpackedUint64"] as? Array<String> {
+        if let jsonValueUnpackedUint64 = jsonMap["unpackedUint64"] as? Array<UInt64> {
           var jsonArrayUnpackedUint64:Array<UInt64> = []
           for oneValueUnpackedUint64 in jsonValueUnpackedUint64 {
-            jsonArrayUnpackedUint64.append(UInt64(oneValueUnpackedUint64)!)
+            jsonArrayUnpackedUint64.append(oneValueUnpackedUint64)
           }
           resultDecodedBuilder.unpackedUint64 = jsonArrayUnpackedUint64
         }
-        if let jsonValueUnpackedSint32 = jsonMap["unpackedSint32"] as? Array<NSNumber> {
+        if let jsonValueUnpackedSint32 = jsonMap["unpackedSint32"] as? Array<Int32> {
           var jsonArrayUnpackedSint32:Array<Int32> = []
           for oneValueUnpackedSint32 in jsonValueUnpackedSint32 {
-            jsonArrayUnpackedSint32.append(oneValueUnpackedSint32.int32Value)
+            jsonArrayUnpackedSint32.append(oneValueUnpackedSint32)
           }
           resultDecodedBuilder.unpackedSint32 = jsonArrayUnpackedSint32
         }
-        if let jsonValueUnpackedSint64 = jsonMap["unpackedSint64"] as? Array<String> {
+        if let jsonValueUnpackedSint64 = jsonMap["unpackedSint64"] as? Array<Int64> {
           var jsonArrayUnpackedSint64:Array<Int64> = []
           for oneValueUnpackedSint64 in jsonValueUnpackedSint64 {
-            jsonArrayUnpackedSint64.append(Int64(oneValueUnpackedSint64)!)
+            jsonArrayUnpackedSint64.append(oneValueUnpackedSint64)
           }
           resultDecodedBuilder.unpackedSint64 = jsonArrayUnpackedSint64
         }
-        if let jsonValueUnpackedFixed32 = jsonMap["unpackedFixed32"] as? Array<NSNumber> {
+        if let jsonValueUnpackedFixed32 = jsonMap["unpackedFixed32"] as? Array<UInt32> {
           var jsonArrayUnpackedFixed32:Array<UInt32> = []
           for oneValueUnpackedFixed32 in jsonValueUnpackedFixed32 {
-            jsonArrayUnpackedFixed32.append(oneValueUnpackedFixed32.uint32Value)
+            jsonArrayUnpackedFixed32.append(oneValueUnpackedFixed32)
           }
           resultDecodedBuilder.unpackedFixed32 = jsonArrayUnpackedFixed32
         }
-        if let jsonValueUnpackedFixed64 = jsonMap["unpackedFixed64"] as? Array<String> {
+        if let jsonValueUnpackedFixed64 = jsonMap["unpackedFixed64"] as? Array<UInt64> {
           var jsonArrayUnpackedFixed64:Array<UInt64> = []
           for oneValueUnpackedFixed64 in jsonValueUnpackedFixed64 {
-            jsonArrayUnpackedFixed64.append(UInt64(oneValueUnpackedFixed64)!)
+            jsonArrayUnpackedFixed64.append(oneValueUnpackedFixed64)
           }
           resultDecodedBuilder.unpackedFixed64 = jsonArrayUnpackedFixed64
         }
-        if let jsonValueUnpackedSfixed32 = jsonMap["unpackedSfixed32"] as? Array<NSNumber> {
+        if let jsonValueUnpackedSfixed32 = jsonMap["unpackedSfixed32"] as? Array<Int32> {
           var jsonArrayUnpackedSfixed32:Array<Int32> = []
           for oneValueUnpackedSfixed32 in jsonValueUnpackedSfixed32 {
-            jsonArrayUnpackedSfixed32.append(oneValueUnpackedSfixed32.int32Value)
+            jsonArrayUnpackedSfixed32.append(oneValueUnpackedSfixed32)
           }
           resultDecodedBuilder.unpackedSfixed32 = jsonArrayUnpackedSfixed32
         }
-        if let jsonValueUnpackedSfixed64 = jsonMap["unpackedSfixed64"] as? Array<String> {
+        if let jsonValueUnpackedSfixed64 = jsonMap["unpackedSfixed64"] as? Array<Int64> {
           var jsonArrayUnpackedSfixed64:Array<Int64> = []
           for oneValueUnpackedSfixed64 in jsonValueUnpackedSfixed64 {
-            jsonArrayUnpackedSfixed64.append(Int64(oneValueUnpackedSfixed64)!)
+            jsonArrayUnpackedSfixed64.append(oneValueUnpackedSfixed64)
           }
           resultDecodedBuilder.unpackedSfixed64 = jsonArrayUnpackedSfixed64
         }
-        if let jsonValueUnpackedFloat = jsonMap["unpackedFloat"] as? Array<NSNumber> {
+        if let jsonValueUnpackedFloat = jsonMap["unpackedFloat"] as? Array<Float> {
           var jsonArrayUnpackedFloat:Array<Float> = []
           for oneValueUnpackedFloat in jsonValueUnpackedFloat {
-            jsonArrayUnpackedFloat.append(oneValueUnpackedFloat.floatValue)
+            jsonArrayUnpackedFloat.append(oneValueUnpackedFloat)
           }
           resultDecodedBuilder.unpackedFloat = jsonArrayUnpackedFloat
         }
-        if let jsonValueUnpackedDouble = jsonMap["unpackedDouble"] as? Array<NSNumber> {
+        if let jsonValueUnpackedDouble = jsonMap["unpackedDouble"] as? Array<Double> {
           var jsonArrayUnpackedDouble:Array<Double> = []
           for oneValueUnpackedDouble in jsonValueUnpackedDouble {
-            jsonArrayUnpackedDouble.append(oneValueUnpackedDouble.doubleValue)
+            jsonArrayUnpackedDouble.append(oneValueUnpackedDouble)
           }
           resultDecodedBuilder.unpackedDouble = jsonArrayUnpackedDouble
         }
         if let jsonValueUnpackedBool = jsonMap["unpackedBool"] as? Array<Bool> {
-          resultDecodedBuilder.unpackedBool = jsonValueUnpackedBool
+          var jsonArrayUnpackedBool:Array<Bool> = []
+          for oneValueUnpackedBool in jsonValueUnpackedBool {
+            jsonArrayUnpackedBool.append(oneValueUnpackedBool)
+          }
+          resultDecodedBuilder.unpackedBool = jsonArrayUnpackedBool
         }
         if let jsonValueUnpackedEnum = jsonMap["unpackedEnum"] as? Array<String> {
           var jsonArrayUnpackedEnum:Array<ProtobufUnittest.ForeignEnum> = []
@@ -26043,6 +26118,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestPackedExtensions : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnittest.TestPackedExtensions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -26155,14 +26241,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestPackedExtensions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestPackedExtensions) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
         if other == ProtobufUnittest.TestPackedExtensions() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -26199,6 +26287,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestUnpackedExtensions : ExtendableMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUnittest.TestUnpackedExtensions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -26311,14 +26410,16 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestUnpackedExtensions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestUnpackedExtensions) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
         if other == ProtobufUnittest.TestUnpackedExtensions() {
          return self
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -26359,10 +26460,38 @@ public extension ProtobufUnittest {
   // of this message type.
   final public class TestDynamicExtensions : GeneratedMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnittest.TestDynamicExtensions) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasScalarExtension == rhs.hasScalarExtension) && (!lhs.hasScalarExtension || lhs.scalarExtension == rhs.scalarExtension)
+      fieldCheck = fieldCheck && (lhs.hasEnumExtension == rhs.hasEnumExtension) && (!lhs.hasEnumExtension || lhs.enumExtension == rhs.enumExtension)
+      fieldCheck = fieldCheck && (lhs.hasDynamicEnumExtension == rhs.hasDynamicEnumExtension) && (!lhs.hasDynamicEnumExtension || lhs.dynamicEnumExtension == rhs.dynamicEnumExtension)
+      fieldCheck = fieldCheck && (lhs.hasMessageExtension == rhs.hasMessageExtension) && (!lhs.hasMessageExtension || lhs.messageExtension == rhs.messageExtension)
+      fieldCheck = fieldCheck && (lhs.hasDynamicMessageExtension == rhs.hasDynamicMessageExtension) && (!lhs.hasDynamicMessageExtension || lhs.dynamicMessageExtension == rhs.dynamicMessageExtension)
+      fieldCheck = fieldCheck && (lhs.repeatedExtension == rhs.repeatedExtension)
+      fieldCheck = fieldCheck && (lhs.packedExtension == rhs.packedExtension)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
       final public class DynamicMessageType : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasDynamicField == rhs.hasDynamicField) && (!lhs.hasDynamicField || lhs.dynamicField == rhs.dynamicField)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var dynamicField:Int32 = Int32(0)
         public fileprivate(set) var hasDynamicField:Bool = false
 
@@ -26417,7 +26546,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasDynamicField {
-            jsonMap["dynamicField"] = NSNumber(value:dynamicField)
+            jsonMap["dynamicField"] = dynamicField
           }
           return jsonMap
         }
@@ -26509,6 +26638,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             if other == ProtobufUnittest.TestDynamicExtensions.DynamicMessageType() {
              return self
@@ -26516,9 +26646,10 @@ public extension ProtobufUnittest {
             if other.hasDynamicField {
                  dynamicField = other.dynamicField
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -26544,8 +26675,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
-            if let jsonValueDynamicField = jsonMap["dynamicField"] as? NSNumber {
-              resultDecodedBuilder.dynamicField = jsonValueDynamicField.int32Value
+            if let jsonValueDynamicField = jsonMap["dynamicField"] as? Int32 {
+              resultDecodedBuilder.dynamicField = jsonValueDynamicField
             }
             return resultDecodedBuilder
           }
@@ -26719,7 +26850,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasScalarExtension {
-        jsonMap["scalarExtension"] = NSNumber(value:scalarExtension)
+        jsonMap["scalarExtension"] = scalarExtension
       }
       if hasEnumExtension {
         jsonMap["enumExtension"] = enumExtension.toString()
@@ -26734,12 +26865,16 @@ public extension ProtobufUnittest {
         jsonMap["dynamicMessageExtension"] = try dynamicMessageExtension.encode()
       }
       if !repeatedExtension.isEmpty {
-        jsonMap["repeatedExtension"] = repeatedExtension
+        var jsonArrayRepeatedExtension:Array<String> = []
+          for oneValueRepeatedExtension in repeatedExtension {
+            jsonArrayRepeatedExtension.append(oneValueRepeatedExtension)
+          }
+        jsonMap["repeatedExtension"] = jsonArrayRepeatedExtension
       }
       if !packedExtension.isEmpty {
-        var jsonArrayPackedExtension:Array<NSNumber> = []
+        var jsonArrayPackedExtension:Array<Int32> = []
           for oneValuePackedExtension in packedExtension {
-            jsonArrayPackedExtension.append(NSNumber(value:oneValuePackedExtension))
+            jsonArrayPackedExtension.append(oneValuePackedExtension)
           }
         jsonMap["packedExtension"] = jsonArrayPackedExtension
       }
@@ -26938,7 +27073,7 @@ public extension ProtobufUnittest {
            messageExtensionBuilder_ = ProtobufUnittest.ForeignMessage.Builder()
            builderResult.messageExtension = messageExtensionBuilder_.getMessage()
            if messageExtension != nil {
-              _ = try! messageExtensionBuilder_.mergeFrom(other: messageExtension)
+              try! messageExtensionBuilder_.mergeFrom(other: messageExtension)
            }
         }
         return messageExtensionBuilder_
@@ -26947,6 +27082,7 @@ public extension ProtobufUnittest {
         self.messageExtension = value
         return self
       }
+      @discardableResult
       public func mergeMessageExtension(value:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         if builderResult.hasMessageExtension {
           builderResult.messageExtension = try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.messageExtension).mergeFrom(other: value).buildPartial()
@@ -26989,7 +27125,7 @@ public extension ProtobufUnittest {
            dynamicMessageExtensionBuilder_ = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
            builderResult.dynamicMessageExtension = dynamicMessageExtensionBuilder_.getMessage()
            if dynamicMessageExtension != nil {
-              _ = try! dynamicMessageExtensionBuilder_.mergeFrom(other: dynamicMessageExtension)
+              try! dynamicMessageExtensionBuilder_.mergeFrom(other: dynamicMessageExtension)
            }
         }
         return dynamicMessageExtensionBuilder_
@@ -26998,6 +27134,7 @@ public extension ProtobufUnittest {
         self.dynamicMessageExtension = value
         return self
       }
+      @discardableResult
       public func mergeDynamicMessageExtension(value:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         if builderResult.hasDynamicMessageExtension {
           builderResult.dynamicMessageExtension = try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.builderWithPrototype(prototype:builderResult.dynamicMessageExtension).mergeFrom(other: value).buildPartial()
@@ -27065,6 +27202,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestDynamicExtensions = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestDynamicExtensions) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         if other == ProtobufUnittest.TestDynamicExtensions() {
          return self
@@ -27079,10 +27217,10 @@ public extension ProtobufUnittest {
              dynamicEnumExtension = other.dynamicEnumExtension
         }
         if (other.hasMessageExtension) {
-            _ = try mergeMessageExtension(value: other.messageExtension)
+            try mergeMessageExtension(value: other.messageExtension)
         }
         if (other.hasDynamicMessageExtension) {
-            _ = try mergeDynamicMessageExtension(value: other.dynamicMessageExtension)
+            try mergeDynamicMessageExtension(value: other.dynamicMessageExtension)
         }
         if !other.repeatedExtension.isEmpty {
             builderResult.repeatedExtension += other.repeatedExtension
@@ -27090,9 +27228,10 @@ public extension ProtobufUnittest {
         if !other.packedExtension.isEmpty {
             builderResult.packedExtension += other.packedExtension
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -27113,7 +27252,7 @@ public extension ProtobufUnittest {
             if let enumsenumExtension = ProtobufUnittest.ForeignEnum(rawValue:valueIntenumExtension){
                  enumExtension = enumsenumExtension
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2001, value:Int64(valueIntenumExtension))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2001, value:Int64(valueIntenumExtension))
             }
 
           case 16016:
@@ -27121,13 +27260,13 @@ public extension ProtobufUnittest {
             if let enumsdynamicEnumExtension = ProtobufUnittest.TestDynamicExtensions.DynamicEnumType(rawValue:valueIntdynamicEnumExtension){
                  dynamicEnumExtension = enumsdynamicEnumExtension
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2002, value:Int64(valueIntdynamicEnumExtension))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2002, value:Int64(valueIntdynamicEnumExtension))
             }
 
           case 16026:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasMessageExtension {
-              _ = try subBuilder.mergeFrom(other: messageExtension)
+              try subBuilder.mergeFrom(other: messageExtension)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             messageExtension = subBuilder.buildPartial()
@@ -27135,7 +27274,7 @@ public extension ProtobufUnittest {
           case 16034:
             let subBuilder:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
             if hasDynamicMessageExtension {
-              _ = try subBuilder.mergeFrom(other: dynamicMessageExtension)
+              try subBuilder.mergeFrom(other: dynamicMessageExtension)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             dynamicMessageExtension = subBuilder.buildPartial()
@@ -27161,8 +27300,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestDynamicExtensions.Builder()
-        if let jsonValueScalarExtension = jsonMap["scalarExtension"] as? NSNumber {
-          resultDecodedBuilder.scalarExtension = jsonValueScalarExtension.uint32Value
+        if let jsonValueScalarExtension = jsonMap["scalarExtension"] as? UInt32 {
+          resultDecodedBuilder.scalarExtension = jsonValueScalarExtension
         }
         if let jsonValueEnumExtension = jsonMap["enumExtension"] as? String {
           resultDecodedBuilder.enumExtension = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueEnumExtension)
@@ -27179,12 +27318,16 @@ public extension ProtobufUnittest {
 
         }
         if let jsonValueRepeatedExtension = jsonMap["repeatedExtension"] as? Array<String> {
-          resultDecodedBuilder.repeatedExtension = jsonValueRepeatedExtension
+          var jsonArrayRepeatedExtension:Array<String> = []
+          for oneValueRepeatedExtension in jsonValueRepeatedExtension {
+            jsonArrayRepeatedExtension.append(oneValueRepeatedExtension)
+          }
+          resultDecodedBuilder.repeatedExtension = jsonArrayRepeatedExtension
         }
-        if let jsonValuePackedExtension = jsonMap["packedExtension"] as? Array<NSNumber> {
+        if let jsonValuePackedExtension = jsonMap["packedExtension"] as? Array<Int32> {
           var jsonArrayPackedExtension:Array<Int32> = []
           for oneValuePackedExtension in jsonValuePackedExtension {
-            jsonArrayPackedExtension.append(oneValuePackedExtension.int32Value)
+            jsonArrayPackedExtension.append(oneValuePackedExtension)
           }
           resultDecodedBuilder.packedExtension = jsonArrayPackedExtension
         }
@@ -27202,6 +27345,22 @@ public extension ProtobufUnittest {
   }
 
   final public class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.repeatedFixed32 == rhs.repeatedFixed32)
+      fieldCheck = fieldCheck && (lhs.repeatedInt32 == rhs.repeatedInt32)
+      fieldCheck = fieldCheck && (lhs.repeatedFixed64 == rhs.repeatedFixed64)
+      fieldCheck = fieldCheck && (lhs.repeatedInt64 == rhs.repeatedInt64)
+      fieldCheck = fieldCheck && (lhs.repeatedFloat == rhs.repeatedFloat)
+      fieldCheck = fieldCheck && (lhs.repeatedUint64 == rhs.repeatedUint64)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Parsing repeated fixed size values used to fail. This message needs to be
     // used in order to get a tag of the right size; all of the repeated fields
     // in TestAllTypes didn't trigger the check.
@@ -27319,44 +27478,44 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !repeatedFixed32.isEmpty {
-        var jsonArrayRepeatedFixed32:Array<NSNumber> = []
+        var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in repeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(NSNumber(value:oneValueRepeatedFixed32))
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
           }
         jsonMap["repeatedFixed32"] = jsonArrayRepeatedFixed32
       }
       if !repeatedInt32.isEmpty {
-        var jsonArrayRepeatedInt32:Array<NSNumber> = []
+        var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
-            jsonArrayRepeatedInt32.append(NSNumber(value:oneValueRepeatedInt32))
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
           }
         jsonMap["repeatedInt32"] = jsonArrayRepeatedInt32
       }
       if !repeatedFixed64.isEmpty {
-        var jsonArrayRepeatedFixed64:Array<String> = []
+        var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in repeatedFixed64 {
-            jsonArrayRepeatedFixed64.append("\(oneValueRepeatedFixed64)")
+            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
           }
         jsonMap["repeatedFixed64"] = jsonArrayRepeatedFixed64
       }
       if !repeatedInt64.isEmpty {
-        var jsonArrayRepeatedInt64:Array<String> = []
+        var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in repeatedInt64 {
-            jsonArrayRepeatedInt64.append("\(oneValueRepeatedInt64)")
+            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
           }
         jsonMap["repeatedInt64"] = jsonArrayRepeatedInt64
       }
       if !repeatedFloat.isEmpty {
-        var jsonArrayRepeatedFloat:Array<NSNumber> = []
+        var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in repeatedFloat {
-            jsonArrayRepeatedFloat.append(NSNumber(value:oneValueRepeatedFloat))
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
           }
         jsonMap["repeatedFloat"] = jsonArrayRepeatedFloat
       }
       if !repeatedUint64.isEmpty {
-        var jsonArrayRepeatedUint64:Array<String> = []
+        var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in repeatedUint64 {
-            jsonArrayRepeatedUint64.append("\(oneValueRepeatedUint64)")
+            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
           }
         jsonMap["repeatedUint64"] = jsonArrayRepeatedUint64
       }
@@ -27565,6 +27724,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         if other == ProtobufUnittest.TestRepeatedScalarDifferentTagSizes() {
          return self
@@ -27587,9 +27747,10 @@ public extension ProtobufUnittest {
         if !other.repeatedUint64.isEmpty {
             builderResult.repeatedUint64 += other.repeatedUint64
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -27630,45 +27791,45 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder()
-        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<UInt32> {
           var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in jsonValueRepeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32.uint32Value)
+            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
           }
           resultDecodedBuilder.repeatedFixed32 = jsonArrayRepeatedFixed32
         }
-        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<NSNumber> {
+        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<Int32> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in jsonValueRepeatedInt32 {
-            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32.int32Value)
+            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
           }
           resultDecodedBuilder.repeatedInt32 = jsonArrayRepeatedInt32
         }
-        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<String> {
+        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<UInt64> {
           var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in jsonValueRepeatedFixed64 {
-            jsonArrayRepeatedFixed64.append(UInt64(oneValueRepeatedFixed64)!)
+            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
           }
           resultDecodedBuilder.repeatedFixed64 = jsonArrayRepeatedFixed64
         }
-        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<String> {
+        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<Int64> {
           var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in jsonValueRepeatedInt64 {
-            jsonArrayRepeatedInt64.append(Int64(oneValueRepeatedInt64)!)
+            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
           }
           resultDecodedBuilder.repeatedInt64 = jsonArrayRepeatedInt64
         }
-        if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<NSNumber> {
+        if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<Float> {
           var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in jsonValueRepeatedFloat {
-            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat.floatValue)
+            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
           }
           resultDecodedBuilder.repeatedFloat = jsonArrayRepeatedFloat
         }
-        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<String> {
+        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<UInt64> {
           var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in jsonValueRepeatedUint64 {
-            jsonArrayRepeatedUint64.append(UInt64(oneValueRepeatedUint64)!)
+            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
           }
           resultDecodedBuilder.repeatedUint64 = jsonArrayRepeatedUint64
         }
@@ -27689,6 +27850,22 @@ public extension ProtobufUnittest {
   // times in the input, they need to be merged.
   final public class TestParsingMerge : ExtendableMessage {
 
+    public static func == (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasRequiredAllTypes == rhs.hasRequiredAllTypes) && (!lhs.hasRequiredAllTypes || lhs.requiredAllTypes == rhs.requiredAllTypes)
+      fieldCheck = fieldCheck && (lhs.hasOptionalAllTypes == rhs.hasOptionalAllTypes) && (!lhs.hasOptionalAllTypes || lhs.optionalAllTypes == rhs.optionalAllTypes)
+      fieldCheck = fieldCheck && (lhs.repeatedAllTypes == rhs.repeatedAllTypes)
+      fieldCheck = fieldCheck && (lhs.hasOptionalGroup == rhs.hasOptionalGroup) && (!lhs.hasOptionalGroup || lhs.optionalGroup == rhs.optionalGroup)
+      fieldCheck = fieldCheck && (lhs.repeatedGroup == rhs.repeatedGroup)
+      fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
+
 
     //Nested type declaration start
 
@@ -27699,10 +27876,38 @@ public extension ProtobufUnittest {
       // the corresponding required/optional fields in TestParsingMerge.
       final public class RepeatedFieldsGenerator : GeneratedMessage {
 
+        public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.field1 == rhs.field1)
+          fieldCheck = fieldCheck && (lhs.field2 == rhs.field2)
+          fieldCheck = fieldCheck && (lhs.field3 == rhs.field3)
+          fieldCheck = fieldCheck && (lhs.group1 == rhs.group1)
+          fieldCheck = fieldCheck && (lhs.group2 == rhs.group2)
+          fieldCheck = fieldCheck && (lhs.ext1 == rhs.ext1)
+          fieldCheck = fieldCheck && (lhs.ext2 == rhs.ext2)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
+
 
         //Nested type declaration start
 
           final public class Group1 : GeneratedMessage {
+
+            public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
+              if (lhs === rhs) {
+                return true
+              }
+              var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+              fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
+              fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+              return fieldCheck
+            }
+
             public fileprivate(set) var field1:ProtobufUnittest.TestAllTypes!
             public fileprivate(set) var hasField1:Bool = false
             required public init() {
@@ -27840,7 +28045,7 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypes.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      _ = try! field1Builder_.mergeFrom(other: field1)
+                      try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
@@ -27849,6 +28054,7 @@ public extension ProtobufUnittest {
                 self.field1 = value
                 return self
               }
+              @discardableResult
               public func mergeField1(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 if builderResult.hasField1 {
                   builderResult.field1 = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.field1).mergeFrom(other: value).buildPartial()
@@ -27884,16 +28090,18 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 = builderResult
                 return returnMe
               }
+              @discardableResult
               public func mergeFrom(other:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 if other == ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1() {
                  return self
                 }
                 if (other.hasField1) {
-                    _ = try mergeField1(value: other.field1)
+                    try mergeField1(value: other.field1)
                 }
-                _ = try merge(unknownField: other.unknownFields)
+                try merge(unknownField: other.unknownFields)
                 return self
               }
+              @discardableResult
               override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
@@ -27909,7 +28117,7 @@ public extension ProtobufUnittest {
                   case 90:
                     let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                     if hasField1 {
-                      _ = try subBuilder.mergeFrom(other: field1)
+                      try subBuilder.mergeFrom(other: field1)
                     }
                     try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
@@ -27948,6 +28156,17 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
           final public class Group2 : GeneratedMessage {
+
+            public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
+              if (lhs === rhs) {
+                return true
+              }
+              var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+              fieldCheck = fieldCheck && (lhs.hasField1 == rhs.hasField1) && (!lhs.hasField1 || lhs.field1 == rhs.field1)
+              fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+              return fieldCheck
+            }
+
             public fileprivate(set) var field1:ProtobufUnittest.TestAllTypes!
             public fileprivate(set) var hasField1:Bool = false
             required public init() {
@@ -28085,7 +28304,7 @@ public extension ProtobufUnittest {
                    field1Builder_ = ProtobufUnittest.TestAllTypes.Builder()
                    builderResult.field1 = field1Builder_.getMessage()
                    if field1 != nil {
-                      _ = try! field1Builder_.mergeFrom(other: field1)
+                      try! field1Builder_.mergeFrom(other: field1)
                    }
                 }
                 return field1Builder_
@@ -28094,6 +28313,7 @@ public extension ProtobufUnittest {
                 self.field1 = value
                 return self
               }
+              @discardableResult
               public func mergeField1(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 if builderResult.hasField1 {
                   builderResult.field1 = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.field1).mergeFrom(other: value).buildPartial()
@@ -28129,16 +28349,18 @@ public extension ProtobufUnittest {
                 let returnMe:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 = builderResult
                 return returnMe
               }
+              @discardableResult
               public func mergeFrom(other:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 if other == ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2() {
                  return self
                 }
                 if (other.hasField1) {
-                    _ = try mergeField1(value: other.field1)
+                    try mergeField1(value: other.field1)
                 }
-                _ = try merge(unknownField: other.unknownFields)
+                try merge(unknownField: other.unknownFields)
                 return self
               }
+              @discardableResult
               override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
@@ -28154,7 +28376,7 @@ public extension ProtobufUnittest {
                   case 170:
                     let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                     if hasField1 {
-                      _ = try subBuilder.mergeFrom(other: field1)
+                      try subBuilder.mergeFrom(other: field1)
                     }
                     try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                     field1 = subBuilder.buildPartial()
@@ -28580,6 +28802,7 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
             if other == ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator() {
              return self
@@ -28605,9 +28828,10 @@ public extension ProtobufUnittest {
             if !other.ext2.isEmpty  {
                builderResult.ext2 += other.ext2
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -28748,6 +28972,17 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class OptionalGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: ProtobufUnittest.TestParsingMerge.OptionalGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasOptionalGroupAllTypes == rhs.hasOptionalGroupAllTypes) && (!lhs.hasOptionalGroupAllTypes || lhs.optionalGroupAllTypes == rhs.optionalGroupAllTypes)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypes!
         public fileprivate(set) var hasOptionalGroupAllTypes:Bool = false
         required public init() {
@@ -28885,7 +29120,7 @@ public extension ProtobufUnittest {
                optionalGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
                builderResult.optionalGroupAllTypes = optionalGroupAllTypesBuilder_.getMessage()
                if optionalGroupAllTypes != nil {
-                  _ = try! optionalGroupAllTypesBuilder_.mergeFrom(other: optionalGroupAllTypes)
+                  try! optionalGroupAllTypesBuilder_.mergeFrom(other: optionalGroupAllTypes)
                }
             }
             return optionalGroupAllTypesBuilder_
@@ -28894,6 +29129,7 @@ public extension ProtobufUnittest {
             self.optionalGroupAllTypes = value
             return self
           }
+          @discardableResult
           public func mergeOptionalGroupAllTypes(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             if builderResult.hasOptionalGroupAllTypes {
               builderResult.optionalGroupAllTypes = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.optionalGroupAllTypes).mergeFrom(other: value).buildPartial()
@@ -28929,16 +29165,18 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMerge.OptionalGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMerge.OptionalGroup) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             if other == ProtobufUnittest.TestParsingMerge.OptionalGroup() {
              return self
             }
             if (other.hasOptionalGroupAllTypes) {
-                _ = try mergeOptionalGroupAllTypes(value: other.optionalGroupAllTypes)
+                try mergeOptionalGroupAllTypes(value: other.optionalGroupAllTypes)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -28954,7 +29192,7 @@ public extension ProtobufUnittest {
               case 90:
                 let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                 if hasOptionalGroupAllTypes {
-                  _ = try subBuilder.mergeFrom(other: optionalGroupAllTypes)
+                  try subBuilder.mergeFrom(other: optionalGroupAllTypes)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 optionalGroupAllTypes = subBuilder.buildPartial()
@@ -28993,6 +29231,17 @@ public extension ProtobufUnittest {
     //Nested type declaration start
 
       final public class RepeatedGroup : GeneratedMessage {
+
+        public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup) -> Bool {
+          if (lhs === rhs) {
+            return true
+          }
+          var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+          fieldCheck = fieldCheck && (lhs.hasRepeatedGroupAllTypes == rhs.hasRepeatedGroupAllTypes) && (!lhs.hasRepeatedGroupAllTypes || lhs.repeatedGroupAllTypes == rhs.repeatedGroupAllTypes)
+          fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+          return fieldCheck
+        }
+
         public fileprivate(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypes!
         public fileprivate(set) var hasRepeatedGroupAllTypes:Bool = false
         required public init() {
@@ -29130,7 +29379,7 @@ public extension ProtobufUnittest {
                repeatedGroupAllTypesBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
                builderResult.repeatedGroupAllTypes = repeatedGroupAllTypesBuilder_.getMessage()
                if repeatedGroupAllTypes != nil {
-                  _ = try! repeatedGroupAllTypesBuilder_.mergeFrom(other: repeatedGroupAllTypes)
+                  try! repeatedGroupAllTypesBuilder_.mergeFrom(other: repeatedGroupAllTypes)
                }
             }
             return repeatedGroupAllTypesBuilder_
@@ -29139,6 +29388,7 @@ public extension ProtobufUnittest {
             self.repeatedGroupAllTypes = value
             return self
           }
+          @discardableResult
           public func mergeRepeatedGroupAllTypes(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             if builderResult.hasRepeatedGroupAllTypes {
               builderResult.repeatedGroupAllTypes = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.repeatedGroupAllTypes).mergeFrom(other: value).buildPartial()
@@ -29174,16 +29424,18 @@ public extension ProtobufUnittest {
             let returnMe:ProtobufUnittest.TestParsingMerge.RepeatedGroup = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:ProtobufUnittest.TestParsingMerge.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             if other == ProtobufUnittest.TestParsingMerge.RepeatedGroup() {
              return self
             }
             if (other.hasRepeatedGroupAllTypes) {
-                _ = try mergeRepeatedGroupAllTypes(value: other.repeatedGroupAllTypes)
+                try mergeRepeatedGroupAllTypes(value: other.repeatedGroupAllTypes)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -29199,7 +29451,7 @@ public extension ProtobufUnittest {
               case 170:
                 let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
                 if hasRepeatedGroupAllTypes {
-                  _ = try subBuilder.mergeFrom(other: repeatedGroupAllTypes)
+                  try subBuilder.mergeFrom(other: repeatedGroupAllTypes)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 repeatedGroupAllTypes = subBuilder.buildPartial()
@@ -29486,7 +29738,7 @@ public extension ProtobufUnittest {
            requiredAllTypesBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.requiredAllTypes = requiredAllTypesBuilder_.getMessage()
            if requiredAllTypes != nil {
-              _ = try! requiredAllTypesBuilder_.mergeFrom(other: requiredAllTypes)
+              try! requiredAllTypesBuilder_.mergeFrom(other: requiredAllTypes)
            }
         }
         return requiredAllTypesBuilder_
@@ -29495,6 +29747,7 @@ public extension ProtobufUnittest {
         self.requiredAllTypes = value
         return self
       }
+      @discardableResult
       public func mergeRequiredAllTypes(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         if builderResult.hasRequiredAllTypes {
           builderResult.requiredAllTypes = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.requiredAllTypes).mergeFrom(other: value).buildPartial()
@@ -29537,7 +29790,7 @@ public extension ProtobufUnittest {
            optionalAllTypesBuilder_ = ProtobufUnittest.TestAllTypes.Builder()
            builderResult.optionalAllTypes = optionalAllTypesBuilder_.getMessage()
            if optionalAllTypes != nil {
-              _ = try! optionalAllTypesBuilder_.mergeFrom(other: optionalAllTypes)
+              try! optionalAllTypesBuilder_.mergeFrom(other: optionalAllTypes)
            }
         }
         return optionalAllTypesBuilder_
@@ -29546,6 +29799,7 @@ public extension ProtobufUnittest {
         self.optionalAllTypes = value
         return self
       }
+      @discardableResult
       public func mergeOptionalAllTypes(value:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         if builderResult.hasOptionalAllTypes {
           builderResult.optionalAllTypes = try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult.optionalAllTypes).mergeFrom(other: value).buildPartial()
@@ -29604,7 +29858,7 @@ public extension ProtobufUnittest {
            optionalGroupBuilder_ = ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
            builderResult.optionalGroup = optionalGroupBuilder_.getMessage()
            if optionalGroup != nil {
-              _ = try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
+              try! optionalGroupBuilder_.mergeFrom(other: optionalGroup)
            }
         }
         return optionalGroupBuilder_
@@ -29613,6 +29867,7 @@ public extension ProtobufUnittest {
         self.optionalGroup = value
         return self
       }
+      @discardableResult
       public func mergeOptionalGroup(value:ProtobufUnittest.TestParsingMerge.OptionalGroup) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         if builderResult.hasOptionalGroup {
           builderResult.optionalGroup = try ProtobufUnittest.TestParsingMerge.OptionalGroup.builderWithPrototype(prototype:builderResult.optionalGroup).mergeFrom(other: value).buildPartial()
@@ -29664,29 +29919,31 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestParsingMerge = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestParsingMerge) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         if other == ProtobufUnittest.TestParsingMerge() {
          return self
         }
         if (other.hasRequiredAllTypes) {
-            _ = try mergeRequiredAllTypes(value: other.requiredAllTypes)
+            try mergeRequiredAllTypes(value: other.requiredAllTypes)
         }
         if (other.hasOptionalAllTypes) {
-            _ = try mergeOptionalAllTypes(value: other.optionalAllTypes)
+            try mergeOptionalAllTypes(value: other.optionalAllTypes)
         }
         if !other.repeatedAllTypes.isEmpty  {
            builderResult.repeatedAllTypes += other.repeatedAllTypes
         }
         if (other.hasOptionalGroup) {
-            _ = try mergeOptionalGroup(value: other.optionalGroup)
+            try mergeOptionalGroup(value: other.optionalGroup)
         }
         if !other.repeatedGroup.isEmpty  {
            builderResult.repeatedGroup += other.repeatedGroup
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -29702,7 +29959,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasRequiredAllTypes {
-              _ = try subBuilder.mergeFrom(other: requiredAllTypes)
+              try subBuilder.mergeFrom(other: requiredAllTypes)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             requiredAllTypes = subBuilder.buildPartial()
@@ -29710,7 +29967,7 @@ public extension ProtobufUnittest {
           case 18:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
             if hasOptionalAllTypes {
-              _ = try subBuilder.mergeFrom(other: optionalAllTypes)
+              try subBuilder.mergeFrom(other: optionalAllTypes)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             optionalAllTypes = subBuilder.buildPartial()
@@ -29723,7 +29980,7 @@ public extension ProtobufUnittest {
           case 83:
             let subBuilder:ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder = ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
             if hasOptionalGroup {
-              _ = try subBuilder.mergeFrom(other: optionalGroup)
+              try subBuilder.mergeFrom(other: optionalGroup)
             }
             try codedInputStream.readGroup(fieldNumber: 10, builder:subBuilder, extensionRegistry:extensionRegistry)
             optionalGroup = subBuilder.buildPartial()
@@ -29787,6 +30044,17 @@ public extension ProtobufUnittest {
   }
 
   final public class TestCommentInjectionMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: ProtobufUnittest.TestCommentInjectionMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasA == rhs.hasA) && (!lhs.hasA || lhs.a == rhs.a)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // */ <- This should not close the generated doc comment
     public fileprivate(set) var a:String = "*/ <- Neither should this."
     public fileprivate(set) var hasA:Bool = false
@@ -29934,6 +30202,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestCommentInjectionMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestCommentInjectionMessage) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
         if other == ProtobufUnittest.TestCommentInjectionMessage() {
          return self
@@ -29941,9 +30210,10 @@ public extension ProtobufUnittest {
         if other.hasA {
              a = other.a
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -29987,6 +30257,16 @@ public extension ProtobufUnittest {
 
   // Test that RPC services work.
   final public class FooRequest : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.FooRequest, rhs: ProtobufUnittest.FooRequest) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30092,13 +30372,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.FooRequest = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.FooRequest) throws -> ProtobufUnittest.FooRequest.Builder {
         if other == ProtobufUnittest.FooRequest() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooRequest.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -30135,6 +30417,16 @@ public extension ProtobufUnittest {
   }
 
   final public class FooResponse : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooResponse) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30240,13 +30532,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.FooResponse = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.FooResponse) throws -> ProtobufUnittest.FooResponse.Builder {
         if other == ProtobufUnittest.FooResponse() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooResponse.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -30283,6 +30577,16 @@ public extension ProtobufUnittest {
   }
 
   final public class FooClientMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.FooClientMessage, rhs: ProtobufUnittest.FooClientMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30388,13 +30692,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.FooClientMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.FooClientMessage) throws -> ProtobufUnittest.FooClientMessage.Builder {
         if other == ProtobufUnittest.FooClientMessage() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooClientMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -30431,6 +30737,16 @@ public extension ProtobufUnittest {
   }
 
   final public class FooServerMessage : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.FooServerMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30536,13 +30852,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.FooServerMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.FooServerMessage) throws -> ProtobufUnittest.FooServerMessage.Builder {
         if other == ProtobufUnittest.FooServerMessage() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooServerMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -30579,6 +30897,16 @@ public extension ProtobufUnittest {
   }
 
   final public class BarRequest : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarRequest) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30684,13 +31012,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.BarRequest = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.BarRequest) throws -> ProtobufUnittest.BarRequest.Builder {
         if other == ProtobufUnittest.BarRequest() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarRequest.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -30727,6 +31057,16 @@ public extension ProtobufUnittest {
   }
 
   final public class BarResponse : GeneratedMessage {
+
+    public static func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarResponse) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -30832,13 +31172,15 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.BarResponse = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.BarResponse) throws -> ProtobufUnittest.BarResponse.Builder {
         if other == ProtobufUnittest.BarResponse() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarResponse.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

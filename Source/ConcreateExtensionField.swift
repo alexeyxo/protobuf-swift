@@ -751,9 +751,9 @@ messageOrGroupClass:Any.Type,
         {
             let value = try readSingleValueFromCodedInputStream(input: codedInputStream, extensionRegistry:extensionRegistry)
             if (isRepeated) {
-                _  = try builder.addExtension(extensions: self, value:value)
+                try builder.addExtension(extensions: self, value:value)
             } else {
-                _  = try builder.setExtension(extensions: self, value:value)
+                try builder.setExtension(extensions: self, value:value)
             }
         }
     }

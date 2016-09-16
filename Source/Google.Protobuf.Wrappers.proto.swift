@@ -6,96 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.DoubleValue, rhs: Google.Protobuf.DoubleValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.FloatValue, rhs: Google.Protobuf.FloatValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Int64Value, rhs: Google.Protobuf.Int64Value) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Uint64Value, rhs: Google.Protobuf.Uint64Value) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Int32Value, rhs: Google.Protobuf.Int32Value) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Uint32Value, rhs: Google.Protobuf.Uint32Value) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.BoolValue, rhs: Google.Protobuf.BoolValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.StringValue, rhs: Google.Protobuf.StringValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.BytesValue, rhs: Google.Protobuf.BytesValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct WrappersRoot {
     public static var sharedInstance : WrappersRoot {
@@ -117,6 +27,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for double.
   final public class DoubleValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.DoubleValue, rhs: Google.Protobuf.DoubleValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The double value.
     public fileprivate(set) var value:Double = Double(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -172,7 +93,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -264,6 +185,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.DoubleValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.DoubleValue) throws -> Google.Protobuf.DoubleValue.Builder {
         if other == Google.Protobuf.DoubleValue() {
          return self
@@ -271,9 +193,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.DoubleValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -299,8 +222,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DoubleValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.DoubleValue.Builder()
-        if let jsonValueValue = jsonMap["value"] as? NSNumber {
-          resultDecodedBuilder.value = jsonValueValue.doubleValue
+        if let jsonValueValue = jsonMap["value"] as? Double {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -317,6 +240,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for float.
   final public class FloatValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.FloatValue, rhs: Google.Protobuf.FloatValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The float value.
     public fileprivate(set) var value:Float = Float(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -372,7 +306,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -464,6 +398,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.FloatValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.FloatValue) throws -> Google.Protobuf.FloatValue.Builder {
         if other == Google.Protobuf.FloatValue() {
          return self
@@ -471,9 +406,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FloatValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -499,8 +435,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FloatValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.FloatValue.Builder()
-        if let jsonValueValue = jsonMap["value"] as? NSNumber {
-          resultDecodedBuilder.value = jsonValueValue.floatValue
+        if let jsonValueValue = jsonMap["value"] as? Float {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -517,6 +453,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for int64.
   final public class Int64Value : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Int64Value, rhs: Google.Protobuf.Int64Value) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The int64 value.
     public fileprivate(set) var value:Int64 = Int64(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -572,7 +519,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = "\(value)"
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -664,6 +611,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Int64Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Int64Value) throws -> Google.Protobuf.Int64Value.Builder {
         if other == Google.Protobuf.Int64Value() {
          return self
@@ -671,9 +619,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -699,8 +648,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Int64Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Int64Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? String {
-          resultDecodedBuilder.value = Int64(jsonValueValue)!
+        if let jsonValueValue = jsonMap["value"] as? Int64 {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -717,6 +666,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for uint64.
   final public class Uint64Value : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Uint64Value, rhs: Google.Protobuf.Uint64Value) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The uint64 value.
     public fileprivate(set) var value:UInt64 = UInt64(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -772,7 +732,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = "\(value)"
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -864,6 +824,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Uint64Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Uint64Value) throws -> Google.Protobuf.Uint64Value.Builder {
         if other == Google.Protobuf.Uint64Value() {
          return self
@@ -871,9 +832,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -899,8 +861,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Uint64Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Uint64Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? String {
-          resultDecodedBuilder.value = UInt64(jsonValueValue)!
+        if let jsonValueValue = jsonMap["value"] as? UInt64 {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -917,6 +879,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for int32.
   final public class Int32Value : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Int32Value, rhs: Google.Protobuf.Int32Value) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The int32 value.
     public fileprivate(set) var value:Int32 = Int32(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -972,7 +945,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -1064,6 +1037,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Int32Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Int32Value) throws -> Google.Protobuf.Int32Value.Builder {
         if other == Google.Protobuf.Int32Value() {
          return self
@@ -1071,9 +1045,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1099,8 +1074,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Int32Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Int32Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? NSNumber {
-          resultDecodedBuilder.value = jsonValueValue.int32Value
+        if let jsonValueValue = jsonMap["value"] as? Int32 {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -1117,6 +1092,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for uint32.
   final public class Uint32Value : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Uint32Value, rhs: Google.Protobuf.Uint32Value) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The uint32 value.
     public fileprivate(set) var value:UInt32 = UInt32(0)
     public fileprivate(set) var hasValue:Bool = false
@@ -1172,7 +1158,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = NSNumber(value:value)
+        jsonMap["value"] = value
       }
       return jsonMap
     }
@@ -1264,6 +1250,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Uint32Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Uint32Value) throws -> Google.Protobuf.Uint32Value.Builder {
         if other == Google.Protobuf.Uint32Value() {
          return self
@@ -1271,9 +1258,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1299,8 +1287,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Uint32Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Uint32Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? NSNumber {
-          resultDecodedBuilder.value = jsonValueValue.uint32Value
+        if let jsonValueValue = jsonMap["value"] as? UInt32 {
+          resultDecodedBuilder.value = jsonValueValue
         }
         return resultDecodedBuilder
       }
@@ -1317,6 +1305,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for bool.
   final public class BoolValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.BoolValue, rhs: Google.Protobuf.BoolValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The bool value.
     public fileprivate(set) var value:Bool = false
     public fileprivate(set) var hasValue:Bool = false
@@ -1464,6 +1463,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.BoolValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.BoolValue) throws -> Google.Protobuf.BoolValue.Builder {
         if other == Google.Protobuf.BoolValue() {
          return self
@@ -1471,9 +1471,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BoolValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1517,6 +1518,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for string.
   final public class StringValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.StringValue, rhs: Google.Protobuf.StringValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The string value.
     public fileprivate(set) var value:String = ""
     public fileprivate(set) var hasValue:Bool = false
@@ -1664,6 +1676,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.StringValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.StringValue) throws -> Google.Protobuf.StringValue.Builder {
         if other == Google.Protobuf.StringValue() {
          return self
@@ -1671,9 +1684,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.StringValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1717,6 +1731,17 @@ public extension Google.Protobuf {
 
   // Wrapper message for bytes.
   final public class BytesValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.BytesValue, rhs: Google.Protobuf.BytesValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The bytes value.
     public fileprivate(set) var value:Data = Data()
     public fileprivate(set) var hasValue:Bool = false
@@ -1864,6 +1889,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.BytesValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.BytesValue) throws -> Google.Protobuf.BytesValue.Builder {
         if other == Google.Protobuf.BytesValue() {
          return self
@@ -1871,9 +1897,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BytesValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

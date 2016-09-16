@@ -6,51 +6,6 @@ import Foundation
 import ProtocolBuffers
 
 
-public func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFirstName == rhs.hasFirstName) && (!lhs.hasFirstName || lhs.firstName == rhs.firstName)
-  fieldCheck = fieldCheck && (lhs.hasLastName == rhs.hasLastName) && (!lhs.hasLastName || lhs.lastName == rhs.lastName)
-  fieldCheck = fieldCheck && (lhs.hasAvatarUrl == rhs.hasAvatarUrl) && (!lhs.hasAvatarUrl || lhs.avatarUrl == rhs.avatarUrl)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: UserProfile.Request, rhs: UserProfile.Request) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasUserId == rhs.hasUserId) && (!lhs.hasUserId || lhs.userId == rhs.userId)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: UserProfile.Response, rhs: UserProfile.Response) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasProfile == rhs.hasProfile) && (!lhs.hasProfile || lhs.profile == rhs.profile)
-  fieldCheck = fieldCheck && (lhs.hasError == rhs.hasError) && (!lhs.hasError || lhs.error == rhs.error)
-  fieldCheck = fieldCheck && (lhs.hasException == rhs.hasException) && (!lhs.hasException || lhs.exception == rhs.exception)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: UserProfile.Exception, rhs: UserProfile.Exception) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasErrorCode == rhs.hasErrorCode) && (!lhs.hasErrorCode || lhs.errorCode == rhs.errorCode)
-  fieldCheck = fieldCheck && (lhs.hasErrorDescription == rhs.hasErrorDescription) && (!lhs.hasErrorDescription || lhs.errorDescription == rhs.errorDescription)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public struct UnittestErrorTypeRoot {
   public static var sharedInstance : UnittestErrorTypeRoot {
    struct Static {
@@ -124,10 +79,34 @@ public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, 
 
 final public class UserProfile : GeneratedMessage {
 
+  public static func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasFirstName == rhs.hasFirstName) && (!lhs.hasFirstName || lhs.firstName == rhs.firstName)
+    fieldCheck = fieldCheck && (lhs.hasLastName == rhs.hasLastName) && (!lhs.hasLastName || lhs.lastName == rhs.lastName)
+    fieldCheck = fieldCheck && (lhs.hasAvatarUrl == rhs.hasAvatarUrl) && (!lhs.hasAvatarUrl || lhs.avatarUrl == rhs.avatarUrl)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
+
 
   //Nested type declaration start
 
     final public class Request : GeneratedMessage {
+
+      public static func == (lhs: UserProfile.Request, rhs: UserProfile.Request) -> Bool {
+        if (lhs === rhs) {
+          return true
+        }
+        var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+        fieldCheck = fieldCheck && (lhs.hasUserId == rhs.hasUserId) && (!lhs.hasUserId || lhs.userId == rhs.userId)
+        fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+        return fieldCheck
+      }
+
       public fileprivate(set) var userId:String = ""
       public fileprivate(set) var hasUserId:Bool = false
 
@@ -277,6 +256,7 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Request = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Request) throws -> UserProfile.Request.Builder {
           if other == UserProfile.Request() {
            return self
@@ -284,9 +264,10 @@ final public class UserProfile : GeneratedMessage {
           if other.hasUserId {
                userId = other.userId
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -335,6 +316,19 @@ final public class UserProfile : GeneratedMessage {
   //Nested type declaration start
 
     final public class Response : GeneratedMessage {
+
+      public static func == (lhs: UserProfile.Response, rhs: UserProfile.Response) -> Bool {
+        if (lhs === rhs) {
+          return true
+        }
+        var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+        fieldCheck = fieldCheck && (lhs.hasProfile == rhs.hasProfile) && (!lhs.hasProfile || lhs.profile == rhs.profile)
+        fieldCheck = fieldCheck && (lhs.hasError == rhs.hasError) && (!lhs.hasError || lhs.error == rhs.error)
+        fieldCheck = fieldCheck && (lhs.hasException == rhs.hasException) && (!lhs.hasException || lhs.exception == rhs.exception)
+        fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+        return fieldCheck
+      }
+
       public fileprivate(set) var profile:UserProfile!
       public fileprivate(set) var hasProfile:Bool = false
       public fileprivate(set) var error:ServiceError = ServiceError.badRequest
@@ -519,7 +513,7 @@ final public class UserProfile : GeneratedMessage {
              profileBuilder_ = UserProfile.Builder()
              builderResult.profile = profileBuilder_.getMessage()
              if profile != nil {
-                _ = try! profileBuilder_.mergeFrom(other: profile)
+                try! profileBuilder_.mergeFrom(other: profile)
              }
           }
           return profileBuilder_
@@ -528,6 +522,7 @@ final public class UserProfile : GeneratedMessage {
           self.profile = value
           return self
         }
+        @discardableResult
         public func mergeProfile(value:UserProfile) throws -> UserProfile.Response.Builder {
           if builderResult.hasProfile {
             builderResult.profile = try UserProfile.builderWithPrototype(prototype:builderResult.profile).mergeFrom(other: value).buildPartial()
@@ -593,7 +588,7 @@ final public class UserProfile : GeneratedMessage {
              exceptionBuilder_ = UserProfile.Exception.Builder()
              builderResult.exception = exceptionBuilder_.getMessage()
              if exception != nil {
-                _ = try! exceptionBuilder_.mergeFrom(other: exception)
+                try! exceptionBuilder_.mergeFrom(other: exception)
              }
           }
           return exceptionBuilder_
@@ -602,6 +597,7 @@ final public class UserProfile : GeneratedMessage {
           self.exception = value
           return self
         }
+        @discardableResult
         public func mergeException(value:UserProfile.Exception) throws -> UserProfile.Response.Builder {
           if builderResult.hasException {
             builderResult.exception = try UserProfile.Exception.builderWithPrototype(prototype:builderResult.exception).mergeFrom(other: value).buildPartial()
@@ -637,22 +633,24 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Response = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Response) throws -> UserProfile.Response.Builder {
           if other == UserProfile.Response() {
            return self
           }
           if (other.hasProfile) {
-              _ = try mergeProfile(value: other.profile)
+              try mergeProfile(value: other.profile)
           }
           if other.hasError {
                error = other.error
           }
           if (other.hasException) {
-              _ = try mergeException(value: other.exception)
+              try mergeException(value: other.exception)
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -668,7 +666,7 @@ final public class UserProfile : GeneratedMessage {
             case 10:
               let subBuilder:UserProfile.Builder = UserProfile.Builder()
               if hasProfile {
-                _ = try subBuilder.mergeFrom(other: profile)
+                try subBuilder.mergeFrom(other: profile)
               }
               try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
               profile = subBuilder.buildPartial()
@@ -678,13 +676,13 @@ final public class UserProfile : GeneratedMessage {
               if let enumserror = ServiceError(rawValue:valueInterror){
                    error = enumserror
               } else {
-                   _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueInterror))
+                   try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueInterror))
               }
 
             case 26:
               let subBuilder:UserProfile.Exception.Builder = UserProfile.Exception.Builder()
               if hasException {
-                _ = try subBuilder.mergeFrom(other: exception)
+                try subBuilder.mergeFrom(other: exception)
               }
               try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
               exception = subBuilder.buildPartial()
@@ -730,6 +728,18 @@ final public class UserProfile : GeneratedMessage {
   //Nested type declaration start
 
     final public class Exception : GeneratedMessage, Error {
+
+      public static func == (lhs: UserProfile.Exception, rhs: UserProfile.Exception) -> Bool {
+        if (lhs === rhs) {
+          return true
+        }
+        var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+        fieldCheck = fieldCheck && (lhs.hasErrorCode == rhs.hasErrorCode) && (!lhs.hasErrorCode || lhs.errorCode == rhs.errorCode)
+        fieldCheck = fieldCheck && (lhs.hasErrorDescription == rhs.hasErrorDescription) && (!lhs.hasErrorDescription || lhs.errorDescription == rhs.errorDescription)
+        fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+        return fieldCheck
+      }
+
       public fileprivate(set) var errorCode:Int32 = Int32(0)
       public fileprivate(set) var hasErrorCode:Bool = false
 
@@ -799,7 +809,7 @@ final public class UserProfile : GeneratedMessage {
 
         var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
         if hasErrorCode {
-          jsonMap["errorCode"] = NSNumber(value:errorCode)
+          jsonMap["errorCode"] = errorCode
         }
         if hasErrorDescription {
           jsonMap["errorDescription"] = errorDescription
@@ -923,6 +933,7 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Exception = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Exception) throws -> UserProfile.Exception.Builder {
           if other == UserProfile.Exception() {
            return self
@@ -933,9 +944,10 @@ final public class UserProfile : GeneratedMessage {
           if other.hasErrorDescription {
                errorDescription = other.errorDescription
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -964,8 +976,8 @@ final public class UserProfile : GeneratedMessage {
         }
         class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception.Builder {
           let resultDecodedBuilder = UserProfile.Exception.Builder()
-          if let jsonValueErrorCode = jsonMap["errorCode"] as? NSNumber {
-            resultDecodedBuilder.errorCode = jsonValueErrorCode.int32Value
+          if let jsonValueErrorCode = jsonMap["errorCode"] as? Int32 {
+            resultDecodedBuilder.errorCode = jsonValueErrorCode
           }
           if let jsonValueErrorDescription = jsonMap["errorDescription"] as? String {
             resultDecodedBuilder.errorDescription = jsonValueErrorDescription
@@ -1213,6 +1225,7 @@ final public class UserProfile : GeneratedMessage {
       let returnMe:UserProfile = builderResult
       return returnMe
     }
+    @discardableResult
     public func mergeFrom(other:UserProfile) throws -> UserProfile.Builder {
       if other == UserProfile() {
        return self
@@ -1226,9 +1239,10 @@ final public class UserProfile : GeneratedMessage {
       if other.hasAvatarUrl {
            avatarUrl = other.avatarUrl
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }

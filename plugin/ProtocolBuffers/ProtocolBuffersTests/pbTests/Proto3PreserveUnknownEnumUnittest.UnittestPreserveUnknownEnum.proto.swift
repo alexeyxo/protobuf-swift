@@ -8,36 +8,6 @@ import ProtocolBuffers
 
 public struct Proto3PreserveUnknownEnumUnittest { }
 
-public func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
-  fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
-  fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
-  fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
-  fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
-  fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
-  fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
-  fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Proto3PreserveUnknownEnumUnittest {
   public struct UnittestPreserveUnknownEnumRoot {
     public static var sharedInstance : UnittestPreserveUnknownEnumRoot {
@@ -133,6 +103,22 @@ public extension Proto3PreserveUnknownEnumUnittest {
   //Enum type declaration end 
 
   final public class MyMessage : GeneratedMessage {
+
+    public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
+      fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
+      fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
+      fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
     //OneOf declaration start
@@ -230,8 +216,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if hasE {
         try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
+      if !repeatedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 18)
+        try codedOutputStream.writeRawVarint32(value: repeatedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedE in repeatedE {
-          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 26)
@@ -240,8 +230,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedE.rawValue)
       }
+      if !repeatedPackedUnexpectedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 34)
+        try codedOutputStream.writeRawVarint32(value: repeatedPackedUnexpectedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          try codedOutputStream.writeEnum(fieldNumber: 4, value:oneValueOfrepeatedPackedUnexpectedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedPackedUnexpectedE.rawValue)
       }
       if hasOneofE1 {
         try codedOutputStream.writeEnum(fieldNumber: 5, value:oneofE1.rawValue)
@@ -266,7 +260,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedE
-      serialize_size += (1 * Int32(repeatedE.count))
+      if !repeatedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+      }
+      repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
@@ -282,7 +280,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedPackedUnexpectedE += oneValueOfrepeatedPackedUnexpectedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedPackedUnexpectedE
-      serialize_size += (1 * Int32(repeatedPackedUnexpectedE.count))
+      if !repeatedPackedUnexpectedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedPackedUnexpectedE.computeRawVarint32Size()
+      }
+      repeatedPackedUnexpectedEMemoizedSerializedSize = dataSizerepeatedPackedUnexpectedE
       if (hasOneofE1) {
         serialize_size += oneofE1.rawValue.computeEnumSize(fieldNumber: 5)
       }
@@ -567,6 +569,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         let returnMe:Proto3PreserveUnknownEnumUnittest.MyMessage = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3PreserveUnknownEnumUnittest.MyMessage) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         if other == Proto3PreserveUnknownEnumUnittest.MyMessage() {
          return self
@@ -589,9 +592,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
         if other.hasOneofE2 {
              oneofE2 = other.oneofE2
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -609,16 +613,21 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueInte){
                  e = enumse
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
-          case 16:
+          case 18:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE.append(enumsrepeatedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 26:
             let length = Int(try codedInputStream.readRawVarint32())
@@ -628,25 +637,30 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsrepeatedPackedE = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntrepeatedPackedE) {
                  builderResult.repeatedPackedE.append(enumsrepeatedPackedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
 
-          case 32:
+          case 34:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedPackedUnexpectedE = try codedInputStream.readEnum()
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
                  builderResult.repeatedPackedUnexpectedE.append(enumsrepeatedPackedUnexpectedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 40:
             let valueIntoneofE1 = try codedInputStream.readEnum()
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
             }
 
           case 48:
@@ -654,7 +668,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnum(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
             }
 
           default:
@@ -714,6 +728,22 @@ public extension Proto3PreserveUnknownEnumUnittest {
   }
 
   final public class MyMessagePlusExtra : GeneratedMessage {
+
+    public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasE == rhs.hasE) && (!lhs.hasE || lhs.e == rhs.e)
+      fieldCheck = fieldCheck && (lhs.repeatedE == rhs.repeatedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedE == rhs.repeatedPackedE)
+      fieldCheck = fieldCheck && (lhs.repeatedPackedUnexpectedE == rhs.repeatedPackedUnexpectedE)
+      fieldCheck = fieldCheck && (lhs.hasOneofE1 == rhs.hasOneofE1) && (!lhs.hasOneofE1 || lhs.oneofE1 == rhs.oneofE1)
+      fieldCheck = fieldCheck && (lhs.hasOneofE2 == rhs.hasOneofE2) && (!lhs.hasOneofE2 || lhs.oneofE2 == rhs.oneofE2)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
     //OneOf declaration start
@@ -811,8 +841,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
       if hasE {
         try codedOutputStream.writeEnum(fieldNumber: 1, value:e.rawValue)
       }
+      if !repeatedE.isEmpty {
+        try codedOutputStream.writeRawVarint32(value: 18)
+        try codedOutputStream.writeRawVarint32(value: repeatedEMemoizedSerializedSize)
+      }
       for oneValueOfrepeatedE in repeatedE {
-          try codedOutputStream.writeEnum(fieldNumber: 2, value:oneValueOfrepeatedE.rawValue)
+          try codedOutputStream.writeEnumNoTag(value: oneValueOfrepeatedE.rawValue)
       }
       if !repeatedPackedE.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 26)
@@ -851,7 +885,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
           dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
       }
       serialize_size += dataSizerepeatedE
-      serialize_size += (1 * Int32(repeatedE.count))
+      if !repeatedE.isEmpty {
+        serialize_size += 1
+        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+      }
+      repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
       for oneValueOfrepeatedPackedE in repeatedPackedE {
           dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
@@ -1156,6 +1194,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         let returnMe:Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         if other == Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra() {
          return self
@@ -1178,9 +1217,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
         if other.hasOneofE2 {
              oneofE2 = other.oneofE2
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1198,16 +1238,21 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumse = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueInte){
                  e = enumse
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueInte))
             }
 
-          case 16:
+          case 18:
+            let length = Int(try codedInputStream.readRawVarint32())
+            let oldLimit = try codedInputStream.pushLimit(byteLimit: length)
+            while codedInputStream.bytesUntilLimit() > 0 {
             let valueIntrepeatedE = try codedInputStream.readEnum()
             if let enumsrepeatedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedE) {
                  builderResult.repeatedE.append(enumsrepeatedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntrepeatedE))
             }
+            }
+            codedInputStream.popLimit(oldLimit: oldLimit)
 
           case 26:
             let length = Int(try codedInputStream.readRawVarint32())
@@ -1217,7 +1262,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsrepeatedPackedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedE) {
                  builderResult.repeatedPackedE.append(enumsrepeatedPackedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrepeatedPackedE))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -1230,7 +1275,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsrepeatedPackedUnexpectedE = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntrepeatedPackedUnexpectedE) {
                  builderResult.repeatedPackedUnexpectedE.append(enumsrepeatedPackedUnexpectedE)
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 4, value:Int64(valueIntrepeatedPackedUnexpectedE))
             }
             }
             codedInputStream.popLimit(oldLimit: oldLimit)
@@ -1240,7 +1285,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsoneofE1 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE1){
                  oneofE1 = enumsoneofE1
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueIntoneofE1))
             }
 
           case 48:
@@ -1248,7 +1293,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
             if let enumsoneofE2 = Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra(rawValue:valueIntoneofE2){
                  oneofE2 = enumsoneofE2
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 6, value:Int64(valueIntoneofE2))
             }
 
           default:

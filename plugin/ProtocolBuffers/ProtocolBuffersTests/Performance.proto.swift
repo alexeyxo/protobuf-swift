@@ -6,105 +6,6 @@ import Foundation
 import ProtocolBuffers
 
 
-internal func == (lhs: PBUser, rhs: PBUser) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasGroup == rhs.hasGroup) && (!lhs.hasGroup || lhs.group == rhs.group)
-  fieldCheck = fieldCheck && (lhs.hasGroupName == rhs.hasGroupName) && (!lhs.hasGroupName || lhs.groupName == rhs.groupName)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasOwner == rhs.hasOwner) && (!lhs.hasOwner || lhs.owner == rhs.owner)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasInts == rhs.hasInts) && (!lhs.hasInts || lhs.ints == rhs.ints)
-  fieldCheck = fieldCheck && (lhs.hasInts64 == rhs.hasInts64) && (!lhs.hasInts64 || lhs.ints64 == rhs.ints64)
-  fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
-  fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
-  fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
-  fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
-  fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasLatitude == rhs.hasLatitude) && (!lhs.hasLatitude || lhs.latitude == rhs.latitude)
-  fieldCheck = fieldCheck && (lhs.hasLongitude == rhs.hasLongitude) && (!lhs.hasLongitude || lhs.longitude == rhs.longitude)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
-  fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasVal == rhs.hasVal) && (!lhs.hasVal || lhs.val == rhs.val)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBBar, rhs: PBBar) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-internal func == (lhs: PBBaz, rhs: PBBaz) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 internal struct PerformanceRoot {
   internal static var sharedInstance : PerformanceRoot {
    struct Static {
@@ -124,6 +25,18 @@ internal struct PerformanceRoot {
 }
 
 final internal class PBUser : GeneratedMessage {
+
+  internal static func == (lhs: PBUser, rhs: PBUser) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasGroup == rhs.hasGroup) && (!lhs.hasGroup || lhs.group == rhs.group)
+    fieldCheck = fieldCheck && (lhs.hasGroupName == rhs.hasGroupName) && (!lhs.hasGroupName || lhs.groupName == rhs.groupName)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var group:PBGroup!
   internal fileprivate(set) var hasGroup:Bool = false
   internal fileprivate(set) var groupName:String = ""
@@ -279,7 +192,7 @@ final internal class PBUser : GeneratedMessage {
          groupBuilder_ = PBGroup.Builder()
          builderResult.group = groupBuilder_.getMessage()
          if group != nil {
-            _ = try! groupBuilder_.mergeFrom(other: group)
+            try! groupBuilder_.mergeFrom(other: group)
          }
       }
       return groupBuilder_
@@ -288,6 +201,7 @@ final internal class PBUser : GeneratedMessage {
       self.group = value
       return self
     }
+    @discardableResult
     internal func mergeGroup(value:PBGroup) throws -> PBUser.Builder {
       if builderResult.hasGroup {
         builderResult.group = try PBGroup.builderWithPrototype(prototype:builderResult.group).mergeFrom(other: value).buildPartial()
@@ -346,19 +260,21 @@ final internal class PBUser : GeneratedMessage {
       let returnMe:PBUser = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBUser) throws -> PBUser.Builder {
       if other == PBUser() {
        return self
       }
       if (other.hasGroup) {
-          _ = try mergeGroup(value: other.group)
+          try mergeGroup(value: other.group)
       }
       if other.hasGroupName {
            groupName = other.groupName
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBUser.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -374,7 +290,7 @@ final internal class PBUser : GeneratedMessage {
         case 10:
           let subBuilder:PBGroup.Builder = PBGroup.Builder()
           if hasGroup {
-            _ = try subBuilder.mergeFrom(other: group)
+            try subBuilder.mergeFrom(other: group)
           }
           try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
           group = subBuilder.buildPartial()
@@ -413,6 +329,17 @@ final internal class PBUser : GeneratedMessage {
 }
 
 final internal class PBGroup : GeneratedMessage {
+
+  internal static func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasOwner == rhs.hasOwner) && (!lhs.hasOwner || lhs.owner == rhs.owner)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var owner:PBUser!
   internal fileprivate(set) var hasOwner:Bool = false
   required internal init() {
@@ -550,7 +477,7 @@ final internal class PBGroup : GeneratedMessage {
          ownerBuilder_ = PBUser.Builder()
          builderResult.owner = ownerBuilder_.getMessage()
          if owner != nil {
-            _ = try! ownerBuilder_.mergeFrom(other: owner)
+            try! ownerBuilder_.mergeFrom(other: owner)
          }
       }
       return ownerBuilder_
@@ -559,6 +486,7 @@ final internal class PBGroup : GeneratedMessage {
       self.owner = value
       return self
     }
+    @discardableResult
     internal func mergeOwner(value:PBUser) throws -> PBGroup.Builder {
       if builderResult.hasOwner {
         builderResult.owner = try PBUser.builderWithPrototype(prototype:builderResult.owner).mergeFrom(other: value).buildPartial()
@@ -594,16 +522,18 @@ final internal class PBGroup : GeneratedMessage {
       let returnMe:PBGroup = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBGroup) throws -> PBGroup.Builder {
       if other == PBGroup() {
        return self
       }
       if (other.hasOwner) {
-          _ = try mergeOwner(value: other.owner)
+          try mergeOwner(value: other.owner)
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBGroup.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -619,7 +549,7 @@ final internal class PBGroup : GeneratedMessage {
         case 10:
           let subBuilder:PBUser.Builder = PBUser.Builder()
           if hasOwner {
-            _ = try subBuilder.mergeFrom(other: owner)
+            try subBuilder.mergeFrom(other: owner)
           }
           try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
           owner = subBuilder.buildPartial()
@@ -652,6 +582,17 @@ final internal class PBGroup : GeneratedMessage {
 }
 
 final internal class PBPerfomanceBatch : GeneratedMessage {
+
+  internal static func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.batch == rhs.batch)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var batch:Array<PBPerfomance>  = Array<PBPerfomance>()
   required internal init() {
        super.init()
@@ -808,6 +749,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
       let returnMe:PBPerfomanceBatch = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBPerfomanceBatch) throws -> PBPerfomanceBatch.Builder {
       if other == PBPerfomanceBatch() {
        return self
@@ -815,9 +757,10 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
       if !other.batch.isEmpty  {
          builderResult.batch += other.batch
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBPerfomanceBatch.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -868,6 +811,23 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
 }
 
 final internal class PBPerfomance : GeneratedMessage {
+
+  internal static func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasInts == rhs.hasInts) && (!lhs.hasInts || lhs.ints == rhs.ints)
+    fieldCheck = fieldCheck && (lhs.hasInts64 == rhs.hasInts64) && (!lhs.hasInts64 || lhs.ints64 == rhs.ints64)
+    fieldCheck = fieldCheck && (lhs.hasDoubles == rhs.hasDoubles) && (!lhs.hasDoubles || lhs.doubles == rhs.doubles)
+    fieldCheck = fieldCheck && (lhs.hasFloats == rhs.hasFloats) && (!lhs.hasFloats || lhs.floats == rhs.floats)
+    fieldCheck = fieldCheck && (lhs.hasStr == rhs.hasStr) && (!lhs.hasStr || lhs.str == rhs.str)
+    fieldCheck = fieldCheck && (lhs.hasBytes == rhs.hasBytes) && (!lhs.hasBytes || lhs.bytes == rhs.bytes)
+    fieldCheck = fieldCheck && (lhs.hasDescription == rhs.hasDescription) && (!lhs.hasDescription || lhs.description_ == rhs.description_)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var ints:Int32 = Int32(0)
   internal fileprivate(set) var hasInts:Bool = false
 
@@ -988,16 +948,16 @@ final internal class PBPerfomance : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasInts {
-      jsonMap["ints"] = NSNumber(value:ints)
+      jsonMap["ints"] = ints
     }
     if hasInts64 {
-      jsonMap["ints64"] = "\(ints64)"
+      jsonMap["ints64"] = ints64
     }
     if hasDoubles {
-      jsonMap["doubles"] = NSNumber(value:doubles)
+      jsonMap["doubles"] = doubles
     }
     if hasFloats {
-      jsonMap["floats"] = NSNumber(value:floats)
+      jsonMap["floats"] = floats
     }
     if hasStr {
       jsonMap["str"] = str
@@ -1272,6 +1232,7 @@ final internal class PBPerfomance : GeneratedMessage {
       let returnMe:PBPerfomance = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBPerfomance) throws -> PBPerfomance.Builder {
       if other == PBPerfomance() {
        return self
@@ -1297,9 +1258,10 @@ final internal class PBPerfomance : GeneratedMessage {
       if other.hasDescription {
            description_ = other.description_
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBPerfomance.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -1343,17 +1305,17 @@ final internal class PBPerfomance : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance.Builder {
       let resultDecodedBuilder = PBPerfomance.Builder()
-      if let jsonValueInts = jsonMap["ints"] as? NSNumber {
-        resultDecodedBuilder.ints = jsonValueInts.int32Value
+      if let jsonValueInts = jsonMap["ints"] as? Int32 {
+        resultDecodedBuilder.ints = jsonValueInts
       }
-      if let jsonValueInts64 = jsonMap["ints64"] as? String {
-        resultDecodedBuilder.ints64 = Int64(jsonValueInts64)!
+      if let jsonValueInts64 = jsonMap["ints64"] as? Int64 {
+        resultDecodedBuilder.ints64 = jsonValueInts64
       }
-      if let jsonValueDoubles = jsonMap["doubles"] as? NSNumber {
-        resultDecodedBuilder.doubles = jsonValueDoubles.doubleValue
+      if let jsonValueDoubles = jsonMap["doubles"] as? Double {
+        resultDecodedBuilder.doubles = jsonValueDoubles
       }
-      if let jsonValueFloats = jsonMap["floats"] as? NSNumber {
-        resultDecodedBuilder.floats = jsonValueFloats.floatValue
+      if let jsonValueFloats = jsonMap["floats"] as? Float {
+        resultDecodedBuilder.floats = jsonValueFloats
       }
       if let jsonValueStr = jsonMap["str"] as? String {
         resultDecodedBuilder.str = jsonValueStr
@@ -1378,6 +1340,18 @@ final internal class PBPerfomance : GeneratedMessage {
 }
 
 final internal class PBProtoPoint : GeneratedMessage {
+
+  internal static func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasLatitude == rhs.hasLatitude) && (!lhs.hasLatitude || lhs.latitude == rhs.latitude)
+    fieldCheck = fieldCheck && (lhs.hasLongitude == rhs.hasLongitude) && (!lhs.hasLongitude || lhs.longitude == rhs.longitude)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var latitude:Float = Float(0)
   internal fileprivate(set) var hasLatitude:Bool = false
 
@@ -1447,10 +1421,10 @@ final internal class PBProtoPoint : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasLatitude {
-      jsonMap["latitude"] = NSNumber(value:latitude)
+      jsonMap["latitude"] = latitude
     }
     if hasLongitude {
-      jsonMap["longitude"] = NSNumber(value:longitude)
+      jsonMap["longitude"] = longitude
     }
     return jsonMap
   }
@@ -1571,6 +1545,7 @@ final internal class PBProtoPoint : GeneratedMessage {
       let returnMe:PBProtoPoint = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBProtoPoint) throws -> PBProtoPoint.Builder {
       if other == PBProtoPoint() {
        return self
@@ -1581,9 +1556,10 @@ final internal class PBProtoPoint : GeneratedMessage {
       if other.hasLongitude {
            longitude = other.longitude
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBProtoPoint.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -1612,11 +1588,11 @@ final internal class PBProtoPoint : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint.Builder {
       let resultDecodedBuilder = PBProtoPoint.Builder()
-      if let jsonValueLatitude = jsonMap["latitude"] as? NSNumber {
-        resultDecodedBuilder.latitude = jsonValueLatitude.floatValue
+      if let jsonValueLatitude = jsonMap["latitude"] as? Float {
+        resultDecodedBuilder.latitude = jsonValueLatitude
       }
-      if let jsonValueLongitude = jsonMap["longitude"] as? NSNumber {
-        resultDecodedBuilder.longitude = jsonValueLongitude.floatValue
+      if let jsonValueLongitude = jsonMap["longitude"] as? Float {
+        resultDecodedBuilder.longitude = jsonValueLongitude
       }
       return resultDecodedBuilder
     }
@@ -1632,6 +1608,18 @@ final internal class PBProtoPoint : GeneratedMessage {
 }
 
 final internal class PBIceCreamCone : GeneratedMessage {
+
+  internal static func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasScoops == rhs.hasScoops) && (!lhs.hasScoops || lhs.scoops == rhs.scoops)
+    fieldCheck = fieldCheck && (lhs.hasFlavor == rhs.hasFlavor) && (!lhs.hasFlavor || lhs.flavor == rhs.flavor)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
 
 
     //Enum type declaration start 
@@ -1726,7 +1714,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasScoops {
-      jsonMap["scoops"] = NSNumber(value:scoops)
+      jsonMap["scoops"] = scoops
     }
     if hasFlavor {
       jsonMap["flavor"] = flavor.toString()
@@ -1850,6 +1838,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
       let returnMe:PBIceCreamCone = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBIceCreamCone) throws -> PBIceCreamCone.Builder {
       if other == PBIceCreamCone() {
        return self
@@ -1860,9 +1849,10 @@ final internal class PBIceCreamCone : GeneratedMessage {
       if other.hasFlavor {
            flavor = other.flavor
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBIceCreamCone.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -1883,7 +1873,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
           if let enumsflavor = PBIceCreamCone.PBFlavor(rawValue:valueIntflavor){
                flavor = enumsflavor
           } else {
-               _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntflavor))
+               try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntflavor))
           }
 
         default:
@@ -1896,8 +1886,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone.Builder {
       let resultDecodedBuilder = PBIceCreamCone.Builder()
-      if let jsonValueScoops = jsonMap["scoops"] as? NSNumber {
-        resultDecodedBuilder.scoops = jsonValueScoops.int32Value
+      if let jsonValueScoops = jsonMap["scoops"] as? Int32 {
+        resultDecodedBuilder.scoops = jsonValueScoops
       }
       if let jsonValueFlavor = jsonMap["flavor"] as? String {
         resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(str: jsonValueFlavor)
@@ -1917,6 +1907,17 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
 //Subuilders
 final internal class PBFoo : GeneratedMessage {
+
+  internal static func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasVal == rhs.hasVal) && (!lhs.hasVal || lhs.val == rhs.val)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   // some other fields.
   internal fileprivate(set) var val:Int32 = Int32(0)
   internal fileprivate(set) var hasVal:Bool = false
@@ -1972,7 +1973,7 @@ final internal class PBFoo : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasVal {
-      jsonMap["val"] = NSNumber(value:val)
+      jsonMap["val"] = val
     }
     return jsonMap
   }
@@ -2064,6 +2065,7 @@ final internal class PBFoo : GeneratedMessage {
       let returnMe:PBFoo = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBFoo) throws -> PBFoo.Builder {
       if other == PBFoo() {
        return self
@@ -2071,9 +2073,10 @@ final internal class PBFoo : GeneratedMessage {
       if other.hasVal {
            val = other.val
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBFoo.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -2099,8 +2102,8 @@ final internal class PBFoo : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBFoo.Builder {
       let resultDecodedBuilder = PBFoo.Builder()
-      if let jsonValueVal = jsonMap["val"] as? NSNumber {
-        resultDecodedBuilder.val = jsonValueVal.int32Value
+      if let jsonValueVal = jsonMap["val"] as? Int32 {
+        resultDecodedBuilder.val = jsonValueVal
       }
       return resultDecodedBuilder
     }
@@ -2116,6 +2119,17 @@ final internal class PBFoo : GeneratedMessage {
 }
 
 final internal class PBBar : GeneratedMessage {
+
+  internal static func == (lhs: PBBar, rhs: PBBar) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasFoo == rhs.hasFoo) && (!lhs.hasFoo || lhs.foo == rhs.foo)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var foo:PBFoo!
   internal fileprivate(set) var hasFoo:Bool = false
   required internal init() {
@@ -2253,7 +2267,7 @@ final internal class PBBar : GeneratedMessage {
          fooBuilder_ = PBFoo.Builder()
          builderResult.foo = fooBuilder_.getMessage()
          if foo != nil {
-            _ = try! fooBuilder_.mergeFrom(other: foo)
+            try! fooBuilder_.mergeFrom(other: foo)
          }
       }
       return fooBuilder_
@@ -2262,6 +2276,7 @@ final internal class PBBar : GeneratedMessage {
       self.foo = value
       return self
     }
+    @discardableResult
     internal func mergeFoo(value:PBFoo) throws -> PBBar.Builder {
       if builderResult.hasFoo {
         builderResult.foo = try PBFoo.builderWithPrototype(prototype:builderResult.foo).mergeFrom(other: value).buildPartial()
@@ -2297,16 +2312,18 @@ final internal class PBBar : GeneratedMessage {
       let returnMe:PBBar = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBBar) throws -> PBBar.Builder {
       if other == PBBar() {
        return self
       }
       if (other.hasFoo) {
-          _ = try mergeFoo(value: other.foo)
+          try mergeFoo(value: other.foo)
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBBar.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -2322,7 +2339,7 @@ final internal class PBBar : GeneratedMessage {
         case 10:
           let subBuilder:PBFoo.Builder = PBFoo.Builder()
           if hasFoo {
-            _ = try subBuilder.mergeFrom(other: foo)
+            try subBuilder.mergeFrom(other: foo)
           }
           try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
           foo = subBuilder.buildPartial()
@@ -2355,6 +2372,17 @@ final internal class PBBar : GeneratedMessage {
 }
 
 final internal class PBBaz : GeneratedMessage {
+
+  internal static func == (lhs: PBBaz, rhs: PBBaz) -> Bool {
+    if (lhs === rhs) {
+      return true
+    }
+    var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+    fieldCheck = fieldCheck && (lhs.hasBar == rhs.hasBar) && (!lhs.hasBar || lhs.bar == rhs.bar)
+    fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+    return fieldCheck
+  }
+
   internal fileprivate(set) var bar:PBBar!
   internal fileprivate(set) var hasBar:Bool = false
   required internal init() {
@@ -2492,7 +2520,7 @@ final internal class PBBaz : GeneratedMessage {
          barBuilder_ = PBBar.Builder()
          builderResult.bar = barBuilder_.getMessage()
          if bar != nil {
-            _ = try! barBuilder_.mergeFrom(other: bar)
+            try! barBuilder_.mergeFrom(other: bar)
          }
       }
       return barBuilder_
@@ -2501,6 +2529,7 @@ final internal class PBBaz : GeneratedMessage {
       self.bar = value
       return self
     }
+    @discardableResult
     internal func mergeBar(value:PBBar) throws -> PBBaz.Builder {
       if builderResult.hasBar {
         builderResult.bar = try PBBar.builderWithPrototype(prototype:builderResult.bar).mergeFrom(other: value).buildPartial()
@@ -2536,16 +2565,18 @@ final internal class PBBaz : GeneratedMessage {
       let returnMe:PBBaz = builderResult
       return returnMe
     }
+    @discardableResult
     internal func mergeFrom(other:PBBaz) throws -> PBBaz.Builder {
       if other == PBBaz() {
        return self
       }
       if (other.hasBar) {
-          _ = try mergeBar(value: other.bar)
+          try mergeBar(value: other.bar)
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBBaz.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
@@ -2561,7 +2592,7 @@ final internal class PBBaz : GeneratedMessage {
         case 10:
           let subBuilder:PBBar.Builder = PBBar.Builder()
           if hasBar {
-            _ = try subBuilder.mergeFrom(other: bar)
+            try subBuilder.mergeFrom(other: bar)
           }
           try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
           bar = subBuilder.buildPartial()

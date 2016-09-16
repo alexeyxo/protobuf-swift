@@ -6,15 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct EmptyRoot {
     public static var sharedInstance : EmptyRoot {
@@ -41,6 +32,16 @@ public extension Google.Protobuf {
   //       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
   //     }
   final public class Empty : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     required public init() {
          super.init()
     }
@@ -146,13 +147,15 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Empty = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
         if other == Google.Protobuf.Empty() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

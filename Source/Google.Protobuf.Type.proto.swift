@@ -6,73 +6,6 @@ import Foundation
 
 public extension Google.Protobuf{}
 
-public func == (lhs: Google.Protobuf.`Type`, rhs: Google.Protobuf.`Type`) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.fields == rhs.fields)
-  fieldCheck = fieldCheck && (lhs.oneofs == rhs.oneofs)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Field, rhs: Google.Protobuf.Field) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasKind == rhs.hasKind) && (!lhs.hasKind || lhs.kind == rhs.kind)
-  fieldCheck = fieldCheck && (lhs.hasCardinality == rhs.hasCardinality) && (!lhs.hasCardinality || lhs.cardinality == rhs.cardinality)
-  fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasTypeUrl == rhs.hasTypeUrl) && (!lhs.hasTypeUrl || lhs.typeUrl == rhs.typeUrl)
-  fieldCheck = fieldCheck && (lhs.hasOneofIndex == rhs.hasOneofIndex) && (!lhs.hasOneofIndex || lhs.oneofIndex == rhs.oneofIndex)
-  fieldCheck = fieldCheck && (lhs.hasPacked == rhs.hasPacked) && (!lhs.hasPacked || lhs.packed == rhs.packed)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Enum, rhs: Google.Protobuf.Enum) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.enumvalue == rhs.enumvalue)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.EnumValue, rhs: Google.Protobuf.EnumValue) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
-  fieldCheck = fieldCheck && (lhs.options == rhs.options)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
-public func == (lhs: Google.Protobuf.Option, rhs: Google.Protobuf.Option) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
-  fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Google.Protobuf {
   public struct TypeRoot {
     public static var sharedInstance : TypeRoot {
@@ -96,6 +29,21 @@ public extension Google.Protobuf {
 
   // A light-weight descriptor for a proto message type.
   final public class `Type` : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.`Type`, rhs: Google.Protobuf.`Type`) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.fields == rhs.fields)
+      fieldCheck = fieldCheck && (lhs.oneofs == rhs.oneofs)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // The fully qualified message name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -200,7 +148,11 @@ public extension Google.Protobuf {
         jsonMap["fields"] = jsonArrayFields
       }
       if !oneofs.isEmpty {
-        jsonMap["oneofs"] = oneofs
+        var jsonArrayOneofs:Array<String> = []
+          for oneValueOneofs in oneofs {
+            jsonArrayOneofs.append(oneValueOneofs)
+          }
+        jsonMap["oneofs"] = jsonArrayOneofs
       }
       if !options.isEmpty {
         var jsonArrayOptions:Array<Dictionary<String,Any>> = []
@@ -398,7 +350,7 @@ public extension Google.Protobuf {
            sourceContextBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContext = sourceContextBuilder_.getMessage()
            if sourceContext != nil {
-              _ = try! sourceContextBuilder_.mergeFrom(other: sourceContext)
+              try! sourceContextBuilder_.mergeFrom(other: sourceContext)
            }
         }
         return sourceContextBuilder_
@@ -407,6 +359,7 @@ public extension Google.Protobuf {
         self.sourceContext = value
         return self
       }
+      @discardableResult
       public func mergeSourceContext(value:Google.Protobuf.SourceContext) throws -> Google.Protobuf.`Type`.Builder {
         if builderResult.hasSourceContext {
           builderResult.sourceContext = try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult.sourceContext).mergeFrom(other: value).buildPartial()
@@ -442,6 +395,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.`Type` = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.`Type`) throws -> Google.Protobuf.`Type`.Builder {
         if other == Google.Protobuf.`Type`() {
          return self
@@ -459,11 +413,12 @@ public extension Google.Protobuf {
            builderResult.options += other.options
         }
         if (other.hasSourceContext) {
-            _ = try mergeSourceContext(value: other.sourceContext)
+            try mergeSourceContext(value: other.sourceContext)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.`Type`.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -495,7 +450,7 @@ public extension Google.Protobuf {
           case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
-              _ = try subBuilder.mergeFrom(other: sourceContext)
+              try subBuilder.mergeFrom(other: sourceContext)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             sourceContext = subBuilder.buildPartial()
@@ -523,7 +478,11 @@ public extension Google.Protobuf {
           resultDecodedBuilder.fields = jsonArrayFields
         }
         if let jsonValueOneofs = jsonMap["oneofs"] as? Array<String> {
-          resultDecodedBuilder.oneofs = jsonValueOneofs
+          var jsonArrayOneofs:Array<String> = []
+          for oneValueOneofs in jsonValueOneofs {
+            jsonArrayOneofs.append(oneValueOneofs)
+          }
+          resultDecodedBuilder.oneofs = jsonArrayOneofs
         }
         if let jsonValueOptions = jsonMap["options"] as? Array<Dictionary<String,Any>> {
           var jsonArrayOptions:Array<Google.Protobuf.Option> = []
@@ -553,6 +512,24 @@ public extension Google.Protobuf {
 
   // Field represents a single field of a message type.
   final public class Field : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Field, rhs: Google.Protobuf.Field) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasKind == rhs.hasKind) && (!lhs.hasKind || lhs.kind == rhs.kind)
+      fieldCheck = fieldCheck && (lhs.hasCardinality == rhs.hasCardinality) && (!lhs.hasCardinality || lhs.cardinality == rhs.cardinality)
+      fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasTypeUrl == rhs.hasTypeUrl) && (!lhs.hasTypeUrl || lhs.typeUrl == rhs.typeUrl)
+      fieldCheck = fieldCheck && (lhs.hasOneofIndex == rhs.hasOneofIndex) && (!lhs.hasOneofIndex || lhs.oneofIndex == rhs.oneofIndex)
+      fieldCheck = fieldCheck && (lhs.hasPacked == rhs.hasPacked) && (!lhs.hasPacked || lhs.packed == rhs.packed)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
 
 
       //Enum type declaration start 
@@ -859,7 +836,7 @@ public extension Google.Protobuf {
         jsonMap["cardinality"] = cardinality.toString()
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = number
       }
       if hasName {
         jsonMap["name"] = name
@@ -868,7 +845,7 @@ public extension Google.Protobuf {
         jsonMap["typeUrl"] = typeUrl
       }
       if hasOneofIndex {
-        jsonMap["oneofIndex"] = NSNumber(value:oneofIndex)
+        jsonMap["oneofIndex"] = oneofIndex
       }
       if hasPacked {
         jsonMap["packed"] = packed
@@ -1171,6 +1148,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Field = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Field) throws -> Google.Protobuf.Field.Builder {
         if other == Google.Protobuf.Field() {
          return self
@@ -1199,9 +1177,10 @@ public extension Google.Protobuf {
         if !other.options.isEmpty  {
            builderResult.options += other.options
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Field.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1219,7 +1198,7 @@ public extension Google.Protobuf {
             if let enumskind = Google.Protobuf.Field.Kind(rawValue:valueIntkind){
                  kind = enumskind
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntkind))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntkind))
             }
 
           case 16:
@@ -1227,7 +1206,7 @@ public extension Google.Protobuf {
             if let enumscardinality = Google.Protobuf.Field.Cardinality(rawValue:valueIntcardinality){
                  cardinality = enumscardinality
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntcardinality))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueIntcardinality))
             }
 
           case 24:
@@ -1266,8 +1245,8 @@ public extension Google.Protobuf {
         if let jsonValueCardinality = jsonMap["cardinality"] as? String {
           resultDecodedBuilder.cardinality = try Google.Protobuf.Field.Cardinality.fromString(str: jsonValueCardinality)
         }
-        if let jsonValueNumber = jsonMap["number"] as? NSNumber {
-          resultDecodedBuilder.number = jsonValueNumber.int32Value
+        if let jsonValueNumber = jsonMap["number"] as? Int32 {
+          resultDecodedBuilder.number = jsonValueNumber
         }
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -1275,8 +1254,8 @@ public extension Google.Protobuf {
         if let jsonValueTypeUrl = jsonMap["typeUrl"] as? String {
           resultDecodedBuilder.typeUrl = jsonValueTypeUrl
         }
-        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? NSNumber {
-          resultDecodedBuilder.oneofIndex = jsonValueOneofIndex.int32Value
+        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? Int32 {
+          resultDecodedBuilder.oneofIndex = jsonValueOneofIndex
         }
         if let jsonValuePacked = jsonMap["packed"] as? Bool {
           resultDecodedBuilder.packed = jsonValuePacked
@@ -1305,6 +1284,20 @@ public extension Google.Protobuf {
 
   // Enum type definition.
   final public class Enum : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Enum, rhs: Google.Protobuf.Enum) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.enumvalue == rhs.enumvalue)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = fieldCheck && (lhs.hasSourceContext == rhs.hasSourceContext) && (!lhs.hasSourceContext || lhs.sourceContext == rhs.sourceContext)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Enum type name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -1566,7 +1559,7 @@ public extension Google.Protobuf {
            sourceContextBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContext = sourceContextBuilder_.getMessage()
            if sourceContext != nil {
-              _ = try! sourceContextBuilder_.mergeFrom(other: sourceContext)
+              try! sourceContextBuilder_.mergeFrom(other: sourceContext)
            }
         }
         return sourceContextBuilder_
@@ -1575,6 +1568,7 @@ public extension Google.Protobuf {
         self.sourceContext = value
         return self
       }
+      @discardableResult
       public func mergeSourceContext(value:Google.Protobuf.SourceContext) throws -> Google.Protobuf.Enum.Builder {
         if builderResult.hasSourceContext {
           builderResult.sourceContext = try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult.sourceContext).mergeFrom(other: value).buildPartial()
@@ -1610,6 +1604,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Enum = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Enum) throws -> Google.Protobuf.Enum.Builder {
         if other == Google.Protobuf.Enum() {
          return self
@@ -1624,11 +1619,12 @@ public extension Google.Protobuf {
            builderResult.options += other.options
         }
         if (other.hasSourceContext) {
-            _ = try mergeSourceContext(value: other.sourceContext)
+            try mergeSourceContext(value: other.sourceContext)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Enum.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1657,7 +1653,7 @@ public extension Google.Protobuf {
           case 34:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
-              _ = try subBuilder.mergeFrom(other: sourceContext)
+              try subBuilder.mergeFrom(other: sourceContext)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             sourceContext = subBuilder.buildPartial()
@@ -1712,6 +1708,19 @@ public extension Google.Protobuf {
 
   // Enum value definition.
   final public class EnumValue : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.EnumValue, rhs: Google.Protobuf.EnumValue) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasNumber == rhs.hasNumber) && (!lhs.hasNumber || lhs.number == rhs.number)
+      fieldCheck = fieldCheck && (lhs.options == rhs.options)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Enum value name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -1787,7 +1796,7 @@ public extension Google.Protobuf {
         jsonMap["name"] = name
       }
       if hasNumber {
-        jsonMap["number"] = NSNumber(value:number)
+        jsonMap["number"] = number
       }
       if !options.isEmpty {
         var jsonArrayOptions:Array<Dictionary<String,Any>> = []
@@ -1942,6 +1951,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.EnumValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.EnumValue) throws -> Google.Protobuf.EnumValue.Builder {
         if other == Google.Protobuf.EnumValue() {
          return self
@@ -1955,9 +1965,10 @@ public extension Google.Protobuf {
         if !other.options.isEmpty  {
            builderResult.options += other.options
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.EnumValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1994,8 +2005,8 @@ public extension Google.Protobuf {
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
         }
-        if let jsonValueNumber = jsonMap["number"] as? NSNumber {
-          resultDecodedBuilder.number = jsonValueNumber.int32Value
+        if let jsonValueNumber = jsonMap["number"] as? Int32 {
+          resultDecodedBuilder.number = jsonValueNumber
         }
         if let jsonValueOptions = jsonMap["options"] as? Array<Dictionary<String,Any>> {
           var jsonArrayOptions:Array<Google.Protobuf.Option> = []
@@ -2021,6 +2032,18 @@ public extension Google.Protobuf {
 
   // Proto option attached to messages/fields/enums etc.
   final public class Option : GeneratedMessage {
+
+    public static func == (lhs: Google.Protobuf.Option, rhs: Google.Protobuf.Option) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
+      fieldCheck = fieldCheck && (lhs.hasValue == rhs.hasValue) && (!lhs.hasValue || lhs.value == rhs.value)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     // Proto option name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
@@ -2200,7 +2223,7 @@ public extension Google.Protobuf {
            valueBuilder_ = Google.Protobuf.`Any`.Builder()
            builderResult.value = valueBuilder_.getMessage()
            if value != nil {
-              _ = try! valueBuilder_.mergeFrom(other: value)
+              try! valueBuilder_.mergeFrom(other: value)
            }
         }
         return valueBuilder_
@@ -2209,6 +2232,7 @@ public extension Google.Protobuf {
         self.value = value
         return self
       }
+      @discardableResult
       public func mergeValue(value:Google.Protobuf.`Any`) throws -> Google.Protobuf.Option.Builder {
         if builderResult.hasValue {
           builderResult.value = try Google.Protobuf.`Any`.builderWithPrototype(prototype:builderResult.value).mergeFrom(other: value).buildPartial()
@@ -2244,6 +2268,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Option = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Option) throws -> Google.Protobuf.Option.Builder {
         if other == Google.Protobuf.Option() {
          return self
@@ -2252,11 +2277,12 @@ public extension Google.Protobuf {
              name = other.name
         }
         if (other.hasValue) {
-            _ = try mergeValue(value: other.value)
+            try mergeValue(value: other.value)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Option.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -2275,7 +2301,7 @@ public extension Google.Protobuf {
           case 18:
             let subBuilder:Google.Protobuf.`Any`.Builder = Google.Protobuf.`Any`.Builder()
             if hasValue {
-              _ = try subBuilder.mergeFrom(other: value)
+              try subBuilder.mergeFrom(other: value)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             value = subBuilder.buildPartial()

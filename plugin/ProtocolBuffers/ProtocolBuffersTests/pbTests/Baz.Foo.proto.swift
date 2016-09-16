@@ -8,16 +8,6 @@ import ProtocolBuffers
 
 public struct Baz { }
 
-public func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
-  if (lhs === rhs) {
-    return true
-  }
-  var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
-  fieldCheck = fieldCheck && (lhs.hasHello == rhs.hasHello) && (!lhs.hasHello || lhs.hello == rhs.hello)
-  fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
-  return fieldCheck
-}
-
 public extension Baz {
   public struct FooRoot {
     public static var sharedInstance : FooRoot {
@@ -37,6 +27,17 @@ public extension Baz {
   }
 
   final public class Foo : GeneratedMessage {
+
+    public static func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
+      if (lhs === rhs) {
+        return true
+      }
+      var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+      fieldCheck = fieldCheck && (lhs.hasHello == rhs.hasHello) && (!lhs.hasHello || lhs.hello == rhs.hello)
+      fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+      return fieldCheck
+    }
+
     public fileprivate(set) var hello:String = ""
     public fileprivate(set) var hasHello:Bool = false
 
@@ -183,6 +184,7 @@ public extension Baz {
         let returnMe:Baz.Foo = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Baz.Foo) throws -> Baz.Foo.Builder {
         if other == Baz.Foo() {
          return self
@@ -190,9 +192,10 @@ public extension Baz {
         if other.hasHello {
              hello = other.hello
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

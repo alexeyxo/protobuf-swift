@@ -151,7 +151,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     $name$Builder_ = $type$.Builder()\n"
                        "     builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
                        "     if $name$ != nil {\n"
-                       "        _ = try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
+                       "        try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
                        "     }\n"
                        "  }\n"
                        "  return $name$Builder_\n"
@@ -160,6 +160,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
+                       "@discardableResult\n"
                        "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
                        "  if builderResult.has$capitalized_name$ {\n"
                        "    builderResult.$name_reserved$ = try $type$.builderWithPrototype(prototype:builderResult.$name_reserved$).mergeFrom(other: value).buildPartial()\n"
@@ -181,7 +182,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if (other.has$capitalized_name$) {\n"
-                       "    _ = try merge$capitalized_name$(value: other.$name_reserved$)\n"
+                       "    try merge$capitalized_name$(value: other.$name_reserved$)\n"
                        "}\n");
     }
     
@@ -194,7 +195,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "let subBuilder:$type$.Builder = $type$.Builder()\n"
                        "if has$capitalized_name$ {\n"
-                       "  _ = try subBuilder.mergeFrom(other: $name_reserved$)\n"
+                       "  try subBuilder.mergeFrom(other: $name_reserved$)\n"
                        "}\n");
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {

@@ -227,6 +227,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         printer->Indent();
         
+        printer->Print("\n");
+        GenerateMessageIsEqualSource(printer);
         
         //Nested Types
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
@@ -532,7 +534,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"$acontrol$ func == (lhs: $classNameReturnedType$, rhs: $classNameReturnedType$) -> Bool {\n");
+        printer->Print(variables_,"$acontrol$ static func == (lhs: $classNameReturnedType$, rhs: $classNameReturnedType$) -> Bool {\n");
                        
         printer->Indent();
         
@@ -574,10 +576,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Outdent();
         printer->Print("}\n\n");
-        
-        for (int j = 0; j < descriptor_->nested_type_count(); j++) {
-             MessageGenerator(descriptor_->nested_type(j)).GenerateMessageIsEqualSource(printer);
-        }
     }
     
     
@@ -804,6 +802,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "$acontrol$ func mergeFrom(other:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n");
 
         printer->Indent();
@@ -820,10 +819,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         if (descriptor_->extension_range_count() > 0) {
-            printer->Print("_ = try mergeExtensionFields(other: other)\n");
+            printer->Print("try mergeExtensionFields(other: other)\n");
         }
         
-        printer->Print("_ = try merge(unknownField: other.unknownFields)\n"
+        printer->Print("try merge(unknownField: other.unknownFields)\n"
                        "return self\n");
         printer->Outdent();
         printer->Print("}\n");
@@ -835,6 +834,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
@@ -863,7 +863,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             uint32 tag = WireFormatLite::MakeTag(field->number(),
                                                  WireFormat::WireTypeForFieldType(field->type()));
             
-            if (field->options().packed() || (isPackedTypeProto3(field) && field->is_repeated())) {
+            if (isPackedTypeProto3(field) && field->is_repeated()) {
                 tag = WireFormatLite::MakeTag(field->number(),
                                               WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
             }
@@ -964,7 +964,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        " return true\n"
                        "}\n");
     }
-}  // namespace objectivec
+}  // namespace swift
 }  // namespace compiler
 }  // namespace protobuf
 }  // namespace google
