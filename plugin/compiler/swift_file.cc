@@ -79,12 +79,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
                        "acontrol", GetAccessControlType(file_));
         
         printer->Indent();
-        printer->Print("$acontrol$ static var sharedInstance : $classname$ {\n"
-                       " struct Static {\n"
-                       "     static let instance : $classname$ = $classname$()\n"
-                       " }\n"
-                       " return Static.instance\n"
-                       "}\n",
+        printer->Print("$acontrol$ static let `default` = $classname$()\n",
                        "classname", classname_,
                        "acontrol", GetAccessControlType(file_));
         
@@ -119,7 +114,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
                        "registerAllExtensions(registry: extensionRegistry)\n");
         
         for (int i = 0; i < file_->dependency_count(); i++) {
-            printer->Print("$dependency$.sharedInstance.registerAllExtensions(registry: extensionRegistry)\n",
+            printer->Print("$dependency$.default.registerAllExtensions(registry: extensionRegistry)\n",
                            "dependency", FileClassName(file_->dependency(i)));
         }
         

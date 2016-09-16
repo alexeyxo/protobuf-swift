@@ -642,7 +642,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  return try $classNameReturnedType$.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(data: Data) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:$fileName$.sharedInstance.extensionRegistry).build()\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:$fileName$.default.extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()\n"

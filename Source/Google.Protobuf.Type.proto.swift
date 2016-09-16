@@ -8,20 +8,15 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct TypeRoot {
-    public static var sharedInstance : TypeRoot {
-     struct Static {
-         static let instance : TypeRoot = TypeRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = TypeRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.AnyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.AnyRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SourceContextRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -2403,7 +2398,7 @@ extension Google.Protobuf.`Type`: GeneratedMessageProtocol {
     return try Google.Protobuf.`Type`.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.`Type` {
-    return try Google.Protobuf.`Type`.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.`Type`.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Type` {
     return try Google.Protobuf.`Type`.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2433,7 +2428,7 @@ extension Google.Protobuf.Field: GeneratedMessageProtocol {
     return try Google.Protobuf.Field.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Field {
-    return try Google.Protobuf.Field.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Field.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Field {
     return try Google.Protobuf.Field.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2463,7 +2458,7 @@ extension Google.Protobuf.Enum: GeneratedMessageProtocol {
     return try Google.Protobuf.Enum.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Enum {
-    return try Google.Protobuf.Enum.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Enum.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Enum {
     return try Google.Protobuf.Enum.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2493,7 +2488,7 @@ extension Google.Protobuf.EnumValue: GeneratedMessageProtocol {
     return try Google.Protobuf.EnumValue.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.EnumValue {
-    return try Google.Protobuf.EnumValue.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.EnumValue.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.EnumValue {
     return try Google.Protobuf.EnumValue.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2523,7 +2518,7 @@ extension Google.Protobuf.Option: GeneratedMessageProtocol {
     return try Google.Protobuf.Option.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Option {
-    return try Google.Protobuf.Option.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Option.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Option {
     return try Google.Protobuf.Option.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

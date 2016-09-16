@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct FieldMaskRoot {
-    public static var sharedInstance : FieldMaskRoot {
-     struct Static {
-         static let instance : FieldMaskRoot = FieldMaskRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = FieldMaskRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -355,7 +350,7 @@ extension Google.Protobuf.FieldMask: GeneratedMessageProtocol {
     return try Google.Protobuf.FieldMask.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.FieldMask {
-    return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.FieldMaskRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.FieldMaskRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask {
     return try Google.Protobuf.FieldMask.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

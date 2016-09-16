@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct StructRoot {
-    public static var sharedInstance : StructRoot {
-     struct Static {
-         static let instance : StructRoot = StructRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = StructRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -1603,7 +1598,7 @@ extension Google.Protobuf.Struct: GeneratedMessageProtocol {
     return try Google.Protobuf.Struct.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Struct {
-    return try Google.Protobuf.Struct.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Struct.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct {
     return try Google.Protobuf.Struct.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1633,7 +1628,7 @@ extension Google.Protobuf.Struct.FieldsEntry: GeneratedMessageProtocol {
     return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Struct.FieldsEntry {
-    return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Struct.FieldsEntry {
     return try Google.Protobuf.Struct.FieldsEntry.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1663,7 +1658,7 @@ extension Google.Protobuf.Value: GeneratedMessageProtocol {
     return try Google.Protobuf.Value.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Value {
-    return try Google.Protobuf.Value.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Value.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Value {
     return try Google.Protobuf.Value.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1693,7 +1688,7 @@ extension Google.Protobuf.ListValue: GeneratedMessageProtocol {
     return try Google.Protobuf.ListValue.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.ListValue {
-    return try Google.Protobuf.ListValue.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.ListValue.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.StructRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ListValue {
     return try Google.Protobuf.ListValue.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

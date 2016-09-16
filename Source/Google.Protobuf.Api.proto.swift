@@ -8,20 +8,15 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct ApiRoot {
-    public static var sharedInstance : ApiRoot {
-     struct Static {
-         static let instance : ApiRoot = ApiRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = ApiRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SourceContextRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TypeRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -1041,7 +1036,7 @@ extension Google.Protobuf.Api: GeneratedMessageProtocol {
     return try Google.Protobuf.Api.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Api {
-    return try Google.Protobuf.Api.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.ApiRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Api.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.ApiRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Api {
     return try Google.Protobuf.Api.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1071,7 +1066,7 @@ extension Google.Protobuf.Method: GeneratedMessageProtocol {
     return try Google.Protobuf.Method.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Method {
-    return try Google.Protobuf.Method.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.ApiRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Method.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.ApiRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Method {
     return try Google.Protobuf.Method.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

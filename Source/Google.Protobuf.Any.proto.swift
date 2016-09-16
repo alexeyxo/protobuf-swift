@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct AnyRoot {
-    public static var sharedInstance : AnyRoot {
-     struct Static {
-         static let instance : AnyRoot = AnyRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = AnyRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -353,7 +348,7 @@ extension Google.Protobuf.`Any`: GeneratedMessageProtocol {
     return try Google.Protobuf.`Any`.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.`Any` {
-    return try Google.Protobuf.`Any`.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.AnyRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.`Any`.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.AnyRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any` {
     return try Google.Protobuf.`Any`.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

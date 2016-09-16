@@ -8,27 +8,22 @@ public extension Google.Protobuf{}
 
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
    }
 }
 public var SwiftDescriptorRootswiftMessageOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
    }
 }
 public var SwiftDescriptorRootswiftEnumOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftEnumOptionsStatic
    }
 }
 public extension Google.Protobuf {
   public struct SwiftDescriptorRoot {
-    public static var sharedInstance : SwiftDescriptorRoot {
-     struct Static {
-         static let instance : SwiftDescriptorRoot = SwiftDescriptorRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = SwiftDescriptorRoot()
     var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
     var SwiftDescriptorRootswiftMessageOptionsStatic:ConcreateExtensionField
     var SwiftDescriptorRootswiftEnumOptionsStatic:ConcreateExtensionField
@@ -40,7 +35,7 @@ public extension Google.Protobuf {
       SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
       registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
@@ -48,13 +43,13 @@ public extension Google.Protobuf {
       registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
     }
     public static func swiftMessageOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
     }
     public static func swiftEnumOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftEnumOptionsStatic
     }
   }
 
@@ -911,7 +906,7 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftFileOptions {
-    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -941,7 +936,7 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftMessageOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftMessageOptions {
-    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
     return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -971,7 +966,7 @@ extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftEnumOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftEnumOptions {
-    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
     return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
