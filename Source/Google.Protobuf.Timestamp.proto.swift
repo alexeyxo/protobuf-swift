@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct TimestampRoot {
-    public static var sharedInstance : TimestampRoot {
-     struct Static {
-         static let instance : TimestampRoot = TimestampRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = TimestampRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -219,10 +214,12 @@ public extension Google.Protobuf {
                builderResult.seconds = value
            }
       }
+      @discardableResult
       public func setSeconds(_ value:Int64) -> Google.Protobuf.Timestamp.Builder {
         self.seconds = value
         return self
       }
+      @discardableResult
       public func clearSeconds() -> Google.Protobuf.Timestamp.Builder{
            builderResult.hasSeconds = false
            builderResult.seconds = Int64(0)
@@ -242,10 +239,12 @@ public extension Google.Protobuf {
                builderResult.nanos = value
            }
       }
+      @discardableResult
       public func setNanos(_ value:Int32) -> Google.Protobuf.Timestamp.Builder {
         self.nanos = value
         return self
       }
+      @discardableResult
       public func clearNanos() -> Google.Protobuf.Timestamp.Builder{
            builderResult.hasNanos = false
            builderResult.nanos = Int32(0)
@@ -256,6 +255,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Timestamp.Builder {
         builderResult = Google.Protobuf.Timestamp()
         return self
@@ -289,6 +289,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -346,7 +347,7 @@ extension Google.Protobuf.Timestamp: GeneratedMessageProtocol {
     return try Google.Protobuf.Timestamp.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Timestamp {
-    return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TimestampRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.TimestampRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp {
     return try Google.Protobuf.Timestamp.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

@@ -7,12 +7,7 @@ import ProtocolBuffers
 
 
 public struct UnittestThreadingRoot {
-  public static var sharedInstance : UnittestThreadingRoot {
-   struct Static {
-       static let instance : UnittestThreadingRoot = UnittestThreadingRoot()
-   }
-   return Static.instance
-  }
+  public static let `default` = UnittestThreadingRoot()
   public var extensionRegistry:ExtensionRegistry
 
   init() {
@@ -152,10 +147,12 @@ final public class ThreadingMessages : GeneratedMessage {
              builderResult.testString = value
          }
     }
+    @discardableResult
     public func setTestString(_ value:String) -> ThreadingMessages.Builder {
       self.testString = value
       return self
     }
+    @discardableResult
     public func clearTestString() -> ThreadingMessages.Builder{
          builderResult.hasTestString = false
          builderResult.testString = ""
@@ -166,6 +163,7 @@ final public class ThreadingMessages : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override public func clear() -> ThreadingMessages.Builder {
       builderResult = ThreadingMessages()
       return self
@@ -196,6 +194,7 @@ final public class ThreadingMessages : GeneratedMessage {
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -246,7 +245,7 @@ extension ThreadingMessages: GeneratedMessageProtocol {
     return try ThreadingMessages.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

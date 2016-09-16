@@ -10,27 +10,22 @@ public extension ProtobufUnittest{}
 
 public extension ProtobufUnittest {
   public struct UnittestWellKnownTypesRoot {
-    public static var sharedInstance : UnittestWellKnownTypesRoot {
-     struct Static {
-         static let instance : UnittestWellKnownTypesRoot = UnittestWellKnownTypesRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestWellKnownTypesRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.AnyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.ApiRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.DurationRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.EmptyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.FieldMaskRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.StructRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TimestampRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.WrappersRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.AnyRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.ApiRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.DurationRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.EmptyRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.FieldMaskRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SourceContextRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.StructRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TimestampRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TypeRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.WrappersRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -425,6 +420,7 @@ public extension ProtobufUnittest {
         }
         return anyFieldBuilder_
       }
+      @discardableResult
       public func setAnyField(_ value:Google.Protobuf.`Any`!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.anyField = value
         return self
@@ -439,6 +435,7 @@ public extension ProtobufUnittest {
         builderResult.hasAnyField = true
         return self
       }
+      @discardableResult
       public func clearAnyField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         anyFieldBuilder_ = nil
         builderResult.hasAnyField = false
@@ -477,6 +474,7 @@ public extension ProtobufUnittest {
         }
         return apiFieldBuilder_
       }
+      @discardableResult
       public func setApiField(_ value:Google.Protobuf.Api!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.apiField = value
         return self
@@ -491,6 +489,7 @@ public extension ProtobufUnittest {
         builderResult.hasApiField = true
         return self
       }
+      @discardableResult
       public func clearApiField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         apiFieldBuilder_ = nil
         builderResult.hasApiField = false
@@ -529,6 +528,7 @@ public extension ProtobufUnittest {
         }
         return durationFieldBuilder_
       }
+      @discardableResult
       public func setDurationField(_ value:Google.Protobuf.Duration!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.durationField = value
         return self
@@ -543,6 +543,7 @@ public extension ProtobufUnittest {
         builderResult.hasDurationField = true
         return self
       }
+      @discardableResult
       public func clearDurationField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         durationFieldBuilder_ = nil
         builderResult.hasDurationField = false
@@ -581,6 +582,7 @@ public extension ProtobufUnittest {
         }
         return emptyFieldBuilder_
       }
+      @discardableResult
       public func setEmptyField(_ value:Google.Protobuf.Empty!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.emptyField = value
         return self
@@ -595,6 +597,7 @@ public extension ProtobufUnittest {
         builderResult.hasEmptyField = true
         return self
       }
+      @discardableResult
       public func clearEmptyField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         emptyFieldBuilder_ = nil
         builderResult.hasEmptyField = false
@@ -633,6 +636,7 @@ public extension ProtobufUnittest {
         }
         return fieldMaskFieldBuilder_
       }
+      @discardableResult
       public func setFieldMaskField(_ value:Google.Protobuf.FieldMask!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.fieldMaskField = value
         return self
@@ -647,6 +651,7 @@ public extension ProtobufUnittest {
         builderResult.hasFieldMaskField = true
         return self
       }
+      @discardableResult
       public func clearFieldMaskField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         fieldMaskFieldBuilder_ = nil
         builderResult.hasFieldMaskField = false
@@ -685,6 +690,7 @@ public extension ProtobufUnittest {
         }
         return sourceContextFieldBuilder_
       }
+      @discardableResult
       public func setSourceContextField(_ value:Google.Protobuf.SourceContext!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.sourceContextField = value
         return self
@@ -699,6 +705,7 @@ public extension ProtobufUnittest {
         builderResult.hasSourceContextField = true
         return self
       }
+      @discardableResult
       public func clearSourceContextField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         sourceContextFieldBuilder_ = nil
         builderResult.hasSourceContextField = false
@@ -737,6 +744,7 @@ public extension ProtobufUnittest {
         }
         return structFieldBuilder_
       }
+      @discardableResult
       public func setStructField(_ value:Google.Protobuf.Struct!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.structField = value
         return self
@@ -751,6 +759,7 @@ public extension ProtobufUnittest {
         builderResult.hasStructField = true
         return self
       }
+      @discardableResult
       public func clearStructField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         structFieldBuilder_ = nil
         builderResult.hasStructField = false
@@ -789,6 +798,7 @@ public extension ProtobufUnittest {
         }
         return timestampFieldBuilder_
       }
+      @discardableResult
       public func setTimestampField(_ value:Google.Protobuf.Timestamp!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.timestampField = value
         return self
@@ -803,6 +813,7 @@ public extension ProtobufUnittest {
         builderResult.hasTimestampField = true
         return self
       }
+      @discardableResult
       public func clearTimestampField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         timestampFieldBuilder_ = nil
         builderResult.hasTimestampField = false
@@ -841,6 +852,7 @@ public extension ProtobufUnittest {
         }
         return typeFieldBuilder_
       }
+      @discardableResult
       public func setTypeField(_ value:Google.Protobuf.`Type`!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.typeField = value
         return self
@@ -855,6 +867,7 @@ public extension ProtobufUnittest {
         builderResult.hasTypeField = true
         return self
       }
+      @discardableResult
       public func clearTypeField() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         typeFieldBuilder_ = nil
         builderResult.hasTypeField = false
@@ -893,6 +906,7 @@ public extension ProtobufUnittest {
         }
         return int32FieldBuilder_
       }
+      @discardableResult
       public func setInt32Field(_ value:Google.Protobuf.Int32Value!) -> ProtobufUnittest.TestWellKnownTypes.Builder {
         self.int32Field = value
         return self
@@ -907,6 +921,7 @@ public extension ProtobufUnittest {
         builderResult.hasInt32Field = true
         return self
       }
+      @discardableResult
       public func clearInt32Field() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         int32FieldBuilder_ = nil
         builderResult.hasInt32Field = false
@@ -918,6 +933,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestWellKnownTypes.Builder {
         builderResult = ProtobufUnittest.TestWellKnownTypes()
         return self
@@ -975,6 +991,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1140,7 +1157,7 @@ extension ProtobufUnittest.TestWellKnownTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestWellKnownTypes {
-    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
     return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

@@ -10,17 +10,12 @@ public extension Google.Protobuf{ public struct NoGenericServicesTest { }}
 
 public var UnittestNoGenericServicesRoottestExtension:ConcreateExtensionField {
    get {
-       return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
+       return Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.default.UnittestNoGenericServicesRoottestExtensionStatic
    }
 }
 public extension Google.Protobuf.NoGenericServicesTest {
   public struct UnittestNoGenericServicesRoot {
-    public static var sharedInstance : UnittestNoGenericServicesRoot {
-     struct Static {
-         static let instance : UnittestNoGenericServicesRoot = UnittestNoGenericServicesRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestNoGenericServicesRoot()
     var UnittestNoGenericServicesRoottestExtensionStatic:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
 
@@ -33,7 +28,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
       registry.addExtension(extensions: UnittestNoGenericServicesRoottestExtensionStatic)
     }
     public static func testExtension() -> ConcreateExtensionField {
-         return UnittestNoGenericServicesRoot.sharedInstance.UnittestNoGenericServicesRoottestExtensionStatic
+         return UnittestNoGenericServicesRoot.default.UnittestNoGenericServicesRoottestExtensionStatic
     }
   }
 
@@ -202,10 +197,12 @@ public extension Google.Protobuf.NoGenericServicesTest {
                builderResult.a = value
            }
       }
+      @discardableResult
       public func setA(_ value:Int32) -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         self.a = value
         return self
       }
+      @discardableResult
       public func clearA() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -216,6 +213,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
                return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         builderResult = Google.Protobuf.NoGenericServicesTest.TestMessage()
         return self
@@ -247,6 +245,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -298,7 +297,7 @@ extension Google.Protobuf.NoGenericServicesTest.TestMessage: GeneratedMessagePro
     return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
-    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServicesRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
     return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

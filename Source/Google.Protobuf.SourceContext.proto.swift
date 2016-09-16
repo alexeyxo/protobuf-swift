@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct SourceContextRoot {
-    public static var sharedInstance : SourceContextRoot {
-     struct Static {
-         static let instance : SourceContextRoot = SourceContextRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = SourceContextRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -158,10 +153,12 @@ public extension Google.Protobuf {
                builderResult.fileName = value
            }
       }
+      @discardableResult
       public func setFileName(_ value:String) -> Google.Protobuf.SourceContext.Builder {
         self.fileName = value
         return self
       }
+      @discardableResult
       public func clearFileName() -> Google.Protobuf.SourceContext.Builder{
            builderResult.hasFileName = false
            builderResult.fileName = ""
@@ -172,6 +169,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SourceContext.Builder {
         builderResult = Google.Protobuf.SourceContext()
         return self
@@ -202,6 +200,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SourceContext.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -253,7 +252,7 @@ extension Google.Protobuf.SourceContext: GeneratedMessageProtocol {
     return try Google.Protobuf.SourceContext.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SourceContext {
-    return try Google.Protobuf.SourceContext.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SourceContextRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SourceContext.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SourceContextRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SourceContext {
     return try Google.Protobuf.SourceContext.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

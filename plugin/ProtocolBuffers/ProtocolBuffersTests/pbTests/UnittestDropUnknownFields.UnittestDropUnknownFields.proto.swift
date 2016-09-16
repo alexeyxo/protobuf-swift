@@ -10,12 +10,7 @@ public struct UnittestDropUnknownFields { }
 
 public extension UnittestDropUnknownFields {
   public struct UnittestDropUnknownFieldsRoot {
-    public static var sharedInstance : UnittestDropUnknownFieldsRoot {
-     struct Static {
-         static let instance : UnittestDropUnknownFieldsRoot = UnittestDropUnknownFieldsRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestDropUnknownFieldsRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -209,10 +204,12 @@ public extension UnittestDropUnknownFields {
                builderResult.int32Value = value
            }
       }
+      @discardableResult
       public func setInt32Value(_ value:Int32) -> UnittestDropUnknownFields.Foo.Builder {
         self.int32Value = value
         return self
       }
+      @discardableResult
       public func clearInt32Value() -> UnittestDropUnknownFields.Foo.Builder{
            builderResult.hasInt32Value = false
            builderResult.int32Value = Int32(0)
@@ -232,10 +229,12 @@ public extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
+      @discardableResult
         public func setEnumValue(_ value:UnittestDropUnknownFields.Foo.NestedEnum) -> UnittestDropUnknownFields.Foo.Builder {
           self.enumValue = value
           return self
         }
+      @discardableResult
         public func clearEnumValue() -> UnittestDropUnknownFields.Foo.Builder {
            builderResult.hasEnumValue = false
            builderResult.enumValue = .foo
@@ -246,6 +245,7 @@ public extension UnittestDropUnknownFields {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> UnittestDropUnknownFields.Foo.Builder {
         builderResult = UnittestDropUnknownFields.Foo()
         return self
@@ -279,6 +279,7 @@ public extension UnittestDropUnknownFields {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -534,10 +535,12 @@ public extension UnittestDropUnknownFields {
                builderResult.int32Value = value
            }
       }
+      @discardableResult
       public func setInt32Value(_ value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         self.int32Value = value
         return self
       }
+      @discardableResult
       public func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
            builderResult.hasInt32Value = false
            builderResult.int32Value = Int32(0)
@@ -557,10 +560,12 @@ public extension UnittestDropUnknownFields {
                 builderResult.enumValue = value
             }
         }
+      @discardableResult
         public func setEnumValue(_ value:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
           self.enumValue = value
           return self
         }
+      @discardableResult
         public func clearEnumValue() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            builderResult.hasEnumValue = false
            builderResult.enumValue = .foo
@@ -580,10 +585,12 @@ public extension UnittestDropUnknownFields {
                builderResult.extraInt32Value = value
            }
       }
+      @discardableResult
       public func setExtraInt32Value(_ value:Int32) -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         self.extraInt32Value = value
         return self
       }
+      @discardableResult
       public func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
            builderResult.hasExtraInt32Value = false
            builderResult.extraInt32Value = Int32(0)
@@ -594,6 +601,7 @@ public extension UnittestDropUnknownFields {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         builderResult = UnittestDropUnknownFields.FooWithExtraFields()
         return self
@@ -630,6 +638,7 @@ public extension UnittestDropUnknownFields {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -698,7 +707,7 @@ extension UnittestDropUnknownFields.Foo: GeneratedMessageProtocol {
     return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.Foo {
-    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
     return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -728,7 +737,7 @@ extension UnittestDropUnknownFields.FooWithExtraFields: GeneratedMessageProtocol
     return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
     return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

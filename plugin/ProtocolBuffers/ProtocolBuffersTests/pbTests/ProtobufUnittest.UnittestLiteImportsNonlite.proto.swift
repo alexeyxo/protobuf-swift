@@ -10,18 +10,13 @@ public extension ProtobufUnittest{}
 
 public extension ProtobufUnittest {
   public struct UnittestLiteImportsNonliteRoot {
-    public static var sharedInstance : UnittestLiteImportsNonliteRoot {
-     struct Static {
-         static let instance : UnittestLiteImportsNonliteRoot = UnittestLiteImportsNonliteRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestLiteImportsNonliteRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -181,6 +176,7 @@ public extension ProtobufUnittest {
         }
         return messageBuilder_
       }
+      @discardableResult
       public func setMessage(_ value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         self.message = value
         return self
@@ -195,6 +191,7 @@ public extension ProtobufUnittest {
         builderResult.hasMessage = true
         return self
       }
+      @discardableResult
       public func clearMessage() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         messageBuilder_ = nil
         builderResult.hasMessage = false
@@ -206,6 +203,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         builderResult = ProtobufUnittest.TestLiteImportsNonlite()
         return self
@@ -236,6 +234,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -293,7 +292,7 @@ extension ProtobufUnittest.TestLiteImportsNonlite: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestLiteImportsNonlite.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestLiteImportsNonlite {
-    return try ProtobufUnittest.TestLiteImportsNonlite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteImportsNonliteRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestLiteImportsNonlite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestLiteImportsNonliteRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLiteImportsNonlite {
     return try ProtobufUnittest.TestLiteImportsNonlite.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

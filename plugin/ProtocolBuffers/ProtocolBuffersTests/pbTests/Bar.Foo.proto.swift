@@ -10,12 +10,7 @@ public struct Bar { }
 
 public extension Bar {
   public struct FooRoot {
-    public static var sharedInstance : FooRoot {
-     struct Static {
-         static let instance : FooRoot = FooRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = FooRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -155,10 +150,12 @@ public extension Bar {
                builderResult.hello = value
            }
       }
+      @discardableResult
       public func setHello(_ value:String) -> Bar.Foo.Builder {
         self.hello = value
         return self
       }
+      @discardableResult
       public func clearHello() -> Bar.Foo.Builder{
            builderResult.hasHello = false
            builderResult.hello = ""
@@ -169,6 +166,7 @@ public extension Bar {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Bar.Foo.Builder {
         builderResult = Bar.Foo()
         return self
@@ -199,6 +197,7 @@ public extension Bar {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Bar.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -250,7 +249,7 @@ extension Bar.Foo: GeneratedMessageProtocol {
     return try Bar.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Bar.Foo {
-    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
     return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

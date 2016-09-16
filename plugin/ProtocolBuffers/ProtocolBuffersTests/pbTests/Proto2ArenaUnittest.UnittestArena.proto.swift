@@ -10,18 +10,13 @@ public struct Proto2ArenaUnittest { }
 
 public extension Proto2ArenaUnittest {
   public struct UnittestArenaRoot {
-    public static var sharedInstance : UnittestArenaRoot {
-     struct Static {
-         static let instance : UnittestArenaRoot = UnittestArenaRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestArenaRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Proto2ArenaUnittest.UnittestNoArenaImportRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Proto2ArenaUnittest.UnittestNoArenaImportRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -156,10 +151,12 @@ public extension Proto2ArenaUnittest {
                builderResult.d = value
            }
       }
+      @discardableResult
       public func setD(_ value:Int32) -> Proto2ArenaUnittest.NestedMessage.Builder {
         self.d = value
         return self
       }
+      @discardableResult
       public func clearD() -> Proto2ArenaUnittest.NestedMessage.Builder{
            builderResult.hasD = false
            builderResult.d = Int32(0)
@@ -170,6 +167,7 @@ public extension Proto2ArenaUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
         builderResult = Proto2ArenaUnittest.NestedMessage()
         return self
@@ -200,6 +198,7 @@ public extension Proto2ArenaUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -394,10 +393,12 @@ public extension Proto2ArenaUnittest {
                builderResult.repeatedNestedMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedNestedMessage(_ value:Array<Proto2ArenaUnittest.NestedMessage>) -> Proto2ArenaUnittest.ArenaMessage.Builder {
         self.repeatedNestedMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedNestedMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
         builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
@@ -410,10 +411,12 @@ public extension Proto2ArenaUnittest {
                builderResult.repeatedImportNoArenaMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedImportNoArenaMessage(_ value:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>) -> Proto2ArenaUnittest.ArenaMessage.Builder {
         self.repeatedImportNoArenaMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedImportNoArenaMessage() -> Proto2ArenaUnittest.ArenaMessage.Builder {
         builderResult.repeatedImportNoArenaMessage.removeAll(keepingCapacity: false)
         return self
@@ -423,6 +426,7 @@ public extension Proto2ArenaUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
         builderResult = Proto2ArenaUnittest.ArenaMessage()
         return self
@@ -456,6 +460,7 @@ public extension Proto2ArenaUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -529,7 +534,7 @@ extension Proto2ArenaUnittest.NestedMessage: GeneratedMessageProtocol {
     return try Proto2ArenaUnittest.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2ArenaUnittest.NestedMessage {
-    return try Proto2ArenaUnittest.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2ArenaUnittest.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage {
     return try Proto2ArenaUnittest.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -559,7 +564,7 @@ extension Proto2ArenaUnittest.ArenaMessage: GeneratedMessageProtocol {
     return try Proto2ArenaUnittest.ArenaMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2ArenaUnittest.ArenaMessage {
-    return try Proto2ArenaUnittest.ArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2ArenaUnittest.ArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestArenaRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage {
     return try Proto2ArenaUnittest.ArenaMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

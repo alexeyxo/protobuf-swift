@@ -8,18 +8,13 @@ public extension Google.Protobuf{}
 
 public extension Google.Protobuf {
   public struct DurationRoot {
-    public static var sharedInstance : DurationRoot {
-     struct Static {
-         static let instance : DurationRoot = DurationRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = DurationRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -213,10 +208,12 @@ public extension Google.Protobuf {
                builderResult.seconds = value
            }
       }
+      @discardableResult
       public func setSeconds(_ value:Int64) -> Google.Protobuf.Duration.Builder {
         self.seconds = value
         return self
       }
+      @discardableResult
       public func clearSeconds() -> Google.Protobuf.Duration.Builder{
            builderResult.hasSeconds = false
            builderResult.seconds = Int64(0)
@@ -236,10 +233,12 @@ public extension Google.Protobuf {
                builderResult.nanos = value
            }
       }
+      @discardableResult
       public func setNanos(_ value:Int32) -> Google.Protobuf.Duration.Builder {
         self.nanos = value
         return self
       }
+      @discardableResult
       public func clearNanos() -> Google.Protobuf.Duration.Builder{
            builderResult.hasNanos = false
            builderResult.nanos = Int32(0)
@@ -250,6 +249,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Duration.Builder {
         builderResult = Google.Protobuf.Duration()
         return self
@@ -283,6 +283,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Duration.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -340,7 +341,7 @@ extension Google.Protobuf.Duration: GeneratedMessageProtocol {
     return try Google.Protobuf.Duration.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.Duration {
-    return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DurationRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DurationRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Duration {
     return try Google.Protobuf.Duration.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

@@ -10,12 +10,7 @@ public extension ProtobufUnittestImport{}
 
 public extension ProtobufUnittestImport {
   public struct UnittestImportPublicLiteRoot {
-    public static var sharedInstance : UnittestImportPublicLiteRoot {
-     struct Static {
-         static let instance : UnittestImportPublicLiteRoot = UnittestImportPublicLiteRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestImportPublicLiteRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -155,10 +150,12 @@ public extension ProtobufUnittestImport {
                builderResult.e = value
            }
       }
+      @discardableResult
       public func setE(_ value:Int32) -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
         self.e = value
         return self
       }
+      @discardableResult
       public func clearE() -> ProtobufUnittestImport.PublicImportMessageLite.Builder{
            builderResult.hasE = false
            builderResult.e = Int32(0)
@@ -169,6 +166,7 @@ public extension ProtobufUnittestImport {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
         builderResult = ProtobufUnittestImport.PublicImportMessageLite()
         return self
@@ -199,6 +197,7 @@ public extension ProtobufUnittestImport {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -250,7 +249,7 @@ extension ProtobufUnittestImport.PublicImportMessageLite: GeneratedMessageProtoc
     return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-    return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
     return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

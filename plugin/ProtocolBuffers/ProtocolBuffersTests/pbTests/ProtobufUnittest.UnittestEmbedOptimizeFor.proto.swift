@@ -10,18 +10,13 @@ public extension ProtobufUnittest{}
 
 public extension ProtobufUnittest {
   public struct UnittestEmbedOptimizeForRoot {
-    public static var sharedInstance : UnittestEmbedOptimizeForRoot {
-     struct Static {
-         static let instance : UnittestEmbedOptimizeForRoot = UnittestEmbedOptimizeForRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestEmbedOptimizeForRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittest.UnittestOptimizeForRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -222,6 +217,7 @@ public extension ProtobufUnittest {
         }
         return optionalMessageBuilder_
       }
+      @discardableResult
       public func setOptionalMessage(_ value:ProtobufUnittest.TestOptimizedForSize!) -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         self.optionalMessage = value
         return self
@@ -236,6 +232,7 @@ public extension ProtobufUnittest {
         builderResult.hasOptionalMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalMessage() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         optionalMessageBuilder_ = nil
         builderResult.hasOptionalMessage = false
@@ -250,10 +247,12 @@ public extension ProtobufUnittest {
                builderResult.repeatedMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedMessage(_ value:Array<ProtobufUnittest.TestOptimizedForSize>) -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         self.repeatedMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedMessage() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         builderResult.repeatedMessage.removeAll(keepingCapacity: false)
         return self
@@ -263,6 +262,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestEmbedOptimizedForSize()
         return self
@@ -296,6 +296,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -367,7 +368,7 @@ extension ProtobufUnittest.TestEmbedOptimizedForSize: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
-    return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
     return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

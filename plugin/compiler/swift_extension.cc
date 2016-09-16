@@ -67,7 +67,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         printer->Print(vars,"$acontrol$ var $containing_type$$name$:ConcreateExtensionField {\n"
                        "   get {\n"
-                       "       return $root_name$.sharedInstance.$containing_type$$name$Static\n"
+                       "       return $root_name$.default.$containing_type$$name$Static\n"
                        "   }\n"
                        "}\n");
     }
@@ -102,7 +102,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         vars["acontrol"] = GetAccessControlType(descriptor_->file());
         printer->Print(vars,
                        "$acontrol$ static func $name$() -> ConcreateExtensionField {\n"
-                       "     return $rootclass_type$.sharedInstance.$containing_type$$name$Static\n"
+                       "     return $rootclass_type$.default.$containing_type$$name$Static\n"
                        "}\n");
     }
     

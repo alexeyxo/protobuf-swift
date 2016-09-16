@@ -10,18 +10,13 @@ public struct Proto2NofieldpresenceUnittest { }
 
 public extension Proto2NofieldpresenceUnittest {
   public struct UnittestNoFieldPresenceRoot {
-    public static var sharedInstance : UnittestNoFieldPresenceRoot {
-     struct Static {
-         static let instance : UnittestNoFieldPresenceRoot = UnittestNoFieldPresenceRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestNoFieldPresenceRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -259,10 +254,12 @@ public extension Proto2NofieldpresenceUnittest {
                    builderResult.bb = value
                }
           }
+          @discardableResult
           public func setBb(_ value:Int32) -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             self.bb = value
             return self
           }
+          @discardableResult
           public func clearBb() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder{
                builderResult.hasBb = false
                builderResult.bb = Int32(0)
@@ -273,6 +270,7 @@ public extension Proto2NofieldpresenceUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             builderResult = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage()
             return self
@@ -303,6 +301,7 @@ public extension Proto2NofieldpresenceUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -1829,10 +1828,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalInt32 = value
            }
       }
+      @discardableResult
       public func setOptionalInt32(_ value:Int32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalInt32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalInt32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalInt32 = false
            builderResult.optionalInt32 = Int32(0)
@@ -1852,10 +1853,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalInt64 = value
            }
       }
+      @discardableResult
       public func setOptionalInt64(_ value:Int64) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalInt64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalInt64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalInt64 = false
            builderResult.optionalInt64 = Int64(0)
@@ -1875,10 +1878,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalUint32 = value
            }
       }
+      @discardableResult
       public func setOptionalUint32(_ value:UInt32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalUint32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalUint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalUint32 = false
            builderResult.optionalUint32 = UInt32(0)
@@ -1898,10 +1903,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalUint64 = value
            }
       }
+      @discardableResult
       public func setOptionalUint64(_ value:UInt64) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalUint64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalUint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalUint64 = false
            builderResult.optionalUint64 = UInt64(0)
@@ -1921,10 +1928,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalSint32 = value
            }
       }
+      @discardableResult
       public func setOptionalSint32(_ value:Int32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalSint32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalSint32 = false
            builderResult.optionalSint32 = Int32(0)
@@ -1944,10 +1953,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalSint64 = value
            }
       }
+      @discardableResult
       public func setOptionalSint64(_ value:Int64) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalSint64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalSint64 = false
            builderResult.optionalSint64 = Int64(0)
@@ -1967,10 +1978,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalFixed32 = value
            }
       }
+      @discardableResult
       public func setOptionalFixed32(_ value:UInt32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalFixed32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalFixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalFixed32 = false
            builderResult.optionalFixed32 = UInt32(0)
@@ -1990,10 +2003,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalFixed64 = value
            }
       }
+      @discardableResult
       public func setOptionalFixed64(_ value:UInt64) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalFixed64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalFixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalFixed64 = false
            builderResult.optionalFixed64 = UInt64(0)
@@ -2013,10 +2028,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalSfixed32 = value
            }
       }
+      @discardableResult
       public func setOptionalSfixed32(_ value:Int32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalSfixed32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSfixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalSfixed32 = false
            builderResult.optionalSfixed32 = Int32(0)
@@ -2036,10 +2053,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalSfixed64 = value
            }
       }
+      @discardableResult
       public func setOptionalSfixed64(_ value:Int64) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalSfixed64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSfixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalSfixed64 = false
            builderResult.optionalSfixed64 = Int64(0)
@@ -2059,10 +2078,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalFloat = value
            }
       }
+      @discardableResult
       public func setOptionalFloat(_ value:Float) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalFloat = value
         return self
       }
+      @discardableResult
       public func clearOptionalFloat() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalFloat = false
            builderResult.optionalFloat = Float(0)
@@ -2082,10 +2103,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalDouble = value
            }
       }
+      @discardableResult
       public func setOptionalDouble(_ value:Double) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalDouble = value
         return self
       }
+      @discardableResult
       public func clearOptionalDouble() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalDouble = false
            builderResult.optionalDouble = Double(0)
@@ -2105,10 +2128,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalBool = value
            }
       }
+      @discardableResult
       public func setOptionalBool(_ value:Bool) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalBool = value
         return self
       }
+      @discardableResult
       public func clearOptionalBool() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalBool = false
            builderResult.optionalBool = false
@@ -2128,10 +2153,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalString = value
            }
       }
+      @discardableResult
       public func setOptionalString(_ value:String) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalString = value
         return self
       }
+      @discardableResult
       public func clearOptionalString() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalString = false
            builderResult.optionalString = ""
@@ -2151,10 +2178,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalBytes = value
            }
       }
+      @discardableResult
       public func setOptionalBytes(_ value:Data) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalBytes = value
         return self
       }
+      @discardableResult
       public func clearOptionalBytes() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalBytes = false
            builderResult.optionalBytes = Data()
@@ -2192,6 +2221,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return optionalNestedMessageBuilder_
       }
+      @discardableResult
       public func setOptionalNestedMessage(_ value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalNestedMessage = value
         return self
@@ -2206,6 +2236,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasOptionalNestedMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalNestedMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         optionalNestedMessageBuilder_ = nil
         builderResult.hasOptionalNestedMessage = false
@@ -2244,6 +2275,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return optionalForeignMessageBuilder_
       }
+      @discardableResult
       public func setOptionalForeignMessage(_ value:Proto2NofieldpresenceUnittest.ForeignMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalForeignMessage = value
         return self
@@ -2258,6 +2290,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasOptionalForeignMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalForeignMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         optionalForeignMessageBuilder_ = nil
         builderResult.hasOptionalForeignMessage = false
@@ -2296,6 +2329,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return optionalProto2MessageBuilder_
       }
+      @discardableResult
       public func setOptionalProto2Message(_ value:ProtobufUnittest.TestAllTypes!) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalProto2Message = value
         return self
@@ -2310,6 +2344,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasOptionalProto2Message = true
         return self
       }
+      @discardableResult
       public func clearOptionalProto2Message() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         optionalProto2MessageBuilder_ = nil
         builderResult.hasOptionalProto2Message = false
@@ -2330,10 +2365,12 @@ public extension Proto2NofieldpresenceUnittest {
                 builderResult.optionalNestedEnum = value
             }
         }
+      @discardableResult
         public func setOptionalNestedEnum(_ value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
+      @discardableResult
         public func clearOptionalNestedEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            builderResult.hasOptionalNestedEnum = false
            builderResult.optionalNestedEnum = .foo
@@ -2353,10 +2390,12 @@ public extension Proto2NofieldpresenceUnittest {
                 builderResult.optionalForeignEnum = value
             }
         }
+      @discardableResult
         public func setOptionalForeignEnum(_ value:Proto2NofieldpresenceUnittest.ForeignEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
           self.optionalForeignEnum = value
           return self
         }
+      @discardableResult
         public func clearOptionalForeignEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            builderResult.hasOptionalForeignEnum = false
            builderResult.optionalForeignEnum = .foreignFoo
@@ -2376,10 +2415,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalStringPiece = value
            }
       }
+      @discardableResult
       public func setOptionalStringPiece(_ value:String) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalStringPiece = value
         return self
       }
+      @discardableResult
       public func clearOptionalStringPiece() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalStringPiece = false
            builderResult.optionalStringPiece = ""
@@ -2399,10 +2440,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.optionalCord = value
            }
       }
+      @discardableResult
       public func setOptionalCord(_ value:String) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalCord = value
         return self
       }
+      @discardableResult
       public func clearOptionalCord() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOptionalCord = false
            builderResult.optionalCord = ""
@@ -2440,6 +2483,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return optionalLazyMessageBuilder_
       }
+      @discardableResult
       public func setOptionalLazyMessage(_ value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.optionalLazyMessage = value
         return self
@@ -2454,6 +2498,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasOptionalLazyMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalLazyMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         optionalLazyMessageBuilder_ = nil
         builderResult.hasOptionalLazyMessage = false
@@ -2468,10 +2513,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedInt32 = array
            }
       }
+      @discardableResult
       public func setRepeatedInt32(_ value:Array<Int32>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedInt32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedInt32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
@@ -2484,10 +2531,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedInt64 = array
            }
       }
+      @discardableResult
       public func setRepeatedInt64(_ value:Array<Int64>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedInt64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedInt64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
@@ -2500,10 +2549,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedUint32 = array
            }
       }
+      @discardableResult
       public func setRepeatedUint32(_ value:Array<UInt32>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedUint32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedUint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
@@ -2516,10 +2567,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedUint64 = array
            }
       }
+      @discardableResult
       public func setRepeatedUint64(_ value:Array<UInt64>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedUint64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedUint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
@@ -2532,10 +2585,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedSint32 = array
            }
       }
+      @discardableResult
       public func setRepeatedSint32(_ value:Array<Int32>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedSint32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
@@ -2548,10 +2603,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedSint64 = array
            }
       }
+      @discardableResult
       public func setRepeatedSint64(_ value:Array<Int64>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedSint64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSint64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
@@ -2564,10 +2621,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedFixed32 = array
            }
       }
+      @discardableResult
       public func setRepeatedFixed32(_ value:Array<UInt32>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedFixed32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
@@ -2580,10 +2639,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedFixed64 = array
            }
       }
+      @discardableResult
       public func setRepeatedFixed64(_ value:Array<UInt64>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedFixed64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
@@ -2596,10 +2657,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedSfixed32 = array
            }
       }
+      @discardableResult
       public func setRepeatedSfixed32(_ value:Array<Int32>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedSfixed32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSfixed32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
@@ -2612,10 +2675,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedSfixed64 = array
            }
       }
+      @discardableResult
       public func setRepeatedSfixed64(_ value:Array<Int64>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedSfixed64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSfixed64() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
@@ -2628,10 +2693,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedFloat = array
            }
       }
+      @discardableResult
       public func setRepeatedFloat(_ value:Array<Float>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedFloat = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFloat() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
@@ -2644,10 +2711,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedDouble = array
            }
       }
+      @discardableResult
       public func setRepeatedDouble(_ value:Array<Double>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedDouble = value
         return self
       }
+      @discardableResult
       public func clearRepeatedDouble() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
@@ -2660,10 +2729,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedBool = array
            }
       }
+      @discardableResult
       public func setRepeatedBool(_ value:Array<Bool>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedBool = value
         return self
       }
+      @discardableResult
       public func clearRepeatedBool() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
@@ -2676,10 +2747,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedString = array
            }
       }
+      @discardableResult
       public func setRepeatedString(_ value:Array<String>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedString = value
         return self
       }
+      @discardableResult
       public func clearRepeatedString() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
@@ -2692,10 +2765,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedBytes = array
            }
       }
+      @discardableResult
       public func setRepeatedBytes(_ value:Array<Data>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedBytes = value
         return self
       }
+      @discardableResult
       public func clearRepeatedBytes() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedBytes.removeAll(keepingCapacity: false)
          return self
@@ -2708,10 +2783,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedNestedMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedNestedMessage(_ value:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedNestedMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedNestedMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
@@ -2724,10 +2801,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedForeignMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedForeignMessage(_ value:Array<Proto2NofieldpresenceUnittest.ForeignMessage>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedForeignMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedForeignMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedForeignMessage.removeAll(keepingCapacity: false)
         return self
@@ -2740,10 +2819,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedProto2Message = value
            }
       }
+      @discardableResult
       public func setRepeatedProto2Message(_ value:Array<ProtobufUnittest.TestAllTypes>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedProto2Message = value
         return self
       }
+      @discardableResult
       public func clearRepeatedProto2Message() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedProto2Message.removeAll(keepingCapacity: false)
         return self
@@ -2756,10 +2837,12 @@ public extension Proto2NofieldpresenceUnittest {
               builderResult.repeatedNestedEnum = value
           }
       }
+      @discardableResult
       public func setRepeatedNestedEnum(_ value:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
+      @discardableResult
       public func clearRepeatedNestedEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
@@ -2772,10 +2855,12 @@ public extension Proto2NofieldpresenceUnittest {
               builderResult.repeatedForeignEnum = value
           }
       }
+      @discardableResult
       public func setRepeatedForeignEnum(_ value:Array<Proto2NofieldpresenceUnittest.ForeignEnum>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedForeignEnum = value
         return self
       }
+      @discardableResult
       public func clearRepeatedForeignEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedForeignEnum.removeAll(keepingCapacity: false)
         return self
@@ -2788,10 +2873,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedStringPiece = array
            }
       }
+      @discardableResult
       public func setRepeatedStringPiece(_ value:Array<String>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedStringPiece = value
         return self
       }
+      @discardableResult
       public func clearRepeatedStringPiece() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedStringPiece.removeAll(keepingCapacity: false)
          return self
@@ -2804,10 +2891,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedCord = array
            }
       }
+      @discardableResult
       public func setRepeatedCord(_ value:Array<String>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedCord = value
         return self
       }
+      @discardableResult
       public func clearRepeatedCord() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
          builderResult.repeatedCord.removeAll(keepingCapacity: false)
          return self
@@ -2820,10 +2909,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.repeatedLazyMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedLazyMessage(_ value:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage>) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.repeatedLazyMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedLazyMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
@@ -2842,10 +2933,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.oneofUint32 = value
            }
       }
+      @discardableResult
       public func setOneofUint32(_ value:UInt32) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.oneofUint32 = value
         return self
       }
+      @discardableResult
       public func clearOneofUint32() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOneofUint32 = false
            builderResult.oneofUint32 = UInt32(0)
@@ -2883,6 +2976,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return oneofNestedMessageBuilder_
       }
+      @discardableResult
       public func setOneofNestedMessage(_ value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage!) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.oneofNestedMessage = value
         return self
@@ -2897,6 +2991,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasOneofNestedMessage = true
         return self
       }
+      @discardableResult
       public func clearOneofNestedMessage() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         oneofNestedMessageBuilder_ = nil
         builderResult.hasOneofNestedMessage = false
@@ -2917,10 +3012,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.oneofString = value
            }
       }
+      @discardableResult
       public func setOneofString(_ value:String) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         self.oneofString = value
         return self
       }
+      @discardableResult
       public func clearOneofString() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder{
            builderResult.hasOneofString = false
            builderResult.oneofString = ""
@@ -2940,10 +3037,12 @@ public extension Proto2NofieldpresenceUnittest {
                 builderResult.oneofEnum = value
             }
         }
+      @discardableResult
         public func setOneofEnum(_ value:Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum) -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
           self.oneofEnum = value
           return self
         }
+      @discardableResult
         public func clearOneofEnum() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            builderResult.hasOneofEnum = false
            builderResult.oneofEnum = .foo
@@ -2954,6 +3053,7 @@ public extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         builderResult = Proto2NofieldpresenceUnittest.TestAllTypes()
         return self
@@ -3131,6 +3231,7 @@ public extension Proto2NofieldpresenceUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -3862,6 +3963,7 @@ public extension Proto2NofieldpresenceUnittest {
         }
         return proto2Builder_
       }
+      @discardableResult
       public func setProto2(_ value:ProtobufUnittest.TestRequired!) -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         self.proto2 = value
         return self
@@ -3876,6 +3978,7 @@ public extension Proto2NofieldpresenceUnittest {
         builderResult.hasProto2 = true
         return self
       }
+      @discardableResult
       public func clearProto2() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         proto2Builder_ = nil
         builderResult.hasProto2 = false
@@ -3887,6 +3990,7 @@ public extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         builderResult = Proto2NofieldpresenceUnittest.TestProto2Required()
         return self
@@ -3917,6 +4021,7 @@ public extension Proto2NofieldpresenceUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -4092,10 +4197,12 @@ public extension Proto2NofieldpresenceUnittest {
                builderResult.c = value
            }
       }
+      @discardableResult
       public func setC(_ value:Int32) -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         self.c = value
         return self
       }
+      @discardableResult
       public func clearC() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder{
            builderResult.hasC = false
            builderResult.c = Int32(0)
@@ -4106,6 +4213,7 @@ public extension Proto2NofieldpresenceUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         builderResult = Proto2NofieldpresenceUnittest.ForeignMessage()
         return self
@@ -4136,6 +4244,7 @@ public extension Proto2NofieldpresenceUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -4187,7 +4296,7 @@ extension Proto2NofieldpresenceUnittest.TestAllTypes: GeneratedMessageProtocol {
     return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
-    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes {
     return try Proto2NofieldpresenceUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -4217,7 +4326,7 @@ extension Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage: GeneratedMes
     return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
-    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage {
     return try Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -4247,7 +4356,7 @@ extension Proto2NofieldpresenceUnittest.TestProto2Required: GeneratedMessageProt
     return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
-    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.TestProto2Required {
     return try Proto2NofieldpresenceUnittest.TestProto2Required.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -4277,7 +4386,7 @@ extension Proto2NofieldpresenceUnittest.ForeignMessage: GeneratedMessageProtocol
     return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
-    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2NofieldpresenceUnittest.UnittestNoFieldPresenceRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2NofieldpresenceUnittest.ForeignMessage {
     return try Proto2NofieldpresenceUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

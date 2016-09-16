@@ -8,27 +8,22 @@ public extension Google.Protobuf{}
 
 public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
    }
 }
 public var SwiftDescriptorRootswiftMessageOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
    }
 }
 public var SwiftDescriptorRootswiftEnumOptions:ConcreateExtensionField {
    get {
-       return Google.Protobuf.SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
+       return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftEnumOptionsStatic
    }
 }
 public extension Google.Protobuf {
   public struct SwiftDescriptorRoot {
-    public static var sharedInstance : SwiftDescriptorRoot {
-     struct Static {
-         static let instance : SwiftDescriptorRoot = SwiftDescriptorRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = SwiftDescriptorRoot()
     var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
     var SwiftDescriptorRootswiftMessageOptionsStatic:ConcreateExtensionField
     var SwiftDescriptorRootswiftEnumOptionsStatic:ConcreateExtensionField
@@ -40,7 +35,7 @@ public extension Google.Protobuf {
       SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.DescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
       registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
@@ -48,13 +43,13 @@ public extension Google.Protobuf {
       registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
     }
     public static func swiftFileOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftFileOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
     }
     public static func swiftMessageOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftMessageOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
     }
     public static func swiftEnumOptions() -> ConcreateExtensionField {
-         return SwiftDescriptorRoot.sharedInstance.SwiftDescriptorRootswiftEnumOptionsStatic
+         return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftEnumOptionsStatic
     }
   }
 
@@ -275,10 +270,12 @@ public extension Google.Protobuf {
                builderResult.classPrefix = value
            }
       }
+      @discardableResult
       public func setClassPrefix(_ value:String) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.classPrefix = value
         return self
       }
+      @discardableResult
       public func clearClassPrefix() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasClassPrefix = false
            builderResult.classPrefix = ""
@@ -298,10 +295,12 @@ public extension Google.Protobuf {
                 builderResult.entitiesAccessControl = value
             }
         }
+      @discardableResult
         public func setEntitiesAccessControl(_ value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptions.Builder {
           self.entitiesAccessControl = value
           return self
         }
+      @discardableResult
         public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
            builderResult.hasEntitiesAccessControl = false
            builderResult.entitiesAccessControl = .publicEntities
@@ -321,10 +320,12 @@ public extension Google.Protobuf {
                builderResult.compileForFramework = value
            }
       }
+      @discardableResult
       public func setCompileForFramework(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.compileForFramework = value
         return self
       }
+      @discardableResult
       public func clearCompileForFramework() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasCompileForFramework = false
            builderResult.compileForFramework = true
@@ -344,10 +345,12 @@ public extension Google.Protobuf {
                builderResult.generateStruct = value
            }
       }
+      @discardableResult
       public func setGenerateStruct(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.generateStruct = value
         return self
       }
+      @discardableResult
       public func clearGenerateStruct() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasGenerateStruct = false
            builderResult.generateStruct = false
@@ -358,6 +361,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftFileOptions.Builder {
         builderResult = Google.Protobuf.SwiftFileOptions()
         return self
@@ -397,6 +401,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -587,10 +592,12 @@ public extension Google.Protobuf {
                builderResult.generateErrorType = value
            }
       }
+      @discardableResult
       public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftMessageOptions.Builder {
         self.generateErrorType = value
         return self
       }
+      @discardableResult
       public func clearGenerateErrorType() -> Google.Protobuf.SwiftMessageOptions.Builder{
            builderResult.hasGenerateErrorType = false
            builderResult.generateErrorType = false
@@ -601,6 +608,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftMessageOptions.Builder {
         builderResult = Google.Protobuf.SwiftMessageOptions()
         return self
@@ -631,6 +639,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -798,10 +807,12 @@ public extension Google.Protobuf {
                builderResult.generateErrorType = value
            }
       }
+      @discardableResult
       public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftEnumOptions.Builder {
         self.generateErrorType = value
         return self
       }
+      @discardableResult
       public func clearGenerateErrorType() -> Google.Protobuf.SwiftEnumOptions.Builder{
            builderResult.hasGenerateErrorType = false
            builderResult.generateErrorType = false
@@ -812,6 +823,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftEnumOptions.Builder {
         builderResult = Google.Protobuf.SwiftEnumOptions()
         return self
@@ -842,6 +854,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -893,7 +906,7 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftFileOptions {
-    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -923,7 +936,7 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftMessageOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftMessageOptions {
-    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
     return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -953,7 +966,7 @@ extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
     return try Google.Protobuf.SwiftEnumOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftEnumOptions {
-    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.sharedInstance.extensionRegistry).build()
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
     return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

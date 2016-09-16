@@ -10,12 +10,7 @@ public struct Proto3PreserveUnknownEnumUnittest { }
 
 public extension Proto3PreserveUnknownEnumUnittest {
   public struct UnittestPreserveUnknownEnumRoot {
-    public static var sharedInstance : UnittestPreserveUnknownEnumRoot {
-     struct Static {
-         static let instance : UnittestPreserveUnknownEnumRoot = UnittestPreserveUnknownEnumRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestPreserveUnknownEnumRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -446,10 +441,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.e = value
             }
         }
+      @discardableResult
         public func setE(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.e = value
           return self
         }
+      @discardableResult
         public func clearE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasE = false
            builderResult.e = .foo
@@ -463,10 +460,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedE = value
           }
       }
+      @discardableResult
       public func setRepeatedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
@@ -479,10 +478,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedE = value
           }
       }
+      @discardableResult
       public func setRepeatedPackedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnum>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedPackedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedPackedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
@@ -495,10 +496,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedUnexpectedE = value
           }
       }
+      @discardableResult
       public func setRepeatedPackedUnexpectedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         self.repeatedPackedUnexpectedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedPackedUnexpectedE() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
@@ -517,10 +520,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE1 = value
             }
         }
+      @discardableResult
         public func setOneofE1(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.oneofE1 = value
           return self
         }
+      @discardableResult
         public func clearOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasOneofE1 = false
            builderResult.oneofE1 = .foo
@@ -540,10 +545,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE2 = value
             }
         }
+      @discardableResult
         public func setOneofE2(_ value:Proto3PreserveUnknownEnumUnittest.MyEnum) -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
           self.oneofE2 = value
           return self
         }
+      @discardableResult
         public func clearOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            builderResult.hasOneofE2 = false
            builderResult.oneofE2 = .foo
@@ -554,6 +561,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         builderResult = Proto3PreserveUnknownEnumUnittest.MyMessage()
         return self
@@ -599,6 +607,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1071,10 +1080,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.e = value
             }
         }
+      @discardableResult
         public func setE(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.e = value
           return self
         }
+      @discardableResult
         public func clearE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasE = false
            builderResult.e = .eFoo
@@ -1088,10 +1099,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedE = value
           }
       }
+      @discardableResult
       public func setRepeatedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         builderResult.repeatedE.removeAll(keepingCapacity: false)
         return self
@@ -1104,10 +1117,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedE = value
           }
       }
+      @discardableResult
       public func setRepeatedPackedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedPackedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedPackedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
@@ -1120,10 +1135,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
               builderResult.repeatedPackedUnexpectedE = value
           }
       }
+      @discardableResult
       public func setRepeatedPackedUnexpectedE(_ value:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra>) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         self.repeatedPackedUnexpectedE = value
         return self
       }
+      @discardableResult
       public func clearRepeatedPackedUnexpectedE() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
@@ -1142,10 +1159,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE1 = value
             }
         }
+      @discardableResult
         public func setOneofE1(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.oneofE1 = value
           return self
         }
+      @discardableResult
         public func clearOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasOneofE1 = false
            builderResult.oneofE1 = .eFoo
@@ -1165,10 +1184,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 builderResult.oneofE2 = value
             }
         }
+      @discardableResult
         public func setOneofE2(_ value:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra) -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
           self.oneofE2 = value
           return self
         }
+      @discardableResult
         public func clearOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            builderResult.hasOneofE2 = false
            builderResult.oneofE2 = .eFoo
@@ -1179,6 +1200,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         builderResult = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra()
         return self
@@ -1224,6 +1246,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1365,7 +1388,7 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessage: GeneratedMessageProtocol 
     return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
     return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1395,7 +1418,7 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra: GeneratedMessage
     return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
     return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
