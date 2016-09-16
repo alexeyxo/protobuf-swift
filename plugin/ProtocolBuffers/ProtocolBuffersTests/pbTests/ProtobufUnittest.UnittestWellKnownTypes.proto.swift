@@ -420,7 +420,7 @@ public extension ProtobufUnittest {
            anyFieldBuilder_ = Google.Protobuf.`Any`.Builder()
            builderResult.anyField = anyFieldBuilder_.getMessage()
            if anyField != nil {
-              _ = try! anyFieldBuilder_.mergeFrom(other: anyField)
+              try! anyFieldBuilder_.mergeFrom(other: anyField)
            }
         }
         return anyFieldBuilder_
@@ -429,6 +429,7 @@ public extension ProtobufUnittest {
         self.anyField = value
         return self
       }
+      @discardableResult
       public func mergeAnyField(value:Google.Protobuf.`Any`) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasAnyField {
           builderResult.anyField = try Google.Protobuf.`Any`.builderWithPrototype(prototype:builderResult.anyField).mergeFrom(other: value).buildPartial()
@@ -471,7 +472,7 @@ public extension ProtobufUnittest {
            apiFieldBuilder_ = Google.Protobuf.Api.Builder()
            builderResult.apiField = apiFieldBuilder_.getMessage()
            if apiField != nil {
-              _ = try! apiFieldBuilder_.mergeFrom(other: apiField)
+              try! apiFieldBuilder_.mergeFrom(other: apiField)
            }
         }
         return apiFieldBuilder_
@@ -480,6 +481,7 @@ public extension ProtobufUnittest {
         self.apiField = value
         return self
       }
+      @discardableResult
       public func mergeApiField(value:Google.Protobuf.Api) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasApiField {
           builderResult.apiField = try Google.Protobuf.Api.builderWithPrototype(prototype:builderResult.apiField).mergeFrom(other: value).buildPartial()
@@ -522,7 +524,7 @@ public extension ProtobufUnittest {
            durationFieldBuilder_ = Google.Protobuf.Duration.Builder()
            builderResult.durationField = durationFieldBuilder_.getMessage()
            if durationField != nil {
-              _ = try! durationFieldBuilder_.mergeFrom(other: durationField)
+              try! durationFieldBuilder_.mergeFrom(other: durationField)
            }
         }
         return durationFieldBuilder_
@@ -531,6 +533,7 @@ public extension ProtobufUnittest {
         self.durationField = value
         return self
       }
+      @discardableResult
       public func mergeDurationField(value:Google.Protobuf.Duration) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasDurationField {
           builderResult.durationField = try Google.Protobuf.Duration.builderWithPrototype(prototype:builderResult.durationField).mergeFrom(other: value).buildPartial()
@@ -573,7 +576,7 @@ public extension ProtobufUnittest {
            emptyFieldBuilder_ = Google.Protobuf.Empty.Builder()
            builderResult.emptyField = emptyFieldBuilder_.getMessage()
            if emptyField != nil {
-              _ = try! emptyFieldBuilder_.mergeFrom(other: emptyField)
+              try! emptyFieldBuilder_.mergeFrom(other: emptyField)
            }
         }
         return emptyFieldBuilder_
@@ -582,6 +585,7 @@ public extension ProtobufUnittest {
         self.emptyField = value
         return self
       }
+      @discardableResult
       public func mergeEmptyField(value:Google.Protobuf.Empty) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasEmptyField {
           builderResult.emptyField = try Google.Protobuf.Empty.builderWithPrototype(prototype:builderResult.emptyField).mergeFrom(other: value).buildPartial()
@@ -624,7 +628,7 @@ public extension ProtobufUnittest {
            fieldMaskFieldBuilder_ = Google.Protobuf.FieldMask.Builder()
            builderResult.fieldMaskField = fieldMaskFieldBuilder_.getMessage()
            if fieldMaskField != nil {
-              _ = try! fieldMaskFieldBuilder_.mergeFrom(other: fieldMaskField)
+              try! fieldMaskFieldBuilder_.mergeFrom(other: fieldMaskField)
            }
         }
         return fieldMaskFieldBuilder_
@@ -633,6 +637,7 @@ public extension ProtobufUnittest {
         self.fieldMaskField = value
         return self
       }
+      @discardableResult
       public func mergeFieldMaskField(value:Google.Protobuf.FieldMask) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasFieldMaskField {
           builderResult.fieldMaskField = try Google.Protobuf.FieldMask.builderWithPrototype(prototype:builderResult.fieldMaskField).mergeFrom(other: value).buildPartial()
@@ -675,7 +680,7 @@ public extension ProtobufUnittest {
            sourceContextFieldBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContextField = sourceContextFieldBuilder_.getMessage()
            if sourceContextField != nil {
-              _ = try! sourceContextFieldBuilder_.mergeFrom(other: sourceContextField)
+              try! sourceContextFieldBuilder_.mergeFrom(other: sourceContextField)
            }
         }
         return sourceContextFieldBuilder_
@@ -684,6 +689,7 @@ public extension ProtobufUnittest {
         self.sourceContextField = value
         return self
       }
+      @discardableResult
       public func mergeSourceContextField(value:Google.Protobuf.SourceContext) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasSourceContextField {
           builderResult.sourceContextField = try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult.sourceContextField).mergeFrom(other: value).buildPartial()
@@ -726,7 +732,7 @@ public extension ProtobufUnittest {
            structFieldBuilder_ = Google.Protobuf.Struct.Builder()
            builderResult.structField = structFieldBuilder_.getMessage()
            if structField != nil {
-              _ = try! structFieldBuilder_.mergeFrom(other: structField)
+              try! structFieldBuilder_.mergeFrom(other: structField)
            }
         }
         return structFieldBuilder_
@@ -735,6 +741,7 @@ public extension ProtobufUnittest {
         self.structField = value
         return self
       }
+      @discardableResult
       public func mergeStructField(value:Google.Protobuf.Struct) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasStructField {
           builderResult.structField = try Google.Protobuf.Struct.builderWithPrototype(prototype:builderResult.structField).mergeFrom(other: value).buildPartial()
@@ -777,7 +784,7 @@ public extension ProtobufUnittest {
            timestampFieldBuilder_ = Google.Protobuf.Timestamp.Builder()
            builderResult.timestampField = timestampFieldBuilder_.getMessage()
            if timestampField != nil {
-              _ = try! timestampFieldBuilder_.mergeFrom(other: timestampField)
+              try! timestampFieldBuilder_.mergeFrom(other: timestampField)
            }
         }
         return timestampFieldBuilder_
@@ -786,6 +793,7 @@ public extension ProtobufUnittest {
         self.timestampField = value
         return self
       }
+      @discardableResult
       public func mergeTimestampField(value:Google.Protobuf.Timestamp) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasTimestampField {
           builderResult.timestampField = try Google.Protobuf.Timestamp.builderWithPrototype(prototype:builderResult.timestampField).mergeFrom(other: value).buildPartial()
@@ -828,7 +836,7 @@ public extension ProtobufUnittest {
            typeFieldBuilder_ = Google.Protobuf.`Type`.Builder()
            builderResult.typeField = typeFieldBuilder_.getMessage()
            if typeField != nil {
-              _ = try! typeFieldBuilder_.mergeFrom(other: typeField)
+              try! typeFieldBuilder_.mergeFrom(other: typeField)
            }
         }
         return typeFieldBuilder_
@@ -837,6 +845,7 @@ public extension ProtobufUnittest {
         self.typeField = value
         return self
       }
+      @discardableResult
       public func mergeTypeField(value:Google.Protobuf.`Type`) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasTypeField {
           builderResult.typeField = try Google.Protobuf.`Type`.builderWithPrototype(prototype:builderResult.typeField).mergeFrom(other: value).buildPartial()
@@ -879,7 +888,7 @@ public extension ProtobufUnittest {
            int32FieldBuilder_ = Google.Protobuf.Int32Value.Builder()
            builderResult.int32Field = int32FieldBuilder_.getMessage()
            if int32Field != nil {
-              _ = try! int32FieldBuilder_.mergeFrom(other: int32Field)
+              try! int32FieldBuilder_.mergeFrom(other: int32Field)
            }
         }
         return int32FieldBuilder_
@@ -888,6 +897,7 @@ public extension ProtobufUnittest {
         self.int32Field = value
         return self
       }
+      @discardableResult
       public func mergeInt32Field(value:Google.Protobuf.Int32Value) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if builderResult.hasInt32Field {
           builderResult.int32Field = try Google.Protobuf.Int32Value.builderWithPrototype(prototype:builderResult.int32Field).mergeFrom(other: value).buildPartial()
@@ -923,43 +933,45 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestWellKnownTypes = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestWellKnownTypes) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         if other == ProtobufUnittest.TestWellKnownTypes() {
          return self
         }
         if (other.hasAnyField) {
-            _ = try mergeAnyField(value: other.anyField)
+            try mergeAnyField(value: other.anyField)
         }
         if (other.hasApiField) {
-            _ = try mergeApiField(value: other.apiField)
+            try mergeApiField(value: other.apiField)
         }
         if (other.hasDurationField) {
-            _ = try mergeDurationField(value: other.durationField)
+            try mergeDurationField(value: other.durationField)
         }
         if (other.hasEmptyField) {
-            _ = try mergeEmptyField(value: other.emptyField)
+            try mergeEmptyField(value: other.emptyField)
         }
         if (other.hasFieldMaskField) {
-            _ = try mergeFieldMaskField(value: other.fieldMaskField)
+            try mergeFieldMaskField(value: other.fieldMaskField)
         }
         if (other.hasSourceContextField) {
-            _ = try mergeSourceContextField(value: other.sourceContextField)
+            try mergeSourceContextField(value: other.sourceContextField)
         }
         if (other.hasStructField) {
-            _ = try mergeStructField(value: other.structField)
+            try mergeStructField(value: other.structField)
         }
         if (other.hasTimestampField) {
-            _ = try mergeTimestampField(value: other.timestampField)
+            try mergeTimestampField(value: other.timestampField)
         }
         if (other.hasTypeField) {
-            _ = try mergeTypeField(value: other.typeField)
+            try mergeTypeField(value: other.typeField)
         }
         if (other.hasInt32Field) {
-            _ = try mergeInt32Field(value: other.int32Field)
+            try mergeInt32Field(value: other.int32Field)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -975,7 +987,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:Google.Protobuf.`Any`.Builder = Google.Protobuf.`Any`.Builder()
             if hasAnyField {
-              _ = try subBuilder.mergeFrom(other: anyField)
+              try subBuilder.mergeFrom(other: anyField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             anyField = subBuilder.buildPartial()
@@ -983,7 +995,7 @@ public extension ProtobufUnittest {
           case 18:
             let subBuilder:Google.Protobuf.Api.Builder = Google.Protobuf.Api.Builder()
             if hasApiField {
-              _ = try subBuilder.mergeFrom(other: apiField)
+              try subBuilder.mergeFrom(other: apiField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             apiField = subBuilder.buildPartial()
@@ -991,7 +1003,7 @@ public extension ProtobufUnittest {
           case 26:
             let subBuilder:Google.Protobuf.Duration.Builder = Google.Protobuf.Duration.Builder()
             if hasDurationField {
-              _ = try subBuilder.mergeFrom(other: durationField)
+              try subBuilder.mergeFrom(other: durationField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             durationField = subBuilder.buildPartial()
@@ -999,7 +1011,7 @@ public extension ProtobufUnittest {
           case 34:
             let subBuilder:Google.Protobuf.Empty.Builder = Google.Protobuf.Empty.Builder()
             if hasEmptyField {
-              _ = try subBuilder.mergeFrom(other: emptyField)
+              try subBuilder.mergeFrom(other: emptyField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             emptyField = subBuilder.buildPartial()
@@ -1007,7 +1019,7 @@ public extension ProtobufUnittest {
           case 42:
             let subBuilder:Google.Protobuf.FieldMask.Builder = Google.Protobuf.FieldMask.Builder()
             if hasFieldMaskField {
-              _ = try subBuilder.mergeFrom(other: fieldMaskField)
+              try subBuilder.mergeFrom(other: fieldMaskField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fieldMaskField = subBuilder.buildPartial()
@@ -1015,7 +1027,7 @@ public extension ProtobufUnittest {
           case 50:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContextField {
-              _ = try subBuilder.mergeFrom(other: sourceContextField)
+              try subBuilder.mergeFrom(other: sourceContextField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             sourceContextField = subBuilder.buildPartial()
@@ -1023,7 +1035,7 @@ public extension ProtobufUnittest {
           case 58:
             let subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
             if hasStructField {
-              _ = try subBuilder.mergeFrom(other: structField)
+              try subBuilder.mergeFrom(other: structField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             structField = subBuilder.buildPartial()
@@ -1031,7 +1043,7 @@ public extension ProtobufUnittest {
           case 66:
             let subBuilder:Google.Protobuf.Timestamp.Builder = Google.Protobuf.Timestamp.Builder()
             if hasTimestampField {
-              _ = try subBuilder.mergeFrom(other: timestampField)
+              try subBuilder.mergeFrom(other: timestampField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             timestampField = subBuilder.buildPartial()
@@ -1039,7 +1051,7 @@ public extension ProtobufUnittest {
           case 74:
             let subBuilder:Google.Protobuf.`Type`.Builder = Google.Protobuf.`Type`.Builder()
             if hasTypeField {
-              _ = try subBuilder.mergeFrom(other: typeField)
+              try subBuilder.mergeFrom(other: typeField)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             typeField = subBuilder.buildPartial()
@@ -1047,7 +1059,7 @@ public extension ProtobufUnittest {
           case 82:
             let subBuilder:Google.Protobuf.Int32Value.Builder = Google.Protobuf.Int32Value.Builder()
             if hasInt32Field {
-              _ = try subBuilder.mergeFrom(other: int32Field)
+              try subBuilder.mergeFrom(other: int32Field)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             int32Field = subBuilder.buildPartial()

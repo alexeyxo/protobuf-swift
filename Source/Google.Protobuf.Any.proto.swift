@@ -272,6 +272,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.`Any` = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.`Any`) throws -> Google.Protobuf.`Any`.Builder {
         if other == Google.Protobuf.`Any`() {
          return self
@@ -282,9 +283,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.`Any`.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

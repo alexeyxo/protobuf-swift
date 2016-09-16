@@ -185,6 +185,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.DoubleValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.DoubleValue) throws -> Google.Protobuf.DoubleValue.Builder {
         if other == Google.Protobuf.DoubleValue() {
          return self
@@ -192,9 +193,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.DoubleValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -396,6 +398,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.FloatValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.FloatValue) throws -> Google.Protobuf.FloatValue.Builder {
         if other == Google.Protobuf.FloatValue() {
          return self
@@ -403,9 +406,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FloatValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -607,6 +611,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Int64Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Int64Value) throws -> Google.Protobuf.Int64Value.Builder {
         if other == Google.Protobuf.Int64Value() {
          return self
@@ -614,9 +619,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -818,6 +824,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Uint64Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Uint64Value) throws -> Google.Protobuf.Uint64Value.Builder {
         if other == Google.Protobuf.Uint64Value() {
          return self
@@ -825,9 +832,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1029,6 +1037,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Int32Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Int32Value) throws -> Google.Protobuf.Int32Value.Builder {
         if other == Google.Protobuf.Int32Value() {
          return self
@@ -1036,9 +1045,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1240,6 +1250,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Uint32Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Uint32Value) throws -> Google.Protobuf.Uint32Value.Builder {
         if other == Google.Protobuf.Uint32Value() {
          return self
@@ -1247,9 +1258,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1451,6 +1463,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.BoolValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.BoolValue) throws -> Google.Protobuf.BoolValue.Builder {
         if other == Google.Protobuf.BoolValue() {
          return self
@@ -1458,9 +1471,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BoolValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1662,6 +1676,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.StringValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.StringValue) throws -> Google.Protobuf.StringValue.Builder {
         if other == Google.Protobuf.StringValue() {
          return self
@@ -1669,9 +1684,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.StringValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1873,6 +1889,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.BytesValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.BytesValue) throws -> Google.Protobuf.BytesValue.Builder {
         if other == Google.Protobuf.BytesValue() {
          return self
@@ -1880,9 +1897,10 @@ public extension Google.Protobuf {
         if other.hasValue {
              value = other.value
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BytesValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

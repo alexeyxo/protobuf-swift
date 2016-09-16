@@ -147,10 +147,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "  $acontrolFunc$ func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
                        "    self.$name_reserved$ = value\n"
                        "    return self\n"
                        "  }\n"
+                       "@discardableResult\n"
                        "  $acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name_reserved$ = .$default$\n"
@@ -177,7 +179,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let enums$name$ = $type$(rawValue:valueInt$name$){\n"
                        "     $name_reserved$ = enums$name$\n"
                        "} else {\n"
-                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
     }
     
@@ -277,10 +279,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name_reserved$ = value\n"
                        "    }\n"
                        "}\n"
+                       "@discardableResult\n"
                        "$acontrol$func set$capitalized_name$(_ value:Array<$type$>) -> $containing_class$.Builder {\n"
                        "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
+                       "@discardableResult\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "  builderResult.$name_reserved$.removeAll(keepingCapacity: false)\n"
                        "  return self\n"
@@ -313,7 +317,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let enums$name$ = $type$(rawValue:valueInt$name$) {\n"
                        "     builderResult.$name_reserved$.append(enums$name$)\n"
                        "} else {\n"
-                       "     _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
+                       "     try unknownFieldsBuilder.mergeVarintField(fieldNumber: $number$, value:Int64(valueInt$name$))\n"
                        "}\n");
         
         if (isPackedTypeProto3(descriptor_)) {

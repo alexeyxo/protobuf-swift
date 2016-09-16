@@ -359,7 +359,7 @@ public extension ProtobufUnittest {
            msgBuilder_ = ProtobufUnittest.ForeignMessage.Builder()
            builderResult.msg = msgBuilder_.getMessage()
            if msg != nil {
-              _ = try! msgBuilder_.mergeFrom(other: msg)
+              try! msgBuilder_.mergeFrom(other: msg)
            }
         }
         return msgBuilder_
@@ -368,6 +368,7 @@ public extension ProtobufUnittest {
         self.msg = value
         return self
       }
+      @discardableResult
       public func mergeMsg(value:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         if builderResult.hasMsg {
           builderResult.msg = try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult.msg).mergeFrom(other: value).buildPartial()
@@ -449,6 +450,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestOptimizedForSize = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestOptimizedForSize) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         if other == ProtobufUnittest.TestOptimizedForSize() {
          return self
@@ -457,7 +459,7 @@ public extension ProtobufUnittest {
              i = other.i
         }
         if (other.hasMsg) {
-            _ = try mergeMsg(value: other.msg)
+            try mergeMsg(value: other.msg)
         }
         if other.hasIntegerField {
              integerField = other.integerField
@@ -465,10 +467,11 @@ public extension ProtobufUnittest {
         if other.hasStringField {
              stringField = other.stringField
         }
-        _ = try mergeExtensionFields(other: other)
-        _ = try merge(unknownField: other.unknownFields)
+        try mergeExtensionFields(other: other)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -493,7 +496,7 @@ public extension ProtobufUnittest {
           case 154:
             let subBuilder:ProtobufUnittest.ForeignMessage.Builder = ProtobufUnittest.ForeignMessage.Builder()
             if hasMsg {
-              _ = try subBuilder.mergeFrom(other: msg)
+              try subBuilder.mergeFrom(other: msg)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             msg = subBuilder.buildPartial()
@@ -695,6 +698,7 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestRequiredOptimizedForSize = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestRequiredOptimizedForSize) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         if other == ProtobufUnittest.TestRequiredOptimizedForSize() {
          return self
@@ -702,9 +706,10 @@ public extension ProtobufUnittest {
         if other.hasX {
              x = other.x
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -900,7 +905,7 @@ public extension ProtobufUnittest {
            oBuilder_ = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
            builderResult.o = oBuilder_.getMessage()
            if o != nil {
-              _ = try! oBuilder_.mergeFrom(other: o)
+              try! oBuilder_.mergeFrom(other: o)
            }
         }
         return oBuilder_
@@ -909,6 +914,7 @@ public extension ProtobufUnittest {
         self.o = value
         return self
       }
+      @discardableResult
       public func mergeO(value:ProtobufUnittest.TestRequiredOptimizedForSize) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         if builderResult.hasO {
           builderResult.o = try ProtobufUnittest.TestRequiredOptimizedForSize.builderWithPrototype(prototype:builderResult.o).mergeFrom(other: value).buildPartial()
@@ -944,16 +950,18 @@ public extension ProtobufUnittest {
         let returnMe:ProtobufUnittest.TestOptionalOptimizedForSize = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittest.TestOptionalOptimizedForSize) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         if other == ProtobufUnittest.TestOptionalOptimizedForSize() {
          return self
         }
         if (other.hasO) {
-            _ = try mergeO(value: other.o)
+            try mergeO(value: other.o)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -969,7 +977,7 @@ public extension ProtobufUnittest {
           case 10:
             let subBuilder:ProtobufUnittest.TestRequiredOptimizedForSize.Builder = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
             if hasO {
-              _ = try subBuilder.mergeFrom(other: o)
+              try subBuilder.mergeFrom(other: o)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             o = subBuilder.buildPartial()

@@ -775,6 +775,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "override $acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
@@ -802,6 +803,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "$acontrol$ func mergeFrom(other:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n");
 
         printer->Indent();
@@ -818,10 +820,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         if (descriptor_->extension_range_count() > 0) {
-            printer->Print("_ = try mergeExtensionFields(other: other)\n");
+            printer->Print("try mergeExtensionFields(other: other)\n");
         }
         
-        printer->Print("_ = try merge(unknownField: other.unknownFields)\n"
+        printer->Print("try merge(unknownField: other.unknownFields)\n"
                        "return self\n");
         printer->Outdent();
         printer->Print("}\n");
@@ -833,9 +835,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
+                       "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();

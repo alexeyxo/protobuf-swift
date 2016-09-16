@@ -147,13 +147,15 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Empty = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
         if other == Google.Protobuf.Empty() {
          return self
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

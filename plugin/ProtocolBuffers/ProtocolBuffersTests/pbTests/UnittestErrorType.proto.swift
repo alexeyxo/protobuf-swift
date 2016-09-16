@@ -256,6 +256,7 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Request = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Request) throws -> UserProfile.Request.Builder {
           if other == UserProfile.Request() {
            return self
@@ -263,9 +264,10 @@ final public class UserProfile : GeneratedMessage {
           if other.hasUserId {
                userId = other.userId
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -511,7 +513,7 @@ final public class UserProfile : GeneratedMessage {
              profileBuilder_ = UserProfile.Builder()
              builderResult.profile = profileBuilder_.getMessage()
              if profile != nil {
-                _ = try! profileBuilder_.mergeFrom(other: profile)
+                try! profileBuilder_.mergeFrom(other: profile)
              }
           }
           return profileBuilder_
@@ -520,6 +522,7 @@ final public class UserProfile : GeneratedMessage {
           self.profile = value
           return self
         }
+        @discardableResult
         public func mergeProfile(value:UserProfile) throws -> UserProfile.Response.Builder {
           if builderResult.hasProfile {
             builderResult.profile = try UserProfile.builderWithPrototype(prototype:builderResult.profile).mergeFrom(other: value).buildPartial()
@@ -585,7 +588,7 @@ final public class UserProfile : GeneratedMessage {
              exceptionBuilder_ = UserProfile.Exception.Builder()
              builderResult.exception = exceptionBuilder_.getMessage()
              if exception != nil {
-                _ = try! exceptionBuilder_.mergeFrom(other: exception)
+                try! exceptionBuilder_.mergeFrom(other: exception)
              }
           }
           return exceptionBuilder_
@@ -594,6 +597,7 @@ final public class UserProfile : GeneratedMessage {
           self.exception = value
           return self
         }
+        @discardableResult
         public func mergeException(value:UserProfile.Exception) throws -> UserProfile.Response.Builder {
           if builderResult.hasException {
             builderResult.exception = try UserProfile.Exception.builderWithPrototype(prototype:builderResult.exception).mergeFrom(other: value).buildPartial()
@@ -629,22 +633,24 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Response = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Response) throws -> UserProfile.Response.Builder {
           if other == UserProfile.Response() {
            return self
           }
           if (other.hasProfile) {
-              _ = try mergeProfile(value: other.profile)
+              try mergeProfile(value: other.profile)
           }
           if other.hasError {
                error = other.error
           }
           if (other.hasException) {
-              _ = try mergeException(value: other.exception)
+              try mergeException(value: other.exception)
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -660,7 +666,7 @@ final public class UserProfile : GeneratedMessage {
             case 10:
               let subBuilder:UserProfile.Builder = UserProfile.Builder()
               if hasProfile {
-                _ = try subBuilder.mergeFrom(other: profile)
+                try subBuilder.mergeFrom(other: profile)
               }
               try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
               profile = subBuilder.buildPartial()
@@ -670,13 +676,13 @@ final public class UserProfile : GeneratedMessage {
               if let enumserror = ServiceError(rawValue:valueInterror){
                    error = enumserror
               } else {
-                   _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueInterror))
+                   try unknownFieldsBuilder.mergeVarintField(fieldNumber: 2, value:Int64(valueInterror))
               }
 
             case 26:
               let subBuilder:UserProfile.Exception.Builder = UserProfile.Exception.Builder()
               if hasException {
-                _ = try subBuilder.mergeFrom(other: exception)
+                try subBuilder.mergeFrom(other: exception)
               }
               try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
               exception = subBuilder.buildPartial()
@@ -927,6 +933,7 @@ final public class UserProfile : GeneratedMessage {
           let returnMe:UserProfile.Exception = builderResult
           return returnMe
         }
+        @discardableResult
         public func mergeFrom(other:UserProfile.Exception) throws -> UserProfile.Exception.Builder {
           if other == UserProfile.Exception() {
            return self
@@ -937,9 +944,10 @@ final public class UserProfile : GeneratedMessage {
           if other.hasErrorDescription {
                errorDescription = other.errorDescription
           }
-          _ = try merge(unknownField: other.unknownFields)
+          try merge(unknownField: other.unknownFields)
           return self
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
@@ -1217,6 +1225,7 @@ final public class UserProfile : GeneratedMessage {
       let returnMe:UserProfile = builderResult
       return returnMe
     }
+    @discardableResult
     public func mergeFrom(other:UserProfile) throws -> UserProfile.Builder {
       if other == UserProfile() {
        return self
@@ -1230,9 +1239,10 @@ final public class UserProfile : GeneratedMessage {
       if other.hasAvatarUrl {
            avatarUrl = other.avatarUrl
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }

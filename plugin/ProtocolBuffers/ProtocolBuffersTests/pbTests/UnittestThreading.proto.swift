@@ -181,6 +181,7 @@ final public class ThreadingMessages : GeneratedMessage {
       let returnMe:ThreadingMessages = builderResult
       return returnMe
     }
+    @discardableResult
     public func mergeFrom(other:ThreadingMessages) throws -> ThreadingMessages.Builder {
       if other == ThreadingMessages() {
        return self
@@ -188,9 +189,10 @@ final public class ThreadingMessages : GeneratedMessage {
       if other.hasTestString {
            testString = other.testString
       }
-      _ = try merge(unknownField: other.unknownFields)
+      try merge(unknownField: other.unknownFields)
       return self
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }

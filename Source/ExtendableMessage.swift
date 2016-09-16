@@ -315,7 +315,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
     {
         return internalGetResult.isInitialized()
     }
-    
+    @discardableResult
     override open func merge(unknownField: UnknownFieldSet) throws -> Self
     {
         let result:GeneratedMessage = internalGetResult
@@ -346,7 +346,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
     public func hasExtension(extensions:ConcreateExtensionField) -> Bool {
         return internalGetResult.hasExtension(extensions: extensions)
     }
-    
+    @discardableResult
     public func  setExtension(extensions:ConcreateExtensionField, value:Any) throws -> Self  {
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions: extensions)
@@ -356,7 +356,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         message.extensionMap[extensions.fieldNumber] = value
         return self
     }
-    
+    @discardableResult
     public func addExtension<T>(extensions:ConcreateExtensionField, value:T) throws -> ExtendableMessageBuilder {
         
         let message = internalGetResult
@@ -382,7 +382,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         
         return self
     }
-    
+    @discardableResult
     public func setExtension<T>(extensions:ConcreateExtensionField, index:Int32, value:T) throws -> Self {
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions: extensions)
@@ -405,7 +405,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
 
-    
+    @discardableResult
     public func  clearExtension(extensions:ConcreateExtensionField) -> Self {
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions: extensions)

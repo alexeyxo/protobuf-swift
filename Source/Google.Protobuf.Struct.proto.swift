@@ -269,7 +269,7 @@ public extension Google.Protobuf {
                valueBuilder_ = Google.Protobuf.Value.Builder()
                builderResult.value = valueBuilder_.getMessage()
                if value != nil {
-                  _ = try! valueBuilder_.mergeFrom(other: value)
+                  try! valueBuilder_.mergeFrom(other: value)
                }
             }
             return valueBuilder_
@@ -278,6 +278,7 @@ public extension Google.Protobuf {
             self.value = value
             return self
           }
+          @discardableResult
           public func mergeValue(value:Google.Protobuf.Value) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             if builderResult.hasValue {
               builderResult.value = try Google.Protobuf.Value.builderWithPrototype(prototype:builderResult.value).mergeFrom(other: value).buildPartial()
@@ -313,6 +314,7 @@ public extension Google.Protobuf {
             let returnMe:Google.Protobuf.Struct.FieldsEntry = builderResult
             return returnMe
           }
+          @discardableResult
           public func mergeFrom(other:Google.Protobuf.Struct.FieldsEntry) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             if other == Google.Protobuf.Struct.FieldsEntry() {
              return self
@@ -321,11 +323,12 @@ public extension Google.Protobuf {
                  key = other.key
             }
             if (other.hasValue) {
-                _ = try mergeValue(value: other.value)
+                try mergeValue(value: other.value)
             }
-            _ = try merge(unknownField: other.unknownFields)
+            try merge(unknownField: other.unknownFields)
             return self
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
@@ -344,7 +347,7 @@ public extension Google.Protobuf {
               case 18:
                 let subBuilder:Google.Protobuf.Value.Builder = Google.Protobuf.Value.Builder()
                 if hasValue {
-                  _ = try subBuilder.mergeFrom(other: value)
+                  try subBuilder.mergeFrom(other: value)
                 }
                 try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 value = subBuilder.buildPartial()
@@ -540,6 +543,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Struct = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Struct) throws -> Google.Protobuf.Struct.Builder {
         if other == Google.Protobuf.Struct() {
          return self
@@ -547,9 +551,10 @@ public extension Google.Protobuf {
         if other.hasFields {
              fields = other.fields
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Struct.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1125,7 +1130,7 @@ public extension Google.Protobuf {
            structValueBuilder_ = Google.Protobuf.Struct.Builder()
            builderResult.structValue = structValueBuilder_.getMessage()
            if structValue != nil {
-              _ = try! structValueBuilder_.mergeFrom(other: structValue)
+              try! structValueBuilder_.mergeFrom(other: structValue)
            }
         }
         return structValueBuilder_
@@ -1134,6 +1139,7 @@ public extension Google.Protobuf {
         self.structValue = value
         return self
       }
+      @discardableResult
       public func mergeStructValue(value:Google.Protobuf.Struct) throws -> Google.Protobuf.Value.Builder {
         if builderResult.hasStructValue {
           builderResult.structValue = try Google.Protobuf.Struct.builderWithPrototype(prototype:builderResult.structValue).mergeFrom(other: value).buildPartial()
@@ -1176,7 +1182,7 @@ public extension Google.Protobuf {
            listValueBuilder_ = Google.Protobuf.ListValue.Builder()
            builderResult.listValue = listValueBuilder_.getMessage()
            if listValue != nil {
-              _ = try! listValueBuilder_.mergeFrom(other: listValue)
+              try! listValueBuilder_.mergeFrom(other: listValue)
            }
         }
         return listValueBuilder_
@@ -1185,6 +1191,7 @@ public extension Google.Protobuf {
         self.listValue = value
         return self
       }
+      @discardableResult
       public func mergeListValue(value:Google.Protobuf.ListValue) throws -> Google.Protobuf.Value.Builder {
         if builderResult.hasListValue {
           builderResult.listValue = try Google.Protobuf.ListValue.builderWithPrototype(prototype:builderResult.listValue).mergeFrom(other: value).buildPartial()
@@ -1220,6 +1227,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Value = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Value) throws -> Google.Protobuf.Value.Builder {
         if other == Google.Protobuf.Value() {
          return self
@@ -1237,14 +1245,15 @@ public extension Google.Protobuf {
              boolValue = other.boolValue
         }
         if (other.hasStructValue) {
-            _ = try mergeStructValue(value: other.structValue)
+            try mergeStructValue(value: other.structValue)
         }
         if (other.hasListValue) {
-            _ = try mergeListValue(value: other.listValue)
+            try mergeListValue(value: other.listValue)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -1262,7 +1271,7 @@ public extension Google.Protobuf {
             if let enumsnullValue = Google.Protobuf.NullValue(rawValue:valueIntnullValue){
                  nullValue = enumsnullValue
             } else {
-                 _ = try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntnullValue))
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 1, value:Int64(valueIntnullValue))
             }
 
           case 17:
@@ -1277,7 +1286,7 @@ public extension Google.Protobuf {
           case 42:
             let subBuilder:Google.Protobuf.Struct.Builder = Google.Protobuf.Struct.Builder()
             if hasStructValue {
-              _ = try subBuilder.mergeFrom(other: structValue)
+              try subBuilder.mergeFrom(other: structValue)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             structValue = subBuilder.buildPartial()
@@ -1285,7 +1294,7 @@ public extension Google.Protobuf {
           case 50:
             let subBuilder:Google.Protobuf.ListValue.Builder = Google.Protobuf.ListValue.Builder()
             if hasListValue {
-              _ = try subBuilder.mergeFrom(other: listValue)
+              try subBuilder.mergeFrom(other: listValue)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             listValue = subBuilder.buildPartial()
@@ -1492,6 +1501,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.ListValue = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.ListValue) throws -> Google.Protobuf.ListValue.Builder {
         if other == Google.Protobuf.ListValue() {
          return self
@@ -1499,9 +1509,10 @@ public extension Google.Protobuf {
         if !other.values.isEmpty  {
            builderResult.values += other.values
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.ListValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

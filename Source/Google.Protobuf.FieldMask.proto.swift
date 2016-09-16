@@ -281,6 +281,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.FieldMask = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.FieldMask) throws -> Google.Protobuf.FieldMask.Builder {
         if other == Google.Protobuf.FieldMask() {
          return self
@@ -288,9 +289,10 @@ public extension Google.Protobuf {
         if !other.paths.isEmpty {
             builderResult.paths += other.paths
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

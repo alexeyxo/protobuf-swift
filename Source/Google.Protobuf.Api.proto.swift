@@ -366,7 +366,7 @@ public extension Google.Protobuf {
            sourceContextBuilder_ = Google.Protobuf.SourceContext.Builder()
            builderResult.sourceContext = sourceContextBuilder_.getMessage()
            if sourceContext != nil {
-              _ = try! sourceContextBuilder_.mergeFrom(other: sourceContext)
+              try! sourceContextBuilder_.mergeFrom(other: sourceContext)
            }
         }
         return sourceContextBuilder_
@@ -375,6 +375,7 @@ public extension Google.Protobuf {
         self.sourceContext = value
         return self
       }
+      @discardableResult
       public func mergeSourceContext(value:Google.Protobuf.SourceContext) throws -> Google.Protobuf.Api.Builder {
         if builderResult.hasSourceContext {
           builderResult.sourceContext = try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult.sourceContext).mergeFrom(other: value).buildPartial()
@@ -410,6 +411,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Api = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Api) throws -> Google.Protobuf.Api.Builder {
         if other == Google.Protobuf.Api() {
          return self
@@ -427,11 +429,12 @@ public extension Google.Protobuf {
              version = other.version
         }
         if (other.hasSourceContext) {
-            _ = try mergeSourceContext(value: other.sourceContext)
+            try mergeSourceContext(value: other.sourceContext)
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Api.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
@@ -463,7 +466,7 @@ public extension Google.Protobuf {
           case 42:
             let subBuilder:Google.Protobuf.SourceContext.Builder = Google.Protobuf.SourceContext.Builder()
             if hasSourceContext {
-              _ = try subBuilder.mergeFrom(other: sourceContext)
+              try subBuilder.mergeFrom(other: sourceContext)
             }
             try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             sourceContext = subBuilder.buildPartial()
@@ -893,6 +896,7 @@ public extension Google.Protobuf {
         let returnMe:Google.Protobuf.Method = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:Google.Protobuf.Method) throws -> Google.Protobuf.Method.Builder {
         if other == Google.Protobuf.Method() {
          return self
@@ -915,9 +919,10 @@ public extension Google.Protobuf {
         if !other.options.isEmpty  {
            builderResult.options += other.options
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Method.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }

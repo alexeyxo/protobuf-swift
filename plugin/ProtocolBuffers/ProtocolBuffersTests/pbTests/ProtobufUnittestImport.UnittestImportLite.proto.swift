@@ -221,6 +221,7 @@ public extension ProtobufUnittestImport {
         let returnMe:ProtobufUnittestImport.ImportMessageLite = builderResult
         return returnMe
       }
+      @discardableResult
       public func mergeFrom(other:ProtobufUnittestImport.ImportMessageLite) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         if other == ProtobufUnittestImport.ImportMessageLite() {
          return self
@@ -228,9 +229,10 @@ public extension ProtobufUnittestImport {
         if other.hasD {
              d = other.d
         }
-        _ = try merge(unknownField: other.unknownFields)
+        try merge(unknownField: other.unknownFields)
         return self
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
