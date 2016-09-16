@@ -10,27 +10,22 @@ public extension ProtobufUnittest{}
 
 public extension ProtobufUnittest {
   public struct UnittestWellKnownTypesRoot {
-    public static var sharedInstance : UnittestWellKnownTypesRoot {
-     struct Static {
-         static let instance : UnittestWellKnownTypesRoot = UnittestWellKnownTypesRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestWellKnownTypesRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.AnyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.ApiRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.DurationRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.EmptyRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.FieldMaskRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.SourceContextRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.StructRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TimestampRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.TypeRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.WrappersRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.AnyRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.ApiRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.DurationRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.EmptyRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.FieldMaskRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.SourceContextRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.StructRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TimestampRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.TypeRoot.default.registerAllExtensions(registry: extensionRegistry)
+      Google.Protobuf.WrappersRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -1162,7 +1157,7 @@ extension ProtobufUnittest.TestWellKnownTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestWellKnownTypes {
-    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestWellKnownTypesRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestWellKnownTypes {
     return try ProtobufUnittest.TestWellKnownTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

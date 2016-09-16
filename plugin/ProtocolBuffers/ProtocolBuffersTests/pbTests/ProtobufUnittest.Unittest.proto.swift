@@ -11,574 +11,569 @@ public struct ProtobufUnittest { }
 // Singular
 public var UnittestRootoptionalInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalInt32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalInt32ExtensionStatic
    }
 }
 public var UnittestRootoptionalInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalInt64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalInt64ExtensionStatic
    }
 }
 public var UnittestRootoptionalUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalUint32ExtensionStatic
    }
 }
 public var UnittestRootoptionalUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalUint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalUint64ExtensionStatic
    }
 }
 public var UnittestRootoptionalSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalSint32ExtensionStatic
    }
 }
 public var UnittestRootoptionalSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalSint64ExtensionStatic
    }
 }
 public var UnittestRootoptionalFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalFixed32ExtensionStatic
    }
 }
 public var UnittestRootoptionalFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalFixed64ExtensionStatic
    }
 }
 public var UnittestRootoptionalSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSfixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalSfixed32ExtensionStatic
    }
 }
 public var UnittestRootoptionalSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalSfixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalSfixed64ExtensionStatic
    }
 }
 public var UnittestRootoptionalFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalFloatExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalFloatExtensionStatic
    }
 }
 public var UnittestRootoptionalDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalDoubleExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalDoubleExtensionStatic
    }
 }
 public var UnittestRootoptionalBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalBoolExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalBoolExtensionStatic
    }
 }
 public var UnittestRootoptionalStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalStringExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalStringExtensionStatic
    }
 }
 public var UnittestRootoptionalBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalBytesExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalBytesExtensionStatic
    }
 }
 public var UnittestRootoptionalGroupExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalGroupExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalGroupExtensionStatic
    }
 }
 public var UnittestRootoptionalNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalNestedMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalNestedMessageExtensionStatic
    }
 }
 public var UnittestRootoptionalForeignMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalForeignMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalForeignMessageExtensionStatic
    }
 }
 public var UnittestRootoptionalImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalImportMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalImportMessageExtensionStatic
    }
 }
 public var UnittestRootoptionalNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalNestedEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalNestedEnumExtensionStatic
    }
 }
 public var UnittestRootoptionalForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalForeignEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalForeignEnumExtensionStatic
    }
 }
 public var UnittestRootoptionalImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalImportEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalImportEnumExtensionStatic
    }
 }
 public var UnittestRootoptionalStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalStringPieceExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalStringPieceExtensionStatic
    }
 }
 public var UnittestRootoptionalCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalCordExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalCordExtensionStatic
    }
 }
 public var UnittestRootoptionalPublicImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalPublicImportMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalPublicImportMessageExtensionStatic
    }
 }
 public var UnittestRootoptionalLazyMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoptionalLazyMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoptionalLazyMessageExtensionStatic
    }
 }
 // Repeated
 public var UnittestRootrepeatedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedInt32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedInt32ExtensionStatic
    }
 }
 public var UnittestRootrepeatedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedInt64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedInt64ExtensionStatic
    }
 }
 public var UnittestRootrepeatedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedUint32ExtensionStatic
    }
 }
 public var UnittestRootrepeatedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedUint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedUint64ExtensionStatic
    }
 }
 public var UnittestRootrepeatedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedSint32ExtensionStatic
    }
 }
 public var UnittestRootrepeatedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedSint64ExtensionStatic
    }
 }
 public var UnittestRootrepeatedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedFixed32ExtensionStatic
    }
 }
 public var UnittestRootrepeatedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedFixed64ExtensionStatic
    }
 }
 public var UnittestRootrepeatedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedSfixed32ExtensionStatic
    }
 }
 public var UnittestRootrepeatedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedSfixed64ExtensionStatic
    }
 }
 public var UnittestRootrepeatedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedFloatExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedFloatExtensionStatic
    }
 }
 public var UnittestRootrepeatedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedDoubleExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedDoubleExtensionStatic
    }
 }
 public var UnittestRootrepeatedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedBoolExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedBoolExtensionStatic
    }
 }
 public var UnittestRootrepeatedStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedStringExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedStringExtensionStatic
    }
 }
 public var UnittestRootrepeatedBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedBytesExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedBytesExtensionStatic
    }
 }
 public var UnittestRootrepeatedGroupExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedGroupExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedGroupExtensionStatic
    }
 }
 public var UnittestRootrepeatedNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedNestedMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedNestedMessageExtensionStatic
    }
 }
 public var UnittestRootrepeatedForeignMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedForeignMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedForeignMessageExtensionStatic
    }
 }
 public var UnittestRootrepeatedImportMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedImportMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedImportMessageExtensionStatic
    }
 }
 public var UnittestRootrepeatedNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedNestedEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedNestedEnumExtensionStatic
    }
 }
 public var UnittestRootrepeatedForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedForeignEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedForeignEnumExtensionStatic
    }
 }
 public var UnittestRootrepeatedImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedImportEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedImportEnumExtensionStatic
    }
 }
 public var UnittestRootrepeatedStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedStringPieceExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedStringPieceExtensionStatic
    }
 }
 public var UnittestRootrepeatedCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedCordExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedCordExtensionStatic
    }
 }
 public var UnittestRootrepeatedLazyMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootrepeatedLazyMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootrepeatedLazyMessageExtensionStatic
    }
 }
 // Singular with defaults
 public var UnittestRootdefaultInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultInt32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultInt32ExtensionStatic
    }
 }
 public var UnittestRootdefaultInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultInt64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultInt64ExtensionStatic
    }
 }
 public var UnittestRootdefaultUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultUint32ExtensionStatic
    }
 }
 public var UnittestRootdefaultUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultUint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultUint64ExtensionStatic
    }
 }
 public var UnittestRootdefaultSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultSint32ExtensionStatic
    }
 }
 public var UnittestRootdefaultSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultSint64ExtensionStatic
    }
 }
 public var UnittestRootdefaultFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultFixed32ExtensionStatic
    }
 }
 public var UnittestRootdefaultFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultFixed64ExtensionStatic
    }
 }
 public var UnittestRootdefaultSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSfixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultSfixed32ExtensionStatic
    }
 }
 public var UnittestRootdefaultSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultSfixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultSfixed64ExtensionStatic
    }
 }
 public var UnittestRootdefaultFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultFloatExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultFloatExtensionStatic
    }
 }
 public var UnittestRootdefaultDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultDoubleExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultDoubleExtensionStatic
    }
 }
 public var UnittestRootdefaultBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultBoolExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultBoolExtensionStatic
    }
 }
 public var UnittestRootdefaultStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultStringExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultStringExtensionStatic
    }
 }
 public var UnittestRootdefaultBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultBytesExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultBytesExtensionStatic
    }
 }
 public var UnittestRootdefaultNestedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultNestedEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultNestedEnumExtensionStatic
    }
 }
 public var UnittestRootdefaultForeignEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultForeignEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultForeignEnumExtensionStatic
    }
 }
 public var UnittestRootdefaultImportEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultImportEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultImportEnumExtensionStatic
    }
 }
 public var UnittestRootdefaultStringPieceExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultStringPieceExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultStringPieceExtensionStatic
    }
 }
 public var UnittestRootdefaultCordExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootdefaultCordExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootdefaultCordExtensionStatic
    }
 }
 // For oneof test
 public var UnittestRootoneofUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoneofUint32ExtensionStatic
    }
 }
 public var UnittestRootoneofNestedMessageExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofNestedMessageExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoneofNestedMessageExtensionStatic
    }
 }
 public var UnittestRootoneofStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofStringExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoneofStringExtensionStatic
    }
 }
 public var UnittestRootoneofBytesExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootoneofBytesExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootoneofBytesExtensionStatic
    }
 }
 public var UnittestRootmyExtensionString:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootmyExtensionStringStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootmyExtensionStringStatic
    }
 }
 public var UnittestRootmyExtensionInt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootmyExtensionIntStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootmyExtensionIntStatic
    }
 }
 public var UnittestRootpackedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedInt32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedInt32ExtensionStatic
    }
 }
 public var UnittestRootpackedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedInt64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedInt64ExtensionStatic
    }
 }
 public var UnittestRootpackedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedUint32ExtensionStatic
    }
 }
 public var UnittestRootpackedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedUint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedUint64ExtensionStatic
    }
 }
 public var UnittestRootpackedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedSint32ExtensionStatic
    }
 }
 public var UnittestRootpackedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedSint64ExtensionStatic
    }
 }
 public var UnittestRootpackedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedFixed32ExtensionStatic
    }
 }
 public var UnittestRootpackedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedFixed64ExtensionStatic
    }
 }
 public var UnittestRootpackedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSfixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedSfixed32ExtensionStatic
    }
 }
 public var UnittestRootpackedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedSfixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedSfixed64ExtensionStatic
    }
 }
 public var UnittestRootpackedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedFloatExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedFloatExtensionStatic
    }
 }
 public var UnittestRootpackedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedDoubleExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedDoubleExtensionStatic
    }
 }
 public var UnittestRootpackedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedBoolExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedBoolExtensionStatic
    }
 }
 public var UnittestRootpackedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootpackedEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootpackedEnumExtensionStatic
    }
 }
 public var UnittestRootunpackedInt32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedInt32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedInt32ExtensionStatic
    }
 }
 public var UnittestRootunpackedInt64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedInt64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedInt64ExtensionStatic
    }
 }
 public var UnittestRootunpackedUint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedUint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedUint32ExtensionStatic
    }
 }
 public var UnittestRootunpackedUint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedUint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedUint64ExtensionStatic
    }
 }
 public var UnittestRootunpackedSint32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSint32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedSint32ExtensionStatic
    }
 }
 public var UnittestRootunpackedSint64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSint64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedSint64ExtensionStatic
    }
 }
 public var UnittestRootunpackedFixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedFixed32ExtensionStatic
    }
 }
 public var UnittestRootunpackedFixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedFixed64ExtensionStatic
    }
 }
 public var UnittestRootunpackedSfixed32Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSfixed32ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedSfixed32ExtensionStatic
    }
 }
 public var UnittestRootunpackedSfixed64Extension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedSfixed64ExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedSfixed64ExtensionStatic
    }
 }
 public var UnittestRootunpackedFloatExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedFloatExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedFloatExtensionStatic
    }
 }
 public var UnittestRootunpackedDoubleExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedDoubleExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedDoubleExtensionStatic
    }
 }
 public var UnittestRootunpackedBoolExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedBoolExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedBoolExtensionStatic
    }
 }
 public var UnittestRootunpackedEnumExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.UnittestRootunpackedEnumExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.UnittestRootunpackedEnumExtensionStatic
    }
 }
 // Check for bug where string extensions declared in tested scope did not
 // compile.
 public var TestNestedExtensiontest:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestNestedExtensiontestStatic
+       return ProtobufUnittest.UnittestRoot.default.TestNestedExtensiontestStatic
    }
 }
 // Used to test if generated extension name is correct when there are
 // underscores.
 public var TestNestedExtensionnestedStringExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestNestedExtensionnestedStringExtensionStatic
+       return ProtobufUnittest.UnittestRoot.default.TestNestedExtensionnestedStringExtensionStatic
    }
 }
 public var TestRequiredsingle:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestRequiredsingleStatic
+       return ProtobufUnittest.UnittestRoot.default.TestRequiredsingleStatic
    }
 }
 public var TestRequiredmulti:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestRequiredmultiStatic
+       return ProtobufUnittest.UnittestRoot.default.TestRequiredmultiStatic
    }
 }
 public var TestParsingMergeoptionalExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestParsingMergeoptionalExtStatic
+       return ProtobufUnittest.UnittestRoot.default.TestParsingMergeoptionalExtStatic
    }
 }
 public var TestParsingMergerepeatedExt:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestRoot.sharedInstance.TestParsingMergerepeatedExtStatic
+       return ProtobufUnittest.UnittestRoot.default.TestParsingMergerepeatedExtStatic
    }
 }
 public extension ProtobufUnittest {
   public struct UnittestRoot {
-    public static var sharedInstance : UnittestRoot {
-     struct Static {
-         static let instance : UnittestRoot = UnittestRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestRoot()
     var UnittestRootoptionalInt32ExtensionStatic:ConcreateExtensionField
     var UnittestRootoptionalInt64ExtensionStatic:ConcreateExtensionField
     var UnittestRootoptionalUint32ExtensionStatic:ConcreateExtensionField
@@ -806,7 +801,7 @@ public extension ProtobufUnittest {
       TestParsingMergerepeatedExtStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMerge.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittestImport.UnittestImportRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittestImport.UnittestImportRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
       registry.addExtension(extensions: UnittestRootoptionalInt32ExtensionStatic)
@@ -922,319 +917,319 @@ public extension ProtobufUnittest {
       registry.addExtension(extensions: TestParsingMergerepeatedExtStatic)
     }
     public static func optionalInt32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalInt32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalInt32ExtensionStatic
     }
     public static func optionalInt64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalInt64ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalInt64ExtensionStatic
     }
     public static func optionalUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalUint32ExtensionStatic
     }
     public static func optionalUint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalUint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalUint64ExtensionStatic
     }
     public static func optionalSint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalSint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalSint32ExtensionStatic
     }
     public static func optionalSint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalSint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalSint64ExtensionStatic
     }
     public static func optionalFixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalFixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalFixed32ExtensionStatic
     }
     public static func optionalFixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalFixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalFixed64ExtensionStatic
     }
     public static func optionalSfixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalSfixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalSfixed32ExtensionStatic
     }
     public static func optionalSfixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalSfixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalSfixed64ExtensionStatic
     }
     public static func optionalFloatExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalFloatExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalFloatExtensionStatic
     }
     public static func optionalDoubleExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalDoubleExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalDoubleExtensionStatic
     }
     public static func optionalBoolExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalBoolExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalBoolExtensionStatic
     }
     public static func optionalStringExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalStringExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalStringExtensionStatic
     }
     public static func optionalBytesExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalBytesExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalBytesExtensionStatic
     }
     public static func optionalGroupExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalGroupExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalGroupExtensionStatic
     }
     public static func optionalNestedMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalNestedMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalNestedMessageExtensionStatic
     }
     public static func optionalForeignMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalForeignMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalForeignMessageExtensionStatic
     }
     public static func optionalImportMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalImportMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalImportMessageExtensionStatic
     }
     public static func optionalNestedEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalNestedEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalNestedEnumExtensionStatic
     }
     public static func optionalForeignEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalForeignEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalForeignEnumExtensionStatic
     }
     public static func optionalImportEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalImportEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalImportEnumExtensionStatic
     }
     public static func optionalStringPieceExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalStringPieceExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalStringPieceExtensionStatic
     }
     public static func optionalCordExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalCordExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalCordExtensionStatic
     }
     public static func optionalPublicImportMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalPublicImportMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalPublicImportMessageExtensionStatic
     }
     public static func optionalLazyMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoptionalLazyMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoptionalLazyMessageExtensionStatic
     }
     public static func repeatedInt32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedInt32ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedInt32ExtensionStatic
     }
     public static func repeatedInt64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedInt64ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedInt64ExtensionStatic
     }
     public static func repeatedUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedUint32ExtensionStatic
     }
     public static func repeatedUint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedUint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedUint64ExtensionStatic
     }
     public static func repeatedSint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedSint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedSint32ExtensionStatic
     }
     public static func repeatedSint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedSint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedSint64ExtensionStatic
     }
     public static func repeatedFixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedFixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedFixed32ExtensionStatic
     }
     public static func repeatedFixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedFixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedFixed64ExtensionStatic
     }
     public static func repeatedSfixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedSfixed32ExtensionStatic
     }
     public static func repeatedSfixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedSfixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedSfixed64ExtensionStatic
     }
     public static func repeatedFloatExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedFloatExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedFloatExtensionStatic
     }
     public static func repeatedDoubleExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedDoubleExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedDoubleExtensionStatic
     }
     public static func repeatedBoolExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedBoolExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedBoolExtensionStatic
     }
     public static func repeatedStringExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedStringExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedStringExtensionStatic
     }
     public static func repeatedBytesExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedBytesExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedBytesExtensionStatic
     }
     public static func repeatedGroupExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedGroupExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedGroupExtensionStatic
     }
     public static func repeatedNestedMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedNestedMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedNestedMessageExtensionStatic
     }
     public static func repeatedForeignMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedForeignMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedForeignMessageExtensionStatic
     }
     public static func repeatedImportMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedImportMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedImportMessageExtensionStatic
     }
     public static func repeatedNestedEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedNestedEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedNestedEnumExtensionStatic
     }
     public static func repeatedForeignEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedForeignEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedForeignEnumExtensionStatic
     }
     public static func repeatedImportEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedImportEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedImportEnumExtensionStatic
     }
     public static func repeatedStringPieceExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedStringPieceExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedStringPieceExtensionStatic
     }
     public static func repeatedCordExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedCordExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedCordExtensionStatic
     }
     public static func repeatedLazyMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootrepeatedLazyMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootrepeatedLazyMessageExtensionStatic
     }
     public static func defaultInt32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultInt32ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultInt32ExtensionStatic
     }
     public static func defaultInt64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultInt64ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultInt64ExtensionStatic
     }
     public static func defaultUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultUint32ExtensionStatic
     }
     public static func defaultUint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultUint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultUint64ExtensionStatic
     }
     public static func defaultSint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultSint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultSint32ExtensionStatic
     }
     public static func defaultSint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultSint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultSint64ExtensionStatic
     }
     public static func defaultFixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultFixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultFixed32ExtensionStatic
     }
     public static func defaultFixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultFixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultFixed64ExtensionStatic
     }
     public static func defaultSfixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultSfixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultSfixed32ExtensionStatic
     }
     public static func defaultSfixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultSfixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultSfixed64ExtensionStatic
     }
     public static func defaultFloatExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultFloatExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultFloatExtensionStatic
     }
     public static func defaultDoubleExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultDoubleExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultDoubleExtensionStatic
     }
     public static func defaultBoolExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultBoolExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultBoolExtensionStatic
     }
     public static func defaultStringExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultStringExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultStringExtensionStatic
     }
     public static func defaultBytesExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultBytesExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultBytesExtensionStatic
     }
     public static func defaultNestedEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultNestedEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultNestedEnumExtensionStatic
     }
     public static func defaultForeignEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultForeignEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultForeignEnumExtensionStatic
     }
     public static func defaultImportEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultImportEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultImportEnumExtensionStatic
     }
     public static func defaultStringPieceExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultStringPieceExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultStringPieceExtensionStatic
     }
     public static func defaultCordExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootdefaultCordExtensionStatic
+         return UnittestRoot.default.UnittestRootdefaultCordExtensionStatic
     }
     public static func oneofUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoneofUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootoneofUint32ExtensionStatic
     }
     public static func oneofNestedMessageExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoneofNestedMessageExtensionStatic
+         return UnittestRoot.default.UnittestRootoneofNestedMessageExtensionStatic
     }
     public static func oneofStringExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoneofStringExtensionStatic
+         return UnittestRoot.default.UnittestRootoneofStringExtensionStatic
     }
     public static func oneofBytesExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootoneofBytesExtensionStatic
+         return UnittestRoot.default.UnittestRootoneofBytesExtensionStatic
     }
     public static func myExtensionString() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootmyExtensionStringStatic
+         return UnittestRoot.default.UnittestRootmyExtensionStringStatic
     }
     public static func myExtensionInt() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootmyExtensionIntStatic
+         return UnittestRoot.default.UnittestRootmyExtensionIntStatic
     }
     public static func packedInt32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedInt32ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedInt32ExtensionStatic
     }
     public static func packedInt64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedInt64ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedInt64ExtensionStatic
     }
     public static func packedUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedUint32ExtensionStatic
     }
     public static func packedUint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedUint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedUint64ExtensionStatic
     }
     public static func packedSint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedSint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedSint32ExtensionStatic
     }
     public static func packedSint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedSint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedSint64ExtensionStatic
     }
     public static func packedFixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedFixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedFixed32ExtensionStatic
     }
     public static func packedFixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedFixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedFixed64ExtensionStatic
     }
     public static func packedSfixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedSfixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedSfixed32ExtensionStatic
     }
     public static func packedSfixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedSfixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedSfixed64ExtensionStatic
     }
     public static func packedFloatExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedFloatExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedFloatExtensionStatic
     }
     public static func packedDoubleExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedDoubleExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedDoubleExtensionStatic
     }
     public static func packedBoolExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedBoolExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedBoolExtensionStatic
     }
     public static func packedEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootpackedEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootpackedEnumExtensionStatic
     }
     public static func unpackedInt32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedInt32ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedInt32ExtensionStatic
     }
     public static func unpackedInt64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedInt64ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedInt64ExtensionStatic
     }
     public static func unpackedUint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedUint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedUint32ExtensionStatic
     }
     public static func unpackedUint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedUint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedUint64ExtensionStatic
     }
     public static func unpackedSint32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedSint32ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedSint32ExtensionStatic
     }
     public static func unpackedSint64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedSint64ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedSint64ExtensionStatic
     }
     public static func unpackedFixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedFixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedFixed32ExtensionStatic
     }
     public static func unpackedFixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedFixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedFixed64ExtensionStatic
     }
     public static func unpackedSfixed32Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedSfixed32ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedSfixed32ExtensionStatic
     }
     public static func unpackedSfixed64Extension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedSfixed64ExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedSfixed64ExtensionStatic
     }
     public static func unpackedFloatExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedFloatExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedFloatExtensionStatic
     }
     public static func unpackedDoubleExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedDoubleExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedDoubleExtensionStatic
     }
     public static func unpackedBoolExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedBoolExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedBoolExtensionStatic
     }
     public static func unpackedEnumExtension() -> ConcreateExtensionField {
-         return UnittestRoot.sharedInstance.UnittestRootunpackedEnumExtensionStatic
+         return UnittestRoot.default.UnittestRootunpackedEnumExtensionStatic
     }
   }
 
@@ -31953,7 +31948,7 @@ extension ProtobufUnittest.TestAllTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestAllTypes {
-    return try ProtobufUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes {
     return try ProtobufUnittest.TestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -31983,7 +31978,7 @@ extension ProtobufUnittest.TestAllTypes.NestedMessage: GeneratedMessageProtocol 
     return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
-    return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
     return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32013,7 +32008,7 @@ extension ProtobufUnittest.TestAllTypes.OptionalGroup: GeneratedMessageProtocol 
     return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
-    return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
     return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32043,7 +32038,7 @@ extension ProtobufUnittest.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol 
     return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
-    return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
     return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32073,7 +32068,7 @@ extension ProtobufUnittest.NestedTestAllTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.NestedTestAllTypes {
-    return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedTestAllTypes {
     return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32103,7 +32098,7 @@ extension ProtobufUnittest.TestDeprecatedFields: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDeprecatedFields {
-    return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedFields {
     return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32133,7 +32128,7 @@ extension ProtobufUnittest.ForeignMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.ForeignMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.ForeignMessage {
-    return try ProtobufUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessage {
     return try ProtobufUnittest.ForeignMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32163,7 +32158,7 @@ extension ProtobufUnittest.TestReservedFields: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestReservedFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestReservedFields {
-    return try ProtobufUnittest.TestReservedFields.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestReservedFields.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReservedFields {
     return try ProtobufUnittest.TestReservedFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32193,7 +32188,7 @@ extension ProtobufUnittest.TestAllExtensions: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestAllExtensions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestAllExtensions {
-    return try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensions {
     return try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32223,7 +32218,7 @@ extension ProtobufUnittest.OptionalGroupExtension: GeneratedMessageProtocol {
     return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.OptionalGroupExtension {
-    return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtension {
     return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32253,7 +32248,7 @@ extension ProtobufUnittest.RepeatedGroupExtension: GeneratedMessageProtocol {
     return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.RepeatedGroupExtension {
-    return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtension {
     return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32283,7 +32278,7 @@ extension ProtobufUnittest.TestNestedExtension: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestNestedExtension.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestNestedExtension {
-    return try ProtobufUnittest.TestNestedExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestNestedExtension.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtension {
     return try ProtobufUnittest.TestNestedExtension.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32313,7 +32308,7 @@ extension ProtobufUnittest.TestRequired: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestRequired.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequired {
-    return try ProtobufUnittest.TestRequired.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRequired.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequired {
     return try ProtobufUnittest.TestRequired.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32343,7 +32338,7 @@ extension ProtobufUnittest.TestRequiredForeign: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestRequiredForeign.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredForeign {
-    return try ProtobufUnittest.TestRequiredForeign.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRequiredForeign.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredForeign {
     return try ProtobufUnittest.TestRequiredForeign.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32373,7 +32368,7 @@ extension ProtobufUnittest.TestForeignNested: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestForeignNested.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestForeignNested {
-    return try ProtobufUnittest.TestForeignNested.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestForeignNested.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestForeignNested {
     return try ProtobufUnittest.TestForeignNested.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32403,7 +32398,7 @@ extension ProtobufUnittest.TestEmptyMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestEmptyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestEmptyMessage {
-    return try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessage {
     return try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32433,7 +32428,7 @@ extension ProtobufUnittest.TestEmptyMessageWithExtensions: GeneratedMessageProto
     return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
-    return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
     return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32463,7 +32458,7 @@ extension ProtobufUnittest.TestMultipleExtensionRanges: GeneratedMessageProtocol
     return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
-    return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
     return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32493,7 +32488,7 @@ extension ProtobufUnittest.TestReallyLargeTagNumber: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
-    return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
     return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32523,7 +32518,7 @@ extension ProtobufUnittest.TestRecursiveMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRecursiveMessage {
-    return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRecursiveMessage {
     return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32553,7 +32548,7 @@ extension ProtobufUnittest.TestMutualRecursionA: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMutualRecursionA {
-    return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionA {
     return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32583,7 +32578,7 @@ extension ProtobufUnittest.TestMutualRecursionB: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMutualRecursionB {
-    return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionB {
     return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32613,7 +32608,7 @@ extension ProtobufUnittest.TestDupFieldNumber: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDupFieldNumber {
-    return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber {
     return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32643,7 +32638,7 @@ extension ProtobufUnittest.TestDupFieldNumber.Foo: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
-    return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
     return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32673,7 +32668,7 @@ extension ProtobufUnittest.TestDupFieldNumber.Bar: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
-    return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
     return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32703,7 +32698,7 @@ extension ProtobufUnittest.TestEagerMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestEagerMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestEagerMessage {
-    return try ProtobufUnittest.TestEagerMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestEagerMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEagerMessage {
     return try ProtobufUnittest.TestEagerMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32733,7 +32728,7 @@ extension ProtobufUnittest.TestLazyMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestLazyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestLazyMessage {
-    return try ProtobufUnittest.TestLazyMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestLazyMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLazyMessage {
     return try ProtobufUnittest.TestLazyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32763,7 +32758,7 @@ extension ProtobufUnittest.TestNestedMessageHasBits: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestNestedMessageHasBits {
-    return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits {
     return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32793,7 +32788,7 @@ extension ProtobufUnittest.TestNestedMessageHasBits.NestedMessage: GeneratedMess
     return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
-    return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
     return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32823,7 +32818,7 @@ extension ProtobufUnittest.TestCamelCaseFieldNames: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
-    return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
     return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32853,7 +32848,7 @@ extension ProtobufUnittest.TestFieldOrderings: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestFieldOrderings.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestFieldOrderings {
-    return try ProtobufUnittest.TestFieldOrderings.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestFieldOrderings.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings {
     return try ProtobufUnittest.TestFieldOrderings.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32883,7 +32878,7 @@ extension ProtobufUnittest.TestFieldOrderings.NestedMessage: GeneratedMessagePro
     return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
-    return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
     return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32913,7 +32908,7 @@ extension ProtobufUnittest.TestExtremeDefaultValues: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestExtremeDefaultValues {
-    return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestExtremeDefaultValues {
     return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32943,7 +32938,7 @@ extension ProtobufUnittest.SparseEnumMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.SparseEnumMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.SparseEnumMessage {
-    return try ProtobufUnittest.SparseEnumMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.SparseEnumMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SparseEnumMessage {
     return try ProtobufUnittest.SparseEnumMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -32973,7 +32968,7 @@ extension ProtobufUnittest.OneString: GeneratedMessageProtocol {
     return try ProtobufUnittest.OneString.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.OneString {
-    return try ProtobufUnittest.OneString.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.OneString.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneString {
     return try ProtobufUnittest.OneString.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33003,7 +32998,7 @@ extension ProtobufUnittest.MoreString: GeneratedMessageProtocol {
     return try ProtobufUnittest.MoreString.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.MoreString {
-    return try ProtobufUnittest.MoreString.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.MoreString.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreString {
     return try ProtobufUnittest.MoreString.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33033,7 +33028,7 @@ extension ProtobufUnittest.OneBytes: GeneratedMessageProtocol {
     return try ProtobufUnittest.OneBytes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.OneBytes {
-    return try ProtobufUnittest.OneBytes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.OneBytes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneBytes {
     return try ProtobufUnittest.OneBytes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33063,7 +33058,7 @@ extension ProtobufUnittest.MoreBytes: GeneratedMessageProtocol {
     return try ProtobufUnittest.MoreBytes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.MoreBytes {
-    return try ProtobufUnittest.MoreBytes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.MoreBytes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreBytes {
     return try ProtobufUnittest.MoreBytes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33093,7 +33088,7 @@ extension ProtobufUnittest.Int32Message: GeneratedMessageProtocol {
     return try ProtobufUnittest.Int32Message.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.Int32Message {
-    return try ProtobufUnittest.Int32Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.Int32Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int32Message {
     return try ProtobufUnittest.Int32Message.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33123,7 +33118,7 @@ extension ProtobufUnittest.Uint32Message: GeneratedMessageProtocol {
     return try ProtobufUnittest.Uint32Message.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.Uint32Message {
-    return try ProtobufUnittest.Uint32Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.Uint32Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint32Message {
     return try ProtobufUnittest.Uint32Message.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33153,7 +33148,7 @@ extension ProtobufUnittest.Int64Message: GeneratedMessageProtocol {
     return try ProtobufUnittest.Int64Message.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.Int64Message {
-    return try ProtobufUnittest.Int64Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.Int64Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int64Message {
     return try ProtobufUnittest.Int64Message.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33183,7 +33178,7 @@ extension ProtobufUnittest.Uint64Message: GeneratedMessageProtocol {
     return try ProtobufUnittest.Uint64Message.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.Uint64Message {
-    return try ProtobufUnittest.Uint64Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.Uint64Message.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint64Message {
     return try ProtobufUnittest.Uint64Message.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33213,7 +33208,7 @@ extension ProtobufUnittest.BoolMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.BoolMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.BoolMessage {
-    return try ProtobufUnittest.BoolMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.BoolMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BoolMessage {
     return try ProtobufUnittest.BoolMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33243,7 +33238,7 @@ extension ProtobufUnittest.TestOneof: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOneof.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneof {
-    return try ProtobufUnittest.TestOneof.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneof.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof {
     return try ProtobufUnittest.TestOneof.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33273,7 +33268,7 @@ extension ProtobufUnittest.TestOneof.FooGroup: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneof.FooGroup {
-    return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof.FooGroup {
     return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33303,7 +33298,7 @@ extension ProtobufUnittest.TestOneofBackwardsCompatible: GeneratedMessageProtoco
     return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
-    return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
     return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33333,7 +33328,7 @@ extension ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup: GeneratedMessa
     return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
-    return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
     return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33363,7 +33358,7 @@ extension ProtobufUnittest.TestOneof2: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOneof2.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneof2 {
-    return try ProtobufUnittest.TestOneof2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneof2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2 {
     return try ProtobufUnittest.TestOneof2.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33393,7 +33388,7 @@ extension ProtobufUnittest.TestOneof2.FooGroup: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneof2.FooGroup {
-    return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.FooGroup {
     return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33423,7 +33418,7 @@ extension ProtobufUnittest.TestOneof2.NestedMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
-    return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
     return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33453,7 +33448,7 @@ extension ProtobufUnittest.TestRequiredOneof: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestRequiredOneof.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredOneof {
-    return try ProtobufUnittest.TestRequiredOneof.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRequiredOneof.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof {
     return try ProtobufUnittest.TestRequiredOneof.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33483,7 +33478,7 @@ extension ProtobufUnittest.TestRequiredOneof.NestedMessage: GeneratedMessageProt
     return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
-    return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
     return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33513,7 +33508,7 @@ extension ProtobufUnittest.TestPackedTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestPackedTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestPackedTypes {
-    return try ProtobufUnittest.TestPackedTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestPackedTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypes {
     return try ProtobufUnittest.TestPackedTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33543,7 +33538,7 @@ extension ProtobufUnittest.TestUnpackedTypes: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestUnpackedTypes {
-    return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedTypes {
     return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33573,7 +33568,7 @@ extension ProtobufUnittest.TestPackedExtensions: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestPackedExtensions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestPackedExtensions {
-    return try ProtobufUnittest.TestPackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestPackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensions {
     return try ProtobufUnittest.TestPackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33603,7 +33598,7 @@ extension ProtobufUnittest.TestUnpackedExtensions: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestUnpackedExtensions {
-    return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedExtensions {
     return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33633,7 +33628,7 @@ extension ProtobufUnittest.TestDynamicExtensions: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDynamicExtensions {
-    return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions {
     return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33663,7 +33658,7 @@ extension ProtobufUnittest.TestDynamicExtensions.DynamicMessageType: GeneratedMe
     return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
-    return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
     return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33693,7 +33688,7 @@ extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes: GeneratedMessage
     return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
-    return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
     return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33723,7 +33718,7 @@ extension ProtobufUnittest.TestParsingMerge: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestParsingMerge.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge {
-    return try ProtobufUnittest.TestParsingMerge.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge {
     return try ProtobufUnittest.TestParsingMerge.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33753,7 +33748,7 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator: GeneratedMe
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
-    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33783,7 +33778,7 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1: Gene
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
-    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33813,7 +33808,7 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2: Gene
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
-    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
     return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33843,7 +33838,7 @@ extension ProtobufUnittest.TestParsingMerge.OptionalGroup: GeneratedMessageProto
     return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
-    return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
     return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33873,7 +33868,7 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedGroup: GeneratedMessageProto
     return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
-    return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
     return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33903,7 +33898,7 @@ extension ProtobufUnittest.TestCommentInjectionMessage: GeneratedMessageProtocol
     return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestCommentInjectionMessage {
-    return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCommentInjectionMessage {
     return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33933,7 +33928,7 @@ extension ProtobufUnittest.FooRequest: GeneratedMessageProtocol {
     return try ProtobufUnittest.FooRequest.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.FooRequest {
-    return try ProtobufUnittest.FooRequest.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.FooRequest.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooRequest {
     return try ProtobufUnittest.FooRequest.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33963,7 +33958,7 @@ extension ProtobufUnittest.FooResponse: GeneratedMessageProtocol {
     return try ProtobufUnittest.FooResponse.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.FooResponse {
-    return try ProtobufUnittest.FooResponse.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.FooResponse.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooResponse {
     return try ProtobufUnittest.FooResponse.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -33993,7 +33988,7 @@ extension ProtobufUnittest.FooClientMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.FooClientMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.FooClientMessage {
-    return try ProtobufUnittest.FooClientMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.FooClientMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooClientMessage {
     return try ProtobufUnittest.FooClientMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -34023,7 +34018,7 @@ extension ProtobufUnittest.FooServerMessage: GeneratedMessageProtocol {
     return try ProtobufUnittest.FooServerMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.FooServerMessage {
-    return try ProtobufUnittest.FooServerMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.FooServerMessage.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooServerMessage {
     return try ProtobufUnittest.FooServerMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -34053,7 +34048,7 @@ extension ProtobufUnittest.BarRequest: GeneratedMessageProtocol {
     return try ProtobufUnittest.BarRequest.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.BarRequest {
-    return try ProtobufUnittest.BarRequest.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.BarRequest.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarRequest {
     return try ProtobufUnittest.BarRequest.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -34083,7 +34078,7 @@ extension ProtobufUnittest.BarResponse: GeneratedMessageProtocol {
     return try ProtobufUnittest.BarResponse.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.BarResponse {
-    return try ProtobufUnittest.BarResponse.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.BarResponse.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarResponse {
     return try ProtobufUnittest.BarResponse.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

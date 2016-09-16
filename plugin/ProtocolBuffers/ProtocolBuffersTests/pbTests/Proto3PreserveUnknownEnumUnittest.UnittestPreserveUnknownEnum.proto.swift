@@ -10,12 +10,7 @@ public struct Proto3PreserveUnknownEnumUnittest { }
 
 public extension Proto3PreserveUnknownEnumUnittest {
   public struct UnittestPreserveUnknownEnumRoot {
-    public static var sharedInstance : UnittestPreserveUnknownEnumRoot {
-     struct Static {
-         static let instance : UnittestPreserveUnknownEnumRoot = UnittestPreserveUnknownEnumRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestPreserveUnknownEnumRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -1393,7 +1388,7 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessage: GeneratedMessageProtocol 
     return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
-    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage {
     return try Proto3PreserveUnknownEnumUnittest.MyMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1423,7 +1418,7 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra: GeneratedMessage
     return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
-    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.sharedInstance.extensionRegistry).build()
+    return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:Proto3PreserveUnknownEnumUnittest.UnittestPreserveUnknownEnumRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra {
     return try Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

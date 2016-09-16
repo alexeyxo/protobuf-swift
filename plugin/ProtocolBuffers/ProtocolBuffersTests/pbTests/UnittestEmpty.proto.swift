@@ -7,12 +7,7 @@ import ProtocolBuffers
 
 
 public struct UnittestEmptyRoot {
-  public static var sharedInstance : UnittestEmptyRoot {
-   struct Static {
-       static let instance : UnittestEmptyRoot = UnittestEmptyRoot()
-   }
-   return Static.instance
-  }
+  public static let `default` = UnittestEmptyRoot()
   public var extensionRegistry:ExtensionRegistry
 
   init() {

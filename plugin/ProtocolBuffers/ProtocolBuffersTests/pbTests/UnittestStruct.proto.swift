@@ -7,18 +7,13 @@ import ProtocolBuffers
 
 
 public struct UnittestStructRoot {
-  public static var sharedInstance : UnittestStructRoot {
-   struct Static {
-       static let instance : UnittestStructRoot = UnittestStructRoot()
-   }
-   return Static.instance
-  }
+  public static let `default` = UnittestStructRoot()
   public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(registry: extensionRegistry)
-    Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
   }
   public func registerAllExtensions(registry: ExtensionRegistry) {
   }
@@ -304,7 +299,7 @@ extension UnitTestStruct: GeneratedMessageProtocol {
     return try UnitTestStruct.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UnitTestStruct {
-    return try UnitTestStruct.Builder().mergeFrom(data: data, extensionRegistry:UnittestStructRoot.sharedInstance.extensionRegistry).build()
+    return try UnitTestStruct.Builder().mergeFrom(data: data, extensionRegistry:UnittestStructRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct {
     return try UnitTestStruct.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

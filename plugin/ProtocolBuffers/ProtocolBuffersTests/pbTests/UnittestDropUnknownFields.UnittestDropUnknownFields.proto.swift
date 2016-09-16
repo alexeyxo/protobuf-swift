@@ -10,12 +10,7 @@ public struct UnittestDropUnknownFields { }
 
 public extension UnittestDropUnknownFields {
   public struct UnittestDropUnknownFieldsRoot {
-    public static var sharedInstance : UnittestDropUnknownFieldsRoot {
-     struct Static {
-         static let instance : UnittestDropUnknownFieldsRoot = UnittestDropUnknownFieldsRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestDropUnknownFieldsRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -712,7 +707,7 @@ extension UnittestDropUnknownFields.Foo: GeneratedMessageProtocol {
     return try UnittestDropUnknownFields.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.Foo {
-    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+    return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.Foo {
     return try UnittestDropUnknownFields.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -742,7 +737,7 @@ extension UnittestDropUnknownFields.FooWithExtraFields: GeneratedMessageProtocol
     return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.sharedInstance.extensionRegistry).build()
+    return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:UnittestDropUnknownFields.UnittestDropUnknownFieldsRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UnittestDropUnknownFields.FooWithExtraFields {
     return try UnittestDropUnknownFields.FooWithExtraFields.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

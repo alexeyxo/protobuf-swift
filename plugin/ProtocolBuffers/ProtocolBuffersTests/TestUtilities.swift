@@ -1419,7 +1419,7 @@ class  TestUtilities {
     }
     class func registerAllExtensions(_ registry:ExtensionRegistry)
     {
-        ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(registry:registry)
+        ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry:registry)
     }
     
     class func extensionRegistry() -> ExtensionRegistry {

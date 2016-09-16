@@ -7,18 +7,13 @@ import ProtocolBuffers
 
 
 internal struct PerformanceRoot {
-  internal static var sharedInstance : PerformanceRoot {
-   struct Static {
-       static let instance : PerformanceRoot = PerformanceRoot()
-   }
-   return Static.instance
-  }
+  internal static let `default` = PerformanceRoot()
   internal var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(registry: extensionRegistry)
-    Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
   }
   internal func registerAllExtensions(registry: ExtensionRegistry) {
   }
@@ -2690,7 +2685,7 @@ extension PBUser: GeneratedMessageProtocol {
     return try PBUser.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBUser {
-    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBUser {
     return try PBUser.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2720,7 +2715,7 @@ extension PBGroup: GeneratedMessageProtocol {
     return try PBGroup.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBGroup {
-    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBGroup {
     return try PBGroup.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2750,7 +2745,7 @@ extension PBPerfomanceBatch: GeneratedMessageProtocol {
     return try PBPerfomanceBatch.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBPerfomanceBatch {
-    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch {
     return try PBPerfomanceBatch.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2780,7 +2775,7 @@ extension PBPerfomance: GeneratedMessageProtocol {
     return try PBPerfomance.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBPerfomance {
-    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance {
     return try PBPerfomance.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2810,7 +2805,7 @@ extension PBProtoPoint: GeneratedMessageProtocol {
     return try PBProtoPoint.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBProtoPoint {
-    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint {
     return try PBProtoPoint.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2840,7 +2835,7 @@ extension PBIceCreamCone: GeneratedMessageProtocol {
     return try PBIceCreamCone.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBIceCreamCone {
-    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone {
     return try PBIceCreamCone.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2870,7 +2865,7 @@ extension PBFoo: GeneratedMessageProtocol {
     return try PBFoo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBFoo {
-    return try PBFoo.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBFoo.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBFoo {
     return try PBFoo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2900,7 +2895,7 @@ extension PBBar: GeneratedMessageProtocol {
     return try PBBar.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBBar {
-    return try PBBar.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBBar.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBBar {
     return try PBBar.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -2930,7 +2925,7 @@ extension PBBaz: GeneratedMessageProtocol {
     return try PBBaz.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   internal class func parseFrom(data: Data) throws -> PBBaz {
-    return try PBBaz.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.sharedInstance.extensionRegistry).build()
+    return try PBBaz.Builder().mergeFrom(data: data, extensionRegistry:PerformanceRoot.default.extensionRegistry).build()
   }
   internal class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> PBBaz {
     return try PBBaz.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

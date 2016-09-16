@@ -10,22 +10,17 @@ public extension ProtobufUnittest{}
 
 public var TestMessageSetExtension1messageSetExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension1messageSetExtensionStatic
+       return ProtobufUnittest.UnittestMsetRoot.default.TestMessageSetExtension1messageSetExtensionStatic
    }
 }
 public var TestMessageSetExtension2messageSetExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestMsetRoot.sharedInstance.TestMessageSetExtension2messageSetExtensionStatic
+       return ProtobufUnittest.UnittestMsetRoot.default.TestMessageSetExtension2messageSetExtensionStatic
    }
 }
 public extension ProtobufUnittest {
   public struct UnittestMsetRoot {
-    public static var sharedInstance : UnittestMsetRoot {
-     struct Static {
-         static let instance : UnittestMsetRoot = UnittestMsetRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestMsetRoot()
     var TestMessageSetExtension1messageSetExtensionStatic:ConcreateExtensionField
     var TestMessageSetExtension2messageSetExtensionStatic:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
@@ -1439,7 +1434,7 @@ extension ProtobufUnittest.TestMessageSet: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMessageSet.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMessageSet {
-    return try ProtobufUnittest.TestMessageSet.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMessageSet.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSet {
     return try ProtobufUnittest.TestMessageSet.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1469,7 +1464,7 @@ extension ProtobufUnittest.TestMessageSetContainer: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMessageSetContainer.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMessageSetContainer {
-    return try ProtobufUnittest.TestMessageSetContainer.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMessageSetContainer.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetContainer {
     return try ProtobufUnittest.TestMessageSetContainer.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1499,7 +1494,7 @@ extension ProtobufUnittest.TestMessageSetExtension1: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMessageSetExtension1.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMessageSetExtension1 {
-    return try ProtobufUnittest.TestMessageSetExtension1.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMessageSetExtension1.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetExtension1 {
     return try ProtobufUnittest.TestMessageSetExtension1.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1529,7 +1524,7 @@ extension ProtobufUnittest.TestMessageSetExtension2: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestMessageSetExtension2.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestMessageSetExtension2 {
-    return try ProtobufUnittest.TestMessageSetExtension2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestMessageSetExtension2.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetExtension2 {
     return try ProtobufUnittest.TestMessageSetExtension2.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1559,7 +1554,7 @@ extension ProtobufUnittest.RawMessageSet: GeneratedMessageProtocol {
     return try ProtobufUnittest.RawMessageSet.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.RawMessageSet {
-    return try ProtobufUnittest.RawMessageSet.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.RawMessageSet.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RawMessageSet {
     return try ProtobufUnittest.RawMessageSet.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1589,7 +1584,7 @@ extension ProtobufUnittest.RawMessageSet.Item: GeneratedMessageProtocol {
     return try ProtobufUnittest.RawMessageSet.Item.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.RawMessageSet.Item {
-    return try ProtobufUnittest.RawMessageSet.Item.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.RawMessageSet.Item.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestMsetRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RawMessageSet.Item {
     return try ProtobufUnittest.RawMessageSet.Item.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

@@ -10,12 +10,7 @@ public extension ProtobufUnittestImport{}
 
 public extension ProtobufUnittestImport {
   public struct UnittestImportPublicLiteRoot {
-    public static var sharedInstance : UnittestImportPublicLiteRoot {
-     struct Static {
-         static let instance : UnittestImportPublicLiteRoot = UnittestImportPublicLiteRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestImportPublicLiteRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -254,7 +249,7 @@ extension ProtobufUnittestImport.PublicImportMessageLite: GeneratedMessageProtoc
     return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-    return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittestImport.UnittestImportPublicLiteRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessageLite {
     return try ProtobufUnittestImport.PublicImportMessageLite.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

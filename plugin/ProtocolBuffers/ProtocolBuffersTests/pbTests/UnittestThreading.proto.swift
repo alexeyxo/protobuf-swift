@@ -7,12 +7,7 @@ import ProtocolBuffers
 
 
 public struct UnittestThreadingRoot {
-  public static var sharedInstance : UnittestThreadingRoot {
-   struct Static {
-       static let instance : UnittestThreadingRoot = UnittestThreadingRoot()
-   }
-   return Static.instance
-  }
+  public static let `default` = UnittestThreadingRoot()
   public var extensionRegistry:ExtensionRegistry
 
   init() {
@@ -250,7 +245,7 @@ extension ThreadingMessages: GeneratedMessageProtocol {
     return try ThreadingMessages.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.sharedInstance.extensionRegistry).build()
+    return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:UnittestThreadingRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

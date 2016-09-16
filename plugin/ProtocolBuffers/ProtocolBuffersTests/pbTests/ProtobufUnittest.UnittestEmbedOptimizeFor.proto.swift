@@ -10,18 +10,13 @@ public extension ProtobufUnittest{}
 
 public extension ProtobufUnittest {
   public struct UnittestEmbedOptimizeForRoot {
-    public static var sharedInstance : UnittestEmbedOptimizeForRoot {
-     struct Static {
-         static let instance : UnittestEmbedOptimizeForRoot = UnittestEmbedOptimizeForRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestEmbedOptimizeForRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittest.UnittestOptimizeForRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
     }
@@ -373,7 +368,7 @@ extension ProtobufUnittest.TestEmbedOptimizedForSize: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
-    return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestEmbedOptimizeForRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmbedOptimizedForSize {
     return try ProtobufUnittest.TestEmbedOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

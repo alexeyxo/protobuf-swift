@@ -10,12 +10,7 @@ public extension Proto2ArenaUnittest{}
 
 public extension Proto2ArenaUnittest {
   public struct UnittestNoArenaImportRoot {
-    public static var sharedInstance : UnittestNoArenaImportRoot {
-     struct Static {
-         static let instance : UnittestNoArenaImportRoot = UnittestNoArenaImportRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestNoArenaImportRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -254,7 +249,7 @@ extension Proto2ArenaUnittest.ImportNoArenaNestedMessage: GeneratedMessageProtoc
     return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
-    return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestNoArenaImportRoot.sharedInstance.extensionRegistry).build()
+    return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeFrom(data: data, extensionRegistry:Proto2ArenaUnittest.UnittestNoArenaImportRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage {
     return try Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

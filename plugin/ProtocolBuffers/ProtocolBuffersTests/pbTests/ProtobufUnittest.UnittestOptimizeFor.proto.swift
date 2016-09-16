@@ -10,22 +10,17 @@ public extension ProtobufUnittest{}
 
 public var TestOptimizedForSizetestExtension:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtensionStatic
+       return ProtobufUnittest.UnittestOptimizeForRoot.default.TestOptimizedForSizetestExtensionStatic
    }
 }
 public var TestOptimizedForSizetestExtension2:ConcreateExtensionField {
    get {
-       return ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.TestOptimizedForSizetestExtension2Static
+       return ProtobufUnittest.UnittestOptimizeForRoot.default.TestOptimizedForSizetestExtension2Static
    }
 }
 public extension ProtobufUnittest {
   public struct UnittestOptimizeForRoot {
-    public static var sharedInstance : UnittestOptimizeForRoot {
-     struct Static {
-         static let instance : UnittestOptimizeForRoot = UnittestOptimizeForRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = UnittestOptimizeForRoot()
     var TestOptimizedForSizetestExtensionStatic:ConcreateExtensionField
     var TestOptimizedForSizetestExtension2Static:ConcreateExtensionField
     public var extensionRegistry:ExtensionRegistry
@@ -35,7 +30,7 @@ public extension ProtobufUnittest {
       TestOptimizedForSizetestExtension2Static = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1235, defaultValue:ProtobufUnittest.TestRequiredOptimizedForSize(), messageOrGroupClass:ProtobufUnittest.TestRequiredOptimizedForSize.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
       registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittest.UnittestRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+      ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry: extensionRegistry)
     }
     public func registerAllExtensions(registry: ExtensionRegistry) {
       registry.addExtension(extensions: TestOptimizedForSizetestExtensionStatic)
@@ -1040,7 +1035,7 @@ extension ProtobufUnittest.TestOptimizedForSize: GeneratedMessageProtocol {
     return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptimizedForSize {
-    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize {
     return try ProtobufUnittest.TestOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1070,7 +1065,7 @@ extension ProtobufUnittest.TestRequiredOptimizedForSize: GeneratedMessageProtoco
     return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
-    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize {
     return try ProtobufUnittest.TestRequiredOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1100,7 +1095,7 @@ extension ProtobufUnittest.TestOptionalOptimizedForSize: GeneratedMessageProtoco
     return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
-    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.sharedInstance.extensionRegistry).build()
+    return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:ProtobufUnittest.UnittestOptimizeForRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize {
     return try ProtobufUnittest.TestOptionalOptimizedForSize.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

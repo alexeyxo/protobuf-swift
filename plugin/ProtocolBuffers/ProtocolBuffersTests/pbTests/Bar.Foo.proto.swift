@@ -10,12 +10,7 @@ public struct Bar { }
 
 public extension Bar {
   public struct FooRoot {
-    public static var sharedInstance : FooRoot {
-     struct Static {
-         static let instance : FooRoot = FooRoot()
-     }
-     return Static.instance
-    }
+    public static let `default` = FooRoot()
     public var extensionRegistry:ExtensionRegistry
 
     init() {
@@ -254,7 +249,7 @@ extension Bar.Foo: GeneratedMessageProtocol {
     return try Bar.Foo.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> Bar.Foo {
-    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.sharedInstance.extensionRegistry).build()
+    return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:Bar.FooRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Bar.Foo {
     return try Bar.Foo.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()

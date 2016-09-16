@@ -7,18 +7,13 @@ import ProtocolBuffers
 
 
 public struct UnittestErrorTypeRoot {
-  public static var sharedInstance : UnittestErrorTypeRoot {
-   struct Static {
-       static let instance : UnittestErrorTypeRoot = UnittestErrorTypeRoot()
-   }
-   return Static.instance
-  }
+  public static let `default` = UnittestErrorTypeRoot()
   public var extensionRegistry:ExtensionRegistry
 
   init() {
     extensionRegistry = ExtensionRegistry()
     registerAllExtensions(registry: extensionRegistry)
-    Google.Protobuf.SwiftDescriptorRoot.sharedInstance.registerAllExtensions(registry: extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
   }
   public func registerAllExtensions(registry: ExtensionRegistry) {
   }
@@ -1334,7 +1329,7 @@ extension UserProfile: GeneratedMessageProtocol {
     return try UserProfile.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UserProfile {
-    return try UserProfile.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.sharedInstance.extensionRegistry).build()
+    return try UserProfile.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UserProfile {
     return try UserProfile.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1364,7 +1359,7 @@ extension UserProfile.Request: GeneratedMessageProtocol {
     return try UserProfile.Request.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UserProfile.Request {
-    return try UserProfile.Request.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.sharedInstance.extensionRegistry).build()
+    return try UserProfile.Request.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request {
     return try UserProfile.Request.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1394,7 +1389,7 @@ extension UserProfile.Response: GeneratedMessageProtocol {
     return try UserProfile.Response.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UserProfile.Response {
-    return try UserProfile.Response.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.sharedInstance.extensionRegistry).build()
+    return try UserProfile.Response.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response {
     return try UserProfile.Response.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
@@ -1424,7 +1419,7 @@ extension UserProfile.Exception: GeneratedMessageProtocol {
     return try UserProfile.Exception.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
   }
   public class func parseFrom(data: Data) throws -> UserProfile.Exception {
-    return try UserProfile.Exception.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.sharedInstance.extensionRegistry).build()
+    return try UserProfile.Exception.Builder().mergeFrom(data: data, extensionRegistry:UnittestErrorTypeRoot.default.extensionRegistry).build()
   }
   public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
     return try UserProfile.Exception.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
