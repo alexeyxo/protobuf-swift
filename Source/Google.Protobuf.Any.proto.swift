@@ -220,10 +220,12 @@ public extension Google.Protobuf {
                builderResult.typeUrl = value
            }
       }
+      @discardableResult
       public func setTypeUrl(_ value:String) -> Google.Protobuf.`Any`.Builder {
         self.typeUrl = value
         return self
       }
+      @discardableResult
       public func clearTypeUrl() -> Google.Protobuf.`Any`.Builder{
            builderResult.hasTypeUrl = false
            builderResult.typeUrl = ""
@@ -243,10 +245,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Data) -> Google.Protobuf.`Any`.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.`Any`.Builder{
            builderResult.hasValue = false
            builderResult.value = Data()
@@ -257,6 +261,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.`Any`.Builder {
         builderResult = Google.Protobuf.`Any`()
         return self
@@ -290,6 +295,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.`Any`.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.`Any`.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

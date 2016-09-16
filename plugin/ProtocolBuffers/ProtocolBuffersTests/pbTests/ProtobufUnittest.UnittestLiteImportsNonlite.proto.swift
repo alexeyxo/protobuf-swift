@@ -181,6 +181,7 @@ public extension ProtobufUnittest {
         }
         return messageBuilder_
       }
+      @discardableResult
       public func setMessage(_ value:ProtobufUnittest.TestAllTypes!) -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         self.message = value
         return self
@@ -195,6 +196,7 @@ public extension ProtobufUnittest {
         builderResult.hasMessage = true
         return self
       }
+      @discardableResult
       public func clearMessage() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         messageBuilder_ = nil
         builderResult.hasMessage = false
@@ -206,6 +208,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         builderResult = ProtobufUnittest.TestLiteImportsNonlite()
         return self
@@ -236,6 +239,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

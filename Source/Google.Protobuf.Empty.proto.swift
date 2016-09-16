@@ -132,6 +132,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Empty.Builder {
         builderResult = Google.Protobuf.Empty()
         return self
@@ -159,6 +160,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

@@ -202,10 +202,12 @@ public extension Google.Protobuf.NoGenericServicesTest {
                builderResult.a = value
            }
       }
+      @discardableResult
       public func setA(_ value:Int32) -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         self.a = value
         return self
       }
+      @discardableResult
       public func clearA() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder{
            builderResult.hasA = false
            builderResult.a = Int32(0)
@@ -216,6 +218,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
                return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         builderResult = Google.Protobuf.NoGenericServicesTest.TestMessage()
         return self
@@ -247,6 +250,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

@@ -275,10 +275,12 @@ public extension Google.Protobuf {
                builderResult.classPrefix = value
            }
       }
+      @discardableResult
       public func setClassPrefix(_ value:String) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.classPrefix = value
         return self
       }
+      @discardableResult
       public func clearClassPrefix() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasClassPrefix = false
            builderResult.classPrefix = ""
@@ -298,10 +300,12 @@ public extension Google.Protobuf {
                 builderResult.entitiesAccessControl = value
             }
         }
+      @discardableResult
         public func setEntitiesAccessControl(_ value:Google.Protobuf.AccessControl) -> Google.Protobuf.SwiftFileOptions.Builder {
           self.entitiesAccessControl = value
           return self
         }
+      @discardableResult
         public func clearEntitiesAccessControl() -> Google.Protobuf.SwiftFileOptions.Builder {
            builderResult.hasEntitiesAccessControl = false
            builderResult.entitiesAccessControl = .publicEntities
@@ -321,10 +325,12 @@ public extension Google.Protobuf {
                builderResult.compileForFramework = value
            }
       }
+      @discardableResult
       public func setCompileForFramework(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.compileForFramework = value
         return self
       }
+      @discardableResult
       public func clearCompileForFramework() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasCompileForFramework = false
            builderResult.compileForFramework = true
@@ -344,10 +350,12 @@ public extension Google.Protobuf {
                builderResult.generateStruct = value
            }
       }
+      @discardableResult
       public func setGenerateStruct(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
         self.generateStruct = value
         return self
       }
+      @discardableResult
       public func clearGenerateStruct() -> Google.Protobuf.SwiftFileOptions.Builder{
            builderResult.hasGenerateStruct = false
            builderResult.generateStruct = false
@@ -358,6 +366,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftFileOptions.Builder {
         builderResult = Google.Protobuf.SwiftFileOptions()
         return self
@@ -397,6 +406,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -587,10 +597,12 @@ public extension Google.Protobuf {
                builderResult.generateErrorType = value
            }
       }
+      @discardableResult
       public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftMessageOptions.Builder {
         self.generateErrorType = value
         return self
       }
+      @discardableResult
       public func clearGenerateErrorType() -> Google.Protobuf.SwiftMessageOptions.Builder{
            builderResult.hasGenerateErrorType = false
            builderResult.generateErrorType = false
@@ -601,6 +613,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftMessageOptions.Builder {
         builderResult = Google.Protobuf.SwiftMessageOptions()
         return self
@@ -631,6 +644,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -798,10 +812,12 @@ public extension Google.Protobuf {
                builderResult.generateErrorType = value
            }
       }
+      @discardableResult
       public func setGenerateErrorType(_ value:Bool) -> Google.Protobuf.SwiftEnumOptions.Builder {
         self.generateErrorType = value
         return self
       }
+      @discardableResult
       public func clearGenerateErrorType() -> Google.Protobuf.SwiftEnumOptions.Builder{
            builderResult.hasGenerateErrorType = false
            builderResult.generateErrorType = false
@@ -812,6 +828,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SwiftEnumOptions.Builder {
         builderResult = Google.Protobuf.SwiftEnumOptions()
         return self
@@ -842,6 +859,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

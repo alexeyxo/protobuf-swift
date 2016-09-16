@@ -152,6 +152,7 @@ public extension ProtobufUnittest {
                return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestMessageSet.Builder {
         builderResult = ProtobufUnittest.TestMessageSet()
         return self
@@ -180,6 +181,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMessageSet.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSet.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -371,6 +373,7 @@ public extension ProtobufUnittest {
         }
         return messageSetBuilder_
       }
+      @discardableResult
       public func setMessageSet(_ value:ProtobufUnittest.TestMessageSet!) -> ProtobufUnittest.TestMessageSetContainer.Builder {
         self.messageSet = value
         return self
@@ -385,6 +388,7 @@ public extension ProtobufUnittest {
         builderResult.hasMessageSet = true
         return self
       }
+      @discardableResult
       public func clearMessageSet() -> ProtobufUnittest.TestMessageSetContainer.Builder {
         messageSetBuilder_ = nil
         builderResult.hasMessageSet = false
@@ -396,6 +400,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestMessageSetContainer.Builder {
         builderResult = ProtobufUnittest.TestMessageSetContainer()
         return self
@@ -426,6 +431,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMessageSetContainer.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetContainer.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -602,10 +608,12 @@ public extension ProtobufUnittest {
                builderResult.i = value
            }
       }
+      @discardableResult
       public func setI(_ value:Int32) -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         self.i = value
         return self
       }
+      @discardableResult
       public func clearI() -> ProtobufUnittest.TestMessageSetExtension1.Builder{
            builderResult.hasI = false
            builderResult.i = Int32(0)
@@ -616,6 +624,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         builderResult = ProtobufUnittest.TestMessageSetExtension1()
         return self
@@ -646,6 +655,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -816,10 +826,12 @@ public extension ProtobufUnittest {
                builderResult.str = value
            }
       }
+      @discardableResult
       public func setStr(_ value:String) -> ProtobufUnittest.TestMessageSetExtension2.Builder {
         self.str = value
         return self
       }
+      @discardableResult
       public func clearStr() -> ProtobufUnittest.TestMessageSetExtension2.Builder{
            builderResult.hasStr = false
            builderResult.str = ""
@@ -830,6 +842,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestMessageSetExtension2.Builder {
         builderResult = ProtobufUnittest.TestMessageSetExtension2()
         return self
@@ -860,6 +873,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMessageSetExtension2.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMessageSetExtension2.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1069,10 +1083,12 @@ public extension ProtobufUnittest {
                    builderResult.typeId = value
                }
           }
+          @discardableResult
           public func setTypeId(_ value:Int32) -> ProtobufUnittest.RawMessageSet.Item.Builder {
             self.typeId = value
             return self
           }
+          @discardableResult
           public func clearTypeId() -> ProtobufUnittest.RawMessageSet.Item.Builder{
                builderResult.hasTypeId = false
                builderResult.typeId = Int32(0)
@@ -1092,10 +1108,12 @@ public extension ProtobufUnittest {
                    builderResult.message = value
                }
           }
+          @discardableResult
           public func setMessage(_ value:Data) -> ProtobufUnittest.RawMessageSet.Item.Builder {
             self.message = value
             return self
           }
+          @discardableResult
           public func clearMessage() -> ProtobufUnittest.RawMessageSet.Item.Builder{
                builderResult.hasMessage = false
                builderResult.message = Data()
@@ -1106,6 +1124,7 @@ public extension ProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> ProtobufUnittest.RawMessageSet.Item.Builder {
             builderResult = ProtobufUnittest.RawMessageSet.Item()
             return self
@@ -1139,6 +1158,7 @@ public extension ProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -1313,10 +1333,12 @@ public extension ProtobufUnittest {
                builderResult.item = value
            }
       }
+      @discardableResult
       public func setItem(_ value:Array<ProtobufUnittest.RawMessageSet.Item>) -> ProtobufUnittest.RawMessageSet.Builder {
         self.item = value
         return self
       }
+      @discardableResult
       public func clearItem() -> ProtobufUnittest.RawMessageSet.Builder {
         builderResult.item.removeAll(keepingCapacity: false)
         return self
@@ -1326,6 +1348,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.RawMessageSet.Builder {
         builderResult = ProtobufUnittest.RawMessageSet()
         return self
@@ -1356,6 +1379,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RawMessageSet.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RawMessageSet.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

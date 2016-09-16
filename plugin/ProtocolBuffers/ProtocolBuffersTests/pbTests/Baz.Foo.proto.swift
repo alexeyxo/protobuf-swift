@@ -155,10 +155,12 @@ public extension Baz {
                builderResult.hello = value
            }
       }
+      @discardableResult
       public func setHello(_ value:String) -> Baz.Foo.Builder {
         self.hello = value
         return self
       }
+      @discardableResult
       public func clearHello() -> Baz.Foo.Builder{
            builderResult.hasHello = false
            builderResult.hello = ""
@@ -169,6 +171,7 @@ public extension Baz {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Baz.Foo.Builder {
         builderResult = Baz.Foo()
         return self
@@ -199,6 +202,7 @@ public extension Baz {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

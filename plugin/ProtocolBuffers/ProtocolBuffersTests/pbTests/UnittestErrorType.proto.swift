@@ -227,10 +227,12 @@ final public class UserProfile : GeneratedMessage {
                  builderResult.userId = value
              }
         }
+        @discardableResult
         public func setUserId(_ value:String) -> UserProfile.Request.Builder {
           self.userId = value
           return self
         }
+        @discardableResult
         public func clearUserId() -> UserProfile.Request.Builder{
              builderResult.hasUserId = false
              builderResult.userId = ""
@@ -241,6 +243,7 @@ final public class UserProfile : GeneratedMessage {
                 return builderResult
              }
         }
+        @discardableResult
         override public func clear() -> UserProfile.Request.Builder {
           builderResult = UserProfile.Request()
           return self
@@ -271,6 +274,7 @@ final public class UserProfile : GeneratedMessage {
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
@@ -518,6 +522,7 @@ final public class UserProfile : GeneratedMessage {
           }
           return profileBuilder_
         }
+        @discardableResult
         public func setProfile(_ value:UserProfile!) -> UserProfile.Response.Builder {
           self.profile = value
           return self
@@ -532,6 +537,7 @@ final public class UserProfile : GeneratedMessage {
           builderResult.hasProfile = true
           return self
         }
+        @discardableResult
         public func clearProfile() -> UserProfile.Response.Builder {
           profileBuilder_ = nil
           builderResult.hasProfile = false
@@ -552,10 +558,12 @@ final public class UserProfile : GeneratedMessage {
                   builderResult.error = value
               }
           }
+        @discardableResult
           public func setError(_ value:ServiceError) -> UserProfile.Response.Builder {
             self.error = value
             return self
           }
+        @discardableResult
           public func clearError() -> UserProfile.Response.Builder {
              builderResult.hasError = false
              builderResult.error = .badRequest
@@ -593,6 +601,7 @@ final public class UserProfile : GeneratedMessage {
           }
           return exceptionBuilder_
         }
+        @discardableResult
         public func setException(_ value:UserProfile.Exception!) -> UserProfile.Response.Builder {
           self.exception = value
           return self
@@ -607,6 +616,7 @@ final public class UserProfile : GeneratedMessage {
           builderResult.hasException = true
           return self
         }
+        @discardableResult
         public func clearException() -> UserProfile.Response.Builder {
           exceptionBuilder_ = nil
           builderResult.hasException = false
@@ -618,6 +628,7 @@ final public class UserProfile : GeneratedMessage {
                 return builderResult
              }
         }
+        @discardableResult
         override public func clear() -> UserProfile.Response.Builder {
           builderResult = UserProfile.Response()
           return self
@@ -654,6 +665,7 @@ final public class UserProfile : GeneratedMessage {
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
@@ -881,10 +893,12 @@ final public class UserProfile : GeneratedMessage {
                  builderResult.errorCode = value
              }
         }
+        @discardableResult
         public func setErrorCode(_ value:Int32) -> UserProfile.Exception.Builder {
           self.errorCode = value
           return self
         }
+        @discardableResult
         public func clearErrorCode() -> UserProfile.Exception.Builder{
              builderResult.hasErrorCode = false
              builderResult.errorCode = Int32(0)
@@ -904,10 +918,12 @@ final public class UserProfile : GeneratedMessage {
                  builderResult.errorDescription = value
              }
         }
+        @discardableResult
         public func setErrorDescription(_ value:String) -> UserProfile.Exception.Builder {
           self.errorDescription = value
           return self
         }
+        @discardableResult
         public func clearErrorDescription() -> UserProfile.Exception.Builder{
              builderResult.hasErrorDescription = false
              builderResult.errorDescription = ""
@@ -918,6 +934,7 @@ final public class UserProfile : GeneratedMessage {
                 return builderResult
              }
         }
+        @discardableResult
         override public func clear() -> UserProfile.Exception.Builder {
           builderResult = UserProfile.Exception()
           return self
@@ -951,6 +968,7 @@ final public class UserProfile : GeneratedMessage {
         override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
+        @discardableResult
         override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
@@ -1150,10 +1168,12 @@ final public class UserProfile : GeneratedMessage {
              builderResult.firstName = value
          }
     }
+    @discardableResult
     public func setFirstName(_ value:String) -> UserProfile.Builder {
       self.firstName = value
       return self
     }
+    @discardableResult
     public func clearFirstName() -> UserProfile.Builder{
          builderResult.hasFirstName = false
          builderResult.firstName = ""
@@ -1173,10 +1193,12 @@ final public class UserProfile : GeneratedMessage {
              builderResult.lastName = value
          }
     }
+    @discardableResult
     public func setLastName(_ value:String) -> UserProfile.Builder {
       self.lastName = value
       return self
     }
+    @discardableResult
     public func clearLastName() -> UserProfile.Builder{
          builderResult.hasLastName = false
          builderResult.lastName = ""
@@ -1196,10 +1218,12 @@ final public class UserProfile : GeneratedMessage {
              builderResult.avatarUrl = value
          }
     }
+    @discardableResult
     public func setAvatarUrl(_ value:String) -> UserProfile.Builder {
       self.avatarUrl = value
       return self
     }
+    @discardableResult
     public func clearAvatarUrl() -> UserProfile.Builder{
          builderResult.hasAvatarUrl = false
          builderResult.avatarUrl = ""
@@ -1210,6 +1234,7 @@ final public class UserProfile : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override public func clear() -> UserProfile.Builder {
       builderResult = UserProfile()
       return self
@@ -1246,6 +1271,7 @@ final public class UserProfile : GeneratedMessage {
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {

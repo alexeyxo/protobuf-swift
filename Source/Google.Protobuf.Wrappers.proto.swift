@@ -156,10 +156,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Double) -> Google.Protobuf.DoubleValue.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.DoubleValue.Builder{
            builderResult.hasValue = false
            builderResult.value = Double(0)
@@ -170,6 +172,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.DoubleValue.Builder {
         builderResult = Google.Protobuf.DoubleValue()
         return self
@@ -200,6 +203,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.DoubleValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.DoubleValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -369,10 +373,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Float) -> Google.Protobuf.FloatValue.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.FloatValue.Builder{
            builderResult.hasValue = false
            builderResult.value = Float(0)
@@ -383,6 +389,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.FloatValue.Builder {
         builderResult = Google.Protobuf.FloatValue()
         return self
@@ -413,6 +420,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FloatValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FloatValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -582,10 +590,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Int64) -> Google.Protobuf.Int64Value.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.Int64Value.Builder{
            builderResult.hasValue = false
            builderResult.value = Int64(0)
@@ -596,6 +606,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Int64Value.Builder {
         builderResult = Google.Protobuf.Int64Value()
         return self
@@ -626,6 +637,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Int64Value.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -795,10 +807,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:UInt64) -> Google.Protobuf.Uint64Value.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.Uint64Value.Builder{
            builderResult.hasValue = false
            builderResult.value = UInt64(0)
@@ -809,6 +823,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Uint64Value.Builder {
         builderResult = Google.Protobuf.Uint64Value()
         return self
@@ -839,6 +854,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint64Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Uint64Value.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1008,10 +1024,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Int32) -> Google.Protobuf.Int32Value.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.Int32Value.Builder{
            builderResult.hasValue = false
            builderResult.value = Int32(0)
@@ -1022,6 +1040,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Int32Value.Builder {
         builderResult = Google.Protobuf.Int32Value()
         return self
@@ -1052,6 +1071,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Int32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Int32Value.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1221,10 +1241,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:UInt32) -> Google.Protobuf.Uint32Value.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.Uint32Value.Builder{
            builderResult.hasValue = false
            builderResult.value = UInt32(0)
@@ -1235,6 +1257,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Uint32Value.Builder {
         builderResult = Google.Protobuf.Uint32Value()
         return self
@@ -1265,6 +1288,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Uint32Value.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Uint32Value.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1434,10 +1458,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Bool) -> Google.Protobuf.BoolValue.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.BoolValue.Builder{
            builderResult.hasValue = false
            builderResult.value = false
@@ -1448,6 +1474,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.BoolValue.Builder {
         builderResult = Google.Protobuf.BoolValue()
         return self
@@ -1478,6 +1505,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BoolValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.BoolValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1647,10 +1675,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:String) -> Google.Protobuf.StringValue.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.StringValue.Builder{
            builderResult.hasValue = false
            builderResult.value = ""
@@ -1661,6 +1691,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.StringValue.Builder {
         builderResult = Google.Protobuf.StringValue()
         return self
@@ -1691,6 +1722,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.StringValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.StringValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -1860,10 +1892,12 @@ public extension Google.Protobuf {
                builderResult.value = value
            }
       }
+      @discardableResult
       public func setValue(_ value:Data) -> Google.Protobuf.BytesValue.Builder {
         self.value = value
         return self
       }
+      @discardableResult
       public func clearValue() -> Google.Protobuf.BytesValue.Builder{
            builderResult.hasValue = false
            builderResult.value = Data()
@@ -1874,6 +1908,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.BytesValue.Builder {
         builderResult = Google.Protobuf.BytesValue()
         return self
@@ -1904,6 +1939,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.BytesValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.BytesValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

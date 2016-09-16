@@ -197,6 +197,7 @@ final internal class PBUser : GeneratedMessage {
       }
       return groupBuilder_
     }
+    @discardableResult
     internal func setGroup(_ value:PBGroup!) -> PBUser.Builder {
       self.group = value
       return self
@@ -211,6 +212,7 @@ final internal class PBUser : GeneratedMessage {
       builderResult.hasGroup = true
       return self
     }
+    @discardableResult
     internal func clearGroup() -> PBUser.Builder {
       groupBuilder_ = nil
       builderResult.hasGroup = false
@@ -231,10 +233,12 @@ final internal class PBUser : GeneratedMessage {
              builderResult.groupName = value
          }
     }
+    @discardableResult
     internal func setGroupName(_ value:String) -> PBUser.Builder {
       self.groupName = value
       return self
     }
+    @discardableResult
     internal func clearGroupName() -> PBUser.Builder{
          builderResult.hasGroupName = false
          builderResult.groupName = ""
@@ -245,6 +249,7 @@ final internal class PBUser : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBUser.Builder {
       builderResult = PBUser()
       return self
@@ -278,6 +283,7 @@ final internal class PBUser : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBUser.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBUser.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -482,6 +488,7 @@ final internal class PBGroup : GeneratedMessage {
       }
       return ownerBuilder_
     }
+    @discardableResult
     internal func setOwner(_ value:PBUser!) -> PBGroup.Builder {
       self.owner = value
       return self
@@ -496,6 +503,7 @@ final internal class PBGroup : GeneratedMessage {
       builderResult.hasOwner = true
       return self
     }
+    @discardableResult
     internal func clearOwner() -> PBGroup.Builder {
       ownerBuilder_ = nil
       builderResult.hasOwner = false
@@ -507,6 +515,7 @@ final internal class PBGroup : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBGroup.Builder {
       builderResult = PBGroup()
       return self
@@ -537,6 +546,7 @@ final internal class PBGroup : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBGroup.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBGroup.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -721,10 +731,12 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
              builderResult.batch = value
          }
     }
+    @discardableResult
     internal func setBatch(_ value:Array<PBPerfomance>) -> PBPerfomanceBatch.Builder {
       self.batch = value
       return self
     }
+    @discardableResult
     internal func clearBatch() -> PBPerfomanceBatch.Builder {
       builderResult.batch.removeAll(keepingCapacity: false)
       return self
@@ -734,6 +746,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBPerfomanceBatch.Builder {
       builderResult = PBPerfomanceBatch()
       return self
@@ -764,6 +777,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBPerfomanceBatch.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomanceBatch.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -1065,10 +1079,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.ints = value
          }
     }
+    @discardableResult
     internal func setInts(_ value:Int32) -> PBPerfomance.Builder {
       self.ints = value
       return self
     }
+    @discardableResult
     internal func clearInts() -> PBPerfomance.Builder{
          builderResult.hasInts = false
          builderResult.ints = Int32(0)
@@ -1088,10 +1104,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.ints64 = value
          }
     }
+    @discardableResult
     internal func setInts64(_ value:Int64) -> PBPerfomance.Builder {
       self.ints64 = value
       return self
     }
+    @discardableResult
     internal func clearInts64() -> PBPerfomance.Builder{
          builderResult.hasInts64 = false
          builderResult.ints64 = Int64(0)
@@ -1111,10 +1129,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.doubles = value
          }
     }
+    @discardableResult
     internal func setDoubles(_ value:Double) -> PBPerfomance.Builder {
       self.doubles = value
       return self
     }
+    @discardableResult
     internal func clearDoubles() -> PBPerfomance.Builder{
          builderResult.hasDoubles = false
          builderResult.doubles = Double(0)
@@ -1134,10 +1154,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.floats = value
          }
     }
+    @discardableResult
     internal func setFloats(_ value:Float) -> PBPerfomance.Builder {
       self.floats = value
       return self
     }
+    @discardableResult
     internal func clearFloats() -> PBPerfomance.Builder{
          builderResult.hasFloats = false
          builderResult.floats = Float(0)
@@ -1157,10 +1179,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.str = value
          }
     }
+    @discardableResult
     internal func setStr(_ value:String) -> PBPerfomance.Builder {
       self.str = value
       return self
     }
+    @discardableResult
     internal func clearStr() -> PBPerfomance.Builder{
          builderResult.hasStr = false
          builderResult.str = ""
@@ -1180,10 +1204,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.bytes = value
          }
     }
+    @discardableResult
     internal func setBytes(_ value:Data) -> PBPerfomance.Builder {
       self.bytes = value
       return self
     }
+    @discardableResult
     internal func clearBytes() -> PBPerfomance.Builder{
          builderResult.hasBytes = false
          builderResult.bytes = Data()
@@ -1203,10 +1229,12 @@ final internal class PBPerfomance : GeneratedMessage {
              builderResult.description_ = value
          }
     }
+    @discardableResult
     internal func setDescription(_ value:String) -> PBPerfomance.Builder {
       self.description_ = value
       return self
     }
+    @discardableResult
     internal func clearDescription() -> PBPerfomance.Builder{
          builderResult.hasDescription = false
          builderResult.description_ = ""
@@ -1217,6 +1245,7 @@ final internal class PBPerfomance : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBPerfomance.Builder {
       builderResult = PBPerfomance()
       return self
@@ -1265,6 +1294,7 @@ final internal class PBPerfomance : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBPerfomance.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBPerfomance.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -1493,10 +1523,12 @@ final internal class PBProtoPoint : GeneratedMessage {
              builderResult.latitude = value
          }
     }
+    @discardableResult
     internal func setLatitude(_ value:Float) -> PBProtoPoint.Builder {
       self.latitude = value
       return self
     }
+    @discardableResult
     internal func clearLatitude() -> PBProtoPoint.Builder{
          builderResult.hasLatitude = false
          builderResult.latitude = Float(0)
@@ -1516,10 +1548,12 @@ final internal class PBProtoPoint : GeneratedMessage {
              builderResult.longitude = value
          }
     }
+    @discardableResult
     internal func setLongitude(_ value:Float) -> PBProtoPoint.Builder {
       self.longitude = value
       return self
     }
+    @discardableResult
     internal func clearLongitude() -> PBProtoPoint.Builder{
          builderResult.hasLongitude = false
          builderResult.longitude = Float(0)
@@ -1530,6 +1564,7 @@ final internal class PBProtoPoint : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBProtoPoint.Builder {
       builderResult = PBProtoPoint()
       return self
@@ -1563,6 +1598,7 @@ final internal class PBProtoPoint : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBProtoPoint.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBProtoPoint.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -1786,10 +1822,12 @@ final internal class PBIceCreamCone : GeneratedMessage {
              builderResult.scoops = value
          }
     }
+    @discardableResult
     internal func setScoops(_ value:Int32) -> PBIceCreamCone.Builder {
       self.scoops = value
       return self
     }
+    @discardableResult
     internal func clearScoops() -> PBIceCreamCone.Builder{
          builderResult.hasScoops = false
          builderResult.scoops = Int32(0)
@@ -1809,10 +1847,12 @@ final internal class PBIceCreamCone : GeneratedMessage {
               builderResult.flavor = value
           }
       }
+    @discardableResult
       internal func setFlavor(_ value:PBIceCreamCone.PBFlavor) -> PBIceCreamCone.Builder {
         self.flavor = value
         return self
       }
+    @discardableResult
       internal func clearFlavor() -> PBIceCreamCone.Builder {
          builderResult.hasFlavor = false
          builderResult.flavor = .chocolate
@@ -1823,6 +1863,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBIceCreamCone.Builder {
       builderResult = PBIceCreamCone()
       return self
@@ -1856,6 +1897,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBIceCreamCone.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBIceCreamCone.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -2036,10 +2078,12 @@ final internal class PBFoo : GeneratedMessage {
              builderResult.val = value
          }
     }
+    @discardableResult
     internal func setVal(_ value:Int32) -> PBFoo.Builder {
       self.val = value
       return self
     }
+    @discardableResult
     internal func clearVal() -> PBFoo.Builder{
          builderResult.hasVal = false
          builderResult.val = Int32(0)
@@ -2050,6 +2094,7 @@ final internal class PBFoo : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBFoo.Builder {
       builderResult = PBFoo()
       return self
@@ -2080,6 +2125,7 @@ final internal class PBFoo : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBFoo.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBFoo.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -2272,6 +2318,7 @@ final internal class PBBar : GeneratedMessage {
       }
       return fooBuilder_
     }
+    @discardableResult
     internal func setFoo(_ value:PBFoo!) -> PBBar.Builder {
       self.foo = value
       return self
@@ -2286,6 +2333,7 @@ final internal class PBBar : GeneratedMessage {
       builderResult.hasFoo = true
       return self
     }
+    @discardableResult
     internal func clearFoo() -> PBBar.Builder {
       fooBuilder_ = nil
       builderResult.hasFoo = false
@@ -2297,6 +2345,7 @@ final internal class PBBar : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBBar.Builder {
       builderResult = PBBar()
       return self
@@ -2327,6 +2376,7 @@ final internal class PBBar : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBBar.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBar.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
@@ -2525,6 +2575,7 @@ final internal class PBBaz : GeneratedMessage {
       }
       return barBuilder_
     }
+    @discardableResult
     internal func setBar(_ value:PBBar!) -> PBBaz.Builder {
       self.bar = value
       return self
@@ -2539,6 +2590,7 @@ final internal class PBBaz : GeneratedMessage {
       builderResult.hasBar = true
       return self
     }
+    @discardableResult
     internal func clearBar() -> PBBaz.Builder {
       barBuilder_ = nil
       builderResult.hasBar = false
@@ -2550,6 +2602,7 @@ final internal class PBBaz : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override internal func clear() -> PBBaz.Builder {
       builderResult = PBBaz()
       return self
@@ -2580,6 +2633,7 @@ final internal class PBBaz : GeneratedMessage {
     override internal func mergeFrom(codedInputStream: CodedInputStream) throws -> PBBaz.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override internal func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> PBBaz.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {

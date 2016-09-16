@@ -155,10 +155,12 @@ public extension ProtobufUnittestImport {
                builderResult.e = value
            }
       }
+      @discardableResult
       public func setE(_ value:Int32) -> ProtobufUnittestImport.PublicImportMessage.Builder {
         self.e = value
         return self
       }
+      @discardableResult
       public func clearE() -> ProtobufUnittestImport.PublicImportMessage.Builder{
            builderResult.hasE = false
            builderResult.e = Int32(0)
@@ -169,6 +171,7 @@ public extension ProtobufUnittestImport {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittestImport.PublicImportMessage.Builder {
         builderResult = ProtobufUnittestImport.PublicImportMessage()
         return self
@@ -199,6 +202,7 @@ public extension ProtobufUnittestImport {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

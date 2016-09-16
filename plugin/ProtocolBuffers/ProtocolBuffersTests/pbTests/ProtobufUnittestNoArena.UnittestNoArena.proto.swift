@@ -289,10 +289,12 @@ public extension ProtobufUnittestNoArena {
                    builderResult.bb = value
                }
           }
+          @discardableResult
           public func setBb(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
             self.bb = value
             return self
           }
+          @discardableResult
           public func clearBb() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder{
                builderResult.hasBb = false
                builderResult.bb = Int32(0)
@@ -303,6 +305,7 @@ public extension ProtobufUnittestNoArena {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
             builderResult = ProtobufUnittestNoArena.TestAllTypes.NestedMessage()
             return self
@@ -333,6 +336,7 @@ public extension ProtobufUnittestNoArena {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -506,10 +510,12 @@ public extension ProtobufUnittestNoArena {
                    builderResult.a = value
                }
           }
+          @discardableResult
           public func setA(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
             self.a = value
             return self
           }
+          @discardableResult
           public func clearA() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder{
                builderResult.hasA = false
                builderResult.a = Int32(0)
@@ -520,6 +526,7 @@ public extension ProtobufUnittestNoArena {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
             builderResult = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup()
             return self
@@ -550,6 +557,7 @@ public extension ProtobufUnittestNoArena {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -723,10 +731,12 @@ public extension ProtobufUnittestNoArena {
                    builderResult.a = value
                }
           }
+          @discardableResult
           public func setA(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
             self.a = value
             return self
           }
+          @discardableResult
           public func clearA() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder{
                builderResult.hasA = false
                builderResult.a = Int32(0)
@@ -737,6 +747,7 @@ public extension ProtobufUnittestNoArena {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
             builderResult = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup()
             return self
@@ -767,6 +778,7 @@ public extension ProtobufUnittestNoArena {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -2718,10 +2730,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalInt32 = value
            }
       }
+      @discardableResult
       public func setOptionalInt32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalInt32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalInt32 = false
            builderResult.optionalInt32 = Int32(0)
@@ -2741,10 +2755,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalInt64 = value
            }
       }
+      @discardableResult
       public func setOptionalInt64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalInt64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalInt64 = false
            builderResult.optionalInt64 = Int64(0)
@@ -2764,10 +2780,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalUint32 = value
            }
       }
+      @discardableResult
       public func setOptionalUint32(_ value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalUint32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalUint32 = false
            builderResult.optionalUint32 = UInt32(0)
@@ -2787,10 +2805,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalUint64 = value
            }
       }
+      @discardableResult
       public func setOptionalUint64(_ value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalUint64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalUint64 = false
            builderResult.optionalUint64 = UInt64(0)
@@ -2810,10 +2830,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalSint32 = value
            }
       }
+      @discardableResult
       public func setOptionalSint32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalSint32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalSint32 = false
            builderResult.optionalSint32 = Int32(0)
@@ -2833,10 +2855,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalSint64 = value
            }
       }
+      @discardableResult
       public func setOptionalSint64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalSint64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalSint64 = false
            builderResult.optionalSint64 = Int64(0)
@@ -2856,10 +2880,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalFixed32 = value
            }
       }
+      @discardableResult
       public func setOptionalFixed32(_ value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalFixed32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalFixed32 = false
            builderResult.optionalFixed32 = UInt32(0)
@@ -2879,10 +2905,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalFixed64 = value
            }
       }
+      @discardableResult
       public func setOptionalFixed64(_ value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalFixed64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalFixed64 = false
            builderResult.optionalFixed64 = UInt64(0)
@@ -2902,10 +2930,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalSfixed32 = value
            }
       }
+      @discardableResult
       public func setOptionalSfixed32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalSfixed32 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalSfixed32 = false
            builderResult.optionalSfixed32 = Int32(0)
@@ -2925,10 +2955,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalSfixed64 = value
            }
       }
+      @discardableResult
       public func setOptionalSfixed64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalSfixed64 = value
         return self
       }
+      @discardableResult
       public func clearOptionalSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalSfixed64 = false
            builderResult.optionalSfixed64 = Int64(0)
@@ -2948,10 +2980,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalFloat = value
            }
       }
+      @discardableResult
       public func setOptionalFloat(_ value:Float) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalFloat = value
         return self
       }
+      @discardableResult
       public func clearOptionalFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalFloat = false
            builderResult.optionalFloat = Float(0)
@@ -2971,10 +3005,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalDouble = value
            }
       }
+      @discardableResult
       public func setOptionalDouble(_ value:Double) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalDouble = value
         return self
       }
+      @discardableResult
       public func clearOptionalDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalDouble = false
            builderResult.optionalDouble = Double(0)
@@ -2994,10 +3030,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalBool = value
            }
       }
+      @discardableResult
       public func setOptionalBool(_ value:Bool) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalBool = value
         return self
       }
+      @discardableResult
       public func clearOptionalBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalBool = false
            builderResult.optionalBool = false
@@ -3017,10 +3055,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalString = value
            }
       }
+      @discardableResult
       public func setOptionalString(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalString = value
         return self
       }
+      @discardableResult
       public func clearOptionalString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalString = false
            builderResult.optionalString = ""
@@ -3040,10 +3080,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalBytes = value
            }
       }
+      @discardableResult
       public func setOptionalBytes(_ value:Data) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalBytes = value
         return self
       }
+      @discardableResult
       public func clearOptionalBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalBytes = false
            builderResult.optionalBytes = Data()
@@ -3081,6 +3123,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalGroupBuilder_
       }
+      @discardableResult
       public func setOptionalGroup(_ value:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalGroup = value
         return self
@@ -3095,6 +3138,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalGroup = true
         return self
       }
+      @discardableResult
       public func clearOptionalGroup() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalGroupBuilder_ = nil
         builderResult.hasOptionalGroup = false
@@ -3133,6 +3177,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalNestedMessageBuilder_
       }
+      @discardableResult
       public func setOptionalNestedMessage(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalNestedMessage = value
         return self
@@ -3147,6 +3192,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalNestedMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalNestedMessageBuilder_ = nil
         builderResult.hasOptionalNestedMessage = false
@@ -3185,6 +3231,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalForeignMessageBuilder_
       }
+      @discardableResult
       public func setOptionalForeignMessage(_ value:ProtobufUnittestNoArena.ForeignMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalForeignMessage = value
         return self
@@ -3199,6 +3246,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalForeignMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalForeignMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalForeignMessageBuilder_ = nil
         builderResult.hasOptionalForeignMessage = false
@@ -3237,6 +3285,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalImportMessageBuilder_
       }
+      @discardableResult
       public func setOptionalImportMessage(_ value:ProtobufUnittestImport.ImportMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalImportMessage = value
         return self
@@ -3251,6 +3300,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalImportMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalImportMessageBuilder_ = nil
         builderResult.hasOptionalImportMessage = false
@@ -3271,10 +3321,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.optionalNestedEnum = value
             }
         }
+      @discardableResult
         public func setOptionalNestedEnum(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.optionalNestedEnum = value
           return self
         }
+      @discardableResult
         public func clearOptionalNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasOptionalNestedEnum = false
            builderResult.optionalNestedEnum = .foo
@@ -3294,10 +3346,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.optionalForeignEnum = value
             }
         }
+      @discardableResult
         public func setOptionalForeignEnum(_ value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.optionalForeignEnum = value
           return self
         }
+      @discardableResult
         public func clearOptionalForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasOptionalForeignEnum = false
            builderResult.optionalForeignEnum = .foreignFoo
@@ -3317,10 +3371,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.optionalImportEnum = value
             }
         }
+      @discardableResult
         public func setOptionalImportEnum(_ value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.optionalImportEnum = value
           return self
         }
+      @discardableResult
         public func clearOptionalImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasOptionalImportEnum = false
            builderResult.optionalImportEnum = .importFoo
@@ -3340,10 +3396,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalStringPiece = value
            }
       }
+      @discardableResult
       public func setOptionalStringPiece(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalStringPiece = value
         return self
       }
+      @discardableResult
       public func clearOptionalStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalStringPiece = false
            builderResult.optionalStringPiece = ""
@@ -3363,10 +3421,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.optionalCord = value
            }
       }
+      @discardableResult
       public func setOptionalCord(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalCord = value
         return self
       }
+      @discardableResult
       public func clearOptionalCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOptionalCord = false
            builderResult.optionalCord = ""
@@ -3404,6 +3464,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalPublicImportMessageBuilder_
       }
+      @discardableResult
       public func setOptionalPublicImportMessage(_ value:ProtobufUnittestImport.PublicImportMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalPublicImportMessage = value
         return self
@@ -3418,6 +3479,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalPublicImportMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalPublicImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalPublicImportMessageBuilder_ = nil
         builderResult.hasOptionalPublicImportMessage = false
@@ -3456,6 +3518,7 @@ public extension ProtobufUnittestNoArena {
         }
         return optionalMessageBuilder_
       }
+      @discardableResult
       public func setOptionalMessage(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.optionalMessage = value
         return self
@@ -3470,6 +3533,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOptionalMessage = true
         return self
       }
+      @discardableResult
       public func clearOptionalMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         optionalMessageBuilder_ = nil
         builderResult.hasOptionalMessage = false
@@ -3484,10 +3548,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedInt32 = array
            }
       }
+      @discardableResult
       public func setRepeatedInt32(_ value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedInt32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedInt32.removeAll(keepingCapacity: false)
          return self
@@ -3500,10 +3566,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedInt64 = array
            }
       }
+      @discardableResult
       public func setRepeatedInt64(_ value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedInt64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedInt64.removeAll(keepingCapacity: false)
          return self
@@ -3516,10 +3584,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedUint32 = array
            }
       }
+      @discardableResult
       public func setRepeatedUint32(_ value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedUint32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedUint32.removeAll(keepingCapacity: false)
          return self
@@ -3532,10 +3602,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedUint64 = array
            }
       }
+      @discardableResult
       public func setRepeatedUint64(_ value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedUint64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
@@ -3548,10 +3620,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedSint32 = array
            }
       }
+      @discardableResult
       public func setRepeatedSint32(_ value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedSint32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedSint32.removeAll(keepingCapacity: false)
          return self
@@ -3564,10 +3638,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedSint64 = array
            }
       }
+      @discardableResult
       public func setRepeatedSint64(_ value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedSint64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedSint64.removeAll(keepingCapacity: false)
          return self
@@ -3580,10 +3656,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedFixed32 = array
            }
       }
+      @discardableResult
       public func setRepeatedFixed32(_ value:Array<UInt32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedFixed32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedFixed32.removeAll(keepingCapacity: false)
          return self
@@ -3596,10 +3674,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedFixed64 = array
            }
       }
+      @discardableResult
       public func setRepeatedFixed64(_ value:Array<UInt64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedFixed64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedFixed64.removeAll(keepingCapacity: false)
          return self
@@ -3612,10 +3692,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedSfixed32 = array
            }
       }
+      @discardableResult
       public func setRepeatedSfixed32(_ value:Array<Int32>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedSfixed32 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedSfixed32.removeAll(keepingCapacity: false)
          return self
@@ -3628,10 +3710,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedSfixed64 = array
            }
       }
+      @discardableResult
       public func setRepeatedSfixed64(_ value:Array<Int64>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedSfixed64 = value
         return self
       }
+      @discardableResult
       public func clearRepeatedSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedSfixed64.removeAll(keepingCapacity: false)
          return self
@@ -3644,10 +3728,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedFloat = array
            }
       }
+      @discardableResult
       public func setRepeatedFloat(_ value:Array<Float>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedFloat = value
         return self
       }
+      @discardableResult
       public func clearRepeatedFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedFloat.removeAll(keepingCapacity: false)
          return self
@@ -3660,10 +3746,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedDouble = array
            }
       }
+      @discardableResult
       public func setRepeatedDouble(_ value:Array<Double>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedDouble = value
         return self
       }
+      @discardableResult
       public func clearRepeatedDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedDouble.removeAll(keepingCapacity: false)
          return self
@@ -3676,10 +3764,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedBool = array
            }
       }
+      @discardableResult
       public func setRepeatedBool(_ value:Array<Bool>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedBool = value
         return self
       }
+      @discardableResult
       public func clearRepeatedBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedBool.removeAll(keepingCapacity: false)
          return self
@@ -3692,10 +3782,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedString = array
            }
       }
+      @discardableResult
       public func setRepeatedString(_ value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedString = value
         return self
       }
+      @discardableResult
       public func clearRepeatedString() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedString.removeAll(keepingCapacity: false)
          return self
@@ -3708,10 +3800,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedBytes = array
            }
       }
+      @discardableResult
       public func setRepeatedBytes(_ value:Array<Data>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedBytes = value
         return self
       }
+      @discardableResult
       public func clearRepeatedBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedBytes.removeAll(keepingCapacity: false)
          return self
@@ -3724,10 +3818,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedGroup = value
            }
       }
+      @discardableResult
       public func setRepeatedGroup(_ value:Array<ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedGroup = value
         return self
       }
+      @discardableResult
       public func clearRepeatedGroup() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedGroup.removeAll(keepingCapacity: false)
         return self
@@ -3740,10 +3836,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedNestedMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedNestedMessage(_ value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedNestedMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedNestedMessage.removeAll(keepingCapacity: false)
         return self
@@ -3756,10 +3854,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedForeignMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedForeignMessage(_ value:Array<ProtobufUnittestNoArena.ForeignMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedForeignMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedForeignMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedForeignMessage.removeAll(keepingCapacity: false)
         return self
@@ -3772,10 +3872,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedImportMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedImportMessage(_ value:Array<ProtobufUnittestImport.ImportMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedImportMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedImportMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedImportMessage.removeAll(keepingCapacity: false)
         return self
@@ -3788,10 +3890,12 @@ public extension ProtobufUnittestNoArena {
               builderResult.repeatedNestedEnum = value
           }
       }
+      @discardableResult
       public func setRepeatedNestedEnum(_ value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedNestedEnum = value
         return self
       }
+      @discardableResult
       public func clearRepeatedNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedNestedEnum.removeAll(keepingCapacity: false)
         return self
@@ -3804,10 +3908,12 @@ public extension ProtobufUnittestNoArena {
               builderResult.repeatedForeignEnum = value
           }
       }
+      @discardableResult
       public func setRepeatedForeignEnum(_ value:Array<ProtobufUnittestNoArena.ForeignEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedForeignEnum = value
         return self
       }
+      @discardableResult
       public func clearRepeatedForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedForeignEnum.removeAll(keepingCapacity: false)
         return self
@@ -3820,10 +3926,12 @@ public extension ProtobufUnittestNoArena {
               builderResult.repeatedImportEnum = value
           }
       }
+      @discardableResult
       public func setRepeatedImportEnum(_ value:Array<ProtobufUnittestImport.ImportEnum>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedImportEnum = value
         return self
       }
+      @discardableResult
       public func clearRepeatedImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedImportEnum.removeAll(keepingCapacity: false)
         return self
@@ -3836,10 +3944,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedStringPiece = array
            }
       }
+      @discardableResult
       public func setRepeatedStringPiece(_ value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedStringPiece = value
         return self
       }
+      @discardableResult
       public func clearRepeatedStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedStringPiece.removeAll(keepingCapacity: false)
          return self
@@ -3852,10 +3962,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedCord = array
            }
       }
+      @discardableResult
       public func setRepeatedCord(_ value:Array<String>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedCord = value
         return self
       }
+      @discardableResult
       public func clearRepeatedCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
          builderResult.repeatedCord.removeAll(keepingCapacity: false)
          return self
@@ -3868,10 +3980,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.repeatedLazyMessage = value
            }
       }
+      @discardableResult
       public func setRepeatedLazyMessage(_ value:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.repeatedLazyMessage = value
         return self
       }
+      @discardableResult
       public func clearRepeatedLazyMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
@@ -3890,10 +4004,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultInt32 = value
            }
       }
+      @discardableResult
       public func setDefaultInt32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultInt32 = value
         return self
       }
+      @discardableResult
       public func clearDefaultInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultInt32 = false
            builderResult.defaultInt32 = Int32(41)
@@ -3913,10 +4029,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultInt64 = value
            }
       }
+      @discardableResult
       public func setDefaultInt64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultInt64 = value
         return self
       }
+      @discardableResult
       public func clearDefaultInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultInt64 = false
            builderResult.defaultInt64 = Int64(42)
@@ -3936,10 +4054,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultUint32 = value
            }
       }
+      @discardableResult
       public func setDefaultUint32(_ value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultUint32 = value
         return self
       }
+      @discardableResult
       public func clearDefaultUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultUint32 = false
            builderResult.defaultUint32 = UInt32(43)
@@ -3959,10 +4079,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultUint64 = value
            }
       }
+      @discardableResult
       public func setDefaultUint64(_ value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultUint64 = value
         return self
       }
+      @discardableResult
       public func clearDefaultUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultUint64 = false
            builderResult.defaultUint64 = UInt64(44)
@@ -3982,10 +4104,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultSint32 = value
            }
       }
+      @discardableResult
       public func setDefaultSint32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultSint32 = value
         return self
       }
+      @discardableResult
       public func clearDefaultSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultSint32 = false
            builderResult.defaultSint32 = Int32(-45)
@@ -4005,10 +4129,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultSint64 = value
            }
       }
+      @discardableResult
       public func setDefaultSint64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultSint64 = value
         return self
       }
+      @discardableResult
       public func clearDefaultSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultSint64 = false
            builderResult.defaultSint64 = Int64(46)
@@ -4028,10 +4154,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultFixed32 = value
            }
       }
+      @discardableResult
       public func setDefaultFixed32(_ value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultFixed32 = value
         return self
       }
+      @discardableResult
       public func clearDefaultFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultFixed32 = false
            builderResult.defaultFixed32 = UInt32(47)
@@ -4051,10 +4179,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultFixed64 = value
            }
       }
+      @discardableResult
       public func setDefaultFixed64(_ value:UInt64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultFixed64 = value
         return self
       }
+      @discardableResult
       public func clearDefaultFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultFixed64 = false
            builderResult.defaultFixed64 = UInt64(48)
@@ -4074,10 +4204,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultSfixed32 = value
            }
       }
+      @discardableResult
       public func setDefaultSfixed32(_ value:Int32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultSfixed32 = value
         return self
       }
+      @discardableResult
       public func clearDefaultSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultSfixed32 = false
            builderResult.defaultSfixed32 = Int32(49)
@@ -4097,10 +4229,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultSfixed64 = value
            }
       }
+      @discardableResult
       public func setDefaultSfixed64(_ value:Int64) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultSfixed64 = value
         return self
       }
+      @discardableResult
       public func clearDefaultSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultSfixed64 = false
            builderResult.defaultSfixed64 = Int64(-50)
@@ -4120,10 +4254,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultFloat = value
            }
       }
+      @discardableResult
       public func setDefaultFloat(_ value:Float) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultFloat = value
         return self
       }
+      @discardableResult
       public func clearDefaultFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultFloat = false
            builderResult.defaultFloat = Float(51.5)
@@ -4143,10 +4279,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultDouble = value
            }
       }
+      @discardableResult
       public func setDefaultDouble(_ value:Double) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultDouble = value
         return self
       }
+      @discardableResult
       public func clearDefaultDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultDouble = false
            builderResult.defaultDouble = Double(52000)
@@ -4166,10 +4304,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultBool = value
            }
       }
+      @discardableResult
       public func setDefaultBool(_ value:Bool) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultBool = value
         return self
       }
+      @discardableResult
       public func clearDefaultBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultBool = false
            builderResult.defaultBool = true
@@ -4189,10 +4329,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultString = value
            }
       }
+      @discardableResult
       public func setDefaultString(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultString = value
         return self
       }
+      @discardableResult
       public func clearDefaultString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultString = false
            builderResult.defaultString = "hello"
@@ -4212,10 +4354,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultBytes = value
            }
       }
+      @discardableResult
       public func setDefaultBytes(_ value:Data) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultBytes = value
         return self
       }
+      @discardableResult
       public func clearDefaultBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultBytes = false
            builderResult.defaultBytes = Data(bytes:([UInt8]() + "world".utf8), count:5)
@@ -4235,10 +4379,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.defaultNestedEnum = value
             }
         }
+      @discardableResult
         public func setDefaultNestedEnum(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.defaultNestedEnum = value
           return self
         }
+      @discardableResult
         public func clearDefaultNestedEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasDefaultNestedEnum = false
            builderResult.defaultNestedEnum = .bar
@@ -4258,10 +4404,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.defaultForeignEnum = value
             }
         }
+      @discardableResult
         public func setDefaultForeignEnum(_ value:ProtobufUnittestNoArena.ForeignEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.defaultForeignEnum = value
           return self
         }
+      @discardableResult
         public func clearDefaultForeignEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasDefaultForeignEnum = false
            builderResult.defaultForeignEnum = .foreignBar
@@ -4281,10 +4429,12 @@ public extension ProtobufUnittestNoArena {
                 builderResult.defaultImportEnum = value
             }
         }
+      @discardableResult
         public func setDefaultImportEnum(_ value:ProtobufUnittestImport.ImportEnum) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
           self.defaultImportEnum = value
           return self
         }
+      @discardableResult
         public func clearDefaultImportEnum() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            builderResult.hasDefaultImportEnum = false
            builderResult.defaultImportEnum = .importBar
@@ -4304,10 +4454,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultStringPiece = value
            }
       }
+      @discardableResult
       public func setDefaultStringPiece(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultStringPiece = value
         return self
       }
+      @discardableResult
       public func clearDefaultStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultStringPiece = false
            builderResult.defaultStringPiece = "abc"
@@ -4327,10 +4479,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.defaultCord = value
            }
       }
+      @discardableResult
       public func setDefaultCord(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.defaultCord = value
         return self
       }
+      @discardableResult
       public func clearDefaultCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasDefaultCord = false
            builderResult.defaultCord = "123"
@@ -4350,10 +4504,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.oneofUint32 = value
            }
       }
+      @discardableResult
       public func setOneofUint32(_ value:UInt32) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.oneofUint32 = value
         return self
       }
+      @discardableResult
       public func clearOneofUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOneofUint32 = false
            builderResult.oneofUint32 = UInt32(0)
@@ -4391,6 +4547,7 @@ public extension ProtobufUnittestNoArena {
         }
         return oneofNestedMessageBuilder_
       }
+      @discardableResult
       public func setOneofNestedMessage(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.oneofNestedMessage = value
         return self
@@ -4405,6 +4562,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasOneofNestedMessage = true
         return self
       }
+      @discardableResult
       public func clearOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         oneofNestedMessageBuilder_ = nil
         builderResult.hasOneofNestedMessage = false
@@ -4425,10 +4583,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.oneofString = value
            }
       }
+      @discardableResult
       public func setOneofString(_ value:String) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.oneofString = value
         return self
       }
+      @discardableResult
       public func clearOneofString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOneofString = false
            builderResult.oneofString = ""
@@ -4448,10 +4608,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.oneofBytes = value
            }
       }
+      @discardableResult
       public func setOneofBytes(_ value:Data) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.oneofBytes = value
         return self
       }
+      @discardableResult
       public func clearOneofBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
            builderResult.hasOneofBytes = false
            builderResult.oneofBytes = Data()
@@ -4489,6 +4651,7 @@ public extension ProtobufUnittestNoArena {
         }
         return lazyOneofNestedMessageBuilder_
       }
+      @discardableResult
       public func setLazyOneofNestedMessage(_ value:ProtobufUnittestNoArena.TestAllTypes.NestedMessage!) -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         self.lazyOneofNestedMessage = value
         return self
@@ -4503,6 +4666,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasLazyOneofNestedMessage = true
         return self
       }
+      @discardableResult
       public func clearLazyOneofNestedMessage() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         lazyOneofNestedMessageBuilder_ = nil
         builderResult.hasLazyOneofNestedMessage = false
@@ -4514,6 +4678,7 @@ public extension ProtobufUnittestNoArena {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         builderResult = ProtobufUnittestNoArena.TestAllTypes()
         return self
@@ -4769,6 +4934,7 @@ public extension ProtobufUnittestNoArena {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -5604,10 +5770,12 @@ public extension ProtobufUnittestNoArena {
                builderResult.c = value
            }
       }
+      @discardableResult
       public func setC(_ value:Int32) -> ProtobufUnittestNoArena.ForeignMessage.Builder {
         self.c = value
         return self
       }
+      @discardableResult
       public func clearC() -> ProtobufUnittestNoArena.ForeignMessage.Builder{
            builderResult.hasC = false
            builderResult.c = Int32(0)
@@ -5618,6 +5786,7 @@ public extension ProtobufUnittestNoArena {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittestNoArena.ForeignMessage.Builder {
         builderResult = ProtobufUnittestNoArena.ForeignMessage()
         return self
@@ -5648,6 +5817,7 @@ public extension ProtobufUnittestNoArena {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -5840,6 +6010,7 @@ public extension ProtobufUnittestNoArena {
         }
         return arenaMessageBuilder_
       }
+      @discardableResult
       public func setArenaMessage(_ value:Proto2ArenaUnittest.ArenaMessage!) -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         self.arenaMessage = value
         return self
@@ -5854,6 +6025,7 @@ public extension ProtobufUnittestNoArena {
         builderResult.hasArenaMessage = true
         return self
       }
+      @discardableResult
       public func clearArenaMessage() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         arenaMessageBuilder_ = nil
         builderResult.hasArenaMessage = false
@@ -5865,6 +6037,7 @@ public extension ProtobufUnittestNoArena {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         builderResult = ProtobufUnittestNoArena.TestNoArenaMessage()
         return self
@@ -5895,6 +6068,7 @@ public extension ProtobufUnittestNoArena {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

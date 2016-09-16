@@ -253,10 +253,12 @@ public extension Google.Protobuf {
                builderResult.paths = array
            }
       }
+      @discardableResult
       public func setPaths(_ value:Array<String>) -> Google.Protobuf.FieldMask.Builder {
         self.paths = value
         return self
       }
+      @discardableResult
       public func clearPaths() -> Google.Protobuf.FieldMask.Builder {
          builderResult.paths.removeAll(keepingCapacity: false)
          return self
@@ -266,6 +268,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.FieldMask.Builder {
         builderResult = Google.Protobuf.FieldMask()
         return self
@@ -296,6 +299,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.FieldMask.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.FieldMask.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

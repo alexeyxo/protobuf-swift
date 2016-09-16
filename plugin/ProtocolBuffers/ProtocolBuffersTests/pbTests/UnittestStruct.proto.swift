@@ -172,10 +172,12 @@ final public class UnitTestStruct : GeneratedMessage {
              builderResult.testStr = value
          }
     }
+    @discardableResult
     public func setTestStr(_ value:String) -> UnitTestStruct.Builder {
       self.testStr = value
       return self
     }
+    @discardableResult
     public func clearTestStr() -> UnitTestStruct.Builder{
          builderResult.hasTestStr = false
          builderResult.testStr = ""
@@ -195,10 +197,12 @@ final public class UnitTestStruct : GeneratedMessage {
              builderResult.testInt = value
          }
     }
+    @discardableResult
     public func setTestInt(_ value:Int32) -> UnitTestStruct.Builder {
       self.testInt = value
       return self
     }
+    @discardableResult
     public func clearTestInt() -> UnitTestStruct.Builder{
          builderResult.hasTestInt = false
          builderResult.testInt = Int32(0)
@@ -209,6 +213,7 @@ final public class UnitTestStruct : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override public func clear() -> UnitTestStruct.Builder {
       builderResult = UnitTestStruct()
       return self
@@ -242,6 +247,7 @@ final public class UnitTestStruct : GeneratedMessage {
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {

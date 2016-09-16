@@ -152,10 +152,12 @@ final public class ThreadingMessages : GeneratedMessage {
              builderResult.testString = value
          }
     }
+    @discardableResult
     public func setTestString(_ value:String) -> ThreadingMessages.Builder {
       self.testString = value
       return self
     }
+    @discardableResult
     public func clearTestString() -> ThreadingMessages.Builder{
          builderResult.hasTestString = false
          builderResult.testString = ""
@@ -166,6 +168,7 @@ final public class ThreadingMessages : GeneratedMessage {
             return builderResult
          }
     }
+    @discardableResult
     override public func clear() -> ThreadingMessages.Builder {
       builderResult = ThreadingMessages()
       return self
@@ -196,6 +199,7 @@ final public class ThreadingMessages : GeneratedMessage {
     override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
+    @discardableResult
     override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {

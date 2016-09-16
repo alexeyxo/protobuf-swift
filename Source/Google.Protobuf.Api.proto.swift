@@ -275,10 +275,12 @@ public extension Google.Protobuf {
                builderResult.name = value
            }
       }
+      @discardableResult
       public func setName(_ value:String) -> Google.Protobuf.Api.Builder {
         self.name = value
         return self
       }
+      @discardableResult
       public func clearName() -> Google.Protobuf.Api.Builder{
            builderResult.hasName = false
            builderResult.name = ""
@@ -292,10 +294,12 @@ public extension Google.Protobuf {
                builderResult.methods = value
            }
       }
+      @discardableResult
       public func setMethods(_ value:Array<Google.Protobuf.Method>) -> Google.Protobuf.Api.Builder {
         self.methods = value
         return self
       }
+      @discardableResult
       public func clearMethods() -> Google.Protobuf.Api.Builder {
         builderResult.methods.removeAll(keepingCapacity: false)
         return self
@@ -308,10 +312,12 @@ public extension Google.Protobuf {
                builderResult.options = value
            }
       }
+      @discardableResult
       public func setOptions(_ value:Array<Google.Protobuf.Option>) -> Google.Protobuf.Api.Builder {
         self.options = value
         return self
       }
+      @discardableResult
       public func clearOptions() -> Google.Protobuf.Api.Builder {
         builderResult.options.removeAll(keepingCapacity: false)
         return self
@@ -330,10 +336,12 @@ public extension Google.Protobuf {
                builderResult.version = value
            }
       }
+      @discardableResult
       public func setVersion(_ value:String) -> Google.Protobuf.Api.Builder {
         self.version = value
         return self
       }
+      @discardableResult
       public func clearVersion() -> Google.Protobuf.Api.Builder{
            builderResult.hasVersion = false
            builderResult.version = ""
@@ -371,6 +379,7 @@ public extension Google.Protobuf {
         }
         return sourceContextBuilder_
       }
+      @discardableResult
       public func setSourceContext(_ value:Google.Protobuf.SourceContext!) -> Google.Protobuf.Api.Builder {
         self.sourceContext = value
         return self
@@ -385,6 +394,7 @@ public extension Google.Protobuf {
         builderResult.hasSourceContext = true
         return self
       }
+      @discardableResult
       public func clearSourceContext() -> Google.Protobuf.Api.Builder {
         sourceContextBuilder_ = nil
         builderResult.hasSourceContext = false
@@ -396,6 +406,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Api.Builder {
         builderResult = Google.Protobuf.Api()
         return self
@@ -438,6 +449,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Api.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Api.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -759,10 +771,12 @@ public extension Google.Protobuf {
                builderResult.name = value
            }
       }
+      @discardableResult
       public func setName(_ value:String) -> Google.Protobuf.Method.Builder {
         self.name = value
         return self
       }
+      @discardableResult
       public func clearName() -> Google.Protobuf.Method.Builder{
            builderResult.hasName = false
            builderResult.name = ""
@@ -782,10 +796,12 @@ public extension Google.Protobuf {
                builderResult.requestTypeUrl = value
            }
       }
+      @discardableResult
       public func setRequestTypeUrl(_ value:String) -> Google.Protobuf.Method.Builder {
         self.requestTypeUrl = value
         return self
       }
+      @discardableResult
       public func clearRequestTypeUrl() -> Google.Protobuf.Method.Builder{
            builderResult.hasRequestTypeUrl = false
            builderResult.requestTypeUrl = ""
@@ -805,10 +821,12 @@ public extension Google.Protobuf {
                builderResult.requestStreaming = value
            }
       }
+      @discardableResult
       public func setRequestStreaming(_ value:Bool) -> Google.Protobuf.Method.Builder {
         self.requestStreaming = value
         return self
       }
+      @discardableResult
       public func clearRequestStreaming() -> Google.Protobuf.Method.Builder{
            builderResult.hasRequestStreaming = false
            builderResult.requestStreaming = false
@@ -828,10 +846,12 @@ public extension Google.Protobuf {
                builderResult.responseTypeUrl = value
            }
       }
+      @discardableResult
       public func setResponseTypeUrl(_ value:String) -> Google.Protobuf.Method.Builder {
         self.responseTypeUrl = value
         return self
       }
+      @discardableResult
       public func clearResponseTypeUrl() -> Google.Protobuf.Method.Builder{
            builderResult.hasResponseTypeUrl = false
            builderResult.responseTypeUrl = ""
@@ -851,10 +871,12 @@ public extension Google.Protobuf {
                builderResult.responseStreaming = value
            }
       }
+      @discardableResult
       public func setResponseStreaming(_ value:Bool) -> Google.Protobuf.Method.Builder {
         self.responseStreaming = value
         return self
       }
+      @discardableResult
       public func clearResponseStreaming() -> Google.Protobuf.Method.Builder{
            builderResult.hasResponseStreaming = false
            builderResult.responseStreaming = false
@@ -868,10 +890,12 @@ public extension Google.Protobuf {
                builderResult.options = value
            }
       }
+      @discardableResult
       public func setOptions(_ value:Array<Google.Protobuf.Option>) -> Google.Protobuf.Method.Builder {
         self.options = value
         return self
       }
+      @discardableResult
       public func clearOptions() -> Google.Protobuf.Method.Builder {
         builderResult.options.removeAll(keepingCapacity: false)
         return self
@@ -881,6 +905,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Method.Builder {
         builderResult = Google.Protobuf.Method()
         return self
@@ -926,6 +951,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Method.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Method.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

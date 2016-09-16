@@ -219,10 +219,12 @@ public extension Google.Protobuf {
                builderResult.seconds = value
            }
       }
+      @discardableResult
       public func setSeconds(_ value:Int64) -> Google.Protobuf.Timestamp.Builder {
         self.seconds = value
         return self
       }
+      @discardableResult
       public func clearSeconds() -> Google.Protobuf.Timestamp.Builder{
            builderResult.hasSeconds = false
            builderResult.seconds = Int64(0)
@@ -242,10 +244,12 @@ public extension Google.Protobuf {
                builderResult.nanos = value
            }
       }
+      @discardableResult
       public func setNanos(_ value:Int32) -> Google.Protobuf.Timestamp.Builder {
         self.nanos = value
         return self
       }
+      @discardableResult
       public func clearNanos() -> Google.Protobuf.Timestamp.Builder{
            builderResult.hasNanos = false
            builderResult.nanos = Int32(0)
@@ -256,6 +260,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.Timestamp.Builder {
         builderResult = Google.Protobuf.Timestamp()
         return self
@@ -289,6 +294,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Timestamp.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Timestamp.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

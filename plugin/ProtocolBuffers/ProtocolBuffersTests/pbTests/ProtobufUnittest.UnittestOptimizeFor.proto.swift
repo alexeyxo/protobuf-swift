@@ -323,10 +323,12 @@ public extension ProtobufUnittest {
                builderResult.i = value
            }
       }
+      @discardableResult
       public func setI(_ value:Int32) -> ProtobufUnittest.TestOptimizedForSize.Builder {
         self.i = value
         return self
       }
+      @discardableResult
       public func clearI() -> ProtobufUnittest.TestOptimizedForSize.Builder{
            builderResult.hasI = false
            builderResult.i = Int32(0)
@@ -364,6 +366,7 @@ public extension ProtobufUnittest {
         }
         return msgBuilder_
       }
+      @discardableResult
       public func setMsg(_ value:ProtobufUnittest.ForeignMessage!) -> ProtobufUnittest.TestOptimizedForSize.Builder {
         self.msg = value
         return self
@@ -378,6 +381,7 @@ public extension ProtobufUnittest {
         builderResult.hasMsg = true
         return self
       }
+      @discardableResult
       public func clearMsg() -> ProtobufUnittest.TestOptimizedForSize.Builder {
         msgBuilder_ = nil
         builderResult.hasMsg = false
@@ -398,10 +402,12 @@ public extension ProtobufUnittest {
                builderResult.integerField = value
            }
       }
+      @discardableResult
       public func setIntegerField(_ value:Int32) -> ProtobufUnittest.TestOptimizedForSize.Builder {
         self.integerField = value
         return self
       }
+      @discardableResult
       public func clearIntegerField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
            builderResult.hasIntegerField = false
            builderResult.integerField = Int32(0)
@@ -421,10 +427,12 @@ public extension ProtobufUnittest {
                builderResult.stringField = value
            }
       }
+      @discardableResult
       public func setStringField(_ value:String) -> ProtobufUnittest.TestOptimizedForSize.Builder {
         self.stringField = value
         return self
       }
+      @discardableResult
       public func clearStringField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
            builderResult.hasStringField = false
            builderResult.stringField = ""
@@ -435,6 +443,7 @@ public extension ProtobufUnittest {
                return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestOptimizedForSize()
         return self
@@ -475,6 +484,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -669,10 +679,12 @@ public extension ProtobufUnittest {
                builderResult.x = value
            }
       }
+      @discardableResult
       public func setX(_ value:Int32) -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         self.x = value
         return self
       }
+      @discardableResult
       public func clearX() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder{
            builderResult.hasX = false
            builderResult.x = Int32(0)
@@ -683,6 +695,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestRequiredOptimizedForSize()
         return self
@@ -713,6 +726,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -910,6 +924,7 @@ public extension ProtobufUnittest {
         }
         return oBuilder_
       }
+      @discardableResult
       public func setO(_ value:ProtobufUnittest.TestRequiredOptimizedForSize!) -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         self.o = value
         return self
@@ -924,6 +939,7 @@ public extension ProtobufUnittest {
         builderResult.hasO = true
         return self
       }
+      @discardableResult
       public func clearO() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         oBuilder_ = nil
         builderResult.hasO = false
@@ -935,6 +951,7 @@ public extension ProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         builderResult = ProtobufUnittest.TestOptionalOptimizedForSize()
         return self
@@ -965,6 +982,7 @@ public extension ProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

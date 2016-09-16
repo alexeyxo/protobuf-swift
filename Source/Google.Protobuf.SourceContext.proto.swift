@@ -158,10 +158,12 @@ public extension Google.Protobuf {
                builderResult.fileName = value
            }
       }
+      @discardableResult
       public func setFileName(_ value:String) -> Google.Protobuf.SourceContext.Builder {
         self.fileName = value
         return self
       }
+      @discardableResult
       public func clearFileName() -> Google.Protobuf.SourceContext.Builder{
            builderResult.hasFileName = false
            builderResult.fileName = ""
@@ -172,6 +174,7 @@ public extension Google.Protobuf {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> Google.Protobuf.SourceContext.Builder {
         builderResult = Google.Protobuf.SourceContext()
         return self
@@ -202,6 +205,7 @@ public extension Google.Protobuf {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SourceContext.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {

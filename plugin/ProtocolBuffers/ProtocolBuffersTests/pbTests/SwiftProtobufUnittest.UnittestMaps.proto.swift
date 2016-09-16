@@ -155,10 +155,12 @@ public extension SwiftProtobufUnittest {
                builderResult.valueInMapMessage = value
            }
       }
+      @discardableResult
       public func setValueInMapMessage(_ value:Int32) -> SwiftProtobufUnittest.MapMessageValue.Builder {
         self.valueInMapMessage = value
         return self
       }
+      @discardableResult
       public func clearValueInMapMessage() -> SwiftProtobufUnittest.MapMessageValue.Builder{
            builderResult.hasValueInMapMessage = false
            builderResult.valueInMapMessage = Int32(0)
@@ -169,6 +171,7 @@ public extension SwiftProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> SwiftProtobufUnittest.MapMessageValue.Builder {
         builderResult = SwiftProtobufUnittest.MapMessageValue()
         return self
@@ -199,6 +202,7 @@ public extension SwiftProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
@@ -406,10 +410,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int32(0)
@@ -429,10 +435,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
+          @discardableResult
           public func setValue(_ value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             self.value = value
             return self
           }
+          @discardableResult
           public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                builderResult.hasValue = false
                builderResult.value = Int32(0)
@@ -443,6 +451,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry()
             return self
@@ -476,6 +485,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -674,10 +684,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int64(0)
@@ -697,10 +709,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
+          @discardableResult
           public func setValue(_ value:Int64) -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             self.value = value
             return self
           }
+          @discardableResult
           public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                builderResult.hasValue = false
                builderResult.value = Int64(0)
@@ -711,6 +725,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry()
             return self
@@ -744,6 +759,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -942,10 +958,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
@@ -965,10 +983,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
+          @discardableResult
           public func setValue(_ value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             self.value = value
             return self
           }
+          @discardableResult
           public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                builderResult.hasValue = false
                builderResult.value = ""
@@ -979,6 +999,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry()
             return self
@@ -1012,6 +1033,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -1210,10 +1232,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
@@ -1233,10 +1257,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.value = value
                }
           }
+          @discardableResult
           public func setValue(_ value:Data) -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             self.value = value
             return self
           }
+          @discardableResult
           public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                builderResult.hasValue = false
                builderResult.value = Data()
@@ -1247,6 +1273,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry()
             return self
@@ -1280,6 +1307,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -1485,10 +1513,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:String) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = ""
@@ -1526,6 +1556,7 @@ public extension SwiftProtobufUnittest {
             }
             return valueBuilder_
           }
+          @discardableResult
           public func setValue(_ value:SwiftProtobufUnittest.MapMessageValue!) -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             self.value = value
             return self
@@ -1540,6 +1571,7 @@ public extension SwiftProtobufUnittest {
             builderResult.hasValue = true
             return self
           }
+          @discardableResult
           public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             valueBuilder_ = nil
             builderResult.hasValue = false
@@ -1551,6 +1583,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry()
             return self
@@ -1584,6 +1617,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -1787,10 +1821,12 @@ public extension SwiftProtobufUnittest {
                    builderResult.key = value
                }
           }
+          @discardableResult
           public func setKey(_ value:Int32) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             self.key = value
             return self
           }
+          @discardableResult
           public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder{
                builderResult.hasKey = false
                builderResult.key = Int32(0)
@@ -1810,10 +1846,12 @@ public extension SwiftProtobufUnittest {
                     builderResult.value = value
                 }
             }
+          @discardableResult
             public func setValue(_ value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue) -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
               self.value = value
               return self
             }
+          @discardableResult
             public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
                builderResult.hasValue = false
                builderResult.value = .firstValueEnum
@@ -1824,6 +1862,7 @@ public extension SwiftProtobufUnittest {
                   return builderResult
                }
           }
+          @discardableResult
           override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             builderResult = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry()
             return self
@@ -1857,6 +1896,7 @@ public extension SwiftProtobufUnittest {
           override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
+          @discardableResult
           override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
@@ -2225,10 +2265,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapInt32Int32 = value
            }
       }
+      @discardableResult
       public func setMapInt32Int32(_ value:Dictionary<Int32,Int32>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt32Int32 = value
         return self
       }
+      @discardableResult
       public func clearMapInt32Int32() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt32Int32 = false
            builderResult.mapInt32Int32 = Dictionary<Int32,Int32>()
@@ -2248,10 +2290,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapInt64Int64 = value
            }
       }
+      @discardableResult
       public func setMapInt64Int64(_ value:Dictionary<Int64,Int64>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt64Int64 = value
         return self
       }
+      @discardableResult
       public func clearMapInt64Int64() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt64Int64 = false
            builderResult.mapInt64Int64 = Dictionary<Int64,Int64>()
@@ -2271,10 +2315,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapStringString = value
            }
       }
+      @discardableResult
       public func setMapStringString(_ value:Dictionary<String,String>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringString = value
         return self
       }
+      @discardableResult
       public func clearMapStringString() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringString = false
            builderResult.mapStringString = Dictionary<String,String>()
@@ -2294,10 +2340,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapStringBytes = value
            }
       }
+      @discardableResult
       public func setMapStringBytes(_ value:Dictionary<String,Data>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringBytes = value
         return self
       }
+      @discardableResult
       public func clearMapStringBytes() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringBytes = false
            builderResult.mapStringBytes = Dictionary<String,Data>()
@@ -2317,10 +2365,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapStringMessage = value
            }
       }
+      @discardableResult
       public func setMapStringMessage(_ value:Dictionary<String,SwiftProtobufUnittest.MapMessageValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapStringMessage = value
         return self
       }
+      @discardableResult
       public func clearMapStringMessage() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapStringMessage = false
            builderResult.mapStringMessage = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
@@ -2340,10 +2390,12 @@ public extension SwiftProtobufUnittest {
                builderResult.mapInt32Enum = value
            }
       }
+      @discardableResult
       public func setMapInt32Enum(_ value:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>) -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         self.mapInt32Enum = value
         return self
       }
+      @discardableResult
       public func clearMapInt32Enum() -> SwiftProtobufUnittest.MessageContainsMap.Builder{
            builderResult.hasMapInt32Enum = false
            builderResult.mapInt32Enum = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
@@ -2354,6 +2406,7 @@ public extension SwiftProtobufUnittest {
               return builderResult
            }
       }
+      @discardableResult
       override public func clear() -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         builderResult = SwiftProtobufUnittest.MessageContainsMap()
         return self
@@ -2399,6 +2452,7 @@ public extension SwiftProtobufUnittest {
       override public func mergeFrom(codedInputStream: CodedInputStream) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
+      @discardableResult
       override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
