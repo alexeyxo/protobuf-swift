@@ -147,10 +147,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  }\n");
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "  $acontrolFunc$ func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
                        "    self.$name_reserved$ = value\n"
                        "    return self\n"
                        "  }\n"
+                       "@discardableResult\n"
                        "  $acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "     builderResult.has$capitalized_name$ = false\n"
                        "     builderResult.$name_reserved$ = .$default$\n"
@@ -277,10 +279,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        builderResult.$name_reserved$ = value\n"
                        "    }\n"
                        "}\n"
+                       "@discardableResult\n"
                        "$acontrol$func set$capitalized_name$(_ value:Array<$type$>) -> $containing_class$.Builder {\n"
                        "  self.$name_reserved$ = value\n"
                        "  return self\n"
                        "}\n"
+                       "@discardableResult\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
                        "  builderResult.$name_reserved$.removeAll(keepingCapacity: false)\n"
                        "  return self\n"

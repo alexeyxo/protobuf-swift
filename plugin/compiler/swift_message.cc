@@ -775,6 +775,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         printer->Print(variables_,
+                       "@discardableResult\n"
                        "override $acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
@@ -838,6 +839,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
+                       "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
