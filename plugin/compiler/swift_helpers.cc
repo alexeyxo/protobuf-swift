@@ -802,6 +802,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             "weak",
             "willSet",
             "String",
+            "nil",
+            "operator",
         };
 
 
