@@ -150,7 +150,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  if $name$Builder_ == nil {\n"
                        "     $name$Builder_ = $type$.Builder()\n"
                        "     builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
-                       "     if $name$ != nil {\n"
+                       "     if $name_reserved$ != nil {\n"
                        "        try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
                        "     }\n"
                        "  }\n"
