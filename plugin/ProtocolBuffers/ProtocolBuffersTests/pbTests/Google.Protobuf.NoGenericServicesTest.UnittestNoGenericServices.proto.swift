@@ -132,7 +132,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = a
+        jsonMap["a"] = Int(a)
       }
       return jsonMap
     }
@@ -268,8 +268,8 @@ public extension Google.Protobuf.NoGenericServicesTest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let resultDecodedBuilder = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
-        if let jsonValueA = jsonMap["a"] as? Int32 {
-          resultDecodedBuilder.a = jsonValueA
+        if let jsonValueA = jsonMap["a"] as? Int {
+          resultDecodedBuilder.a = Int32(jsonValueA)
         }
         return resultDecodedBuilder
       }

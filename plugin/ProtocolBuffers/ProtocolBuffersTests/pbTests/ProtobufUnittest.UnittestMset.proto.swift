@@ -540,7 +540,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = i
+        jsonMap["i"] = Int(i)
       }
       return jsonMap
     }
@@ -673,8 +673,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetExtension1.Builder()
-        if let jsonValueI = jsonMap["i"] as? Int32 {
-          resultDecodedBuilder.i = jsonValueI
+        if let jsonValueI = jsonMap["i"] as? Int {
+          resultDecodedBuilder.i = Int32(jsonValueI)
         }
         return resultDecodedBuilder
       }
@@ -1006,7 +1006,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasTypeId {
-            jsonMap["typeId"] = typeId
+            jsonMap["typeId"] = Int(typeId)
           }
           if hasMessage {
             jsonMap["message"] = message.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
@@ -1179,8 +1179,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
             let resultDecodedBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
-            if let jsonValueTypeId = jsonMap["typeId"] as? Int32 {
-              resultDecodedBuilder.typeId = jsonValueTypeId
+            if let jsonValueTypeId = jsonMap["typeId"] as? Int {
+              resultDecodedBuilder.typeId = Int32(jsonValueTypeId)
             }
             if let jsonValueMessage = jsonMap["message"] as? String {
               resultDecodedBuilder.message = Data(base64Encoded:jsonValueMessage, options: Data.Base64DecodingOptions(rawValue:0))!

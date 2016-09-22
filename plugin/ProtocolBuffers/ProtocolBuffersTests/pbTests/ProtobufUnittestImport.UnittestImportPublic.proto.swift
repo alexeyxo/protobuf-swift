@@ -87,7 +87,7 @@ public extension ProtobufUnittestImport {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasE {
-        jsonMap["e"] = e
+        jsonMap["e"] = Int(e)
       }
       return jsonMap
     }
@@ -220,8 +220,8 @@ public extension ProtobufUnittestImport {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.PublicImportMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittestImport.PublicImportMessage.Builder()
-        if let jsonValueE = jsonMap["e"] as? Int32 {
-          resultDecodedBuilder.e = jsonValueE
+        if let jsonValueE = jsonMap["e"] as? Int {
+          resultDecodedBuilder.e = Int32(jsonValueE)
         }
         return resultDecodedBuilder
       }

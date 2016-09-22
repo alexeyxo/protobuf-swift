@@ -2726,18 +2726,18 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFoo {
-        jsonMap["foo"] = foo
+        jsonMap["foo"] = Int(foo)
       }
       if hasFoo2 {
-        jsonMap["foo2"] = foo2
+        jsonMap["foo2"] = Int(foo2)
       }
       if hasFoo3 {
-        jsonMap["foo3"] = foo3
+        jsonMap["foo3"] = Int(foo3)
       }
       if !foo4.isEmpty {
-        var jsonArrayFoo4:Array<Int32> = []
+        var jsonArrayFoo4:Array<Int> = []
           for oneValueFoo4 in foo4 {
-            jsonArrayFoo4.append(oneValueFoo4)
+            jsonArrayFoo4.append(Int(oneValueFoo4))
           }
         jsonMap["foo4"] = jsonArrayFoo4
       }
@@ -2981,19 +2981,19 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType1.Builder()
-        if let jsonValueFoo = jsonMap["foo"] as? Int32 {
-          resultDecodedBuilder.foo = jsonValueFoo
+        if let jsonValueFoo = jsonMap["foo"] as? Int {
+          resultDecodedBuilder.foo = Int32(jsonValueFoo)
         }
-        if let jsonValueFoo2 = jsonMap["foo2"] as? Int32 {
-          resultDecodedBuilder.foo2 = jsonValueFoo2
+        if let jsonValueFoo2 = jsonMap["foo2"] as? Int {
+          resultDecodedBuilder.foo2 = Int32(jsonValueFoo2)
         }
-        if let jsonValueFoo3 = jsonMap["foo3"] as? Int32 {
-          resultDecodedBuilder.foo3 = jsonValueFoo3
+        if let jsonValueFoo3 = jsonMap["foo3"] as? Int {
+          resultDecodedBuilder.foo3 = Int32(jsonValueFoo3)
         }
-        if let jsonValueFoo4 = jsonMap["foo4"] as? Array<Int32> {
+        if let jsonValueFoo4 = jsonMap["foo4"] as? Array<Int> {
           var jsonArrayFoo4:Array<Int32> = []
           for oneValueFoo4 in jsonValueFoo4 {
-            jsonArrayFoo4.append(oneValueFoo4)
+            jsonArrayFoo4.append(Int32(oneValueFoo4))
           }
           resultDecodedBuilder.foo4 = jsonArrayFoo4
         }
@@ -3099,7 +3099,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasWaldo {
-            jsonMap["waldo"] = waldo
+            jsonMap["waldo"] = Int(waldo)
           }
           return jsonMap
         }
@@ -3232,8 +3232,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
-            if let jsonValueWaldo = jsonMap["waldo"] as? Int32 {
-              resultDecodedBuilder.waldo = jsonValueWaldo
+            if let jsonValueWaldo = jsonMap["waldo"] as? Int {
+              resultDecodedBuilder.waldo = Int32(jsonValueWaldo)
             }
             return resultDecodedBuilder
           }
@@ -3344,7 +3344,7 @@ public extension ProtobufUnittest {
         jsonMap["bar"] = try bar.encode()
       }
       if hasBaz {
-        jsonMap["baz"] = baz
+        jsonMap["baz"] = Int(baz)
       }
       if hasFred {
         jsonMap["fred"] = try fred.encode()
@@ -3685,8 +3685,8 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.bar = try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsonValueBar).build()
 
         }
-        if let jsonValueBaz = jsonMap["baz"] as? Int32 {
-          resultDecodedBuilder.baz = jsonValueBaz
+        if let jsonValueBaz = jsonMap["baz"] as? Int {
+          resultDecodedBuilder.baz = Int32(jsonValueBaz)
         }
         if let jsonValueFred = jsonMap["fred"] as? Dictionary<String,Any> {
           resultDecodedBuilder.fred = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsonValueFred).build()
@@ -3797,7 +3797,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasPlugh {
-            jsonMap["plugh"] = plugh
+            jsonMap["plugh"] = Int(plugh)
           }
           return jsonMap
         }
@@ -3930,8 +3930,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
-            if let jsonValuePlugh = jsonMap["plugh"] as? Int32 {
-              resultDecodedBuilder.plugh = jsonValuePlugh
+            if let jsonValuePlugh = jsonMap["plugh"] as? Int {
+              resultDecodedBuilder.plugh = Int32(jsonValuePlugh)
             }
             return resultDecodedBuilder
           }
@@ -4012,7 +4012,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasQux {
-        jsonMap["qux"] = qux
+        jsonMap["qux"] = Int(qux)
       }
       if hasComplexOptionType5 {
         jsonMap["complexoptiontype5"] = try complexOptionType5.encode()
@@ -4225,8 +4225,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.Builder()
-        if let jsonValueQux = jsonMap["qux"] as? Int32 {
-          resultDecodedBuilder.qux = jsonValueQux
+        if let jsonValueQux = jsonMap["qux"] as? Int {
+          resultDecodedBuilder.qux = Int32(jsonValueQux)
         }
         if let jsonValueComplexOptionType5 = jsonMap["complexoptiontype5"] as? Dictionary<String,Any> {
           resultDecodedBuilder.complexOptionType5 = try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsonValueComplexOptionType5).build()
@@ -4311,7 +4311,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasXyzzy {
-        jsonMap["xyzzy"] = xyzzy
+        jsonMap["xyzzy"] = Int(xyzzy)
       }
       return jsonMap
     }
@@ -4444,8 +4444,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOpt6.Builder()
-        if let jsonValueXyzzy = jsonMap["xyzzy"] as? Int32 {
-          resultDecodedBuilder.xyzzy = jsonValueXyzzy
+        if let jsonValueXyzzy = jsonMap["xyzzy"] as? Int {
+          resultDecodedBuilder.xyzzy = Int32(jsonValueXyzzy)
         }
         return resultDecodedBuilder
       }
@@ -5140,7 +5140,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = i
+        jsonMap["i"] = Int(i)
       }
       if hasS {
         jsonMap["s"] = s
@@ -5553,8 +5553,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Aggregate.Builder()
-        if let jsonValueI = jsonMap["i"] as? Int32 {
-          resultDecodedBuilder.i = jsonValueI
+        if let jsonValueI = jsonMap["i"] as? Int {
+          resultDecodedBuilder.i = Int32(jsonValueI)
         }
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
@@ -5650,7 +5650,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasFieldname {
-        jsonMap["fieldname"] = fieldname
+        jsonMap["fieldname"] = Int(fieldname)
       }
       return jsonMap
     }
@@ -5783,8 +5783,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessage.Builder()
-        if let jsonValueFieldname = jsonMap["fieldname"] as? Int32 {
-          resultDecodedBuilder.fieldname = jsonValueFieldname
+        if let jsonValueFieldname = jsonMap["fieldname"] as? Int {
+          resultDecodedBuilder.fieldname = Int32(jsonValueFieldname)
         }
         return resultDecodedBuilder
       }
@@ -5881,7 +5881,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasNestedField {
-            jsonMap["nestedField"] = nestedField
+            jsonMap["nestedField"] = Int(nestedField)
           }
           return jsonMap
         }
@@ -6014,8 +6014,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
-            if let jsonValueNestedField = jsonMap["nestedField"] as? Int32 {
-              resultDecodedBuilder.nestedField = jsonValueNestedField
+            if let jsonValueNestedField = jsonMap["nestedField"] as? Int {
+              resultDecodedBuilder.nestedField = Int32(jsonValueNestedField)
             }
             return resultDecodedBuilder
           }

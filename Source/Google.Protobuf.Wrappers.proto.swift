@@ -88,7 +88,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = Double(value)
       }
       return jsonMap
     }
@@ -222,7 +222,7 @@ public extension Google.Protobuf {
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DoubleValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.DoubleValue.Builder()
         if let jsonValueValue = jsonMap["value"] as? Double {
-          resultDecodedBuilder.value = jsonValueValue
+          resultDecodedBuilder.value = Double(jsonValueValue)
         }
         return resultDecodedBuilder
       }
@@ -305,7 +305,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = Float(value)
       }
       return jsonMap
     }
@@ -439,7 +439,7 @@ public extension Google.Protobuf {
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FloatValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.FloatValue.Builder()
         if let jsonValueValue = jsonMap["value"] as? Float {
-          resultDecodedBuilder.value = jsonValueValue
+          resultDecodedBuilder.value = Float(jsonValueValue)
         }
         return resultDecodedBuilder
       }
@@ -522,7 +522,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = "\(value)"
       }
       return jsonMap
     }
@@ -655,8 +655,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Int64Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Int64Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? Int64 {
-          resultDecodedBuilder.value = jsonValueValue
+        if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = Int64(jsonValueValue)!
         }
         return resultDecodedBuilder
       }
@@ -739,7 +739,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = "\(value)"
       }
       return jsonMap
     }
@@ -872,8 +872,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Uint64Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Uint64Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? UInt64 {
-          resultDecodedBuilder.value = jsonValueValue
+        if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = UInt64(jsonValueValue)!
         }
         return resultDecodedBuilder
       }
@@ -956,7 +956,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = Int(value)
       }
       return jsonMap
     }
@@ -1089,8 +1089,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Int32Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Int32Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? Int32 {
-          resultDecodedBuilder.value = jsonValueValue
+        if let jsonValueValue = jsonMap["value"] as? Int {
+          resultDecodedBuilder.value = Int32(jsonValueValue)
         }
         return resultDecodedBuilder
       }
@@ -1173,7 +1173,7 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValue {
-        jsonMap["value"] = value
+        jsonMap["value"] = UInt(value)
       }
       return jsonMap
     }
@@ -1306,8 +1306,8 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Uint32Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Uint32Value.Builder()
-        if let jsonValueValue = jsonMap["value"] as? UInt32 {
-          resultDecodedBuilder.value = jsonValueValue
+        if let jsonValueValue = jsonMap["value"] as? UInt {
+          resultDecodedBuilder.value = UInt32(jsonValueValue)
         }
         return resultDecodedBuilder
       }

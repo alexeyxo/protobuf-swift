@@ -1222,7 +1222,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasBb {
-            jsonMap["bb"] = bb
+            jsonMap["bb"] = Int(bb)
           }
           return jsonMap
         }
@@ -1355,8 +1355,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
-            if let jsonValueBb = jsonMap["bb"] as? Int32 {
-              resultDecodedBuilder.bb = jsonValueBb
+            if let jsonValueBb = jsonMap["bb"] as? Int {
+              resultDecodedBuilder.bb = Int32(jsonValueBb)
             }
             return resultDecodedBuilder
           }
@@ -1443,7 +1443,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = a
+            jsonMap["a"] = Int(a)
           }
           return jsonMap
         }
@@ -1576,8 +1576,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? Int32 {
-              resultDecodedBuilder.a = jsonValueA
+            if let jsonValueA = jsonMap["a"] as? Int {
+              resultDecodedBuilder.a = Int32(jsonValueA)
             }
             return resultDecodedBuilder
           }
@@ -1664,7 +1664,7 @@ public extension ProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasA {
-            jsonMap["a"] = a
+            jsonMap["a"] = Int(a)
           }
           return jsonMap
         }
@@ -1797,8 +1797,8 @@ public extension ProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder()
-            if let jsonValueA = jsonMap["a"] as? Int32 {
-              resultDecodedBuilder.a = jsonValueA
+            if let jsonValueA = jsonMap["a"] as? Int {
+              resultDecodedBuilder.a = Int32(jsonValueA)
             }
             return resultDecodedBuilder
           }
@@ -2733,40 +2733,40 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasOptionalInt32 {
-        jsonMap["optionalInt32"] = optionalInt32
+        jsonMap["optionalInt32"] = Int(optionalInt32)
       }
       if hasOptionalInt64 {
-        jsonMap["optionalInt64"] = optionalInt64
+        jsonMap["optionalInt64"] = "\(optionalInt64)"
       }
       if hasOptionalUint32 {
-        jsonMap["optionalUint32"] = optionalUint32
+        jsonMap["optionalUint32"] = UInt(optionalUint32)
       }
       if hasOptionalUint64 {
-        jsonMap["optionalUint64"] = optionalUint64
+        jsonMap["optionalUint64"] = "\(optionalUint64)"
       }
       if hasOptionalSint32 {
-        jsonMap["optionalSint32"] = optionalSint32
+        jsonMap["optionalSint32"] = Int(optionalSint32)
       }
       if hasOptionalSint64 {
-        jsonMap["optionalSint64"] = optionalSint64
+        jsonMap["optionalSint64"] = "\(optionalSint64)"
       }
       if hasOptionalFixed32 {
-        jsonMap["optionalFixed32"] = optionalFixed32
+        jsonMap["optionalFixed32"] = UInt(optionalFixed32)
       }
       if hasOptionalFixed64 {
-        jsonMap["optionalFixed64"] = optionalFixed64
+        jsonMap["optionalFixed64"] = "\(optionalFixed64)"
       }
       if hasOptionalSfixed32 {
-        jsonMap["optionalSfixed32"] = optionalSfixed32
+        jsonMap["optionalSfixed32"] = Int(optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        jsonMap["optionalSfixed64"] = optionalSfixed64
+        jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
       }
       if hasOptionalFloat {
-        jsonMap["optionalFloat"] = optionalFloat
+        jsonMap["optionalFloat"] = Float(optionalFloat)
       }
       if hasOptionalDouble {
-        jsonMap["optionalDouble"] = optionalDouble
+        jsonMap["optionalDouble"] = Double(optionalDouble)
       }
       if hasOptionalBool {
         jsonMap["optionalBool"] = optionalBool
@@ -2811,86 +2811,86 @@ public extension ProtobufUnittest {
         jsonMap["optionalLazyMessage"] = try optionalLazyMessage.encode()
       }
       if !repeatedInt32.isEmpty {
-        var jsonArrayRepeatedInt32:Array<Int32> = []
+        var jsonArrayRepeatedInt32:Array<Int> = []
           for oneValueRepeatedInt32 in repeatedInt32 {
-            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
+            jsonArrayRepeatedInt32.append(Int(oneValueRepeatedInt32))
           }
         jsonMap["repeatedInt32"] = jsonArrayRepeatedInt32
       }
       if !repeatedInt64.isEmpty {
-        var jsonArrayRepeatedInt64:Array<Int64> = []
+        var jsonArrayRepeatedInt64:Array<String> = []
           for oneValueRepeatedInt64 in repeatedInt64 {
-            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
+            jsonArrayRepeatedInt64.append("\(oneValueRepeatedInt64)")
           }
         jsonMap["repeatedInt64"] = jsonArrayRepeatedInt64
       }
       if !repeatedUint32.isEmpty {
-        var jsonArrayRepeatedUint32:Array<UInt32> = []
+        var jsonArrayRepeatedUint32:Array<UInt> = []
           for oneValueRepeatedUint32 in repeatedUint32 {
-            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32)
+            jsonArrayRepeatedUint32.append(UInt(oneValueRepeatedUint32))
           }
         jsonMap["repeatedUint32"] = jsonArrayRepeatedUint32
       }
       if !repeatedUint64.isEmpty {
-        var jsonArrayRepeatedUint64:Array<UInt64> = []
+        var jsonArrayRepeatedUint64:Array<String> = []
           for oneValueRepeatedUint64 in repeatedUint64 {
-            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
+            jsonArrayRepeatedUint64.append("\(oneValueRepeatedUint64)")
           }
         jsonMap["repeatedUint64"] = jsonArrayRepeatedUint64
       }
       if !repeatedSint32.isEmpty {
-        var jsonArrayRepeatedSint32:Array<Int32> = []
+        var jsonArrayRepeatedSint32:Array<Int> = []
           for oneValueRepeatedSint32 in repeatedSint32 {
-            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32)
+            jsonArrayRepeatedSint32.append(Int(oneValueRepeatedSint32))
           }
         jsonMap["repeatedSint32"] = jsonArrayRepeatedSint32
       }
       if !repeatedSint64.isEmpty {
-        var jsonArrayRepeatedSint64:Array<Int64> = []
+        var jsonArrayRepeatedSint64:Array<String> = []
           for oneValueRepeatedSint64 in repeatedSint64 {
-            jsonArrayRepeatedSint64.append(oneValueRepeatedSint64)
+            jsonArrayRepeatedSint64.append("\(oneValueRepeatedSint64)")
           }
         jsonMap["repeatedSint64"] = jsonArrayRepeatedSint64
       }
       if !repeatedFixed32.isEmpty {
-        var jsonArrayRepeatedFixed32:Array<UInt32> = []
+        var jsonArrayRepeatedFixed32:Array<UInt> = []
           for oneValueRepeatedFixed32 in repeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
+            jsonArrayRepeatedFixed32.append(UInt(oneValueRepeatedFixed32))
           }
         jsonMap["repeatedFixed32"] = jsonArrayRepeatedFixed32
       }
       if !repeatedFixed64.isEmpty {
-        var jsonArrayRepeatedFixed64:Array<UInt64> = []
+        var jsonArrayRepeatedFixed64:Array<String> = []
           for oneValueRepeatedFixed64 in repeatedFixed64 {
-            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
+            jsonArrayRepeatedFixed64.append("\(oneValueRepeatedFixed64)")
           }
         jsonMap["repeatedFixed64"] = jsonArrayRepeatedFixed64
       }
       if !repeatedSfixed32.isEmpty {
-        var jsonArrayRepeatedSfixed32:Array<Int32> = []
+        var jsonArrayRepeatedSfixed32:Array<Int> = []
           for oneValueRepeatedSfixed32 in repeatedSfixed32 {
-            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32)
+            jsonArrayRepeatedSfixed32.append(Int(oneValueRepeatedSfixed32))
           }
         jsonMap["repeatedSfixed32"] = jsonArrayRepeatedSfixed32
       }
       if !repeatedSfixed64.isEmpty {
-        var jsonArrayRepeatedSfixed64:Array<Int64> = []
+        var jsonArrayRepeatedSfixed64:Array<String> = []
           for oneValueRepeatedSfixed64 in repeatedSfixed64 {
-            jsonArrayRepeatedSfixed64.append(oneValueRepeatedSfixed64)
+            jsonArrayRepeatedSfixed64.append("\(oneValueRepeatedSfixed64)")
           }
         jsonMap["repeatedSfixed64"] = jsonArrayRepeatedSfixed64
       }
       if !repeatedFloat.isEmpty {
         var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in repeatedFloat {
-            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
+            jsonArrayRepeatedFloat.append(Float(oneValueRepeatedFloat))
           }
         jsonMap["repeatedFloat"] = jsonArrayRepeatedFloat
       }
       if !repeatedDouble.isEmpty {
         var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in repeatedDouble {
-            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble)
+            jsonArrayRepeatedDouble.append(Double(oneValueRepeatedDouble))
           }
         jsonMap["repeatedDouble"] = jsonArrayRepeatedDouble
       }
@@ -2991,40 +2991,40 @@ public extension ProtobufUnittest {
         jsonMap["repeatedLazyMessage"] = jsonArrayRepeatedLazyMessage
       }
       if hasDefaultInt32 {
-        jsonMap["defaultInt32"] = defaultInt32
+        jsonMap["defaultInt32"] = Int(defaultInt32)
       }
       if hasDefaultInt64 {
-        jsonMap["defaultInt64"] = defaultInt64
+        jsonMap["defaultInt64"] = "\(defaultInt64)"
       }
       if hasDefaultUint32 {
-        jsonMap["defaultUint32"] = defaultUint32
+        jsonMap["defaultUint32"] = UInt(defaultUint32)
       }
       if hasDefaultUint64 {
-        jsonMap["defaultUint64"] = defaultUint64
+        jsonMap["defaultUint64"] = "\(defaultUint64)"
       }
       if hasDefaultSint32 {
-        jsonMap["defaultSint32"] = defaultSint32
+        jsonMap["defaultSint32"] = Int(defaultSint32)
       }
       if hasDefaultSint64 {
-        jsonMap["defaultSint64"] = defaultSint64
+        jsonMap["defaultSint64"] = "\(defaultSint64)"
       }
       if hasDefaultFixed32 {
-        jsonMap["defaultFixed32"] = defaultFixed32
+        jsonMap["defaultFixed32"] = UInt(defaultFixed32)
       }
       if hasDefaultFixed64 {
-        jsonMap["defaultFixed64"] = defaultFixed64
+        jsonMap["defaultFixed64"] = "\(defaultFixed64)"
       }
       if hasDefaultSfixed32 {
-        jsonMap["defaultSfixed32"] = defaultSfixed32
+        jsonMap["defaultSfixed32"] = Int(defaultSfixed32)
       }
       if hasDefaultSfixed64 {
-        jsonMap["defaultSfixed64"] = defaultSfixed64
+        jsonMap["defaultSfixed64"] = "\(defaultSfixed64)"
       }
       if hasDefaultFloat {
-        jsonMap["defaultFloat"] = defaultFloat
+        jsonMap["defaultFloat"] = Float(defaultFloat)
       }
       if hasDefaultDouble {
-        jsonMap["defaultDouble"] = defaultDouble
+        jsonMap["defaultDouble"] = Double(defaultDouble)
       }
       if hasDefaultBool {
         jsonMap["defaultBool"] = defaultBool
@@ -3051,7 +3051,7 @@ public extension ProtobufUnittest {
         jsonMap["defaultCord"] = defaultCord
       }
       if hasOneofUint32 {
-        jsonMap["oneofUint32"] = oneofUint32
+        jsonMap["oneofUint32"] = UInt(oneofUint32)
       }
       if hasOneofNestedMessage {
         jsonMap["oneofNestedMessage"] = try oneofNestedMessage.encode()
@@ -6151,41 +6151,41 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
-        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int32 {
-          resultDecodedBuilder.optionalInt32 = jsonValueOptionalInt32
+        if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int {
+          resultDecodedBuilder.optionalInt32 = Int32(jsonValueOptionalInt32)
         }
-        if let jsonValueOptionalInt64 = jsonMap["optionalInt64"] as? Int64 {
-          resultDecodedBuilder.optionalInt64 = jsonValueOptionalInt64
+        if let jsonValueOptionalInt64 = jsonMap["optionalInt64"] as? String {
+          resultDecodedBuilder.optionalInt64 = Int64(jsonValueOptionalInt64)!
         }
-        if let jsonValueOptionalUint32 = jsonMap["optionalUint32"] as? UInt32 {
-          resultDecodedBuilder.optionalUint32 = jsonValueOptionalUint32
+        if let jsonValueOptionalUint32 = jsonMap["optionalUint32"] as? UInt {
+          resultDecodedBuilder.optionalUint32 = UInt32(jsonValueOptionalUint32)
         }
-        if let jsonValueOptionalUint64 = jsonMap["optionalUint64"] as? UInt64 {
-          resultDecodedBuilder.optionalUint64 = jsonValueOptionalUint64
+        if let jsonValueOptionalUint64 = jsonMap["optionalUint64"] as? String {
+          resultDecodedBuilder.optionalUint64 = UInt64(jsonValueOptionalUint64)!
         }
-        if let jsonValueOptionalSint32 = jsonMap["optionalSint32"] as? Int32 {
-          resultDecodedBuilder.optionalSint32 = jsonValueOptionalSint32
+        if let jsonValueOptionalSint32 = jsonMap["optionalSint32"] as? Int {
+          resultDecodedBuilder.optionalSint32 = Int32(jsonValueOptionalSint32)
         }
-        if let jsonValueOptionalSint64 = jsonMap["optionalSint64"] as? Int64 {
-          resultDecodedBuilder.optionalSint64 = jsonValueOptionalSint64
+        if let jsonValueOptionalSint64 = jsonMap["optionalSint64"] as? String {
+          resultDecodedBuilder.optionalSint64 = Int64(jsonValueOptionalSint64)!
         }
-        if let jsonValueOptionalFixed32 = jsonMap["optionalFixed32"] as? UInt32 {
-          resultDecodedBuilder.optionalFixed32 = jsonValueOptionalFixed32
+        if let jsonValueOptionalFixed32 = jsonMap["optionalFixed32"] as? UInt {
+          resultDecodedBuilder.optionalFixed32 = UInt32(jsonValueOptionalFixed32)
         }
-        if let jsonValueOptionalFixed64 = jsonMap["optionalFixed64"] as? UInt64 {
-          resultDecodedBuilder.optionalFixed64 = jsonValueOptionalFixed64
+        if let jsonValueOptionalFixed64 = jsonMap["optionalFixed64"] as? String {
+          resultDecodedBuilder.optionalFixed64 = UInt64(jsonValueOptionalFixed64)!
         }
-        if let jsonValueOptionalSfixed32 = jsonMap["optionalSfixed32"] as? Int32 {
-          resultDecodedBuilder.optionalSfixed32 = jsonValueOptionalSfixed32
+        if let jsonValueOptionalSfixed32 = jsonMap["optionalSfixed32"] as? Int {
+          resultDecodedBuilder.optionalSfixed32 = Int32(jsonValueOptionalSfixed32)
         }
-        if let jsonValueOptionalSfixed64 = jsonMap["optionalSfixed64"] as? Int64 {
-          resultDecodedBuilder.optionalSfixed64 = jsonValueOptionalSfixed64
+        if let jsonValueOptionalSfixed64 = jsonMap["optionalSfixed64"] as? String {
+          resultDecodedBuilder.optionalSfixed64 = Int64(jsonValueOptionalSfixed64)!
         }
         if let jsonValueOptionalFloat = jsonMap["optionalFloat"] as? Float {
-          resultDecodedBuilder.optionalFloat = jsonValueOptionalFloat
+          resultDecodedBuilder.optionalFloat = Float(jsonValueOptionalFloat)
         }
         if let jsonValueOptionalDouble = jsonMap["optionalDouble"] as? Double {
-          resultDecodedBuilder.optionalDouble = jsonValueOptionalDouble
+          resultDecodedBuilder.optionalDouble = Double(jsonValueOptionalDouble)
         }
         if let jsonValueOptionalBool = jsonMap["optionalBool"] as? Bool {
           resultDecodedBuilder.optionalBool = jsonValueOptionalBool
@@ -6235,87 +6235,87 @@ public extension ProtobufUnittest {
           resultDecodedBuilder.optionalLazyMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOptionalLazyMessage).build()
 
         }
-        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<Int32> {
+        if let jsonValueRepeatedInt32 = jsonMap["repeatedInt32"] as? Array<Int> {
           var jsonArrayRepeatedInt32:Array<Int32> = []
           for oneValueRepeatedInt32 in jsonValueRepeatedInt32 {
-            jsonArrayRepeatedInt32.append(oneValueRepeatedInt32)
+            jsonArrayRepeatedInt32.append(Int32(oneValueRepeatedInt32))
           }
           resultDecodedBuilder.repeatedInt32 = jsonArrayRepeatedInt32
         }
-        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<Int64> {
+        if let jsonValueRepeatedInt64 = jsonMap["repeatedInt64"] as? Array<String> {
           var jsonArrayRepeatedInt64:Array<Int64> = []
           for oneValueRepeatedInt64 in jsonValueRepeatedInt64 {
-            jsonArrayRepeatedInt64.append(oneValueRepeatedInt64)
+            jsonArrayRepeatedInt64.append(Int64(oneValueRepeatedInt64)!)
           }
           resultDecodedBuilder.repeatedInt64 = jsonArrayRepeatedInt64
         }
-        if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<UInt32> {
+        if let jsonValueRepeatedUint32 = jsonMap["repeatedUint32"] as? Array<UInt> {
           var jsonArrayRepeatedUint32:Array<UInt32> = []
           for oneValueRepeatedUint32 in jsonValueRepeatedUint32 {
-            jsonArrayRepeatedUint32.append(oneValueRepeatedUint32)
+            jsonArrayRepeatedUint32.append(UInt32(oneValueRepeatedUint32))
           }
           resultDecodedBuilder.repeatedUint32 = jsonArrayRepeatedUint32
         }
-        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<UInt64> {
+        if let jsonValueRepeatedUint64 = jsonMap["repeatedUint64"] as? Array<String> {
           var jsonArrayRepeatedUint64:Array<UInt64> = []
           for oneValueRepeatedUint64 in jsonValueRepeatedUint64 {
-            jsonArrayRepeatedUint64.append(oneValueRepeatedUint64)
+            jsonArrayRepeatedUint64.append(UInt64(oneValueRepeatedUint64)!)
           }
           resultDecodedBuilder.repeatedUint64 = jsonArrayRepeatedUint64
         }
-        if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<Int32> {
+        if let jsonValueRepeatedSint32 = jsonMap["repeatedSint32"] as? Array<Int> {
           var jsonArrayRepeatedSint32:Array<Int32> = []
           for oneValueRepeatedSint32 in jsonValueRepeatedSint32 {
-            jsonArrayRepeatedSint32.append(oneValueRepeatedSint32)
+            jsonArrayRepeatedSint32.append(Int32(oneValueRepeatedSint32))
           }
           resultDecodedBuilder.repeatedSint32 = jsonArrayRepeatedSint32
         }
-        if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<Int64> {
+        if let jsonValueRepeatedSint64 = jsonMap["repeatedSint64"] as? Array<String> {
           var jsonArrayRepeatedSint64:Array<Int64> = []
           for oneValueRepeatedSint64 in jsonValueRepeatedSint64 {
-            jsonArrayRepeatedSint64.append(oneValueRepeatedSint64)
+            jsonArrayRepeatedSint64.append(Int64(oneValueRepeatedSint64)!)
           }
           resultDecodedBuilder.repeatedSint64 = jsonArrayRepeatedSint64
         }
-        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<UInt32> {
+        if let jsonValueRepeatedFixed32 = jsonMap["repeatedFixed32"] as? Array<UInt> {
           var jsonArrayRepeatedFixed32:Array<UInt32> = []
           for oneValueRepeatedFixed32 in jsonValueRepeatedFixed32 {
-            jsonArrayRepeatedFixed32.append(oneValueRepeatedFixed32)
+            jsonArrayRepeatedFixed32.append(UInt32(oneValueRepeatedFixed32))
           }
           resultDecodedBuilder.repeatedFixed32 = jsonArrayRepeatedFixed32
         }
-        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<UInt64> {
+        if let jsonValueRepeatedFixed64 = jsonMap["repeatedFixed64"] as? Array<String> {
           var jsonArrayRepeatedFixed64:Array<UInt64> = []
           for oneValueRepeatedFixed64 in jsonValueRepeatedFixed64 {
-            jsonArrayRepeatedFixed64.append(oneValueRepeatedFixed64)
+            jsonArrayRepeatedFixed64.append(UInt64(oneValueRepeatedFixed64)!)
           }
           resultDecodedBuilder.repeatedFixed64 = jsonArrayRepeatedFixed64
         }
-        if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<Int32> {
+        if let jsonValueRepeatedSfixed32 = jsonMap["repeatedSfixed32"] as? Array<Int> {
           var jsonArrayRepeatedSfixed32:Array<Int32> = []
           for oneValueRepeatedSfixed32 in jsonValueRepeatedSfixed32 {
-            jsonArrayRepeatedSfixed32.append(oneValueRepeatedSfixed32)
+            jsonArrayRepeatedSfixed32.append(Int32(oneValueRepeatedSfixed32))
           }
           resultDecodedBuilder.repeatedSfixed32 = jsonArrayRepeatedSfixed32
         }
-        if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<Int64> {
+        if let jsonValueRepeatedSfixed64 = jsonMap["repeatedSfixed64"] as? Array<String> {
           var jsonArrayRepeatedSfixed64:Array<Int64> = []
           for oneValueRepeatedSfixed64 in jsonValueRepeatedSfixed64 {
-            jsonArrayRepeatedSfixed64.append(oneValueRepeatedSfixed64)
+            jsonArrayRepeatedSfixed64.append(Int64(oneValueRepeatedSfixed64)!)
           }
           resultDecodedBuilder.repeatedSfixed64 = jsonArrayRepeatedSfixed64
         }
         if let jsonValueRepeatedFloat = jsonMap["repeatedFloat"] as? Array<Float> {
           var jsonArrayRepeatedFloat:Array<Float> = []
           for oneValueRepeatedFloat in jsonValueRepeatedFloat {
-            jsonArrayRepeatedFloat.append(oneValueRepeatedFloat)
+            jsonArrayRepeatedFloat.append(Float(oneValueRepeatedFloat))
           }
           resultDecodedBuilder.repeatedFloat = jsonArrayRepeatedFloat
         }
         if let jsonValueRepeatedDouble = jsonMap["repeatedDouble"] as? Array<Double> {
           var jsonArrayRepeatedDouble:Array<Double> = []
           for oneValueRepeatedDouble in jsonValueRepeatedDouble {
-            jsonArrayRepeatedDouble.append(oneValueRepeatedDouble)
+            jsonArrayRepeatedDouble.append(Double(oneValueRepeatedDouble))
           }
           resultDecodedBuilder.repeatedDouble = jsonArrayRepeatedDouble
         }
@@ -6423,41 +6423,41 @@ public extension ProtobufUnittest {
           }
           resultDecodedBuilder.repeatedLazyMessage = jsonArrayRepeatedLazyMessage
         }
-        if let jsonValueDefaultInt32 = jsonMap["defaultInt32"] as? Int32 {
-          resultDecodedBuilder.defaultInt32 = jsonValueDefaultInt32
+        if let jsonValueDefaultInt32 = jsonMap["defaultInt32"] as? Int {
+          resultDecodedBuilder.defaultInt32 = Int32(jsonValueDefaultInt32)
         }
-        if let jsonValueDefaultInt64 = jsonMap["defaultInt64"] as? Int64 {
-          resultDecodedBuilder.defaultInt64 = jsonValueDefaultInt64
+        if let jsonValueDefaultInt64 = jsonMap["defaultInt64"] as? String {
+          resultDecodedBuilder.defaultInt64 = Int64(jsonValueDefaultInt64)!
         }
-        if let jsonValueDefaultUint32 = jsonMap["defaultUint32"] as? UInt32 {
-          resultDecodedBuilder.defaultUint32 = jsonValueDefaultUint32
+        if let jsonValueDefaultUint32 = jsonMap["defaultUint32"] as? UInt {
+          resultDecodedBuilder.defaultUint32 = UInt32(jsonValueDefaultUint32)
         }
-        if let jsonValueDefaultUint64 = jsonMap["defaultUint64"] as? UInt64 {
-          resultDecodedBuilder.defaultUint64 = jsonValueDefaultUint64
+        if let jsonValueDefaultUint64 = jsonMap["defaultUint64"] as? String {
+          resultDecodedBuilder.defaultUint64 = UInt64(jsonValueDefaultUint64)!
         }
-        if let jsonValueDefaultSint32 = jsonMap["defaultSint32"] as? Int32 {
-          resultDecodedBuilder.defaultSint32 = jsonValueDefaultSint32
+        if let jsonValueDefaultSint32 = jsonMap["defaultSint32"] as? Int {
+          resultDecodedBuilder.defaultSint32 = Int32(jsonValueDefaultSint32)
         }
-        if let jsonValueDefaultSint64 = jsonMap["defaultSint64"] as? Int64 {
-          resultDecodedBuilder.defaultSint64 = jsonValueDefaultSint64
+        if let jsonValueDefaultSint64 = jsonMap["defaultSint64"] as? String {
+          resultDecodedBuilder.defaultSint64 = Int64(jsonValueDefaultSint64)!
         }
-        if let jsonValueDefaultFixed32 = jsonMap["defaultFixed32"] as? UInt32 {
-          resultDecodedBuilder.defaultFixed32 = jsonValueDefaultFixed32
+        if let jsonValueDefaultFixed32 = jsonMap["defaultFixed32"] as? UInt {
+          resultDecodedBuilder.defaultFixed32 = UInt32(jsonValueDefaultFixed32)
         }
-        if let jsonValueDefaultFixed64 = jsonMap["defaultFixed64"] as? UInt64 {
-          resultDecodedBuilder.defaultFixed64 = jsonValueDefaultFixed64
+        if let jsonValueDefaultFixed64 = jsonMap["defaultFixed64"] as? String {
+          resultDecodedBuilder.defaultFixed64 = UInt64(jsonValueDefaultFixed64)!
         }
-        if let jsonValueDefaultSfixed32 = jsonMap["defaultSfixed32"] as? Int32 {
-          resultDecodedBuilder.defaultSfixed32 = jsonValueDefaultSfixed32
+        if let jsonValueDefaultSfixed32 = jsonMap["defaultSfixed32"] as? Int {
+          resultDecodedBuilder.defaultSfixed32 = Int32(jsonValueDefaultSfixed32)
         }
-        if let jsonValueDefaultSfixed64 = jsonMap["defaultSfixed64"] as? Int64 {
-          resultDecodedBuilder.defaultSfixed64 = jsonValueDefaultSfixed64
+        if let jsonValueDefaultSfixed64 = jsonMap["defaultSfixed64"] as? String {
+          resultDecodedBuilder.defaultSfixed64 = Int64(jsonValueDefaultSfixed64)!
         }
         if let jsonValueDefaultFloat = jsonMap["defaultFloat"] as? Float {
-          resultDecodedBuilder.defaultFloat = jsonValueDefaultFloat
+          resultDecodedBuilder.defaultFloat = Float(jsonValueDefaultFloat)
         }
         if let jsonValueDefaultDouble = jsonMap["defaultDouble"] as? Double {
-          resultDecodedBuilder.defaultDouble = jsonValueDefaultDouble
+          resultDecodedBuilder.defaultDouble = Double(jsonValueDefaultDouble)
         }
         if let jsonValueDefaultBool = jsonMap["defaultBool"] as? Bool {
           resultDecodedBuilder.defaultBool = jsonValueDefaultBool
@@ -6483,8 +6483,8 @@ public extension ProtobufUnittest {
         if let jsonValueDefaultCord = jsonMap["defaultCord"] as? String {
           resultDecodedBuilder.defaultCord = jsonValueDefaultCord
         }
-        if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? UInt32 {
-          resultDecodedBuilder.oneofUint32 = jsonValueOneofUint32
+        if let jsonValueOneofUint32 = jsonMap["oneofUint32"] as? UInt {
+          resultDecodedBuilder.oneofUint32 = UInt32(jsonValueOneofUint32)
         }
         if let jsonValueOneofNestedMessage = jsonMap["oneofNestedMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.oneofNestedMessage = try ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueOneofNestedMessage).build()
@@ -6575,7 +6575,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasC {
-        jsonMap["c"] = c
+        jsonMap["c"] = Int(c)
       }
       return jsonMap
     }
@@ -6708,8 +6708,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ForeignMessageLite.Builder()
-        if let jsonValueC = jsonMap["c"] as? Int32 {
-          resultDecodedBuilder.c = jsonValueC
+        if let jsonValueC = jsonMap["c"] as? Int {
+          resultDecodedBuilder.c = Int32(jsonValueC)
         }
         return resultDecodedBuilder
       }
@@ -7046,86 +7046,86 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if !packedInt32.isEmpty {
-        var jsonArrayPackedInt32:Array<Int32> = []
+        var jsonArrayPackedInt32:Array<Int> = []
           for oneValuePackedInt32 in packedInt32 {
-            jsonArrayPackedInt32.append(oneValuePackedInt32)
+            jsonArrayPackedInt32.append(Int(oneValuePackedInt32))
           }
         jsonMap["packedInt32"] = jsonArrayPackedInt32
       }
       if !packedInt64.isEmpty {
-        var jsonArrayPackedInt64:Array<Int64> = []
+        var jsonArrayPackedInt64:Array<String> = []
           for oneValuePackedInt64 in packedInt64 {
-            jsonArrayPackedInt64.append(oneValuePackedInt64)
+            jsonArrayPackedInt64.append("\(oneValuePackedInt64)")
           }
         jsonMap["packedInt64"] = jsonArrayPackedInt64
       }
       if !packedUint32.isEmpty {
-        var jsonArrayPackedUint32:Array<UInt32> = []
+        var jsonArrayPackedUint32:Array<UInt> = []
           for oneValuePackedUint32 in packedUint32 {
-            jsonArrayPackedUint32.append(oneValuePackedUint32)
+            jsonArrayPackedUint32.append(UInt(oneValuePackedUint32))
           }
         jsonMap["packedUint32"] = jsonArrayPackedUint32
       }
       if !packedUint64.isEmpty {
-        var jsonArrayPackedUint64:Array<UInt64> = []
+        var jsonArrayPackedUint64:Array<String> = []
           for oneValuePackedUint64 in packedUint64 {
-            jsonArrayPackedUint64.append(oneValuePackedUint64)
+            jsonArrayPackedUint64.append("\(oneValuePackedUint64)")
           }
         jsonMap["packedUint64"] = jsonArrayPackedUint64
       }
       if !packedSint32.isEmpty {
-        var jsonArrayPackedSint32:Array<Int32> = []
+        var jsonArrayPackedSint32:Array<Int> = []
           for oneValuePackedSint32 in packedSint32 {
-            jsonArrayPackedSint32.append(oneValuePackedSint32)
+            jsonArrayPackedSint32.append(Int(oneValuePackedSint32))
           }
         jsonMap["packedSint32"] = jsonArrayPackedSint32
       }
       if !packedSint64.isEmpty {
-        var jsonArrayPackedSint64:Array<Int64> = []
+        var jsonArrayPackedSint64:Array<String> = []
           for oneValuePackedSint64 in packedSint64 {
-            jsonArrayPackedSint64.append(oneValuePackedSint64)
+            jsonArrayPackedSint64.append("\(oneValuePackedSint64)")
           }
         jsonMap["packedSint64"] = jsonArrayPackedSint64
       }
       if !packedFixed32.isEmpty {
-        var jsonArrayPackedFixed32:Array<UInt32> = []
+        var jsonArrayPackedFixed32:Array<UInt> = []
           for oneValuePackedFixed32 in packedFixed32 {
-            jsonArrayPackedFixed32.append(oneValuePackedFixed32)
+            jsonArrayPackedFixed32.append(UInt(oneValuePackedFixed32))
           }
         jsonMap["packedFixed32"] = jsonArrayPackedFixed32
       }
       if !packedFixed64.isEmpty {
-        var jsonArrayPackedFixed64:Array<UInt64> = []
+        var jsonArrayPackedFixed64:Array<String> = []
           for oneValuePackedFixed64 in packedFixed64 {
-            jsonArrayPackedFixed64.append(oneValuePackedFixed64)
+            jsonArrayPackedFixed64.append("\(oneValuePackedFixed64)")
           }
         jsonMap["packedFixed64"] = jsonArrayPackedFixed64
       }
       if !packedSfixed32.isEmpty {
-        var jsonArrayPackedSfixed32:Array<Int32> = []
+        var jsonArrayPackedSfixed32:Array<Int> = []
           for oneValuePackedSfixed32 in packedSfixed32 {
-            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32)
+            jsonArrayPackedSfixed32.append(Int(oneValuePackedSfixed32))
           }
         jsonMap["packedSfixed32"] = jsonArrayPackedSfixed32
       }
       if !packedSfixed64.isEmpty {
-        var jsonArrayPackedSfixed64:Array<Int64> = []
+        var jsonArrayPackedSfixed64:Array<String> = []
           for oneValuePackedSfixed64 in packedSfixed64 {
-            jsonArrayPackedSfixed64.append(oneValuePackedSfixed64)
+            jsonArrayPackedSfixed64.append("\(oneValuePackedSfixed64)")
           }
         jsonMap["packedSfixed64"] = jsonArrayPackedSfixed64
       }
       if !packedFloat.isEmpty {
         var jsonArrayPackedFloat:Array<Float> = []
           for oneValuePackedFloat in packedFloat {
-            jsonArrayPackedFloat.append(oneValuePackedFloat)
+            jsonArrayPackedFloat.append(Float(oneValuePackedFloat))
           }
         jsonMap["packedFloat"] = jsonArrayPackedFloat
       }
       if !packedDouble.isEmpty {
         var jsonArrayPackedDouble:Array<Double> = []
           for oneValuePackedDouble in packedDouble {
-            jsonArrayPackedDouble.append(oneValuePackedDouble)
+            jsonArrayPackedDouble.append(Double(oneValuePackedDouble))
           }
         jsonMap["packedDouble"] = jsonArrayPackedDouble
       }
@@ -7760,87 +7760,87 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestPackedTypesLite.Builder()
-        if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<Int32> {
+        if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<Int> {
           var jsonArrayPackedInt32:Array<Int32> = []
           for oneValuePackedInt32 in jsonValuePackedInt32 {
-            jsonArrayPackedInt32.append(oneValuePackedInt32)
+            jsonArrayPackedInt32.append(Int32(oneValuePackedInt32))
           }
           resultDecodedBuilder.packedInt32 = jsonArrayPackedInt32
         }
-        if let jsonValuePackedInt64 = jsonMap["packedInt64"] as? Array<Int64> {
+        if let jsonValuePackedInt64 = jsonMap["packedInt64"] as? Array<String> {
           var jsonArrayPackedInt64:Array<Int64> = []
           for oneValuePackedInt64 in jsonValuePackedInt64 {
-            jsonArrayPackedInt64.append(oneValuePackedInt64)
+            jsonArrayPackedInt64.append(Int64(oneValuePackedInt64)!)
           }
           resultDecodedBuilder.packedInt64 = jsonArrayPackedInt64
         }
-        if let jsonValuePackedUint32 = jsonMap["packedUint32"] as? Array<UInt32> {
+        if let jsonValuePackedUint32 = jsonMap["packedUint32"] as? Array<UInt> {
           var jsonArrayPackedUint32:Array<UInt32> = []
           for oneValuePackedUint32 in jsonValuePackedUint32 {
-            jsonArrayPackedUint32.append(oneValuePackedUint32)
+            jsonArrayPackedUint32.append(UInt32(oneValuePackedUint32))
           }
           resultDecodedBuilder.packedUint32 = jsonArrayPackedUint32
         }
-        if let jsonValuePackedUint64 = jsonMap["packedUint64"] as? Array<UInt64> {
+        if let jsonValuePackedUint64 = jsonMap["packedUint64"] as? Array<String> {
           var jsonArrayPackedUint64:Array<UInt64> = []
           for oneValuePackedUint64 in jsonValuePackedUint64 {
-            jsonArrayPackedUint64.append(oneValuePackedUint64)
+            jsonArrayPackedUint64.append(UInt64(oneValuePackedUint64)!)
           }
           resultDecodedBuilder.packedUint64 = jsonArrayPackedUint64
         }
-        if let jsonValuePackedSint32 = jsonMap["packedSint32"] as? Array<Int32> {
+        if let jsonValuePackedSint32 = jsonMap["packedSint32"] as? Array<Int> {
           var jsonArrayPackedSint32:Array<Int32> = []
           for oneValuePackedSint32 in jsonValuePackedSint32 {
-            jsonArrayPackedSint32.append(oneValuePackedSint32)
+            jsonArrayPackedSint32.append(Int32(oneValuePackedSint32))
           }
           resultDecodedBuilder.packedSint32 = jsonArrayPackedSint32
         }
-        if let jsonValuePackedSint64 = jsonMap["packedSint64"] as? Array<Int64> {
+        if let jsonValuePackedSint64 = jsonMap["packedSint64"] as? Array<String> {
           var jsonArrayPackedSint64:Array<Int64> = []
           for oneValuePackedSint64 in jsonValuePackedSint64 {
-            jsonArrayPackedSint64.append(oneValuePackedSint64)
+            jsonArrayPackedSint64.append(Int64(oneValuePackedSint64)!)
           }
           resultDecodedBuilder.packedSint64 = jsonArrayPackedSint64
         }
-        if let jsonValuePackedFixed32 = jsonMap["packedFixed32"] as? Array<UInt32> {
+        if let jsonValuePackedFixed32 = jsonMap["packedFixed32"] as? Array<UInt> {
           var jsonArrayPackedFixed32:Array<UInt32> = []
           for oneValuePackedFixed32 in jsonValuePackedFixed32 {
-            jsonArrayPackedFixed32.append(oneValuePackedFixed32)
+            jsonArrayPackedFixed32.append(UInt32(oneValuePackedFixed32))
           }
           resultDecodedBuilder.packedFixed32 = jsonArrayPackedFixed32
         }
-        if let jsonValuePackedFixed64 = jsonMap["packedFixed64"] as? Array<UInt64> {
+        if let jsonValuePackedFixed64 = jsonMap["packedFixed64"] as? Array<String> {
           var jsonArrayPackedFixed64:Array<UInt64> = []
           for oneValuePackedFixed64 in jsonValuePackedFixed64 {
-            jsonArrayPackedFixed64.append(oneValuePackedFixed64)
+            jsonArrayPackedFixed64.append(UInt64(oneValuePackedFixed64)!)
           }
           resultDecodedBuilder.packedFixed64 = jsonArrayPackedFixed64
         }
-        if let jsonValuePackedSfixed32 = jsonMap["packedSfixed32"] as? Array<Int32> {
+        if let jsonValuePackedSfixed32 = jsonMap["packedSfixed32"] as? Array<Int> {
           var jsonArrayPackedSfixed32:Array<Int32> = []
           for oneValuePackedSfixed32 in jsonValuePackedSfixed32 {
-            jsonArrayPackedSfixed32.append(oneValuePackedSfixed32)
+            jsonArrayPackedSfixed32.append(Int32(oneValuePackedSfixed32))
           }
           resultDecodedBuilder.packedSfixed32 = jsonArrayPackedSfixed32
         }
-        if let jsonValuePackedSfixed64 = jsonMap["packedSfixed64"] as? Array<Int64> {
+        if let jsonValuePackedSfixed64 = jsonMap["packedSfixed64"] as? Array<String> {
           var jsonArrayPackedSfixed64:Array<Int64> = []
           for oneValuePackedSfixed64 in jsonValuePackedSfixed64 {
-            jsonArrayPackedSfixed64.append(oneValuePackedSfixed64)
+            jsonArrayPackedSfixed64.append(Int64(oneValuePackedSfixed64)!)
           }
           resultDecodedBuilder.packedSfixed64 = jsonArrayPackedSfixed64
         }
         if let jsonValuePackedFloat = jsonMap["packedFloat"] as? Array<Float> {
           var jsonArrayPackedFloat:Array<Float> = []
           for oneValuePackedFloat in jsonValuePackedFloat {
-            jsonArrayPackedFloat.append(oneValuePackedFloat)
+            jsonArrayPackedFloat.append(Float(oneValuePackedFloat))
           }
           resultDecodedBuilder.packedFloat = jsonArrayPackedFloat
         }
         if let jsonValuePackedDouble = jsonMap["packedDouble"] as? Array<Double> {
           var jsonArrayPackedDouble:Array<Double> = []
           for oneValuePackedDouble in jsonValuePackedDouble {
-            jsonArrayPackedDouble.append(oneValuePackedDouble)
+            jsonArrayPackedDouble.append(Double(oneValuePackedDouble))
           }
           resultDecodedBuilder.packedDouble = jsonArrayPackedDouble
         }
@@ -8109,7 +8109,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = a
+        jsonMap["a"] = Int(a)
       }
       return jsonMap
     }
@@ -8242,8 +8242,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.OptionalGroupExtensionLite.Builder()
-        if let jsonValueA = jsonMap["a"] as? Int32 {
-          resultDecodedBuilder.a = jsonValueA
+        if let jsonValueA = jsonMap["a"] as? Int {
+          resultDecodedBuilder.a = Int32(jsonValueA)
         }
         return resultDecodedBuilder
       }
@@ -8324,7 +8324,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasA {
-        jsonMap["a"] = a
+        jsonMap["a"] = Int(a)
       }
       return jsonMap
     }
@@ -8457,8 +8457,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.RepeatedGroupExtensionLite.Builder()
-        if let jsonValueA = jsonMap["a"] as? Int32 {
-          resultDecodedBuilder.a = jsonValueA
+        if let jsonValueA = jsonMap["a"] as? Int {
+          resultDecodedBuilder.a = Int32(jsonValueA)
         }
         return resultDecodedBuilder
       }
@@ -8878,7 +8878,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasDeprecatedField {
-        jsonMap["deprecatedField"] = deprecatedField
+        jsonMap["deprecatedField"] = Int(deprecatedField)
       }
       return jsonMap
     }
@@ -9011,8 +9011,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestDeprecatedLite.Builder()
-        if let jsonValueDeprecatedField = jsonMap["deprecatedField"] as? Int32 {
-          resultDecodedBuilder.deprecatedField = jsonValueDeprecatedField
+        if let jsonValueDeprecatedField = jsonMap["deprecatedField"] as? Int {
+          resultDecodedBuilder.deprecatedField = Int32(jsonValueDeprecatedField)
         }
         return resultDecodedBuilder
       }

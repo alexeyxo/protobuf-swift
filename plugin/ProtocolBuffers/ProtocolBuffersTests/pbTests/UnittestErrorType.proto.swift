@@ -816,7 +816,7 @@ final public class UserProfile : GeneratedMessage {
 
         var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
         if hasErrorCode {
-          jsonMap["errorCode"] = errorCode
+          jsonMap["errorCode"] = Int(errorCode)
         }
         if hasErrorDescription {
           jsonMap["errorDescription"] = errorDescription
@@ -989,8 +989,8 @@ final public class UserProfile : GeneratedMessage {
         }
         class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception.Builder {
           let resultDecodedBuilder = UserProfile.Exception.Builder()
-          if let jsonValueErrorCode = jsonMap["errorCode"] as? Int32 {
-            resultDecodedBuilder.errorCode = jsonValueErrorCode
+          if let jsonValueErrorCode = jsonMap["errorCode"] as? Int {
+            resultDecodedBuilder.errorCode = Int32(jsonValueErrorCode)
           }
           if let jsonValueErrorDescription = jsonMap["errorDescription"] as? String {
             resultDecodedBuilder.errorDescription = jsonValueErrorDescription

@@ -87,7 +87,7 @@ public extension Proto2ArenaUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasD {
-        jsonMap["d"] = d
+        jsonMap["d"] = Int(d)
       }
       return jsonMap
     }
@@ -220,8 +220,8 @@ public extension Proto2ArenaUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
-        if let jsonValueD = jsonMap["d"] as? Int32 {
-          resultDecodedBuilder.d = jsonValueD
+        if let jsonValueD = jsonMap["d"] as? Int {
+          resultDecodedBuilder.d = Int32(jsonValueD)
         }
         return resultDecodedBuilder
       }
