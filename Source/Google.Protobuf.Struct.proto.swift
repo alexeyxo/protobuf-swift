@@ -913,7 +913,7 @@ public extension Google.Protobuf {
         jsonMap["nullValue"] = nullValue.toString()
       }
       if hasNumberValue {
-        jsonMap["numberValue"] = numberValue
+        jsonMap["numberValue"] = Double(numberValue)
       }
       if hasStringValue {
         jsonMap["stringValue"] = stringValue
@@ -1332,7 +1332,7 @@ public extension Google.Protobuf {
           resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(str: jsonValueNullValue)
         }
         if let jsonValueNumberValue = jsonMap["numberValue"] as? Double {
-          resultDecodedBuilder.numberValue = jsonValueNumberValue
+          resultDecodedBuilder.numberValue = Double(jsonValueNumberValue)
         }
         if let jsonValueStringValue = jsonMap["stringValue"] as? String {
           resultDecodedBuilder.stringValue = jsonValueStringValue

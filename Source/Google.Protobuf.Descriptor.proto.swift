@@ -500,16 +500,16 @@ public extension Google.Protobuf {
         jsonMap["dependency"] = jsonArrayDependency
       }
       if !publicDependency.isEmpty {
-        var jsonArrayPublicDependency:Array<Int32> = []
+        var jsonArrayPublicDependency:Array<Int> = []
           for oneValuePublicDependency in publicDependency {
-            jsonArrayPublicDependency.append(oneValuePublicDependency)
+            jsonArrayPublicDependency.append(Int(oneValuePublicDependency))
           }
         jsonMap["publicDependency"] = jsonArrayPublicDependency
       }
       if !weakDependency.isEmpty {
-        var jsonArrayWeakDependency:Array<Int32> = []
+        var jsonArrayWeakDependency:Array<Int> = []
           for oneValueWeakDependency in weakDependency {
-            jsonArrayWeakDependency.append(oneValueWeakDependency)
+            jsonArrayWeakDependency.append(Int(oneValueWeakDependency))
           }
         jsonMap["weakDependency"] = jsonArrayWeakDependency
       }
@@ -1166,17 +1166,17 @@ public extension Google.Protobuf {
           }
           resultDecodedBuilder.dependency = jsonArrayDependency
         }
-        if let jsonValuePublicDependency = jsonMap["publicDependency"] as? Array<Int32> {
+        if let jsonValuePublicDependency = jsonMap["publicDependency"] as? Array<Int> {
           var jsonArrayPublicDependency:Array<Int32> = []
           for oneValuePublicDependency in jsonValuePublicDependency {
-            jsonArrayPublicDependency.append(oneValuePublicDependency)
+            jsonArrayPublicDependency.append(Int32(oneValuePublicDependency))
           }
           resultDecodedBuilder.publicDependency = jsonArrayPublicDependency
         }
-        if let jsonValueWeakDependency = jsonMap["weakDependency"] as? Array<Int32> {
+        if let jsonValueWeakDependency = jsonMap["weakDependency"] as? Array<Int> {
           var jsonArrayWeakDependency:Array<Int32> = []
           for oneValueWeakDependency in jsonValueWeakDependency {
-            jsonArrayWeakDependency.append(oneValueWeakDependency)
+            jsonArrayWeakDependency.append(Int32(oneValueWeakDependency))
           }
           resultDecodedBuilder.weakDependency = jsonArrayWeakDependency
         }
@@ -1342,10 +1342,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasStart {
-            jsonMap["start"] = start
+            jsonMap["start"] = Int(start)
           }
           if hasEnd {
-            jsonMap["end"] = end
+            jsonMap["end"] = Int(end)
           }
           return jsonMap
         }
@@ -1515,11 +1515,11 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ExtensionRange.Builder()
-            if let jsonValueStart = jsonMap["start"] as? Int32 {
-              resultDecodedBuilder.start = jsonValueStart
+            if let jsonValueStart = jsonMap["start"] as? Int {
+              resultDecodedBuilder.start = Int32(jsonValueStart)
             }
-            if let jsonValueEnd = jsonMap["end"] as? Int32 {
-              resultDecodedBuilder.end = jsonValueEnd
+            if let jsonValueEnd = jsonMap["end"] as? Int {
+              resultDecodedBuilder.end = Int32(jsonValueEnd)
             }
             return resultDecodedBuilder
           }
@@ -1621,10 +1621,10 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasStart {
-            jsonMap["start"] = start
+            jsonMap["start"] = Int(start)
           }
           if hasEnd {
-            jsonMap["end"] = end
+            jsonMap["end"] = Int(end)
           }
           return jsonMap
         }
@@ -1794,11 +1794,11 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ReservedRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ReservedRange.Builder()
-            if let jsonValueStart = jsonMap["start"] as? Int32 {
-              resultDecodedBuilder.start = jsonValueStart
+            if let jsonValueStart = jsonMap["start"] as? Int {
+              resultDecodedBuilder.start = Int32(jsonValueStart)
             }
-            if let jsonValueEnd = jsonMap["end"] as? Int32 {
-              resultDecodedBuilder.end = jsonValueEnd
+            if let jsonValueEnd = jsonMap["end"] as? Int {
+              resultDecodedBuilder.end = Int32(jsonValueEnd)
             }
             return resultDecodedBuilder
           }
@@ -2958,7 +2958,7 @@ public extension Google.Protobuf {
         jsonMap["name"] = name
       }
       if hasNumber {
-        jsonMap["number"] = number
+        jsonMap["number"] = Int(number)
       }
       if hasLabel {
         jsonMap["label"] = label.toString()
@@ -2976,7 +2976,7 @@ public extension Google.Protobuf {
         jsonMap["defaultValue"] = defaultValue
       }
       if hasOneofIndex {
-        jsonMap["oneofIndex"] = oneofIndex
+        jsonMap["oneofIndex"] = Int(oneofIndex)
       }
       if hasOptions {
         jsonMap["options"] = try options.encode()
@@ -3461,8 +3461,8 @@ public extension Google.Protobuf {
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
         }
-        if let jsonValueNumber = jsonMap["number"] as? Int32 {
-          resultDecodedBuilder.number = jsonValueNumber
+        if let jsonValueNumber = jsonMap["number"] as? Int {
+          resultDecodedBuilder.number = Int32(jsonValueNumber)
         }
         if let jsonValueLabel = jsonMap["label"] as? String {
           resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(str: jsonValueLabel)
@@ -3479,8 +3479,8 @@ public extension Google.Protobuf {
         if let jsonValueDefaultValue = jsonMap["defaultValue"] as? String {
           resultDecodedBuilder.defaultValue = jsonValueDefaultValue
         }
-        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? Int32 {
-          resultDecodedBuilder.oneofIndex = jsonValueOneofIndex
+        if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? Int {
+          resultDecodedBuilder.oneofIndex = Int32(jsonValueOneofIndex)
         }
         if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
           resultDecodedBuilder.options = try Google.Protobuf.FieldOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
@@ -4198,7 +4198,7 @@ public extension Google.Protobuf {
         jsonMap["name"] = name
       }
       if hasNumber {
-        jsonMap["number"] = number
+        jsonMap["number"] = Int(number)
       }
       if hasOptions {
         jsonMap["options"] = try options.encode()
@@ -4451,8 +4451,8 @@ public extension Google.Protobuf {
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
         }
-        if let jsonValueNumber = jsonMap["number"] as? Int32 {
-          resultDecodedBuilder.number = jsonValueNumber
+        if let jsonValueNumber = jsonMap["number"] as? Int {
+          resultDecodedBuilder.number = Int32(jsonValueNumber)
         }
         if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
           resultDecodedBuilder.options = try Google.Protobuf.EnumValueOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
@@ -9337,13 +9337,13 @@ public extension Google.Protobuf {
         jsonMap["identifierValue"] = identifierValue
       }
       if hasPositiveIntValue {
-        jsonMap["positiveIntValue"] = positiveIntValue
+        jsonMap["positiveIntValue"] = "\(positiveIntValue)"
       }
       if hasNegativeIntValue {
-        jsonMap["negativeIntValue"] = negativeIntValue
+        jsonMap["negativeIntValue"] = "\(negativeIntValue)"
       }
       if hasDoubleValue {
-        jsonMap["doubleValue"] = doubleValue
+        jsonMap["doubleValue"] = Double(doubleValue)
       }
       if hasStringValue {
         jsonMap["stringValue"] = stringValue.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
@@ -9715,14 +9715,14 @@ public extension Google.Protobuf {
         if let jsonValueIdentifierValue = jsonMap["identifierValue"] as? String {
           resultDecodedBuilder.identifierValue = jsonValueIdentifierValue
         }
-        if let jsonValuePositiveIntValue = jsonMap["positiveIntValue"] as? UInt64 {
-          resultDecodedBuilder.positiveIntValue = jsonValuePositiveIntValue
+        if let jsonValuePositiveIntValue = jsonMap["positiveIntValue"] as? String {
+          resultDecodedBuilder.positiveIntValue = UInt64(jsonValuePositiveIntValue)!
         }
-        if let jsonValueNegativeIntValue = jsonMap["negativeIntValue"] as? Int64 {
-          resultDecodedBuilder.negativeIntValue = jsonValueNegativeIntValue
+        if let jsonValueNegativeIntValue = jsonMap["negativeIntValue"] as? String {
+          resultDecodedBuilder.negativeIntValue = Int64(jsonValueNegativeIntValue)!
         }
         if let jsonValueDoubleValue = jsonMap["doubleValue"] as? Double {
-          resultDecodedBuilder.doubleValue = jsonValueDoubleValue
+          resultDecodedBuilder.doubleValue = Double(jsonValueDoubleValue)
         }
         if let jsonValueStringValue = jsonMap["stringValue"] as? String {
           resultDecodedBuilder.stringValue = Data(base64Encoded:jsonValueStringValue, options: Data.Base64DecodingOptions(rawValue:0))!
@@ -9952,16 +9952,16 @@ public extension Google.Protobuf {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if !path.isEmpty {
-            var jsonArrayPath:Array<Int32> = []
+            var jsonArrayPath:Array<Int> = []
               for oneValuePath in path {
-                jsonArrayPath.append(oneValuePath)
+                jsonArrayPath.append(Int(oneValuePath))
               }
             jsonMap["path"] = jsonArrayPath
           }
           if !span.isEmpty {
-            var jsonArraySpan:Array<Int32> = []
+            var jsonArraySpan:Array<Int> = []
               for oneValueSpan in span {
-                jsonArraySpan.append(oneValueSpan)
+                jsonArraySpan.append(Int(oneValueSpan))
               }
             jsonMap["span"] = jsonArraySpan
           }
@@ -10252,17 +10252,17 @@ public extension Google.Protobuf {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Location.Builder {
             let resultDecodedBuilder = Google.Protobuf.SourceCodeInfo.Location.Builder()
-            if let jsonValuePath = jsonMap["path"] as? Array<Int32> {
+            if let jsonValuePath = jsonMap["path"] as? Array<Int> {
               var jsonArrayPath:Array<Int32> = []
               for oneValuePath in jsonValuePath {
-                jsonArrayPath.append(oneValuePath)
+                jsonArrayPath.append(Int32(oneValuePath))
               }
               resultDecodedBuilder.path = jsonArrayPath
             }
-            if let jsonValueSpan = jsonMap["span"] as? Array<Int32> {
+            if let jsonValueSpan = jsonMap["span"] as? Array<Int> {
               var jsonArraySpan:Array<Int32> = []
               for oneValueSpan in jsonValueSpan {
-                jsonArraySpan.append(oneValueSpan)
+                jsonArraySpan.append(Int32(oneValueSpan))
               }
               resultDecodedBuilder.span = jsonArraySpan
             }

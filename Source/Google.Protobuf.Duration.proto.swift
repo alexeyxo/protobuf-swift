@@ -136,10 +136,10 @@ public extension Google.Protobuf {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasSeconds {
-        jsonMap["seconds"] = seconds
+        jsonMap["seconds"] = "\(seconds)"
       }
       if hasNanos {
-        jsonMap["nanos"] = nanos
+        jsonMap["nanos"] = Int(nanos)
       }
       return jsonMap
     }
@@ -309,11 +309,11 @@ public extension Google.Protobuf {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Duration.Builder {
         let resultDecodedBuilder = Google.Protobuf.Duration.Builder()
-        if let jsonValueSeconds = jsonMap["seconds"] as? Int64 {
-          resultDecodedBuilder.seconds = jsonValueSeconds
+        if let jsonValueSeconds = jsonMap["seconds"] as? String {
+          resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
         }
-        if let jsonValueNanos = jsonMap["nanos"] as? Int32 {
-          resultDecodedBuilder.nanos = jsonValueNanos
+        if let jsonValueNanos = jsonMap["nanos"] as? Int {
+          resultDecodedBuilder.nanos = Int32(jsonValueNanos)
         }
         return resultDecodedBuilder
       }
