@@ -220,13 +220,13 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasI {
-        jsonMap["i"] = i
+        jsonMap["i"] = Int(i)
       }
       if hasMsg {
         jsonMap["msg"] = try msg.encode()
       }
       if hasIntegerField {
-        jsonMap["integerField"] = integerField
+        jsonMap["integerField"] = Int(integerField)
       }
       if hasStringField {
         jsonMap["stringField"] = stringField
@@ -516,15 +516,15 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
-        if let jsonValueI = jsonMap["i"] as? Int32 {
-          resultDecodedBuilder.i = jsonValueI
+        if let jsonValueI = jsonMap["i"] as? Int {
+          resultDecodedBuilder.i = Int32(jsonValueI)
         }
         if let jsonValueMsg = jsonMap["msg"] as? Dictionary<String,Any> {
           resultDecodedBuilder.msg = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMsg).build()
 
         }
-        if let jsonValueIntegerField = jsonMap["integerField"] as? Int32 {
-          resultDecodedBuilder.integerField = jsonValueIntegerField
+        if let jsonValueIntegerField = jsonMap["integerField"] as? Int {
+          resultDecodedBuilder.integerField = Int32(jsonValueIntegerField)
         }
         if let jsonValueStringField = jsonMap["stringField"] as? String {
           resultDecodedBuilder.stringField = jsonValueStringField
@@ -611,7 +611,7 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasX {
-        jsonMap["x"] = x
+        jsonMap["x"] = Int(x)
       }
       return jsonMap
     }
@@ -744,8 +744,8 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
-        if let jsonValueX = jsonMap["x"] as? Int32 {
-          resultDecodedBuilder.x = jsonValueX
+        if let jsonValueX = jsonMap["x"] as? Int {
+          resultDecodedBuilder.x = Int32(jsonValueX)
         }
         return resultDecodedBuilder
       }

@@ -957,16 +957,16 @@ final internal class PBPerfomance : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasInts {
-      jsonMap["ints"] = ints
+      jsonMap["ints"] = Int(ints)
     }
     if hasInts64 {
-      jsonMap["ints64"] = ints64
+      jsonMap["ints64"] = "\(ints64)"
     }
     if hasDoubles {
-      jsonMap["doubles"] = doubles
+      jsonMap["doubles"] = Double(doubles)
     }
     if hasFloats {
-      jsonMap["floats"] = floats
+      jsonMap["floats"] = Float(floats)
     }
     if hasStr {
       jsonMap["str"] = str
@@ -1330,17 +1330,17 @@ final internal class PBPerfomance : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance.Builder {
       let resultDecodedBuilder = PBPerfomance.Builder()
-      if let jsonValueInts = jsonMap["ints"] as? Int32 {
-        resultDecodedBuilder.ints = jsonValueInts
+      if let jsonValueInts = jsonMap["ints"] as? Int {
+        resultDecodedBuilder.ints = Int32(jsonValueInts)
       }
-      if let jsonValueInts64 = jsonMap["ints64"] as? Int64 {
-        resultDecodedBuilder.ints64 = jsonValueInts64
+      if let jsonValueInts64 = jsonMap["ints64"] as? String {
+        resultDecodedBuilder.ints64 = Int64(jsonValueInts64)!
       }
       if let jsonValueDoubles = jsonMap["doubles"] as? Double {
-        resultDecodedBuilder.doubles = jsonValueDoubles
+        resultDecodedBuilder.doubles = Double(jsonValueDoubles)
       }
       if let jsonValueFloats = jsonMap["floats"] as? Float {
-        resultDecodedBuilder.floats = jsonValueFloats
+        resultDecodedBuilder.floats = Float(jsonValueFloats)
       }
       if let jsonValueStr = jsonMap["str"] as? String {
         resultDecodedBuilder.str = jsonValueStr
@@ -1446,10 +1446,10 @@ final internal class PBProtoPoint : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasLatitude {
-      jsonMap["latitude"] = latitude
+      jsonMap["latitude"] = Float(latitude)
     }
     if hasLongitude {
-      jsonMap["longitude"] = longitude
+      jsonMap["longitude"] = Float(longitude)
     }
     return jsonMap
   }
@@ -1620,10 +1620,10 @@ final internal class PBProtoPoint : GeneratedMessage {
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint.Builder {
       let resultDecodedBuilder = PBProtoPoint.Builder()
       if let jsonValueLatitude = jsonMap["latitude"] as? Float {
-        resultDecodedBuilder.latitude = jsonValueLatitude
+        resultDecodedBuilder.latitude = Float(jsonValueLatitude)
       }
       if let jsonValueLongitude = jsonMap["longitude"] as? Float {
-        resultDecodedBuilder.longitude = jsonValueLongitude
+        resultDecodedBuilder.longitude = Float(jsonValueLongitude)
       }
       return resultDecodedBuilder
     }
@@ -1745,7 +1745,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasScoops {
-      jsonMap["scoops"] = scoops
+      jsonMap["scoops"] = Int(scoops)
     }
     if hasFlavor {
       jsonMap["flavor"] = flavor.toString()
@@ -1923,8 +1923,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone.Builder {
       let resultDecodedBuilder = PBIceCreamCone.Builder()
-      if let jsonValueScoops = jsonMap["scoops"] as? Int32 {
-        resultDecodedBuilder.scoops = jsonValueScoops
+      if let jsonValueScoops = jsonMap["scoops"] as? Int {
+        resultDecodedBuilder.scoops = Int32(jsonValueScoops)
       }
       if let jsonValueFlavor = jsonMap["flavor"] as? String {
         resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(str: jsonValueFlavor)
@@ -2010,7 +2010,7 @@ final internal class PBFoo : GeneratedMessage {
 
     var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
     if hasVal {
-      jsonMap["val"] = val
+      jsonMap["val"] = Int(val)
     }
     return jsonMap
   }
@@ -2143,8 +2143,8 @@ final internal class PBFoo : GeneratedMessage {
     }
     class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBFoo.Builder {
       let resultDecodedBuilder = PBFoo.Builder()
-      if let jsonValueVal = jsonMap["val"] as? Int32 {
-        resultDecodedBuilder.val = jsonValueVal
+      if let jsonValueVal = jsonMap["val"] as? Int {
+        resultDecodedBuilder.val = Int32(jsonValueVal)
       }
       return resultDecodedBuilder
     }

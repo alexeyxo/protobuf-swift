@@ -87,7 +87,7 @@ public extension SwiftProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasValueInMapMessage {
-        jsonMap["valueInMapMessage"] = valueInMapMessage
+        jsonMap["valueInMapMessage"] = Int(valueInMapMessage)
       }
       return jsonMap
     }
@@ -220,8 +220,8 @@ public extension SwiftProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MapMessageValue.Builder()
-        if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? Int32 {
-          resultDecodedBuilder.valueInMapMessage = jsonValueValueInMapMessage
+        if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? Int {
+          resultDecodedBuilder.valueInMapMessage = Int32(jsonValueValueInMapMessage)
         }
         return resultDecodedBuilder
       }
@@ -333,10 +333,10 @@ public extension SwiftProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasKey {
-            jsonMap["key"] = key
+            jsonMap["key"] = Int(key)
           }
           if hasValue {
-            jsonMap["value"] = value
+            jsonMap["value"] = Int(value)
           }
           return jsonMap
         }
@@ -506,11 +506,11 @@ public extension SwiftProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
-            if let jsonValueKey = jsonMap["key"] as? Int32 {
-              resultDecodedBuilder.key = jsonValueKey
+            if let jsonValueKey = jsonMap["key"] as? Int {
+              resultDecodedBuilder.key = Int32(jsonValueKey)
             }
-            if let jsonValueValue = jsonMap["value"] as? Int32 {
-              resultDecodedBuilder.value = jsonValueValue
+            if let jsonValueValue = jsonMap["value"] as? Int {
+              resultDecodedBuilder.value = Int32(jsonValueValue)
             }
             return resultDecodedBuilder
           }
@@ -607,10 +607,10 @@ public extension SwiftProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasKey {
-            jsonMap["key"] = key
+            jsonMap["key"] = "\(key)"
           }
           if hasValue {
-            jsonMap["value"] = value
+            jsonMap["value"] = "\(value)"
           }
           return jsonMap
         }
@@ -780,11 +780,11 @@ public extension SwiftProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
-            if let jsonValueKey = jsonMap["key"] as? Int64 {
-              resultDecodedBuilder.key = jsonValueKey
+            if let jsonValueKey = jsonMap["key"] as? String {
+              resultDecodedBuilder.key = Int64(jsonValueKey)!
             }
-            if let jsonValueValue = jsonMap["value"] as? Int64 {
-              resultDecodedBuilder.value = jsonValueValue
+            if let jsonValueValue = jsonMap["value"] as? String {
+              resultDecodedBuilder.value = Int64(jsonValueValue)!
             }
             return resultDecodedBuilder
           }
@@ -1744,7 +1744,7 @@ public extension SwiftProtobufUnittest {
 
           var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
           if hasKey {
-            jsonMap["key"] = key
+            jsonMap["key"] = Int(key)
           }
           if hasValue {
             jsonMap["value"] = value.toString()
@@ -1922,8 +1922,8 @@ public extension SwiftProtobufUnittest {
           }
           class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
-            if let jsonValueKey = jsonMap["key"] as? Int32 {
-              resultDecodedBuilder.key = jsonValueKey
+            if let jsonValueKey = jsonMap["key"] as? Int {
+              resultDecodedBuilder.key = Int32(jsonValueKey)
             }
             if let jsonValueValue = jsonMap["value"] as? String {
               resultDecodedBuilder.value = try SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.fromString(str: jsonValueValue)
@@ -2110,16 +2110,16 @@ public extension SwiftProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasMapInt32Int32 {
-          var mapMapInt32Int32 = Dictionary<String, Int32>()
+          var mapMapInt32Int32 = Dictionary<String, Int>()
           for (keyMapInt32Int32, valueMapInt32Int32) in mapInt32Int32 {
-              mapMapInt32Int32["\(keyMapInt32Int32)"] = valueMapInt32Int32
+              mapMapInt32Int32["\(keyMapInt32Int32)"] = Int(valueMapInt32Int32)
           }
           jsonMap["mapInt32Int32"] = mapMapInt32Int32
       }
       if hasMapInt64Int64 {
-          var mapMapInt64Int64 = Dictionary<String, Int64>()
+          var mapMapInt64Int64 = Dictionary<String, String>()
           for (keyMapInt64Int64, valueMapInt64Int64) in mapInt64Int64 {
-              mapMapInt64Int64["\(keyMapInt64Int64)"] = valueMapInt64Int64
+              mapMapInt64Int64["\(keyMapInt64Int64)"] = "\(valueMapInt64Int64)"
           }
           jsonMap["mapInt64Int64"] = mapMapInt64Int64
       }
@@ -2503,19 +2503,19 @@ public extension SwiftProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.Builder()
-        if let jsonValueMapInt32Int32 = jsonMap["mapInt32Int32"] as? Dictionary<String, Int32> {
+        if let jsonValueMapInt32Int32 = jsonMap["mapInt32Int32"] as? Dictionary<String, Int> {
             var mapMapInt32Int32 = Dictionary<Int32, Int32>()
             for (keyMapInt32Int32, valueMapInt32Int32) in jsonValueMapInt32Int32 {
                 let keyFromMapInt32Int32 = Int32(keyMapInt32Int32)!
-                mapMapInt32Int32[keyFromMapInt32Int32] = valueMapInt32Int32
+                mapMapInt32Int32[keyFromMapInt32Int32] = Int32(valueMapInt32Int32)
             }
             resultDecodedBuilder.mapInt32Int32 = mapMapInt32Int32
         }
-        if let jsonValueMapInt64Int64 = jsonMap["mapInt64Int64"] as? Dictionary<String, Int64> {
+        if let jsonValueMapInt64Int64 = jsonMap["mapInt64Int64"] as? Dictionary<String, String> {
             var mapMapInt64Int64 = Dictionary<Int64, Int64>()
             for (keyMapInt64Int64, valueMapInt64Int64) in jsonValueMapInt64Int64 {
                 let keyFromMapInt64Int64 = Int64(keyMapInt64Int64)!
-                mapMapInt64Int64[keyFromMapInt64Int64] = valueMapInt64Int64
+                mapMapInt64Int64[keyFromMapInt64Int64] = Int64(valueMapInt64Int64)!
             }
             resultDecodedBuilder.mapInt64Int64 = mapMapInt64Int64
         }

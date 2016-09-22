@@ -98,7 +98,7 @@ final public class UnitTestStruct : GeneratedMessage {
       jsonMap["testStr"] = testStr
     }
     if hasTestInt {
-      jsonMap["testInt"] = testInt
+      jsonMap["testInt"] = Int(testInt)
     }
     return jsonMap
   }
@@ -271,8 +271,8 @@ final public class UnitTestStruct : GeneratedMessage {
       if let jsonValueTestStr = jsonMap["testStr"] as? String {
         resultDecodedBuilder.testStr = jsonValueTestStr
       }
-      if let jsonValueTestInt = jsonMap["testInt"] as? Int32 {
-        resultDecodedBuilder.testInt = jsonValueTestInt
+      if let jsonValueTestInt = jsonMap["testInt"] as? Int {
+        resultDecodedBuilder.testInt = Int32(jsonValueTestInt)
       }
       return resultDecodedBuilder
     }

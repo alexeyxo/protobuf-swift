@@ -132,7 +132,7 @@ public extension UnittestDropUnknownFields {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
-        jsonMap["int32Value"] = int32Value
+        jsonMap["int32Value"] = Int(int32Value)
       }
       if hasEnumValue {
         jsonMap["enumValue"] = enumValue.toString()
@@ -310,8 +310,8 @@ public extension UnittestDropUnknownFields {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
-        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int32 {
-          resultDecodedBuilder.int32Value = jsonValueInt32Value
+        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
+          resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(str: jsonValueEnumValue)
@@ -454,13 +454,13 @@ public extension UnittestDropUnknownFields {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasInt32Value {
-        jsonMap["int32Value"] = int32Value
+        jsonMap["int32Value"] = Int(int32Value)
       }
       if hasEnumValue {
         jsonMap["enumValue"] = enumValue.toString()
       }
       if hasExtraInt32Value {
-        jsonMap["extraInt32Value"] = extraInt32Value
+        jsonMap["extraInt32Value"] = Int(extraInt32Value)
       }
       return jsonMap
     }
@@ -672,14 +672,14 @@ public extension UnittestDropUnknownFields {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
-        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int32 {
-          resultDecodedBuilder.int32Value = jsonValueInt32Value
+        if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
+          resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.fromString(str: jsonValueEnumValue)
         }
-        if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? Int32 {
-          resultDecodedBuilder.extraInt32Value = jsonValueExtraInt32Value
+        if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? Int {
+          resultDecodedBuilder.extraInt32Value = Int32(jsonValueExtraInt32Value)
         }
         return resultDecodedBuilder
       }
