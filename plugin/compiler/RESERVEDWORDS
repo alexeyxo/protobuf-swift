@@ -1,4 +1,4 @@
-"_", 
+"TYPE_BOOL",
 "@available",
 "#column",
 "#else",
@@ -84,5 +84,5 @@
 "weak",
 "willSet",
 "String",
-"description",
-"hashValue"
+"nil",
+"operator",
