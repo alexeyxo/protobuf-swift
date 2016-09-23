@@ -17,15 +17,11 @@
 
 import Foundation
 
-let LITTLE_ENDIAN_32_SIZE:Int32 = 4
-let LITTLE_ENDIAN_64_SIZE:Int32 = 8
-
-
 public enum WireFormatMessage:Int32
 {
-    case setItem = 1
-    case setTypeId = 2
-    case setMessage = 3
+    case item = 1
+    case `id` = 2
+    case message = 3
 }
 
 public enum WireFormat:Int32
@@ -38,35 +34,30 @@ public enum WireFormat:Int32
     case fixed32 = 5
     case tagTypeMask = 7
     
-    public func makeTag(fieldNumber:Int32) -> Int32
-    {
+    public func makeTag(fieldNumber:Int32) -> Int32 {
         let res:Int32 = fieldNumber << WireFormat.startGroup.rawValue
         return res | self.rawValue
     }
     
-    public static func getTagWireType(tag:Int32) -> Int32
-    {
+    public static func getTagWireType(tag:Int32) -> Int32 {
         return tag &  WireFormat.tagTypeMask.rawValue
     }
     
-    public static func getTagFieldNumber(tag:Int32) -> Int32
-    {
+    public static func getTagFieldNumber(tag:Int32) -> Int32 {
         return WireFormat.logicalRightShift32(value: tag ,spaces: startGroup.rawValue)
     }
     
     
     ///Utilities
     
-    public static func convertTypes<T, ReturnType>(convertValue value:T, defaultValue:ReturnType) -> ReturnType
-    {
+    public static func convertTypes<T, ReturnType>(convertValue value:T, defaultValue:ReturnType) -> ReturnType {
         var retValue = defaultValue
         var curValue = value
         memcpy(&retValue, &curValue, MemoryLayout<T>.size)
         return retValue
     }
     
-    public static func logicalRightShift32(value aValue:Int32, spaces aSpaces:Int32) ->Int32
-    {
+    public static func logicalRightShift32(value aValue:Int32, spaces aSpaces:Int32) ->Int32 {
         var result:UInt32 = 0
         result = convertTypes(convertValue: aValue, defaultValue: result)
         let bytes:UInt32 = (result >> UInt32(aSpaces))
@@ -75,8 +66,7 @@ public enum WireFormat:Int32
         return res
     }
     
-    public static func logicalRightShift64(value aValue:Int64, spaces aSpaces:Int64) ->Int64
-    {
+    public static func logicalRightShift64(value aValue:Int64, spaces aSpaces:Int64) ->Int64 {
         var result:UInt64 = 0
         result = convertTypes(convertValue: aValue, defaultValue: result)
         let bytes:UInt64 = (result >> UInt64(aSpaces))
@@ -84,61 +74,77 @@ public enum WireFormat:Int32
         res = convertTypes(convertValue: bytes, defaultValue: res)
         return res
     }
-    public static func  decodeZigZag32(n:Int32) -> Int32
-    {
+    
+    public static func  decodeZigZag32(n:Int32) -> Int32 {
         return logicalRightShift32(value: n, spaces: 1) ^ -(n & 1)
     }
+    
     public static func encodeZigZag32(n:Int32) -> Int32 {
         return (n << 1) ^ (n >> 31)
     }
     
-    public static func  decodeZigZag64(n:Int64) -> Int64
-    {
+    public static func  decodeZigZag64(n:Int64) -> Int64 {
         return logicalRightShift64(value: n, spaces: 1) ^ -(n & 1)
     }
-    public static func encodeZigZag64(n:Int64) -> Int64
-    {
+    
+    public static func encodeZigZag64(n:Int64) -> Int64 {
         return (n << 1) ^ (n >> 63)
+    }
+}
+
+struct Protobuf {
+    enum `Type`:Int {
+        case `int32` = 0
+        case `uint32`
+        case `sint32`
+        case `fixed32`
+        case `sfixed32`
+        
+        case `int64`
+        case `uint64`
+        case `sint64`
+        case `fixed64`
+        case `sfixed64`
+        
+        case `float`
+        case `double`
+        case `bool`
+        case `enum`
+        
+        case `string`
+        case `group`
+        case `message`
     }
     
 }
+
 public extension Int32
 {
-    func computeSFixed32SizeNoTag() ->Int32
-    {
-        return LITTLE_ENDIAN_32_SIZE
+    func computeSFixed32SizeNoTag() ->Int32 {
+        return Int32(MemoryLayout<Int32>.size)
     }
    
-    func computeInt32SizeNoTag() -> Int32
-    {
-        if (self >= 0)
-        {
+    func computeInt32SizeNoTag() -> Int32 {
+        if self >= 0 {
             return computeRawVarint32Size()
-        }
-        else
-        {
+        } else {
             return 10
         }
     }
     
     func computeRawVarint32Size() -> Int32 {
-        if ((self & (0xfffffff <<  7)) == 0)
-        {
+        if (self & (0xfffffff <<  7)) == 0 {
             return 1
         }
-        if ((self & (0xfffffff << 14)) == 0)
-        {
+        if (self & (0xfffffff << 14)) == 0 {
             return 2
         }
-        if ((self & (0xfffffff << 21)) == 0)
-        {
+        if (self & (0xfffffff << 21)) == 0 {
             return 3
         }
-        if ((self & (0xfffffff << 28)) == 0)
-        {
+        if (self & (0xfffffff << 28)) == 0 {
             return 4
         }
-        
         return 5
     }
     
@@ -212,7 +218,7 @@ public extension Int64
     
     func computeSFixed64SizeNoTag() -> Int32
     {
-        return LITTLE_ENDIAN_64_SIZE
+        return Int32(MemoryLayout<Int64>.size)
     }
     
     func computeSFixed64Size(fieldNumber:Int32) -> Int32
@@ -232,7 +238,7 @@ public extension Double
 {
     func computeDoubleSizeNoTag() ->Int32
     {
-        return LITTLE_ENDIAN_64_SIZE
+        return Int32(MemoryLayout<Int64>.size)
     }
     
     func computeDoubleSize(fieldNumber:Int32) ->Int32
@@ -242,9 +248,9 @@ public extension Double
 }
 public extension Float
 {
-    func  computeFloatSizeNoTag() ->Int32
+    func computeFloatSizeNoTag() ->Int32
     {
-        return LITTLE_ENDIAN_32_SIZE
+        return Int32(MemoryLayout<Int32>.size)
     }
     func computeFloatSize(fieldNumber:Int32) ->Int32
     {
@@ -257,7 +263,7 @@ public extension UInt64
 {
     func computeFixed64SizeNoTag() ->Int32
     {
-        return LITTLE_ENDIAN_64_SIZE
+        return Int32(MemoryLayout<Int64>.size)
     }
     
     func computeUInt64SizeNoTag() -> Int32
@@ -283,7 +289,7 @@ public extension UInt32
 {
     func computeFixed32SizeNoTag() ->Int32
     {
-        return LITTLE_ENDIAN_32_SIZE
+        return Int32(MemoryLayout<Int32>.size)
     }
     
     func computeUInt32SizeNoTag() -> Int32
@@ -357,7 +363,7 @@ public extension AbstractProtocolBuffersMessage
     
     func computeMessageSetExtensionSize(fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.setTypeId.rawValue) + computeMessageSize(fieldNumber: WireFormatMessage.setMessage.rawValue)
+        return WireFormatMessage.item.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.id.rawValue) + computeMessageSize(fieldNumber: WireFormatMessage.message.rawValue)
     }
 }
 
@@ -375,7 +381,7 @@ public extension Data
     
     func computeRawMessageSetExtensionSize(fieldNumber:Int32) -> Int32
     {
-        return WireFormatMessage.setItem.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.setTypeId.rawValue) + computeDataSize(fieldNumber: WireFormatMessage.setMessage.rawValue)
+        return WireFormatMessage.item.rawValue.computeTagSize() * 2 + UInt32(fieldNumber).computeUInt32Size(fieldNumber: WireFormatMessage.id.rawValue) + computeDataSize(fieldNumber: WireFormatMessage.message.rawValue)
     }
 
 }

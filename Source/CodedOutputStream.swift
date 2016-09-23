@@ -267,17 +267,17 @@ public class CodedOutputStream {
     }
     
     public func writeMessageSetExtension(fieldNumber:Int32, value:ProtocolBuffersMessage) throws {
-        try writeTag(fieldNumber: WireFormatMessage.setItem.rawValue, format:WireFormat.startGroup)
-        try writeUInt32(fieldNumber: WireFormatMessage.setTypeId.rawValue, value:UInt32(fieldNumber))
-        try writeMessage(fieldNumber: WireFormatMessage.setMessage.rawValue, value: value)
-        try writeTag(fieldNumber: WireFormatMessage.setItem.rawValue, format:WireFormat.endGroup)
+        try writeTag(fieldNumber: WireFormatMessage.item.rawValue, format:WireFormat.startGroup)
+        try writeUInt32(fieldNumber: WireFormatMessage.id.rawValue, value:UInt32(fieldNumber))
+        try writeMessage(fieldNumber: WireFormatMessage.message.rawValue, value: value)
+        try writeTag(fieldNumber: WireFormatMessage.item.rawValue, format:WireFormat.endGroup)
     }
     
     public func writeRawMessageSetExtension(fieldNumber:Int32, value:Data) throws {
-        try writeTag(fieldNumber: WireFormatMessage.setItem.rawValue, format:WireFormat.startGroup)
-        try writeUInt32(fieldNumber: WireFormatMessage.setTypeId.rawValue, value:UInt32(fieldNumber))
-        try writeData(fieldNumber: WireFormatMessage.setMessage.rawValue, value: value)
-        try writeTag(fieldNumber: WireFormatMessage.setItem.rawValue, format:WireFormat.endGroup)
+        try writeTag(fieldNumber: WireFormatMessage.item.rawValue, format:WireFormat.startGroup)
+        try writeUInt32(fieldNumber: WireFormatMessage.id.rawValue, value:UInt32(fieldNumber))
+        try writeData(fieldNumber: WireFormatMessage.message.rawValue, value: value)
+        try writeTag(fieldNumber: WireFormatMessage.item.rawValue, format:WireFormat.endGroup)
     }
     
     public func writeTag(fieldNumber:Int32, format:WireFormat) throws {
