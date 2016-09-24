@@ -14935,43 +14935,43 @@ public extension ProtobufUnittest {
 
       var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       if hasPrimitiveField {
-        jsonMap["primitiveField"] = Int(primitiveField)
+        jsonMap["PrimitiveField"] = Int(primitiveField)
       }
       if hasStringField {
-        jsonMap["stringField"] = stringField
+        jsonMap["StringField"] = stringField
       }
       if hasEnumField {
-        jsonMap["enumField"] = enumField.toString()
+        jsonMap["EnumField"] = enumField.toString()
       }
       if hasMessageField {
-        jsonMap["messageField"] = try messageField.encode()
+        jsonMap["MessageField"] = try messageField.encode()
       }
       if hasStringPieceField {
-        jsonMap["stringPieceField"] = stringPieceField
+        jsonMap["StringPieceField"] = stringPieceField
       }
       if hasCordField {
-        jsonMap["cordField"] = cordField
+        jsonMap["CordField"] = cordField
       }
       if !repeatedPrimitiveField.isEmpty {
         var jsonArrayRepeatedPrimitiveField:Array<Int> = []
           for oneValueRepeatedPrimitiveField in repeatedPrimitiveField {
             jsonArrayRepeatedPrimitiveField.append(Int(oneValueRepeatedPrimitiveField))
           }
-        jsonMap["repeatedPrimitiveField"] = jsonArrayRepeatedPrimitiveField
+        jsonMap["RepeatedPrimitiveField"] = jsonArrayRepeatedPrimitiveField
       }
       if !repeatedStringField.isEmpty {
         var jsonArrayRepeatedStringField:Array<String> = []
           for oneValueRepeatedStringField in repeatedStringField {
             jsonArrayRepeatedStringField.append(oneValueRepeatedStringField)
           }
-        jsonMap["repeatedStringField"] = jsonArrayRepeatedStringField
+        jsonMap["RepeatedStringField"] = jsonArrayRepeatedStringField
       }
       if !repeatedEnumField.isEmpty {
         var jsonArrayRepeatedEnumField:Array<String> = []
           for oneValueRepeatedEnumField in repeatedEnumField {
             jsonArrayRepeatedEnumField.append(oneValueRepeatedEnumField.toString())
           }
-        jsonMap["repeatedEnumField"] = jsonArrayRepeatedEnumField
+        jsonMap["RepeatedEnumField"] = jsonArrayRepeatedEnumField
       }
       if !repeatedMessageField.isEmpty {
         var jsonArrayRepeatedMessageField:Array<Dictionary<String,Any>> = []
@@ -14979,21 +14979,21 @@ public extension ProtobufUnittest {
             let ecodedMessageRepeatedMessageField = try oneValueRepeatedMessageField.encode()
             jsonArrayRepeatedMessageField.append(ecodedMessageRepeatedMessageField)
           }
-        jsonMap["repeatedMessageField"] = jsonArrayRepeatedMessageField
+        jsonMap["RepeatedMessageField"] = jsonArrayRepeatedMessageField
       }
       if !repeatedStringPieceField.isEmpty {
         var jsonArrayRepeatedStringPieceField:Array<String> = []
           for oneValueRepeatedStringPieceField in repeatedStringPieceField {
             jsonArrayRepeatedStringPieceField.append(oneValueRepeatedStringPieceField)
           }
-        jsonMap["repeatedStringPieceField"] = jsonArrayRepeatedStringPieceField
+        jsonMap["RepeatedStringPieceField"] = jsonArrayRepeatedStringPieceField
       }
       if !repeatedCordField.isEmpty {
         var jsonArrayRepeatedCordField:Array<String> = []
           for oneValueRepeatedCordField in repeatedCordField {
             jsonArrayRepeatedCordField.append(oneValueRepeatedCordField)
           }
-        jsonMap["repeatedCordField"] = jsonArrayRepeatedCordField
+        jsonMap["RepeatedCordField"] = jsonArrayRepeatedCordField
       }
       return jsonMap
     }
@@ -15557,40 +15557,40 @@ public extension ProtobufUnittest {
       }
       class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestCamelCaseFieldNames.Builder()
-        if let jsonValuePrimitiveField = jsonMap["primitiveField"] as? Int {
+        if let jsonValuePrimitiveField = jsonMap["PrimitiveField"] as? Int {
           resultDecodedBuilder.primitiveField = Int32(jsonValuePrimitiveField)
         }
-        if let jsonValueStringField = jsonMap["stringField"] as? String {
+        if let jsonValueStringField = jsonMap["StringField"] as? String {
           resultDecodedBuilder.stringField = jsonValueStringField
         }
-        if let jsonValueEnumField = jsonMap["enumField"] as? String {
+        if let jsonValueEnumField = jsonMap["EnumField"] as? String {
           resultDecodedBuilder.enumField = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueEnumField)
         }
-        if let jsonValueMessageField = jsonMap["messageField"] as? Dictionary<String,Any> {
+        if let jsonValueMessageField = jsonMap["MessageField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.messageField = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMessageField).build()
 
         }
-        if let jsonValueStringPieceField = jsonMap["stringPieceField"] as? String {
+        if let jsonValueStringPieceField = jsonMap["StringPieceField"] as? String {
           resultDecodedBuilder.stringPieceField = jsonValueStringPieceField
         }
-        if let jsonValueCordField = jsonMap["cordField"] as? String {
+        if let jsonValueCordField = jsonMap["CordField"] as? String {
           resultDecodedBuilder.cordField = jsonValueCordField
         }
-        if let jsonValueRepeatedPrimitiveField = jsonMap["repeatedPrimitiveField"] as? Array<Int> {
+        if let jsonValueRepeatedPrimitiveField = jsonMap["RepeatedPrimitiveField"] as? Array<Int> {
           var jsonArrayRepeatedPrimitiveField:Array<Int32> = []
           for oneValueRepeatedPrimitiveField in jsonValueRepeatedPrimitiveField {
             jsonArrayRepeatedPrimitiveField.append(Int32(oneValueRepeatedPrimitiveField))
           }
           resultDecodedBuilder.repeatedPrimitiveField = jsonArrayRepeatedPrimitiveField
         }
-        if let jsonValueRepeatedStringField = jsonMap["repeatedStringField"] as? Array<String> {
+        if let jsonValueRepeatedStringField = jsonMap["RepeatedStringField"] as? Array<String> {
           var jsonArrayRepeatedStringField:Array<String> = []
           for oneValueRepeatedStringField in jsonValueRepeatedStringField {
             jsonArrayRepeatedStringField.append(oneValueRepeatedStringField)
           }
           resultDecodedBuilder.repeatedStringField = jsonArrayRepeatedStringField
         }
-        if let jsonValueRepeatedEnumField = jsonMap["repeatedEnumField"] as? Array<String> {
+        if let jsonValueRepeatedEnumField = jsonMap["RepeatedEnumField"] as? Array<String> {
           var jsonArrayRepeatedEnumField:Array<ProtobufUnittest.ForeignEnum> = []
           for oneValueRepeatedEnumField in jsonValueRepeatedEnumField {
             let enumFromStringRepeatedEnumField = try ProtobufUnittest.ForeignEnum.fromString(str: oneValueRepeatedEnumField)
@@ -15598,7 +15598,7 @@ public extension ProtobufUnittest {
           }
           resultDecodedBuilder.repeatedEnumField = jsonArrayRepeatedEnumField
         }
-        if let jsonValueRepeatedMessageField = jsonMap["repeatedMessageField"] as? Array<Dictionary<String,Any>> {
+        if let jsonValueRepeatedMessageField = jsonMap["RepeatedMessageField"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedMessageField:Array<ProtobufUnittest.ForeignMessage> = []
           for oneValueRepeatedMessageField in jsonValueRepeatedMessageField {
             let messageFromStringRepeatedMessageField = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:oneValueRepeatedMessageField).build()
@@ -15607,14 +15607,14 @@ public extension ProtobufUnittest {
           }
           resultDecodedBuilder.repeatedMessageField = jsonArrayRepeatedMessageField
         }
-        if let jsonValueRepeatedStringPieceField = jsonMap["repeatedStringPieceField"] as? Array<String> {
+        if let jsonValueRepeatedStringPieceField = jsonMap["RepeatedStringPieceField"] as? Array<String> {
           var jsonArrayRepeatedStringPieceField:Array<String> = []
           for oneValueRepeatedStringPieceField in jsonValueRepeatedStringPieceField {
             jsonArrayRepeatedStringPieceField.append(oneValueRepeatedStringPieceField)
           }
           resultDecodedBuilder.repeatedStringPieceField = jsonArrayRepeatedStringPieceField
         }
-        if let jsonValueRepeatedCordField = jsonMap["repeatedCordField"] as? Array<String> {
+        if let jsonValueRepeatedCordField = jsonMap["RepeatedCordField"] as? Array<String> {
           var jsonArrayRepeatedCordField:Array<String> = []
           for oneValueRepeatedCordField in jsonValueRepeatedCordField {
             jsonArrayRepeatedCordField.append(oneValueRepeatedCordField)
