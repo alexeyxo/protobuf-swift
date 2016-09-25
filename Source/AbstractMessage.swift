@@ -229,9 +229,8 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
             return nil
         }
         let rSize = try CodedInputStream.readRawVarint32(firstByte: firstByte, inputStream: inputStream)
-        var data  = [UInt8](repeating: 0, count: Int(rSize))//Data(bytes: [0],count: Int(rSize))
-//        let pointer = UnsafeMutablePointerUInt8From(data: data)
-        inputStream.read(&data, maxLength: Int(rSize))
+        var data  = [UInt8](repeating: 0, count: Int(rSize))
+        _ = inputStream.read(&data, maxLength: Int(rSize))
         return try mergeFrom(data: Data(data))
     }
     
