@@ -324,7 +324,7 @@ public extension String
     {
         return fieldNumber.computeTagSize() + computeStringSizeNoTag()
     }
-    func utf8ToNSData()-> Data
+    func utf8ToData()-> Data
     {
         let bytes = [UInt8]() + self.utf8
         let data = Data(bytes: UnsafePointer<UInt8>(bytes), count:bytes.count)
