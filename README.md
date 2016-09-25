@@ -16,19 +16,17 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 3.`cd protobuf-3.1.0/`
 
-4.`cd protobuf-3.1.0/`
+4.`sudo apt-get install autoreconf automake libtool make`
 
-5.`sudo apt-get install autoreconf automake libtool make`
+5.`./autogen.sh`
 
-6.`./autogen.sh`
+6.`./configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib`
 
-7.`./configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib`
+7.`sudo make && sudo make install`
 
-8.`sudo make && sudo make install`
+8.`cd .. && wget https://github.com/alexeyxo/protobuf-swift/archive/3.0.5.tar.gz && tar xzf 3.0.5.tar.gz && cd protobuf-swift-3.0.5`
 
-9. `cd .. && wget https://github.com/alexeyxo/protobuf-swift/archive/3.0.5.tar.gz && tar xzf 3.0.5.tar.gz && cd protobuf-swift-3.0.5`
-
-10. `./script/build.sh && swift build`
+9.`./script/build.sh && swift build`
  
 ##How To Install Protobuf Compiler from Homebrew
 
