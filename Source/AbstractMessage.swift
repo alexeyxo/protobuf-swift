@@ -87,7 +87,7 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
             try writeTo(codedOutputStream: stream)
         }
         catch {}
-        return stream.buffer.buffer
+        return Data(bytes: stream.buffer.buffer, count: Int(ser_size))
     }
     open func isInitialized() -> Bool {
         return false
@@ -229,10 +229,10 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
             return nil
         }
         let rSize = try CodedInputStream.readRawVarint32(firstByte: firstByte, inputStream: inputStream)
-        let data  = Data(bytes: [0],count: Int(rSize))
-        let pointer = UnsafeMutablePointerUInt8From(data: data)
-        inputStream.read(pointer, maxLength: Int(rSize))
-        return try mergeFrom(data: data)
+        var data  = [UInt8](repeating: 0, count: Int(rSize))//Data(bytes: [0],count: Int(rSize))
+//        let pointer = UnsafeMutablePointerUInt8From(data: data)
+        inputStream.read(&data, maxLength: Int(rSize))
+        return try mergeFrom(data: Data(data))
     }
     
     //JSON
