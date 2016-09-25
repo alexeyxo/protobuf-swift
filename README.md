@@ -8,6 +8,28 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 ####Required Protocol Buffers 3.0
 
+##How To Install Protobuf Compiler on Linux(Ubuntu 14.04)
+
+1.`wget https://github.com/google/protobuf/archive/v3.1.0.tar.gz`
+
+2.`tar xzf v3.1.0.tar.gz`
+
+3.`cd protobuf-3.1.0/`
+
+4.`cd protobuf-3.1.0/`
+
+5.`sudo apt-get install autoreconf automake libtool make`
+
+6.`./autogen.sh`
+
+7.`./configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib`
+
+8.`sudo make && sudo make install`
+
+9. `cd .. && wget https://github.com/alexeyxo/protobuf-swift/archive/3.0.5.tar.gz && tar xzf 3.0.5.tar.gz && cd protobuf-swift-3.0.5`
+
+10. `./script/build.sh && swift build`
+ 
 ##How To Install Protobuf Compiler from Homebrew
 
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`

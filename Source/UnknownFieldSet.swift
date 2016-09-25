@@ -130,7 +130,7 @@ public class UnknownFieldSet:Hashable,Equatable {
         let data = Data(bytes: [0], count: Int(size))
         let stream:CodedOutputStream = CodedOutputStream(data: data)
         try writeTo(codedOutputStream: stream)
-        return stream.buffer.buffer
+        return Data(bytes: stream.buffer.buffer, count: Int(size))
     }
     
     public class Builder {
