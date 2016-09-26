@@ -21,27 +21,27 @@ let DEFAULT_BUFFER_SIZE:Int = 4 * 1024
 
 public class CodedOutputStream {
     private var output:OutputStream?
-    internal var buffer:RingBuffer
+    internal var buffer:Buffer
     
     public init (stream:OutputStream!, data:Data) {
         self.output = stream
-        buffer = RingBuffer(data:data)
+        buffer = Buffer(data:data)
     }
   
     public init(stream:OutputStream!, bufferSize:Int) {
         let data = Data(count: bufferSize)
         self.output = stream
-        buffer = RingBuffer(data: data)
+        buffer = Buffer(data: data)
     }
    
     public init(stream:OutputStream) {
         let data = Data(count:DEFAULT_BUFFER_SIZE)
         self.output = stream
-        buffer = RingBuffer(data: data)
+        buffer = Buffer(data: data)
     }
     
     public init(data:Data) {
-        buffer = RingBuffer(data: data)
+        buffer = Buffer(data: data)
     }
     
     public func flush() throws {
@@ -160,7 +160,7 @@ public class CodedOutputStream {
     }
     
     public func writeStringNoTag(value:String) throws {
-        let data = value.utf8ToNSData()
+        let data = value.utf8ToData()
         try writeRawVarint32(value: Int32(data.count))
         try writeRawData(data: data)
     }

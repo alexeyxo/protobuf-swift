@@ -22,26 +22,26 @@ let DEFAULT_SIZE_LIMIT:Int = 64 << 20  // 64MB
 let BUFFER_SIZE:Int = 4096
 
 public class CodedInputStream {
-    public var buffer:Data
-    private var input:InputStream?
-    private var bufferSize:Int = 0
-    private var bufferSizeAfterLimit:Int = 0
-    private var bufferPos:Int = 0
-    private var lastTag:Int32 = 0
-    private var totalBytesRetired:Int = 0
-    private var currentLimit:Int = 0
-    private var recursionDepth:Int = 0
-    private var recursionLimit:Int = 0
-    private var sizeLimit:Int = 0
+    public var buffer:[UInt8]
+    fileprivate var input:InputStream?
+    fileprivate var bufferSize:Int = 0
+    fileprivate var bufferSizeAfterLimit:Int = 0
+    fileprivate var bufferPos:Int = 0
+    fileprivate var lastTag:Int32 = 0
+    fileprivate var totalBytesRetired:Int = 0
+    fileprivate var currentLimit:Int = 0
+    fileprivate var recursionDepth:Int = 0
+    fileprivate var recursionLimit:Int = 0
+    fileprivate var sizeLimit:Int = 0
     public init (data:Data) {
-        buffer = data
+        buffer = [UInt8](data)
         bufferSize = buffer.count
         currentLimit = Int.max
         recursionLimit = DEFAULT_RECURSION_LIMIT
         sizeLimit = DEFAULT_SIZE_LIMIT
     }
     public init (stream:InputStream) {
-        buffer = Data(count: BUFFER_SIZE)
+        buffer = [UInt8](repeating: 0, count: BUFFER_SIZE)
         bufferSize = 0
         input = stream
         input?.open()
@@ -80,8 +80,8 @@ public class CodedInputStream {
         bufferSize = 0
         
         if let input = self.input {
-            let pointer = UnsafeMutablePointerUInt8From(data: buffer)
-            bufferSize = input.read(pointer, maxLength:buffer.count)
+//            let pointer = UnsafeMutablePointerUInt8From(data: buffer)
+            bufferSize = input.read(&buffer, maxLength:buffer.count)
         }
         
         if bufferSize <= 0 {
@@ -102,7 +102,7 @@ public class CodedInputStream {
     
     public func readRawData(size:Int) throws -> Data {
         
-        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
+//        let pointer = UnsafeMutablePointerUInt8From(data: buffer)
         guard size >= 0 else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Negative Size")
         }
@@ -113,29 +113,29 @@ public class CodedInputStream {
         }
         
         if (size <= bufferSize - bufferPos) {
-            let data = Data(bytes: pointer + bufferPos, count: size)
+            let data = Data(bytes: &buffer + bufferPos, count: size)
             bufferPos += size
             return data
         } else if (size < BUFFER_SIZE) {
             
-            let bytes = Data(count: size)
+            var bytes = [UInt8](repeating: 0, count: size)
             var pos = bufferSize - bufferPos
-            let byPointer = UnsafeMutablePointerUInt8From(data: bytes)
-            memcpy(byPointer, pointer + bufferPos, pos)
+//            let byPointer = UnsafeMutablePointerUInt8From(data: bytes)
+            memcpy(&bytes, &buffer + bufferPos, pos)
             bufferPos = bufferSize
             
             _ = try refillBuffer(mustSucceed: true)
             
             while size - pos > bufferSize {
-                memcpy(byPointer + pos,pointer, bufferSize)
+                memcpy(&bytes + pos, &buffer, bufferSize)
                 pos += bufferSize
                 bufferPos = bufferSize
                 _ = try refillBuffer(mustSucceed: true)
             }
             
-            memcpy(byPointer + pos, pointer, size - pos)
+            memcpy(&bytes + pos, &buffer, size - pos)
             bufferPos = size - pos
-            return bytes
+            return Data(bytes:bytes, count:bytes.count)
             
         } else {
             
@@ -147,18 +147,18 @@ public class CodedInputStream {
             bufferSize = 0
             
             var sizeLeft = size - (originalBufferSize - originalBufferPos)
-            var chunks:Array<Data> = Array<Data>()
+            var chunks:Array<[UInt8]> = Array<[UInt8]>()
             
-            while (sizeLeft > 0) {
-                var chunk = Data(count:min(sizeLeft, BUFFER_SIZE))
-            
+            while sizeLeft > 0 {
+                var chunk = [UInt8](repeating: 0, count: min(sizeLeft, BUFFER_SIZE))
+
                 var pos:Int = 0
                 while pos < chunk.count {
                     
                     var n:Int = 0
                     if input != nil {
-                        let pointer = UnsafeMutablePointerUInt8From(data: chunk)
-                        n = input!.read(pointer + pos, maxLength:chunk.count - pos)
+//                        let pointer = UnsafeMutablePointerUInt8From(data: chunk)
+                        n = input!.read(&chunk + pos, maxLength:chunk.count - pos)
                     }
                     guard n > 0 else {
                         throw ProtocolBuffersError.invalidProtocolBuffer("Truncated Message")
@@ -171,17 +171,17 @@ public class CodedInputStream {
             }
             
             
-            let bytes = Data(count: size)
-            let byPointer =  UnsafeMutablePointerUInt8From(data: bytes)
+            var bytes = [UInt8](repeating: 0, count: size)
+//            let byPointer =  UnsafeMutablePointerUInt8From(data: bytes)
             var pos = originalBufferSize - originalBufferPos
-            memcpy(byPointer, pointer + originalBufferPos, pos)
+            memcpy(&bytes, &buffer + originalBufferPos, pos)
             for chunk in chunks {
-                let chPointer =  UnsafeMutablePointerUInt8From(data: chunk)
-                memcpy(byPointer + pos, chPointer, chunk.count)
+//                let chPointer =  UnsafeMutablePointerUInt8From(data: chunk)
+                memcpy(&bytes + pos, chunk, chunk.count)
                 pos += chunk.count
             }
             
-            return bytes
+            return Data(bytes)
         }
     }
 
@@ -208,14 +208,14 @@ public class CodedInputStream {
             bufferSize = 0
             
             while (pos < size) {
-                let data = Data(bytes: [0], count: size - pos)
+                var data = [UInt8](repeating: 0, count: size - pos)
                 var n:Int = 0
                 guard let input = self.input else {
                     n = -1
                     throw ProtocolBuffersError.invalidProtocolBuffer("Truncated Message")
                 }
-                let pointer =  UnsafeMutablePointerUInt8From(data: data)
-                n = input.read(pointer, maxLength:Int(size - pos))
+//                let pointer =  UnsafeMutablePointerUInt8From(data: data)
+                n = input.read(&data, maxLength:Int(size - pos))
                 pos += n
                 totalBytesRetired += n
             }
@@ -223,10 +223,10 @@ public class CodedInputStream {
     }
     
     public func readRawLittleEndian32() throws -> Int32 {
-        let b1:Int8 = try readRawByte()
-        let b2:Int8 = try readRawByte()
-        let b3:Int8 = try readRawByte()
-        let b4:Int8 = try readRawByte()
+        let b1 = try readRawByte()
+        let b2 = try readRawByte()
+        let b3 = try readRawByte()
+        let b4 = try readRawByte()
         var result:Int32 = (Int32(b1) & 0xff)
         result |= ((Int32(b2) & 0xff) <<  8)
         result |= ((Int32(b3) & 0xff) << 16)
@@ -234,14 +234,14 @@ public class CodedInputStream {
         return result
     }
     public  func readRawLittleEndian64() throws -> Int64 {
-        let b1:Int8 = try readRawByte()
-        let b2:Int8 = try readRawByte()
-        let b3:Int8 = try readRawByte()
-        let b4:Int8 = try readRawByte()
-        let b5:Int8 = try readRawByte()
-        let b6:Int8 = try readRawByte()
-        let b7:Int8 = try readRawByte()
-        let b8:Int8 = try readRawByte()
+        let b1 = try readRawByte()
+        let b2 = try readRawByte()
+        let b3 = try readRawByte()
+        let b4 = try readRawByte()
+        let b5 = try readRawByte()
+        let b6 = try readRawByte()
+        let b7 = try readRawByte()
+        let b8 = try readRawByte()
         var result:Int64  = (Int64(b1) & 0xff)
         result |= ((Int64(b2) & 0xff) <<  8)
         result |= ((Int64(b3) & 0xff) << 16)
@@ -363,10 +363,12 @@ public class CodedInputStream {
         if (bufferPos == bufferSize) {
             _ = try refillBuffer(mustSucceed: true)
         }
-        let pointer =  UnsafeMutablePointerInt8From(data: buffer)
-        let res = pointer[Int(bufferPos)]
+        let res = buffer[Int(bufferPos)]
         bufferPos+=1
-        return res
+
+        var convert:Int8 = 0
+        convert = WireFormat.convertTypes(convertValue: res, defaultValue: convert)
+        return convert
     }
     
     public class func readRawVarint32(firstByte:UInt8, inputStream:InputStream) throws -> Int32
@@ -405,7 +407,7 @@ public class CodedInputStream {
 
     
     public func readRawVarint32() throws -> Int32 {
-        var tmp : Int8 = try readRawByte();
+        var tmp = try readRawByte();
         if (tmp >= 0) {
             return Int32(tmp);
         }
@@ -461,8 +463,8 @@ public class CodedInputStream {
     public func readString() throws -> String {
         let size = Int(try readRawVarint32())
         if size <= (bufferSize - bufferPos) && size > 0 {
-            let pointer = UnsafeMutablePointerInt8From(data: buffer)
-            let result = String(bytesNoCopy: pointer + bufferPos, length: size, encoding: String.Encoding.utf8, freeWhenDone: false)
+//            let pointer = UnsafeMutablePointerInt8From(data: buffer)
+            let result = String(bytesNoCopy: &buffer + bufferPos, length: size, encoding: String.Encoding.utf8, freeWhenDone: false)
             bufferPos += size
             return result!
         } else {
@@ -474,8 +476,8 @@ public class CodedInputStream {
     public func readData() throws -> Data {
         let size = Int(try readRawVarint32())
         if size < bufferSize - bufferPos && size > 0 {
-            let pointer = UnsafeMutablePointerInt8From(data: buffer)
-            let unsafeRaw = UnsafeRawPointer(pointer+bufferPos)
+//            let pointer = UnsafeMutablePointerInt8From(data: buffer)
+            let unsafeRaw = UnsafeRawPointer(&buffer+bufferPos)
             let data = Data(bytes: unsafeRaw, count: size)
             bufferPos += size
             return data
