@@ -45,11 +45,11 @@ public extension Proto2ArenaUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasD {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:d)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:d)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -57,7 +57,7 @@ public extension Proto2ArenaUnittest {
 
       serialize_size = 0
       if hasD {
-        serialize_size += d.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: d)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -209,7 +209,7 @@ public extension Proto2ArenaUnittest {
             return self
 
           case 8:
-            d = try codedInputStream.readInt32()
+            d = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -260,26 +260,22 @@ public extension Proto2ArenaUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 1, value:oneElementRepeatedNestedMessage)
+          try codedOutputStream.write.message(fieldNumber: 1, value:oneElementRepeatedNestedMessage)
       }
       for oneElementRepeatedImportNoArenaMessage in repeatedImportNoArenaMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementRepeatedImportNoArenaMessage)
+          try codedOutputStream.write.message(fieldNumber: 2, value:oneElementRepeatedImportNoArenaMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
       }
 
       serialize_size = 0
-      for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          serialize_size += oneElementRepeatedNestedMessage.computeMessageSize(fieldNumber: 1)
-      }
-      for oneElementRepeatedImportNoArenaMessage in repeatedImportNoArenaMessage {
-          serialize_size += oneElementRepeatedImportNoArenaMessage.computeMessageSize(fieldNumber: 2)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1, value: repeatedNestedMessage)
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: repeatedImportNoArenaMessage)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -472,12 +468,12 @@ public extension Proto2ArenaUnittest {
 
           case 10:
             let subBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedNestedMessage.append(subBuilder.buildPartial())
 
           case 18:
             let subBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedImportNoArenaMessage.append(subBuilder.buildPartial())
 
           default:

@@ -119,20 +119,20 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasClassPrefix {
-        try codedOutputStream.writeString(fieldNumber: 1, value:classPrefix)
+        try codedOutputStream.write.string(fieldNumber: 1, value:classPrefix)
       }
       if hasEntitiesAccessControl {
         try codedOutputStream.writeEnum(fieldNumber: 2, value:entitiesAccessControl.rawValue)
       }
       if hasCompileForFramework {
-        try codedOutputStream.writeBool(fieldNumber: 3, value:compileForFramework)
+        try codedOutputStream.write.bool(fieldNumber: 3, value:compileForFramework)
       }
       if hasGenerateStruct {
-        try codedOutputStream.writeBool(fieldNumber: 4, value:generateStruct)
+        try codedOutputStream.write.bool(fieldNumber: 4, value:generateStruct)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -140,16 +140,16 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasClassPrefix {
-        serialize_size += classPrefix.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: classPrefix)
       }
       if (hasEntitiesAccessControl) {
         serialize_size += entitiesAccessControl.rawValue.computeEnumSize(fieldNumber: 2)
       }
       if hasCompileForFramework {
-        serialize_size += compileForFramework.computeBoolSize(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 3, value: compileForFramework)
       }
       if hasGenerateStruct {
-        serialize_size += generateStruct.computeBoolSize(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 4, value: generateStruct)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -412,7 +412,7 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            classPrefix = try codedInputStream.readString()
+            classPrefix = try codedInputStream.read.string()
 
           case 16:
             let valueIntentitiesAccessControl = try codedInputStream.readEnum()
@@ -423,10 +423,10 @@ public extension Google.Protobuf {
             }
 
           case 24:
-            compileForFramework = try codedInputStream.readBool()
+            compileForFramework = try codedInputStream.read.bool()
 
           case 32:
-            generateStruct = try codedInputStream.readBool()
+            generateStruct = try codedInputStream.read.bool()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -486,11 +486,11 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasGenerateErrorType {
-        try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
+        try codedOutputStream.write.bool(fieldNumber: 1, value:generateErrorType)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -498,7 +498,7 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasGenerateErrorType {
-        serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 1, value: generateErrorType)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -650,7 +650,7 @@ public extension Google.Protobuf {
             return self
 
           case 8:
-            generateErrorType = try codedInputStream.readBool()
+            generateErrorType = try codedInputStream.read.bool()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -701,11 +701,11 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasGenerateErrorType {
-        try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
+        try codedOutputStream.write.bool(fieldNumber: 1, value:generateErrorType)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -713,7 +713,7 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasGenerateErrorType {
-        serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 1, value: generateErrorType)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -865,7 +865,7 @@ public extension Google.Protobuf {
             return self
 
           case 8:
-            generateErrorType = try codedInputStream.readBool()
+            generateErrorType = try codedInputStream.read.bool()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

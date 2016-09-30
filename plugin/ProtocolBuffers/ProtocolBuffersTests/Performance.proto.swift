@@ -45,14 +45,14 @@ final internal class PBUser : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasGroup {
-      try codedOutputStream.writeMessage(fieldNumber: 1, value:group)
+      try codedOutputStream.write.message(fieldNumber: 1, value:group)
     }
     if hasGroupName {
-      try codedOutputStream.writeString(fieldNumber: 2, value:groupName)
+      try codedOutputStream.write.string(fieldNumber: 2, value:groupName)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -60,12 +60,12 @@ final internal class PBUser : GeneratedMessage {
 
     serialize_size = 0
     if hasGroup {
-        if let varSizegroup = group?.computeMessageSize(fieldNumber: 1) {
+        if let varSizegroup = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:group) {
             serialize_size += varSizegroup
         }
     }
     if hasGroupName {
-      serialize_size += groupName.computeStringSize(fieldNumber: 2)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: groupName)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -297,7 +297,7 @@ final internal class PBUser : GeneratedMessage {
           group = subBuilder.buildPartial()
 
         case 18:
-          groupName = try codedInputStream.readString()
+          groupName = try codedInputStream.read.string()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -351,11 +351,11 @@ final internal class PBGroup : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasOwner {
-      try codedOutputStream.writeMessage(fieldNumber: 1, value:owner)
+      try codedOutputStream.write.message(fieldNumber: 1, value:owner)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -363,7 +363,7 @@ final internal class PBGroup : GeneratedMessage {
 
     serialize_size = 0
     if hasOwner {
-        if let varSizeowner = owner?.computeMessageSize(fieldNumber: 1) {
+        if let varSizeowner = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:owner) {
             serialize_size += varSizeowner
         }
     }
@@ -617,20 +617,18 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     for oneElementBatch in batch {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:oneElementBatch)
+        try codedOutputStream.write.message(fieldNumber: 1, value:oneElementBatch)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
     }
 
     serialize_size = 0
-    for oneElementBatch in batch {
-        serialize_size += oneElementBatch.computeMessageSize(fieldNumber: 1)
-    }
+    serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1, value: batch)
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
@@ -784,7 +782,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
 
         case 10:
           let subBuilder = PBPerfomance.Builder()
-          try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+          try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
           batch.append(subBuilder.buildPartial())
 
         default:
@@ -878,29 +876,29 @@ final internal class PBPerfomance : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasInts {
-      try codedOutputStream.writeInt32(fieldNumber: 1, value:ints)
+      try codedOutputStream.write.int32(fieldNumber: 1, value:ints)
     }
     if hasInts64 {
-      try codedOutputStream.writeInt64(fieldNumber: 2, value:ints64)
+      try codedOutputStream.write.int64(fieldNumber: 2, value:ints64)
     }
     if hasDoubles {
-      try codedOutputStream.writeDouble(fieldNumber: 3, value:doubles)
+      try codedOutputStream.write.double(fieldNumber: 3, value:doubles)
     }
     if hasFloats {
-      try codedOutputStream.writeFloat(fieldNumber: 4, value:floats)
+      try codedOutputStream.write.float(fieldNumber: 4, value:floats)
     }
     if hasStr {
-      try codedOutputStream.writeString(fieldNumber: 5, value:str)
+      try codedOutputStream.write.string(fieldNumber: 5, value:str)
     }
     if hasBytes {
-      try codedOutputStream.writeData(fieldNumber: 6, value:bytes)
+      try codedOutputStream.write.data(fieldNumber: 6, value:bytes)
     }
     if hasDescription {
-      try codedOutputStream.writeString(fieldNumber: 7, value:description_)
+      try codedOutputStream.write.string(fieldNumber: 7, value:description_)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -908,25 +906,25 @@ final internal class PBPerfomance : GeneratedMessage {
 
     serialize_size = 0
     if hasInts {
-      serialize_size += ints.computeInt32Size(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: ints)
     }
     if hasInts64 {
-      serialize_size += ints64.computeInt64Size(fieldNumber: 2)
+      serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: ints64)
     }
     if hasDoubles {
-      serialize_size += doubles.computeDoubleSize(fieldNumber: 3)
+      serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 3, value: doubles)
     }
     if hasFloats {
-      serialize_size += floats.computeFloatSize(fieldNumber: 4)
+      serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 4, value: floats)
     }
     if hasStr {
-      serialize_size += str.computeStringSize(fieldNumber: 5)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 5, value: str)
     }
     if hasBytes {
-      serialize_size += bytes.computeDataSize(fieldNumber: 6)
+      serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 6, value: bytes)
     }
     if hasDescription {
-      serialize_size += description_.computeStringSize(fieldNumber: 7)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 7, value: description_)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -1300,25 +1298,25 @@ final internal class PBPerfomance : GeneratedMessage {
           return self
 
         case 8:
-          ints = try codedInputStream.readInt32()
+          ints = try codedInputStream.read.int32()
 
         case 16:
-          ints64 = try codedInputStream.readInt64()
+          ints64 = try codedInputStream.read.int64()
 
         case 25:
-          doubles = try codedInputStream.readDouble()
+          doubles = try codedInputStream.read.double()
 
         case 37:
-          floats = try codedInputStream.readFloat()
+          floats = try codedInputStream.read.float()
 
         case 42:
-          str = try codedInputStream.readString()
+          str = try codedInputStream.read.string()
 
         case 50:
-          bytes = try codedInputStream.readData()
+          bytes = try codedInputStream.read.data()
 
         case 58:
-          description_ = try codedInputStream.readString()
+          description_ = try codedInputStream.read.string()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1397,14 +1395,14 @@ final internal class PBProtoPoint : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasLatitude {
-      try codedOutputStream.writeFloat(fieldNumber: 1, value:latitude)
+      try codedOutputStream.write.float(fieldNumber: 1, value:latitude)
     }
     if hasLongitude {
-      try codedOutputStream.writeFloat(fieldNumber: 2, value:longitude)
+      try codedOutputStream.write.float(fieldNumber: 2, value:longitude)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1412,10 +1410,10 @@ final internal class PBProtoPoint : GeneratedMessage {
 
     serialize_size = 0
     if hasLatitude {
-      serialize_size += latitude.computeFloatSize(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 1, value: latitude)
     }
     if hasLongitude {
-      serialize_size += longitude.computeFloatSize(fieldNumber: 2)
+      serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 2, value: longitude)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -1604,10 +1602,10 @@ final internal class PBProtoPoint : GeneratedMessage {
           return self
 
         case 13:
-          latitude = try codedInputStream.readFloat()
+          latitude = try codedInputStream.read.float()
 
         case 21:
-          longitude = try codedInputStream.readFloat()
+          longitude = try codedInputStream.read.float()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1696,14 +1694,14 @@ final internal class PBIceCreamCone : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasScoops {
-      try codedOutputStream.writeInt32(fieldNumber: 1, value:scoops)
+      try codedOutputStream.write.int32(fieldNumber: 1, value:scoops)
     }
     if hasFlavor {
       try codedOutputStream.writeEnum(fieldNumber: 2, value:flavor.rawValue)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1711,7 +1709,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
     serialize_size = 0
     if hasScoops {
-      serialize_size += scoops.computeInt32Size(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: scoops)
     }
     if (hasFlavor) {
       serialize_size += flavor.rawValue.computeEnumSize(fieldNumber: 2)
@@ -1903,7 +1901,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
           return self
 
         case 8:
-          scoops = try codedInputStream.readInt32()
+          scoops = try codedInputStream.read.int32()
 
         case 16:
           let valueIntflavor = try codedInputStream.readEnum()
@@ -1967,11 +1965,11 @@ final internal class PBFoo : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasVal {
-      try codedOutputStream.writeInt32(fieldNumber: 1, value:val)
+      try codedOutputStream.write.int32(fieldNumber: 1, value:val)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1979,7 +1977,7 @@ final internal class PBFoo : GeneratedMessage {
 
     serialize_size = 0
     if hasVal {
-      serialize_size += val.computeInt32Size(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: val)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -2131,7 +2129,7 @@ final internal class PBFoo : GeneratedMessage {
           return self
 
         case 8:
-          val = try codedInputStream.readInt32()
+          val = try codedInputStream.read.int32()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -2181,11 +2179,11 @@ final internal class PBBar : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasFoo {
-      try codedOutputStream.writeMessage(fieldNumber: 1, value:foo)
+      try codedOutputStream.write.message(fieldNumber: 1, value:foo)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -2193,7 +2191,7 @@ final internal class PBBar : GeneratedMessage {
 
     serialize_size = 0
     if hasFoo {
-        if let varSizefoo = foo?.computeMessageSize(fieldNumber: 1) {
+        if let varSizefoo = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:foo) {
             serialize_size += varSizefoo
         }
     }
@@ -2438,11 +2436,11 @@ final internal class PBBaz : GeneratedMessage {
   }
   override internal func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasBar {
-      try codedOutputStream.writeMessage(fieldNumber: 1, value:bar)
+      try codedOutputStream.write.message(fieldNumber: 1, value:bar)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override internal func serializedSize() -> Int32 {
+  override internal func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -2450,7 +2448,7 @@ final internal class PBBaz : GeneratedMessage {
 
     serialize_size = 0
     if hasBar {
-        if let varSizebar = bar?.computeMessageSize(fieldNumber: 1) {
+        if let varSizebar = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:bar) {
             serialize_size += varSizebar
         }
     }

@@ -47,11 +47,11 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFileName {
-        try codedOutputStream.writeString(fieldNumber: 1, value:fileName)
+        try codedOutputStream.write.string(fieldNumber: 1, value:fileName)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -59,7 +59,7 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasFileName {
-        serialize_size += fileName.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: fileName)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -211,7 +211,7 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            fileName = try codedInputStream.readString()
+            fileName = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

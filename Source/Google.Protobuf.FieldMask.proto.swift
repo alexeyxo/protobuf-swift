@@ -138,12 +138,12 @@ public extension Google.Protobuf {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !paths.isEmpty {
         for oneValuepaths in paths {
-          try codedOutputStream.writeString(fieldNumber: 1, value:oneValuepaths)
+          try codedOutputStream.write.string(fieldNumber: 1, value:oneValuepaths)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -151,9 +151,7 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       var dataSizePaths:Int32 = 0
-      for oneValuepaths in paths {
-          dataSizePaths += oneValuepaths.computeStringSizeNoTag()
-      }
+      dataSizePaths += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: paths)
       serialize_size += dataSizePaths
       serialize_size += 1 * Int32(paths.count)
       serialize_size += unknownFields.serializedSize()
@@ -305,7 +303,7 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            paths += [try codedInputStream.readString()]
+            paths += [try codedInputStream.read.string()]
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

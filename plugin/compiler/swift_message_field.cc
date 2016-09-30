@@ -56,7 +56,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             
             //
-            (*variables)["group_or_message"] = (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? "Group" : "Message";
+            (*variables)["group_or_message"] = (descriptor->type() == FieldDescriptor::TYPE_GROUP) ? ".group" : ".message";
             
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->file());
@@ -224,7 +224,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let varSize$name$ = $name_reserved$?.compute$group_or_message$Size(fieldNumber: $number$) {\n"
+                       "    if let varSize$name$ = try ProtobufWire.Size(wireType:$group_or_message$).with(tag: $number$, value:$name_reserved$) {\n"
                        "        serialize_size += varSize$name$\n"
                        "    }\n"
                        "}\n");
@@ -355,10 +355,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->type() == FieldDescriptor::TYPE_GROUP) {
             printer->Print(variables_,
-                           "try codedInputStream.readGroup(fieldNumber:$number$, builder:subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readGroup(fieldNumber:$number$, builder:subBuilder, extensionRegistry:extensionRegistry)\n");
         } else {
             printer->Print(variables_,
-                           "try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)\n");
+                           "try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)\n");
         }
         
         printer->Print(variables_,
@@ -374,9 +374,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "for oneElement$capitalized_name$ in $name_reserved$ {\n"
-                       "    serialize_size += oneElement$capitalized_name$.compute$group_or_message$Size(fieldNumber: $number$)\n"
-                       "}\n");
+                       "serialize_size += try ProtobufWire.Size(wireType: $group_or_message$).repeatedWith(tag: $number$, value: $name_reserved$)\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {

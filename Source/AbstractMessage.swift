@@ -34,7 +34,7 @@ public enum ProtocolBuffersError: Error {
 
 public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     var unknownFields:UnknownFieldSet{get}
-    func serializedSize() -> Int32
+    func serializedSize() throws -> Int32
     func isInitialized() -> Bool
     func writeTo(codedOutputStream:CodedOutputStream) throws
     func writeTo(outputStream:OutputStream) throws
@@ -79,20 +79,17 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         unknownFields = UnknownFieldSet(fields: Dictionary())
     }
 
-    final public func data() -> Data {
-        let ser_size = serializedSize()
+    final public func data() throws -> Data {
+        let ser_size = try serializedSize()
         let data = Data(count: Int(ser_size))
         let stream:CodedOutputStream = CodedOutputStream(data: data)
-        do {
-            try writeTo(codedOutputStream: stream)
-        }
-        catch {}
+        try writeTo(codedOutputStream: stream)
         return Data(bytes: stream.buffer.buffer, count: Int(ser_size))
     }
     open func isInitialized() -> Bool {
         return false
     }
-    open func serializedSize() -> Int32 {
+    open func serializedSize() throws -> Int32 {
         return 0
     }
     
@@ -111,7 +108,7 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     }
     
     public func writeDelimitedTo(outputStream: OutputStream) throws {
-        let serializedDataSize = serializedSize()
+        let serializedDataSize = try serializedSize()
         let codedOutputStream = CodedOutputStream(stream: outputStream)
         try codedOutputStream.writeRawVarint32(value: serializedDataSize)
         try writeTo(codedOutputStream: codedOutputStream)

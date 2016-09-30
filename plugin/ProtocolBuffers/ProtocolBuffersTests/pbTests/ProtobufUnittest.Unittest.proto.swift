@@ -1477,11 +1477,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasBb {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:bb)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:bb)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1489,7 +1489,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += bb.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: bb)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -1641,7 +1641,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                bb = try codedInputStream.readInt32()
+                bb = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1698,11 +1698,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 17, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 17, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1710,7 +1710,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 17)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -1862,7 +1862,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 136:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1919,11 +1919,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 47, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 47, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1931,7 +1931,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 47)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 47, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -2083,7 +2083,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 376:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -2456,61 +2456,61 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:optionalInt32)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:optionalInt32)
       }
       if hasOptionalInt64 {
-        try codedOutputStream.writeInt64(fieldNumber: 2, value:optionalInt64)
+        try codedOutputStream.write.int64(fieldNumber: 2, value:optionalInt64)
       }
       if hasOptionalUint32 {
-        try codedOutputStream.writeUInt32(fieldNumber: 3, value:optionalUint32)
+        try codedOutputStream.write.uInt32(fieldNumber: 3, value:optionalUint32)
       }
       if hasOptionalUint64 {
-        try codedOutputStream.writeUInt64(fieldNumber: 4, value:optionalUint64)
+        try codedOutputStream.write.uint64(fieldNumber: 4, value:optionalUint64)
       }
       if hasOptionalSint32 {
-        try codedOutputStream.writeSInt32(fieldNumber: 5, value:optionalSint32)
+        try codedOutputStream.write.sint32(fieldNumber: 5, value:optionalSint32)
       }
       if hasOptionalSint64 {
-        try codedOutputStream.writeSInt64(fieldNumber: 6, value:optionalSint64)
+        try codedOutputStream.write.sint64(fieldNumber: 6, value:optionalSint64)
       }
       if hasOptionalFixed32 {
-        try codedOutputStream.writeFixed32(fieldNumber: 7, value:optionalFixed32)
+        try codedOutputStream.write.fixed32(fieldNumber: 7, value:optionalFixed32)
       }
       if hasOptionalFixed64 {
-        try codedOutputStream.writeFixed64(fieldNumber: 8, value:optionalFixed64)
+        try codedOutputStream.write.dixed64(fieldNumber: 8, value:optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        try codedOutputStream.writeSFixed32(fieldNumber: 9, value:optionalSfixed32)
+        try codedOutputStream.write.sfixed32(fieldNumber: 9, value:optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        try codedOutputStream.writeSFixed64(fieldNumber: 10, value:optionalSfixed64)
+        try codedOutputStream.write.sfixed64(fieldNumber: 10, value:optionalSfixed64)
       }
       if hasOptionalFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 11, value:optionalFloat)
+        try codedOutputStream.write.float(fieldNumber: 11, value:optionalFloat)
       }
       if hasOptionalDouble {
-        try codedOutputStream.writeDouble(fieldNumber: 12, value:optionalDouble)
+        try codedOutputStream.write.double(fieldNumber: 12, value:optionalDouble)
       }
       if hasOptionalBool {
-        try codedOutputStream.writeBool(fieldNumber: 13, value:optionalBool)
+        try codedOutputStream.write.bool(fieldNumber: 13, value:optionalBool)
       }
       if hasOptionalString {
-        try codedOutputStream.writeString(fieldNumber: 14, value:optionalString)
+        try codedOutputStream.write.string(fieldNumber: 14, value:optionalString)
       }
       if hasOptionalBytes {
-        try codedOutputStream.writeData(fieldNumber: 15, value:optionalBytes)
+        try codedOutputStream.write.data(fieldNumber: 15, value:optionalBytes)
       }
       if hasOptionalGroup {
-        try codedOutputStream.writeGroup(fieldNumber: 16, value:optionalGroup)
+        try codedOutputStream.write.group(fieldNumber: 16, value:optionalGroup)
       }
       if hasOptionalNestedMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 18, value:optionalNestedMessage)
+        try codedOutputStream.write.message(fieldNumber: 18, value:optionalNestedMessage)
       }
       if hasOptionalForeignMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 19, value:optionalForeignMessage)
+        try codedOutputStream.write.message(fieldNumber: 19, value:optionalForeignMessage)
       }
       if hasOptionalImportMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 20, value:optionalImportMessage)
+        try codedOutputStream.write.message(fieldNumber: 20, value:optionalImportMessage)
       }
       if hasOptionalNestedEnum {
         try codedOutputStream.writeEnum(fieldNumber: 21, value:optionalNestedEnum.rawValue)
@@ -2522,103 +2522,103 @@ public extension ProtobufUnittest {
         try codedOutputStream.writeEnum(fieldNumber: 23, value:optionalImportEnum.rawValue)
       }
       if hasOptionalStringPiece {
-        try codedOutputStream.writeString(fieldNumber: 24, value:optionalStringPiece)
+        try codedOutputStream.write.string(fieldNumber: 24, value:optionalStringPiece)
       }
       if hasOptionalCord {
-        try codedOutputStream.writeString(fieldNumber: 25, value:optionalCord)
+        try codedOutputStream.write.string(fieldNumber: 25, value:optionalCord)
       }
       if hasOptionalPublicImportMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 26, value:optionalPublicImportMessage)
+        try codedOutputStream.write.message(fieldNumber: 26, value:optionalPublicImportMessage)
       }
       if hasOptionalLazyMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 27, value:optionalLazyMessage)
+        try codedOutputStream.write.message(fieldNumber: 27, value:optionalLazyMessage)
       }
       if !repeatedInt32.isEmpty {
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try codedOutputStream.writeInt32(fieldNumber: 31, value:oneValuerepeatedInt32)
+          try codedOutputStream.write.int32(fieldNumber: 31, value:oneValuerepeatedInt32)
         }
       }
       if !repeatedInt64.isEmpty {
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try codedOutputStream.writeInt64(fieldNumber: 32, value:oneValuerepeatedInt64)
+          try codedOutputStream.write.int64(fieldNumber: 32, value:oneValuerepeatedInt64)
         }
       }
       if !repeatedUint32.isEmpty {
         for oneValuerepeatedUint32 in repeatedUint32 {
-          try codedOutputStream.writeUInt32(fieldNumber: 33, value:oneValuerepeatedUint32)
+          try codedOutputStream.write.uInt32(fieldNumber: 33, value:oneValuerepeatedUint32)
         }
       }
       if !repeatedUint64.isEmpty {
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try codedOutputStream.writeUInt64(fieldNumber: 34, value:oneValuerepeatedUint64)
+          try codedOutputStream.write.uint64(fieldNumber: 34, value:oneValuerepeatedUint64)
         }
       }
       if !repeatedSint32.isEmpty {
         for oneValuerepeatedSint32 in repeatedSint32 {
-          try codedOutputStream.writeSInt32(fieldNumber: 35, value:oneValuerepeatedSint32)
+          try codedOutputStream.write.sint32(fieldNumber: 35, value:oneValuerepeatedSint32)
         }
       }
       if !repeatedSint64.isEmpty {
         for oneValuerepeatedSint64 in repeatedSint64 {
-          try codedOutputStream.writeSInt64(fieldNumber: 36, value:oneValuerepeatedSint64)
+          try codedOutputStream.write.sint64(fieldNumber: 36, value:oneValuerepeatedSint64)
         }
       }
       if !repeatedFixed32.isEmpty {
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try codedOutputStream.writeFixed32(fieldNumber: 37, value:oneValuerepeatedFixed32)
+          try codedOutputStream.write.fixed32(fieldNumber: 37, value:oneValuerepeatedFixed32)
         }
       }
       if !repeatedFixed64.isEmpty {
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try codedOutputStream.writeFixed64(fieldNumber: 38, value:oneValuerepeatedFixed64)
+          try codedOutputStream.write.dixed64(fieldNumber: 38, value:oneValuerepeatedFixed64)
         }
       }
       if !repeatedSfixed32.isEmpty {
         for oneValuerepeatedSfixed32 in repeatedSfixed32 {
-          try codedOutputStream.writeSFixed32(fieldNumber: 39, value:oneValuerepeatedSfixed32)
+          try codedOutputStream.write.sfixed32(fieldNumber: 39, value:oneValuerepeatedSfixed32)
         }
       }
       if !repeatedSfixed64.isEmpty {
         for oneValuerepeatedSfixed64 in repeatedSfixed64 {
-          try codedOutputStream.writeSFixed64(fieldNumber: 40, value:oneValuerepeatedSfixed64)
+          try codedOutputStream.write.sfixed64(fieldNumber: 40, value:oneValuerepeatedSfixed64)
         }
       }
       if !repeatedFloat.isEmpty {
         for oneValuerepeatedFloat in repeatedFloat {
-          try codedOutputStream.writeFloat(fieldNumber: 41, value:oneValuerepeatedFloat)
+          try codedOutputStream.write.float(fieldNumber: 41, value:oneValuerepeatedFloat)
         }
       }
       if !repeatedDouble.isEmpty {
         for oneValuerepeatedDouble in repeatedDouble {
-          try codedOutputStream.writeDouble(fieldNumber: 42, value:oneValuerepeatedDouble)
+          try codedOutputStream.write.double(fieldNumber: 42, value:oneValuerepeatedDouble)
         }
       }
       if !repeatedBool.isEmpty {
         for oneValuerepeatedBool in repeatedBool {
-          try codedOutputStream.writeBool(fieldNumber: 43, value:oneValuerepeatedBool)
+          try codedOutputStream.write.bool(fieldNumber: 43, value:oneValuerepeatedBool)
         }
       }
       if !repeatedString.isEmpty {
         for oneValuerepeatedString in repeatedString {
-          try codedOutputStream.writeString(fieldNumber: 44, value:oneValuerepeatedString)
+          try codedOutputStream.write.string(fieldNumber: 44, value:oneValuerepeatedString)
         }
       }
       if !repeatedBytes.isEmpty {
         for oneValuerepeatedBytes in repeatedBytes {
-          try codedOutputStream.writeData(fieldNumber: 45, value:oneValuerepeatedBytes)
+          try codedOutputStream.write.data(fieldNumber: 45, value:oneValuerepeatedBytes)
         }
       }
       for oneElementRepeatedGroup in repeatedGroup {
-          try codedOutputStream.writeGroup(fieldNumber: 46, value:oneElementRepeatedGroup)
+          try codedOutputStream.write.group(fieldNumber: 46, value:oneElementRepeatedGroup)
       }
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 48, value:oneElementRepeatedNestedMessage)
+          try codedOutputStream.write.message(fieldNumber: 48, value:oneElementRepeatedNestedMessage)
       }
       for oneElementRepeatedForeignMessage in repeatedForeignMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 49, value:oneElementRepeatedForeignMessage)
+          try codedOutputStream.write.message(fieldNumber: 49, value:oneElementRepeatedForeignMessage)
       }
       for oneElementRepeatedImportMessage in repeatedImportMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 50, value:oneElementRepeatedImportMessage)
+          try codedOutputStream.write.message(fieldNumber: 50, value:oneElementRepeatedImportMessage)
       }
       for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
           try codedOutputStream.writeEnum(fieldNumber: 51, value:oneValueOfrepeatedNestedEnum.rawValue)
@@ -2631,61 +2631,61 @@ public extension ProtobufUnittest {
       }
       if !repeatedStringPiece.isEmpty {
         for oneValuerepeatedStringPiece in repeatedStringPiece {
-          try codedOutputStream.writeString(fieldNumber: 54, value:oneValuerepeatedStringPiece)
+          try codedOutputStream.write.string(fieldNumber: 54, value:oneValuerepeatedStringPiece)
         }
       }
       if !repeatedCord.isEmpty {
         for oneValuerepeatedCord in repeatedCord {
-          try codedOutputStream.writeString(fieldNumber: 55, value:oneValuerepeatedCord)
+          try codedOutputStream.write.string(fieldNumber: 55, value:oneValuerepeatedCord)
         }
       }
       for oneElementRepeatedLazyMessage in repeatedLazyMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 57, value:oneElementRepeatedLazyMessage)
+          try codedOutputStream.write.message(fieldNumber: 57, value:oneElementRepeatedLazyMessage)
       }
       if hasDefaultInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 61, value:defaultInt32)
+        try codedOutputStream.write.int32(fieldNumber: 61, value:defaultInt32)
       }
       if hasDefaultInt64 {
-        try codedOutputStream.writeInt64(fieldNumber: 62, value:defaultInt64)
+        try codedOutputStream.write.int64(fieldNumber: 62, value:defaultInt64)
       }
       if hasDefaultUint32 {
-        try codedOutputStream.writeUInt32(fieldNumber: 63, value:defaultUint32)
+        try codedOutputStream.write.uInt32(fieldNumber: 63, value:defaultUint32)
       }
       if hasDefaultUint64 {
-        try codedOutputStream.writeUInt64(fieldNumber: 64, value:defaultUint64)
+        try codedOutputStream.write.uint64(fieldNumber: 64, value:defaultUint64)
       }
       if hasDefaultSint32 {
-        try codedOutputStream.writeSInt32(fieldNumber: 65, value:defaultSint32)
+        try codedOutputStream.write.sint32(fieldNumber: 65, value:defaultSint32)
       }
       if hasDefaultSint64 {
-        try codedOutputStream.writeSInt64(fieldNumber: 66, value:defaultSint64)
+        try codedOutputStream.write.sint64(fieldNumber: 66, value:defaultSint64)
       }
       if hasDefaultFixed32 {
-        try codedOutputStream.writeFixed32(fieldNumber: 67, value:defaultFixed32)
+        try codedOutputStream.write.fixed32(fieldNumber: 67, value:defaultFixed32)
       }
       if hasDefaultFixed64 {
-        try codedOutputStream.writeFixed64(fieldNumber: 68, value:defaultFixed64)
+        try codedOutputStream.write.dixed64(fieldNumber: 68, value:defaultFixed64)
       }
       if hasDefaultSfixed32 {
-        try codedOutputStream.writeSFixed32(fieldNumber: 69, value:defaultSfixed32)
+        try codedOutputStream.write.sfixed32(fieldNumber: 69, value:defaultSfixed32)
       }
       if hasDefaultSfixed64 {
-        try codedOutputStream.writeSFixed64(fieldNumber: 70, value:defaultSfixed64)
+        try codedOutputStream.write.sfixed64(fieldNumber: 70, value:defaultSfixed64)
       }
       if hasDefaultFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 71, value:defaultFloat)
+        try codedOutputStream.write.float(fieldNumber: 71, value:defaultFloat)
       }
       if hasDefaultDouble {
-        try codedOutputStream.writeDouble(fieldNumber: 72, value:defaultDouble)
+        try codedOutputStream.write.double(fieldNumber: 72, value:defaultDouble)
       }
       if hasDefaultBool {
-        try codedOutputStream.writeBool(fieldNumber: 73, value:defaultBool)
+        try codedOutputStream.write.bool(fieldNumber: 73, value:defaultBool)
       }
       if hasDefaultString {
-        try codedOutputStream.writeString(fieldNumber: 74, value:defaultString)
+        try codedOutputStream.write.string(fieldNumber: 74, value:defaultString)
       }
       if hasDefaultBytes {
-        try codedOutputStream.writeData(fieldNumber: 75, value:defaultBytes)
+        try codedOutputStream.write.data(fieldNumber: 75, value:defaultBytes)
       }
       if hasDefaultNestedEnum {
         try codedOutputStream.writeEnum(fieldNumber: 81, value:defaultNestedEnum.rawValue)
@@ -2697,26 +2697,26 @@ public extension ProtobufUnittest {
         try codedOutputStream.writeEnum(fieldNumber: 83, value:defaultImportEnum.rawValue)
       }
       if hasDefaultStringPiece {
-        try codedOutputStream.writeString(fieldNumber: 84, value:defaultStringPiece)
+        try codedOutputStream.write.string(fieldNumber: 84, value:defaultStringPiece)
       }
       if hasDefaultCord {
-        try codedOutputStream.writeString(fieldNumber: 85, value:defaultCord)
+        try codedOutputStream.write.string(fieldNumber: 85, value:defaultCord)
       }
       if hasOneofUint32 {
-        try codedOutputStream.writeUInt32(fieldNumber: 111, value:oneofUint32)
+        try codedOutputStream.write.uInt32(fieldNumber: 111, value:oneofUint32)
       }
       if hasOneofNestedMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 112, value:oneofNestedMessage)
+        try codedOutputStream.write.message(fieldNumber: 112, value:oneofNestedMessage)
       }
       if hasOneofString {
-        try codedOutputStream.writeString(fieldNumber: 113, value:oneofString)
+        try codedOutputStream.write.string(fieldNumber: 113, value:oneofString)
       }
       if hasOneofBytes {
-        try codedOutputStream.writeData(fieldNumber: 114, value:oneofBytes)
+        try codedOutputStream.write.data(fieldNumber: 114, value:oneofBytes)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -2724,67 +2724,67 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalInt32 {
-        serialize_size += optionalInt32.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: optionalInt32)
       }
       if hasOptionalInt64 {
-        serialize_size += optionalInt64.computeInt64Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: optionalInt64)
       }
       if hasOptionalUint32 {
-        serialize_size += optionalUint32.computeUInt32Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 3, value: optionalUint32)
       }
       if hasOptionalUint64 {
-        serialize_size += optionalUint64.computeUInt64Size(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 4, value: optionalUint64)
       }
       if hasOptionalSint32 {
-        serialize_size += optionalSint32.computeSInt32Size(fieldNumber: 5)
+        serialize_size += try ProtobufWire.Size(wireType:.sint32).with(tag: 5, value: optionalSint32)
       }
       if hasOptionalSint64 {
-        serialize_size += optionalSint64.computeSInt64Size(fieldNumber: 6)
+        serialize_size += try ProtobufWire.Size(wireType:.sint64).with(tag: 6, value: optionalSint64)
       }
       if hasOptionalFixed32 {
-        serialize_size += optionalFixed32.computeFixed32Size(fieldNumber: 7)
+        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 7, value: optionalFixed32)
       }
       if hasOptionalFixed64 {
-        serialize_size += optionalFixed64.computeFixed64Size(fieldNumber: 8)
+        serialize_size += try ProtobufWire.Size(wireType:.dixed64).with(tag: 8, value: optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        serialize_size += optionalSfixed32.computeSFixed32Size(fieldNumber: 9)
+        serialize_size += try ProtobufWire.Size(wireType:.sfixed32).with(tag: 9, value: optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        serialize_size += optionalSfixed64.computeSFixed64Size(fieldNumber: 10)
+        serialize_size += try ProtobufWire.Size(wireType:.sfixed64).with(tag: 10, value: optionalSfixed64)
       }
       if hasOptionalFloat {
-        serialize_size += optionalFloat.computeFloatSize(fieldNumber: 11)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 11, value: optionalFloat)
       }
       if hasOptionalDouble {
-        serialize_size += optionalDouble.computeDoubleSize(fieldNumber: 12)
+        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 12, value: optionalDouble)
       }
       if hasOptionalBool {
-        serialize_size += optionalBool.computeBoolSize(fieldNumber: 13)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 13, value: optionalBool)
       }
       if hasOptionalString {
-        serialize_size += optionalString.computeStringSize(fieldNumber: 14)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 14, value: optionalString)
       }
       if hasOptionalBytes {
-        serialize_size += optionalBytes.computeDataSize(fieldNumber: 15)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 15, value: optionalBytes)
       }
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(fieldNumber: 16) {
+          if let varSizeoptionalGroup = try ProtobufWire.Size(wireType:.group).with(tag: 16, value:optionalGroup) {
               serialize_size += varSizeoptionalGroup
           }
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(fieldNumber: 18) {
+          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 18, value:optionalNestedMessage) {
               serialize_size += varSizeoptionalNestedMessage
           }
       }
       if hasOptionalForeignMessage {
-          if let varSizeoptionalForeignMessage = optionalForeignMessage?.computeMessageSize(fieldNumber: 19) {
+          if let varSizeoptionalForeignMessage = try ProtobufWire.Size(wireType:.message).with(tag: 19, value:optionalForeignMessage) {
               serialize_size += varSizeoptionalForeignMessage
           }
       }
       if hasOptionalImportMessage {
-          if let varSizeoptionalImportMessage = optionalImportMessage?.computeMessageSize(fieldNumber: 20) {
+          if let varSizeoptionalImportMessage = try ProtobufWire.Size(wireType:.message).with(tag: 20, value:optionalImportMessage) {
               serialize_size += varSizeoptionalImportMessage
           }
       }
@@ -2798,55 +2798,43 @@ public extension ProtobufUnittest {
         serialize_size += optionalImportEnum.rawValue.computeEnumSize(fieldNumber: 23)
       }
       if hasOptionalStringPiece {
-        serialize_size += optionalStringPiece.computeStringSize(fieldNumber: 24)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 24, value: optionalStringPiece)
       }
       if hasOptionalCord {
-        serialize_size += optionalCord.computeStringSize(fieldNumber: 25)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 25, value: optionalCord)
       }
       if hasOptionalPublicImportMessage {
-          if let varSizeoptionalPublicImportMessage = optionalPublicImportMessage?.computeMessageSize(fieldNumber: 26) {
+          if let varSizeoptionalPublicImportMessage = try ProtobufWire.Size(wireType:.message).with(tag: 26, value:optionalPublicImportMessage) {
               serialize_size += varSizeoptionalPublicImportMessage
           }
       }
       if hasOptionalLazyMessage {
-          if let varSizeoptionalLazyMessage = optionalLazyMessage?.computeMessageSize(fieldNumber: 27) {
+          if let varSizeoptionalLazyMessage = try ProtobufWire.Size(wireType:.message).with(tag: 27, value:optionalLazyMessage) {
               serialize_size += varSizeoptionalLazyMessage
           }
       }
       var dataSizeRepeatedInt32:Int32 = 0
-      for oneValuerepeatedInt32 in repeatedInt32 {
-          dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
-      }
+      dataSizeRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedInt32)
       serialize_size += dataSizeRepeatedInt32
       serialize_size += 2 * Int32(repeatedInt32.count)
       var dataSizeRepeatedInt64:Int32 = 0
-      for oneValuerepeatedInt64 in repeatedInt64 {
-          dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
-      }
+      dataSizeRepeatedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: repeatedInt64)
       serialize_size += dataSizeRepeatedInt64
       serialize_size += 2 * Int32(repeatedInt64.count)
       var dataSizeRepeatedUint32:Int32 = 0
-      for oneValuerepeatedUint32 in repeatedUint32 {
-          dataSizeRepeatedUint32 += oneValuerepeatedUint32.computeUInt32SizeNoTag()
-      }
+      dataSizeRepeatedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: repeatedUint32)
       serialize_size += dataSizeRepeatedUint32
       serialize_size += 2 * Int32(repeatedUint32.count)
       var dataSizeRepeatedUint64:Int32 = 0
-      for oneValuerepeatedUint64 in repeatedUint64 {
-          dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
-      }
+      dataSizeRepeatedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: repeatedUint64)
       serialize_size += dataSizeRepeatedUint64
       serialize_size += 2 * Int32(repeatedUint64.count)
       var dataSizeRepeatedSint32:Int32 = 0
-      for oneValuerepeatedSint32 in repeatedSint32 {
-          dataSizeRepeatedSint32 += oneValuerepeatedSint32.computeSInt32SizeNoTag()
-      }
+      dataSizeRepeatedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: repeatedSint32)
       serialize_size += dataSizeRepeatedSint32
       serialize_size += 2 * Int32(repeatedSint32.count)
       var dataSizeRepeatedSint64:Int32 = 0
-      for oneValuerepeatedSint64 in repeatedSint64 {
-          dataSizeRepeatedSint64 += oneValuerepeatedSint64.computeSInt64SizeNoTag()
-      }
+      dataSizeRepeatedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: repeatedSint64)
       serialize_size += dataSizeRepeatedSint64
       serialize_size += 2 * Int32(repeatedSint64.count)
       var dataSizeRepeatedFixed32:Int32 = 0
@@ -2878,106 +2866,82 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedBool
       serialize_size += 2 * Int32(repeatedBool.count)
       var dataSizeRepeatedString:Int32 = 0
-      for oneValuerepeatedString in repeatedString {
-          dataSizeRepeatedString += oneValuerepeatedString.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedString += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedString)
       serialize_size += dataSizeRepeatedString
       serialize_size += 2 * Int32(repeatedString.count)
       var dataSizeRepeatedBytes:Int32 = 0
-      for oneValuerepeatedBytes in repeatedBytes {
-          dataSizeRepeatedBytes += oneValuerepeatedBytes.computeDataSizeNoTag()
-      }
+      dataSizeRepeatedBytes += try ProtobufWire.Size(wireType: .data).repeatedWithoutTag(value: repeatedBytes)
       serialize_size += dataSizeRepeatedBytes
       serialize_size += 2 * Int32(repeatedBytes.count)
-      for oneElementRepeatedGroup in repeatedGroup {
-          serialize_size += oneElementRepeatedGroup.computeGroupSize(fieldNumber: 46)
-      }
-      for oneElementRepeatedNestedMessage in repeatedNestedMessage {
-          serialize_size += oneElementRepeatedNestedMessage.computeMessageSize(fieldNumber: 48)
-      }
-      for oneElementRepeatedForeignMessage in repeatedForeignMessage {
-          serialize_size += oneElementRepeatedForeignMessage.computeMessageSize(fieldNumber: 49)
-      }
-      for oneElementRepeatedImportMessage in repeatedImportMessage {
-          serialize_size += oneElementRepeatedImportMessage.computeMessageSize(fieldNumber: 50)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 46, value: repeatedGroup)
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 48, value: repeatedNestedMessage)
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 49, value: repeatedForeignMessage)
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 50, value: repeatedImportMessage)
       var dataSizerepeatedNestedEnum:Int32 = 0
-      for oneValueOfrepeatedNestedEnum in repeatedNestedEnum {
-          dataSizerepeatedNestedEnum += oneValueOfrepeatedNestedEnum.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedNestedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedNestedEnum.rawValue)
       serialize_size += dataSizerepeatedNestedEnum
       serialize_size += (2 * Int32(repeatedNestedEnum.count))
       var dataSizerepeatedForeignEnum:Int32 = 0
-      for oneValueOfrepeatedForeignEnum in repeatedForeignEnum {
-          dataSizerepeatedForeignEnum += oneValueOfrepeatedForeignEnum.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedForeignEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedForeignEnum.rawValue)
       serialize_size += dataSizerepeatedForeignEnum
       serialize_size += (2 * Int32(repeatedForeignEnum.count))
       var dataSizerepeatedImportEnum:Int32 = 0
-      for oneValueOfrepeatedImportEnum in repeatedImportEnum {
-          dataSizerepeatedImportEnum += oneValueOfrepeatedImportEnum.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedImportEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedImportEnum.rawValue)
       serialize_size += dataSizerepeatedImportEnum
       serialize_size += (2 * Int32(repeatedImportEnum.count))
       var dataSizeRepeatedStringPiece:Int32 = 0
-      for oneValuerepeatedStringPiece in repeatedStringPiece {
-          dataSizeRepeatedStringPiece += oneValuerepeatedStringPiece.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedStringPiece += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringPiece)
       serialize_size += dataSizeRepeatedStringPiece
       serialize_size += 2 * Int32(repeatedStringPiece.count)
       var dataSizeRepeatedCord:Int32 = 0
-      for oneValuerepeatedCord in repeatedCord {
-          dataSizeRepeatedCord += oneValuerepeatedCord.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedCord += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedCord)
       serialize_size += dataSizeRepeatedCord
       serialize_size += 2 * Int32(repeatedCord.count)
-      for oneElementRepeatedLazyMessage in repeatedLazyMessage {
-          serialize_size += oneElementRepeatedLazyMessage.computeMessageSize(fieldNumber: 57)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 57, value: repeatedLazyMessage)
       if hasDefaultInt32 {
-        serialize_size += defaultInt32.computeInt32Size(fieldNumber: 61)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 61, value: defaultInt32)
       }
       if hasDefaultInt64 {
-        serialize_size += defaultInt64.computeInt64Size(fieldNumber: 62)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 62, value: defaultInt64)
       }
       if hasDefaultUint32 {
-        serialize_size += defaultUint32.computeUInt32Size(fieldNumber: 63)
+        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 63, value: defaultUint32)
       }
       if hasDefaultUint64 {
-        serialize_size += defaultUint64.computeUInt64Size(fieldNumber: 64)
+        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 64, value: defaultUint64)
       }
       if hasDefaultSint32 {
-        serialize_size += defaultSint32.computeSInt32Size(fieldNumber: 65)
+        serialize_size += try ProtobufWire.Size(wireType:.sint32).with(tag: 65, value: defaultSint32)
       }
       if hasDefaultSint64 {
-        serialize_size += defaultSint64.computeSInt64Size(fieldNumber: 66)
+        serialize_size += try ProtobufWire.Size(wireType:.sint64).with(tag: 66, value: defaultSint64)
       }
       if hasDefaultFixed32 {
-        serialize_size += defaultFixed32.computeFixed32Size(fieldNumber: 67)
+        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 67, value: defaultFixed32)
       }
       if hasDefaultFixed64 {
-        serialize_size += defaultFixed64.computeFixed64Size(fieldNumber: 68)
+        serialize_size += try ProtobufWire.Size(wireType:.dixed64).with(tag: 68, value: defaultFixed64)
       }
       if hasDefaultSfixed32 {
-        serialize_size += defaultSfixed32.computeSFixed32Size(fieldNumber: 69)
+        serialize_size += try ProtobufWire.Size(wireType:.sfixed32).with(tag: 69, value: defaultSfixed32)
       }
       if hasDefaultSfixed64 {
-        serialize_size += defaultSfixed64.computeSFixed64Size(fieldNumber: 70)
+        serialize_size += try ProtobufWire.Size(wireType:.sfixed64).with(tag: 70, value: defaultSfixed64)
       }
       if hasDefaultFloat {
-        serialize_size += defaultFloat.computeFloatSize(fieldNumber: 71)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 71, value: defaultFloat)
       }
       if hasDefaultDouble {
-        serialize_size += defaultDouble.computeDoubleSize(fieldNumber: 72)
+        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 72, value: defaultDouble)
       }
       if hasDefaultBool {
-        serialize_size += defaultBool.computeBoolSize(fieldNumber: 73)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 73, value: defaultBool)
       }
       if hasDefaultString {
-        serialize_size += defaultString.computeStringSize(fieldNumber: 74)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 74, value: defaultString)
       }
       if hasDefaultBytes {
-        serialize_size += defaultBytes.computeDataSize(fieldNumber: 75)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 75, value: defaultBytes)
       }
       if (hasDefaultNestedEnum) {
         serialize_size += defaultNestedEnum.rawValue.computeEnumSize(fieldNumber: 81)
@@ -2989,24 +2953,24 @@ public extension ProtobufUnittest {
         serialize_size += defaultImportEnum.rawValue.computeEnumSize(fieldNumber: 83)
       }
       if hasDefaultStringPiece {
-        serialize_size += defaultStringPiece.computeStringSize(fieldNumber: 84)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 84, value: defaultStringPiece)
       }
       if hasDefaultCord {
-        serialize_size += defaultCord.computeStringSize(fieldNumber: 85)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 85, value: defaultCord)
       }
       if hasOneofUint32 {
-        serialize_size += oneofUint32.computeUInt32Size(fieldNumber: 111)
+        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 111, value: oneofUint32)
       }
       if hasOneofNestedMessage {
-          if let varSizeoneofNestedMessage = oneofNestedMessage?.computeMessageSize(fieldNumber: 112) {
+          if let varSizeoneofNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 112, value:oneofNestedMessage) {
               serialize_size += varSizeoneofNestedMessage
           }
       }
       if hasOneofString {
-        serialize_size += oneofString.computeStringSize(fieldNumber: 113)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 113, value: oneofString)
       }
       if hasOneofBytes {
-        serialize_size += oneofBytes.computeDataSize(fieldNumber: 114)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 114, value: oneofBytes)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -6131,49 +6095,49 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            optionalInt32 = try codedInputStream.readInt32()
+            optionalInt32 = try codedInputStream.read.int32()
 
           case 16:
-            optionalInt64 = try codedInputStream.readInt64()
+            optionalInt64 = try codedInputStream.read.int64()
 
           case 24:
-            optionalUint32 = try codedInputStream.readUInt32()
+            optionalUint32 = try codedInputStream.read.uInt32()
 
           case 32:
-            optionalUint64 = try codedInputStream.readUInt64()
+            optionalUint64 = try codedInputStream.read.uint64()
 
           case 40:
-            optionalSint32 = try codedInputStream.readSInt32()
+            optionalSint32 = try codedInputStream.read.sint32()
 
           case 48:
-            optionalSint64 = try codedInputStream.readSInt64()
+            optionalSint64 = try codedInputStream.read.sint64()
 
           case 61:
-            optionalFixed32 = try codedInputStream.readFixed32()
+            optionalFixed32 = try codedInputStream.read.fixed32()
 
           case 65:
-            optionalFixed64 = try codedInputStream.readFixed64()
+            optionalFixed64 = try codedInputStream.read.dixed64()
 
           case 77:
-            optionalSfixed32 = try codedInputStream.readSFixed32()
+            optionalSfixed32 = try codedInputStream.read.sfixed32()
 
           case 81:
-            optionalSfixed64 = try codedInputStream.readSFixed64()
+            optionalSfixed64 = try codedInputStream.read.sfixed64()
 
           case 93:
-            optionalFloat = try codedInputStream.readFloat()
+            optionalFloat = try codedInputStream.read.float()
 
           case 97:
-            optionalDouble = try codedInputStream.readDouble()
+            optionalDouble = try codedInputStream.read.double()
 
           case 104:
-            optionalBool = try codedInputStream.readBool()
+            optionalBool = try codedInputStream.read.bool()
 
           case 114:
-            optionalString = try codedInputStream.readString()
+            optionalString = try codedInputStream.read.string()
 
           case 122:
-            optionalBytes = try codedInputStream.readData()
+            optionalBytes = try codedInputStream.read.data()
 
           case 131:
             let subBuilder:ProtobufUnittest.TestAllTypes.OptionalGroup.Builder = ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
@@ -6232,10 +6196,10 @@ public extension ProtobufUnittest {
             }
 
           case 194:
-            optionalStringPiece = try codedInputStream.readString()
+            optionalStringPiece = try codedInputStream.read.string()
 
           case 202:
-            optionalCord = try codedInputStream.readString()
+            optionalCord = try codedInputStream.read.string()
 
           case 210:
             let subBuilder:ProtobufUnittestImport.PublicImportMessage.Builder = ProtobufUnittestImport.PublicImportMessage.Builder()
@@ -6254,68 +6218,68 @@ public extension ProtobufUnittest {
             optionalLazyMessage = subBuilder.buildPartial()
 
           case 248:
-            repeatedInt32 += [try codedInputStream.readInt32()]
+            repeatedInt32 += [try codedInputStream.read.int32()]
 
           case 256:
-            repeatedInt64 += [try codedInputStream.readInt64()]
+            repeatedInt64 += [try codedInputStream.read.int64()]
 
           case 264:
-            repeatedUint32 += [try codedInputStream.readUInt32()]
+            repeatedUint32 += [try codedInputStream.read.uInt32()]
 
           case 272:
-            repeatedUint64 += [try codedInputStream.readUInt64()]
+            repeatedUint64 += [try codedInputStream.read.uint64()]
 
           case 280:
-            repeatedSint32 += [try codedInputStream.readSInt32()]
+            repeatedSint32 += [try codedInputStream.read.sint32()]
 
           case 288:
-            repeatedSint64 += [try codedInputStream.readSInt64()]
+            repeatedSint64 += [try codedInputStream.read.sint64()]
 
           case 301:
-            repeatedFixed32 += [try codedInputStream.readFixed32()]
+            repeatedFixed32 += [try codedInputStream.read.fixed32()]
 
           case 305:
-            repeatedFixed64 += [try codedInputStream.readFixed64()]
+            repeatedFixed64 += [try codedInputStream.read.dixed64()]
 
           case 317:
-            repeatedSfixed32 += [try codedInputStream.readSFixed32()]
+            repeatedSfixed32 += [try codedInputStream.read.sfixed32()]
 
           case 321:
-            repeatedSfixed64 += [try codedInputStream.readSFixed64()]
+            repeatedSfixed64 += [try codedInputStream.read.sfixed64()]
 
           case 333:
-            repeatedFloat += [try codedInputStream.readFloat()]
+            repeatedFloat += [try codedInputStream.read.float()]
 
           case 337:
-            repeatedDouble += [try codedInputStream.readDouble()]
+            repeatedDouble += [try codedInputStream.read.double()]
 
           case 344:
-            repeatedBool += [try codedInputStream.readBool()]
+            repeatedBool += [try codedInputStream.read.bool()]
 
           case 354:
-            repeatedString += [try codedInputStream.readString()]
+            repeatedString += [try codedInputStream.read.string()]
 
           case 362:
-            repeatedBytes += [try codedInputStream.readData()]
+            repeatedBytes += [try codedInputStream.read.data()]
 
           case 371:
             let subBuilder = ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
-            try codedInputStream.readGroup(fieldNumber:46, builder:subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readGroup(fieldNumber:46, builder:subBuilder, extensionRegistry:extensionRegistry)
             repeatedGroup.append(subBuilder.buildPartial())
 
           case 386:
             let subBuilder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedNestedMessage.append(subBuilder.buildPartial())
 
           case 394:
             let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedForeignMessage.append(subBuilder.buildPartial())
 
           case 402:
             let subBuilder = ProtobufUnittestImport.ImportMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedImportMessage.append(subBuilder.buildPartial())
 
           case 408:
@@ -6343,60 +6307,60 @@ public extension ProtobufUnittest {
             }
 
           case 434:
-            repeatedStringPiece += [try codedInputStream.readString()]
+            repeatedStringPiece += [try codedInputStream.read.string()]
 
           case 442:
-            repeatedCord += [try codedInputStream.readString()]
+            repeatedCord += [try codedInputStream.read.string()]
 
           case 458:
             let subBuilder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedLazyMessage.append(subBuilder.buildPartial())
 
           case 488:
-            defaultInt32 = try codedInputStream.readInt32()
+            defaultInt32 = try codedInputStream.read.int32()
 
           case 496:
-            defaultInt64 = try codedInputStream.readInt64()
+            defaultInt64 = try codedInputStream.read.int64()
 
           case 504:
-            defaultUint32 = try codedInputStream.readUInt32()
+            defaultUint32 = try codedInputStream.read.uInt32()
 
           case 512:
-            defaultUint64 = try codedInputStream.readUInt64()
+            defaultUint64 = try codedInputStream.read.uint64()
 
           case 520:
-            defaultSint32 = try codedInputStream.readSInt32()
+            defaultSint32 = try codedInputStream.read.sint32()
 
           case 528:
-            defaultSint64 = try codedInputStream.readSInt64()
+            defaultSint64 = try codedInputStream.read.sint64()
 
           case 541:
-            defaultFixed32 = try codedInputStream.readFixed32()
+            defaultFixed32 = try codedInputStream.read.fixed32()
 
           case 545:
-            defaultFixed64 = try codedInputStream.readFixed64()
+            defaultFixed64 = try codedInputStream.read.dixed64()
 
           case 557:
-            defaultSfixed32 = try codedInputStream.readSFixed32()
+            defaultSfixed32 = try codedInputStream.read.sfixed32()
 
           case 561:
-            defaultSfixed64 = try codedInputStream.readSFixed64()
+            defaultSfixed64 = try codedInputStream.read.sfixed64()
 
           case 573:
-            defaultFloat = try codedInputStream.readFloat()
+            defaultFloat = try codedInputStream.read.float()
 
           case 577:
-            defaultDouble = try codedInputStream.readDouble()
+            defaultDouble = try codedInputStream.read.double()
 
           case 584:
-            defaultBool = try codedInputStream.readBool()
+            defaultBool = try codedInputStream.read.bool()
 
           case 594:
-            defaultString = try codedInputStream.readString()
+            defaultString = try codedInputStream.read.string()
 
           case 602:
-            defaultBytes = try codedInputStream.readData()
+            defaultBytes = try codedInputStream.read.data()
 
           case 648:
             let valueIntdefaultNestedEnum = try codedInputStream.readEnum()
@@ -6423,13 +6387,13 @@ public extension ProtobufUnittest {
             }
 
           case 674:
-            defaultStringPiece = try codedInputStream.readString()
+            defaultStringPiece = try codedInputStream.read.string()
 
           case 682:
-            defaultCord = try codedInputStream.readString()
+            defaultCord = try codedInputStream.read.string()
 
           case 888:
-            oneofUint32 = try codedInputStream.readUInt32()
+            oneofUint32 = try codedInputStream.read.uInt32()
 
           case 898:
             let subBuilder:ProtobufUnittest.TestAllTypes.NestedMessage.Builder = ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
@@ -6440,10 +6404,10 @@ public extension ProtobufUnittest {
             oneofNestedMessage = subBuilder.buildPartial()
 
           case 906:
-            oneofString = try codedInputStream.readString()
+            oneofString = try codedInputStream.read.string()
 
           case 914:
-            oneofBytes = try codedInputStream.readData()
+            oneofBytes = try codedInputStream.read.data()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -6841,17 +6805,17 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasChild {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:child)
+        try codedOutputStream.write.message(fieldNumber: 1, value:child)
       }
       if hasPayload {
-        try codedOutputStream.writeMessage(fieldNumber: 2, value:payload)
+        try codedOutputStream.write.message(fieldNumber: 2, value:payload)
       }
       for oneElementRepeatedChild in repeatedChild {
-          try codedOutputStream.writeMessage(fieldNumber: 3, value:oneElementRepeatedChild)
+          try codedOutputStream.write.message(fieldNumber: 3, value:oneElementRepeatedChild)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -6859,18 +6823,16 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasChild {
-          if let varSizechild = child?.computeMessageSize(fieldNumber: 1) {
+          if let varSizechild = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:child) {
               serialize_size += varSizechild
           }
       }
       if hasPayload {
-          if let varSizepayload = payload?.computeMessageSize(fieldNumber: 2) {
+          if let varSizepayload = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:payload) {
               serialize_size += varSizepayload
           }
       }
-      for oneElementRepeatedChild in repeatedChild {
-          serialize_size += oneElementRepeatedChild.computeMessageSize(fieldNumber: 3)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: repeatedChild)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -7184,7 +7146,7 @@ public extension ProtobufUnittest {
 
           case 26:
             let subBuilder = ProtobufUnittest.NestedTestAllTypes.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedChild.append(subBuilder.buildPartial())
 
           default:
@@ -7251,11 +7213,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasDeprecatedInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:deprecatedInt32)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:deprecatedInt32)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7263,7 +7225,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasDeprecatedInt32 {
-        serialize_size += deprecatedInt32.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: deprecatedInt32)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -7415,7 +7377,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            deprecatedInt32 = try codedInputStream.readInt32()
+            deprecatedInt32 = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -7468,11 +7430,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasC {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:c)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:c)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7480,7 +7442,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasC {
-        serialize_size += c.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: c)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -7632,7 +7594,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            c = try codedInputStream.readInt32()
+            c = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -7680,7 +7642,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7847,7 +7809,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8016,11 +7978,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 17, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 17, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8028,7 +7990,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 17)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -8180,7 +8142,7 @@ public extension ProtobufUnittest {
             return self
 
           case 136:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -8231,11 +8193,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 47, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 47, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8243,7 +8205,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 47)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 47, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -8395,7 +8357,7 @@ public extension ProtobufUnittest {
             return self
 
           case 376:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -8449,7 +8411,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8764,107 +8726,107 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
       if hasDummy2 {
-        try codedOutputStream.writeInt32(fieldNumber: 2, value:dummy2)
+        try codedOutputStream.write.int32(fieldNumber: 2, value:dummy2)
       }
       if hasB {
-        try codedOutputStream.writeInt32(fieldNumber: 3, value:b)
+        try codedOutputStream.write.int32(fieldNumber: 3, value:b)
       }
       if hasDummy4 {
-        try codedOutputStream.writeInt32(fieldNumber: 4, value:dummy4)
+        try codedOutputStream.write.int32(fieldNumber: 4, value:dummy4)
       }
       if hasDummy5 {
-        try codedOutputStream.writeInt32(fieldNumber: 5, value:dummy5)
+        try codedOutputStream.write.int32(fieldNumber: 5, value:dummy5)
       }
       if hasDummy6 {
-        try codedOutputStream.writeInt32(fieldNumber: 6, value:dummy6)
+        try codedOutputStream.write.int32(fieldNumber: 6, value:dummy6)
       }
       if hasDummy7 {
-        try codedOutputStream.writeInt32(fieldNumber: 7, value:dummy7)
+        try codedOutputStream.write.int32(fieldNumber: 7, value:dummy7)
       }
       if hasDummy8 {
-        try codedOutputStream.writeInt32(fieldNumber: 8, value:dummy8)
+        try codedOutputStream.write.int32(fieldNumber: 8, value:dummy8)
       }
       if hasDummy9 {
-        try codedOutputStream.writeInt32(fieldNumber: 9, value:dummy9)
+        try codedOutputStream.write.int32(fieldNumber: 9, value:dummy9)
       }
       if hasDummy10 {
-        try codedOutputStream.writeInt32(fieldNumber: 10, value:dummy10)
+        try codedOutputStream.write.int32(fieldNumber: 10, value:dummy10)
       }
       if hasDummy11 {
-        try codedOutputStream.writeInt32(fieldNumber: 11, value:dummy11)
+        try codedOutputStream.write.int32(fieldNumber: 11, value:dummy11)
       }
       if hasDummy12 {
-        try codedOutputStream.writeInt32(fieldNumber: 12, value:dummy12)
+        try codedOutputStream.write.int32(fieldNumber: 12, value:dummy12)
       }
       if hasDummy13 {
-        try codedOutputStream.writeInt32(fieldNumber: 13, value:dummy13)
+        try codedOutputStream.write.int32(fieldNumber: 13, value:dummy13)
       }
       if hasDummy14 {
-        try codedOutputStream.writeInt32(fieldNumber: 14, value:dummy14)
+        try codedOutputStream.write.int32(fieldNumber: 14, value:dummy14)
       }
       if hasDummy15 {
-        try codedOutputStream.writeInt32(fieldNumber: 15, value:dummy15)
+        try codedOutputStream.write.int32(fieldNumber: 15, value:dummy15)
       }
       if hasDummy16 {
-        try codedOutputStream.writeInt32(fieldNumber: 16, value:dummy16)
+        try codedOutputStream.write.int32(fieldNumber: 16, value:dummy16)
       }
       if hasDummy17 {
-        try codedOutputStream.writeInt32(fieldNumber: 17, value:dummy17)
+        try codedOutputStream.write.int32(fieldNumber: 17, value:dummy17)
       }
       if hasDummy18 {
-        try codedOutputStream.writeInt32(fieldNumber: 18, value:dummy18)
+        try codedOutputStream.write.int32(fieldNumber: 18, value:dummy18)
       }
       if hasDummy19 {
-        try codedOutputStream.writeInt32(fieldNumber: 19, value:dummy19)
+        try codedOutputStream.write.int32(fieldNumber: 19, value:dummy19)
       }
       if hasDummy20 {
-        try codedOutputStream.writeInt32(fieldNumber: 20, value:dummy20)
+        try codedOutputStream.write.int32(fieldNumber: 20, value:dummy20)
       }
       if hasDummy21 {
-        try codedOutputStream.writeInt32(fieldNumber: 21, value:dummy21)
+        try codedOutputStream.write.int32(fieldNumber: 21, value:dummy21)
       }
       if hasDummy22 {
-        try codedOutputStream.writeInt32(fieldNumber: 22, value:dummy22)
+        try codedOutputStream.write.int32(fieldNumber: 22, value:dummy22)
       }
       if hasDummy23 {
-        try codedOutputStream.writeInt32(fieldNumber: 23, value:dummy23)
+        try codedOutputStream.write.int32(fieldNumber: 23, value:dummy23)
       }
       if hasDummy24 {
-        try codedOutputStream.writeInt32(fieldNumber: 24, value:dummy24)
+        try codedOutputStream.write.int32(fieldNumber: 24, value:dummy24)
       }
       if hasDummy25 {
-        try codedOutputStream.writeInt32(fieldNumber: 25, value:dummy25)
+        try codedOutputStream.write.int32(fieldNumber: 25, value:dummy25)
       }
       if hasDummy26 {
-        try codedOutputStream.writeInt32(fieldNumber: 26, value:dummy26)
+        try codedOutputStream.write.int32(fieldNumber: 26, value:dummy26)
       }
       if hasDummy27 {
-        try codedOutputStream.writeInt32(fieldNumber: 27, value:dummy27)
+        try codedOutputStream.write.int32(fieldNumber: 27, value:dummy27)
       }
       if hasDummy28 {
-        try codedOutputStream.writeInt32(fieldNumber: 28, value:dummy28)
+        try codedOutputStream.write.int32(fieldNumber: 28, value:dummy28)
       }
       if hasDummy29 {
-        try codedOutputStream.writeInt32(fieldNumber: 29, value:dummy29)
+        try codedOutputStream.write.int32(fieldNumber: 29, value:dummy29)
       }
       if hasDummy30 {
-        try codedOutputStream.writeInt32(fieldNumber: 30, value:dummy30)
+        try codedOutputStream.write.int32(fieldNumber: 30, value:dummy30)
       }
       if hasDummy31 {
-        try codedOutputStream.writeInt32(fieldNumber: 31, value:dummy31)
+        try codedOutputStream.write.int32(fieldNumber: 31, value:dummy31)
       }
       if hasDummy32 {
-        try codedOutputStream.writeInt32(fieldNumber: 32, value:dummy32)
+        try codedOutputStream.write.int32(fieldNumber: 32, value:dummy32)
       }
       if hasC {
-        try codedOutputStream.writeInt32(fieldNumber: 33, value:c)
+        try codedOutputStream.write.int32(fieldNumber: 33, value:c)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8872,103 +8834,103 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
       }
       if hasDummy2 {
-        serialize_size += dummy2.computeInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: dummy2)
       }
       if hasB {
-        serialize_size += b.computeInt32Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: b)
       }
       if hasDummy4 {
-        serialize_size += dummy4.computeInt32Size(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 4, value: dummy4)
       }
       if hasDummy5 {
-        serialize_size += dummy5.computeInt32Size(fieldNumber: 5)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: dummy5)
       }
       if hasDummy6 {
-        serialize_size += dummy6.computeInt32Size(fieldNumber: 6)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 6, value: dummy6)
       }
       if hasDummy7 {
-        serialize_size += dummy7.computeInt32Size(fieldNumber: 7)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 7, value: dummy7)
       }
       if hasDummy8 {
-        serialize_size += dummy8.computeInt32Size(fieldNumber: 8)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 8, value: dummy8)
       }
       if hasDummy9 {
-        serialize_size += dummy9.computeInt32Size(fieldNumber: 9)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 9, value: dummy9)
       }
       if hasDummy10 {
-        serialize_size += dummy10.computeInt32Size(fieldNumber: 10)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 10, value: dummy10)
       }
       if hasDummy11 {
-        serialize_size += dummy11.computeInt32Size(fieldNumber: 11)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 11, value: dummy11)
       }
       if hasDummy12 {
-        serialize_size += dummy12.computeInt32Size(fieldNumber: 12)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 12, value: dummy12)
       }
       if hasDummy13 {
-        serialize_size += dummy13.computeInt32Size(fieldNumber: 13)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 13, value: dummy13)
       }
       if hasDummy14 {
-        serialize_size += dummy14.computeInt32Size(fieldNumber: 14)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 14, value: dummy14)
       }
       if hasDummy15 {
-        serialize_size += dummy15.computeInt32Size(fieldNumber: 15)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 15, value: dummy15)
       }
       if hasDummy16 {
-        serialize_size += dummy16.computeInt32Size(fieldNumber: 16)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 16, value: dummy16)
       }
       if hasDummy17 {
-        serialize_size += dummy17.computeInt32Size(fieldNumber: 17)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: dummy17)
       }
       if hasDummy18 {
-        serialize_size += dummy18.computeInt32Size(fieldNumber: 18)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 18, value: dummy18)
       }
       if hasDummy19 {
-        serialize_size += dummy19.computeInt32Size(fieldNumber: 19)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 19, value: dummy19)
       }
       if hasDummy20 {
-        serialize_size += dummy20.computeInt32Size(fieldNumber: 20)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 20, value: dummy20)
       }
       if hasDummy21 {
-        serialize_size += dummy21.computeInt32Size(fieldNumber: 21)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 21, value: dummy21)
       }
       if hasDummy22 {
-        serialize_size += dummy22.computeInt32Size(fieldNumber: 22)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 22, value: dummy22)
       }
       if hasDummy23 {
-        serialize_size += dummy23.computeInt32Size(fieldNumber: 23)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 23, value: dummy23)
       }
       if hasDummy24 {
-        serialize_size += dummy24.computeInt32Size(fieldNumber: 24)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 24, value: dummy24)
       }
       if hasDummy25 {
-        serialize_size += dummy25.computeInt32Size(fieldNumber: 25)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 25, value: dummy25)
       }
       if hasDummy26 {
-        serialize_size += dummy26.computeInt32Size(fieldNumber: 26)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 26, value: dummy26)
       }
       if hasDummy27 {
-        serialize_size += dummy27.computeInt32Size(fieldNumber: 27)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 27, value: dummy27)
       }
       if hasDummy28 {
-        serialize_size += dummy28.computeInt32Size(fieldNumber: 28)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 28, value: dummy28)
       }
       if hasDummy29 {
-        serialize_size += dummy29.computeInt32Size(fieldNumber: 29)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 29, value: dummy29)
       }
       if hasDummy30 {
-        serialize_size += dummy30.computeInt32Size(fieldNumber: 30)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 30, value: dummy30)
       }
       if hasDummy31 {
-        serialize_size += dummy31.computeInt32Size(fieldNumber: 31)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 31, value: dummy31)
       }
       if hasDummy32 {
-        serialize_size += dummy32.computeInt32Size(fieldNumber: 32)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 32, value: dummy32)
       }
       if hasC {
-        serialize_size += c.computeInt32Size(fieldNumber: 33)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 33, value: c)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -10304,103 +10266,103 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           case 16:
-            dummy2 = try codedInputStream.readInt32()
+            dummy2 = try codedInputStream.read.int32()
 
           case 24:
-            b = try codedInputStream.readInt32()
+            b = try codedInputStream.read.int32()
 
           case 32:
-            dummy4 = try codedInputStream.readInt32()
+            dummy4 = try codedInputStream.read.int32()
 
           case 40:
-            dummy5 = try codedInputStream.readInt32()
+            dummy5 = try codedInputStream.read.int32()
 
           case 48:
-            dummy6 = try codedInputStream.readInt32()
+            dummy6 = try codedInputStream.read.int32()
 
           case 56:
-            dummy7 = try codedInputStream.readInt32()
+            dummy7 = try codedInputStream.read.int32()
 
           case 64:
-            dummy8 = try codedInputStream.readInt32()
+            dummy8 = try codedInputStream.read.int32()
 
           case 72:
-            dummy9 = try codedInputStream.readInt32()
+            dummy9 = try codedInputStream.read.int32()
 
           case 80:
-            dummy10 = try codedInputStream.readInt32()
+            dummy10 = try codedInputStream.read.int32()
 
           case 88:
-            dummy11 = try codedInputStream.readInt32()
+            dummy11 = try codedInputStream.read.int32()
 
           case 96:
-            dummy12 = try codedInputStream.readInt32()
+            dummy12 = try codedInputStream.read.int32()
 
           case 104:
-            dummy13 = try codedInputStream.readInt32()
+            dummy13 = try codedInputStream.read.int32()
 
           case 112:
-            dummy14 = try codedInputStream.readInt32()
+            dummy14 = try codedInputStream.read.int32()
 
           case 120:
-            dummy15 = try codedInputStream.readInt32()
+            dummy15 = try codedInputStream.read.int32()
 
           case 128:
-            dummy16 = try codedInputStream.readInt32()
+            dummy16 = try codedInputStream.read.int32()
 
           case 136:
-            dummy17 = try codedInputStream.readInt32()
+            dummy17 = try codedInputStream.read.int32()
 
           case 144:
-            dummy18 = try codedInputStream.readInt32()
+            dummy18 = try codedInputStream.read.int32()
 
           case 152:
-            dummy19 = try codedInputStream.readInt32()
+            dummy19 = try codedInputStream.read.int32()
 
           case 160:
-            dummy20 = try codedInputStream.readInt32()
+            dummy20 = try codedInputStream.read.int32()
 
           case 168:
-            dummy21 = try codedInputStream.readInt32()
+            dummy21 = try codedInputStream.read.int32()
 
           case 176:
-            dummy22 = try codedInputStream.readInt32()
+            dummy22 = try codedInputStream.read.int32()
 
           case 184:
-            dummy23 = try codedInputStream.readInt32()
+            dummy23 = try codedInputStream.read.int32()
 
           case 192:
-            dummy24 = try codedInputStream.readInt32()
+            dummy24 = try codedInputStream.read.int32()
 
           case 200:
-            dummy25 = try codedInputStream.readInt32()
+            dummy25 = try codedInputStream.read.int32()
 
           case 208:
-            dummy26 = try codedInputStream.readInt32()
+            dummy26 = try codedInputStream.read.int32()
 
           case 216:
-            dummy27 = try codedInputStream.readInt32()
+            dummy27 = try codedInputStream.read.int32()
 
           case 224:
-            dummy28 = try codedInputStream.readInt32()
+            dummy28 = try codedInputStream.read.int32()
 
           case 232:
-            dummy29 = try codedInputStream.readInt32()
+            dummy29 = try codedInputStream.read.int32()
 
           case 240:
-            dummy30 = try codedInputStream.readInt32()
+            dummy30 = try codedInputStream.read.int32()
 
           case 248:
-            dummy31 = try codedInputStream.readInt32()
+            dummy31 = try codedInputStream.read.int32()
 
           case 256:
-            dummy32 = try codedInputStream.readInt32()
+            dummy32 = try codedInputStream.read.int32()
 
           case 264:
-            c = try codedInputStream.readInt32()
+            c = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -10567,17 +10529,17 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:optionalMessage)
+        try codedOutputStream.write.message(fieldNumber: 1, value:optionalMessage)
       }
       for oneElementRepeatedMessage in repeatedMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementRepeatedMessage)
+          try codedOutputStream.write.message(fieldNumber: 2, value:oneElementRepeatedMessage)
       }
       if hasDummy {
-        try codedOutputStream.writeInt32(fieldNumber: 3, value:dummy)
+        try codedOutputStream.write.int32(fieldNumber: 3, value:dummy)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -10585,15 +10547,13 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalMessage {
-          if let varSizeoptionalMessage = optionalMessage?.computeMessageSize(fieldNumber: 1) {
+          if let varSizeoptionalMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:optionalMessage) {
               serialize_size += varSizeoptionalMessage
           }
       }
-      for oneElementRepeatedMessage in repeatedMessage {
-          serialize_size += oneElementRepeatedMessage.computeMessageSize(fieldNumber: 2)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: repeatedMessage)
       if hasDummy {
-        serialize_size += dummy.computeInt32Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: dummy)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -10865,11 +10825,11 @@ public extension ProtobufUnittest {
 
           case 18:
             let subBuilder = ProtobufUnittest.TestRequired.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedMessage.append(subBuilder.buildPartial())
 
           case 24:
-            dummy = try codedInputStream.readInt32()
+            dummy = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -10933,11 +10893,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasForeignNested {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:foreignNested)
+        try codedOutputStream.write.message(fieldNumber: 1, value:foreignNested)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -10945,7 +10905,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasForeignNested {
-          if let varSizeforeignNested = foreignNested?.computeMessageSize(fieldNumber: 1) {
+          if let varSizeforeignNested = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:foreignNested) {
               serialize_size += varSizeforeignNested
           }
       }
@@ -11189,7 +11149,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11358,7 +11318,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11533,7 +11493,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:65536, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11713,14 +11673,14 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
       if hasBb {
-        try codedOutputStream.writeInt32(fieldNumber: 268435455, value:bb)
+        try codedOutputStream.write.int32(fieldNumber: 268435455, value:bb)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11728,10 +11688,10 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
       }
       if hasBb {
-        serialize_size += bb.computeInt32Size(fieldNumber: 268435455)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 268435455, value: bb)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -11920,10 +11880,10 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           case 2147483640:
-            bb = try codedInputStream.readInt32()
+            bb = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -11980,14 +11940,14 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:a)
+        try codedOutputStream.write.message(fieldNumber: 1, value:a)
       }
       if hasI {
-        try codedOutputStream.writeInt32(fieldNumber: 2, value:i)
+        try codedOutputStream.write.int32(fieldNumber: 2, value:i)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11995,12 +11955,12 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-          if let varSizea = a?.computeMessageSize(fieldNumber: 1) {
+          if let varSizea = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:a) {
               serialize_size += varSizea
           }
       }
       if hasI {
-        serialize_size += i.computeInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: i)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -12232,7 +12192,7 @@ public extension ProtobufUnittest {
             a = subBuilder.buildPartial()
 
           case 16:
-            i = try codedInputStream.readInt32()
+            i = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -12287,11 +12247,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasBb {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:bb)
+        try codedOutputStream.write.message(fieldNumber: 1, value:bb)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -12299,7 +12259,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasBb {
-          if let varSizebb = bb?.computeMessageSize(fieldNumber: 1) {
+          if let varSizebb = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:bb) {
               serialize_size += varSizebb
           }
       }
@@ -12548,14 +12508,14 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:a)
+        try codedOutputStream.write.message(fieldNumber: 1, value:a)
       }
       if hasOptionalInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 2, value:optionalInt32)
+        try codedOutputStream.write.int32(fieldNumber: 2, value:optionalInt32)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -12563,12 +12523,12 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-          if let varSizea = a?.computeMessageSize(fieldNumber: 1) {
+          if let varSizea = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:a) {
               serialize_size += varSizea
           }
       }
       if hasOptionalInt32 {
-        serialize_size += optionalInt32.computeInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: optionalInt32)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -12800,7 +12760,7 @@ public extension ProtobufUnittest {
             a = subBuilder.buildPartial()
 
           case 16:
-            optionalInt32 = try codedInputStream.readInt32()
+            optionalInt32 = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -12877,11 +12837,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -12889,7 +12849,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -13041,7 +13001,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -13098,11 +13058,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -13110,7 +13070,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -13262,7 +13222,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -13308,17 +13268,17 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
       if hasFoo {
-        try codedOutputStream.writeGroup(fieldNumber: 2, value:foo)
+        try codedOutputStream.write.group(fieldNumber: 2, value:foo)
       }
       if hasBar {
-        try codedOutputStream.writeGroup(fieldNumber: 3, value:bar)
+        try codedOutputStream.write.group(fieldNumber: 3, value:bar)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13326,15 +13286,15 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
       }
       if hasFoo {
-          if let varSizefoo = foo?.computeGroupSize(fieldNumber: 2) {
+          if let varSizefoo = try ProtobufWire.Size(wireType:.group).with(tag: 2, value:foo) {
               serialize_size += varSizefoo
           }
       }
       if hasBar {
-          if let varSizebar = bar?.computeGroupSize(fieldNumber: 3) {
+          if let varSizebar = try ProtobufWire.Size(wireType:.group).with(tag: 3, value:bar) {
               serialize_size += varSizebar
           }
       }
@@ -13632,7 +13592,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           case 19:
             let subBuilder:ProtobufUnittest.TestDupFieldNumber.Foo.Builder = ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
@@ -13707,11 +13667,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSubMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:subMessage)
+        try codedOutputStream.write.message(fieldNumber: 1, value:subMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13719,7 +13679,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasSubMessage {
-          if let varSizesubMessage = subMessage?.computeMessageSize(fieldNumber: 1) {
+          if let varSizesubMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:subMessage) {
               serialize_size += varSizesubMessage
           }
       }
@@ -13964,11 +13924,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSubMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:subMessage)
+        try codedOutputStream.write.message(fieldNumber: 1, value:subMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13976,7 +13936,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasSubMessage {
-          if let varSizesubMessage = subMessage?.computeMessageSize(fieldNumber: 1) {
+          if let varSizesubMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:subMessage) {
               serialize_size += varSizesubMessage
           }
       }
@@ -14240,15 +14200,15 @@ public extension ProtobufUnittest {
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if !nestedmessageRepeatedInt32.isEmpty {
             for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
-              try codedOutputStream.writeInt32(fieldNumber: 1, value:oneValuenestedmessageRepeatedInt32)
+              try codedOutputStream.write.int32(fieldNumber: 1, value:oneValuenestedmessageRepeatedInt32)
             }
           }
           for oneElementNestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
-              try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementNestedmessageRepeatedForeignmessage)
+              try codedOutputStream.write.message(fieldNumber: 2, value:oneElementNestedmessageRepeatedForeignmessage)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -14256,14 +14216,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           var dataSizeNestedmessageRepeatedInt32:Int32 = 0
-          for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
-              dataSizeNestedmessageRepeatedInt32 += oneValuenestedmessageRepeatedInt32.computeInt32SizeNoTag()
-          }
+          dataSizeNestedmessageRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: nestedmessageRepeatedInt32)
           serialize_size += dataSizeNestedmessageRepeatedInt32
           serialize_size += 1 * Int32(nestedmessageRepeatedInt32.count)
-          for oneElementNestedmessageRepeatedForeignmessage in nestedmessageRepeatedForeignmessage {
-              serialize_size += oneElementNestedmessageRepeatedForeignmessage.computeMessageSize(fieldNumber: 2)
-          }
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: nestedmessageRepeatedForeignmessage)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
@@ -14452,11 +14408,11 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                nestedmessageRepeatedInt32 += [try codedInputStream.readInt32()]
+                nestedmessageRepeatedInt32 += [try codedInputStream.read.int32()]
 
               case 18:
                 let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 nestedmessageRepeatedForeignmessage.append(subBuilder.buildPartial())
 
               default:
@@ -14510,11 +14466,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalNestedMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:optionalNestedMessage)
+        try codedOutputStream.write.message(fieldNumber: 1, value:optionalNestedMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -14522,7 +14478,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(fieldNumber: 1) {
+          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:optionalNestedMessage) {
               serialize_size += varSizeoptionalNestedMessage
           }
       }
@@ -14801,52 +14757,52 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasPrimitiveField {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:primitiveField)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:primitiveField)
       }
       if hasStringField {
-        try codedOutputStream.writeString(fieldNumber: 2, value:stringField)
+        try codedOutputStream.write.string(fieldNumber: 2, value:stringField)
       }
       if hasEnumField {
         try codedOutputStream.writeEnum(fieldNumber: 3, value:enumField.rawValue)
       }
       if hasMessageField {
-        try codedOutputStream.writeMessage(fieldNumber: 4, value:messageField)
+        try codedOutputStream.write.message(fieldNumber: 4, value:messageField)
       }
       if hasStringPieceField {
-        try codedOutputStream.writeString(fieldNumber: 5, value:stringPieceField)
+        try codedOutputStream.write.string(fieldNumber: 5, value:stringPieceField)
       }
       if hasCordField {
-        try codedOutputStream.writeString(fieldNumber: 6, value:cordField)
+        try codedOutputStream.write.string(fieldNumber: 6, value:cordField)
       }
       if !repeatedPrimitiveField.isEmpty {
         for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
-          try codedOutputStream.writeInt32(fieldNumber: 7, value:oneValuerepeatedPrimitiveField)
+          try codedOutputStream.write.int32(fieldNumber: 7, value:oneValuerepeatedPrimitiveField)
         }
       }
       if !repeatedStringField.isEmpty {
         for oneValuerepeatedStringField in repeatedStringField {
-          try codedOutputStream.writeString(fieldNumber: 8, value:oneValuerepeatedStringField)
+          try codedOutputStream.write.string(fieldNumber: 8, value:oneValuerepeatedStringField)
         }
       }
       for oneValueOfrepeatedEnumField in repeatedEnumField {
           try codedOutputStream.writeEnum(fieldNumber: 9, value:oneValueOfrepeatedEnumField.rawValue)
       }
       for oneElementRepeatedMessageField in repeatedMessageField {
-          try codedOutputStream.writeMessage(fieldNumber: 10, value:oneElementRepeatedMessageField)
+          try codedOutputStream.write.message(fieldNumber: 10, value:oneElementRepeatedMessageField)
       }
       if !repeatedStringPieceField.isEmpty {
         for oneValuerepeatedStringPieceField in repeatedStringPieceField {
-          try codedOutputStream.writeString(fieldNumber: 11, value:oneValuerepeatedStringPieceField)
+          try codedOutputStream.write.string(fieldNumber: 11, value:oneValuerepeatedStringPieceField)
         }
       }
       if !repeatedCordField.isEmpty {
         for oneValuerepeatedCordField in repeatedCordField {
-          try codedOutputStream.writeString(fieldNumber: 12, value:oneValuerepeatedCordField)
+          try codedOutputStream.write.string(fieldNumber: 12, value:oneValuerepeatedCordField)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -14854,56 +14810,44 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasPrimitiveField {
-        serialize_size += primitiveField.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: primitiveField)
       }
       if hasStringField {
-        serialize_size += stringField.computeStringSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: stringField)
       }
       if (hasEnumField) {
         serialize_size += enumField.rawValue.computeEnumSize(fieldNumber: 3)
       }
       if hasMessageField {
-          if let varSizemessageField = messageField?.computeMessageSize(fieldNumber: 4) {
+          if let varSizemessageField = try ProtobufWire.Size(wireType:.message).with(tag: 4, value:messageField) {
               serialize_size += varSizemessageField
           }
       }
       if hasStringPieceField {
-        serialize_size += stringPieceField.computeStringSize(fieldNumber: 5)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 5, value: stringPieceField)
       }
       if hasCordField {
-        serialize_size += cordField.computeStringSize(fieldNumber: 6)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: cordField)
       }
       var dataSizeRepeatedPrimitiveField:Int32 = 0
-      for oneValuerepeatedPrimitiveField in repeatedPrimitiveField {
-          dataSizeRepeatedPrimitiveField += oneValuerepeatedPrimitiveField.computeInt32SizeNoTag()
-      }
+      dataSizeRepeatedPrimitiveField += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedPrimitiveField)
       serialize_size += dataSizeRepeatedPrimitiveField
       serialize_size += 1 * Int32(repeatedPrimitiveField.count)
       var dataSizeRepeatedStringField:Int32 = 0
-      for oneValuerepeatedStringField in repeatedStringField {
-          dataSizeRepeatedStringField += oneValuerepeatedStringField.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedStringField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringField)
       serialize_size += dataSizeRepeatedStringField
       serialize_size += 1 * Int32(repeatedStringField.count)
       var dataSizerepeatedEnumField:Int32 = 0
-      for oneValueOfrepeatedEnumField in repeatedEnumField {
-          dataSizerepeatedEnumField += oneValueOfrepeatedEnumField.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedEnumField += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedEnumField.rawValue)
       serialize_size += dataSizerepeatedEnumField
       serialize_size += (1 * Int32(repeatedEnumField.count))
-      for oneElementRepeatedMessageField in repeatedMessageField {
-          serialize_size += oneElementRepeatedMessageField.computeMessageSize(fieldNumber: 10)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 10, value: repeatedMessageField)
       var dataSizeRepeatedStringPieceField:Int32 = 0
-      for oneValuerepeatedStringPieceField in repeatedStringPieceField {
-          dataSizeRepeatedStringPieceField += oneValuerepeatedStringPieceField.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedStringPieceField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringPieceField)
       serialize_size += dataSizeRepeatedStringPieceField
       serialize_size += 1 * Int32(repeatedStringPieceField.count)
       var dataSizeRepeatedCordField:Int32 = 0
-      for oneValuerepeatedCordField in repeatedCordField {
-          dataSizeRepeatedCordField += oneValuerepeatedCordField.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedCordField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedCordField)
       serialize_size += dataSizeRepeatedCordField
       serialize_size += 1 * Int32(repeatedCordField.count)
       serialize_size += unknownFields.serializedSize()
@@ -15495,10 +15439,10 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            primitiveField = try codedInputStream.readInt32()
+            primitiveField = try codedInputStream.read.int32()
 
           case 18:
-            stringField = try codedInputStream.readString()
+            stringField = try codedInputStream.read.string()
 
           case 24:
             let valueIntenumField = try codedInputStream.readEnum()
@@ -15517,16 +15461,16 @@ public extension ProtobufUnittest {
             messageField = subBuilder.buildPartial()
 
           case 42:
-            stringPieceField = try codedInputStream.readString()
+            stringPieceField = try codedInputStream.read.string()
 
           case 50:
-            cordField = try codedInputStream.readString()
+            cordField = try codedInputStream.read.string()
 
           case 56:
-            repeatedPrimitiveField += [try codedInputStream.readInt32()]
+            repeatedPrimitiveField += [try codedInputStream.read.int32()]
 
           case 66:
-            repeatedStringField += [try codedInputStream.readString()]
+            repeatedStringField += [try codedInputStream.read.string()]
 
           case 72:
             let valueIntrepeatedEnumField = try codedInputStream.readEnum()
@@ -15538,14 +15482,14 @@ public extension ProtobufUnittest {
 
           case 82:
             let subBuilder = ProtobufUnittest.ForeignMessage.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedMessageField.append(subBuilder.buildPartial())
 
           case 90:
-            repeatedStringPieceField += [try codedInputStream.readString()]
+            repeatedStringPieceField += [try codedInputStream.read.string()]
 
           case 98:
-            repeatedCordField += [try codedInputStream.readString()]
+            repeatedCordField += [try codedInputStream.read.string()]
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -15687,14 +15631,14 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasBb {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:bb)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:bb)
           }
           if hasOo {
-            try codedOutputStream.writeInt64(fieldNumber: 2, value:oo)
+            try codedOutputStream.write.int64(fieldNumber: 2, value:oo)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -15702,10 +15646,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += bb.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: bb)
           }
           if hasOo {
-            serialize_size += oo.computeInt64Size(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: oo)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -15894,10 +15838,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                bb = try codedInputStream.readInt32()
+                bb = try codedInputStream.read.int32()
 
               case 16:
-                oo = try codedInputStream.readInt64()
+                oo = try codedInputStream.read.int64()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -15952,22 +15896,22 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasMyInt {
-        try codedOutputStream.writeInt64(fieldNumber: 1, value:myInt)
+        try codedOutputStream.write.int64(fieldNumber: 1, value:myInt)
       }
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:2, endExclusive:11)
       if hasMyString {
-        try codedOutputStream.writeString(fieldNumber: 11, value:myString)
+        try codedOutputStream.write.string(fieldNumber: 11, value:myString)
       }
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:12, endExclusive:101)
       if hasMyFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 101, value:myFloat)
+        try codedOutputStream.write.float(fieldNumber: 101, value:myFloat)
       }
       if hasOptionalNestedMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 200, value:optionalNestedMessage)
+        try codedOutputStream.write.message(fieldNumber: 200, value:optionalNestedMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -15975,16 +15919,16 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasMyInt {
-        serialize_size += myInt.computeInt64Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: myInt)
       }
       if hasMyString {
-        serialize_size += myString.computeStringSize(fieldNumber: 11)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 11, value: myString)
       }
       if hasMyFloat {
-        serialize_size += myFloat.computeFloatSize(fieldNumber: 101)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 101, value: myFloat)
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = optionalNestedMessage?.computeMessageSize(fieldNumber: 200) {
+          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 200, value:optionalNestedMessage) {
               serialize_size += varSizeoptionalNestedMessage
           }
       }
@@ -16290,13 +16234,13 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            myInt = try codedInputStream.readInt64()
+            myInt = try codedInputStream.read.int64()
 
           case 90:
-            myString = try codedInputStream.readString()
+            myString = try codedInputStream.read.string()
 
           case 813:
-            myFloat = try codedInputStream.readFloat()
+            myFloat = try codedInputStream.read.float()
 
           case 1602:
             let subBuilder:ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder = ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
@@ -16481,89 +16425,89 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasEscapedBytes {
-        try codedOutputStream.writeData(fieldNumber: 1, value:escapedBytes)
+        try codedOutputStream.write.data(fieldNumber: 1, value:escapedBytes)
       }
       if hasLargeUint32 {
-        try codedOutputStream.writeUInt32(fieldNumber: 2, value:largeUint32)
+        try codedOutputStream.write.uInt32(fieldNumber: 2, value:largeUint32)
       }
       if hasLargeUint64 {
-        try codedOutputStream.writeUInt64(fieldNumber: 3, value:largeUint64)
+        try codedOutputStream.write.uint64(fieldNumber: 3, value:largeUint64)
       }
       if hasSmallInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 4, value:smallInt32)
+        try codedOutputStream.write.int32(fieldNumber: 4, value:smallInt32)
       }
       if hasSmallInt64 {
-        try codedOutputStream.writeInt64(fieldNumber: 5, value:smallInt64)
+        try codedOutputStream.write.int64(fieldNumber: 5, value:smallInt64)
       }
       if hasUtf8String {
-        try codedOutputStream.writeString(fieldNumber: 6, value:utf8String)
+        try codedOutputStream.write.string(fieldNumber: 6, value:utf8String)
       }
       if hasZeroFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 7, value:zeroFloat)
+        try codedOutputStream.write.float(fieldNumber: 7, value:zeroFloat)
       }
       if hasOneFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 8, value:oneFloat)
+        try codedOutputStream.write.float(fieldNumber: 8, value:oneFloat)
       }
       if hasSmallFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 9, value:smallFloat)
+        try codedOutputStream.write.float(fieldNumber: 9, value:smallFloat)
       }
       if hasNegativeOneFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 10, value:negativeOneFloat)
+        try codedOutputStream.write.float(fieldNumber: 10, value:negativeOneFloat)
       }
       if hasNegativeFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 11, value:negativeFloat)
+        try codedOutputStream.write.float(fieldNumber: 11, value:negativeFloat)
       }
       if hasLargeFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 12, value:largeFloat)
+        try codedOutputStream.write.float(fieldNumber: 12, value:largeFloat)
       }
       if hasSmallNegativeFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 13, value:smallNegativeFloat)
+        try codedOutputStream.write.float(fieldNumber: 13, value:smallNegativeFloat)
       }
       if hasInfDouble {
-        try codedOutputStream.writeDouble(fieldNumber: 14, value:infDouble)
+        try codedOutputStream.write.double(fieldNumber: 14, value:infDouble)
       }
       if hasNegInfDouble {
-        try codedOutputStream.writeDouble(fieldNumber: 15, value:negInfDouble)
+        try codedOutputStream.write.double(fieldNumber: 15, value:negInfDouble)
       }
       if hasNanDouble {
-        try codedOutputStream.writeDouble(fieldNumber: 16, value:nanDouble)
+        try codedOutputStream.write.double(fieldNumber: 16, value:nanDouble)
       }
       if hasInfFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 17, value:infFloat)
+        try codedOutputStream.write.float(fieldNumber: 17, value:infFloat)
       }
       if hasNegInfFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 18, value:negInfFloat)
+        try codedOutputStream.write.float(fieldNumber: 18, value:negInfFloat)
       }
       if hasNanFloat {
-        try codedOutputStream.writeFloat(fieldNumber: 19, value:nanFloat)
+        try codedOutputStream.write.float(fieldNumber: 19, value:nanFloat)
       }
       if hasCppTrigraph {
-        try codedOutputStream.writeString(fieldNumber: 20, value:cppTrigraph)
+        try codedOutputStream.write.string(fieldNumber: 20, value:cppTrigraph)
       }
       if hasReallySmallInt32 {
-        try codedOutputStream.writeInt32(fieldNumber: 21, value:reallySmallInt32)
+        try codedOutputStream.write.int32(fieldNumber: 21, value:reallySmallInt32)
       }
       if hasReallySmallInt64 {
-        try codedOutputStream.writeInt64(fieldNumber: 22, value:reallySmallInt64)
+        try codedOutputStream.write.int64(fieldNumber: 22, value:reallySmallInt64)
       }
       if hasStringWithZero {
-        try codedOutputStream.writeString(fieldNumber: 23, value:stringWithZero)
+        try codedOutputStream.write.string(fieldNumber: 23, value:stringWithZero)
       }
       if hasBytesWithZero {
-        try codedOutputStream.writeData(fieldNumber: 24, value:bytesWithZero)
+        try codedOutputStream.write.data(fieldNumber: 24, value:bytesWithZero)
       }
       if hasStringPieceWithZero {
-        try codedOutputStream.writeString(fieldNumber: 25, value:stringPieceWithZero)
+        try codedOutputStream.write.string(fieldNumber: 25, value:stringPieceWithZero)
       }
       if hasCordWithZero {
-        try codedOutputStream.writeString(fieldNumber: 26, value:cordWithZero)
+        try codedOutputStream.write.string(fieldNumber: 26, value:cordWithZero)
       }
       if hasReplacementString {
-        try codedOutputStream.writeString(fieldNumber: 27, value:replacementString)
+        try codedOutputStream.write.string(fieldNumber: 27, value:replacementString)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -16571,85 +16515,85 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasEscapedBytes {
-        serialize_size += escapedBytes.computeDataSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 1, value: escapedBytes)
       }
       if hasLargeUint32 {
-        serialize_size += largeUint32.computeUInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 2, value: largeUint32)
       }
       if hasLargeUint64 {
-        serialize_size += largeUint64.computeUInt64Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 3, value: largeUint64)
       }
       if hasSmallInt32 {
-        serialize_size += smallInt32.computeInt32Size(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 4, value: smallInt32)
       }
       if hasSmallInt64 {
-        serialize_size += smallInt64.computeInt64Size(fieldNumber: 5)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 5, value: smallInt64)
       }
       if hasUtf8String {
-        serialize_size += utf8String.computeStringSize(fieldNumber: 6)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: utf8String)
       }
       if hasZeroFloat {
-        serialize_size += zeroFloat.computeFloatSize(fieldNumber: 7)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 7, value: zeroFloat)
       }
       if hasOneFloat {
-        serialize_size += oneFloat.computeFloatSize(fieldNumber: 8)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 8, value: oneFloat)
       }
       if hasSmallFloat {
-        serialize_size += smallFloat.computeFloatSize(fieldNumber: 9)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 9, value: smallFloat)
       }
       if hasNegativeOneFloat {
-        serialize_size += negativeOneFloat.computeFloatSize(fieldNumber: 10)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 10, value: negativeOneFloat)
       }
       if hasNegativeFloat {
-        serialize_size += negativeFloat.computeFloatSize(fieldNumber: 11)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 11, value: negativeFloat)
       }
       if hasLargeFloat {
-        serialize_size += largeFloat.computeFloatSize(fieldNumber: 12)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 12, value: largeFloat)
       }
       if hasSmallNegativeFloat {
-        serialize_size += smallNegativeFloat.computeFloatSize(fieldNumber: 13)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 13, value: smallNegativeFloat)
       }
       if hasInfDouble {
-        serialize_size += infDouble.computeDoubleSize(fieldNumber: 14)
+        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 14, value: infDouble)
       }
       if hasNegInfDouble {
-        serialize_size += negInfDouble.computeDoubleSize(fieldNumber: 15)
+        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 15, value: negInfDouble)
       }
       if hasNanDouble {
-        serialize_size += nanDouble.computeDoubleSize(fieldNumber: 16)
+        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 16, value: nanDouble)
       }
       if hasInfFloat {
-        serialize_size += infFloat.computeFloatSize(fieldNumber: 17)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 17, value: infFloat)
       }
       if hasNegInfFloat {
-        serialize_size += negInfFloat.computeFloatSize(fieldNumber: 18)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 18, value: negInfFloat)
       }
       if hasNanFloat {
-        serialize_size += nanFloat.computeFloatSize(fieldNumber: 19)
+        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 19, value: nanFloat)
       }
       if hasCppTrigraph {
-        serialize_size += cppTrigraph.computeStringSize(fieldNumber: 20)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 20, value: cppTrigraph)
       }
       if hasReallySmallInt32 {
-        serialize_size += reallySmallInt32.computeInt32Size(fieldNumber: 21)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 21, value: reallySmallInt32)
       }
       if hasReallySmallInt64 {
-        serialize_size += reallySmallInt64.computeInt64Size(fieldNumber: 22)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 22, value: reallySmallInt64)
       }
       if hasStringWithZero {
-        serialize_size += stringWithZero.computeStringSize(fieldNumber: 23)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 23, value: stringWithZero)
       }
       if hasBytesWithZero {
-        serialize_size += bytesWithZero.computeDataSize(fieldNumber: 24)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 24, value: bytesWithZero)
       }
       if hasStringPieceWithZero {
-        serialize_size += stringPieceWithZero.computeStringSize(fieldNumber: 25)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 25, value: stringPieceWithZero)
       }
       if hasCordWithZero {
-        serialize_size += cordWithZero.computeStringSize(fieldNumber: 26)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 26, value: cordWithZero)
       }
       if hasReplacementString {
-        serialize_size += replacementString.computeStringSize(fieldNumber: 27)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 27, value: replacementString)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -17763,85 +17707,85 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            escapedBytes = try codedInputStream.readData()
+            escapedBytes = try codedInputStream.read.data()
 
           case 16:
-            largeUint32 = try codedInputStream.readUInt32()
+            largeUint32 = try codedInputStream.read.uInt32()
 
           case 24:
-            largeUint64 = try codedInputStream.readUInt64()
+            largeUint64 = try codedInputStream.read.uint64()
 
           case 32:
-            smallInt32 = try codedInputStream.readInt32()
+            smallInt32 = try codedInputStream.read.int32()
 
           case 40:
-            smallInt64 = try codedInputStream.readInt64()
+            smallInt64 = try codedInputStream.read.int64()
 
           case 50:
-            utf8String = try codedInputStream.readString()
+            utf8String = try codedInputStream.read.string()
 
           case 61:
-            zeroFloat = try codedInputStream.readFloat()
+            zeroFloat = try codedInputStream.read.float()
 
           case 69:
-            oneFloat = try codedInputStream.readFloat()
+            oneFloat = try codedInputStream.read.float()
 
           case 77:
-            smallFloat = try codedInputStream.readFloat()
+            smallFloat = try codedInputStream.read.float()
 
           case 85:
-            negativeOneFloat = try codedInputStream.readFloat()
+            negativeOneFloat = try codedInputStream.read.float()
 
           case 93:
-            negativeFloat = try codedInputStream.readFloat()
+            negativeFloat = try codedInputStream.read.float()
 
           case 101:
-            largeFloat = try codedInputStream.readFloat()
+            largeFloat = try codedInputStream.read.float()
 
           case 109:
-            smallNegativeFloat = try codedInputStream.readFloat()
+            smallNegativeFloat = try codedInputStream.read.float()
 
           case 113:
-            infDouble = try codedInputStream.readDouble()
+            infDouble = try codedInputStream.read.double()
 
           case 121:
-            negInfDouble = try codedInputStream.readDouble()
+            negInfDouble = try codedInputStream.read.double()
 
           case 129:
-            nanDouble = try codedInputStream.readDouble()
+            nanDouble = try codedInputStream.read.double()
 
           case 141:
-            infFloat = try codedInputStream.readFloat()
+            infFloat = try codedInputStream.read.float()
 
           case 149:
-            negInfFloat = try codedInputStream.readFloat()
+            negInfFloat = try codedInputStream.read.float()
 
           case 157:
-            nanFloat = try codedInputStream.readFloat()
+            nanFloat = try codedInputStream.read.float()
 
           case 162:
-            cppTrigraph = try codedInputStream.readString()
+            cppTrigraph = try codedInputStream.read.string()
 
           case 168:
-            reallySmallInt32 = try codedInputStream.readInt32()
+            reallySmallInt32 = try codedInputStream.read.int32()
 
           case 176:
-            reallySmallInt64 = try codedInputStream.readInt64()
+            reallySmallInt64 = try codedInputStream.read.int64()
 
           case 186:
-            stringWithZero = try codedInputStream.readString()
+            stringWithZero = try codedInputStream.read.string()
 
           case 194:
-            bytesWithZero = try codedInputStream.readData()
+            bytesWithZero = try codedInputStream.read.data()
 
           case 202:
-            stringPieceWithZero = try codedInputStream.readString()
+            stringPieceWithZero = try codedInputStream.read.string()
 
           case 210:
-            cordWithZero = try codedInputStream.readString()
+            cordWithZero = try codedInputStream.read.string()
 
           case 218:
-            replacementString = try codedInputStream.readString()
+            replacementString = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -17973,7 +17917,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18190,11 +18134,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeString(fieldNumber: 1, value:data)
+        try codedOutputStream.write.string(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18202,7 +18146,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -18354,7 +18298,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            data = try codedInputStream.readString()
+            data = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -18404,12 +18348,12 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !data.isEmpty {
         for oneValuedata in data {
-          try codedOutputStream.writeString(fieldNumber: 1, value:oneValuedata)
+          try codedOutputStream.write.string(fieldNumber: 1, value:oneValuedata)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18417,9 +18361,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeData:Int32 = 0
-      for oneValuedata in data {
-          dataSizeData += oneValuedata.computeStringSizeNoTag()
-      }
+      dataSizeData += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: data)
       serialize_size += dataSizeData
       serialize_size += 1 * Int32(data.count)
       serialize_size += unknownFields.serializedSize()
@@ -18571,7 +18513,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            data += [try codedInputStream.readString()]
+            data += [try codedInputStream.read.string()]
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -18626,11 +18568,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeData(fieldNumber: 1, value:data)
+        try codedOutputStream.write.data(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18638,7 +18580,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeDataSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -18790,7 +18732,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            data = try codedInputStream.readData()
+            data = try codedInputStream.read.data()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -18840,12 +18782,12 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !data.isEmpty {
         for oneValuedata in data {
-          try codedOutputStream.writeData(fieldNumber: 1, value:oneValuedata)
+          try codedOutputStream.write.data(fieldNumber: 1, value:oneValuedata)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18853,9 +18795,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeData:Int32 = 0
-      for oneValuedata in data {
-          dataSizeData += oneValuedata.computeDataSizeNoTag()
-      }
+      dataSizeData += try ProtobufWire.Size(wireType: .data).repeatedWithoutTag(value: data)
       serialize_size += dataSizeData
       serialize_size += 1 * Int32(data.count)
       serialize_size += unknownFields.serializedSize()
@@ -19007,7 +18947,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            data += [try codedInputStream.readData()]
+            data += [try codedInputStream.read.data()]
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -19063,11 +19003,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:data)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19075,7 +19015,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -19227,7 +19167,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            data = try codedInputStream.readInt32()
+            data = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -19278,11 +19218,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeUInt32(fieldNumber: 1, value:data)
+        try codedOutputStream.write.uInt32(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19290,7 +19230,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeUInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -19442,7 +19382,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            data = try codedInputStream.readUInt32()
+            data = try codedInputStream.read.uInt32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -19493,11 +19433,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeInt64(fieldNumber: 1, value:data)
+        try codedOutputStream.write.int64(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19505,7 +19445,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeInt64Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -19657,7 +19597,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            data = try codedInputStream.readInt64()
+            data = try codedInputStream.read.int64()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -19708,11 +19648,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeUInt64(fieldNumber: 1, value:data)
+        try codedOutputStream.write.uint64(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19720,7 +19660,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeUInt64Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -19872,7 +19812,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            data = try codedInputStream.readUInt64()
+            data = try codedInputStream.read.uint64()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -19923,11 +19863,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
-        try codedOutputStream.writeBool(fieldNumber: 1, value:data)
+        try codedOutputStream.write.bool(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19935,7 +19875,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += data.computeBoolSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -20087,7 +20027,7 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            data = try codedInputStream.readBool()
+            data = try codedInputStream.read.bool()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -20162,14 +20102,14 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 5, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 5, value:a)
           }
           if hasB {
-            try codedOutputStream.writeString(fieldNumber: 6, value:b)
+            try codedOutputStream.write.string(fieldNumber: 6, value:b)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -20177,10 +20117,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 5)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: a)
           }
           if hasB {
-            serialize_size += b.computeStringSize(fieldNumber: 6)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -20369,10 +20309,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 40:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               case 50:
-                b = try codedInputStream.readString()
+                b = try codedInputStream.read.string()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -20548,20 +20488,20 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:fooInt)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
       if hasFooString {
-        try codedOutputStream.writeString(fieldNumber: 2, value:fooString)
+        try codedOutputStream.write.string(fieldNumber: 2, value:fooString)
       }
       if hasFooMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 3, value:fooMessage)
+        try codedOutputStream.write.message(fieldNumber: 3, value:fooMessage)
       }
       if hasFooGroup {
-        try codedOutputStream.writeGroup(fieldNumber: 4, value:fooGroup)
+        try codedOutputStream.write.group(fieldNumber: 4, value:fooGroup)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -20569,18 +20509,18 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += fooInt.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += fooString.computeStringSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = fooMessage?.computeMessageSize(fieldNumber: 3) {
+          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
               serialize_size += varSizefooMessage
           }
       }
       if hasFooGroup {
-          if let varSizefooGroup = fooGroup?.computeGroupSize(fieldNumber: 4) {
+          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 4, value:fooGroup) {
               serialize_size += varSizefooGroup
           }
       }
@@ -20915,10 +20855,10 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            fooInt = try codedInputStream.readInt32()
+            fooInt = try codedInputStream.read.int32()
 
           case 18:
-            fooString = try codedInputStream.readString()
+            fooString = try codedInputStream.read.string()
 
           case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
@@ -21019,14 +20959,14 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 5, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 5, value:a)
           }
           if hasB {
-            try codedOutputStream.writeString(fieldNumber: 6, value:b)
+            try codedOutputStream.write.string(fieldNumber: 6, value:b)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -21034,10 +20974,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 5)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: a)
           }
           if hasB {
-            serialize_size += b.computeStringSize(fieldNumber: 6)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -21226,10 +21166,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 40:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               case 50:
-                b = try codedInputStream.readString()
+                b = try codedInputStream.read.string()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -21280,20 +21220,20 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:fooInt)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
       if hasFooString {
-        try codedOutputStream.writeString(fieldNumber: 2, value:fooString)
+        try codedOutputStream.write.string(fieldNumber: 2, value:fooString)
       }
       if hasFooMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 3, value:fooMessage)
+        try codedOutputStream.write.message(fieldNumber: 3, value:fooMessage)
       }
       if hasFooGroup {
-        try codedOutputStream.writeGroup(fieldNumber: 4, value:fooGroup)
+        try codedOutputStream.write.group(fieldNumber: 4, value:fooGroup)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -21301,18 +21241,18 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += fooInt.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += fooString.computeStringSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = fooMessage?.computeMessageSize(fieldNumber: 3) {
+          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
               serialize_size += varSizefooMessage
           }
       }
       if hasFooGroup {
-          if let varSizefooGroup = fooGroup?.computeGroupSize(fieldNumber: 4) {
+          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 4, value:fooGroup) {
               serialize_size += varSizefooGroup
           }
       }
@@ -21647,10 +21587,10 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            fooInt = try codedInputStream.readInt32()
+            fooInt = try codedInputStream.read.int32()
 
           case 18:
-            fooString = try codedInputStream.readString()
+            fooString = try codedInputStream.read.string()
 
           case 26:
             let subBuilder:ProtobufUnittest.TestAllTypes.Builder = ProtobufUnittest.TestAllTypes.Builder()
@@ -21764,14 +21704,14 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
-            try codedOutputStream.writeInt32(fieldNumber: 9, value:a)
+            try codedOutputStream.write.int32(fieldNumber: 9, value:a)
           }
           if hasB {
-            try codedOutputStream.writeString(fieldNumber: 10, value:b)
+            try codedOutputStream.write.string(fieldNumber: 10, value:b)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -21779,10 +21719,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += a.computeInt32Size(fieldNumber: 9)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 9, value: a)
           }
           if hasB {
-            serialize_size += b.computeStringSize(fieldNumber: 10)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 10, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -21971,10 +21911,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 72:
-                a = try codedInputStream.readInt32()
+                a = try codedInputStream.read.int32()
 
               case 82:
-                b = try codedInputStream.readString()
+                b = try codedInputStream.read.string()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -22036,16 +21976,16 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasQuxInt {
-            try codedOutputStream.writeInt64(fieldNumber: 1, value:quxInt)
+            try codedOutputStream.write.int64(fieldNumber: 1, value:quxInt)
           }
           if !corgeInt.isEmpty {
             for oneValuecorgeInt in corgeInt {
-              try codedOutputStream.writeInt32(fieldNumber: 2, value:oneValuecorgeInt)
+              try codedOutputStream.write.int32(fieldNumber: 2, value:oneValuecorgeInt)
             }
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -22053,12 +21993,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasQuxInt {
-            serialize_size += quxInt.computeInt64Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: quxInt)
           }
           var dataSizeCorgeInt:Int32 = 0
-          for oneValuecorgeInt in corgeInt {
-              dataSizeCorgeInt += oneValuecorgeInt.computeInt32SizeNoTag()
-          }
+          dataSizeCorgeInt += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: corgeInt)
           serialize_size += dataSizeCorgeInt
           serialize_size += 1 * Int32(corgeInt.count)
           serialize_size += unknownFields.serializedSize()
@@ -22247,10 +22185,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 8:
-                quxInt = try codedInputStream.readInt64()
+                quxInt = try codedInputStream.read.int64()
 
               case 16:
-                corgeInt += [try codedInputStream.readInt32()]
+                corgeInt += [try codedInputStream.read.int32()]
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -22803,59 +22741,59 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:fooInt)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
       if hasFooString {
-        try codedOutputStream.writeString(fieldNumber: 2, value:fooString)
+        try codedOutputStream.write.string(fieldNumber: 2, value:fooString)
       }
       if hasFooCord {
-        try codedOutputStream.writeString(fieldNumber: 3, value:fooCord)
+        try codedOutputStream.write.string(fieldNumber: 3, value:fooCord)
       }
       if hasFooStringPiece {
-        try codedOutputStream.writeString(fieldNumber: 4, value:fooStringPiece)
+        try codedOutputStream.write.string(fieldNumber: 4, value:fooStringPiece)
       }
       if hasFooBytes {
-        try codedOutputStream.writeData(fieldNumber: 5, value:fooBytes)
+        try codedOutputStream.write.data(fieldNumber: 5, value:fooBytes)
       }
       if hasFooEnum {
         try codedOutputStream.writeEnum(fieldNumber: 6, value:fooEnum.rawValue)
       }
       if hasFooMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 7, value:fooMessage)
+        try codedOutputStream.write.message(fieldNumber: 7, value:fooMessage)
       }
       if hasFooGroup {
-        try codedOutputStream.writeGroup(fieldNumber: 8, value:fooGroup)
+        try codedOutputStream.write.group(fieldNumber: 8, value:fooGroup)
       }
       if hasFooLazyMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 11, value:fooLazyMessage)
+        try codedOutputStream.write.message(fieldNumber: 11, value:fooLazyMessage)
       }
       if hasBarInt {
-        try codedOutputStream.writeInt32(fieldNumber: 12, value:barInt)
+        try codedOutputStream.write.int32(fieldNumber: 12, value:barInt)
       }
       if hasBarString {
-        try codedOutputStream.writeString(fieldNumber: 13, value:barString)
+        try codedOutputStream.write.string(fieldNumber: 13, value:barString)
       }
       if hasBarCord {
-        try codedOutputStream.writeString(fieldNumber: 14, value:barCord)
+        try codedOutputStream.write.string(fieldNumber: 14, value:barCord)
       }
       if hasBarStringPiece {
-        try codedOutputStream.writeString(fieldNumber: 15, value:barStringPiece)
+        try codedOutputStream.write.string(fieldNumber: 15, value:barStringPiece)
       }
       if hasBarBytes {
-        try codedOutputStream.writeData(fieldNumber: 16, value:barBytes)
+        try codedOutputStream.write.data(fieldNumber: 16, value:barBytes)
       }
       if hasBarEnum {
         try codedOutputStream.writeEnum(fieldNumber: 17, value:barEnum.rawValue)
       }
       if hasBazInt {
-        try codedOutputStream.writeInt32(fieldNumber: 18, value:bazInt)
+        try codedOutputStream.write.int32(fieldNumber: 18, value:bazInt)
       }
       if hasBazString {
-        try codedOutputStream.writeString(fieldNumber: 19, value:bazString)
+        try codedOutputStream.write.string(fieldNumber: 19, value:bazString)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -22863,61 +22801,61 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += fooInt.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += fooString.computeStringSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
       }
       if hasFooCord {
-        serialize_size += fooCord.computeStringSize(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 3, value: fooCord)
       }
       if hasFooStringPiece {
-        serialize_size += fooStringPiece.computeStringSize(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 4, value: fooStringPiece)
       }
       if hasFooBytes {
-        serialize_size += fooBytes.computeDataSize(fieldNumber: 5)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 5, value: fooBytes)
       }
       if (hasFooEnum) {
         serialize_size += fooEnum.rawValue.computeEnumSize(fieldNumber: 6)
       }
       if hasFooMessage {
-          if let varSizefooMessage = fooMessage?.computeMessageSize(fieldNumber: 7) {
+          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 7, value:fooMessage) {
               serialize_size += varSizefooMessage
           }
       }
       if hasFooGroup {
-          if let varSizefooGroup = fooGroup?.computeGroupSize(fieldNumber: 8) {
+          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 8, value:fooGroup) {
               serialize_size += varSizefooGroup
           }
       }
       if hasFooLazyMessage {
-          if let varSizefooLazyMessage = fooLazyMessage?.computeMessageSize(fieldNumber: 11) {
+          if let varSizefooLazyMessage = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:fooLazyMessage) {
               serialize_size += varSizefooLazyMessage
           }
       }
       if hasBarInt {
-        serialize_size += barInt.computeInt32Size(fieldNumber: 12)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 12, value: barInt)
       }
       if hasBarString {
-        serialize_size += barString.computeStringSize(fieldNumber: 13)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 13, value: barString)
       }
       if hasBarCord {
-        serialize_size += barCord.computeStringSize(fieldNumber: 14)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 14, value: barCord)
       }
       if hasBarStringPiece {
-        serialize_size += barStringPiece.computeStringSize(fieldNumber: 15)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 15, value: barStringPiece)
       }
       if hasBarBytes {
-        serialize_size += barBytes.computeDataSize(fieldNumber: 16)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 16, value: barBytes)
       }
       if (hasBarEnum) {
         serialize_size += barEnum.rawValue.computeEnumSize(fieldNumber: 17)
       }
       if hasBazInt {
-        serialize_size += bazInt.computeInt32Size(fieldNumber: 18)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 18, value: bazInt)
       }
       if hasBazString {
-        serialize_size += bazString.computeStringSize(fieldNumber: 19)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 19, value: bazString)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -23766,19 +23704,19 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            fooInt = try codedInputStream.readInt32()
+            fooInt = try codedInputStream.read.int32()
 
           case 18:
-            fooString = try codedInputStream.readString()
+            fooString = try codedInputStream.read.string()
 
           case 26:
-            fooCord = try codedInputStream.readString()
+            fooCord = try codedInputStream.read.string()
 
           case 34:
-            fooStringPiece = try codedInputStream.readString()
+            fooStringPiece = try codedInputStream.read.string()
 
           case 42:
-            fooBytes = try codedInputStream.readData()
+            fooBytes = try codedInputStream.read.data()
 
           case 48:
             let valueIntfooEnum = try codedInputStream.readEnum()
@@ -23813,19 +23751,19 @@ public extension ProtobufUnittest {
             fooLazyMessage = subBuilder.buildPartial()
 
           case 96:
-            barInt = try codedInputStream.readInt32()
+            barInt = try codedInputStream.read.int32()
 
           case 106:
-            barString = try codedInputStream.readString()
+            barString = try codedInputStream.read.string()
 
           case 114:
-            barCord = try codedInputStream.readString()
+            barCord = try codedInputStream.read.string()
 
           case 122:
-            barStringPiece = try codedInputStream.readString()
+            barStringPiece = try codedInputStream.read.string()
 
           case 130:
-            barBytes = try codedInputStream.readData()
+            barBytes = try codedInputStream.read.data()
 
           case 136:
             let valueIntbarEnum = try codedInputStream.readEnum()
@@ -23836,10 +23774,10 @@ public extension ProtobufUnittest {
             }
 
           case 144:
-            bazInt = try codedInputStream.readInt32()
+            bazInt = try codedInputStream.read.int32()
 
           case 154:
-            bazString = try codedInputStream.readString()
+            bazString = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -23962,11 +23900,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasRequiredDouble {
-            try codedOutputStream.writeDouble(fieldNumber: 1, value:requiredDouble)
+            try codedOutputStream.write.double(fieldNumber: 1, value:requiredDouble)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -23974,7 +23912,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRequiredDouble {
-            serialize_size += requiredDouble.computeDoubleSize(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 1, value: requiredDouble)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -24126,7 +24064,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 9:
-                requiredDouble = try codedInputStream.readDouble()
+                requiredDouble = try codedInputStream.read.double()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -24276,17 +24214,17 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:fooInt)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
       if hasFooString {
-        try codedOutputStream.writeString(fieldNumber: 2, value:fooString)
+        try codedOutputStream.write.string(fieldNumber: 2, value:fooString)
       }
       if hasFooMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 3, value:fooMessage)
+        try codedOutputStream.write.message(fieldNumber: 3, value:fooMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -24294,13 +24232,13 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += fooInt.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += fooString.computeStringSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = fooMessage?.computeMessageSize(fieldNumber: 3) {
+          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
               serialize_size += varSizefooMessage
           }
       }
@@ -24563,10 +24501,10 @@ public extension ProtobufUnittest {
             return self
 
           case 8:
-            fooInt = try codedInputStream.readInt32()
+            fooInt = try codedInputStream.read.int32()
 
           case 18:
-            fooString = try codedInputStream.readString()
+            fooString = try codedInputStream.read.string()
 
           case 26:
             let subBuilder:ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder = ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
@@ -24673,91 +24611,91 @@ public extension ProtobufUnittest {
         try codedOutputStream.writeRawVarint32(value: 722)
         try codedOutputStream.writeRawVarint32(value: packedInt32MemoizedSerializedSize)
         for oneValuepackedInt32 in packedInt32 {
-          try codedOutputStream.writeInt32NoTag(value: oneValuepackedInt32)
+          try codedOutputStream.write.int32NoTag(value: oneValuepackedInt32)
         }
       }
       if !packedInt64.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 730)
         try codedOutputStream.writeRawVarint32(value: packedInt64MemoizedSerializedSize)
         for oneValuepackedInt64 in packedInt64 {
-          try codedOutputStream.writeInt64NoTag(value: oneValuepackedInt64)
+          try codedOutputStream.write.int64NoTag(value: oneValuepackedInt64)
         }
       }
       if !packedUint32.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 738)
         try codedOutputStream.writeRawVarint32(value: packedUint32MemoizedSerializedSize)
         for oneValuepackedUint32 in packedUint32 {
-          try codedOutputStream.writeUInt32NoTag(value: oneValuepackedUint32)
+          try codedOutputStream.write.uInt32NoTag(value: oneValuepackedUint32)
         }
       }
       if !packedUint64.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 746)
         try codedOutputStream.writeRawVarint32(value: packedUint64MemoizedSerializedSize)
         for oneValuepackedUint64 in packedUint64 {
-          try codedOutputStream.writeUInt64NoTag(value: oneValuepackedUint64)
+          try codedOutputStream.write.uint64NoTag(value: oneValuepackedUint64)
         }
       }
       if !packedSint32.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 754)
         try codedOutputStream.writeRawVarint32(value: packedSint32MemoizedSerializedSize)
         for oneValuepackedSint32 in packedSint32 {
-          try codedOutputStream.writeSInt32NoTag(value: oneValuepackedSint32)
+          try codedOutputStream.write.sint32NoTag(value: oneValuepackedSint32)
         }
       }
       if !packedSint64.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 762)
         try codedOutputStream.writeRawVarint32(value: packedSint64MemoizedSerializedSize)
         for oneValuepackedSint64 in packedSint64 {
-          try codedOutputStream.writeSInt64NoTag(value: oneValuepackedSint64)
+          try codedOutputStream.write.sint64NoTag(value: oneValuepackedSint64)
         }
       }
       if !packedFixed32.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 770)
         try codedOutputStream.writeRawVarint32(value: packedFixed32MemoizedSerializedSize)
         for oneValuepackedFixed32 in packedFixed32 {
-          try codedOutputStream.writeFixed32NoTag(value: oneValuepackedFixed32)
+          try codedOutputStream.write.fixed32NoTag(value: oneValuepackedFixed32)
         }
       }
       if !packedFixed64.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 778)
         try codedOutputStream.writeRawVarint32(value: packedFixed64MemoizedSerializedSize)
         for oneValuepackedFixed64 in packedFixed64 {
-          try codedOutputStream.writeFixed64NoTag(value: oneValuepackedFixed64)
+          try codedOutputStream.write.dixed64NoTag(value: oneValuepackedFixed64)
         }
       }
       if !packedSfixed32.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 786)
         try codedOutputStream.writeRawVarint32(value: packedSfixed32MemoizedSerializedSize)
         for oneValuepackedSfixed32 in packedSfixed32 {
-          try codedOutputStream.writeSFixed32NoTag(value: oneValuepackedSfixed32)
+          try codedOutputStream.write.sfixed32NoTag(value: oneValuepackedSfixed32)
         }
       }
       if !packedSfixed64.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 794)
         try codedOutputStream.writeRawVarint32(value: packedSfixed64MemoizedSerializedSize)
         for oneValuepackedSfixed64 in packedSfixed64 {
-          try codedOutputStream.writeSFixed64NoTag(value: oneValuepackedSfixed64)
+          try codedOutputStream.write.sfixed64NoTag(value: oneValuepackedSfixed64)
         }
       }
       if !packedFloat.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 802)
         try codedOutputStream.writeRawVarint32(value: packedFloatMemoizedSerializedSize)
         for oneValuepackedFloat in packedFloat {
-          try codedOutputStream.writeFloatNoTag(value: oneValuepackedFloat)
+          try codedOutputStream.write.floatNoTag(value: oneValuepackedFloat)
         }
       }
       if !packedDouble.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 810)
         try codedOutputStream.writeRawVarint32(value: packedDoubleMemoizedSerializedSize)
         for oneValuepackedDouble in packedDouble {
-          try codedOutputStream.writeDoubleNoTag(value: oneValuepackedDouble)
+          try codedOutputStream.write.doubleNoTag(value: oneValuepackedDouble)
         }
       }
       if !packedBool.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 818)
         try codedOutputStream.writeRawVarint32(value: packedBoolMemoizedSerializedSize)
         for oneValuepackedBool in packedBool {
-          try codedOutputStream.writeBoolNoTag(value: oneValuepackedBool)
+          try codedOutputStream.write.boolNoTag(value: oneValuepackedBool)
         }
       }
       if !packedEnum.isEmpty {
@@ -24769,7 +24707,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -24777,63 +24715,51 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizePackedInt32:Int32 = 0
-      for oneValuepackedInt32 in packedInt32 {
-          dataSizePackedInt32 += oneValuepackedInt32.computeInt32SizeNoTag()
-      }
+      dataSizePackedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: packedInt32)
       serialize_size += dataSizePackedInt32
       if !packedInt32.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedInt32.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedInt32).withoutTag(value: dataSizePackedInt32)
       }
       packedInt32MemoizedSerializedSize = dataSizePackedInt32
       var dataSizePackedInt64:Int32 = 0
-      for oneValuepackedInt64 in packedInt64 {
-          dataSizePackedInt64 += oneValuepackedInt64.computeInt64SizeNoTag()
-      }
+      dataSizePackedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: packedInt64)
       serialize_size += dataSizePackedInt64
       if !packedInt64.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedInt64.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedInt64).withoutTag(value: dataSizePackedInt64)
       }
       packedInt64MemoizedSerializedSize = dataSizePackedInt64
       var dataSizePackedUint32:Int32 = 0
-      for oneValuepackedUint32 in packedUint32 {
-          dataSizePackedUint32 += oneValuepackedUint32.computeUInt32SizeNoTag()
-      }
+      dataSizePackedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: packedUint32)
       serialize_size += dataSizePackedUint32
       if !packedUint32.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedUint32.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedUint32).withoutTag(value: dataSizePackedUint32)
       }
       packedUint32MemoizedSerializedSize = dataSizePackedUint32
       var dataSizePackedUint64:Int32 = 0
-      for oneValuepackedUint64 in packedUint64 {
-          dataSizePackedUint64 += oneValuepackedUint64.computeUInt64SizeNoTag()
-      }
+      dataSizePackedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: packedUint64)
       serialize_size += dataSizePackedUint64
       if !packedUint64.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedUint64.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedUint64).withoutTag(value: dataSizePackedUint64)
       }
       packedUint64MemoizedSerializedSize = dataSizePackedUint64
       var dataSizePackedSint32:Int32 = 0
-      for oneValuepackedSint32 in packedSint32 {
-          dataSizePackedSint32 += oneValuepackedSint32.computeSInt32SizeNoTag()
-      }
+      dataSizePackedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: packedSint32)
       serialize_size += dataSizePackedSint32
       if !packedSint32.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedSint32.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedSint32).withoutTag(value: dataSizePackedSint32)
       }
       packedSint32MemoizedSerializedSize = dataSizePackedSint32
       var dataSizePackedSint64:Int32 = 0
-      for oneValuepackedSint64 in packedSint64 {
-          dataSizePackedSint64 += oneValuepackedSint64.computeSInt64SizeNoTag()
-      }
+      dataSizePackedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: packedSint64)
       serialize_size += dataSizePackedSint64
       if !packedSint64.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedSint64.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedSint64).withoutTag(value: dataSizePackedSint64)
       }
       packedSint64MemoizedSerializedSize = dataSizePackedSint64
       var dataSizePackedFixed32:Int32 = 0
@@ -24841,7 +24767,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFixed32
       if !packedFixed32.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedFixed32.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedFixed32).withoutTag(value: dataSizePackedFixed32)
       }
       packedFixed32MemoizedSerializedSize = dataSizePackedFixed32
       var dataSizePackedFixed64:Int32 = 0
@@ -24849,7 +24775,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFixed64
       if !packedFixed64.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedFixed64.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedFixed64).withoutTag(value: dataSizePackedFixed64)
       }
       packedFixed64MemoizedSerializedSize = dataSizePackedFixed64
       var dataSizePackedSfixed32:Int32 = 0
@@ -24857,7 +24783,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedSfixed32
       if !packedSfixed32.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedSfixed32.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedSfixed32).withoutTag(value: dataSizePackedSfixed32)
       }
       packedSfixed32MemoizedSerializedSize = dataSizePackedSfixed32
       var dataSizePackedSfixed64:Int32 = 0
@@ -24865,7 +24791,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedSfixed64
       if !packedSfixed64.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedSfixed64.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedSfixed64).withoutTag(value: dataSizePackedSfixed64)
       }
       packedSfixed64MemoizedSerializedSize = dataSizePackedSfixed64
       var dataSizePackedFloat:Int32 = 0
@@ -24873,7 +24799,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFloat
       if !packedFloat.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedFloat.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedFloat).withoutTag(value: dataSizePackedFloat)
       }
       packedFloatMemoizedSerializedSize = dataSizePackedFloat
       var dataSizePackedDouble:Int32 = 0
@@ -24881,7 +24807,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedDouble
       if !packedDouble.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedDouble.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedDouble).withoutTag(value: dataSizePackedDouble)
       }
       packedDoubleMemoizedSerializedSize = dataSizePackedDouble
       var dataSizePackedBool:Int32 = 0
@@ -24889,17 +24815,15 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedBool
       if !packedBool.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedBool.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedBool).withoutTag(value: dataSizePackedBool)
       }
       packedBoolMemoizedSerializedSize = dataSizePackedBool
       var dataSizepackedEnum:Int32 = 0
-      for oneValueOfpackedEnum in packedEnum {
-          dataSizepackedEnum += oneValueOfpackedEnum.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizepackedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfpackedEnum.rawValue)
       serialize_size += dataSizepackedEnum
       if !packedEnum.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizepackedEnum.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizepackedEnum)
       }
       packedEnumMemoizedSerializedSize = dataSizepackedEnum
       serialize_size += unknownFields.serializedSize()
@@ -25522,7 +25446,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedInt32.append(try codedInputStream.readInt32())
+              builderResult.packedInt32.append(try codedInputStream.read.int32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25530,7 +25454,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedInt64.append(try codedInputStream.readInt64())
+              builderResult.packedInt64.append(try codedInputStream.read.int64())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25538,7 +25462,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedUint32.append(try codedInputStream.readUInt32())
+              builderResult.packedUint32.append(try codedInputStream.read.uInt32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25546,7 +25470,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedUint64.append(try codedInputStream.readUInt64())
+              builderResult.packedUint64.append(try codedInputStream.read.uint64())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25554,7 +25478,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedSint32.append(try codedInputStream.readSInt32())
+              builderResult.packedSint32.append(try codedInputStream.read.sint32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25562,7 +25486,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedSint64.append(try codedInputStream.readSInt64())
+              builderResult.packedSint64.append(try codedInputStream.read.sint64())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25570,7 +25494,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedFixed32.append(try codedInputStream.readFixed32())
+              builderResult.packedFixed32.append(try codedInputStream.read.fixed32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25578,7 +25502,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedFixed64.append(try codedInputStream.readFixed64())
+              builderResult.packedFixed64.append(try codedInputStream.read.dixed64())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25586,7 +25510,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedSfixed32.append(try codedInputStream.readSFixed32())
+              builderResult.packedSfixed32.append(try codedInputStream.read.sfixed32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25594,7 +25518,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedSfixed64.append(try codedInputStream.readSFixed64())
+              builderResult.packedSfixed64.append(try codedInputStream.read.sfixed64())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25602,7 +25526,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedFloat.append(try codedInputStream.readFloat())
+              builderResult.packedFloat.append(try codedInputStream.read.float())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25610,7 +25534,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedDouble.append(try codedInputStream.readDouble())
+              builderResult.packedDouble.append(try codedInputStream.read.double())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25618,7 +25542,7 @@ public extension ProtobufUnittest {
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedBool.append(try codedInputStream.readBool())
+              builderResult.packedBool.append(try codedInputStream.read.bool())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -25808,67 +25732,67 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !unpackedInt32.isEmpty {
         for oneValueunpackedInt32 in unpackedInt32 {
-          try codedOutputStream.writeInt32(fieldNumber: 90, value:oneValueunpackedInt32)
+          try codedOutputStream.write.int32(fieldNumber: 90, value:oneValueunpackedInt32)
         }
       }
       if !unpackedInt64.isEmpty {
         for oneValueunpackedInt64 in unpackedInt64 {
-          try codedOutputStream.writeInt64(fieldNumber: 91, value:oneValueunpackedInt64)
+          try codedOutputStream.write.int64(fieldNumber: 91, value:oneValueunpackedInt64)
         }
       }
       if !unpackedUint32.isEmpty {
         for oneValueunpackedUint32 in unpackedUint32 {
-          try codedOutputStream.writeUInt32(fieldNumber: 92, value:oneValueunpackedUint32)
+          try codedOutputStream.write.uInt32(fieldNumber: 92, value:oneValueunpackedUint32)
         }
       }
       if !unpackedUint64.isEmpty {
         for oneValueunpackedUint64 in unpackedUint64 {
-          try codedOutputStream.writeUInt64(fieldNumber: 93, value:oneValueunpackedUint64)
+          try codedOutputStream.write.uint64(fieldNumber: 93, value:oneValueunpackedUint64)
         }
       }
       if !unpackedSint32.isEmpty {
         for oneValueunpackedSint32 in unpackedSint32 {
-          try codedOutputStream.writeSInt32(fieldNumber: 94, value:oneValueunpackedSint32)
+          try codedOutputStream.write.sint32(fieldNumber: 94, value:oneValueunpackedSint32)
         }
       }
       if !unpackedSint64.isEmpty {
         for oneValueunpackedSint64 in unpackedSint64 {
-          try codedOutputStream.writeSInt64(fieldNumber: 95, value:oneValueunpackedSint64)
+          try codedOutputStream.write.sint64(fieldNumber: 95, value:oneValueunpackedSint64)
         }
       }
       if !unpackedFixed32.isEmpty {
         for oneValueunpackedFixed32 in unpackedFixed32 {
-          try codedOutputStream.writeFixed32(fieldNumber: 96, value:oneValueunpackedFixed32)
+          try codedOutputStream.write.fixed32(fieldNumber: 96, value:oneValueunpackedFixed32)
         }
       }
       if !unpackedFixed64.isEmpty {
         for oneValueunpackedFixed64 in unpackedFixed64 {
-          try codedOutputStream.writeFixed64(fieldNumber: 97, value:oneValueunpackedFixed64)
+          try codedOutputStream.write.dixed64(fieldNumber: 97, value:oneValueunpackedFixed64)
         }
       }
       if !unpackedSfixed32.isEmpty {
         for oneValueunpackedSfixed32 in unpackedSfixed32 {
-          try codedOutputStream.writeSFixed32(fieldNumber: 98, value:oneValueunpackedSfixed32)
+          try codedOutputStream.write.sfixed32(fieldNumber: 98, value:oneValueunpackedSfixed32)
         }
       }
       if !unpackedSfixed64.isEmpty {
         for oneValueunpackedSfixed64 in unpackedSfixed64 {
-          try codedOutputStream.writeSFixed64(fieldNumber: 99, value:oneValueunpackedSfixed64)
+          try codedOutputStream.write.sfixed64(fieldNumber: 99, value:oneValueunpackedSfixed64)
         }
       }
       if !unpackedFloat.isEmpty {
         for oneValueunpackedFloat in unpackedFloat {
-          try codedOutputStream.writeFloat(fieldNumber: 100, value:oneValueunpackedFloat)
+          try codedOutputStream.write.float(fieldNumber: 100, value:oneValueunpackedFloat)
         }
       }
       if !unpackedDouble.isEmpty {
         for oneValueunpackedDouble in unpackedDouble {
-          try codedOutputStream.writeDouble(fieldNumber: 101, value:oneValueunpackedDouble)
+          try codedOutputStream.write.double(fieldNumber: 101, value:oneValueunpackedDouble)
         }
       }
       if !unpackedBool.isEmpty {
         for oneValueunpackedBool in unpackedBool {
-          try codedOutputStream.writeBool(fieldNumber: 102, value:oneValueunpackedBool)
+          try codedOutputStream.write.bool(fieldNumber: 102, value:oneValueunpackedBool)
         }
       }
       for oneValueOfunpackedEnum in unpackedEnum {
@@ -25876,7 +25800,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -25884,39 +25808,27 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeUnpackedInt32:Int32 = 0
-      for oneValueunpackedInt32 in unpackedInt32 {
-          dataSizeUnpackedInt32 += oneValueunpackedInt32.computeInt32SizeNoTag()
-      }
+      dataSizeUnpackedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: unpackedInt32)
       serialize_size += dataSizeUnpackedInt32
       serialize_size += 2 * Int32(unpackedInt32.count)
       var dataSizeUnpackedInt64:Int32 = 0
-      for oneValueunpackedInt64 in unpackedInt64 {
-          dataSizeUnpackedInt64 += oneValueunpackedInt64.computeInt64SizeNoTag()
-      }
+      dataSizeUnpackedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: unpackedInt64)
       serialize_size += dataSizeUnpackedInt64
       serialize_size += 2 * Int32(unpackedInt64.count)
       var dataSizeUnpackedUint32:Int32 = 0
-      for oneValueunpackedUint32 in unpackedUint32 {
-          dataSizeUnpackedUint32 += oneValueunpackedUint32.computeUInt32SizeNoTag()
-      }
+      dataSizeUnpackedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: unpackedUint32)
       serialize_size += dataSizeUnpackedUint32
       serialize_size += 2 * Int32(unpackedUint32.count)
       var dataSizeUnpackedUint64:Int32 = 0
-      for oneValueunpackedUint64 in unpackedUint64 {
-          dataSizeUnpackedUint64 += oneValueunpackedUint64.computeUInt64SizeNoTag()
-      }
+      dataSizeUnpackedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: unpackedUint64)
       serialize_size += dataSizeUnpackedUint64
       serialize_size += 2 * Int32(unpackedUint64.count)
       var dataSizeUnpackedSint32:Int32 = 0
-      for oneValueunpackedSint32 in unpackedSint32 {
-          dataSizeUnpackedSint32 += oneValueunpackedSint32.computeSInt32SizeNoTag()
-      }
+      dataSizeUnpackedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: unpackedSint32)
       serialize_size += dataSizeUnpackedSint32
       serialize_size += 2 * Int32(unpackedSint32.count)
       var dataSizeUnpackedSint64:Int32 = 0
-      for oneValueunpackedSint64 in unpackedSint64 {
-          dataSizeUnpackedSint64 += oneValueunpackedSint64.computeSInt64SizeNoTag()
-      }
+      dataSizeUnpackedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: unpackedSint64)
       serialize_size += dataSizeUnpackedSint64
       serialize_size += 2 * Int32(unpackedSint64.count)
       var dataSizeUnpackedFixed32:Int32 = 0
@@ -25948,9 +25860,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeUnpackedBool
       serialize_size += 2 * Int32(unpackedBool.count)
       var dataSizeunpackedEnum:Int32 = 0
-      for oneValueOfunpackedEnum in unpackedEnum {
-          dataSizeunpackedEnum += oneValueOfunpackedEnum.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizeunpackedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfunpackedEnum.rawValue)
       serialize_size += dataSizeunpackedEnum
       serialize_size += (2 * Int32(unpackedEnum.count))
       serialize_size += unknownFields.serializedSize()
@@ -26570,43 +26480,43 @@ public extension ProtobufUnittest {
             return self
 
           case 720:
-            unpackedInt32 += [try codedInputStream.readInt32()]
+            unpackedInt32 += [try codedInputStream.read.int32()]
 
           case 728:
-            unpackedInt64 += [try codedInputStream.readInt64()]
+            unpackedInt64 += [try codedInputStream.read.int64()]
 
           case 736:
-            unpackedUint32 += [try codedInputStream.readUInt32()]
+            unpackedUint32 += [try codedInputStream.read.uInt32()]
 
           case 744:
-            unpackedUint64 += [try codedInputStream.readUInt64()]
+            unpackedUint64 += [try codedInputStream.read.uint64()]
 
           case 752:
-            unpackedSint32 += [try codedInputStream.readSInt32()]
+            unpackedSint32 += [try codedInputStream.read.sint32()]
 
           case 760:
-            unpackedSint64 += [try codedInputStream.readSInt64()]
+            unpackedSint64 += [try codedInputStream.read.sint64()]
 
           case 773:
-            unpackedFixed32 += [try codedInputStream.readFixed32()]
+            unpackedFixed32 += [try codedInputStream.read.fixed32()]
 
           case 777:
-            unpackedFixed64 += [try codedInputStream.readFixed64()]
+            unpackedFixed64 += [try codedInputStream.read.dixed64()]
 
           case 789:
-            unpackedSfixed32 += [try codedInputStream.readSFixed32()]
+            unpackedSfixed32 += [try codedInputStream.read.sfixed32()]
 
           case 793:
-            unpackedSfixed64 += [try codedInputStream.readSFixed64()]
+            unpackedSfixed64 += [try codedInputStream.read.sfixed64()]
 
           case 805:
-            unpackedFloat += [try codedInputStream.readFloat()]
+            unpackedFloat += [try codedInputStream.read.float()]
 
           case 809:
-            unpackedDouble += [try codedInputStream.readDouble()]
+            unpackedDouble += [try codedInputStream.read.double()]
 
           case 816:
-            unpackedBool += [try codedInputStream.readBool()]
+            unpackedBool += [try codedInputStream.read.bool()]
 
           case 824:
             let valueIntunpackedEnum = try codedInputStream.readEnum()
@@ -26763,7 +26673,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -26934,7 +26844,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -27128,11 +27038,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasDynamicField {
-            try codedOutputStream.writeInt32(fieldNumber: 2100, value:dynamicField)
+            try codedOutputStream.write.int32(fieldNumber: 2100, value:dynamicField)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -27140,7 +27050,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasDynamicField {
-            serialize_size += dynamicField.computeInt32Size(fieldNumber: 2100)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2100, value: dynamicField)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -27292,7 +27202,7 @@ public extension ProtobufUnittest {
                 return self
 
               case 16800:
-                dynamicField = try codedInputStream.readInt32()
+                dynamicField = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -27380,7 +27290,7 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasScalarExtension {
-        try codedOutputStream.writeFixed32(fieldNumber: 2000, value:scalarExtension)
+        try codedOutputStream.write.fixed32(fieldNumber: 2000, value:scalarExtension)
       }
       if hasEnumExtension {
         try codedOutputStream.writeEnum(fieldNumber: 2001, value:enumExtension.rawValue)
@@ -27389,26 +27299,26 @@ public extension ProtobufUnittest {
         try codedOutputStream.writeEnum(fieldNumber: 2002, value:dynamicEnumExtension.rawValue)
       }
       if hasMessageExtension {
-        try codedOutputStream.writeMessage(fieldNumber: 2003, value:messageExtension)
+        try codedOutputStream.write.message(fieldNumber: 2003, value:messageExtension)
       }
       if hasDynamicMessageExtension {
-        try codedOutputStream.writeMessage(fieldNumber: 2004, value:dynamicMessageExtension)
+        try codedOutputStream.write.message(fieldNumber: 2004, value:dynamicMessageExtension)
       }
       if !repeatedExtension.isEmpty {
         for oneValuerepeatedExtension in repeatedExtension {
-          try codedOutputStream.writeString(fieldNumber: 2005, value:oneValuerepeatedExtension)
+          try codedOutputStream.write.string(fieldNumber: 2005, value:oneValuerepeatedExtension)
         }
       }
       if !packedExtension.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 16050)
         try codedOutputStream.writeRawVarint32(value: packedExtensionMemoizedSerializedSize)
         for oneValuepackedExtension in packedExtension {
-          try codedOutputStream.writeSInt32NoTag(value: oneValuepackedExtension)
+          try codedOutputStream.write.sint32NoTag(value: oneValuepackedExtension)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -27416,7 +27326,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasScalarExtension {
-        serialize_size += scalarExtension.computeFixed32Size(fieldNumber: 2000)
+        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 2000, value: scalarExtension)
       }
       if (hasEnumExtension) {
         serialize_size += enumExtension.rawValue.computeEnumSize(fieldNumber: 2001)
@@ -27425,29 +27335,25 @@ public extension ProtobufUnittest {
         serialize_size += dynamicEnumExtension.rawValue.computeEnumSize(fieldNumber: 2002)
       }
       if hasMessageExtension {
-          if let varSizemessageExtension = messageExtension?.computeMessageSize(fieldNumber: 2003) {
+          if let varSizemessageExtension = try ProtobufWire.Size(wireType:.message).with(tag: 2003, value:messageExtension) {
               serialize_size += varSizemessageExtension
           }
       }
       if hasDynamicMessageExtension {
-          if let varSizedynamicMessageExtension = dynamicMessageExtension?.computeMessageSize(fieldNumber: 2004) {
+          if let varSizedynamicMessageExtension = try ProtobufWire.Size(wireType:.message).with(tag: 2004, value:dynamicMessageExtension) {
               serialize_size += varSizedynamicMessageExtension
           }
       }
       var dataSizeRepeatedExtension:Int32 = 0
-      for oneValuerepeatedExtension in repeatedExtension {
-          dataSizeRepeatedExtension += oneValuerepeatedExtension.computeStringSizeNoTag()
-      }
+      dataSizeRepeatedExtension += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedExtension)
       serialize_size += dataSizeRepeatedExtension
       serialize_size += 2 * Int32(repeatedExtension.count)
       var dataSizePackedExtension:Int32 = 0
-      for oneValuepackedExtension in packedExtension {
-          dataSizePackedExtension += oneValuepackedExtension.computeSInt32SizeNoTag()
-      }
+      dataSizePackedExtension += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: packedExtension)
       serialize_size += dataSizePackedExtension
       if !packedExtension.isEmpty {
         serialize_size += 2
-        serialize_size += dataSizePackedExtension.computeInt32SizeNoTag()
+        serialize_size += try ProtobufWire.Size(wireType: PackedExtension).withoutTag(value: dataSizePackedExtension)
       }
       packedExtensionMemoizedSerializedSize = dataSizePackedExtension
       serialize_size += unknownFields.serializedSize()
@@ -27890,7 +27796,7 @@ public extension ProtobufUnittest {
             return self
 
           case 16005:
-            scalarExtension = try codedInputStream.readFixed32()
+            scalarExtension = try codedInputStream.read.fixed32()
 
           case 16008:
             let valueIntenumExtension = try codedInputStream.readEnum()
@@ -27925,13 +27831,13 @@ public extension ProtobufUnittest {
             dynamicMessageExtension = subBuilder.buildPartial()
 
           case 16042:
-            repeatedExtension += [try codedInputStream.readString()]
+            repeatedExtension += [try codedInputStream.read.string()]
 
           case 16050:
             let length = Int(try codedInputStream.readRawVarint32())
             let limit = try codedInputStream.pushLimit(byteLimit: length)
             while (codedInputStream.bytesUntilLimit() > 0) {
-              builderResult.packedExtension.append(try codedInputStream.readSInt32())
+              builderResult.packedExtension.append(try codedInputStream.read.sint32())
             }
             codedInputStream.popLimit(oldLimit: limit)
 
@@ -28027,37 +27933,37 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !repeatedFixed32.isEmpty {
         for oneValuerepeatedFixed32 in repeatedFixed32 {
-          try codedOutputStream.writeFixed32(fieldNumber: 12, value:oneValuerepeatedFixed32)
+          try codedOutputStream.write.fixed32(fieldNumber: 12, value:oneValuerepeatedFixed32)
         }
       }
       if !repeatedInt32.isEmpty {
         for oneValuerepeatedInt32 in repeatedInt32 {
-          try codedOutputStream.writeInt32(fieldNumber: 13, value:oneValuerepeatedInt32)
+          try codedOutputStream.write.int32(fieldNumber: 13, value:oneValuerepeatedInt32)
         }
       }
       if !repeatedFixed64.isEmpty {
         for oneValuerepeatedFixed64 in repeatedFixed64 {
-          try codedOutputStream.writeFixed64(fieldNumber: 2046, value:oneValuerepeatedFixed64)
+          try codedOutputStream.write.dixed64(fieldNumber: 2046, value:oneValuerepeatedFixed64)
         }
       }
       if !repeatedInt64.isEmpty {
         for oneValuerepeatedInt64 in repeatedInt64 {
-          try codedOutputStream.writeInt64(fieldNumber: 2047, value:oneValuerepeatedInt64)
+          try codedOutputStream.write.int64(fieldNumber: 2047, value:oneValuerepeatedInt64)
         }
       }
       if !repeatedFloat.isEmpty {
         for oneValuerepeatedFloat in repeatedFloat {
-          try codedOutputStream.writeFloat(fieldNumber: 262142, value:oneValuerepeatedFloat)
+          try codedOutputStream.write.float(fieldNumber: 262142, value:oneValuerepeatedFloat)
         }
       }
       if !repeatedUint64.isEmpty {
         for oneValuerepeatedUint64 in repeatedUint64 {
-          try codedOutputStream.writeUInt64(fieldNumber: 262143, value:oneValuerepeatedUint64)
+          try codedOutputStream.write.uint64(fieldNumber: 262143, value:oneValuerepeatedUint64)
         }
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -28069,9 +27975,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFixed32
       serialize_size += 1 * Int32(repeatedFixed32.count)
       var dataSizeRepeatedInt32:Int32 = 0
-      for oneValuerepeatedInt32 in repeatedInt32 {
-          dataSizeRepeatedInt32 += oneValuerepeatedInt32.computeInt32SizeNoTag()
-      }
+      dataSizeRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedInt32)
       serialize_size += dataSizeRepeatedInt32
       serialize_size += 1 * Int32(repeatedInt32.count)
       var dataSizeRepeatedFixed64:Int32 = 0
@@ -28079,9 +27983,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFixed64
       serialize_size += 2 * Int32(repeatedFixed64.count)
       var dataSizeRepeatedInt64:Int32 = 0
-      for oneValuerepeatedInt64 in repeatedInt64 {
-          dataSizeRepeatedInt64 += oneValuerepeatedInt64.computeInt64SizeNoTag()
-      }
+      dataSizeRepeatedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: repeatedInt64)
       serialize_size += dataSizeRepeatedInt64
       serialize_size += 2 * Int32(repeatedInt64.count)
       var dataSizeRepeatedFloat:Int32 = 0
@@ -28089,9 +27991,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFloat
       serialize_size += 3 * Int32(repeatedFloat.count)
       var dataSizeRepeatedUint64:Int32 = 0
-      for oneValuerepeatedUint64 in repeatedUint64 {
-          dataSizeRepeatedUint64 += oneValuerepeatedUint64.computeUInt64SizeNoTag()
-      }
+      dataSizeRepeatedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: repeatedUint64)
       serialize_size += dataSizeRepeatedUint64
       serialize_size += 3 * Int32(repeatedUint64.count)
       serialize_size += unknownFields.serializedSize()
@@ -28423,22 +28323,22 @@ public extension ProtobufUnittest {
             return self
 
           case 101:
-            repeatedFixed32 += [try codedInputStream.readFixed32()]
+            repeatedFixed32 += [try codedInputStream.read.fixed32()]
 
           case 104:
-            repeatedInt32 += [try codedInputStream.readInt32()]
+            repeatedInt32 += [try codedInputStream.read.int32()]
 
           case 16369:
-            repeatedFixed64 += [try codedInputStream.readFixed64()]
+            repeatedFixed64 += [try codedInputStream.read.dixed64()]
 
           case 16376:
-            repeatedInt64 += [try codedInputStream.readInt64()]
+            repeatedInt64 += [try codedInputStream.read.int64()]
 
           case 2097141:
-            repeatedFloat += [try codedInputStream.readFloat()]
+            repeatedFloat += [try codedInputStream.read.float()]
 
           case 2097144:
-            repeatedUint64 += [try codedInputStream.readUInt64()]
+            repeatedUint64 += [try codedInputStream.read.uint64()]
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -28577,11 +28477,11 @@ public extension ProtobufUnittest {
             }
             override public func writeTo(codedOutputStream: CodedOutputStream) throws {
               if hasField1 {
-                try codedOutputStream.writeMessage(fieldNumber: 11, value:field1)
+                try codedOutputStream.write.message(fieldNumber: 11, value:field1)
               }
               try unknownFields.writeTo(codedOutputStream: codedOutputStream)
             }
-            override public func serializedSize() -> Int32 {
+            override public func serializedSize() throws -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
               if serialize_size != -1 {
                return serialize_size
@@ -28589,7 +28489,7 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = field1?.computeMessageSize(fieldNumber: 11) {
+                  if let varSizefield1 = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:field1) {
                       serialize_size += varSizefield1
                   }
               }
@@ -28840,11 +28740,11 @@ public extension ProtobufUnittest {
             }
             override public func writeTo(codedOutputStream: CodedOutputStream) throws {
               if hasField1 {
-                try codedOutputStream.writeMessage(fieldNumber: 21, value:field1)
+                try codedOutputStream.write.message(fieldNumber: 21, value:field1)
               }
               try unknownFields.writeTo(codedOutputStream: codedOutputStream)
             }
-            override public func serializedSize() -> Int32 {
+            override public func serializedSize() throws -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
               if serialize_size != -1 {
                return serialize_size
@@ -28852,7 +28752,7 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = field1?.computeMessageSize(fieldNumber: 21) {
+                  if let varSizefield1 = try ProtobufWire.Size(wireType:.message).with(tag: 21, value:field1) {
                       serialize_size += varSizefield1
                   }
               }
@@ -29092,56 +28992,42 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           for oneElementField1 in field1 {
-              try codedOutputStream.writeMessage(fieldNumber: 1, value:oneElementField1)
+              try codedOutputStream.write.message(fieldNumber: 1, value:oneElementField1)
           }
           for oneElementField2 in field2 {
-              try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementField2)
+              try codedOutputStream.write.message(fieldNumber: 2, value:oneElementField2)
           }
           for oneElementField3 in field3 {
-              try codedOutputStream.writeMessage(fieldNumber: 3, value:oneElementField3)
+              try codedOutputStream.write.message(fieldNumber: 3, value:oneElementField3)
           }
           for oneElementGroup1 in group1 {
-              try codedOutputStream.writeGroup(fieldNumber: 10, value:oneElementGroup1)
+              try codedOutputStream.write.group(fieldNumber: 10, value:oneElementGroup1)
           }
           for oneElementGroup2 in group2 {
-              try codedOutputStream.writeGroup(fieldNumber: 20, value:oneElementGroup2)
+              try codedOutputStream.write.group(fieldNumber: 20, value:oneElementGroup2)
           }
           for oneElementExt1 in ext1 {
-              try codedOutputStream.writeMessage(fieldNumber: 1000, value:oneElementExt1)
+              try codedOutputStream.write.message(fieldNumber: 1000, value:oneElementExt1)
           }
           for oneElementExt2 in ext2 {
-              try codedOutputStream.writeMessage(fieldNumber: 1001, value:oneElementExt2)
+              try codedOutputStream.write.message(fieldNumber: 1001, value:oneElementExt2)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
           }
 
           serialize_size = 0
-          for oneElementField1 in field1 {
-              serialize_size += oneElementField1.computeMessageSize(fieldNumber: 1)
-          }
-          for oneElementField2 in field2 {
-              serialize_size += oneElementField2.computeMessageSize(fieldNumber: 2)
-          }
-          for oneElementField3 in field3 {
-              serialize_size += oneElementField3.computeMessageSize(fieldNumber: 3)
-          }
-          for oneElementGroup1 in group1 {
-              serialize_size += oneElementGroup1.computeGroupSize(fieldNumber: 10)
-          }
-          for oneElementGroup2 in group2 {
-              serialize_size += oneElementGroup2.computeGroupSize(fieldNumber: 20)
-          }
-          for oneElementExt1 in ext1 {
-              serialize_size += oneElementExt1.computeMessageSize(fieldNumber: 1000)
-          }
-          for oneElementExt2 in ext2 {
-              serialize_size += oneElementExt2.computeMessageSize(fieldNumber: 1001)
-          }
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1, value: field1)
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: field2)
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: field3)
+          serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 10, value: group1)
+          serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 20, value: group2)
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1000, value: ext1)
+          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1001, value: ext2)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
@@ -29529,37 +29415,37 @@ public extension ProtobufUnittest {
 
               case 10:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 field1.append(subBuilder.buildPartial())
 
               case 18:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 field2.append(subBuilder.buildPartial())
 
               case 26:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 field3.append(subBuilder.buildPartial())
 
               case 83:
                 let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
-                try codedInputStream.readGroup(fieldNumber:10, builder:subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readGroup(fieldNumber:10, builder:subBuilder, extensionRegistry:extensionRegistry)
                 group1.append(subBuilder.buildPartial())
 
               case 163:
                 let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
-                try codedInputStream.readGroup(fieldNumber:20, builder:subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readGroup(fieldNumber:20, builder:subBuilder, extensionRegistry:extensionRegistry)
                 group2.append(subBuilder.buildPartial())
 
               case 8002:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 ext1.append(subBuilder.buildPartial())
 
               case 8010:
                 let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-                try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                 ext2.append(subBuilder.buildPartial())
 
               default:
@@ -29676,11 +29562,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasOptionalGroupAllTypes {
-            try codedOutputStream.writeMessage(fieldNumber: 11, value:optionalGroupAllTypes)
+            try codedOutputStream.write.message(fieldNumber: 11, value:optionalGroupAllTypes)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -29688,7 +29574,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasOptionalGroupAllTypes {
-              if let varSizeoptionalGroupAllTypes = optionalGroupAllTypes?.computeMessageSize(fieldNumber: 11) {
+              if let varSizeoptionalGroupAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:optionalGroupAllTypes) {
                   serialize_size += varSizeoptionalGroupAllTypes
               }
           }
@@ -29939,11 +29825,11 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasRepeatedGroupAllTypes {
-            try codedOutputStream.writeMessage(fieldNumber: 21, value:repeatedGroupAllTypes)
+            try codedOutputStream.write.message(fieldNumber: 21, value:repeatedGroupAllTypes)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -29951,7 +29837,7 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRepeatedGroupAllTypes {
-              if let varSizerepeatedGroupAllTypes = repeatedGroupAllTypes?.computeMessageSize(fieldNumber: 21) {
+              if let varSizerepeatedGroupAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 21, value:repeatedGroupAllTypes) {
                   serialize_size += varSizerepeatedGroupAllTypes
               }
           }
@@ -30204,24 +30090,24 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasRequiredAllTypes {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:requiredAllTypes)
+        try codedOutputStream.write.message(fieldNumber: 1, value:requiredAllTypes)
       }
       if hasOptionalAllTypes {
-        try codedOutputStream.writeMessage(fieldNumber: 2, value:optionalAllTypes)
+        try codedOutputStream.write.message(fieldNumber: 2, value:optionalAllTypes)
       }
       for oneElementRepeatedAllTypes in repeatedAllTypes {
-          try codedOutputStream.writeMessage(fieldNumber: 3, value:oneElementRepeatedAllTypes)
+          try codedOutputStream.write.message(fieldNumber: 3, value:oneElementRepeatedAllTypes)
       }
       if hasOptionalGroup {
-        try codedOutputStream.writeGroup(fieldNumber: 10, value:optionalGroup)
+        try codedOutputStream.write.group(fieldNumber: 10, value:optionalGroup)
       }
       for oneElementRepeatedGroup in repeatedGroup {
-          try codedOutputStream.writeGroup(fieldNumber: 20, value:oneElementRepeatedGroup)
+          try codedOutputStream.write.group(fieldNumber: 20, value:oneElementRepeatedGroup)
       }
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1000, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -30229,26 +30115,22 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasRequiredAllTypes {
-          if let varSizerequiredAllTypes = requiredAllTypes?.computeMessageSize(fieldNumber: 1) {
+          if let varSizerequiredAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:requiredAllTypes) {
               serialize_size += varSizerequiredAllTypes
           }
       }
       if hasOptionalAllTypes {
-          if let varSizeoptionalAllTypes = optionalAllTypes?.computeMessageSize(fieldNumber: 2) {
+          if let varSizeoptionalAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:optionalAllTypes) {
               serialize_size += varSizeoptionalAllTypes
           }
       }
-      for oneElementRepeatedAllTypes in repeatedAllTypes {
-          serialize_size += oneElementRepeatedAllTypes.computeMessageSize(fieldNumber: 3)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: repeatedAllTypes)
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = optionalGroup?.computeGroupSize(fieldNumber: 10) {
+          if let varSizeoptionalGroup = try ProtobufWire.Size(wireType:.group).with(tag: 10, value:optionalGroup) {
               serialize_size += varSizeoptionalGroup
           }
       }
-      for oneElementRepeatedGroup in repeatedGroup {
-          serialize_size += oneElementRepeatedGroup.computeGroupSize(fieldNumber: 20)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 20, value: repeatedGroup)
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -30677,7 +30559,7 @@ public extension ProtobufUnittest {
 
           case 26:
             let subBuilder = ProtobufUnittest.TestAllTypes.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedAllTypes.append(subBuilder.buildPartial())
 
           case 83:
@@ -30690,7 +30572,7 @@ public extension ProtobufUnittest {
 
           case 163:
             let subBuilder = ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
-            try codedInputStream.readGroup(fieldNumber:20, builder:subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readGroup(fieldNumber:20, builder:subBuilder, extensionRegistry:extensionRegistry)
             repeatedGroup.append(subBuilder.buildPartial())
 
           default:
@@ -30770,11 +30652,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeString(fieldNumber: 1, value:a)
+        try codedOutputStream.write.string(fieldNumber: 1, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -30782,7 +30664,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -30934,7 +30816,7 @@ public extension ProtobufUnittest {
             return self
 
           case 10:
-            a = try codedInputStream.readString()
+            a = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -30983,7 +30865,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31145,7 +31027,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31307,7 +31189,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31469,7 +31351,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31631,7 +31513,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31793,7 +31675,7 @@ public extension ProtobufUnittest {
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size

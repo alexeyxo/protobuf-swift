@@ -81,38 +81,38 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasAnyField {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:anyField)
+        try codedOutputStream.write.message(fieldNumber: 1, value:anyField)
       }
       if hasApiField {
-        try codedOutputStream.writeMessage(fieldNumber: 2, value:apiField)
+        try codedOutputStream.write.message(fieldNumber: 2, value:apiField)
       }
       if hasDurationField {
-        try codedOutputStream.writeMessage(fieldNumber: 3, value:durationField)
+        try codedOutputStream.write.message(fieldNumber: 3, value:durationField)
       }
       if hasEmptyField {
-        try codedOutputStream.writeMessage(fieldNumber: 4, value:emptyField)
+        try codedOutputStream.write.message(fieldNumber: 4, value:emptyField)
       }
       if hasFieldMaskField {
-        try codedOutputStream.writeMessage(fieldNumber: 5, value:fieldMaskField)
+        try codedOutputStream.write.message(fieldNumber: 5, value:fieldMaskField)
       }
       if hasSourceContextField {
-        try codedOutputStream.writeMessage(fieldNumber: 6, value:sourceContextField)
+        try codedOutputStream.write.message(fieldNumber: 6, value:sourceContextField)
       }
       if hasStructField {
-        try codedOutputStream.writeMessage(fieldNumber: 7, value:structField)
+        try codedOutputStream.write.message(fieldNumber: 7, value:structField)
       }
       if hasTimestampField {
-        try codedOutputStream.writeMessage(fieldNumber: 8, value:timestampField)
+        try codedOutputStream.write.message(fieldNumber: 8, value:timestampField)
       }
       if hasTypeField {
-        try codedOutputStream.writeMessage(fieldNumber: 9, value:typeField)
+        try codedOutputStream.write.message(fieldNumber: 9, value:typeField)
       }
       if hasInt32Field {
-        try codedOutputStream.writeMessage(fieldNumber: 10, value:int32Field)
+        try codedOutputStream.write.message(fieldNumber: 10, value:int32Field)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -120,52 +120,52 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasAnyField {
-          if let varSizeanyField = anyField?.computeMessageSize(fieldNumber: 1) {
+          if let varSizeanyField = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:anyField) {
               serialize_size += varSizeanyField
           }
       }
       if hasApiField {
-          if let varSizeapiField = apiField?.computeMessageSize(fieldNumber: 2) {
+          if let varSizeapiField = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:apiField) {
               serialize_size += varSizeapiField
           }
       }
       if hasDurationField {
-          if let varSizedurationField = durationField?.computeMessageSize(fieldNumber: 3) {
+          if let varSizedurationField = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:durationField) {
               serialize_size += varSizedurationField
           }
       }
       if hasEmptyField {
-          if let varSizeemptyField = emptyField?.computeMessageSize(fieldNumber: 4) {
+          if let varSizeemptyField = try ProtobufWire.Size(wireType:.message).with(tag: 4, value:emptyField) {
               serialize_size += varSizeemptyField
           }
       }
       if hasFieldMaskField {
-          if let varSizefieldMaskField = fieldMaskField?.computeMessageSize(fieldNumber: 5) {
+          if let varSizefieldMaskField = try ProtobufWire.Size(wireType:.message).with(tag: 5, value:fieldMaskField) {
               serialize_size += varSizefieldMaskField
           }
       }
       if hasSourceContextField {
-          if let varSizesourceContextField = sourceContextField?.computeMessageSize(fieldNumber: 6) {
+          if let varSizesourceContextField = try ProtobufWire.Size(wireType:.message).with(tag: 6, value:sourceContextField) {
               serialize_size += varSizesourceContextField
           }
       }
       if hasStructField {
-          if let varSizestructField = structField?.computeMessageSize(fieldNumber: 7) {
+          if let varSizestructField = try ProtobufWire.Size(wireType:.message).with(tag: 7, value:structField) {
               serialize_size += varSizestructField
           }
       }
       if hasTimestampField {
-          if let varSizetimestampField = timestampField?.computeMessageSize(fieldNumber: 8) {
+          if let varSizetimestampField = try ProtobufWire.Size(wireType:.message).with(tag: 8, value:timestampField) {
               serialize_size += varSizetimestampField
           }
       }
       if hasTypeField {
-          if let varSizetypeField = typeField?.computeMessageSize(fieldNumber: 9) {
+          if let varSizetypeField = try ProtobufWire.Size(wireType:.message).with(tag: 9, value:typeField) {
               serialize_size += varSizetypeField
           }
       }
       if hasInt32Field {
-          if let varSizeint32Field = int32Field?.computeMessageSize(fieldNumber: 10) {
+          if let varSizeint32Field = try ProtobufWire.Size(wireType:.message).with(tag: 10, value:int32Field) {
               serialize_size += varSizeint32Field
           }
       }

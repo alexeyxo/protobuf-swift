@@ -83,14 +83,14 @@ public extension UnittestDropUnknownFields {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasInt32Value {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:int32Value)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:int32Value)
       }
       if hasEnumValue {
         try codedOutputStream.writeEnum(fieldNumber: 2, value:enumValue.rawValue)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -98,7 +98,7 @@ public extension UnittestDropUnknownFields {
 
       serialize_size = 0
       if hasInt32Value {
-        serialize_size += int32Value.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: int32Value)
       }
       if (hasEnumValue) {
         serialize_size += enumValue.rawValue.computeEnumSize(fieldNumber: 2)
@@ -290,7 +290,7 @@ public extension UnittestDropUnknownFields {
             return self
 
           case 8:
-            int32Value = try codedInputStream.readInt32()
+            int32Value = try codedInputStream.read.int32()
 
           case 16:
             let valueIntenumValue = try codedInputStream.readEnum()
@@ -399,17 +399,17 @@ public extension UnittestDropUnknownFields {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasInt32Value {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:int32Value)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:int32Value)
       }
       if hasEnumValue {
         try codedOutputStream.writeEnum(fieldNumber: 2, value:enumValue.rawValue)
       }
       if hasExtraInt32Value {
-        try codedOutputStream.writeInt32(fieldNumber: 3, value:extraInt32Value)
+        try codedOutputStream.write.int32(fieldNumber: 3, value:extraInt32Value)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -417,13 +417,13 @@ public extension UnittestDropUnknownFields {
 
       serialize_size = 0
       if hasInt32Value {
-        serialize_size += int32Value.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: int32Value)
       }
       if (hasEnumValue) {
         serialize_size += enumValue.rawValue.computeEnumSize(fieldNumber: 2)
       }
       if hasExtraInt32Value {
-        serialize_size += extraInt32Value.computeInt32Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: extraInt32Value)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -649,7 +649,7 @@ public extension UnittestDropUnknownFields {
             return self
 
           case 8:
-            int32Value = try codedInputStream.readInt32()
+            int32Value = try codedInputStream.read.int32()
 
           case 16:
             let valueIntenumValue = try codedInputStream.readEnum()
@@ -660,7 +660,7 @@ public extension UnittestDropUnknownFields {
             }
 
           case 24:
-            extraInt32Value = try codedInputStream.readInt32()
+            extraInt32Value = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

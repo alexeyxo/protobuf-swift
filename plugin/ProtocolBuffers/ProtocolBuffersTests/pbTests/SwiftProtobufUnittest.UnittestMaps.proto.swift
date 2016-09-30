@@ -44,11 +44,11 @@ public extension SwiftProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasValueInMapMessage {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:valueInMapMessage)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:valueInMapMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -56,7 +56,7 @@ public extension SwiftProtobufUnittest {
 
       serialize_size = 0
       if hasValueInMapMessage {
-        serialize_size += valueInMapMessage.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: valueInMapMessage)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -208,7 +208,7 @@ public extension SwiftProtobufUnittest {
             return self
 
           case 8:
-            valueInMapMessage = try codedInputStream.readInt32()
+            valueInMapMessage = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -284,14 +284,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:key)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:key)
           }
           if hasValue {
-            try codedOutputStream.writeInt32(fieldNumber: 2, value:value)
+            try codedOutputStream.write.int32(fieldNumber: 2, value:value)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -299,10 +299,10 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: key)
           }
           if hasValue {
-            serialize_size += value.computeInt32Size(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: value)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -491,10 +491,10 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 8:
-                key = try codedInputStream.readInt32()
+                key = try codedInputStream.read.int32()
 
               case 16:
-                value = try codedInputStream.readInt32()
+                value = try codedInputStream.read.int32()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -558,14 +558,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeInt64(fieldNumber: 1, value:key)
+            try codedOutputStream.write.int64(fieldNumber: 1, value:key)
           }
           if hasValue {
-            try codedOutputStream.writeInt64(fieldNumber: 2, value:value)
+            try codedOutputStream.write.int64(fieldNumber: 2, value:value)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -573,10 +573,10 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeInt64Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: key)
           }
           if hasValue {
-            serialize_size += value.computeInt64Size(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: value)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -765,10 +765,10 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 8:
-                key = try codedInputStream.readInt64()
+                key = try codedInputStream.read.int64()
 
               case 16:
-                value = try codedInputStream.readInt64()
+                value = try codedInputStream.read.int64()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -832,14 +832,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeString(fieldNumber: 1, value:key)
+            try codedOutputStream.write.string(fieldNumber: 1, value:key)
           }
           if hasValue {
-            try codedOutputStream.writeString(fieldNumber: 2, value:value)
+            try codedOutputStream.write.string(fieldNumber: 2, value:value)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -847,10 +847,10 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeStringSize(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: key)
           }
           if hasValue {
-            serialize_size += value.computeStringSize(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: value)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -1039,10 +1039,10 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 10:
-                key = try codedInputStream.readString()
+                key = try codedInputStream.read.string()
 
               case 18:
-                value = try codedInputStream.readString()
+                value = try codedInputStream.read.string()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1106,14 +1106,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeString(fieldNumber: 1, value:key)
+            try codedOutputStream.write.string(fieldNumber: 1, value:key)
           }
           if hasValue {
-            try codedOutputStream.writeData(fieldNumber: 2, value:value)
+            try codedOutputStream.write.data(fieldNumber: 2, value:value)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1121,10 +1121,10 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeStringSize(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: key)
           }
           if hasValue {
-            serialize_size += value.computeDataSize(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 2, value: value)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -1313,10 +1313,10 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 10:
-                key = try codedInputStream.readString()
+                key = try codedInputStream.read.string()
 
               case 18:
-                value = try codedInputStream.readData()
+                value = try codedInputStream.read.data()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1379,14 +1379,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeString(fieldNumber: 1, value:key)
+            try codedOutputStream.write.string(fieldNumber: 1, value:key)
           }
           if hasValue {
-            try codedOutputStream.writeMessage(fieldNumber: 2, value:value)
+            try codedOutputStream.write.message(fieldNumber: 2, value:value)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1394,10 +1394,10 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeStringSize(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: key)
           }
           if hasValue {
-              if let varSizevalue = value?.computeMessageSize(fieldNumber: 2) {
+              if let varSizevalue = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:value) {
                   serialize_size += varSizevalue
               }
           }
@@ -1623,7 +1623,7 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 10:
-                key = try codedInputStream.readString()
+                key = try codedInputStream.read.string()
 
               case 18:
                 let subBuilder:SwiftProtobufUnittest.MapMessageValue.Builder = SwiftProtobufUnittest.MapMessageValue.Builder()
@@ -1695,14 +1695,14 @@ public extension SwiftProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasKey {
-            try codedOutputStream.writeInt32(fieldNumber: 1, value:key)
+            try codedOutputStream.write.int32(fieldNumber: 1, value:key)
           }
           if hasValue {
             try codedOutputStream.writeEnum(fieldNumber: 2, value:value.rawValue)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1710,7 +1710,7 @@ public extension SwiftProtobufUnittest {
 
           serialize_size = 0
           if hasKey {
-            serialize_size += key.computeInt32Size(fieldNumber: 1)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: key)
           }
           if (hasValue) {
             serialize_size += value.rawValue.computeEnumSize(fieldNumber: 2)
@@ -1902,7 +1902,7 @@ public extension SwiftProtobufUnittest {
                 return self
 
               case 8:
-                key = try codedInputStream.readInt32()
+                key = try codedInputStream.read.int32()
 
               case 16:
                 let valueIntvalue = try codedInputStream.readEnum()
@@ -2038,7 +2038,7 @@ public extension SwiftProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size

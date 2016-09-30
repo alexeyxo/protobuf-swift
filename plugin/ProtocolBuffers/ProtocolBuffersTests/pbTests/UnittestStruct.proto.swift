@@ -46,14 +46,14 @@ final public class UnitTestStruct : GeneratedMessage {
   }
   override public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasTestStr {
-      try codedOutputStream.writeString(fieldNumber: 1, value:testStr)
+      try codedOutputStream.write.string(fieldNumber: 1, value:testStr)
     }
     if hasTestInt {
-      try codedOutputStream.writeInt32(fieldNumber: 2, value:testInt)
+      try codedOutputStream.write.int32(fieldNumber: 2, value:testInt)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override public func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -61,10 +61,10 @@ final public class UnitTestStruct : GeneratedMessage {
 
     serialize_size = 0
     if hasTestStr {
-      serialize_size += testStr.computeStringSize(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: testStr)
     }
     if hasTestInt {
-      serialize_size += testInt.computeInt32Size(fieldNumber: 2)
+      serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: testInt)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -253,10 +253,10 @@ final public class UnitTestStruct : GeneratedMessage {
           return self
 
         case 10:
-          testStr = try codedInputStream.readString()
+          testStr = try codedInputStream.read.string()
 
         case 16:
-          testInt = try codedInputStream.readInt32()
+          testInt = try codedInputStream.read.int32()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

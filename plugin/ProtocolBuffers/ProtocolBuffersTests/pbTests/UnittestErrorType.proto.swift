@@ -116,11 +116,11 @@ final public class UserProfile : GeneratedMessage {
       }
       override public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasUserId {
-          try codedOutputStream.writeString(fieldNumber: 1, value:userId)
+          try codedOutputStream.write.string(fieldNumber: 1, value:userId)
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() -> Int32 {
+      override public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -128,7 +128,7 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasUserId {
-          serialize_size += userId.computeStringSize(fieldNumber: 1)
+          serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: userId)
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
@@ -280,7 +280,7 @@ final public class UserProfile : GeneratedMessage {
               return self
 
             case 10:
-              userId = try codedInputStream.readString()
+              userId = try codedInputStream.read.string()
 
             default:
               if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -347,17 +347,17 @@ final public class UserProfile : GeneratedMessage {
       }
       override public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasProfile {
-          try codedOutputStream.writeMessage(fieldNumber: 1, value:profile)
+          try codedOutputStream.write.message(fieldNumber: 1, value:profile)
         }
         if hasError {
           try codedOutputStream.writeEnum(fieldNumber: 2, value:error.rawValue)
         }
         if hasException {
-          try codedOutputStream.writeMessage(fieldNumber: 3, value:exception)
+          try codedOutputStream.write.message(fieldNumber: 3, value:exception)
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() -> Int32 {
+      override public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -365,7 +365,7 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasProfile {
-            if let varSizeprofile = profile?.computeMessageSize(fieldNumber: 1) {
+            if let varSizeprofile = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:profile) {
                 serialize_size += varSizeprofile
             }
         }
@@ -373,7 +373,7 @@ final public class UserProfile : GeneratedMessage {
           serialize_size += error.rawValue.computeEnumSize(fieldNumber: 2)
         }
         if hasException {
-            if let varSizeexception = exception?.computeMessageSize(fieldNumber: 3) {
+            if let varSizeexception = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:exception) {
                 serialize_size += varSizeexception
             }
         }
@@ -767,14 +767,14 @@ final public class UserProfile : GeneratedMessage {
       }
       override public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasErrorCode {
-          try codedOutputStream.writeInt32(fieldNumber: 1, value:errorCode)
+          try codedOutputStream.write.int32(fieldNumber: 1, value:errorCode)
         }
         if hasErrorDescription {
-          try codedOutputStream.writeString(fieldNumber: 2, value:errorDescription)
+          try codedOutputStream.write.string(fieldNumber: 2, value:errorDescription)
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() -> Int32 {
+      override public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -782,10 +782,10 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasErrorCode {
-          serialize_size += errorCode.computeInt32Size(fieldNumber: 1)
+          serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: errorCode)
         }
         if hasErrorDescription {
-          serialize_size += errorDescription.computeStringSize(fieldNumber: 2)
+          serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: errorDescription)
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
@@ -974,10 +974,10 @@ final public class UserProfile : GeneratedMessage {
               return self
 
             case 8:
-              errorCode = try codedInputStream.readInt32()
+              errorCode = try codedInputStream.read.int32()
 
             case 18:
-              errorDescription = try codedInputStream.readString()
+              errorDescription = try codedInputStream.read.string()
 
             default:
               if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1027,17 +1027,17 @@ final public class UserProfile : GeneratedMessage {
   }
   override public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasFirstName {
-      try codedOutputStream.writeString(fieldNumber: 1, value:firstName)
+      try codedOutputStream.write.string(fieldNumber: 1, value:firstName)
     }
     if hasLastName {
-      try codedOutputStream.writeString(fieldNumber: 2, value:lastName)
+      try codedOutputStream.write.string(fieldNumber: 2, value:lastName)
     }
     if hasAvatarUrl {
-      try codedOutputStream.writeString(fieldNumber: 3, value:avatarUrl)
+      try codedOutputStream.write.string(fieldNumber: 3, value:avatarUrl)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override public func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1045,13 +1045,13 @@ final public class UserProfile : GeneratedMessage {
 
     serialize_size = 0
     if hasFirstName {
-      serialize_size += firstName.computeStringSize(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: firstName)
     }
     if hasLastName {
-      serialize_size += lastName.computeStringSize(fieldNumber: 2)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: lastName)
     }
     if hasAvatarUrl {
-      serialize_size += avatarUrl.computeStringSize(fieldNumber: 3)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 3, value: avatarUrl)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -1277,13 +1277,13 @@ final public class UserProfile : GeneratedMessage {
           return self
 
         case 10:
-          firstName = try codedInputStream.readString()
+          firstName = try codedInputStream.read.string()
 
         case 18:
-          lastName = try codedInputStream.readString()
+          lastName = try codedInputStream.read.string()
 
         case 26:
-          avatarUrl = try codedInputStream.readString()
+          avatarUrl = try codedInputStream.read.string()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

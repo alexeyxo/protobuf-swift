@@ -63,7 +63,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:4, endExclusive:2147483647)
       try unknownFields.writeAsMessageSetTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -236,11 +236,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasMessageSet {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:messageSet)
+        try codedOutputStream.write.message(fieldNumber: 1, value:messageSet)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -248,7 +248,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasMessageSet {
-          if let varSizemessageSet = messageSet?.computeMessageSize(fieldNumber: 1) {
+          if let varSizemessageSet = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:messageSet) {
               serialize_size += varSizemessageSet
           }
       }
@@ -497,11 +497,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasI {
-        try codedOutputStream.writeInt32(fieldNumber: 15, value:i)
+        try codedOutputStream.write.int32(fieldNumber: 15, value:i)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -509,7 +509,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasI {
-        serialize_size += i.computeInt32Size(fieldNumber: 15)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 15, value: i)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -661,7 +661,7 @@ public extension ProtobufUnittest {
             return self
 
           case 120:
-            i = try codedInputStream.readInt32()
+            i = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -715,11 +715,11 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasStr {
-        try codedOutputStream.writeString(fieldNumber: 25, value:str)
+        try codedOutputStream.write.string(fieldNumber: 25, value:str)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -727,7 +727,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasStr {
-        serialize_size += str.computeStringSize(fieldNumber: 25)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 25, value: str)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -879,7 +879,7 @@ public extension ProtobufUnittest {
             return self
 
           case 202:
-            str = try codedInputStream.readString()
+            str = try codedInputStream.read.string()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -957,14 +957,14 @@ public extension ProtobufUnittest {
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasTypeId {
-            try codedOutputStream.writeInt32(fieldNumber: 2, value:typeId)
+            try codedOutputStream.write.int32(fieldNumber: 2, value:typeId)
           }
           if hasMessage {
-            try codedOutputStream.writeData(fieldNumber: 3, value:message)
+            try codedOutputStream.write.data(fieldNumber: 3, value:message)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() -> Int32 {
+        override public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -972,10 +972,10 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasTypeId {
-            serialize_size += typeId.computeInt32Size(fieldNumber: 2)
+            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: typeId)
           }
           if hasMessage {
-            serialize_size += message.computeDataSize(fieldNumber: 3)
+            serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 3, value: message)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
@@ -1164,10 +1164,10 @@ public extension ProtobufUnittest {
                 return self
 
               case 16:
-                typeId = try codedInputStream.readInt32()
+                typeId = try codedInputStream.read.int32()
 
               case 26:
-                message = try codedInputStream.readData()
+                message = try codedInputStream.read.data()
 
               default:
                 if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
@@ -1219,20 +1219,18 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       for oneElementItem in item {
-          try codedOutputStream.writeGroup(fieldNumber: 1, value:oneElementItem)
+          try codedOutputStream.write.group(fieldNumber: 1, value:oneElementItem)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
       }
 
       serialize_size = 0
-      for oneElementItem in item {
-          serialize_size += oneElementItem.computeGroupSize(fieldNumber: 1)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 1, value: item)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -1386,7 +1384,7 @@ public extension ProtobufUnittest {
 
           case 11:
             let subBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
-            try codedInputStream.readGroup(fieldNumber:1, builder:subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readGroup(fieldNumber:1, builder:subBuilder, extensionRegistry:extensionRegistry)
             item.append(subBuilder.buildPartial())
 
           default:

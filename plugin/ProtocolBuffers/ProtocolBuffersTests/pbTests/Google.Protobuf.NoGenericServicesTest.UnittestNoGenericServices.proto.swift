@@ -87,12 +87,12 @@ public extension Google.Protobuf.NoGenericServicesTest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1000, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -100,7 +100,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += a.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
       }
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
@@ -256,7 +256,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
             return self
 
           case 8:
-            a = try codedInputStream.readInt32()
+            a = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

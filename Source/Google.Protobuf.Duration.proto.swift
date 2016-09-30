@@ -87,14 +87,14 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSeconds {
-        try codedOutputStream.writeInt64(fieldNumber: 1, value:seconds)
+        try codedOutputStream.write.int64(fieldNumber: 1, value:seconds)
       }
       if hasNanos {
-        try codedOutputStream.writeInt32(fieldNumber: 2, value:nanos)
+        try codedOutputStream.write.int32(fieldNumber: 2, value:nanos)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -102,10 +102,10 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasSeconds {
-        serialize_size += seconds.computeInt64Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: seconds)
       }
       if hasNanos {
-        serialize_size += nanos.computeInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: nanos)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -294,10 +294,10 @@ public extension Google.Protobuf {
             return self
 
           case 8:
-            seconds = try codedInputStream.readInt64()
+            seconds = try codedInputStream.read.int64()
 
           case 16:
-            nanos = try codedInputStream.readInt32()
+            nanos = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

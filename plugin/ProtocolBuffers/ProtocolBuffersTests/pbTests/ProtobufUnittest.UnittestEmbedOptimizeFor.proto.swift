@@ -61,14 +61,14 @@ public extension ProtobufUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalMessage {
-        try codedOutputStream.writeMessage(fieldNumber: 1, value:optionalMessage)
+        try codedOutputStream.write.message(fieldNumber: 1, value:optionalMessage)
       }
       for oneElementRepeatedMessage in repeatedMessage {
-          try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementRepeatedMessage)
+          try codedOutputStream.write.message(fieldNumber: 2, value:oneElementRepeatedMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -76,13 +76,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalMessage {
-          if let varSizeoptionalMessage = optionalMessage?.computeMessageSize(fieldNumber: 1) {
+          if let varSizeoptionalMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:optionalMessage) {
               serialize_size += varSizeoptionalMessage
           }
       }
-      for oneElementRepeatedMessage in repeatedMessage {
-          serialize_size += oneElementRepeatedMessage.computeMessageSize(fieldNumber: 2)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: repeatedMessage)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -316,7 +314,7 @@ public extension ProtobufUnittest {
 
           case 18:
             let subBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             repeatedMessage.append(subBuilder.buildPartial())
 
           default:

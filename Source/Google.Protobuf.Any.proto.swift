@@ -94,14 +94,14 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasTypeUrl {
-        try codedOutputStream.writeString(fieldNumber: 1, value:typeUrl)
+        try codedOutputStream.write.string(fieldNumber: 1, value:typeUrl)
       }
       if hasValue {
-        try codedOutputStream.writeData(fieldNumber: 2, value:value)
+        try codedOutputStream.write.data(fieldNumber: 2, value:value)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -109,10 +109,10 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasTypeUrl {
-        serialize_size += typeUrl.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: typeUrl)
       }
       if hasValue {
-        serialize_size += value.computeDataSize(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 2, value: value)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -301,10 +301,10 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            typeUrl = try codedInputStream.readString()
+            typeUrl = try codedInputStream.read.string()
 
           case 18:
-            value = try codedInputStream.readData()
+            value = try codedInputStream.read.data()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

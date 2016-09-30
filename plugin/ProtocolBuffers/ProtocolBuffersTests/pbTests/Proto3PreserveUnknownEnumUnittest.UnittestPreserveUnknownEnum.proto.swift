@@ -240,7 +240,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -251,33 +251,27 @@ public extension Proto3PreserveUnknownEnumUnittest {
         serialize_size += e.rawValue.computeEnumSize(fieldNumber: 1)
       }
       var dataSizerepeatedE:Int32 = 0
-      for oneValueOfrepeatedE in repeatedE {
-          dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedE.rawValue)
       serialize_size += dataSizerepeatedE
       if !repeatedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedE)
       }
       repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
-      for oneValueOfrepeatedPackedE in repeatedPackedE {
-          dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedPackedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedPackedE.rawValue)
       serialize_size += dataSizerepeatedPackedE
       if !repeatedPackedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedPackedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedPackedE)
       }
       repeatedPackedEMemoizedSerializedSize = dataSizerepeatedPackedE
       var dataSizerepeatedPackedUnexpectedE:Int32 = 0
-      for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          dataSizerepeatedPackedUnexpectedE += oneValueOfrepeatedPackedUnexpectedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedPackedUnexpectedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedPackedUnexpectedE.rawValue)
       serialize_size += dataSizerepeatedPackedUnexpectedE
       if !repeatedPackedUnexpectedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedPackedUnexpectedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedPackedUnexpectedE)
       }
       repeatedPackedUnexpectedEMemoizedSerializedSize = dataSizerepeatedPackedUnexpectedE
       if (hasOneofE1) {
@@ -879,7 +873,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -890,33 +884,27 @@ public extension Proto3PreserveUnknownEnumUnittest {
         serialize_size += e.rawValue.computeEnumSize(fieldNumber: 1)
       }
       var dataSizerepeatedE:Int32 = 0
-      for oneValueOfrepeatedE in repeatedE {
-          dataSizerepeatedE += oneValueOfrepeatedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedE.rawValue)
       serialize_size += dataSizerepeatedE
       if !repeatedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedE)
       }
       repeatedEMemoizedSerializedSize = dataSizerepeatedE
       var dataSizerepeatedPackedE:Int32 = 0
-      for oneValueOfrepeatedPackedE in repeatedPackedE {
-          dataSizerepeatedPackedE += oneValueOfrepeatedPackedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedPackedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedPackedE.rawValue)
       serialize_size += dataSizerepeatedPackedE
       if !repeatedPackedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedPackedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedPackedE)
       }
       repeatedPackedEMemoizedSerializedSize = dataSizerepeatedPackedE
       var dataSizerepeatedPackedUnexpectedE:Int32 = 0
-      for oneValueOfrepeatedPackedUnexpectedE in repeatedPackedUnexpectedE {
-          dataSizerepeatedPackedUnexpectedE += oneValueOfrepeatedPackedUnexpectedE.rawValue.computeEnumSizeNoTag()
-      }
+      dataSizerepeatedPackedUnexpectedE += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedPackedUnexpectedE.rawValue)
       serialize_size += dataSizerepeatedPackedUnexpectedE
       if !repeatedPackedUnexpectedE.isEmpty {
         serialize_size += 1
-        serialize_size += dataSizerepeatedPackedUnexpectedE.computeRawVarint32Size()
+        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizerepeatedPackedUnexpectedE)
       }
       repeatedPackedUnexpectedEMemoizedSerializedSize = dataSizerepeatedPackedUnexpectedE
       if (hasOneofE1) {

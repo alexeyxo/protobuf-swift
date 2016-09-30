@@ -58,25 +58,25 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasName {
-        try codedOutputStream.writeString(fieldNumber: 1, value:name)
+        try codedOutputStream.write.string(fieldNumber: 1, value:name)
       }
       for oneElementFields in fields {
-          try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementFields)
+          try codedOutputStream.write.message(fieldNumber: 2, value:oneElementFields)
       }
       if !oneofs.isEmpty {
         for oneValueoneofs in oneofs {
-          try codedOutputStream.writeString(fieldNumber: 3, value:oneValueoneofs)
+          try codedOutputStream.write.string(fieldNumber: 3, value:oneValueoneofs)
         }
       }
       for oneElementOptions in options {
-          try codedOutputStream.writeMessage(fieldNumber: 4, value:oneElementOptions)
+          try codedOutputStream.write.message(fieldNumber: 4, value:oneElementOptions)
       }
       if hasSourceContext {
-        try codedOutputStream.writeMessage(fieldNumber: 5, value:sourceContext)
+        try codedOutputStream.write.message(fieldNumber: 5, value:sourceContext)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -84,22 +84,16 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasName {
-        serialize_size += name.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: name)
       }
-      for oneElementFields in fields {
-          serialize_size += oneElementFields.computeMessageSize(fieldNumber: 2)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: fields)
       var dataSizeOneofs:Int32 = 0
-      for oneValueoneofs in oneofs {
-          dataSizeOneofs += oneValueoneofs.computeStringSizeNoTag()
-      }
+      dataSizeOneofs += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: oneofs)
       serialize_size += dataSizeOneofs
       serialize_size += 1 * Int32(oneofs.count)
-      for oneElementOptions in options {
-          serialize_size += oneElementOptions.computeMessageSize(fieldNumber: 4)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 4, value: options)
       if hasSourceContext {
-          if let varSizesourceContext = sourceContext?.computeMessageSize(fieldNumber: 5) {
+          if let varSizesourceContext = try ProtobufWire.Size(wireType:.message).with(tag: 5, value:sourceContext) {
               serialize_size += varSizesourceContext
           }
       }
@@ -439,19 +433,19 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            name = try codedInputStream.readString()
+            name = try codedInputStream.read.string()
 
           case 18:
             let subBuilder = Google.Protobuf.Field.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             fields.append(subBuilder.buildPartial())
 
           case 26:
-            oneofs += [try codedInputStream.readString()]
+            oneofs += [try codedInputStream.read.string()]
 
           case 34:
             let subBuilder = Google.Protobuf.Option.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             options.append(subBuilder.buildPartial())
 
           case 42:
@@ -758,26 +752,26 @@ public extension Google.Protobuf {
         try codedOutputStream.writeEnum(fieldNumber: 2, value:cardinality.rawValue)
       }
       if hasNumber {
-        try codedOutputStream.writeInt32(fieldNumber: 3, value:number)
+        try codedOutputStream.write.int32(fieldNumber: 3, value:number)
       }
       if hasName {
-        try codedOutputStream.writeString(fieldNumber: 4, value:name)
+        try codedOutputStream.write.string(fieldNumber: 4, value:name)
       }
       if hasTypeUrl {
-        try codedOutputStream.writeString(fieldNumber: 6, value:typeUrl)
+        try codedOutputStream.write.string(fieldNumber: 6, value:typeUrl)
       }
       if hasOneofIndex {
-        try codedOutputStream.writeInt32(fieldNumber: 7, value:oneofIndex)
+        try codedOutputStream.write.int32(fieldNumber: 7, value:oneofIndex)
       }
       if hasPacked {
-        try codedOutputStream.writeBool(fieldNumber: 8, value:packed)
+        try codedOutputStream.write.bool(fieldNumber: 8, value:packed)
       }
       for oneElementOptions in options {
-          try codedOutputStream.writeMessage(fieldNumber: 9, value:oneElementOptions)
+          try codedOutputStream.write.message(fieldNumber: 9, value:oneElementOptions)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -791,23 +785,21 @@ public extension Google.Protobuf {
         serialize_size += cardinality.rawValue.computeEnumSize(fieldNumber: 2)
       }
       if hasNumber {
-        serialize_size += number.computeInt32Size(fieldNumber: 3)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: number)
       }
       if hasName {
-        serialize_size += name.computeStringSize(fieldNumber: 4)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 4, value: name)
       }
       if hasTypeUrl {
-        serialize_size += typeUrl.computeStringSize(fieldNumber: 6)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: typeUrl)
       }
       if hasOneofIndex {
-        serialize_size += oneofIndex.computeInt32Size(fieldNumber: 7)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 7, value: oneofIndex)
       }
       if hasPacked {
-        serialize_size += packed.computeBoolSize(fieldNumber: 8)
+        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 8, value: packed)
       }
-      for oneElementOptions in options {
-          serialize_size += oneElementOptions.computeMessageSize(fieldNumber: 9)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 9, value: options)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -1235,23 +1227,23 @@ public extension Google.Protobuf {
             }
 
           case 24:
-            number = try codedInputStream.readInt32()
+            number = try codedInputStream.read.int32()
 
           case 34:
-            name = try codedInputStream.readString()
+            name = try codedInputStream.read.string()
 
           case 50:
-            typeUrl = try codedInputStream.readString()
+            typeUrl = try codedInputStream.read.string()
 
           case 56:
-            oneofIndex = try codedInputStream.readInt32()
+            oneofIndex = try codedInputStream.read.int32()
 
           case 64:
-            packed = try codedInputStream.readBool()
+            packed = try codedInputStream.read.bool()
 
           case 74:
             let subBuilder = Google.Protobuf.Option.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             options.append(subBuilder.buildPartial())
 
           default:
@@ -1339,20 +1331,20 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasName {
-        try codedOutputStream.writeString(fieldNumber: 1, value:name)
+        try codedOutputStream.write.string(fieldNumber: 1, value:name)
       }
       for oneElementEnumvalue in enumvalue {
-          try codedOutputStream.writeMessage(fieldNumber: 2, value:oneElementEnumvalue)
+          try codedOutputStream.write.message(fieldNumber: 2, value:oneElementEnumvalue)
       }
       for oneElementOptions in options {
-          try codedOutputStream.writeMessage(fieldNumber: 3, value:oneElementOptions)
+          try codedOutputStream.write.message(fieldNumber: 3, value:oneElementOptions)
       }
       if hasSourceContext {
-        try codedOutputStream.writeMessage(fieldNumber: 4, value:sourceContext)
+        try codedOutputStream.write.message(fieldNumber: 4, value:sourceContext)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -1360,16 +1352,12 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasName {
-        serialize_size += name.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: name)
       }
-      for oneElementEnumvalue in enumvalue {
-          serialize_size += oneElementEnumvalue.computeMessageSize(fieldNumber: 2)
-      }
-      for oneElementOptions in options {
-          serialize_size += oneElementOptions.computeMessageSize(fieldNumber: 3)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: enumvalue)
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: options)
       if hasSourceContext {
-          if let varSizesourceContext = sourceContext?.computeMessageSize(fieldNumber: 4) {
+          if let varSizesourceContext = try ProtobufWire.Size(wireType:.message).with(tag: 4, value:sourceContext) {
               serialize_size += varSizesourceContext
           }
       }
@@ -1673,16 +1661,16 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            name = try codedInputStream.readString()
+            name = try codedInputStream.read.string()
 
           case 18:
             let subBuilder = Google.Protobuf.EnumValue.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             enumvalue.append(subBuilder.buildPartial())
 
           case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             options.append(subBuilder.buildPartial())
 
           case 34:
@@ -1773,17 +1761,17 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasName {
-        try codedOutputStream.writeString(fieldNumber: 1, value:name)
+        try codedOutputStream.write.string(fieldNumber: 1, value:name)
       }
       if hasNumber {
-        try codedOutputStream.writeInt32(fieldNumber: 2, value:number)
+        try codedOutputStream.write.int32(fieldNumber: 2, value:number)
       }
       for oneElementOptions in options {
-          try codedOutputStream.writeMessage(fieldNumber: 3, value:oneElementOptions)
+          try codedOutputStream.write.message(fieldNumber: 3, value:oneElementOptions)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -1791,14 +1779,12 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasName {
-        serialize_size += name.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: name)
       }
       if hasNumber {
-        serialize_size += number.computeInt32Size(fieldNumber: 2)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: number)
       }
-      for oneElementOptions in options {
-          serialize_size += oneElementOptions.computeMessageSize(fieldNumber: 3)
-      }
+      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: options)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
@@ -2025,14 +2011,14 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            name = try codedInputStream.readString()
+            name = try codedInputStream.read.string()
 
           case 16:
-            number = try codedInputStream.readInt32()
+            number = try codedInputStream.read.int32()
 
           case 26:
             let subBuilder = Google.Protobuf.Option.Builder()
-            try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
             options.append(subBuilder.buildPartial())
 
           default:
@@ -2101,14 +2087,14 @@ public extension Google.Protobuf {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasName {
-        try codedOutputStream.writeString(fieldNumber: 1, value:name)
+        try codedOutputStream.write.string(fieldNumber: 1, value:name)
       }
       if hasValue {
-        try codedOutputStream.writeMessage(fieldNumber: 2, value:value)
+        try codedOutputStream.write.message(fieldNumber: 2, value:value)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -2116,10 +2102,10 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasName {
-        serialize_size += name.computeStringSize(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: name)
       }
       if hasValue {
-          if let varSizevalue = value?.computeMessageSize(fieldNumber: 2) {
+          if let varSizevalue = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:value) {
               serialize_size += varSizevalue
           }
       }
@@ -2345,7 +2331,7 @@ public extension Google.Protobuf {
             return self
 
           case 10:
-            name = try codedInputStream.readString()
+            name = try codedInputStream.read.string()
 
           case 18:
             let subBuilder:Google.Protobuf.`Any`.Builder = Google.Protobuf.`Any`.Builder()

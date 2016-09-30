@@ -351,12 +351,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "var dataSize$name$:Int32 = 0\n");
-        
-        
         printer->Print(variables_,
-                       "for oneValueOf$name$ in $name_reserved$ {\n"
-                       "    dataSize$name$ += oneValueOf$name$.rawValue.computeEnumSizeNoTag()\n"
-                       "}\n");
+                       "dataSize$name$ += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOf$name$.rawValue)\n");
         
         printer->Print(variables_,"serialize_size += dataSize$name$\n");
         
@@ -365,7 +361,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"
-                           "  serialize_size += dataSize$name$.computeRawVarint32Size()\n"
+                           "  serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSize$name$)\n"
                            "}\n");
             
         } else {

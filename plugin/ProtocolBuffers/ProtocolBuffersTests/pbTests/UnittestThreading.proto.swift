@@ -41,11 +41,11 @@ final public class ThreadingMessages : GeneratedMessage {
   }
   override public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasTestString {
-      try codedOutputStream.writeString(fieldNumber: 1, value:testString)
+      try codedOutputStream.write.string(fieldNumber: 1, value:testString)
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override public func serializedSize() -> Int32 {
+  override public func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -53,7 +53,7 @@ final public class ThreadingMessages : GeneratedMessage {
 
     serialize_size = 0
     if hasTestString {
-      serialize_size += testString.computeStringSize(fieldNumber: 1)
+      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: testString)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
@@ -205,7 +205,7 @@ final public class ThreadingMessages : GeneratedMessage {
           return self
 
         case 10:
-          testString = try codedInputStream.readString()
+          testString = try codedInputStream.read.string()
 
         default:
           if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {

@@ -392,7 +392,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("}\n");
         
-        printer->Print("override $acontrol$ func serializedSize() -> Int32 {\n",
+        printer->Print("override $acontrol$ func serializedSize() throws -> Int32 {\n",
                        "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Print("var serialize_size:Int32 = memoizedSerializedSize\n"

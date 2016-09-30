@@ -44,11 +44,11 @@ public extension Proto2ArenaUnittest {
     }
     override public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasD {
-        try codedOutputStream.writeInt32(fieldNumber: 1, value:d)
+        try codedOutputStream.write.int32(fieldNumber: 1, value:d)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() -> Int32 {
+    override public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -56,7 +56,7 @@ public extension Proto2ArenaUnittest {
 
       serialize_size = 0
       if hasD {
-        serialize_size += d.computeInt32Size(fieldNumber: 1)
+        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: d)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
@@ -208,7 +208,7 @@ public extension Proto2ArenaUnittest {
             return self
 
           case 8:
-            d = try codedInputStream.readInt32()
+            d = try codedInputStream.read.int32()
 
           default:
             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
