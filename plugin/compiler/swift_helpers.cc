@@ -616,24 +616,24 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string GetCapitalizedType(const FieldDescriptor* field) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "Int32"   ;
-            case FieldDescriptor::TYPE_UINT32  : return "UInt32"  ;
-            case FieldDescriptor::TYPE_SINT32  : return "SInt32"  ;
-            case FieldDescriptor::TYPE_FIXED32 : return "Fixed32" ;
-            case FieldDescriptor::TYPE_SFIXED32: return "SFixed32";
-            case FieldDescriptor::TYPE_INT64   : return "Int64"   ;
-            case FieldDescriptor::TYPE_UINT64  : return "UInt64"  ;
-            case FieldDescriptor::TYPE_SINT64  : return "SInt64"  ;
-            case FieldDescriptor::TYPE_FIXED64 : return "Fixed64" ;
-            case FieldDescriptor::TYPE_SFIXED64: return "SFixed64";
-            case FieldDescriptor::TYPE_FLOAT   : return "Float"   ;
-            case FieldDescriptor::TYPE_DOUBLE  : return "Double"  ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
-            case FieldDescriptor::TYPE_STRING  : return "String"  ;
-            case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
-            case FieldDescriptor::TYPE_ENUM    : return "Enum"    ;
-            case FieldDescriptor::TYPE_GROUP   : return "Group"   ;
-            case FieldDescriptor::TYPE_MESSAGE : return "Message" ;
+            case FieldDescriptor::TYPE_INT32   : return ".int32"   ;
+            case FieldDescriptor::TYPE_UINT32  : return ".uInt32"  ;
+            case FieldDescriptor::TYPE_SINT32  : return ".sint32"  ;
+            case FieldDescriptor::TYPE_FIXED32 : return ".fixed32" ;
+            case FieldDescriptor::TYPE_SFIXED32: return ".sfixed32";
+            case FieldDescriptor::TYPE_INT64   : return ".int64"   ;
+            case FieldDescriptor::TYPE_UINT64  : return ".uint64"  ;
+            case FieldDescriptor::TYPE_SINT64  : return ".sint64"  ;
+            case FieldDescriptor::TYPE_FIXED64 : return ".dixed64" ;
+            case FieldDescriptor::TYPE_SFIXED64: return ".sfixed64";
+            case FieldDescriptor::TYPE_FLOAT   : return ".float"   ;
+            case FieldDescriptor::TYPE_DOUBLE  : return ".double"  ;
+            case FieldDescriptor::TYPE_BOOL    : return ".bool"    ;
+            case FieldDescriptor::TYPE_STRING  : return ".string"  ;
+            case FieldDescriptor::TYPE_BYTES   : return ".data"    ;
+            case FieldDescriptor::TYPE_ENUM    : return ".enum"    ;
+            case FieldDescriptor::TYPE_GROUP   : return ".group"   ;
+            case FieldDescriptor::TYPE_MESSAGE : return ".message" ;
         }
         
         GOOGLE_LOG(FATAL) << "Can't get here.";

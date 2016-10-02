@@ -26,7 +26,9 @@ public extension Google.Protobuf {
   //     service Foo {
   //       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
   //     }
-  final public class Empty : GeneratedMessage {
+  final public class Empty  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
       if (lhs === rhs) {
@@ -38,15 +40,14 @@ public extension Google.Protobuf {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -57,25 +58,13 @@ public extension Google.Protobuf {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> Google.Protobuf.Empty.Builder {
-      return Google.Protobuf.Empty.classBuilder() as! Google.Protobuf.Empty.Builder
-    }
-    public func getBuilder() -> Google.Protobuf.Empty.Builder {
-      return classBuilder() as! Google.Protobuf.Empty.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Google.Protobuf.Empty.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Google.Protobuf.Empty.Builder()
-    }
     public func toBuilder() throws -> Google.Protobuf.Empty.Builder {
       return try Google.Protobuf.Empty.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:Google.Protobuf.Empty) throws -> Google.Protobuf.Empty.Builder {
       return try Google.Protobuf.Empty.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -83,18 +72,18 @@ public extension Google.Protobuf {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty {
       return try Google.Protobuf.Empty.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Google.Protobuf.Empty {
+    class public func fromJSON(data:Data) throws -> Google.Protobuf.Empty {
       return try Google.Protobuf.Empty.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -105,37 +94,38 @@ public extension Google.Protobuf {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "Google.Protobuf.Empty"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "Google.Protobuf.Empty"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = Google.Protobuf.Empty
       fileprivate var builderResult:Google.Protobuf.Empty = Google.Protobuf.Empty()
       public func getMessage() -> Google.Protobuf.Empty {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:Google.Protobuf.Empty {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> Google.Protobuf.Empty.Builder {
+      public func clear() -> Google.Protobuf.Empty.Builder {
         builderResult = Google.Protobuf.Empty()
         return self
       }
-      override public func clone() throws -> Google.Protobuf.Empty.Builder {
+      public func clone() throws -> Google.Protobuf.Empty.Builder {
         return try Google.Protobuf.Empty.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Google.Protobuf.Empty {
+      public func build() throws -> Google.Protobuf.Empty {
            try checkInitialized()
            return buildPartial()
       }
@@ -152,11 +142,11 @@ public extension Google.Protobuf {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.Empty.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.Empty.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -177,7 +167,7 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Empty.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Empty.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Empty.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -190,6 +180,12 @@ public extension Google.Protobuf {
 
 }
 extension Google.Protobuf.Empty: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return Google.Protobuf.Empty.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Empty> {
     var mergedArray = Array<Google.Protobuf.Empty>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

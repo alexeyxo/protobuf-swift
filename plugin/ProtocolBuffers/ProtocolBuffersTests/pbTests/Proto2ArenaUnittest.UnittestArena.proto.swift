@@ -22,7 +22,9 @@ public extension Proto2ArenaUnittest {
     }
   }
 
-  final public class NestedMessage : GeneratedMessage {
+  final public class NestedMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: Proto2ArenaUnittest.NestedMessage, rhs: Proto2ArenaUnittest.NestedMessage) -> Bool {
       if (lhs === rhs) {
@@ -38,18 +40,17 @@ public extension Proto2ArenaUnittest {
     public fileprivate(set) var hasD:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasD {
         try codedOutputStream.write.int32(fieldNumber: 1, value:d)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -57,23 +58,11 @@ public extension Proto2ArenaUnittest {
 
       serialize_size = 0
       if hasD {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: d)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: d)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> Proto2ArenaUnittest.NestedMessage.Builder {
-      return Proto2ArenaUnittest.NestedMessage.classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
-    }
-    public func getBuilder() -> Proto2ArenaUnittest.NestedMessage.Builder {
-      return classBuilder() as! Proto2ArenaUnittest.NestedMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Proto2ArenaUnittest.NestedMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Proto2ArenaUnittest.NestedMessage.Builder()
     }
     public func toBuilder() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
       return try Proto2ArenaUnittest.NestedMessage.builderWithPrototype(prototype:self)
@@ -81,7 +70,7 @@ public extension Proto2ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto2ArenaUnittest.NestedMessage) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
       return try Proto2ArenaUnittest.NestedMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -92,13 +81,13 @@ public extension Proto2ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.NestedMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.NestedMessage {
       return try Proto2ArenaUnittest.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Proto2ArenaUnittest.NestedMessage {
+    class public func fromJSON(data:Data) throws -> Proto2ArenaUnittest.NestedMessage {
       return try Proto2ArenaUnittest.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasD {
         output += "\(indent) d: \(d) \n"
@@ -106,7 +95,7 @@ public extension Proto2ArenaUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasD {
@@ -120,22 +109,22 @@ public extension Proto2ArenaUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "Proto2ArenaUnittest.NestedMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "Proto2ArenaUnittest.NestedMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = Proto2ArenaUnittest.NestedMessage
       fileprivate var builderResult:Proto2ArenaUnittest.NestedMessage = Proto2ArenaUnittest.NestedMessage()
       public func getMessage() -> Proto2ArenaUnittest.NestedMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasD:Bool {
            get {
@@ -162,20 +151,21 @@ public extension Proto2ArenaUnittest {
            builderResult.d = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:Proto2ArenaUnittest.NestedMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
+      public func clear() -> Proto2ArenaUnittest.NestedMessage.Builder {
         builderResult = Proto2ArenaUnittest.NestedMessage()
         return self
       }
-      override public func clone() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      public func clone() throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         return try Proto2ArenaUnittest.NestedMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Proto2ArenaUnittest.NestedMessage {
+      public func build() throws -> Proto2ArenaUnittest.NestedMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -195,11 +185,11 @@ public extension Proto2ArenaUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -226,7 +216,7 @@ public extension Proto2ArenaUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -237,7 +227,9 @@ public extension Proto2ArenaUnittest {
 
   }
 
-  final public class ArenaMessage : GeneratedMessage {
+  final public class ArenaMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: Proto2ArenaUnittest.ArenaMessage, rhs: Proto2ArenaUnittest.ArenaMessage) -> Bool {
       if (lhs === rhs) {
@@ -253,12 +245,11 @@ public extension Proto2ArenaUnittest {
     public fileprivate(set) var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage>  = Array<Proto2ArenaUnittest.NestedMessage>()
     public fileprivate(set) var repeatedImportNoArenaMessage:Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>  = Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
           try codedOutputStream.write.message(fieldNumber: 1, value:oneElementRepeatedNestedMessage)
       }
@@ -267,30 +258,18 @@ public extension Proto2ArenaUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
       }
 
       serialize_size = 0
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1, value: repeatedNestedMessage)
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: repeatedImportNoArenaMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 1, value: repeatedNestedMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 2, value: repeatedImportNoArenaMessage)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
-      return Proto2ArenaUnittest.ArenaMessage.classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
-    }
-    public func getBuilder() -> Proto2ArenaUnittest.ArenaMessage.Builder {
-      return classBuilder() as! Proto2ArenaUnittest.ArenaMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Proto2ArenaUnittest.ArenaMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Proto2ArenaUnittest.ArenaMessage.Builder()
     }
     public func toBuilder() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return try Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(prototype:self)
@@ -298,7 +277,7 @@ public extension Proto2ArenaUnittest {
     public class func builderWithPrototype(prototype:Proto2ArenaUnittest.ArenaMessage) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
       return try Proto2ArenaUnittest.ArenaMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -322,13 +301,13 @@ public extension Proto2ArenaUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ArenaMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ArenaMessage {
       return try Proto2ArenaUnittest.ArenaMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Proto2ArenaUnittest.ArenaMessage {
+    class public func fromJSON(data:Data) throws -> Proto2ArenaUnittest.ArenaMessage {
       return try Proto2ArenaUnittest.ArenaMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var repeatedNestedMessageElementIndex:Int = 0
       for oneElementRepeatedNestedMessage in repeatedNestedMessage {
@@ -347,7 +326,7 @@ public extension Proto2ArenaUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneElementRepeatedNestedMessage in repeatedNestedMessage {
@@ -364,22 +343,22 @@ public extension Proto2ArenaUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "Proto2ArenaUnittest.ArenaMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "Proto2ArenaUnittest.ArenaMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = Proto2ArenaUnittest.ArenaMessage
       fileprivate var builderResult:Proto2ArenaUnittest.ArenaMessage = Proto2ArenaUnittest.ArenaMessage()
       public func getMessage() -> Proto2ArenaUnittest.ArenaMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var repeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage> {
            get {
@@ -417,20 +396,21 @@ public extension Proto2ArenaUnittest {
         builderResult.repeatedImportNoArenaMessage.removeAll(keepingCapacity: false)
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:Proto2ArenaUnittest.ArenaMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      public func clear() -> Proto2ArenaUnittest.ArenaMessage.Builder {
         builderResult = Proto2ArenaUnittest.ArenaMessage()
         return self
       }
-      override public func clone() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      public func clone() throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         return try Proto2ArenaUnittest.ArenaMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Proto2ArenaUnittest.ArenaMessage {
+      public func build() throws -> Proto2ArenaUnittest.ArenaMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -453,11 +433,11 @@ public extension Proto2ArenaUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -506,7 +486,7 @@ public extension Proto2ArenaUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -519,6 +499,12 @@ public extension Proto2ArenaUnittest {
 
 }
 extension Proto2ArenaUnittest.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return Proto2ArenaUnittest.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2ArenaUnittest.NestedMessage> {
     var mergedArray = Array<Proto2ArenaUnittest.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -549,6 +535,12 @@ extension Proto2ArenaUnittest.NestedMessage: GeneratedMessageProtocol {
   }
 }
 extension Proto2ArenaUnittest.ArenaMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return Proto2ArenaUnittest.ArenaMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2ArenaUnittest.ArenaMessage> {
     var mergedArray = Array<Proto2ArenaUnittest.ArenaMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

@@ -27,7 +27,7 @@ enum ProtocolBuffersWireTypeError:Error {
     case invalidWireType
 }
 
-internal enum WireFormat:Int32 {
+public enum WireFormat:Int32 {
     case varint = 0
     case fixed64 = 1
     case lengthDelimited = 2
@@ -218,7 +218,8 @@ public struct ProtobufWire {
     struct `sint64`:ProtobufWireProtocol {
         typealias BaseType = Int64
         func computeSizeWith(tag:Int32, value:BaseType) -> Int32 {
-            
+            let wire = WireFormat.encodeZigZag64(n: value)
+            return ProtobufWire.Size().computeTagSize(tag:tag) + computeSizeWithoutTag(value: wire)
         }
         func computeSizeWithoutTag(value:BaseType) -> Int32 {
             let wire = WireFormat.encodeZigZag64(n: value)
@@ -411,7 +412,7 @@ public extension String {
     }
 }
 
-fileprivate extension ProtobufWire.Size {
+public extension ProtobufWire.Size {
     func computeUnknownGroupSizeNoTag(value: UnknownFieldSet) ->Int32 {
         return value.serializedSize()
     }

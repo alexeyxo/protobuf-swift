@@ -19,7 +19,9 @@ public struct UnittestStructRoot {
   }
 }
 
-final public class UnitTestStruct : GeneratedMessage {
+final public class UnitTestStruct  {
+  public var unknownFields = UnknownFieldSet(fields: [:])
+  fileprivate var memoizedSerializedSize:Int32 = -1
 
   public static func == (lhs: UnitTestStruct, rhs: UnitTestStruct) -> Bool {
     if (lhs === rhs) {
@@ -39,12 +41,11 @@ final public class UnitTestStruct : GeneratedMessage {
   public fileprivate(set) var hasTestInt:Bool = false
 
   required public init() {
-       super.init()
   }
-  override public func isInitialized() -> Bool {
+  public func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+  public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasTestStr {
       try codedOutputStream.write.string(fieldNumber: 1, value:testStr)
     }
@@ -53,7 +54,7 @@ final public class UnitTestStruct : GeneratedMessage {
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override public func serializedSize() throws -> Int32 {
+  public func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -61,26 +62,14 @@ final public class UnitTestStruct : GeneratedMessage {
 
     serialize_size = 0
     if hasTestStr {
-      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: testStr)
+      serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: testStr)
     }
     if hasTestInt {
-      serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: testInt)
+      serialize_size += ProtobufWire.int32().computeSizeWith(tag: 2, value: testInt)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
-  }
-  public class func getBuilder() -> UnitTestStruct.Builder {
-    return UnitTestStruct.classBuilder() as! UnitTestStruct.Builder
-  }
-  public func getBuilder() -> UnitTestStruct.Builder {
-    return classBuilder() as! UnitTestStruct.Builder
-  }
-  override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-    return UnitTestStruct.Builder()
-  }
-  override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-    return UnitTestStruct.Builder()
   }
   public func toBuilder() throws -> UnitTestStruct.Builder {
     return try UnitTestStruct.builderWithPrototype(prototype:self)
@@ -88,7 +77,7 @@ final public class UnitTestStruct : GeneratedMessage {
   public class func builderWithPrototype(prototype:UnitTestStruct) throws -> UnitTestStruct.Builder {
     return try UnitTestStruct.Builder().mergeFrom(other:prototype)
   }
-  override public func encode() throws -> Dictionary<String,Any> {
+  public func encode() throws -> Dictionary<String,Any> {
     guard isInitialized() else {
       throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
     }
@@ -102,13 +91,13 @@ final public class UnitTestStruct : GeneratedMessage {
     }
     return jsonMap
   }
-  override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnitTestStruct {
+  class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnitTestStruct {
     return try UnitTestStruct.Builder.decodeToBuilder(jsonMap:jsonMap).build()
   }
-  override class public func fromJSON(data:Data) throws -> UnitTestStruct {
+  class public func fromJSON(data:Data) throws -> UnitTestStruct {
     return try UnitTestStruct.Builder.fromJSONToBuilder(data:data).build()
   }
-  override public func getDescription(indent:String) throws -> String {
+  public func getDescription(indent:String) throws -> String {
     var output = ""
     if hasTestStr {
       output += "\(indent) testStr: \(testStr) \n"
@@ -119,7 +108,7 @@ final public class UnitTestStruct : GeneratedMessage {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasTestStr {
@@ -136,22 +125,22 @@ final public class UnitTestStruct : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  public class func className() -> String {
       return "UnitTestStruct"
   }
-  override public func className() -> String {
+  public func className() -> String {
       return "UnitTestStruct"
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final public class Builder : GeneratedMessageBuilderProtocol {
+    public typealias GeneratedMessageType = UnitTestStruct
     fileprivate var builderResult:UnitTestStruct = UnitTestStruct()
     public func getMessage() -> UnitTestStruct {
         return builderResult
     }
 
-    required override public init () {
-       super.init()
+    required public init () {
     }
     public var hasTestStr:Bool {
          get {
@@ -203,20 +192,21 @@ final public class UnitTestStruct : GeneratedMessage {
          builderResult.testInt = Int32(0)
          return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    public var internalGetResult:UnitTestStruct {
          get {
             return builderResult
          }
+        set{}
     }
     @discardableResult
-    override public func clear() -> UnitTestStruct.Builder {
+    public func clear() -> UnitTestStruct.Builder {
       builderResult = UnitTestStruct()
       return self
     }
-    override public func clone() throws -> UnitTestStruct.Builder {
+    public func clone() throws -> UnitTestStruct.Builder {
       return try UnitTestStruct.builderWithPrototype(prototype:builderResult)
     }
-    override public func build() throws -> UnitTestStruct {
+    public func build() throws -> UnitTestStruct {
          try checkInitialized()
          return buildPartial()
     }
@@ -239,11 +229,11 @@ final public class UnitTestStruct : GeneratedMessage {
       return self
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct.Builder {
+    public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct.Builder {
+    public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -276,7 +266,7 @@ final public class UnitTestStruct : GeneratedMessage {
       }
       return resultDecodedBuilder
     }
-    override class public func fromJSONToBuilder(data:Data) throws -> UnitTestStruct.Builder {
+    class public func fromJSONToBuilder(data:Data) throws -> UnitTestStruct.Builder {
       let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
       guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -288,6 +278,12 @@ final public class UnitTestStruct : GeneratedMessage {
 }
 
 extension UnitTestStruct: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return UnitTestStruct.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnitTestStruct> {
     var mergedArray = Array<UnitTestStruct>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

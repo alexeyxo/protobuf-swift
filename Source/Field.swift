@@ -17,108 +17,42 @@
 
 import Foundation
 
-public func ==(lhs:Field, rhs:Field) -> Bool
-{
-    var check = (lhs.variantArray == rhs.variantArray)
-    check = check && (lhs.fixed32Array == rhs.fixed32Array)
-    check = check && (lhs.fixed64Array == rhs.fixed64Array)
-    check = check && (lhs.groupArray == rhs.groupArray)
-    check = check && (lhs.lengthDelimited == rhs.lengthDelimited)
-    return check
-}
 
-//public func ==(lhs:Array<Array<UInt8>>, rhs:Array<Array<UInt8>>) -> Bool
-//{
-//    if lhs.count == rhs.count
-//    {
-//        for (var i = 0; i < lhs.count; i++)
-//        {
-//            var lbytes = lhs[i]
-//            var rbytes = rhs[i]
-//            
-//            if lbytes.count == rbytes.count
-//            {
-//                if lbytes == rbytes
-//                {
-//                    continue
-//                }
-//                else
-//                {
-//                    return false
-//                }
-//            }
-//            else
-//            {
-//                return false
-//            }
-//        }
-//        return true
+public struct Field:Equatable,Hashable {
+
+    static public func ==(lhs:Field, rhs:Field) -> Bool {
+        var check = (lhs.variantArray == rhs.variantArray)
+        check = check && (lhs.fixed32Array == rhs.fixed32Array)
+        check = check && (lhs.fixed64Array == rhs.fixed64Array)
+        check = check && (lhs.groupArray == rhs.groupArray)
+        check = check && (lhs.lengthDelimited == rhs.lengthDelimited)
+        return check
+    }
+
+//    static public func +=(left:Field, right:Int64) {
+//        left.variantArray.append(right)
 //    }
-//    return false
-//}
 //
-//
-//
-//public func ==(lhs:Array<UInt8>, rhs:Array<UInt8>) -> Bool
-//{
-//    if lhs.count == rhs.count
-//    {
-//        for (var i = 0; i < lhs.count; i++)
-//        {
-//            var lbytes = lhs[i]
-//            var rbytes = rhs[i]
-//            if lbytes != rbytes
-//            {
-//                return false
-//            }
-//        }
-//        return true
+//    static public func +=(left:Field, right:Int32) {
+//        var result:Int64  = 0
+//        result = WireFormat.convertTypes(convertValue: right, defaultValue:result)
+//        left.variantArray.append(result)
 //    }
-//    return false
-//}
-
-//public protocol FieldOverload
-//{
-//    func +=(inout left:Field, right:Int64)
-//    func +=(inout left:Field, right:Int32)
-//    func +=(inout left:Field, right:UInt64)
-//    func +=(inout left:Field, right:UInt32)
-//}
-
-public func +=(left:Field, right:Int64)
-{
-    left.variantArray += [right]
-}
-
-public func +=(left:Field, right:Int32)
-{
-    var result:Int64  = 0
-    result = WireFormat.convertTypes(convertValue: right, defaultValue:result)
-    left.variantArray += [result]
-}
-
-public func +=(left:Field, right:UInt32)
-{
-    left.fixed32Array += [UInt32(right)]
-}
-
-public func +=(left:Field, right:UInt64)
-{
-    left.fixed64Array += [UInt64(right)]
-}
-
-final public class Field:Equatable,Hashable
-{
+//
+//    static public func +=(left:Field, right:UInt32) {
+//        left.fixed32Array += [UInt32(right)]
+//    }
+//    
+//    static public func +=(left:Field, right:UInt64) {
+//        left.fixed64Array += [UInt64(right)]
+//    }
     public var variantArray:Array<Int64>
     public var fixed32Array:Array<UInt32>
     public var fixed64Array:Array<UInt64>
     public var lengthDelimited:Array<Data>
     public var groupArray:Array<UnknownFieldSet>
-    
-  
-    
-    public init()
-    {
+
+    public init() {
         
         variantArray = [Int64](repeating: 0, count: 0)
         fixed32Array = [UInt32](repeating: 0, count: 0)
@@ -127,97 +61,77 @@ final public class Field:Equatable,Hashable
         groupArray = Array<UnknownFieldSet>()
     }
     
-    public func getSerializedSize(fieldNumber:Int32) -> Int32
-    {
+    public func getSerializedSize(tag:Int32) -> Int32 {
         var result:Int32 = 0
     
-        for value in variantArray
-        {
-            result +=  value.computeInt64Size(fieldNumber: fieldNumber)
+        for value in variantArray {
+            result +=  ProtobufWire.int64().computeSizeWith(tag: tag, value: value)
         }
         
-        for value in fixed32Array
-        {
-            result +=  value.computeFixed32Size(fieldNumber: fieldNumber)
+        for value in fixed32Array {
+            result +=  ProtobufWire.fixed32().computeSizeWith(tag: tag, value: value)
         }
         
-        for value in fixed64Array
-        {
-            result +=  value.computeFixed64Size(fieldNumber: fieldNumber)
+        for value in fixed64Array {
+            result +=  ProtobufWire.fixed64().computeSizeWith(tag: tag, value: value)
         }
 
-        for value in lengthDelimited
-        {
-            result += value.computeDataSize(fieldNumber: fieldNumber)
+        for value in lengthDelimited {
+            result += ProtobufWire.bytes().computeSizeWith(tag: tag, value: value)
         }
-
-        for  value in groupArray
-        {
-            result += value.computeUnknownGroupSize(fieldNumber: fieldNumber)
+        for  value in groupArray {
+            result += ProtobufWire.Size().computeUnknownGroupSize(tag: tag, value: value)
         }
         
         return result
     }
     
-    public func getSerializedSizeAsMessageSetExtension(fieldNumber:Int32) -> Int32 {
+    public func getSerializedSizeAsMessageSetExtension(tag:Int32) -> Int32 {
         var result:Int32 = 0
         for value in lengthDelimited {
-            result += value.computeRawMessageSetExtensionSize(fieldNumber: fieldNumber)
+            result += ProtobufWire.bytes().computeRawMessageSetExtensionSize(tag: tag, value: value)
         }
         return result
     }
     
-    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws
-    {
+    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws {
 
-        for value in variantArray
-        {
+        for value in variantArray {
             try output.writeInt64(fieldNumber: fieldNumber, value:value)
         }
-        for value in fixed32Array
-        {
+        for value in fixed32Array {
             try output.writeFixed32(fieldNumber: fieldNumber, value: value)
         }
-        for value in fixed64Array
-        {
+        for value in fixed64Array {
             try output.writeFixed64(fieldNumber: fieldNumber, value:value)
         }
-        for value in lengthDelimited
-        {
+        for value in lengthDelimited {
             try output.writeData(fieldNumber: fieldNumber, value: value)
         }
-        for value in groupArray
-        {
+        for value in groupArray {
             try output.writeUnknownGroup(fieldNumber: fieldNumber, value:value)
         }
-
     }
     
-    public func getDescription(fieldNumber:Int32, indent:String) -> String
-    {
+    public func getDescription(fieldNumber:Int32, indent:String) -> String {
         var outputString = ""
-        for value in variantArray
-        {
+        for value in variantArray {
             outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
 
-        for value in fixed32Array
-        {
+        for value in fixed32Array {
             outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
 
-        for value in fixed64Array
-        {
+        for value in fixed64Array {
             outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
         
-        for value in lengthDelimited
-        {
+        for value in lengthDelimited {
             outputString += "\(indent)\(fieldNumber): \(value)\n"
         }
         
-        for value in groupArray
-        {
+        for value in groupArray {
             outputString += "\(indent)\(fieldNumber)[\n"
             outputString += value.getDescription(indent: indent)
             outputString += "\(indent)]"
@@ -226,10 +140,8 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, codedOutputStream:CodedOutputStream) throws
-    {
-        for value in lengthDelimited
-        {
+    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, codedOutputStream:CodedOutputStream) throws {
+        for value in lengthDelimited {
             try codedOutputStream.writeRawMessageSetExtension(fieldNumber: fieldNumber, value: value)
         }
     }
@@ -238,24 +150,19 @@ final public class Field:Equatable,Hashable
         get {
             var hashCode = 0
             
-            for value in variantArray
-            {
+            for value in variantArray {
                 hashCode = (hashCode &* 31) &+ value.hashValue
             }
-            for value in fixed32Array
-            {
+            for value in fixed32Array {
                 hashCode = (hashCode &* 31) &+ value.hashValue
             }
-            for value in fixed64Array
-            {
+            for value in fixed64Array {
                 hashCode = (hashCode &* 31) &+ value.hashValue
             }
-            for value in lengthDelimited
-            {
+            for value in lengthDelimited {
                     hashCode = (hashCode &* 31) &+ value.hashValue
             }
-            for value in groupArray
-            {
+            for value in groupArray {
                 hashCode = (hashCode &* 31) &+ value.hashValue
             }
             return hashCode
@@ -266,10 +173,8 @@ final public class Field:Equatable,Hashable
 
 
 
-public extension Field
-{
-    public func clear()
-    {
+public extension Field {
+    public mutating func clear() {
         variantArray.removeAll(keepingCapacity: false)
         fixed32Array.removeAll(keepingCapacity: false)
         fixed64Array.removeAll(keepingCapacity: false)
@@ -277,18 +182,14 @@ public extension Field
         lengthDelimited.removeAll(keepingCapacity: false)
     }
     
-    public func mergeFromField(other:Field) -> Field
-    {
-        if (other.variantArray.count > 0)
-        {
+    public mutating func mergeFromField(other:Field) {
+        if other.variantArray.count > 0 {
             variantArray += other.variantArray
         }
-        if (other.fixed32Array.count > 0)
-        {
+        if other.fixed32Array.count > 0 {
             fixed32Array += other.fixed32Array
         }
-        if (other.fixed64Array.count > 0)
-        {
+        if other.fixed64Array.count > 0 {
             fixed64Array += other.fixed64Array
         }
         if (other.lengthDelimited.count > 0)

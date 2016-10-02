@@ -265,7 +265,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void PrimitiveFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  serialize_size += try ProtobufWire.Size(wireType:$capitalized_type$).with(tag: $number$, value: $name_reserved$)\n"
+                       "  serialize_size += ProtobufWire$capitalized_type$().computeSizeWith(tag: $number$, value: $name_reserved$)\n"
                        "}\n");
     }
     
@@ -424,7 +424,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (FixedSize(descriptor_->type()) == -1) {
             printer->Print(variables_,
-                           "dataSize$capitalized_name$ += try ProtobufWire.Size(wireType: $capitalized_type$).repeatedWithoutTag(value: $name_reserved$)\n");
+                           "dataSize$capitalized_name$ += ProtobufWire$capitalized_type$().repeatedWithoutTag(value: $name_reserved$)\n");
         } else {
             printer->Print(variables_,
                            "dataSize$capitalized_name$ = $fixed_size$ * Int32($name_reserved$.count)\n");
@@ -436,7 +436,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"
-                           "  serialize_size += try ProtobufWire.Size(wireType: $capitalized_name$).withoutTag(value: dataSize$capitalized_name$)\n"
+                           "  serialize_size += ProtobufWire$capitalized_name$().repeatedWithoutTag(value: dataSize$capitalized_name$)\n"
                            "}\n"
                            "$name_reserved$MemoizedSerializedSize = dataSize$capitalized_name$\n");
         } else {

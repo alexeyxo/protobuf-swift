@@ -352,7 +352,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "var dataSize$name$:Int32 = 0\n");
         printer->Print(variables_,
-                       "dataSize$name$ += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOf$name$.rawValue)\n");
+                       "dataSize$name$ += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOf$name$.rawValue)\n");
         
         printer->Print(variables_,"serialize_size += dataSize$name$\n");
         
@@ -361,7 +361,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"
-                           "  serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSize$name$)\n"
+                           "  serialize_size += ProtobufWire.Size().computeTagSize(tag: dataSize$name$)\n"
                            "}\n");
             
         } else {

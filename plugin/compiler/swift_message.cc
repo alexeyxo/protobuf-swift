@@ -41,7 +41,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         void SetMapVariables(const Descriptor* descriptor, map<string, string>* variables) {
             (*variables)["acontrol"] = GetAccessControlType(descriptor->file());
             (*variables)["className"] =  ClassName(descriptor);
-            (*variables)["errorType"] = HasOptionForGenerateErrors(descriptor) ? ", Error" : "";
+            (*variables)["errorType"] = HasOptionForGenerateErrors(descriptor) ? ": Error" : "";
             (*variables)["classNameReturnedType"] = ClassNameReturedType(descriptor);
             (*variables)["fileName"] = FileClassName(descriptor->file());
         }
@@ -220,13 +220,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,
                            "final $acontrol$ class $className$ : ExtendableMessage$errorType$ {\n"
                           );
+
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
+                           "final $acontrol$ class $className$ $errorType$ {\n"
                            );
         }
         printer->Indent();
-        
+        printer->Print(variables_,"$acontrol$ var unknownFields = UnknownFieldSet(fields: [:])\n");
+        printer->Print(variables_,"fileprivate var memoizedSerializedSize:Int32 = -1\n");
+
         printer->Print("\n");
         GenerateMessageIsEqualSource(printer);
         
@@ -303,7 +306,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         
-        printer->Print("     super.init()\n"
+        printer->Print(""
                        "}\n");
         
         
@@ -313,18 +316,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 //        GenerateParseFromMethodsSource(printer);
     
         printer->Print(variables_,
-                       "$acontrol$ class func getBuilder() -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$.Builder\n"
-                       "}\n"
-                       "$acontrol$ func getBuilder() -> $classNameReturnedType$.Builder {\n"
-                       "  return classBuilder() as! $classNameReturnedType$.Builder\n"
-                       "}\n"
-                       "override $acontrol$ class func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
-                       "  return $classNameReturnedType$.Builder()\n"
-                       "}\n"
-                       "override $acontrol$ func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
-                       "  return $classNameReturnedType$.Builder()\n"
-                       "}\n"
                        "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.builderWithPrototype(prototype:self)\n"
                        "}\n"
@@ -341,10 +332,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("\n\n//Meta information declaration start\n\n");
         
-        printer->Print(variables_,"override $acontrol$ class func className() -> String {\n"
+        printer->Print(variables_,"$acontrol$ class func className() -> String {\n"
                        "    return \"$classNameReturnedType$\"\n"
                        "}\n"
-                       "override $acontrol$ func className() -> String {\n"
+                       "$acontrol$ func className() -> String {\n"
                        "    return \"$classNameReturnedType$\"\n"
                        "}\n");
         
@@ -367,7 +358,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"override $acontrol$ func writeTo(codedOutputStream: CodedOutputStream) throws {\n");
+        printer->Print(variables_,"$acontrol$ func writeTo(codedOutputStream: CodedOutputStream) throws {\n");
         printer->Indent();
         
         for (int i = 0, j = 0;
@@ -392,7 +383,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("}\n");
         
-        printer->Print("override $acontrol$ func serializedSize() throws -> Int32 {\n",
+        printer->Print("$acontrol$ func serializedSize() throws -> Int32 {\n",
                        "acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Print("var serialize_size:Int32 = memoizedSerializedSize\n"
@@ -435,7 +426,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         sort(sorted_extensions.begin(), sorted_extensions.end(), ExtensionRangeOrdering());
         
-        printer->Print("override $acontrol$ func getDescription(indent:String) throws -> String {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        printer->Print("$acontrol$ func getDescription(indent:String) throws -> String {\n","acontrol", GetAccessControlType(descriptor_->file()));
         printer->Indent();
         printer->Print("var output = \"\"\n");
         
@@ -463,7 +454,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         //
         
-        printer->Print(variables_,"override $acontrol$ func encode() throws -> Dictionary<String,Any> {\n");
+        printer->Print(variables_,"$acontrol$ func encode() throws -> Dictionary<String,Any> {\n");
         
         printer->Indent();
         
@@ -487,11 +478,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("  return jsonMap\n"
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func decode(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$ {\n"
+        printer->Print(variables_,"class $acontrol$ func decode(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsonMap).build()\n"
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func fromJSON(data:Data) throws -> $classNameReturnedType$ {\n"
+        printer->Print(variables_,"class $acontrol$ func fromJSON(data:Data) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder.fromJSONToBuilder(data:data).build()\n"
                        "}\n");
     }
@@ -513,7 +504,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
+        printer->Print(variables_,"class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
                        "  let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))\n"
                        "  guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
                        "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
@@ -589,7 +580,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"override $acontrol$ var hashValue:Int {\n");
+        printer->Print(variables_,"$acontrol$ var hashValue:Int {\n");
         printer->Indent();
         printer->Indent();
         printer->Print("get {\n");
@@ -631,6 +622,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"extension $classNameReturnedType$: GeneratedMessageProtocol {\n");
         printer->Indent();
         printer->Print(variables_,
+                       "$acontrol$ static func getBuilder() -> GeneratedMessageBuilderProtocol {\n"
+                       "  return $classNameReturnedType$.Builder() as! T\n"
+                       "}\n"
+                       "$acontrol$ func getBuilder() -> GeneratedMessageBuilderProtocol {\n"
+                       "  return getBuilder()\n"
+                       "}\n"
                        "$acontrol$ class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<$classNameReturnedType$> {\n"
                        "  var mergedArray = Array<$classNameReturnedType$>()\n"
                        "  while let value = try parseDelimitedFrom(inputStream: inputStream) {\n"
@@ -726,18 +723,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "final $acontrol$ class Builder : ExtendableMessageBuilder {\n");
         } else {
             printer->Print(variables_,
-                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
+                           "final $acontrol$ class Builder : GeneratedMessageBuilderProtocol {\n");
         }
         
         printer->Indent();
+        printer->Print(variables_,"$acontrol$ typealias GeneratedMessageType = $classNameReturnedType$\n");
         
         printer->Print(variables_,
                        "fileprivate var builderResult:$classNameReturnedType$ = $classNameReturnedType$()\n"
                        "$acontrol$ func getMessage() -> $classNameReturnedType$ {\n"
                        "    return builderResult\n"
                        "}\n\n"
-                       "required override $acontrol$ init () {\n"
-                       "   super.init()\n"
+                       "required $acontrol$ init () {\n"
                        "}\n");
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
@@ -760,32 +757,34 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
-                           "override $acontrol$ var internalGetResult:ExtendableMessage {\n"
+                           "$acontrol$ var internalGetResult:ExtendableMessage {\n"
                            "     get {\n"
                            "         return builderResult\n"
                            "     }\n"
+                           "    set{}\n"
                            "}\n");
         } else {
             printer->Print(variables_,
-                           "override $acontrol$ var internalGetResult:GeneratedMessage {\n"
+                           "$acontrol$ var internalGetResult:$classNameReturnedType$ {\n"
                            "     get {\n"
                            "        return builderResult\n"
                            "     }\n"
+                           "    set{}\n"
                            "}\n");
         }
         
         printer->Print(variables_,
                        "@discardableResult\n"
-                       "override $acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
                        "  builderResult = $classNameReturnedType$()\n"
                        "  return self\n"
                        "}\n"
-                       "override $acontrol$ func clone() throws -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ func clone() throws -> $classNameReturnedType$.Builder {\n"
                        "  return try $classNameReturnedType$.builderWithPrototype(prototype:builderResult)\n"
                        "}\n");
         
         printer->Print(variables_,
-                       "override $acontrol$ func build() throws -> $classNameReturnedType$ {\n"
+                       "$acontrol$ func build() throws -> $classNameReturnedType$ {\n"
                        "     try checkInitialized()\n"
                        "     return buildPartial()\n"
                        "}\n"
@@ -836,11 +835,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,
                        "@discardableResult\n"
-                       "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
+                       "$acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
                        "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
                        "@discardableResult\n"
-                       "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
+                       "$acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(
@@ -896,7 +895,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
         printer->Print(variables_,
-                       "override $acontrol$ func isInitialized() -> Bool {\n");
+                       "$acontrol$ func isInitialized() -> Bool {\n");
         printer->Indent();
       
         for (int i = 0; i < descriptor_->field_count(); i++) {

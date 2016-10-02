@@ -179,7 +179,7 @@ public struct CodedInputStream {
         }
     }
 
-    public mutating func skipRawData(size:Int) throws{
+    public mutating func skipRawData(size:Int) throws {
         
         guard size >= 0 else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Negative Size")
@@ -363,8 +363,7 @@ public struct CodedInputStream {
         return convert
     }
     
-    public mutating func readRawVarint32(firstByte:UInt8, inputStream:InputStream) throws -> Int32
-    {
+    public static func readRawVarint32(firstByte:UInt8, inputStream:InputStream) throws -> Int32 {
         if ((Int32(firstByte) & 0x80) == 0) {
             return Int32(firstByte)
         }
@@ -435,10 +434,7 @@ public struct CodedInputStream {
                 }
             }
         }
-     
-        
-        
-        return result;
+        return result
     }
     
     public mutating func readRawVarint64() throws -> Int64 {
@@ -557,7 +553,7 @@ public struct CodedInputStream {
         recomputeBufferSizeAfterLimit()
     }
     
-    public func bytesUntilLimit() ->Int {
+    public func bytesUntilLimit() -> Int {
         if currentLimit == Int.max {
             return -1
         }
@@ -565,7 +561,7 @@ public struct CodedInputStream {
         return currentLimit - currentAbsolutePosition
     }
     
-    public mutating func readGroup(fieldNumber:Int, builder:ProtocolBuffersMessageBuilder, extensionRegistry:ExtensionRegistry) throws {
+    public mutating func readGroup<T: ProtocolBuffersMessageBuilder>(fieldNumber:Int, builder:T, extensionRegistry:ExtensionRegistry) throws {
         
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Recursion Limit Exceeded")
@@ -586,7 +582,7 @@ public struct CodedInputStream {
         recursionDepth-=1
     }
 
-    public mutating func readMessage(builder:ProtocolBuffersMessageBuilder, extensionRegistry:ExtensionRegistry) throws {
+    public mutating func readMessage<T: ProtocolBuffersMessageBuilder>(builder:T, extensionRegistry:ExtensionRegistry) throws {
         let length = try readRawVarint32()
         guard recursionDepth < recursionLimit else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Recursion Limit Exceeded")

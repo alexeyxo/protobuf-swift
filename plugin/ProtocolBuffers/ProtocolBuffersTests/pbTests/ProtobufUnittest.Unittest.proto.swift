@@ -1361,7 +1361,9 @@ public extension ProtobufUnittest {
 
   // This proto includes every type of field in both singular and repeated
   // forms.
-  final public class TestAllTypes : GeneratedMessage {
+  final public class TestAllTypes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestAllTypes, rhs: ProtobufUnittest.TestAllTypes) -> Bool {
       if (lhs === rhs) {
@@ -1451,7 +1453,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage {
+      final public class NestedMessage  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestAllTypes.NestedMessage, rhs: ProtobufUnittest.TestAllTypes.NestedMessage) -> Bool {
           if (lhs === rhs) {
@@ -1470,18 +1474,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasBb:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasBb {
             try codedOutputStream.write.int32(fieldNumber: 1, value:bb)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1489,23 +1492,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: bb)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: bb)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
-          return ProtobufUnittest.TestAllTypes.NestedMessage.classBuilder() as! ProtobufUnittest.TestAllTypes.NestedMessage.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestAllTypes.NestedMessage.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
           return try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:self)
@@ -1513,7 +1504,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.NestedMessage) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
           return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -1524,13 +1515,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
           return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
           return try ProtobufUnittest.TestAllTypes.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
@@ -1538,7 +1529,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasBb {
@@ -1552,22 +1543,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestAllTypes.NestedMessage"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.NestedMessage"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestAllTypes.NestedMessage
           fileprivate var builderResult:ProtobufUnittest.TestAllTypes.NestedMessage = ProtobufUnittest.TestAllTypes.NestedMessage()
           public func getMessage() -> ProtobufUnittest.TestAllTypes.NestedMessage {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasBb:Bool {
                get {
@@ -1594,20 +1585,21 @@ public extension ProtobufUnittest {
                builderResult.bb = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestAllTypes.NestedMessage {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
+          public func clear() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             builderResult = ProtobufUnittest.TestAllTypes.NestedMessage()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
+          public func clone() throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             return try ProtobufUnittest.TestAllTypes.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
+          public func build() throws -> ProtobufUnittest.TestAllTypes.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -1627,11 +1619,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -1658,7 +1650,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -1675,7 +1667,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class OptionalGroup : GeneratedMessage {
+      final public class OptionalGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestAllTypes.OptionalGroup, rhs: ProtobufUnittest.TestAllTypes.OptionalGroup) -> Bool {
           if (lhs === rhs) {
@@ -1691,18 +1685,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 17, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1710,23 +1703,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 17, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
-          return ProtobufUnittest.TestAllTypes.OptionalGroup.classBuilder() as! ProtobufUnittest.TestAllTypes.OptionalGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestAllTypes.OptionalGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.OptionalGroup.builderWithPrototype(prototype:self)
@@ -1734,7 +1715,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.OptionalGroup) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -1745,13 +1726,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
           return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
           return try ProtobufUnittest.TestAllTypes.OptionalGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -1759,7 +1740,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -1773,22 +1754,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestAllTypes.OptionalGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.OptionalGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestAllTypes.OptionalGroup
           fileprivate var builderResult:ProtobufUnittest.TestAllTypes.OptionalGroup = ProtobufUnittest.TestAllTypes.OptionalGroup()
           public func getMessage() -> ProtobufUnittest.TestAllTypes.OptionalGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -1815,20 +1796,21 @@ public extension ProtobufUnittest {
                builderResult.a = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestAllTypes.OptionalGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             builderResult = ProtobufUnittest.TestAllTypes.OptionalGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             return try ProtobufUnittest.TestAllTypes.OptionalGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
+          public func build() throws -> ProtobufUnittest.TestAllTypes.OptionalGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -1848,11 +1830,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -1879,7 +1861,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -1896,7 +1878,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class RepeatedGroup : GeneratedMessage {
+      final public class RepeatedGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittest.TestAllTypes.RepeatedGroup) -> Bool {
           if (lhs === rhs) {
@@ -1912,18 +1896,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 47, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -1931,23 +1914,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 47, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 47, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
-          return ProtobufUnittest.TestAllTypes.RepeatedGroup.classBuilder() as! ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.RepeatedGroup.builderWithPrototype(prototype:self)
@@ -1955,7 +1926,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes.RepeatedGroup) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -1966,13 +1937,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
           return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
           return try ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -1980,7 +1951,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -1994,22 +1965,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestAllTypes.RepeatedGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestAllTypes.RepeatedGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestAllTypes.RepeatedGroup
           fileprivate var builderResult:ProtobufUnittest.TestAllTypes.RepeatedGroup = ProtobufUnittest.TestAllTypes.RepeatedGroup()
           public func getMessage() -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -2036,20 +2007,21 @@ public extension ProtobufUnittest {
                builderResult.a = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestAllTypes.RepeatedGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             builderResult = ProtobufUnittest.TestAllTypes.RepeatedGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             return try ProtobufUnittest.TestAllTypes.RepeatedGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
+          public func build() throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -2069,11 +2041,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -2100,7 +2072,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -2449,12 +2421,11 @@ public extension ProtobufUnittest {
           }
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalInt32 {
         try codedOutputStream.write.int32(fieldNumber: 1, value:optionalInt32)
       }
@@ -2716,7 +2687,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -2724,69 +2695,61 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: optionalInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: optionalInt32)
       }
       if hasOptionalInt64 {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: optionalInt64)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 2, value: optionalInt64)
       }
       if hasOptionalUint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 3, value: optionalUint32)
+        serialize_size += ProtobufWire.uInt32().computeSizeWith(tag: 3, value: optionalUint32)
       }
       if hasOptionalUint64 {
-        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 4, value: optionalUint64)
+        serialize_size += ProtobufWire.uint64().computeSizeWith(tag: 4, value: optionalUint64)
       }
       if hasOptionalSint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.sint32).with(tag: 5, value: optionalSint32)
+        serialize_size += ProtobufWire.sint32().computeSizeWith(tag: 5, value: optionalSint32)
       }
       if hasOptionalSint64 {
-        serialize_size += try ProtobufWire.Size(wireType:.sint64).with(tag: 6, value: optionalSint64)
+        serialize_size += ProtobufWire.sint64().computeSizeWith(tag: 6, value: optionalSint64)
       }
       if hasOptionalFixed32 {
-        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 7, value: optionalFixed32)
+        serialize_size += ProtobufWire.fixed32().computeSizeWith(tag: 7, value: optionalFixed32)
       }
       if hasOptionalFixed64 {
-        serialize_size += try ProtobufWire.Size(wireType:.dixed64).with(tag: 8, value: optionalFixed64)
+        serialize_size += ProtobufWire.dixed64().computeSizeWith(tag: 8, value: optionalFixed64)
       }
       if hasOptionalSfixed32 {
-        serialize_size += try ProtobufWire.Size(wireType:.sfixed32).with(tag: 9, value: optionalSfixed32)
+        serialize_size += ProtobufWire.sfixed32().computeSizeWith(tag: 9, value: optionalSfixed32)
       }
       if hasOptionalSfixed64 {
-        serialize_size += try ProtobufWire.Size(wireType:.sfixed64).with(tag: 10, value: optionalSfixed64)
+        serialize_size += ProtobufWire.sfixed64().computeSizeWith(tag: 10, value: optionalSfixed64)
       }
       if hasOptionalFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 11, value: optionalFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 11, value: optionalFloat)
       }
       if hasOptionalDouble {
-        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 12, value: optionalDouble)
+        serialize_size += ProtobufWire.double().computeSizeWith(tag: 12, value: optionalDouble)
       }
       if hasOptionalBool {
-        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 13, value: optionalBool)
+        serialize_size += ProtobufWire.bool().computeSizeWith(tag: 13, value: optionalBool)
       }
       if hasOptionalString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 14, value: optionalString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 14, value: optionalString)
       }
       if hasOptionalBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 15, value: optionalBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 15, value: optionalBytes)
       }
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = try ProtobufWire.Size(wireType:.group).with(tag: 16, value:optionalGroup) {
-              serialize_size += varSizeoptionalGroup
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 16, value:optionalGroup)
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 18, value:optionalNestedMessage) {
-              serialize_size += varSizeoptionalNestedMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 18, value:optionalNestedMessage)
       }
       if hasOptionalForeignMessage {
-          if let varSizeoptionalForeignMessage = try ProtobufWire.Size(wireType:.message).with(tag: 19, value:optionalForeignMessage) {
-              serialize_size += varSizeoptionalForeignMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 19, value:optionalForeignMessage)
       }
       if hasOptionalImportMessage {
-          if let varSizeoptionalImportMessage = try ProtobufWire.Size(wireType:.message).with(tag: 20, value:optionalImportMessage) {
-              serialize_size += varSizeoptionalImportMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 20, value:optionalImportMessage)
       }
       if (hasOptionalNestedEnum) {
         serialize_size += optionalNestedEnum.rawValue.computeEnumSize(fieldNumber: 21)
@@ -2798,43 +2761,39 @@ public extension ProtobufUnittest {
         serialize_size += optionalImportEnum.rawValue.computeEnumSize(fieldNumber: 23)
       }
       if hasOptionalStringPiece {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 24, value: optionalStringPiece)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 24, value: optionalStringPiece)
       }
       if hasOptionalCord {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 25, value: optionalCord)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 25, value: optionalCord)
       }
       if hasOptionalPublicImportMessage {
-          if let varSizeoptionalPublicImportMessage = try ProtobufWire.Size(wireType:.message).with(tag: 26, value:optionalPublicImportMessage) {
-              serialize_size += varSizeoptionalPublicImportMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 26, value:optionalPublicImportMessage)
       }
       if hasOptionalLazyMessage {
-          if let varSizeoptionalLazyMessage = try ProtobufWire.Size(wireType:.message).with(tag: 27, value:optionalLazyMessage) {
-              serialize_size += varSizeoptionalLazyMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 27, value:optionalLazyMessage)
       }
       var dataSizeRepeatedInt32:Int32 = 0
-      dataSizeRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedInt32)
+      dataSizeRepeatedInt32 += ProtobufWire.int32().repeatedWithoutTag(value: repeatedInt32)
       serialize_size += dataSizeRepeatedInt32
       serialize_size += 2 * Int32(repeatedInt32.count)
       var dataSizeRepeatedInt64:Int32 = 0
-      dataSizeRepeatedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: repeatedInt64)
+      dataSizeRepeatedInt64 += ProtobufWire.int64().repeatedWithoutTag(value: repeatedInt64)
       serialize_size += dataSizeRepeatedInt64
       serialize_size += 2 * Int32(repeatedInt64.count)
       var dataSizeRepeatedUint32:Int32 = 0
-      dataSizeRepeatedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: repeatedUint32)
+      dataSizeRepeatedUint32 += ProtobufWire.uInt32().repeatedWithoutTag(value: repeatedUint32)
       serialize_size += dataSizeRepeatedUint32
       serialize_size += 2 * Int32(repeatedUint32.count)
       var dataSizeRepeatedUint64:Int32 = 0
-      dataSizeRepeatedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: repeatedUint64)
+      dataSizeRepeatedUint64 += ProtobufWire.uint64().repeatedWithoutTag(value: repeatedUint64)
       serialize_size += dataSizeRepeatedUint64
       serialize_size += 2 * Int32(repeatedUint64.count)
       var dataSizeRepeatedSint32:Int32 = 0
-      dataSizeRepeatedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: repeatedSint32)
+      dataSizeRepeatedSint32 += ProtobufWire.sint32().repeatedWithoutTag(value: repeatedSint32)
       serialize_size += dataSizeRepeatedSint32
       serialize_size += 2 * Int32(repeatedSint32.count)
       var dataSizeRepeatedSint64:Int32 = 0
-      dataSizeRepeatedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: repeatedSint64)
+      dataSizeRepeatedSint64 += ProtobufWire.sint64().repeatedWithoutTag(value: repeatedSint64)
       serialize_size += dataSizeRepeatedSint64
       serialize_size += 2 * Int32(repeatedSint64.count)
       var dataSizeRepeatedFixed32:Int32 = 0
@@ -2866,82 +2825,82 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedBool
       serialize_size += 2 * Int32(repeatedBool.count)
       var dataSizeRepeatedString:Int32 = 0
-      dataSizeRepeatedString += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedString)
+      dataSizeRepeatedString += ProtobufWire.string().repeatedWithoutTag(value: repeatedString)
       serialize_size += dataSizeRepeatedString
       serialize_size += 2 * Int32(repeatedString.count)
       var dataSizeRepeatedBytes:Int32 = 0
-      dataSizeRepeatedBytes += try ProtobufWire.Size(wireType: .data).repeatedWithoutTag(value: repeatedBytes)
+      dataSizeRepeatedBytes += ProtobufWire.data().repeatedWithoutTag(value: repeatedBytes)
       serialize_size += dataSizeRepeatedBytes
       serialize_size += 2 * Int32(repeatedBytes.count)
-      serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 46, value: repeatedGroup)
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 48, value: repeatedNestedMessage)
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 49, value: repeatedForeignMessage)
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 50, value: repeatedImportMessage)
+      serialize_size += ProtobufWire.group().repeatedWith(tag: 46, value: repeatedGroup)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 48, value: repeatedNestedMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 49, value: repeatedForeignMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 50, value: repeatedImportMessage)
       var dataSizerepeatedNestedEnum:Int32 = 0
-      dataSizerepeatedNestedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedNestedEnum.rawValue)
+      dataSizerepeatedNestedEnum += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfrepeatedNestedEnum.rawValue)
       serialize_size += dataSizerepeatedNestedEnum
       serialize_size += (2 * Int32(repeatedNestedEnum.count))
       var dataSizerepeatedForeignEnum:Int32 = 0
-      dataSizerepeatedForeignEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedForeignEnum.rawValue)
+      dataSizerepeatedForeignEnum += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfrepeatedForeignEnum.rawValue)
       serialize_size += dataSizerepeatedForeignEnum
       serialize_size += (2 * Int32(repeatedForeignEnum.count))
       var dataSizerepeatedImportEnum:Int32 = 0
-      dataSizerepeatedImportEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedImportEnum.rawValue)
+      dataSizerepeatedImportEnum += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfrepeatedImportEnum.rawValue)
       serialize_size += dataSizerepeatedImportEnum
       serialize_size += (2 * Int32(repeatedImportEnum.count))
       var dataSizeRepeatedStringPiece:Int32 = 0
-      dataSizeRepeatedStringPiece += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringPiece)
+      dataSizeRepeatedStringPiece += ProtobufWire.string().repeatedWithoutTag(value: repeatedStringPiece)
       serialize_size += dataSizeRepeatedStringPiece
       serialize_size += 2 * Int32(repeatedStringPiece.count)
       var dataSizeRepeatedCord:Int32 = 0
-      dataSizeRepeatedCord += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedCord)
+      dataSizeRepeatedCord += ProtobufWire.string().repeatedWithoutTag(value: repeatedCord)
       serialize_size += dataSizeRepeatedCord
       serialize_size += 2 * Int32(repeatedCord.count)
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 57, value: repeatedLazyMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 57, value: repeatedLazyMessage)
       if hasDefaultInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 61, value: defaultInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 61, value: defaultInt32)
       }
       if hasDefaultInt64 {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 62, value: defaultInt64)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 62, value: defaultInt64)
       }
       if hasDefaultUint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 63, value: defaultUint32)
+        serialize_size += ProtobufWire.uInt32().computeSizeWith(tag: 63, value: defaultUint32)
       }
       if hasDefaultUint64 {
-        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 64, value: defaultUint64)
+        serialize_size += ProtobufWire.uint64().computeSizeWith(tag: 64, value: defaultUint64)
       }
       if hasDefaultSint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.sint32).with(tag: 65, value: defaultSint32)
+        serialize_size += ProtobufWire.sint32().computeSizeWith(tag: 65, value: defaultSint32)
       }
       if hasDefaultSint64 {
-        serialize_size += try ProtobufWire.Size(wireType:.sint64).with(tag: 66, value: defaultSint64)
+        serialize_size += ProtobufWire.sint64().computeSizeWith(tag: 66, value: defaultSint64)
       }
       if hasDefaultFixed32 {
-        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 67, value: defaultFixed32)
+        serialize_size += ProtobufWire.fixed32().computeSizeWith(tag: 67, value: defaultFixed32)
       }
       if hasDefaultFixed64 {
-        serialize_size += try ProtobufWire.Size(wireType:.dixed64).with(tag: 68, value: defaultFixed64)
+        serialize_size += ProtobufWire.dixed64().computeSizeWith(tag: 68, value: defaultFixed64)
       }
       if hasDefaultSfixed32 {
-        serialize_size += try ProtobufWire.Size(wireType:.sfixed32).with(tag: 69, value: defaultSfixed32)
+        serialize_size += ProtobufWire.sfixed32().computeSizeWith(tag: 69, value: defaultSfixed32)
       }
       if hasDefaultSfixed64 {
-        serialize_size += try ProtobufWire.Size(wireType:.sfixed64).with(tag: 70, value: defaultSfixed64)
+        serialize_size += ProtobufWire.sfixed64().computeSizeWith(tag: 70, value: defaultSfixed64)
       }
       if hasDefaultFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 71, value: defaultFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 71, value: defaultFloat)
       }
       if hasDefaultDouble {
-        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 72, value: defaultDouble)
+        serialize_size += ProtobufWire.double().computeSizeWith(tag: 72, value: defaultDouble)
       }
       if hasDefaultBool {
-        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 73, value: defaultBool)
+        serialize_size += ProtobufWire.bool().computeSizeWith(tag: 73, value: defaultBool)
       }
       if hasDefaultString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 74, value: defaultString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 74, value: defaultString)
       }
       if hasDefaultBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 75, value: defaultBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 75, value: defaultBytes)
       }
       if (hasDefaultNestedEnum) {
         serialize_size += defaultNestedEnum.rawValue.computeEnumSize(fieldNumber: 81)
@@ -2953,40 +2912,26 @@ public extension ProtobufUnittest {
         serialize_size += defaultImportEnum.rawValue.computeEnumSize(fieldNumber: 83)
       }
       if hasDefaultStringPiece {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 84, value: defaultStringPiece)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 84, value: defaultStringPiece)
       }
       if hasDefaultCord {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 85, value: defaultCord)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 85, value: defaultCord)
       }
       if hasOneofUint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 111, value: oneofUint32)
+        serialize_size += ProtobufWire.uInt32().computeSizeWith(tag: 111, value: oneofUint32)
       }
       if hasOneofNestedMessage {
-          if let varSizeoneofNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 112, value:oneofNestedMessage) {
-              serialize_size += varSizeoneofNestedMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 112, value:oneofNestedMessage)
       }
       if hasOneofString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 113, value: oneofString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 113, value: oneofString)
       }
       if hasOneofBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 114, value: oneofBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 114, value: oneofBytes)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestAllTypes.Builder {
-      return ProtobufUnittest.TestAllTypes.classBuilder() as! ProtobufUnittest.TestAllTypes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestAllTypes.Builder {
-      return classBuilder() as! ProtobufUnittest.TestAllTypes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestAllTypes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestAllTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestAllTypes.Builder {
       return try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:self)
@@ -2994,7 +2939,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllTypes) throws -> ProtobufUnittest.TestAllTypes.Builder {
       return try ProtobufUnittest.TestAllTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -3332,13 +3277,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypes {
       return try ProtobufUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllTypes {
       return try ProtobufUnittest.TestAllTypes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasOptionalInt32 {
         output += "\(indent) optionalInt32: \(optionalInt32) \n"
@@ -3656,7 +3601,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasOptionalInt32 {
@@ -3906,22 +3851,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestAllTypes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestAllTypes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestAllTypes
       fileprivate var builderResult:ProtobufUnittest.TestAllTypes = ProtobufUnittest.TestAllTypes()
       public func getMessage() -> ProtobufUnittest.TestAllTypes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasOptionalInt32:Bool {
            get {
@@ -5826,20 +5771,21 @@ public extension ProtobufUnittest {
            builderResult.oneofBytes = Data()
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestAllTypes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestAllTypes.Builder {
+      public func clear() -> ProtobufUnittest.TestAllTypes.Builder {
         builderResult = ProtobufUnittest.TestAllTypes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestAllTypes.Builder {
+      public func clone() throws -> ProtobufUnittest.TestAllTypes.Builder {
         return try ProtobufUnittest.TestAllTypes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestAllTypes {
+      public func build() throws -> ProtobufUnittest.TestAllTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -6081,11 +6027,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -6766,7 +6712,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -6778,7 +6724,9 @@ public extension ProtobufUnittest {
   }
 
   // This proto includes a recusively nested message.
-  final public class NestedTestAllTypes : GeneratedMessage {
+  final public class NestedTestAllTypes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.NestedTestAllTypes, rhs: ProtobufUnittest.NestedTestAllTypes) -> Bool {
       if (lhs === rhs) {
@@ -6798,12 +6746,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasPayload:Bool = false
     public fileprivate(set) var repeatedChild:Array<ProtobufUnittest.NestedTestAllTypes>  = Array<ProtobufUnittest.NestedTestAllTypes>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasChild {
         try codedOutputStream.write.message(fieldNumber: 1, value:child)
       }
@@ -6815,7 +6762,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -6823,31 +6770,15 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasChild {
-          if let varSizechild = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:child) {
-              serialize_size += varSizechild
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:child)
       }
       if hasPayload {
-          if let varSizepayload = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:payload) {
-              serialize_size += varSizepayload
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 2, value:payload)
       }
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: repeatedChild)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 3, value: repeatedChild)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.NestedTestAllTypes.Builder {
-      return ProtobufUnittest.NestedTestAllTypes.classBuilder() as! ProtobufUnittest.NestedTestAllTypes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.NestedTestAllTypes.Builder {
-      return classBuilder() as! ProtobufUnittest.NestedTestAllTypes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.NestedTestAllTypes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.NestedTestAllTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
       return try ProtobufUnittest.NestedTestAllTypes.builderWithPrototype(prototype:self)
@@ -6855,7 +6786,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.NestedTestAllTypes) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
       return try ProtobufUnittest.NestedTestAllTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -6877,13 +6808,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedTestAllTypes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedTestAllTypes {
       return try ProtobufUnittest.NestedTestAllTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.NestedTestAllTypes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.NestedTestAllTypes {
       return try ProtobufUnittest.NestedTestAllTypes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasChild {
         output += "\(indent) child {\n"
@@ -6909,7 +6840,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasChild {
@@ -6933,22 +6864,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.NestedTestAllTypes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.NestedTestAllTypes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.NestedTestAllTypes
       fileprivate var builderResult:ProtobufUnittest.NestedTestAllTypes = ProtobufUnittest.NestedTestAllTypes()
       public func getMessage() -> ProtobufUnittest.NestedTestAllTypes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasChild:Bool {
            get {
@@ -7076,20 +7007,21 @@ public extension ProtobufUnittest {
         builderResult.repeatedChild.removeAll(keepingCapacity: false)
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.NestedTestAllTypes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.NestedTestAllTypes.Builder {
+      public func clear() -> ProtobufUnittest.NestedTestAllTypes.Builder {
         builderResult = ProtobufUnittest.NestedTestAllTypes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
+      public func clone() throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         return try ProtobufUnittest.NestedTestAllTypes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.NestedTestAllTypes {
+      public func build() throws -> ProtobufUnittest.NestedTestAllTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -7115,11 +7047,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -7178,7 +7110,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.NestedTestAllTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -7189,7 +7121,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestDeprecatedFields : GeneratedMessage {
+  final public class TestDeprecatedFields  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestDeprecatedFields, rhs: ProtobufUnittest.TestDeprecatedFields) -> Bool {
       if (lhs === rhs) {
@@ -7206,18 +7140,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasDeprecatedInt32:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasDeprecatedInt32 {
         try codedOutputStream.write.int32(fieldNumber: 1, value:deprecatedInt32)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7225,23 +7158,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasDeprecatedInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: deprecatedInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: deprecatedInt32)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestDeprecatedFields.Builder {
-      return ProtobufUnittest.TestDeprecatedFields.classBuilder() as! ProtobufUnittest.TestDeprecatedFields.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestDeprecatedFields.Builder {
-      return classBuilder() as! ProtobufUnittest.TestDeprecatedFields.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDeprecatedFields.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDeprecatedFields.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
       return try ProtobufUnittest.TestDeprecatedFields.builderWithPrototype(prototype:self)
@@ -7249,7 +7170,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestDeprecatedFields) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
       return try ProtobufUnittest.TestDeprecatedFields.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -7260,13 +7181,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedFields {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedFields {
       return try ProtobufUnittest.TestDeprecatedFields.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDeprecatedFields {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDeprecatedFields {
       return try ProtobufUnittest.TestDeprecatedFields.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasDeprecatedInt32 {
         output += "\(indent) deprecatedInt32: \(deprecatedInt32) \n"
@@ -7274,7 +7195,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasDeprecatedInt32 {
@@ -7288,22 +7209,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestDeprecatedFields"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestDeprecatedFields"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestDeprecatedFields
       fileprivate var builderResult:ProtobufUnittest.TestDeprecatedFields = ProtobufUnittest.TestDeprecatedFields()
       public func getMessage() -> ProtobufUnittest.TestDeprecatedFields {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasDeprecatedInt32:Bool {
            get {
@@ -7330,20 +7251,21 @@ public extension ProtobufUnittest {
            builderResult.deprecatedInt32 = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestDeprecatedFields {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestDeprecatedFields.Builder {
+      public func clear() -> ProtobufUnittest.TestDeprecatedFields.Builder {
         builderResult = ProtobufUnittest.TestDeprecatedFields()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
+      public func clone() throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
         return try ProtobufUnittest.TestDeprecatedFields.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestDeprecatedFields {
+      public func build() throws -> ProtobufUnittest.TestDeprecatedFields {
            try checkInitialized()
            return buildPartial()
       }
@@ -7363,11 +7285,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -7394,7 +7316,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDeprecatedFields.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -7407,7 +7329,9 @@ public extension ProtobufUnittest {
 
   // Define these after TestAllTypes to make sure the compiler can handle
   // that.
-  final public class ForeignMessage : GeneratedMessage {
+  final public class ForeignMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.ForeignMessage, rhs: ProtobufUnittest.ForeignMessage) -> Bool {
       if (lhs === rhs) {
@@ -7423,18 +7347,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasC:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasC {
         try codedOutputStream.write.int32(fieldNumber: 1, value:c)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7442,23 +7365,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasC {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: c)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: c)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.ForeignMessage.Builder {
-      return ProtobufUnittest.ForeignMessage.classBuilder() as! ProtobufUnittest.ForeignMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.ForeignMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.ForeignMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.ForeignMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.ForeignMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.ForeignMessage.Builder {
       return try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:self)
@@ -7466,7 +7377,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.ForeignMessage) throws -> ProtobufUnittest.ForeignMessage.Builder {
       return try ProtobufUnittest.ForeignMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -7477,13 +7388,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessage {
       return try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.ForeignMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.ForeignMessage {
       return try ProtobufUnittest.ForeignMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasC {
         output += "\(indent) c: \(c) \n"
@@ -7491,7 +7402,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasC {
@@ -7505,22 +7416,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.ForeignMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.ForeignMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.ForeignMessage
       fileprivate var builderResult:ProtobufUnittest.ForeignMessage = ProtobufUnittest.ForeignMessage()
       public func getMessage() -> ProtobufUnittest.ForeignMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasC:Bool {
            get {
@@ -7547,20 +7458,21 @@ public extension ProtobufUnittest {
            builderResult.c = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.ForeignMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.ForeignMessage.Builder {
+      public func clear() -> ProtobufUnittest.ForeignMessage.Builder {
         builderResult = ProtobufUnittest.ForeignMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.ForeignMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.ForeignMessage.Builder {
         return try ProtobufUnittest.ForeignMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.ForeignMessage {
+      public func build() throws -> ProtobufUnittest.ForeignMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -7580,11 +7492,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.ForeignMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.ForeignMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.ForeignMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -7611,7 +7523,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ForeignMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.ForeignMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -7622,7 +7534,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestReservedFields : GeneratedMessage {
+  final public class TestReservedFields  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestReservedFields, rhs: ProtobufUnittest.TestReservedFields) -> Bool {
       if (lhs === rhs) {
@@ -7634,15 +7548,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7653,25 +7566,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestReservedFields.Builder {
-      return ProtobufUnittest.TestReservedFields.classBuilder() as! ProtobufUnittest.TestReservedFields.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestReservedFields.Builder {
-      return classBuilder() as! ProtobufUnittest.TestReservedFields.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestReservedFields.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestReservedFields.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestReservedFields.Builder {
       return try ProtobufUnittest.TestReservedFields.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestReservedFields) throws -> ProtobufUnittest.TestReservedFields.Builder {
       return try ProtobufUnittest.TestReservedFields.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -7679,18 +7580,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestReservedFields {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestReservedFields {
       return try ProtobufUnittest.TestReservedFields.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestReservedFields {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestReservedFields {
       return try ProtobufUnittest.TestReservedFields.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -7701,37 +7602,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestReservedFields"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestReservedFields"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestReservedFields
       fileprivate var builderResult:ProtobufUnittest.TestReservedFields = ProtobufUnittest.TestReservedFields()
       public func getMessage() -> ProtobufUnittest.TestReservedFields {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestReservedFields {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestReservedFields.Builder {
+      public func clear() -> ProtobufUnittest.TestReservedFields.Builder {
         builderResult = ProtobufUnittest.TestReservedFields()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestReservedFields.Builder {
+      public func clone() throws -> ProtobufUnittest.TestReservedFields.Builder {
         return try ProtobufUnittest.TestReservedFields.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestReservedFields {
+      public func build() throws -> ProtobufUnittest.TestReservedFields {
            try checkInitialized()
            return buildPartial()
       }
@@ -7748,11 +7650,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReservedFields.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReservedFields.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReservedFields.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReservedFields.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -7773,7 +7675,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestReservedFields.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestReservedFields.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestReservedFields.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -7785,6 +7687,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestAllExtensions : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestAllExtensions, rhs: ProtobufUnittest.TestAllExtensions) -> Bool {
       if (lhs === rhs) {
@@ -7797,19 +7701,18 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7821,25 +7724,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestAllExtensions.Builder {
-      return ProtobufUnittest.TestAllExtensions.classBuilder() as! ProtobufUnittest.TestAllExtensions.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestAllExtensions.Builder {
-      return classBuilder() as! ProtobufUnittest.TestAllExtensions.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestAllExtensions.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestAllExtensions.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestAllExtensions.Builder {
       return try ProtobufUnittest.TestAllExtensions.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestAllExtensions) throws -> ProtobufUnittest.TestAllExtensions.Builder {
       return try ProtobufUnittest.TestAllExtensions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -7847,19 +7738,19 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllExtensions {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllExtensions {
       return try ProtobufUnittest.TestAllExtensions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllExtensions {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestAllExtensions {
       return try ProtobufUnittest.TestAllExtensions.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += try getExtensionDescription(startInclusive:1, endExclusive:536870912, indent:indent)
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 1, endExclusive:536870912))
@@ -7871,37 +7762,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestAllExtensions"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestAllExtensions"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestAllExtensions
       fileprivate var builderResult:ProtobufUnittest.TestAllExtensions = ProtobufUnittest.TestAllExtensions()
       public func getMessage() -> ProtobufUnittest.TestAllExtensions {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestAllExtensions.Builder {
+      public func clear() -> ProtobufUnittest.TestAllExtensions.Builder {
         builderResult = ProtobufUnittest.TestAllExtensions()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestAllExtensions.Builder {
+      public func clone() throws -> ProtobufUnittest.TestAllExtensions.Builder {
         return try ProtobufUnittest.TestAllExtensions.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestAllExtensions {
+      public func build() throws -> ProtobufUnittest.TestAllExtensions {
            try checkInitialized()
            return buildPartial()
       }
@@ -7919,11 +7811,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestAllExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestAllExtensions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -7944,7 +7836,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestAllExtensions.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllExtensions.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestAllExtensions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -7955,7 +7847,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class OptionalGroupExtension : GeneratedMessage {
+  final public class OptionalGroupExtension  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.OptionalGroupExtension, rhs: ProtobufUnittest.OptionalGroupExtension) -> Bool {
       if (lhs === rhs) {
@@ -7971,18 +7865,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasA:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.int32(fieldNumber: 17, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -7990,23 +7883,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: a)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 17, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.OptionalGroupExtension.Builder {
-      return ProtobufUnittest.OptionalGroupExtension.classBuilder() as! ProtobufUnittest.OptionalGroupExtension.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.OptionalGroupExtension.Builder {
-      return classBuilder() as! ProtobufUnittest.OptionalGroupExtension.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OptionalGroupExtension.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OptionalGroupExtension.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
       return try ProtobufUnittest.OptionalGroupExtension.builderWithPrototype(prototype:self)
@@ -8014,7 +7895,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.OptionalGroupExtension) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
       return try ProtobufUnittest.OptionalGroupExtension.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -8025,13 +7906,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtension {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtension {
       return try ProtobufUnittest.OptionalGroupExtension.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.OptionalGroupExtension {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.OptionalGroupExtension {
       return try ProtobufUnittest.OptionalGroupExtension.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -8039,7 +7920,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -8053,22 +7934,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.OptionalGroupExtension"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.OptionalGroupExtension"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.OptionalGroupExtension
       fileprivate var builderResult:ProtobufUnittest.OptionalGroupExtension = ProtobufUnittest.OptionalGroupExtension()
       public func getMessage() -> ProtobufUnittest.OptionalGroupExtension {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -8095,20 +7976,21 @@ public extension ProtobufUnittest {
            builderResult.a = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.OptionalGroupExtension {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.OptionalGroupExtension.Builder {
+      public func clear() -> ProtobufUnittest.OptionalGroupExtension.Builder {
         builderResult = ProtobufUnittest.OptionalGroupExtension()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
+      public func clone() throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
         return try ProtobufUnittest.OptionalGroupExtension.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.OptionalGroupExtension {
+      public func build() throws -> ProtobufUnittest.OptionalGroupExtension {
            try checkInitialized()
            return buildPartial()
       }
@@ -8128,11 +8010,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -8159,7 +8041,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OptionalGroupExtension.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -8170,7 +8052,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class RepeatedGroupExtension : GeneratedMessage {
+  final public class RepeatedGroupExtension  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.RepeatedGroupExtension, rhs: ProtobufUnittest.RepeatedGroupExtension) -> Bool {
       if (lhs === rhs) {
@@ -8186,18 +8070,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasA:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.int32(fieldNumber: 47, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8205,23 +8088,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 47, value: a)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 47, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.RepeatedGroupExtension.Builder {
-      return ProtobufUnittest.RepeatedGroupExtension.classBuilder() as! ProtobufUnittest.RepeatedGroupExtension.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.RepeatedGroupExtension.Builder {
-      return classBuilder() as! ProtobufUnittest.RepeatedGroupExtension.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.RepeatedGroupExtension.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.RepeatedGroupExtension.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
       return try ProtobufUnittest.RepeatedGroupExtension.builderWithPrototype(prototype:self)
@@ -8229,7 +8100,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.RepeatedGroupExtension) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
       return try ProtobufUnittest.RepeatedGroupExtension.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -8240,13 +8111,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtension {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtension {
       return try ProtobufUnittest.RepeatedGroupExtension.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.RepeatedGroupExtension {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.RepeatedGroupExtension {
       return try ProtobufUnittest.RepeatedGroupExtension.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -8254,7 +8125,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -8268,22 +8139,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.RepeatedGroupExtension"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.RepeatedGroupExtension"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.RepeatedGroupExtension
       fileprivate var builderResult:ProtobufUnittest.RepeatedGroupExtension = ProtobufUnittest.RepeatedGroupExtension()
       public func getMessage() -> ProtobufUnittest.RepeatedGroupExtension {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -8310,20 +8181,21 @@ public extension ProtobufUnittest {
            builderResult.a = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.RepeatedGroupExtension {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.RepeatedGroupExtension.Builder {
+      public func clear() -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         builderResult = ProtobufUnittest.RepeatedGroupExtension()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
+      public func clone() throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         return try ProtobufUnittest.RepeatedGroupExtension.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.RepeatedGroupExtension {
+      public func build() throws -> ProtobufUnittest.RepeatedGroupExtension {
            try checkInitialized()
            return buildPartial()
       }
@@ -8343,11 +8215,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -8374,7 +8246,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.RepeatedGroupExtension.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -8385,7 +8257,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestNestedExtension : GeneratedMessage {
+  final public class TestNestedExtension  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestNestedExtension, rhs: ProtobufUnittest.TestNestedExtension) -> Bool {
       if (lhs === rhs) {
@@ -8403,15 +8277,14 @@ public extension ProtobufUnittest {
          return TestNestedExtensionnestedStringExtension
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8422,25 +8295,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestNestedExtension.Builder {
-      return ProtobufUnittest.TestNestedExtension.classBuilder() as! ProtobufUnittest.TestNestedExtension.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestNestedExtension.Builder {
-      return classBuilder() as! ProtobufUnittest.TestNestedExtension.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestNestedExtension.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestNestedExtension.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestNestedExtension.Builder {
       return try ProtobufUnittest.TestNestedExtension.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedExtension) throws -> ProtobufUnittest.TestNestedExtension.Builder {
       return try ProtobufUnittest.TestNestedExtension.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -8448,18 +8309,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedExtension {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedExtension {
       return try ProtobufUnittest.TestNestedExtension.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedExtension {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedExtension {
       return try ProtobufUnittest.TestNestedExtension.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -8470,37 +8331,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestNestedExtension"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestNestedExtension"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestNestedExtension
       fileprivate var builderResult:ProtobufUnittest.TestNestedExtension = ProtobufUnittest.TestNestedExtension()
       public func getMessage() -> ProtobufUnittest.TestNestedExtension {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestNestedExtension {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestNestedExtension.Builder {
+      public func clear() -> ProtobufUnittest.TestNestedExtension.Builder {
         builderResult = ProtobufUnittest.TestNestedExtension()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestNestedExtension.Builder {
+      public func clone() throws -> ProtobufUnittest.TestNestedExtension.Builder {
         return try ProtobufUnittest.TestNestedExtension.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestNestedExtension {
+      public func build() throws -> ProtobufUnittest.TestNestedExtension {
            try checkInitialized()
            return buildPartial()
       }
@@ -8517,11 +8379,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedExtension.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtension.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedExtension.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -8542,7 +8404,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestNestedExtension.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedExtension.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedExtension.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -8558,7 +8420,9 @@ public extension ProtobufUnittest {
   // do anything with it.  Note that we don't need to test every type of
   // required filed because the code output is basically identical to
   // optional fields for all types.
-  final public class TestRequired : GeneratedMessage {
+  final public class TestRequired  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestRequired, rhs: ProtobufUnittest.TestRequired) -> Bool {
       if (lhs === rhs) {
@@ -8710,9 +8574,8 @@ public extension ProtobufUnittest {
          return TestRequiredmulti
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !hasA {
         return false
       }
@@ -8724,7 +8587,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
@@ -8826,7 +8689,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -8834,119 +8697,107 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: a)
       }
       if hasDummy2 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: dummy2)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 2, value: dummy2)
       }
       if hasB {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: b)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 3, value: b)
       }
       if hasDummy4 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 4, value: dummy4)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 4, value: dummy4)
       }
       if hasDummy5 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: dummy5)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 5, value: dummy5)
       }
       if hasDummy6 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 6, value: dummy6)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 6, value: dummy6)
       }
       if hasDummy7 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 7, value: dummy7)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 7, value: dummy7)
       }
       if hasDummy8 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 8, value: dummy8)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 8, value: dummy8)
       }
       if hasDummy9 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 9, value: dummy9)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 9, value: dummy9)
       }
       if hasDummy10 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 10, value: dummy10)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 10, value: dummy10)
       }
       if hasDummy11 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 11, value: dummy11)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 11, value: dummy11)
       }
       if hasDummy12 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 12, value: dummy12)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 12, value: dummy12)
       }
       if hasDummy13 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 13, value: dummy13)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 13, value: dummy13)
       }
       if hasDummy14 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 14, value: dummy14)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 14, value: dummy14)
       }
       if hasDummy15 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 15, value: dummy15)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 15, value: dummy15)
       }
       if hasDummy16 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 16, value: dummy16)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 16, value: dummy16)
       }
       if hasDummy17 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 17, value: dummy17)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 17, value: dummy17)
       }
       if hasDummy18 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 18, value: dummy18)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 18, value: dummy18)
       }
       if hasDummy19 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 19, value: dummy19)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 19, value: dummy19)
       }
       if hasDummy20 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 20, value: dummy20)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 20, value: dummy20)
       }
       if hasDummy21 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 21, value: dummy21)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 21, value: dummy21)
       }
       if hasDummy22 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 22, value: dummy22)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 22, value: dummy22)
       }
       if hasDummy23 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 23, value: dummy23)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 23, value: dummy23)
       }
       if hasDummy24 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 24, value: dummy24)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 24, value: dummy24)
       }
       if hasDummy25 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 25, value: dummy25)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 25, value: dummy25)
       }
       if hasDummy26 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 26, value: dummy26)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 26, value: dummy26)
       }
       if hasDummy27 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 27, value: dummy27)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 27, value: dummy27)
       }
       if hasDummy28 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 28, value: dummy28)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 28, value: dummy28)
       }
       if hasDummy29 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 29, value: dummy29)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 29, value: dummy29)
       }
       if hasDummy30 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 30, value: dummy30)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 30, value: dummy30)
       }
       if hasDummy31 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 31, value: dummy31)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 31, value: dummy31)
       }
       if hasDummy32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 32, value: dummy32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 32, value: dummy32)
       }
       if hasC {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 33, value: c)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 33, value: c)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestRequired.Builder {
-      return ProtobufUnittest.TestRequired.classBuilder() as! ProtobufUnittest.TestRequired.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestRequired.Builder {
-      return classBuilder() as! ProtobufUnittest.TestRequired.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequired.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequired.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequired.Builder {
       return try ProtobufUnittest.TestRequired.builderWithPrototype(prototype:self)
@@ -8954,7 +8805,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRequired) throws -> ProtobufUnittest.TestRequired.Builder {
       return try ProtobufUnittest.TestRequired.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -9061,13 +8912,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequired {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequired {
       return try ProtobufUnittest.TestRequired.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequired {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequired {
       return try ProtobufUnittest.TestRequired.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -9171,7 +9022,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -9281,22 +9132,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestRequired"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestRequired"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestRequired
       fileprivate var builderResult:ProtobufUnittest.TestRequired = ProtobufUnittest.TestRequired()
       public func getMessage() -> ProtobufUnittest.TestRequired {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -10123,20 +9974,21 @@ public extension ProtobufUnittest {
            builderResult.c = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestRequired {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestRequired.Builder {
+      public func clear() -> ProtobufUnittest.TestRequired.Builder {
         builderResult = ProtobufUnittest.TestRequired()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestRequired.Builder {
+      public func clone() throws -> ProtobufUnittest.TestRequired.Builder {
         return try ProtobufUnittest.TestRequired.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestRequired {
+      public func build() throws -> ProtobufUnittest.TestRequired {
            try checkInitialized()
            return buildPartial()
       }
@@ -10252,11 +10104,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequired.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequired.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequired.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequired.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -10475,7 +10327,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequired.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequired.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -10486,7 +10338,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestRequiredForeign : GeneratedMessage {
+  final public class TestRequiredForeign  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestRequiredForeign, rhs: ProtobufUnittest.TestRequiredForeign) -> Bool {
       if (lhs === rhs) {
@@ -10507,9 +10361,8 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasDummy:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if hasOptionalMessage {
        if !optionalMessage.isInitialized() {
          return false
@@ -10527,7 +10380,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalMessage {
         try codedOutputStream.write.message(fieldNumber: 1, value:optionalMessage)
       }
@@ -10539,7 +10392,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -10547,29 +10400,15 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalMessage {
-          if let varSizeoptionalMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:optionalMessage) {
-              serialize_size += varSizeoptionalMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:optionalMessage)
       }
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: repeatedMessage)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 2, value: repeatedMessage)
       if hasDummy {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 3, value: dummy)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 3, value: dummy)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestRequiredForeign.Builder {
-      return ProtobufUnittest.TestRequiredForeign.classBuilder() as! ProtobufUnittest.TestRequiredForeign.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestRequiredForeign.Builder {
-      return classBuilder() as! ProtobufUnittest.TestRequiredForeign.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequiredForeign.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequiredForeign.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequiredForeign.Builder {
       return try ProtobufUnittest.TestRequiredForeign.builderWithPrototype(prototype:self)
@@ -10577,7 +10416,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredForeign) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
       return try ProtobufUnittest.TestRequiredForeign.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -10599,13 +10438,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredForeign {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredForeign {
       return try ProtobufUnittest.TestRequiredForeign.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredForeign {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredForeign {
       return try ProtobufUnittest.TestRequiredForeign.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasOptionalMessage {
         output += "\(indent) optionalMessage {\n"
@@ -10627,7 +10466,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasOptionalMessage {
@@ -10649,22 +10488,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestRequiredForeign"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestRequiredForeign"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestRequiredForeign
       fileprivate var builderResult:ProtobufUnittest.TestRequiredForeign = ProtobufUnittest.TestRequiredForeign()
       public func getMessage() -> ProtobufUnittest.TestRequiredForeign {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasOptionalMessage:Bool {
            get {
@@ -10763,20 +10602,21 @@ public extension ProtobufUnittest {
            builderResult.dummy = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestRequiredForeign {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestRequiredForeign.Builder {
+      public func clear() -> ProtobufUnittest.TestRequiredForeign.Builder {
         builderResult = ProtobufUnittest.TestRequiredForeign()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestRequiredForeign.Builder {
+      public func clone() throws -> ProtobufUnittest.TestRequiredForeign.Builder {
         return try ProtobufUnittest.TestRequiredForeign.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestRequiredForeign {
+      public func build() throws -> ProtobufUnittest.TestRequiredForeign {
            try checkInitialized()
            return buildPartial()
       }
@@ -10802,11 +10642,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -10859,7 +10699,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredForeign.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -10871,7 +10711,9 @@ public extension ProtobufUnittest {
   }
 
   // Test that we can use NestedMessage from outside TestAllTypes.
-  final public class TestForeignNested : GeneratedMessage {
+  final public class TestForeignNested  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestForeignNested, rhs: ProtobufUnittest.TestForeignNested) -> Bool {
       if (lhs === rhs) {
@@ -10886,18 +10728,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var foreignNested:ProtobufUnittest.TestAllTypes.NestedMessage!
     public fileprivate(set) var hasForeignNested:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasForeignNested {
         try codedOutputStream.write.message(fieldNumber: 1, value:foreignNested)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -10905,25 +10746,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasForeignNested {
-          if let varSizeforeignNested = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:foreignNested) {
-              serialize_size += varSizeforeignNested
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:foreignNested)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestForeignNested.Builder {
-      return ProtobufUnittest.TestForeignNested.classBuilder() as! ProtobufUnittest.TestForeignNested.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestForeignNested.Builder {
-      return classBuilder() as! ProtobufUnittest.TestForeignNested.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestForeignNested.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestForeignNested.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestForeignNested.Builder {
       return try ProtobufUnittest.TestForeignNested.builderWithPrototype(prototype:self)
@@ -10931,7 +10758,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestForeignNested) throws -> ProtobufUnittest.TestForeignNested.Builder {
       return try ProtobufUnittest.TestForeignNested.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -10942,13 +10769,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestForeignNested {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestForeignNested {
       return try ProtobufUnittest.TestForeignNested.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestForeignNested {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestForeignNested {
       return try ProtobufUnittest.TestForeignNested.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasForeignNested {
         output += "\(indent) foreignNested {\n"
@@ -10960,7 +10787,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasForeignNested {
@@ -10976,22 +10803,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestForeignNested"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestForeignNested"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestForeignNested
       fileprivate var builderResult:ProtobufUnittest.TestForeignNested = ProtobufUnittest.TestForeignNested()
       public func getMessage() -> ProtobufUnittest.TestForeignNested {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasForeignNested:Bool {
            get {
@@ -11047,20 +10874,21 @@ public extension ProtobufUnittest {
         builderResult.foreignNested = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestForeignNested {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestForeignNested.Builder {
+      public func clear() -> ProtobufUnittest.TestForeignNested.Builder {
         builderResult = ProtobufUnittest.TestForeignNested()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestForeignNested.Builder {
+      public func clone() throws -> ProtobufUnittest.TestForeignNested.Builder {
         return try ProtobufUnittest.TestForeignNested.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestForeignNested {
+      public func build() throws -> ProtobufUnittest.TestForeignNested {
            try checkInitialized()
            return buildPartial()
       }
@@ -11080,11 +10908,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestForeignNested.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestForeignNested.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestForeignNested.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestForeignNested.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -11117,7 +10945,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestForeignNested.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestForeignNested.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -11129,7 +10957,9 @@ public extension ProtobufUnittest {
   }
 
   // TestEmptyMessage is used to test unknown field support.
-  final public class TestEmptyMessage : GeneratedMessage {
+  final public class TestEmptyMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestEmptyMessage, rhs: ProtobufUnittest.TestEmptyMessage) -> Bool {
       if (lhs === rhs) {
@@ -11141,15 +10971,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11160,25 +10989,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestEmptyMessage.Builder {
-      return ProtobufUnittest.TestEmptyMessage.classBuilder() as! ProtobufUnittest.TestEmptyMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestEmptyMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.TestEmptyMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEmptyMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEmptyMessage.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessage.Builder {
       return try ProtobufUnittest.TestEmptyMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessage) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
       return try ProtobufUnittest.TestEmptyMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -11186,18 +11003,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessage {
       return try ProtobufUnittest.TestEmptyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEmptyMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEmptyMessage {
       return try ProtobufUnittest.TestEmptyMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -11208,37 +11025,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestEmptyMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestEmptyMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestEmptyMessage
       fileprivate var builderResult:ProtobufUnittest.TestEmptyMessage = ProtobufUnittest.TestEmptyMessage()
       public func getMessage() -> ProtobufUnittest.TestEmptyMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestEmptyMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestEmptyMessage.Builder {
+      public func clear() -> ProtobufUnittest.TestEmptyMessage.Builder {
         builderResult = ProtobufUnittest.TestEmptyMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestEmptyMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.TestEmptyMessage.Builder {
         return try ProtobufUnittest.TestEmptyMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestEmptyMessage {
+      public func build() throws -> ProtobufUnittest.TestEmptyMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -11255,11 +11073,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -11280,7 +11098,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestEmptyMessage.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEmptyMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -11294,6 +11112,8 @@ public extension ProtobufUnittest {
   // Like above, but declare all field numbers as potential extensions.  No
   // actual extensions should ever be defined for this type.
   final public class TestEmptyMessageWithExtensions : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensions, rhs: ProtobufUnittest.TestEmptyMessageWithExtensions) -> Bool {
       if (lhs === rhs) {
@@ -11306,19 +11126,18 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11330,25 +11149,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
-      return ProtobufUnittest.TestEmptyMessageWithExtensions.classBuilder() as! ProtobufUnittest.TestEmptyMessageWithExtensions.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
-      return classBuilder() as! ProtobufUnittest.TestEmptyMessageWithExtensions.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEmptyMessageWithExtensions.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEmptyMessageWithExtensions.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
       return try ProtobufUnittest.TestEmptyMessageWithExtensions.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestEmptyMessageWithExtensions) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
       return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -11356,19 +11163,19 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
       return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
       return try ProtobufUnittest.TestEmptyMessageWithExtensions.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += try getExtensionDescription(startInclusive:1, endExclusive:536870912, indent:indent)
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 1, endExclusive:536870912))
@@ -11380,37 +11187,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestEmptyMessageWithExtensions"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestEmptyMessageWithExtensions"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestEmptyMessageWithExtensions
       fileprivate var builderResult:ProtobufUnittest.TestEmptyMessageWithExtensions = ProtobufUnittest.TestEmptyMessageWithExtensions()
       public func getMessage() -> ProtobufUnittest.TestEmptyMessageWithExtensions {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
+      public func clear() -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
         builderResult = ProtobufUnittest.TestEmptyMessageWithExtensions()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
+      public func clone() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
         return try ProtobufUnittest.TestEmptyMessageWithExtensions.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
+      public func build() throws -> ProtobufUnittest.TestEmptyMessageWithExtensions {
            try checkInitialized()
            return buildPartial()
       }
@@ -11428,11 +11236,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -11453,7 +11261,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestEmptyMessageWithExtensions.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEmptyMessageWithExtensions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -11465,6 +11273,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestMultipleExtensionRanges : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestMultipleExtensionRanges, rhs: ProtobufUnittest.TestMultipleExtensionRanges) -> Bool {
       if (lhs === rhs) {
@@ -11479,21 +11289,20 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:42, endExclusive:43)
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:4143, endExclusive:4244)
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:65536, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11505,25 +11314,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
-      return ProtobufUnittest.TestMultipleExtensionRanges.classBuilder() as! ProtobufUnittest.TestMultipleExtensionRanges.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
-      return classBuilder() as! ProtobufUnittest.TestMultipleExtensionRanges.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMultipleExtensionRanges.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMultipleExtensionRanges.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
       return try ProtobufUnittest.TestMultipleExtensionRanges.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestMultipleExtensionRanges) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
       return try ProtobufUnittest.TestMultipleExtensionRanges.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -11531,13 +11328,13 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
       return try ProtobufUnittest.TestMultipleExtensionRanges.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMultipleExtensionRanges {
       return try ProtobufUnittest.TestMultipleExtensionRanges.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += try getExtensionDescription(startInclusive:42, endExclusive:43, indent:indent)
       output += try getExtensionDescription(startInclusive:4143, endExclusive:4244, indent:indent)
@@ -11545,7 +11342,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 42, endExclusive:43))
@@ -11559,37 +11356,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestMultipleExtensionRanges"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestMultipleExtensionRanges"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestMultipleExtensionRanges
       fileprivate var builderResult:ProtobufUnittest.TestMultipleExtensionRanges = ProtobufUnittest.TestMultipleExtensionRanges()
       public func getMessage() -> ProtobufUnittest.TestMultipleExtensionRanges {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
+      public func clear() -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
         builderResult = ProtobufUnittest.TestMultipleExtensionRanges()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
+      public func clone() throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
         return try ProtobufUnittest.TestMultipleExtensionRanges.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestMultipleExtensionRanges {
+      public func build() throws -> ProtobufUnittest.TestMultipleExtensionRanges {
            try checkInitialized()
            return buildPartial()
       }
@@ -11607,11 +11405,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -11632,7 +11430,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestMultipleExtensionRanges.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMultipleExtensionRanges.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -11644,7 +11442,9 @@ public extension ProtobufUnittest {
   }
 
   // Test that really large tag numbers don't break anything.
-  final public class TestReallyLargeTagNumber : GeneratedMessage {
+  final public class TestReallyLargeTagNumber  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestReallyLargeTagNumber, rhs: ProtobufUnittest.TestReallyLargeTagNumber) -> Bool {
       if (lhs === rhs) {
@@ -11666,12 +11466,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasBb:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
@@ -11680,7 +11479,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11688,26 +11487,14 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: a)
       }
       if hasBb {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 268435455, value: bb)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 268435455, value: bb)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
-      return ProtobufUnittest.TestReallyLargeTagNumber.classBuilder() as! ProtobufUnittest.TestReallyLargeTagNumber.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
-      return classBuilder() as! ProtobufUnittest.TestReallyLargeTagNumber.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestReallyLargeTagNumber.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestReallyLargeTagNumber.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
       return try ProtobufUnittest.TestReallyLargeTagNumber.builderWithPrototype(prototype:self)
@@ -11715,7 +11502,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestReallyLargeTagNumber) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
       return try ProtobufUnittest.TestReallyLargeTagNumber.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -11729,13 +11516,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
       return try ProtobufUnittest.TestReallyLargeTagNumber.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestReallyLargeTagNumber {
       return try ProtobufUnittest.TestReallyLargeTagNumber.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -11746,7 +11533,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -11763,22 +11550,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestReallyLargeTagNumber"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestReallyLargeTagNumber"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestReallyLargeTagNumber
       fileprivate var builderResult:ProtobufUnittest.TestReallyLargeTagNumber = ProtobufUnittest.TestReallyLargeTagNumber()
       public func getMessage() -> ProtobufUnittest.TestReallyLargeTagNumber {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -11830,20 +11617,21 @@ public extension ProtobufUnittest {
            builderResult.bb = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestReallyLargeTagNumber {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
+      public func clear() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         builderResult = ProtobufUnittest.TestReallyLargeTagNumber()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
+      public func clone() throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         return try ProtobufUnittest.TestReallyLargeTagNumber.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestReallyLargeTagNumber {
+      public func build() throws -> ProtobufUnittest.TestReallyLargeTagNumber {
            try checkInitialized()
            return buildPartial()
       }
@@ -11866,11 +11654,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -11903,7 +11691,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestReallyLargeTagNumber.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -11914,7 +11702,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestRecursiveMessage : GeneratedMessage {
+  final public class TestRecursiveMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestRecursiveMessage, rhs: ProtobufUnittest.TestRecursiveMessage) -> Bool {
       if (lhs === rhs) {
@@ -11933,12 +11723,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasI:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.message(fieldNumber: 1, value:a)
       }
@@ -11947,7 +11736,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -11955,28 +11744,14 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-          if let varSizea = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:a) {
-              serialize_size += varSizea
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:a)
       }
       if hasI {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: i)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 2, value: i)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestRecursiveMessage.Builder {
-      return ProtobufUnittest.TestRecursiveMessage.classBuilder() as! ProtobufUnittest.TestRecursiveMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestRecursiveMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.TestRecursiveMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRecursiveMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRecursiveMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
       return try ProtobufUnittest.TestRecursiveMessage.builderWithPrototype(prototype:self)
@@ -11984,7 +11759,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRecursiveMessage) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
       return try ProtobufUnittest.TestRecursiveMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -11998,13 +11773,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRecursiveMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRecursiveMessage {
       return try ProtobufUnittest.TestRecursiveMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRecursiveMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRecursiveMessage {
       return try ProtobufUnittest.TestRecursiveMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a {\n"
@@ -12019,7 +11794,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -12038,22 +11813,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestRecursiveMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestRecursiveMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestRecursiveMessage
       fileprivate var builderResult:ProtobufUnittest.TestRecursiveMessage = ProtobufUnittest.TestRecursiveMessage()
       public func getMessage() -> ProtobufUnittest.TestRecursiveMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -12134,20 +11909,21 @@ public extension ProtobufUnittest {
            builderResult.i = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestRecursiveMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestRecursiveMessage.Builder {
+      public func clear() -> ProtobufUnittest.TestRecursiveMessage.Builder {
         builderResult = ProtobufUnittest.TestRecursiveMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
         return try ProtobufUnittest.TestRecursiveMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestRecursiveMessage {
+      public func build() throws -> ProtobufUnittest.TestRecursiveMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -12170,11 +11946,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -12213,7 +11989,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRecursiveMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -12225,7 +12001,9 @@ public extension ProtobufUnittest {
   }
 
   // Test that mutual recursion works.
-  final public class TestMutualRecursionA : GeneratedMessage {
+  final public class TestMutualRecursionA  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestMutualRecursionA, rhs: ProtobufUnittest.TestMutualRecursionA) -> Bool {
       if (lhs === rhs) {
@@ -12240,18 +12018,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var bb:ProtobufUnittest.TestMutualRecursionB!
     public fileprivate(set) var hasBb:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasBb {
         try codedOutputStream.write.message(fieldNumber: 1, value:bb)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -12259,25 +12036,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasBb {
-          if let varSizebb = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:bb) {
-              serialize_size += varSizebb
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:bb)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestMutualRecursionA.Builder {
-      return ProtobufUnittest.TestMutualRecursionA.classBuilder() as! ProtobufUnittest.TestMutualRecursionA.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestMutualRecursionA.Builder {
-      return classBuilder() as! ProtobufUnittest.TestMutualRecursionA.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMutualRecursionA.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMutualRecursionA.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
       return try ProtobufUnittest.TestMutualRecursionA.builderWithPrototype(prototype:self)
@@ -12285,7 +12048,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestMutualRecursionA) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
       return try ProtobufUnittest.TestMutualRecursionA.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -12296,13 +12059,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMutualRecursionA {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMutualRecursionA {
       return try ProtobufUnittest.TestMutualRecursionA.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMutualRecursionA {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMutualRecursionA {
       return try ProtobufUnittest.TestMutualRecursionA.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasBb {
         output += "\(indent) bb {\n"
@@ -12314,7 +12077,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasBb {
@@ -12330,22 +12093,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionA"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionA"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestMutualRecursionA
       fileprivate var builderResult:ProtobufUnittest.TestMutualRecursionA = ProtobufUnittest.TestMutualRecursionA()
       public func getMessage() -> ProtobufUnittest.TestMutualRecursionA {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasBb:Bool {
            get {
@@ -12401,20 +12164,21 @@ public extension ProtobufUnittest {
         builderResult.bb = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestMutualRecursionA {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestMutualRecursionA.Builder {
+      public func clear() -> ProtobufUnittest.TestMutualRecursionA.Builder {
         builderResult = ProtobufUnittest.TestMutualRecursionA()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
+      public func clone() throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
         return try ProtobufUnittest.TestMutualRecursionA.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestMutualRecursionA {
+      public func build() throws -> ProtobufUnittest.TestMutualRecursionA {
            try checkInitialized()
            return buildPartial()
       }
@@ -12434,11 +12198,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -12471,7 +12235,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMutualRecursionA.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -12482,7 +12246,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestMutualRecursionB : GeneratedMessage {
+  final public class TestMutualRecursionB  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestMutualRecursionB, rhs: ProtobufUnittest.TestMutualRecursionB) -> Bool {
       if (lhs === rhs) {
@@ -12501,12 +12267,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasOptionalInt32:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.message(fieldNumber: 1, value:a)
       }
@@ -12515,7 +12280,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -12523,28 +12288,14 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-          if let varSizea = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:a) {
-              serialize_size += varSizea
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:a)
       }
       if hasOptionalInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2, value: optionalInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 2, value: optionalInt32)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestMutualRecursionB.Builder {
-      return ProtobufUnittest.TestMutualRecursionB.classBuilder() as! ProtobufUnittest.TestMutualRecursionB.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestMutualRecursionB.Builder {
-      return classBuilder() as! ProtobufUnittest.TestMutualRecursionB.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMutualRecursionB.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestMutualRecursionB.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
       return try ProtobufUnittest.TestMutualRecursionB.builderWithPrototype(prototype:self)
@@ -12552,7 +12303,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestMutualRecursionB) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
       return try ProtobufUnittest.TestMutualRecursionB.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -12566,13 +12317,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMutualRecursionB {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMutualRecursionB {
       return try ProtobufUnittest.TestMutualRecursionB.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMutualRecursionB {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestMutualRecursionB {
       return try ProtobufUnittest.TestMutualRecursionB.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a {\n"
@@ -12587,7 +12338,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -12606,22 +12357,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionB"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestMutualRecursionB"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestMutualRecursionB
       fileprivate var builderResult:ProtobufUnittest.TestMutualRecursionB = ProtobufUnittest.TestMutualRecursionB()
       public func getMessage() -> ProtobufUnittest.TestMutualRecursionB {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -12702,20 +12453,21 @@ public extension ProtobufUnittest {
            builderResult.optionalInt32 = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestMutualRecursionB {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestMutualRecursionB.Builder {
+      public func clear() -> ProtobufUnittest.TestMutualRecursionB.Builder {
         builderResult = ProtobufUnittest.TestMutualRecursionB()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
+      public func clone() throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
         return try ProtobufUnittest.TestMutualRecursionB.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestMutualRecursionB {
+      public func build() throws -> ProtobufUnittest.TestMutualRecursionB {
            try checkInitialized()
            return buildPartial()
       }
@@ -12738,11 +12490,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -12781,7 +12533,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestMutualRecursionB.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -12796,7 +12548,9 @@ public extension ProtobufUnittest {
   // parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
   // to compile with proto1, this will emit an error; so we only include it
   // in protobuf_unittest_proto.
-  final public class TestDupFieldNumber : GeneratedMessage {
+  final public class TestDupFieldNumber  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestDupFieldNumber, rhs: ProtobufUnittest.TestDupFieldNumber) -> Bool {
       if (lhs === rhs) {
@@ -12814,7 +12568,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class Foo : GeneratedMessage {
+      final public class Foo  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestDupFieldNumber.Foo, rhs: ProtobufUnittest.TestDupFieldNumber.Foo) -> Bool {
           if (lhs === rhs) {
@@ -12830,18 +12586,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 1, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -12849,23 +12604,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
-          return ProtobufUnittest.TestDupFieldNumber.Foo.classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Foo.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
-          return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Foo.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDupFieldNumber.Foo.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Foo.builderWithPrototype(prototype:self)
@@ -12873,7 +12616,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber.Foo) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -12884,13 +12627,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
           return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
           return try ProtobufUnittest.TestDupFieldNumber.Foo.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -12898,7 +12641,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -12912,22 +12655,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Foo"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Foo"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestDupFieldNumber.Foo
           fileprivate var builderResult:ProtobufUnittest.TestDupFieldNumber.Foo = ProtobufUnittest.TestDupFieldNumber.Foo()
           public func getMessage() -> ProtobufUnittest.TestDupFieldNumber.Foo {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -12954,20 +12697,21 @@ public extension ProtobufUnittest {
                builderResult.a = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestDupFieldNumber.Foo {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
+          public func clear() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             builderResult = ProtobufUnittest.TestDupFieldNumber.Foo()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
+          public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             return try ProtobufUnittest.TestDupFieldNumber.Foo.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
+          public func build() throws -> ProtobufUnittest.TestDupFieldNumber.Foo {
                try checkInitialized()
                return buildPartial()
           }
@@ -12987,11 +12731,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -13018,7 +12762,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -13035,7 +12779,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class Bar : GeneratedMessage {
+      final public class Bar  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestDupFieldNumber.Bar, rhs: ProtobufUnittest.TestDupFieldNumber.Bar) -> Bool {
           if (lhs === rhs) {
@@ -13051,18 +12797,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 1, value:a)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -13070,23 +12815,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: a)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
-          return ProtobufUnittest.TestDupFieldNumber.Bar.classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Bar.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
-          return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Bar.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDupFieldNumber.Bar.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Bar.builderWithPrototype(prototype:self)
@@ -13094,7 +12827,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber.Bar) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
           return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -13105,13 +12838,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
           return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
           return try ProtobufUnittest.TestDupFieldNumber.Bar.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -13119,7 +12852,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -13133,22 +12866,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Bar"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestDupFieldNumber.Bar"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestDupFieldNumber.Bar
           fileprivate var builderResult:ProtobufUnittest.TestDupFieldNumber.Bar = ProtobufUnittest.TestDupFieldNumber.Bar()
           public func getMessage() -> ProtobufUnittest.TestDupFieldNumber.Bar {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -13175,20 +12908,21 @@ public extension ProtobufUnittest {
                builderResult.a = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestDupFieldNumber.Bar {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
+          public func clear() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             builderResult = ProtobufUnittest.TestDupFieldNumber.Bar()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
+          public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             return try ProtobufUnittest.TestDupFieldNumber.Bar.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
+          public func build() throws -> ProtobufUnittest.TestDupFieldNumber.Bar {
                try checkInitialized()
                return buildPartial()
           }
@@ -13208,11 +12942,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -13239,7 +12973,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -13261,12 +12995,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var bar:ProtobufUnittest.TestDupFieldNumber.Bar!
     public fileprivate(set) var hasBar:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.int32(fieldNumber: 1, value:a)
       }
@@ -13278,7 +13011,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13286,33 +13019,17 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: a)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: a)
       }
       if hasFoo {
-          if let varSizefoo = try ProtobufWire.Size(wireType:.group).with(tag: 2, value:foo) {
-              serialize_size += varSizefoo
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 2, value:foo)
       }
       if hasBar {
-          if let varSizebar = try ProtobufWire.Size(wireType:.group).with(tag: 3, value:bar) {
-              serialize_size += varSizebar
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 3, value:bar)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Builder {
-      return ProtobufUnittest.TestDupFieldNumber.classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestDupFieldNumber.Builder {
-      return classBuilder() as! ProtobufUnittest.TestDupFieldNumber.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDupFieldNumber.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDupFieldNumber.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
       return try ProtobufUnittest.TestDupFieldNumber.builderWithPrototype(prototype:self)
@@ -13320,7 +13037,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestDupFieldNumber) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
       return try ProtobufUnittest.TestDupFieldNumber.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -13337,13 +13054,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDupFieldNumber {
       return try ProtobufUnittest.TestDupFieldNumber.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber {
       return try ProtobufUnittest.TestDupFieldNumber.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -13365,7 +13082,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -13389,22 +13106,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestDupFieldNumber"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestDupFieldNumber"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestDupFieldNumber
       fileprivate var builderResult:ProtobufUnittest.TestDupFieldNumber = ProtobufUnittest.TestDupFieldNumber()
       public func getMessage() -> ProtobufUnittest.TestDupFieldNumber {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -13539,20 +13256,21 @@ public extension ProtobufUnittest {
         builderResult.bar = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestDupFieldNumber {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestDupFieldNumber.Builder {
+      public func clear() -> ProtobufUnittest.TestDupFieldNumber.Builder {
         builderResult = ProtobufUnittest.TestDupFieldNumber()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
+      public func clone() throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         return try ProtobufUnittest.TestDupFieldNumber.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestDupFieldNumber {
+      public func build() throws -> ProtobufUnittest.TestDupFieldNumber {
            try checkInitialized()
            return buildPartial()
       }
@@ -13578,11 +13296,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -13633,7 +13351,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDupFieldNumber.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -13645,7 +13363,9 @@ public extension ProtobufUnittest {
   }
 
   // Additional messages for testing lazy fields.
-  final public class TestEagerMessage : GeneratedMessage {
+  final public class TestEagerMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestEagerMessage, rhs: ProtobufUnittest.TestEagerMessage) -> Bool {
       if (lhs === rhs) {
@@ -13660,18 +13380,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var subMessage:ProtobufUnittest.TestAllTypes!
     public fileprivate(set) var hasSubMessage:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSubMessage {
         try codedOutputStream.write.message(fieldNumber: 1, value:subMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13679,25 +13398,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasSubMessage {
-          if let varSizesubMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:subMessage) {
-              serialize_size += varSizesubMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:subMessage)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestEagerMessage.Builder {
-      return ProtobufUnittest.TestEagerMessage.classBuilder() as! ProtobufUnittest.TestEagerMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestEagerMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.TestEagerMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEagerMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestEagerMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestEagerMessage.Builder {
       return try ProtobufUnittest.TestEagerMessage.builderWithPrototype(prototype:self)
@@ -13705,7 +13410,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestEagerMessage) throws -> ProtobufUnittest.TestEagerMessage.Builder {
       return try ProtobufUnittest.TestEagerMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -13716,13 +13421,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEagerMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEagerMessage {
       return try ProtobufUnittest.TestEagerMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEagerMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestEagerMessage {
       return try ProtobufUnittest.TestEagerMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasSubMessage {
         output += "\(indent) subMessage {\n"
@@ -13734,7 +13439,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasSubMessage {
@@ -13750,22 +13455,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestEagerMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestEagerMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestEagerMessage
       fileprivate var builderResult:ProtobufUnittest.TestEagerMessage = ProtobufUnittest.TestEagerMessage()
       public func getMessage() -> ProtobufUnittest.TestEagerMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasSubMessage:Bool {
            get {
@@ -13821,20 +13526,21 @@ public extension ProtobufUnittest {
         builderResult.subMessage = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestEagerMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestEagerMessage.Builder {
+      public func clear() -> ProtobufUnittest.TestEagerMessage.Builder {
         builderResult = ProtobufUnittest.TestEagerMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestEagerMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.TestEagerMessage.Builder {
         return try ProtobufUnittest.TestEagerMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestEagerMessage {
+      public func build() throws -> ProtobufUnittest.TestEagerMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -13854,11 +13560,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEagerMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestEagerMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEagerMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestEagerMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -13891,7 +13597,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEagerMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestEagerMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -13902,7 +13608,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestLazyMessage : GeneratedMessage {
+  final public class TestLazyMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestLazyMessage, rhs: ProtobufUnittest.TestLazyMessage) -> Bool {
       if (lhs === rhs) {
@@ -13917,18 +13625,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var subMessage:ProtobufUnittest.TestAllTypes!
     public fileprivate(set) var hasSubMessage:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSubMessage {
         try codedOutputStream.write.message(fieldNumber: 1, value:subMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -13936,25 +13643,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasSubMessage {
-          if let varSizesubMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:subMessage) {
-              serialize_size += varSizesubMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:subMessage)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestLazyMessage.Builder {
-      return ProtobufUnittest.TestLazyMessage.classBuilder() as! ProtobufUnittest.TestLazyMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestLazyMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.TestLazyMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestLazyMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestLazyMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestLazyMessage.Builder {
       return try ProtobufUnittest.TestLazyMessage.builderWithPrototype(prototype:self)
@@ -13962,7 +13655,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestLazyMessage) throws -> ProtobufUnittest.TestLazyMessage.Builder {
       return try ProtobufUnittest.TestLazyMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -13973,13 +13666,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestLazyMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestLazyMessage {
       return try ProtobufUnittest.TestLazyMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestLazyMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestLazyMessage {
       return try ProtobufUnittest.TestLazyMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasSubMessage {
         output += "\(indent) subMessage {\n"
@@ -13991,7 +13684,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasSubMessage {
@@ -14007,22 +13700,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestLazyMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestLazyMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestLazyMessage
       fileprivate var builderResult:ProtobufUnittest.TestLazyMessage = ProtobufUnittest.TestLazyMessage()
       public func getMessage() -> ProtobufUnittest.TestLazyMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasSubMessage:Bool {
            get {
@@ -14078,20 +13771,21 @@ public extension ProtobufUnittest {
         builderResult.subMessage = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestLazyMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestLazyMessage.Builder {
+      public func clear() -> ProtobufUnittest.TestLazyMessage.Builder {
         builderResult = ProtobufUnittest.TestLazyMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestLazyMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.TestLazyMessage.Builder {
         return try ProtobufUnittest.TestLazyMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestLazyMessage {
+      public func build() throws -> ProtobufUnittest.TestLazyMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -14111,11 +13805,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLazyMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestLazyMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLazyMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestLazyMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -14148,7 +13842,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestLazyMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestLazyMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -14160,7 +13854,9 @@ public extension ProtobufUnittest {
   }
 
   // Needed for a Python test.
-  final public class TestNestedMessageHasBits : GeneratedMessage {
+  final public class TestNestedMessageHasBits  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestNestedMessageHasBits, rhs: ProtobufUnittest.TestNestedMessageHasBits) -> Bool {
       if (lhs === rhs) {
@@ -14176,7 +13872,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage {
+      final public class NestedMessage  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage, rhs: ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) -> Bool {
           if (lhs === rhs) {
@@ -14192,12 +13890,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var nestedmessageRepeatedInt32:Array<Int32> = Array<Int32>()
         public fileprivate(set) var nestedmessageRepeatedForeignmessage:Array<ProtobufUnittest.ForeignMessage>  = Array<ProtobufUnittest.ForeignMessage>()
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if !nestedmessageRepeatedInt32.isEmpty {
             for oneValuenestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
               try codedOutputStream.write.int32(fieldNumber: 1, value:oneValuenestedmessageRepeatedInt32)
@@ -14208,7 +13905,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -14216,25 +13913,13 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           var dataSizeNestedmessageRepeatedInt32:Int32 = 0
-          dataSizeNestedmessageRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: nestedmessageRepeatedInt32)
+          dataSizeNestedmessageRepeatedInt32 += ProtobufWire.int32().repeatedWithoutTag(value: nestedmessageRepeatedInt32)
           serialize_size += dataSizeNestedmessageRepeatedInt32
           serialize_size += 1 * Int32(nestedmessageRepeatedInt32.count)
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: nestedmessageRepeatedForeignmessage)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 2, value: nestedmessageRepeatedForeignmessage)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
-          return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
           return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.builderWithPrototype(prototype:self)
@@ -14242,7 +13927,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
           return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -14265,13 +13950,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
           return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
           return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           var nestedmessageRepeatedInt32ElementIndex:Int = 0
           for oneValueNestedmessageRepeatedInt32 in nestedmessageRepeatedInt32  {
@@ -14288,7 +13973,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 for oneValueNestedmessageRepeatedInt32 in nestedmessageRepeatedInt32 {
@@ -14305,22 +13990,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestNestedMessageHasBits.NestedMessage"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestNestedMessageHasBits.NestedMessage"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage
           fileprivate var builderResult:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage()
           public func getMessage() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var nestedmessageRepeatedInt32:Array<Int32> {
                get {
@@ -14358,20 +14043,21 @@ public extension ProtobufUnittest {
             builderResult.nestedmessageRepeatedForeignmessage.removeAll(keepingCapacity: false)
             return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
+          public func clear() -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             builderResult = ProtobufUnittest.TestNestedMessageHasBits.NestedMessage()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
+          public func clone() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             return try ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
+          public func build() throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -14394,11 +14080,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -14443,7 +14129,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -14459,18 +14145,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var optionalNestedMessage:ProtobufUnittest.TestNestedMessageHasBits.NestedMessage!
     public fileprivate(set) var hasOptionalNestedMessage:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasOptionalNestedMessage {
         try codedOutputStream.write.message(fieldNumber: 1, value:optionalNestedMessage)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -14478,25 +14163,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:optionalNestedMessage) {
-              serialize_size += varSizeoptionalNestedMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:optionalNestedMessage)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
-      return ProtobufUnittest.TestNestedMessageHasBits.classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
-      return classBuilder() as! ProtobufUnittest.TestNestedMessageHasBits.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestNestedMessageHasBits.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestNestedMessageHasBits.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
       return try ProtobufUnittest.TestNestedMessageHasBits.builderWithPrototype(prototype:self)
@@ -14504,7 +14175,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestNestedMessageHasBits) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
       return try ProtobufUnittest.TestNestedMessageHasBits.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -14515,13 +14186,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedMessageHasBits {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedMessageHasBits {
       return try ProtobufUnittest.TestNestedMessageHasBits.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits {
       return try ProtobufUnittest.TestNestedMessageHasBits.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasOptionalNestedMessage {
         output += "\(indent) optionalNestedMessage {\n"
@@ -14533,7 +14204,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasOptionalNestedMessage {
@@ -14549,22 +14220,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestNestedMessageHasBits"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestNestedMessageHasBits"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestNestedMessageHasBits
       fileprivate var builderResult:ProtobufUnittest.TestNestedMessageHasBits = ProtobufUnittest.TestNestedMessageHasBits()
       public func getMessage() -> ProtobufUnittest.TestNestedMessageHasBits {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasOptionalNestedMessage:Bool {
            get {
@@ -14620,20 +14291,21 @@ public extension ProtobufUnittest {
         builderResult.optionalNestedMessage = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestNestedMessageHasBits {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
+      public func clear() -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         builderResult = ProtobufUnittest.TestNestedMessageHasBits()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
+      public func clone() throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         return try ProtobufUnittest.TestNestedMessageHasBits.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestNestedMessageHasBits {
+      public func build() throws -> ProtobufUnittest.TestNestedMessageHasBits {
            try checkInitialized()
            return buildPartial()
       }
@@ -14653,11 +14325,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -14690,7 +14362,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestNestedMessageHasBits.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -14703,7 +14375,9 @@ public extension ProtobufUnittest {
 
   // Test message with CamelCase field names.  This violates Protocol Buffer
   // standard style.
-  final public class TestCamelCaseFieldNames : GeneratedMessage {
+  final public class TestCamelCaseFieldNames  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestCamelCaseFieldNames, rhs: ProtobufUnittest.TestCamelCaseFieldNames) -> Bool {
       if (lhs === rhs) {
@@ -14750,12 +14424,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var repeatedStringPieceField:Array<String> = Array<String>()
     public fileprivate(set) var repeatedCordField:Array<String> = Array<String>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasPrimitiveField {
         try codedOutputStream.write.int32(fieldNumber: 1, value:primitiveField)
       }
@@ -14802,7 +14475,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -14810,61 +14483,47 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasPrimitiveField {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: primitiveField)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: primitiveField)
       }
       if hasStringField {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: stringField)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: stringField)
       }
       if (hasEnumField) {
         serialize_size += enumField.rawValue.computeEnumSize(fieldNumber: 3)
       }
       if hasMessageField {
-          if let varSizemessageField = try ProtobufWire.Size(wireType:.message).with(tag: 4, value:messageField) {
-              serialize_size += varSizemessageField
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 4, value:messageField)
       }
       if hasStringPieceField {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 5, value: stringPieceField)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 5, value: stringPieceField)
       }
       if hasCordField {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: cordField)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 6, value: cordField)
       }
       var dataSizeRepeatedPrimitiveField:Int32 = 0
-      dataSizeRepeatedPrimitiveField += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedPrimitiveField)
+      dataSizeRepeatedPrimitiveField += ProtobufWire.int32().repeatedWithoutTag(value: repeatedPrimitiveField)
       serialize_size += dataSizeRepeatedPrimitiveField
       serialize_size += 1 * Int32(repeatedPrimitiveField.count)
       var dataSizeRepeatedStringField:Int32 = 0
-      dataSizeRepeatedStringField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringField)
+      dataSizeRepeatedStringField += ProtobufWire.string().repeatedWithoutTag(value: repeatedStringField)
       serialize_size += dataSizeRepeatedStringField
       serialize_size += 1 * Int32(repeatedStringField.count)
       var dataSizerepeatedEnumField:Int32 = 0
-      dataSizerepeatedEnumField += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfrepeatedEnumField.rawValue)
+      dataSizerepeatedEnumField += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfrepeatedEnumField.rawValue)
       serialize_size += dataSizerepeatedEnumField
       serialize_size += (1 * Int32(repeatedEnumField.count))
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 10, value: repeatedMessageField)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 10, value: repeatedMessageField)
       var dataSizeRepeatedStringPieceField:Int32 = 0
-      dataSizeRepeatedStringPieceField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedStringPieceField)
+      dataSizeRepeatedStringPieceField += ProtobufWire.string().repeatedWithoutTag(value: repeatedStringPieceField)
       serialize_size += dataSizeRepeatedStringPieceField
       serialize_size += 1 * Int32(repeatedStringPieceField.count)
       var dataSizeRepeatedCordField:Int32 = 0
-      dataSizeRepeatedCordField += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedCordField)
+      dataSizeRepeatedCordField += ProtobufWire.string().repeatedWithoutTag(value: repeatedCordField)
       serialize_size += dataSizeRepeatedCordField
       serialize_size += 1 * Int32(repeatedCordField.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
-      return ProtobufUnittest.TestCamelCaseFieldNames.classBuilder() as! ProtobufUnittest.TestCamelCaseFieldNames.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
-      return classBuilder() as! ProtobufUnittest.TestCamelCaseFieldNames.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestCamelCaseFieldNames.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestCamelCaseFieldNames.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
       return try ProtobufUnittest.TestCamelCaseFieldNames.builderWithPrototype(prototype:self)
@@ -14872,7 +14531,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestCamelCaseFieldNames) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
       return try ProtobufUnittest.TestCamelCaseFieldNames.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -14941,13 +14600,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
       return try ProtobufUnittest.TestCamelCaseFieldNames.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestCamelCaseFieldNames {
       return try ProtobufUnittest.TestCamelCaseFieldNames.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasPrimitiveField {
         output += "\(indent) primitiveField: \(primitiveField) \n"
@@ -15006,7 +14665,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasPrimitiveField {
@@ -15055,22 +14714,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestCamelCaseFieldNames"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestCamelCaseFieldNames"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestCamelCaseFieldNames
       fileprivate var builderResult:ProtobufUnittest.TestCamelCaseFieldNames = ProtobufUnittest.TestCamelCaseFieldNames()
       public func getMessage() -> ProtobufUnittest.TestCamelCaseFieldNames {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasPrimitiveField:Bool {
            get {
@@ -15359,20 +15018,21 @@ public extension ProtobufUnittest {
          builderResult.repeatedCordField.removeAll(keepingCapacity: false)
          return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestCamelCaseFieldNames {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
+      public func clear() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         builderResult = ProtobufUnittest.TestCamelCaseFieldNames()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
+      public func clone() throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         return try ProtobufUnittest.TestCamelCaseFieldNames.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestCamelCaseFieldNames {
+      public func build() throws -> ProtobufUnittest.TestCamelCaseFieldNames {
            try checkInitialized()
            return buildPartial()
       }
@@ -15425,11 +15085,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -15567,7 +15227,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestCamelCaseFieldNames.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -15581,6 +15241,8 @@ public extension ProtobufUnittest {
   // We list fields out of order, to ensure that we're using field number and not
   // field index to determine serialization order.
   final public class TestFieldOrderings : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestFieldOrderings, rhs: ProtobufUnittest.TestFieldOrderings) -> Bool {
       if (lhs === rhs) {
@@ -15601,7 +15263,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage {
+      final public class NestedMessage  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestFieldOrderings.NestedMessage, rhs: ProtobufUnittest.TestFieldOrderings.NestedMessage) -> Bool {
           if (lhs === rhs) {
@@ -15624,12 +15288,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasBb:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasBb {
             try codedOutputStream.write.int32(fieldNumber: 1, value:bb)
           }
@@ -15638,7 +15301,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -15646,26 +15309,14 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasBb {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: bb)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: bb)
           }
           if hasOo {
-            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 2, value: oo)
+            serialize_size += ProtobufWire.int64().computeSizeWith(tag: 2, value: oo)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.classBuilder() as! ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
           return try ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(prototype:self)
@@ -15673,7 +15324,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestFieldOrderings.NestedMessage) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
           return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -15687,13 +15338,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
           return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
           return try ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasBb {
             output += "\(indent) bb: \(bb) \n"
@@ -15704,7 +15355,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasBb {
@@ -15721,22 +15372,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestFieldOrderings.NestedMessage"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestFieldOrderings.NestedMessage"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestFieldOrderings.NestedMessage
           fileprivate var builderResult:ProtobufUnittest.TestFieldOrderings.NestedMessage = ProtobufUnittest.TestFieldOrderings.NestedMessage()
           public func getMessage() -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasOo:Bool {
                get {
@@ -15788,20 +15439,21 @@ public extension ProtobufUnittest {
                builderResult.bb = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestFieldOrderings.NestedMessage {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
+          public func clear() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             builderResult = ProtobufUnittest.TestFieldOrderings.NestedMessage()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
+          public func clone() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             return try ProtobufUnittest.TestFieldOrderings.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
+          public func build() throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -15824,11 +15476,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -15861,7 +15513,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -15886,15 +15538,14 @@ public extension ProtobufUnittest {
     public fileprivate(set) var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage!
     public fileprivate(set) var hasOptionalNestedMessage:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasMyInt {
         try codedOutputStream.write.int64(fieldNumber: 1, value:myInt)
       }
@@ -15911,7 +15562,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -15919,35 +15570,21 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasMyInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: myInt)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 1, value: myInt)
       }
       if hasMyString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 11, value: myString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 11, value: myString)
       }
       if hasMyFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 101, value: myFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 101, value: myFloat)
       }
       if hasOptionalNestedMessage {
-          if let varSizeoptionalNestedMessage = try ProtobufWire.Size(wireType:.message).with(tag: 200, value:optionalNestedMessage) {
-              serialize_size += varSizeoptionalNestedMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 200, value:optionalNestedMessage)
       }
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestFieldOrderings.Builder {
-      return ProtobufUnittest.TestFieldOrderings.classBuilder() as! ProtobufUnittest.TestFieldOrderings.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestFieldOrderings.Builder {
-      return classBuilder() as! ProtobufUnittest.TestFieldOrderings.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestFieldOrderings.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestFieldOrderings.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestFieldOrderings.Builder {
       return try ProtobufUnittest.TestFieldOrderings.builderWithPrototype(prototype:self)
@@ -15955,7 +15592,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestFieldOrderings) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
       return try ProtobufUnittest.TestFieldOrderings.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -15975,13 +15612,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestFieldOrderings {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestFieldOrderings {
       return try ProtobufUnittest.TestFieldOrderings.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestFieldOrderings {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestFieldOrderings {
       return try ProtobufUnittest.TestFieldOrderings.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasMyInt {
         output += "\(indent) myInt: \(myInt) \n"
@@ -16004,7 +15641,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasMyInt {
@@ -16031,22 +15668,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestFieldOrderings"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestFieldOrderings"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestFieldOrderings
       fileprivate var builderResult:ProtobufUnittest.TestFieldOrderings = ProtobufUnittest.TestFieldOrderings()
       public func getMessage() -> ProtobufUnittest.TestFieldOrderings {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasMyString:Bool {
            get {
@@ -16177,20 +15814,21 @@ public extension ProtobufUnittest {
         builderResult.optionalNestedMessage = nil
         return self
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestFieldOrderings.Builder {
+      public func clear() -> ProtobufUnittest.TestFieldOrderings.Builder {
         builderResult = ProtobufUnittest.TestFieldOrderings()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestFieldOrderings.Builder {
+      public func clone() throws -> ProtobufUnittest.TestFieldOrderings.Builder {
         return try ProtobufUnittest.TestFieldOrderings.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestFieldOrderings {
+      public func build() throws -> ProtobufUnittest.TestFieldOrderings {
            try checkInitialized()
            return buildPartial()
       }
@@ -16220,11 +15858,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -16275,7 +15913,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestFieldOrderings.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -16286,7 +15924,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestExtremeDefaultValues : GeneratedMessage {
+  final public class TestExtremeDefaultValues  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestExtremeDefaultValues, rhs: ProtobufUnittest.TestExtremeDefaultValues) -> Bool {
       if (lhs === rhs) {
@@ -16418,12 +16058,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasReplacementString:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasEscapedBytes {
         try codedOutputStream.write.data(fieldNumber: 1, value:escapedBytes)
       }
@@ -16507,7 +16146,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -16515,101 +16154,89 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasEscapedBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 1, value: escapedBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 1, value: escapedBytes)
       }
       if hasLargeUint32 {
-        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 2, value: largeUint32)
+        serialize_size += ProtobufWire.uInt32().computeSizeWith(tag: 2, value: largeUint32)
       }
       if hasLargeUint64 {
-        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 3, value: largeUint64)
+        serialize_size += ProtobufWire.uint64().computeSizeWith(tag: 3, value: largeUint64)
       }
       if hasSmallInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 4, value: smallInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 4, value: smallInt32)
       }
       if hasSmallInt64 {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 5, value: smallInt64)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 5, value: smallInt64)
       }
       if hasUtf8String {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: utf8String)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 6, value: utf8String)
       }
       if hasZeroFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 7, value: zeroFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 7, value: zeroFloat)
       }
       if hasOneFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 8, value: oneFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 8, value: oneFloat)
       }
       if hasSmallFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 9, value: smallFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 9, value: smallFloat)
       }
       if hasNegativeOneFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 10, value: negativeOneFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 10, value: negativeOneFloat)
       }
       if hasNegativeFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 11, value: negativeFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 11, value: negativeFloat)
       }
       if hasLargeFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 12, value: largeFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 12, value: largeFloat)
       }
       if hasSmallNegativeFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 13, value: smallNegativeFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 13, value: smallNegativeFloat)
       }
       if hasInfDouble {
-        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 14, value: infDouble)
+        serialize_size += ProtobufWire.double().computeSizeWith(tag: 14, value: infDouble)
       }
       if hasNegInfDouble {
-        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 15, value: negInfDouble)
+        serialize_size += ProtobufWire.double().computeSizeWith(tag: 15, value: negInfDouble)
       }
       if hasNanDouble {
-        serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 16, value: nanDouble)
+        serialize_size += ProtobufWire.double().computeSizeWith(tag: 16, value: nanDouble)
       }
       if hasInfFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 17, value: infFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 17, value: infFloat)
       }
       if hasNegInfFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 18, value: negInfFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 18, value: negInfFloat)
       }
       if hasNanFloat {
-        serialize_size += try ProtobufWire.Size(wireType:.float).with(tag: 19, value: nanFloat)
+        serialize_size += ProtobufWire.float().computeSizeWith(tag: 19, value: nanFloat)
       }
       if hasCppTrigraph {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 20, value: cppTrigraph)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 20, value: cppTrigraph)
       }
       if hasReallySmallInt32 {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 21, value: reallySmallInt32)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 21, value: reallySmallInt32)
       }
       if hasReallySmallInt64 {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 22, value: reallySmallInt64)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 22, value: reallySmallInt64)
       }
       if hasStringWithZero {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 23, value: stringWithZero)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 23, value: stringWithZero)
       }
       if hasBytesWithZero {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 24, value: bytesWithZero)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 24, value: bytesWithZero)
       }
       if hasStringPieceWithZero {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 25, value: stringPieceWithZero)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 25, value: stringPieceWithZero)
       }
       if hasCordWithZero {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 26, value: cordWithZero)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 26, value: cordWithZero)
       }
       if hasReplacementString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 27, value: replacementString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 27, value: replacementString)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
-      return ProtobufUnittest.TestExtremeDefaultValues.classBuilder() as! ProtobufUnittest.TestExtremeDefaultValues.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
-      return classBuilder() as! ProtobufUnittest.TestExtremeDefaultValues.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestExtremeDefaultValues.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestExtremeDefaultValues.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
       return try ProtobufUnittest.TestExtremeDefaultValues.builderWithPrototype(prototype:self)
@@ -16617,7 +16244,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestExtremeDefaultValues) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
       return try ProtobufUnittest.TestExtremeDefaultValues.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -16706,13 +16333,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestExtremeDefaultValues {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestExtremeDefaultValues {
       return try ProtobufUnittest.TestExtremeDefaultValues.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestExtremeDefaultValues {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestExtremeDefaultValues {
       return try ProtobufUnittest.TestExtremeDefaultValues.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasEscapedBytes {
         output += "\(indent) escapedBytes: \(escapedBytes) \n"
@@ -16798,7 +16425,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasEscapedBytes {
@@ -16890,22 +16517,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestExtremeDefaultValues"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestExtremeDefaultValues"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestExtremeDefaultValues
       fileprivate var builderResult:ProtobufUnittest.TestExtremeDefaultValues = ProtobufUnittest.TestExtremeDefaultValues()
       public func getMessage() -> ProtobufUnittest.TestExtremeDefaultValues {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasEscapedBytes:Bool {
            get {
@@ -17582,20 +17209,21 @@ public extension ProtobufUnittest {
            builderResult.replacementString = "${unknown}"
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestExtremeDefaultValues {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
+      public func clear() -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
         builderResult = ProtobufUnittest.TestExtremeDefaultValues()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
+      public func clone() throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
         return try ProtobufUnittest.TestExtremeDefaultValues.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestExtremeDefaultValues {
+      public func build() throws -> ProtobufUnittest.TestExtremeDefaultValues {
            try checkInitialized()
            return buildPartial()
       }
@@ -17693,11 +17321,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -17880,7 +17508,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestExtremeDefaultValues.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -17891,7 +17519,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class SparseEnumMessage : GeneratedMessage {
+  final public class SparseEnumMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.SparseEnumMessage, rhs: ProtobufUnittest.SparseEnumMessage) -> Bool {
       if (lhs === rhs) {
@@ -17906,18 +17536,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var sparseEnum:ProtobufUnittest.TestSparseEnum = ProtobufUnittest.TestSparseEnum.sparseA
     public fileprivate(set) var hasSparseEnum:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasSparseEnum {
         try codedOutputStream.writeEnum(fieldNumber: 1, value:sparseEnum.rawValue)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -17931,25 +17560,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.SparseEnumMessage.Builder {
-      return ProtobufUnittest.SparseEnumMessage.classBuilder() as! ProtobufUnittest.SparseEnumMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.SparseEnumMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.SparseEnumMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.SparseEnumMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.SparseEnumMessage.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.SparseEnumMessage.Builder {
       return try ProtobufUnittest.SparseEnumMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.SparseEnumMessage) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
       return try ProtobufUnittest.SparseEnumMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -17960,13 +17577,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SparseEnumMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SparseEnumMessage {
       return try ProtobufUnittest.SparseEnumMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.SparseEnumMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.SparseEnumMessage {
       return try ProtobufUnittest.SparseEnumMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if (hasSparseEnum) {
         output += "\(indent) sparseEnum: \(sparseEnum.description)\n"
@@ -17974,7 +17591,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasSparseEnum {
@@ -17988,22 +17605,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.SparseEnumMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.SparseEnumMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.SparseEnumMessage
       fileprivate var builderResult:ProtobufUnittest.SparseEnumMessage = ProtobufUnittest.SparseEnumMessage()
       public func getMessage() -> ProtobufUnittest.SparseEnumMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
         public var hasSparseEnum:Bool{
             get {
@@ -18030,20 +17647,21 @@ public extension ProtobufUnittest {
            builderResult.sparseEnum = .sparseA
            return self
         }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.SparseEnumMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.SparseEnumMessage.Builder {
+      public func clear() -> ProtobufUnittest.SparseEnumMessage.Builder {
         builderResult = ProtobufUnittest.SparseEnumMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.SparseEnumMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.SparseEnumMessage.Builder {
         return try ProtobufUnittest.SparseEnumMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.SparseEnumMessage {
+      public func build() throws -> ProtobufUnittest.SparseEnumMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -18063,11 +17681,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -18099,7 +17717,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -18111,7 +17729,9 @@ public extension ProtobufUnittest {
   }
 
   // Test String and Bytes: string is for valid UTF-8 strings
-  final public class OneString : GeneratedMessage {
+  final public class OneString  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.OneString, rhs: ProtobufUnittest.OneString) -> Bool {
       if (lhs === rhs) {
@@ -18127,18 +17747,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.string(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18146,23 +17765,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.OneString.Builder {
-      return ProtobufUnittest.OneString.classBuilder() as! ProtobufUnittest.OneString.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.OneString.Builder {
-      return classBuilder() as! ProtobufUnittest.OneString.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OneString.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OneString.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OneString.Builder {
       return try ProtobufUnittest.OneString.builderWithPrototype(prototype:self)
@@ -18170,7 +17777,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.OneString) throws -> ProtobufUnittest.OneString.Builder {
       return try ProtobufUnittest.OneString.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -18181,13 +17788,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OneString {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OneString {
       return try ProtobufUnittest.OneString.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.OneString {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.OneString {
       return try ProtobufUnittest.OneString.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -18195,7 +17802,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -18209,22 +17816,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.OneString"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.OneString"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.OneString
       fileprivate var builderResult:ProtobufUnittest.OneString = ProtobufUnittest.OneString()
       public func getMessage() -> ProtobufUnittest.OneString {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -18251,20 +17858,21 @@ public extension ProtobufUnittest {
            builderResult.data = ""
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.OneString {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.OneString.Builder {
+      public func clear() -> ProtobufUnittest.OneString.Builder {
         builderResult = ProtobufUnittest.OneString()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.OneString.Builder {
+      public func clone() throws -> ProtobufUnittest.OneString.Builder {
         return try ProtobufUnittest.OneString.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.OneString {
+      public func build() throws -> ProtobufUnittest.OneString {
            try checkInitialized()
            return buildPartial()
       }
@@ -18284,11 +17892,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneString.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneString.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneString.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneString.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -18315,7 +17923,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OneString.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OneString.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -18326,7 +17934,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class MoreString : GeneratedMessage {
+  final public class MoreString  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.MoreString, rhs: ProtobufUnittest.MoreString) -> Bool {
       if (lhs === rhs) {
@@ -18340,12 +17950,11 @@ public extension ProtobufUnittest {
 
     public fileprivate(set) var data:Array<String> = Array<String>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !data.isEmpty {
         for oneValuedata in data {
           try codedOutputStream.write.string(fieldNumber: 1, value:oneValuedata)
@@ -18353,7 +17962,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18361,24 +17970,12 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeData:Int32 = 0
-      dataSizeData += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: data)
+      dataSizeData += ProtobufWire.string().repeatedWithoutTag(value: data)
       serialize_size += dataSizeData
       serialize_size += 1 * Int32(data.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.MoreString.Builder {
-      return ProtobufUnittest.MoreString.classBuilder() as! ProtobufUnittest.MoreString.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.MoreString.Builder {
-      return classBuilder() as! ProtobufUnittest.MoreString.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.MoreString.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.MoreString.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.MoreString.Builder {
       return try ProtobufUnittest.MoreString.builderWithPrototype(prototype:self)
@@ -18386,7 +17983,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.MoreString) throws -> ProtobufUnittest.MoreString.Builder {
       return try ProtobufUnittest.MoreString.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -18401,13 +17998,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.MoreString {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.MoreString {
       return try ProtobufUnittest.MoreString.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.MoreString {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.MoreString {
       return try ProtobufUnittest.MoreString.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var dataElementIndex:Int = 0
       for oneValueData in data  {
@@ -18417,7 +18014,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValueData in data {
@@ -18431,22 +18028,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.MoreString"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.MoreString"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.MoreString
       fileprivate var builderResult:ProtobufUnittest.MoreString = ProtobufUnittest.MoreString()
       public func getMessage() -> ProtobufUnittest.MoreString {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var data:Array<String> {
            get {
@@ -18466,20 +18063,21 @@ public extension ProtobufUnittest {
          builderResult.data.removeAll(keepingCapacity: false)
          return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.MoreString {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.MoreString.Builder {
+      public func clear() -> ProtobufUnittest.MoreString.Builder {
         builderResult = ProtobufUnittest.MoreString()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.MoreString.Builder {
+      public func clone() throws -> ProtobufUnittest.MoreString.Builder {
         return try ProtobufUnittest.MoreString.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.MoreString {
+      public func build() throws -> ProtobufUnittest.MoreString {
            try checkInitialized()
            return buildPartial()
       }
@@ -18499,11 +18097,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreString.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreString.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreString.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreString.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -18534,7 +18132,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.MoreString.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.MoreString.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -18545,7 +18143,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class OneBytes : GeneratedMessage {
+  final public class OneBytes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.OneBytes, rhs: ProtobufUnittest.OneBytes) -> Bool {
       if (lhs === rhs) {
@@ -18561,18 +18161,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.data(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18580,23 +18179,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.OneBytes.Builder {
-      return ProtobufUnittest.OneBytes.classBuilder() as! ProtobufUnittest.OneBytes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.OneBytes.Builder {
-      return classBuilder() as! ProtobufUnittest.OneBytes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OneBytes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.OneBytes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.OneBytes.Builder {
       return try ProtobufUnittest.OneBytes.builderWithPrototype(prototype:self)
@@ -18604,7 +18191,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.OneBytes) throws -> ProtobufUnittest.OneBytes.Builder {
       return try ProtobufUnittest.OneBytes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -18615,13 +18202,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OneBytes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OneBytes {
       return try ProtobufUnittest.OneBytes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.OneBytes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.OneBytes {
       return try ProtobufUnittest.OneBytes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -18629,7 +18216,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -18643,22 +18230,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.OneBytes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.OneBytes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.OneBytes
       fileprivate var builderResult:ProtobufUnittest.OneBytes = ProtobufUnittest.OneBytes()
       public func getMessage() -> ProtobufUnittest.OneBytes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -18685,20 +18272,21 @@ public extension ProtobufUnittest {
            builderResult.data = Data()
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.OneBytes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.OneBytes.Builder {
+      public func clear() -> ProtobufUnittest.OneBytes.Builder {
         builderResult = ProtobufUnittest.OneBytes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.OneBytes.Builder {
+      public func clone() throws -> ProtobufUnittest.OneBytes.Builder {
         return try ProtobufUnittest.OneBytes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.OneBytes {
+      public func build() throws -> ProtobufUnittest.OneBytes {
            try checkInitialized()
            return buildPartial()
       }
@@ -18718,11 +18306,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneBytes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.OneBytes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneBytes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.OneBytes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -18749,7 +18337,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OneBytes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.OneBytes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -18760,7 +18348,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class MoreBytes : GeneratedMessage {
+  final public class MoreBytes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.MoreBytes, rhs: ProtobufUnittest.MoreBytes) -> Bool {
       if (lhs === rhs) {
@@ -18774,12 +18364,11 @@ public extension ProtobufUnittest {
 
     public fileprivate(set) var data:Array<Data> = Array<Data>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !data.isEmpty {
         for oneValuedata in data {
           try codedOutputStream.write.data(fieldNumber: 1, value:oneValuedata)
@@ -18787,7 +18376,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -18795,24 +18384,12 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeData:Int32 = 0
-      dataSizeData += try ProtobufWire.Size(wireType: .data).repeatedWithoutTag(value: data)
+      dataSizeData += ProtobufWire.data().repeatedWithoutTag(value: data)
       serialize_size += dataSizeData
       serialize_size += 1 * Int32(data.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.MoreBytes.Builder {
-      return ProtobufUnittest.MoreBytes.classBuilder() as! ProtobufUnittest.MoreBytes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.MoreBytes.Builder {
-      return classBuilder() as! ProtobufUnittest.MoreBytes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.MoreBytes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.MoreBytes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.MoreBytes.Builder {
       return try ProtobufUnittest.MoreBytes.builderWithPrototype(prototype:self)
@@ -18820,7 +18397,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.MoreBytes) throws -> ProtobufUnittest.MoreBytes.Builder {
       return try ProtobufUnittest.MoreBytes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -18835,13 +18412,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.MoreBytes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.MoreBytes {
       return try ProtobufUnittest.MoreBytes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.MoreBytes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.MoreBytes {
       return try ProtobufUnittest.MoreBytes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var dataElementIndex:Int = 0
       for oneValueData in data  {
@@ -18851,7 +18428,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValueData in data {
@@ -18865,22 +18442,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.MoreBytes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.MoreBytes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.MoreBytes
       fileprivate var builderResult:ProtobufUnittest.MoreBytes = ProtobufUnittest.MoreBytes()
       public func getMessage() -> ProtobufUnittest.MoreBytes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var data:Array<Data> {
            get {
@@ -18900,20 +18477,21 @@ public extension ProtobufUnittest {
          builderResult.data.removeAll(keepingCapacity: false)
          return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.MoreBytes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.MoreBytes.Builder {
+      public func clear() -> ProtobufUnittest.MoreBytes.Builder {
         builderResult = ProtobufUnittest.MoreBytes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.MoreBytes.Builder {
+      public func clone() throws -> ProtobufUnittest.MoreBytes.Builder {
         return try ProtobufUnittest.MoreBytes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.MoreBytes {
+      public func build() throws -> ProtobufUnittest.MoreBytes {
            try checkInitialized()
            return buildPartial()
       }
@@ -18933,11 +18511,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreBytes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.MoreBytes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreBytes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.MoreBytes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -18968,7 +18546,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.MoreBytes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.MoreBytes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -18980,7 +18558,9 @@ public extension ProtobufUnittest {
   }
 
   // Test int32, uint32, int64, uint64, and bool are all compatible
-  final public class Int32Message : GeneratedMessage {
+  final public class Int32Message  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.Int32Message, rhs: ProtobufUnittest.Int32Message) -> Bool {
       if (lhs === rhs) {
@@ -18996,18 +18576,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.int32(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19015,23 +18594,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.Int32Message.Builder {
-      return ProtobufUnittest.Int32Message.classBuilder() as! ProtobufUnittest.Int32Message.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.Int32Message.Builder {
-      return classBuilder() as! ProtobufUnittest.Int32Message.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Int32Message.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Int32Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Int32Message.Builder {
       return try ProtobufUnittest.Int32Message.builderWithPrototype(prototype:self)
@@ -19039,7 +18606,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.Int32Message) throws -> ProtobufUnittest.Int32Message.Builder {
       return try ProtobufUnittest.Int32Message.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -19050,13 +18617,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int32Message {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int32Message {
       return try ProtobufUnittest.Int32Message.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.Int32Message {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.Int32Message {
       return try ProtobufUnittest.Int32Message.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -19064,7 +18631,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -19078,22 +18645,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.Int32Message"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.Int32Message"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.Int32Message
       fileprivate var builderResult:ProtobufUnittest.Int32Message = ProtobufUnittest.Int32Message()
       public func getMessage() -> ProtobufUnittest.Int32Message {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -19120,20 +18687,21 @@ public extension ProtobufUnittest {
            builderResult.data = Int32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.Int32Message {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.Int32Message.Builder {
+      public func clear() -> ProtobufUnittest.Int32Message.Builder {
         builderResult = ProtobufUnittest.Int32Message()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.Int32Message.Builder {
+      public func clone() throws -> ProtobufUnittest.Int32Message.Builder {
         return try ProtobufUnittest.Int32Message.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.Int32Message {
+      public func build() throws -> ProtobufUnittest.Int32Message {
            try checkInitialized()
            return buildPartial()
       }
@@ -19153,11 +18721,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int32Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int32Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int32Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int32Message.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -19184,7 +18752,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Int32Message.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Int32Message.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -19195,7 +18763,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class Uint32Message : GeneratedMessage {
+  final public class Uint32Message  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.Uint32Message, rhs: ProtobufUnittest.Uint32Message) -> Bool {
       if (lhs === rhs) {
@@ -19211,18 +18781,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.uInt32(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19230,23 +18799,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.uInt32).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.uInt32().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.Uint32Message.Builder {
-      return ProtobufUnittest.Uint32Message.classBuilder() as! ProtobufUnittest.Uint32Message.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.Uint32Message.Builder {
-      return classBuilder() as! ProtobufUnittest.Uint32Message.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Uint32Message.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Uint32Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Uint32Message.Builder {
       return try ProtobufUnittest.Uint32Message.builderWithPrototype(prototype:self)
@@ -19254,7 +18811,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.Uint32Message) throws -> ProtobufUnittest.Uint32Message.Builder {
       return try ProtobufUnittest.Uint32Message.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -19265,13 +18822,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint32Message {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint32Message {
       return try ProtobufUnittest.Uint32Message.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.Uint32Message {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.Uint32Message {
       return try ProtobufUnittest.Uint32Message.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -19279,7 +18836,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -19293,22 +18850,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.Uint32Message"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.Uint32Message"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.Uint32Message
       fileprivate var builderResult:ProtobufUnittest.Uint32Message = ProtobufUnittest.Uint32Message()
       public func getMessage() -> ProtobufUnittest.Uint32Message {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -19335,20 +18892,21 @@ public extension ProtobufUnittest {
            builderResult.data = UInt32(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.Uint32Message {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.Uint32Message.Builder {
+      public func clear() -> ProtobufUnittest.Uint32Message.Builder {
         builderResult = ProtobufUnittest.Uint32Message()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.Uint32Message.Builder {
+      public func clone() throws -> ProtobufUnittest.Uint32Message.Builder {
         return try ProtobufUnittest.Uint32Message.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.Uint32Message {
+      public func build() throws -> ProtobufUnittest.Uint32Message {
            try checkInitialized()
            return buildPartial()
       }
@@ -19368,11 +18926,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint32Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint32Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint32Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint32Message.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -19399,7 +18957,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Uint32Message.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Uint32Message.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -19410,7 +18968,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class Int64Message : GeneratedMessage {
+  final public class Int64Message  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.Int64Message, rhs: ProtobufUnittest.Int64Message) -> Bool {
       if (lhs === rhs) {
@@ -19426,18 +18986,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.int64(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19445,23 +19004,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.int64().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.Int64Message.Builder {
-      return ProtobufUnittest.Int64Message.classBuilder() as! ProtobufUnittest.Int64Message.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.Int64Message.Builder {
-      return classBuilder() as! ProtobufUnittest.Int64Message.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Int64Message.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Int64Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Int64Message.Builder {
       return try ProtobufUnittest.Int64Message.builderWithPrototype(prototype:self)
@@ -19469,7 +19016,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.Int64Message) throws -> ProtobufUnittest.Int64Message.Builder {
       return try ProtobufUnittest.Int64Message.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -19480,13 +19027,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int64Message {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Int64Message {
       return try ProtobufUnittest.Int64Message.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.Int64Message {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.Int64Message {
       return try ProtobufUnittest.Int64Message.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -19494,7 +19041,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -19508,22 +19055,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.Int64Message"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.Int64Message"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.Int64Message
       fileprivate var builderResult:ProtobufUnittest.Int64Message = ProtobufUnittest.Int64Message()
       public func getMessage() -> ProtobufUnittest.Int64Message {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -19550,20 +19097,21 @@ public extension ProtobufUnittest {
            builderResult.data = Int64(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.Int64Message {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.Int64Message.Builder {
+      public func clear() -> ProtobufUnittest.Int64Message.Builder {
         builderResult = ProtobufUnittest.Int64Message()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.Int64Message.Builder {
+      public func clone() throws -> ProtobufUnittest.Int64Message.Builder {
         return try ProtobufUnittest.Int64Message.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.Int64Message {
+      public func build() throws -> ProtobufUnittest.Int64Message {
            try checkInitialized()
            return buildPartial()
       }
@@ -19583,11 +19131,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int64Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Int64Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int64Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Int64Message.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -19614,7 +19162,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Int64Message.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Int64Message.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -19625,7 +19173,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class Uint64Message : GeneratedMessage {
+  final public class Uint64Message  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.Uint64Message, rhs: ProtobufUnittest.Uint64Message) -> Bool {
       if (lhs === rhs) {
@@ -19641,18 +19191,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.uint64(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19660,23 +19209,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.uint64).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.uint64().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.Uint64Message.Builder {
-      return ProtobufUnittest.Uint64Message.classBuilder() as! ProtobufUnittest.Uint64Message.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.Uint64Message.Builder {
-      return classBuilder() as! ProtobufUnittest.Uint64Message.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Uint64Message.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.Uint64Message.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.Uint64Message.Builder {
       return try ProtobufUnittest.Uint64Message.builderWithPrototype(prototype:self)
@@ -19684,7 +19221,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.Uint64Message) throws -> ProtobufUnittest.Uint64Message.Builder {
       return try ProtobufUnittest.Uint64Message.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -19695,13 +19232,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint64Message {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Uint64Message {
       return try ProtobufUnittest.Uint64Message.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.Uint64Message {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.Uint64Message {
       return try ProtobufUnittest.Uint64Message.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -19709,7 +19246,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -19723,22 +19260,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.Uint64Message"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.Uint64Message"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.Uint64Message
       fileprivate var builderResult:ProtobufUnittest.Uint64Message = ProtobufUnittest.Uint64Message()
       public func getMessage() -> ProtobufUnittest.Uint64Message {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -19765,20 +19302,21 @@ public extension ProtobufUnittest {
            builderResult.data = UInt64(0)
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.Uint64Message {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.Uint64Message.Builder {
+      public func clear() -> ProtobufUnittest.Uint64Message.Builder {
         builderResult = ProtobufUnittest.Uint64Message()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.Uint64Message.Builder {
+      public func clone() throws -> ProtobufUnittest.Uint64Message.Builder {
         return try ProtobufUnittest.Uint64Message.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.Uint64Message {
+      public func build() throws -> ProtobufUnittest.Uint64Message {
            try checkInitialized()
            return buildPartial()
       }
@@ -19798,11 +19336,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint64Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.Uint64Message.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint64Message.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.Uint64Message.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -19829,7 +19367,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Uint64Message.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.Uint64Message.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -19840,7 +19378,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class BoolMessage : GeneratedMessage {
+  final public class BoolMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.BoolMessage, rhs: ProtobufUnittest.BoolMessage) -> Bool {
       if (lhs === rhs) {
@@ -19856,18 +19396,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasData:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasData {
         try codedOutputStream.write.bool(fieldNumber: 1, value:data)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -19875,23 +19414,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasData {
-        serialize_size += try ProtobufWire.Size(wireType:.bool).with(tag: 1, value: data)
+        serialize_size += ProtobufWire.bool().computeSizeWith(tag: 1, value: data)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.BoolMessage.Builder {
-      return ProtobufUnittest.BoolMessage.classBuilder() as! ProtobufUnittest.BoolMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.BoolMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.BoolMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BoolMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BoolMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.BoolMessage.Builder {
       return try ProtobufUnittest.BoolMessage.builderWithPrototype(prototype:self)
@@ -19899,7 +19426,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.BoolMessage) throws -> ProtobufUnittest.BoolMessage.Builder {
       return try ProtobufUnittest.BoolMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -19910,13 +19437,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BoolMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BoolMessage {
       return try ProtobufUnittest.BoolMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.BoolMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.BoolMessage {
       return try ProtobufUnittest.BoolMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasData {
         output += "\(indent) data: \(data) \n"
@@ -19924,7 +19451,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasData {
@@ -19938,22 +19465,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.BoolMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.BoolMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.BoolMessage
       fileprivate var builderResult:ProtobufUnittest.BoolMessage = ProtobufUnittest.BoolMessage()
       public func getMessage() -> ProtobufUnittest.BoolMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasData:Bool {
            get {
@@ -19980,20 +19507,21 @@ public extension ProtobufUnittest {
            builderResult.data = false
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.BoolMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.BoolMessage.Builder {
+      public func clear() -> ProtobufUnittest.BoolMessage.Builder {
         builderResult = ProtobufUnittest.BoolMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.BoolMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.BoolMessage.Builder {
         return try ProtobufUnittest.BoolMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.BoolMessage {
+      public func build() throws -> ProtobufUnittest.BoolMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -20013,11 +19541,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BoolMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BoolMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BoolMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BoolMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -20044,7 +19572,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BoolMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BoolMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -20056,7 +19584,9 @@ public extension ProtobufUnittest {
   }
 
   // Test oneofs.
-  final public class TestOneof : GeneratedMessage {
+  final public class TestOneof  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestOneof, rhs: ProtobufUnittest.TestOneof) -> Bool {
       if (lhs === rhs) {
@@ -20075,7 +19605,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class FooGroup : GeneratedMessage {
+      final public class FooGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestOneof.FooGroup, rhs: ProtobufUnittest.TestOneof.FooGroup) -> Bool {
           if (lhs === rhs) {
@@ -20095,12 +19627,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasB:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 5, value:a)
           }
@@ -20109,7 +19640,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -20117,26 +19648,14 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 5, value: a)
           }
           if hasB {
-            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: b)
+            serialize_size += ProtobufWire.string().computeSizeWith(tag: 6, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestOneof.FooGroup.Builder {
-          return ProtobufUnittest.TestOneof.FooGroup.classBuilder() as! ProtobufUnittest.TestOneof.FooGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestOneof.FooGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestOneof.FooGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof.FooGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof.FooGroup.builderWithPrototype(prototype:self)
@@ -20144,7 +19663,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof.FooGroup) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof.FooGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -20158,13 +19677,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof.FooGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof.FooGroup {
           return try ProtobufUnittest.TestOneof.FooGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof.FooGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof.FooGroup {
           return try ProtobufUnittest.TestOneof.FooGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -20175,7 +19694,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -20192,22 +19711,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestOneof.FooGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestOneof.FooGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestOneof.FooGroup
           fileprivate var builderResult:ProtobufUnittest.TestOneof.FooGroup = ProtobufUnittest.TestOneof.FooGroup()
           public func getMessage() -> ProtobufUnittest.TestOneof.FooGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -20259,20 +19778,21 @@ public extension ProtobufUnittest {
                builderResult.b = ""
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestOneof.FooGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestOneof.FooGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             builderResult = ProtobufUnittest.TestOneof.FooGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             return try ProtobufUnittest.TestOneof.FooGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestOneof.FooGroup {
+          public func build() throws -> ProtobufUnittest.TestOneof.FooGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -20295,11 +19815,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -20332,7 +19852,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof.FooGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -20481,12 +20001,11 @@ public extension ProtobufUnittest {
           }
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
         try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
@@ -20501,7 +20020,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -20509,36 +20028,20 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
-              serialize_size += varSizefooMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 3, value:fooMessage)
       }
       if hasFooGroup {
-          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 4, value:fooGroup) {
-              serialize_size += varSizefooGroup
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 4, value:fooGroup)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestOneof.Builder {
-      return ProtobufUnittest.TestOneof.classBuilder() as! ProtobufUnittest.TestOneof.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestOneof.Builder {
-      return classBuilder() as! ProtobufUnittest.TestOneof.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneof.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneof.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneof.Builder {
       return try ProtobufUnittest.TestOneof.builderWithPrototype(prototype:self)
@@ -20546,7 +20049,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof) throws -> ProtobufUnittest.TestOneof.Builder {
       return try ProtobufUnittest.TestOneof.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -20566,13 +20069,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof {
       return try ProtobufUnittest.TestOneof.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof {
       return try ProtobufUnittest.TestOneof.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
@@ -20597,7 +20100,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasFooInt {
@@ -20624,22 +20127,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestOneof"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestOneof"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestOneof
       fileprivate var builderResult:ProtobufUnittest.TestOneof = ProtobufUnittest.TestOneof()
       public func getMessage() -> ProtobufUnittest.TestOneof {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasFooInt:Bool {
            get {
@@ -20799,20 +20302,21 @@ public extension ProtobufUnittest {
         builderResult.fooGroup = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestOneof {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestOneof.Builder {
+      public func clear() -> ProtobufUnittest.TestOneof.Builder {
         builderResult = ProtobufUnittest.TestOneof()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestOneof.Builder {
+      public func clone() throws -> ProtobufUnittest.TestOneof.Builder {
         return try ProtobufUnittest.TestOneof.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestOneof {
+      public func build() throws -> ProtobufUnittest.TestOneof {
            try checkInitialized()
            return buildPartial()
       }
@@ -20841,11 +20345,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -20902,7 +20406,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -20913,7 +20417,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestOneofBackwardsCompatible : GeneratedMessage {
+  final public class TestOneofBackwardsCompatible  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible, rhs: ProtobufUnittest.TestOneofBackwardsCompatible) -> Bool {
       if (lhs === rhs) {
@@ -20932,7 +20438,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class FooGroup : GeneratedMessage {
+      final public class FooGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup, rhs: ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) -> Bool {
           if (lhs === rhs) {
@@ -20952,12 +20460,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasB:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 5, value:a)
           }
@@ -20966,7 +20473,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -20974,26 +20481,14 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 5, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 5, value: a)
           }
           if hasB {
-            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 6, value: b)
+            serialize_size += ProtobufWire.string().computeSizeWith(tag: 6, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
-          return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
           return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.builderWithPrototype(prototype:self)
@@ -21001,7 +20496,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
           return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -21015,13 +20510,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
           return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
           return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -21032,7 +20527,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -21049,22 +20544,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup
           fileprivate var builderResult:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup()
           public func getMessage() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -21116,20 +20611,21 @@ public extension ProtobufUnittest {
                builderResult.b = ""
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             builderResult = ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             return try ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
+          public func build() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -21152,11 +20648,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -21189,7 +20685,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -21213,12 +20709,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var fooGroup:ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup!
     public fileprivate(set) var hasFooGroup:Bool = false
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
         try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
@@ -21233,7 +20728,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -21241,36 +20736,20 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
-              serialize_size += varSizefooMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 3, value:fooMessage)
       }
       if hasFooGroup {
-          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 4, value:fooGroup) {
-              serialize_size += varSizefooGroup
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 4, value:fooGroup)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
-      return ProtobufUnittest.TestOneofBackwardsCompatible.classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
-      return classBuilder() as! ProtobufUnittest.TestOneofBackwardsCompatible.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneofBackwardsCompatible.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneofBackwardsCompatible.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
       return try ProtobufUnittest.TestOneofBackwardsCompatible.builderWithPrototype(prototype:self)
@@ -21278,7 +20757,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneofBackwardsCompatible) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
       return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -21298,13 +20777,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
       return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
       return try ProtobufUnittest.TestOneofBackwardsCompatible.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
@@ -21329,7 +20808,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasFooInt {
@@ -21356,22 +20835,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestOneofBackwardsCompatible"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestOneofBackwardsCompatible"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestOneofBackwardsCompatible
       fileprivate var builderResult:ProtobufUnittest.TestOneofBackwardsCompatible = ProtobufUnittest.TestOneofBackwardsCompatible()
       public func getMessage() -> ProtobufUnittest.TestOneofBackwardsCompatible {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasFooInt:Bool {
            get {
@@ -21531,20 +21010,21 @@ public extension ProtobufUnittest {
         builderResult.fooGroup = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestOneofBackwardsCompatible {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
+      public func clear() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         builderResult = ProtobufUnittest.TestOneofBackwardsCompatible()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
+      public func clone() throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         return try ProtobufUnittest.TestOneofBackwardsCompatible.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
+      public func build() throws -> ProtobufUnittest.TestOneofBackwardsCompatible {
            try checkInitialized()
            return buildPartial()
       }
@@ -21573,11 +21053,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -21634,7 +21114,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -21645,7 +21125,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestOneof2 : GeneratedMessage {
+  final public class TestOneof2  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestOneof2, rhs: ProtobufUnittest.TestOneof2) -> Bool {
       if (lhs === rhs) {
@@ -21677,7 +21159,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class FooGroup : GeneratedMessage {
+      final public class FooGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestOneof2.FooGroup, rhs: ProtobufUnittest.TestOneof2.FooGroup) -> Bool {
           if (lhs === rhs) {
@@ -21697,12 +21181,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasB:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.write.int32(fieldNumber: 9, value:a)
           }
@@ -21711,7 +21194,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -21719,26 +21202,14 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasA {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 9, value: a)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 9, value: a)
           }
           if hasB {
-            serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 10, value: b)
+            serialize_size += ProtobufWire.string().computeSizeWith(tag: 10, value: b)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
-          return ProtobufUnittest.TestOneof2.FooGroup.classBuilder() as! ProtobufUnittest.TestOneof2.FooGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestOneof2.FooGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof2.FooGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof2.FooGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof2.FooGroup.builderWithPrototype(prototype:self)
@@ -21746,7 +21217,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2.FooGroup) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
           return try ProtobufUnittest.TestOneof2.FooGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -21760,13 +21231,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.FooGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.FooGroup {
           return try ProtobufUnittest.TestOneof2.FooGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2.FooGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2.FooGroup {
           return try ProtobufUnittest.TestOneof2.FooGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasA {
             output += "\(indent) a: \(a) \n"
@@ -21777,7 +21248,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasA {
@@ -21794,22 +21265,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestOneof2.FooGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestOneof2.FooGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestOneof2.FooGroup
           fileprivate var builderResult:ProtobufUnittest.TestOneof2.FooGroup = ProtobufUnittest.TestOneof2.FooGroup()
           public func getMessage() -> ProtobufUnittest.TestOneof2.FooGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasA:Bool {
                get {
@@ -21861,20 +21332,21 @@ public extension ProtobufUnittest {
                builderResult.b = ""
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestOneof2.FooGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             builderResult = ProtobufUnittest.TestOneof2.FooGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             return try ProtobufUnittest.TestOneof2.FooGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestOneof2.FooGroup {
+          public func build() throws -> ProtobufUnittest.TestOneof2.FooGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -21897,11 +21369,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -21934,7 +21406,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.FooGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -21951,7 +21423,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage {
+      final public class NestedMessage  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestOneof2.NestedMessage, rhs: ProtobufUnittest.TestOneof2.NestedMessage) -> Bool {
           if (lhs === rhs) {
@@ -21969,12 +21443,11 @@ public extension ProtobufUnittest {
 
         public fileprivate(set) var corgeInt:Array<Int32> = Array<Int32>()
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasQuxInt {
             try codedOutputStream.write.int64(fieldNumber: 1, value:quxInt)
           }
@@ -21985,7 +21458,7 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -21993,27 +21466,15 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasQuxInt {
-            serialize_size += try ProtobufWire.Size(wireType:.int64).with(tag: 1, value: quxInt)
+            serialize_size += ProtobufWire.int64().computeSizeWith(tag: 1, value: quxInt)
           }
           var dataSizeCorgeInt:Int32 = 0
-          dataSizeCorgeInt += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: corgeInt)
+          dataSizeCorgeInt += ProtobufWire.int32().repeatedWithoutTag(value: corgeInt)
           serialize_size += dataSizeCorgeInt
           serialize_size += 1 * Int32(corgeInt.count)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
-          return ProtobufUnittest.TestOneof2.NestedMessage.classBuilder() as! ProtobufUnittest.TestOneof2.NestedMessage.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestOneof2.NestedMessage.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof2.NestedMessage.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestOneof2.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
           return try ProtobufUnittest.TestOneof2.NestedMessage.builderWithPrototype(prototype:self)
@@ -22021,7 +21482,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2.NestedMessage) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
           return try ProtobufUnittest.TestOneof2.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -22039,13 +21500,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
           return try ProtobufUnittest.TestOneof2.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2.NestedMessage {
           return try ProtobufUnittest.TestOneof2.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasQuxInt {
             output += "\(indent) quxInt: \(quxInt) \n"
@@ -22058,7 +21519,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasQuxInt {
@@ -22075,22 +21536,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestOneof2.NestedMessage"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestOneof2.NestedMessage"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestOneof2.NestedMessage
           fileprivate var builderResult:ProtobufUnittest.TestOneof2.NestedMessage = ProtobufUnittest.TestOneof2.NestedMessage()
           public func getMessage() -> ProtobufUnittest.TestOneof2.NestedMessage {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasQuxInt:Bool {
                get {
@@ -22135,20 +21596,21 @@ public extension ProtobufUnittest {
              builderResult.corgeInt.removeAll(keepingCapacity: false)
              return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestOneof2.NestedMessage {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
+          public func clear() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             builderResult = ProtobufUnittest.TestOneof2.NestedMessage()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
+          public func clone() throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             return try ProtobufUnittest.TestOneof2.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestOneof2.NestedMessage {
+          public func build() throws -> ProtobufUnittest.TestOneof2.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -22171,11 +21633,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -22212,7 +21674,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -22734,12 +22196,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasBazString:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
         try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
@@ -22793,7 +22254,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -22801,77 +22262,59 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: fooString)
       }
       if hasFooCord {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 3, value: fooCord)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 3, value: fooCord)
       }
       if hasFooStringPiece {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 4, value: fooStringPiece)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 4, value: fooStringPiece)
       }
       if hasFooBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 5, value: fooBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 5, value: fooBytes)
       }
       if (hasFooEnum) {
         serialize_size += fooEnum.rawValue.computeEnumSize(fieldNumber: 6)
       }
       if hasFooMessage {
-          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 7, value:fooMessage) {
-              serialize_size += varSizefooMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 7, value:fooMessage)
       }
       if hasFooGroup {
-          if let varSizefooGroup = try ProtobufWire.Size(wireType:.group).with(tag: 8, value:fooGroup) {
-              serialize_size += varSizefooGroup
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 8, value:fooGroup)
       }
       if hasFooLazyMessage {
-          if let varSizefooLazyMessage = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:fooLazyMessage) {
-              serialize_size += varSizefooLazyMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 11, value:fooLazyMessage)
       }
       if hasBarInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 12, value: barInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 12, value: barInt)
       }
       if hasBarString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 13, value: barString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 13, value: barString)
       }
       if hasBarCord {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 14, value: barCord)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 14, value: barCord)
       }
       if hasBarStringPiece {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 15, value: barStringPiece)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 15, value: barStringPiece)
       }
       if hasBarBytes {
-        serialize_size += try ProtobufWire.Size(wireType:.data).with(tag: 16, value: barBytes)
+        serialize_size += ProtobufWire.data().computeSizeWith(tag: 16, value: barBytes)
       }
       if (hasBarEnum) {
         serialize_size += barEnum.rawValue.computeEnumSize(fieldNumber: 17)
       }
       if hasBazInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 18, value: bazInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 18, value: bazInt)
       }
       if hasBazString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 19, value: bazString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 19, value: bazString)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestOneof2.Builder {
-      return ProtobufUnittest.TestOneof2.classBuilder() as! ProtobufUnittest.TestOneof2.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestOneof2.Builder {
-      return classBuilder() as! ProtobufUnittest.TestOneof2.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneof2.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestOneof2.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestOneof2.Builder {
       return try ProtobufUnittest.TestOneof2.builderWithPrototype(prototype:self)
@@ -22879,7 +22322,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestOneof2) throws -> ProtobufUnittest.TestOneof2.Builder {
       return try ProtobufUnittest.TestOneof2.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -22938,13 +22381,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2 {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOneof2 {
       return try ProtobufUnittest.TestOneof2.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2 {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestOneof2 {
       return try ProtobufUnittest.TestOneof2.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
@@ -23012,7 +22455,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasFooInt {
@@ -23080,22 +22523,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestOneof2"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestOneof2"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestOneof2
       fileprivate var builderResult:ProtobufUnittest.TestOneof2 = ProtobufUnittest.TestOneof2()
       public func getMessage() -> ProtobufUnittest.TestOneof2 {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasFooInt:Bool {
            get {
@@ -23609,20 +23052,21 @@ public extension ProtobufUnittest {
            builderResult.bazString = "BAZ"
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestOneof2 {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestOneof2.Builder {
+      public func clear() -> ProtobufUnittest.TestOneof2.Builder {
         builderResult = ProtobufUnittest.TestOneof2()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestOneof2.Builder {
+      public func clone() throws -> ProtobufUnittest.TestOneof2.Builder {
         return try ProtobufUnittest.TestOneof2.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestOneof2 {
+      public func build() throws -> ProtobufUnittest.TestOneof2 {
            try checkInitialized()
            return buildPartial()
       }
@@ -23690,11 +23134,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestOneof2.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestOneof2.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -23845,7 +23289,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestOneof2.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -23856,7 +23300,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestRequiredOneof : GeneratedMessage {
+  final public class TestRequiredOneof  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestRequiredOneof, rhs: ProtobufUnittest.TestRequiredOneof) -> Bool {
       if (lhs === rhs) {
@@ -23874,7 +23320,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class NestedMessage : GeneratedMessage {
+      final public class NestedMessage  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestRequiredOneof.NestedMessage, rhs: ProtobufUnittest.TestRequiredOneof.NestedMessage) -> Bool {
           if (lhs === rhs) {
@@ -23890,21 +23338,20 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasRequiredDouble:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
           if !hasRequiredDouble {
             return false
           }
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasRequiredDouble {
             try codedOutputStream.write.double(fieldNumber: 1, value:requiredDouble)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -23912,23 +23359,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRequiredDouble {
-            serialize_size += try ProtobufWire.Size(wireType:.double).with(tag: 1, value: requiredDouble)
+            serialize_size += ProtobufWire.double().computeSizeWith(tag: 1, value: requiredDouble)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
-          return ProtobufUnittest.TestRequiredOneof.NestedMessage.classBuilder() as! ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
-          return classBuilder() as! ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
           return try ProtobufUnittest.TestRequiredOneof.NestedMessage.builderWithPrototype(prototype:self)
@@ -23936,7 +23371,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOneof.NestedMessage) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
           return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -23947,13 +23382,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
           return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
           return try ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasRequiredDouble {
             output += "\(indent) requiredDouble: \(requiredDouble) \n"
@@ -23961,7 +23396,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasRequiredDouble {
@@ -23975,22 +23410,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestRequiredOneof.NestedMessage"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestRequiredOneof.NestedMessage"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestRequiredOneof.NestedMessage
           fileprivate var builderResult:ProtobufUnittest.TestRequiredOneof.NestedMessage = ProtobufUnittest.TestRequiredOneof.NestedMessage()
           public func getMessage() -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasRequiredDouble:Bool {
                get {
@@ -24017,20 +23452,21 @@ public extension ProtobufUnittest {
                builderResult.requiredDouble = Double(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestRequiredOneof.NestedMessage {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
+          public func clear() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             builderResult = ProtobufUnittest.TestRequiredOneof.NestedMessage()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
+          public func clone() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             return try ProtobufUnittest.TestRequiredOneof.NestedMessage.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
+          public func build() throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage {
                try checkInitialized()
                return buildPartial()
           }
@@ -24050,11 +23486,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -24081,7 +23517,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -24202,9 +23638,8 @@ public extension ProtobufUnittest {
           }
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if hasFooMessage {
        if !fooMessage.isInitialized() {
          return false
@@ -24212,7 +23647,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFooInt {
         try codedOutputStream.write.int32(fieldNumber: 1, value:fooInt)
       }
@@ -24224,7 +23659,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -24232,31 +23667,17 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasFooInt {
-        serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: fooInt)
+        serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: fooInt)
       }
       if hasFooString {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: fooString)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: fooString)
       }
       if hasFooMessage {
-          if let varSizefooMessage = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:fooMessage) {
-              serialize_size += varSizefooMessage
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 3, value:fooMessage)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestRequiredOneof.Builder {
-      return ProtobufUnittest.TestRequiredOneof.classBuilder() as! ProtobufUnittest.TestRequiredOneof.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestRequiredOneof.Builder {
-      return classBuilder() as! ProtobufUnittest.TestRequiredOneof.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequiredOneof.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRequiredOneof.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRequiredOneof.Builder {
       return try ProtobufUnittest.TestRequiredOneof.builderWithPrototype(prototype:self)
@@ -24264,7 +23685,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRequiredOneof) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
       return try ProtobufUnittest.TestRequiredOneof.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -24281,13 +23702,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOneof {
       return try ProtobufUnittest.TestRequiredOneof.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredOneof {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRequiredOneof {
       return try ProtobufUnittest.TestRequiredOneof.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasFooInt {
         output += "\(indent) fooInt: \(fooInt) \n"
@@ -24305,7 +23726,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasFooInt {
@@ -24327,22 +23748,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestRequiredOneof"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestRequiredOneof"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestRequiredOneof
       fileprivate var builderResult:ProtobufUnittest.TestRequiredOneof = ProtobufUnittest.TestRequiredOneof()
       public func getMessage() -> ProtobufUnittest.TestRequiredOneof {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasFooInt:Bool {
            get {
@@ -24448,20 +23869,21 @@ public extension ProtobufUnittest {
         builderResult.fooMessage = nil
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestRequiredOneof {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestRequiredOneof.Builder {
+      public func clear() -> ProtobufUnittest.TestRequiredOneof.Builder {
         builderResult = ProtobufUnittest.TestRequiredOneof()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestRequiredOneof.Builder {
+      public func clone() throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         return try ProtobufUnittest.TestRequiredOneof.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestRequiredOneof {
+      public func build() throws -> ProtobufUnittest.TestRequiredOneof {
            try checkInitialized()
            return buildPartial()
       }
@@ -24487,11 +23909,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -24536,7 +23958,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRequiredOneof.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -24547,7 +23969,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestPackedTypes : GeneratedMessage {
+  final public class TestPackedTypes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestPackedTypes, rhs: ProtobufUnittest.TestPackedTypes) -> Bool {
       if (lhs === rhs) {
@@ -24601,12 +24025,11 @@ public extension ProtobufUnittest {
     private var packedEnumMemoizedSerializedSize:Int32 = 0
     public fileprivate(set) var packedEnum:Array<ProtobufUnittest.ForeignEnum> = Array<ProtobufUnittest.ForeignEnum>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !packedInt32.isEmpty {
         try codedOutputStream.writeRawVarint32(value: 722)
         try codedOutputStream.writeRawVarint32(value: packedInt32MemoizedSerializedSize)
@@ -24707,7 +24130,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -24715,51 +24138,51 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizePackedInt32:Int32 = 0
-      dataSizePackedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: packedInt32)
+      dataSizePackedInt32 += ProtobufWire.int32().repeatedWithoutTag(value: packedInt32)
       serialize_size += dataSizePackedInt32
       if !packedInt32.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedInt32).withoutTag(value: dataSizePackedInt32)
+        serialize_size += ProtobufWirePackedInt32().repeatedWithoutTag(value: dataSizePackedInt32)
       }
       packedInt32MemoizedSerializedSize = dataSizePackedInt32
       var dataSizePackedInt64:Int32 = 0
-      dataSizePackedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: packedInt64)
+      dataSizePackedInt64 += ProtobufWire.int64().repeatedWithoutTag(value: packedInt64)
       serialize_size += dataSizePackedInt64
       if !packedInt64.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedInt64).withoutTag(value: dataSizePackedInt64)
+        serialize_size += ProtobufWirePackedInt64().repeatedWithoutTag(value: dataSizePackedInt64)
       }
       packedInt64MemoizedSerializedSize = dataSizePackedInt64
       var dataSizePackedUint32:Int32 = 0
-      dataSizePackedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: packedUint32)
+      dataSizePackedUint32 += ProtobufWire.uInt32().repeatedWithoutTag(value: packedUint32)
       serialize_size += dataSizePackedUint32
       if !packedUint32.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedUint32).withoutTag(value: dataSizePackedUint32)
+        serialize_size += ProtobufWirePackedUint32().repeatedWithoutTag(value: dataSizePackedUint32)
       }
       packedUint32MemoizedSerializedSize = dataSizePackedUint32
       var dataSizePackedUint64:Int32 = 0
-      dataSizePackedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: packedUint64)
+      dataSizePackedUint64 += ProtobufWire.uint64().repeatedWithoutTag(value: packedUint64)
       serialize_size += dataSizePackedUint64
       if !packedUint64.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedUint64).withoutTag(value: dataSizePackedUint64)
+        serialize_size += ProtobufWirePackedUint64().repeatedWithoutTag(value: dataSizePackedUint64)
       }
       packedUint64MemoizedSerializedSize = dataSizePackedUint64
       var dataSizePackedSint32:Int32 = 0
-      dataSizePackedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: packedSint32)
+      dataSizePackedSint32 += ProtobufWire.sint32().repeatedWithoutTag(value: packedSint32)
       serialize_size += dataSizePackedSint32
       if !packedSint32.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedSint32).withoutTag(value: dataSizePackedSint32)
+        serialize_size += ProtobufWirePackedSint32().repeatedWithoutTag(value: dataSizePackedSint32)
       }
       packedSint32MemoizedSerializedSize = dataSizePackedSint32
       var dataSizePackedSint64:Int32 = 0
-      dataSizePackedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: packedSint64)
+      dataSizePackedSint64 += ProtobufWire.sint64().repeatedWithoutTag(value: packedSint64)
       serialize_size += dataSizePackedSint64
       if !packedSint64.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedSint64).withoutTag(value: dataSizePackedSint64)
+        serialize_size += ProtobufWirePackedSint64().repeatedWithoutTag(value: dataSizePackedSint64)
       }
       packedSint64MemoizedSerializedSize = dataSizePackedSint64
       var dataSizePackedFixed32:Int32 = 0
@@ -24767,7 +24190,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFixed32
       if !packedFixed32.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedFixed32).withoutTag(value: dataSizePackedFixed32)
+        serialize_size += ProtobufWirePackedFixed32().repeatedWithoutTag(value: dataSizePackedFixed32)
       }
       packedFixed32MemoizedSerializedSize = dataSizePackedFixed32
       var dataSizePackedFixed64:Int32 = 0
@@ -24775,7 +24198,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFixed64
       if !packedFixed64.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedFixed64).withoutTag(value: dataSizePackedFixed64)
+        serialize_size += ProtobufWirePackedFixed64().repeatedWithoutTag(value: dataSizePackedFixed64)
       }
       packedFixed64MemoizedSerializedSize = dataSizePackedFixed64
       var dataSizePackedSfixed32:Int32 = 0
@@ -24783,7 +24206,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedSfixed32
       if !packedSfixed32.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedSfixed32).withoutTag(value: dataSizePackedSfixed32)
+        serialize_size += ProtobufWirePackedSfixed32().repeatedWithoutTag(value: dataSizePackedSfixed32)
       }
       packedSfixed32MemoizedSerializedSize = dataSizePackedSfixed32
       var dataSizePackedSfixed64:Int32 = 0
@@ -24791,7 +24214,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedSfixed64
       if !packedSfixed64.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedSfixed64).withoutTag(value: dataSizePackedSfixed64)
+        serialize_size += ProtobufWirePackedSfixed64().repeatedWithoutTag(value: dataSizePackedSfixed64)
       }
       packedSfixed64MemoizedSerializedSize = dataSizePackedSfixed64
       var dataSizePackedFloat:Int32 = 0
@@ -24799,7 +24222,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedFloat
       if !packedFloat.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedFloat).withoutTag(value: dataSizePackedFloat)
+        serialize_size += ProtobufWirePackedFloat().repeatedWithoutTag(value: dataSizePackedFloat)
       }
       packedFloatMemoizedSerializedSize = dataSizePackedFloat
       var dataSizePackedDouble:Int32 = 0
@@ -24807,7 +24230,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedDouble
       if !packedDouble.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedDouble).withoutTag(value: dataSizePackedDouble)
+        serialize_size += ProtobufWirePackedDouble().repeatedWithoutTag(value: dataSizePackedDouble)
       }
       packedDoubleMemoizedSerializedSize = dataSizePackedDouble
       var dataSizePackedBool:Int32 = 0
@@ -24815,32 +24238,20 @@ public extension ProtobufUnittest {
       serialize_size += dataSizePackedBool
       if !packedBool.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedBool).withoutTag(value: dataSizePackedBool)
+        serialize_size += ProtobufWirePackedBool().repeatedWithoutTag(value: dataSizePackedBool)
       }
       packedBoolMemoizedSerializedSize = dataSizePackedBool
       var dataSizepackedEnum:Int32 = 0
-      dataSizepackedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfpackedEnum.rawValue)
+      dataSizepackedEnum += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfpackedEnum.rawValue)
       serialize_size += dataSizepackedEnum
       if !packedEnum.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType:.int32).withoutTag(value:dataSizepackedEnum)
+        serialize_size += ProtobufWire.Size().computeTagSize(tag: dataSizepackedEnum)
       }
       packedEnumMemoizedSerializedSize = dataSizepackedEnum
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestPackedTypes.Builder {
-      return ProtobufUnittest.TestPackedTypes.classBuilder() as! ProtobufUnittest.TestPackedTypes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestPackedTypes.Builder {
-      return classBuilder() as! ProtobufUnittest.TestPackedTypes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestPackedTypes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestPackedTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedTypes.Builder {
       return try ProtobufUnittest.TestPackedTypes.builderWithPrototype(prototype:self)
@@ -24848,7 +24259,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedTypes) throws -> ProtobufUnittest.TestPackedTypes.Builder {
       return try ProtobufUnittest.TestPackedTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -24954,13 +24365,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypes {
       return try ProtobufUnittest.TestPackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestPackedTypes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestPackedTypes {
       return try ProtobufUnittest.TestPackedTypes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var packedInt32ElementIndex:Int = 0
       for oneValuePackedInt32 in packedInt32  {
@@ -25035,7 +24446,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValuePackedInt32 in packedInt32 {
@@ -25088,22 +24499,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestPackedTypes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestPackedTypes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestPackedTypes
       fileprivate var builderResult:ProtobufUnittest.TestPackedTypes = ProtobufUnittest.TestPackedTypes()
       public func getMessage() -> ProtobufUnittest.TestPackedTypes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var packedInt32:Array<Int32> {
            get {
@@ -25357,20 +24768,21 @@ public extension ProtobufUnittest {
         builderResult.packedEnum.removeAll(keepingCapacity: false)
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestPackedTypes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestPackedTypes.Builder {
+      public func clear() -> ProtobufUnittest.TestPackedTypes.Builder {
         builderResult = ProtobufUnittest.TestPackedTypes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestPackedTypes.Builder {
+      public func clone() throws -> ProtobufUnittest.TestPackedTypes.Builder {
         return try ProtobufUnittest.TestPackedTypes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestPackedTypes {
+      public func build() throws -> ProtobufUnittest.TestPackedTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -25429,11 +24841,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -25670,7 +25082,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestPackedTypes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestPackedTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -25683,7 +25095,9 @@ public extension ProtobufUnittest {
 
   // A message with the same fields as TestPackedTypes, but without packing. Used
   // to test packed <-> unpacked wire compatibility.
-  final public class TestUnpackedTypes : GeneratedMessage {
+  final public class TestUnpackedTypes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestUnpackedTypes, rhs: ProtobufUnittest.TestUnpackedTypes) -> Bool {
       if (lhs === rhs) {
@@ -25724,12 +25138,11 @@ public extension ProtobufUnittest {
     private var unpackedEnumMemoizedSerializedSize:Int32 = 0
     public fileprivate(set) var unpackedEnum:Array<ProtobufUnittest.ForeignEnum> = Array<ProtobufUnittest.ForeignEnum>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !unpackedInt32.isEmpty {
         for oneValueunpackedInt32 in unpackedInt32 {
           try codedOutputStream.write.int32(fieldNumber: 90, value:oneValueunpackedInt32)
@@ -25800,7 +25213,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -25808,27 +25221,27 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       var dataSizeUnpackedInt32:Int32 = 0
-      dataSizeUnpackedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: unpackedInt32)
+      dataSizeUnpackedInt32 += ProtobufWire.int32().repeatedWithoutTag(value: unpackedInt32)
       serialize_size += dataSizeUnpackedInt32
       serialize_size += 2 * Int32(unpackedInt32.count)
       var dataSizeUnpackedInt64:Int32 = 0
-      dataSizeUnpackedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: unpackedInt64)
+      dataSizeUnpackedInt64 += ProtobufWire.int64().repeatedWithoutTag(value: unpackedInt64)
       serialize_size += dataSizeUnpackedInt64
       serialize_size += 2 * Int32(unpackedInt64.count)
       var dataSizeUnpackedUint32:Int32 = 0
-      dataSizeUnpackedUint32 += try ProtobufWire.Size(wireType: .uInt32).repeatedWithoutTag(value: unpackedUint32)
+      dataSizeUnpackedUint32 += ProtobufWire.uInt32().repeatedWithoutTag(value: unpackedUint32)
       serialize_size += dataSizeUnpackedUint32
       serialize_size += 2 * Int32(unpackedUint32.count)
       var dataSizeUnpackedUint64:Int32 = 0
-      dataSizeUnpackedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: unpackedUint64)
+      dataSizeUnpackedUint64 += ProtobufWire.uint64().repeatedWithoutTag(value: unpackedUint64)
       serialize_size += dataSizeUnpackedUint64
       serialize_size += 2 * Int32(unpackedUint64.count)
       var dataSizeUnpackedSint32:Int32 = 0
-      dataSizeUnpackedSint32 += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: unpackedSint32)
+      dataSizeUnpackedSint32 += ProtobufWire.sint32().repeatedWithoutTag(value: unpackedSint32)
       serialize_size += dataSizeUnpackedSint32
       serialize_size += 2 * Int32(unpackedSint32.count)
       var dataSizeUnpackedSint64:Int32 = 0
-      dataSizeUnpackedSint64 += try ProtobufWire.Size(wireType: .sint64).repeatedWithoutTag(value: unpackedSint64)
+      dataSizeUnpackedSint64 += ProtobufWire.sint64().repeatedWithoutTag(value: unpackedSint64)
       serialize_size += dataSizeUnpackedSint64
       serialize_size += 2 * Int32(unpackedSint64.count)
       var dataSizeUnpackedFixed32:Int32 = 0
@@ -25860,24 +25273,12 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeUnpackedBool
       serialize_size += 2 * Int32(unpackedBool.count)
       var dataSizeunpackedEnum:Int32 = 0
-      dataSizeunpackedEnum += try ProtobufWire.Size(wireType:.enum).repeatedWithoutTag(value: oneValueOfunpackedEnum.rawValue)
+      dataSizeunpackedEnum += ProtobufWire.enum().repeatedWithoutTag(value: oneValueOfunpackedEnum.rawValue)
       serialize_size += dataSizeunpackedEnum
       serialize_size += (2 * Int32(unpackedEnum.count))
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestUnpackedTypes.Builder {
-      return ProtobufUnittest.TestUnpackedTypes.classBuilder() as! ProtobufUnittest.TestUnpackedTypes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestUnpackedTypes.Builder {
-      return classBuilder() as! ProtobufUnittest.TestUnpackedTypes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestUnpackedTypes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestUnpackedTypes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
       return try ProtobufUnittest.TestUnpackedTypes.builderWithPrototype(prototype:self)
@@ -25885,7 +25286,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestUnpackedTypes) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
       return try ProtobufUnittest.TestUnpackedTypes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -25991,13 +25392,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestUnpackedTypes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestUnpackedTypes {
       return try ProtobufUnittest.TestUnpackedTypes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestUnpackedTypes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestUnpackedTypes {
       return try ProtobufUnittest.TestUnpackedTypes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var unpackedInt32ElementIndex:Int = 0
       for oneValueUnpackedInt32 in unpackedInt32  {
@@ -26072,7 +25473,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValueUnpackedInt32 in unpackedInt32 {
@@ -26125,22 +25526,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestUnpackedTypes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestUnpackedTypes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestUnpackedTypes
       fileprivate var builderResult:ProtobufUnittest.TestUnpackedTypes = ProtobufUnittest.TestUnpackedTypes()
       public func getMessage() -> ProtobufUnittest.TestUnpackedTypes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var unpackedInt32:Array<Int32> {
            get {
@@ -26394,20 +25795,21 @@ public extension ProtobufUnittest {
         builderResult.unpackedEnum.removeAll(keepingCapacity: false)
         return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestUnpackedTypes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestUnpackedTypes.Builder {
+      public func clear() -> ProtobufUnittest.TestUnpackedTypes.Builder {
         builderResult = ProtobufUnittest.TestUnpackedTypes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
+      public func clone() throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
         return try ProtobufUnittest.TestUnpackedTypes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestUnpackedTypes {
+      public func build() throws -> ProtobufUnittest.TestUnpackedTypes {
            try checkInitialized()
            return buildPartial()
       }
@@ -26466,11 +25868,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -26637,7 +26039,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestUnpackedTypes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -26649,6 +26051,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestPackedExtensions : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestPackedExtensions, rhs: ProtobufUnittest.TestPackedExtensions) -> Bool {
       if (lhs === rhs) {
@@ -26661,19 +26065,18 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -26685,25 +26088,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestPackedExtensions.Builder {
-      return ProtobufUnittest.TestPackedExtensions.classBuilder() as! ProtobufUnittest.TestPackedExtensions.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestPackedExtensions.Builder {
-      return classBuilder() as! ProtobufUnittest.TestPackedExtensions.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestPackedExtensions.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestPackedExtensions.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestPackedExtensions.Builder {
       return try ProtobufUnittest.TestPackedExtensions.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestPackedExtensions) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
       return try ProtobufUnittest.TestPackedExtensions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -26711,19 +26102,19 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedExtensions {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedExtensions {
       return try ProtobufUnittest.TestPackedExtensions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestPackedExtensions {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestPackedExtensions {
       return try ProtobufUnittest.TestPackedExtensions.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += try getExtensionDescription(startInclusive:1, endExclusive:536870912, indent:indent)
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 1, endExclusive:536870912))
@@ -26735,37 +26126,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestPackedExtensions"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestPackedExtensions"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestPackedExtensions
       fileprivate var builderResult:ProtobufUnittest.TestPackedExtensions = ProtobufUnittest.TestPackedExtensions()
       public func getMessage() -> ProtobufUnittest.TestPackedExtensions {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestPackedExtensions.Builder {
+      public func clear() -> ProtobufUnittest.TestPackedExtensions.Builder {
         builderResult = ProtobufUnittest.TestPackedExtensions()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestPackedExtensions.Builder {
+      public func clone() throws -> ProtobufUnittest.TestPackedExtensions.Builder {
         return try ProtobufUnittest.TestPackedExtensions.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestPackedExtensions {
+      public func build() throws -> ProtobufUnittest.TestPackedExtensions {
            try checkInitialized()
            return buildPartial()
       }
@@ -26783,11 +26175,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -26808,7 +26200,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestPackedExtensions.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestPackedExtensions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -26820,6 +26212,8 @@ public extension ProtobufUnittest {
   }
 
   final public class TestUnpackedExtensions : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestUnpackedExtensions, rhs: ProtobufUnittest.TestUnpackedExtensions) -> Bool {
       if (lhs === rhs) {
@@ -26832,19 +26226,18 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !extensionsAreInitialized() {
         return false
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -26856,25 +26249,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.TestUnpackedExtensions.Builder {
-      return ProtobufUnittest.TestUnpackedExtensions.classBuilder() as! ProtobufUnittest.TestUnpackedExtensions.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestUnpackedExtensions.Builder {
-      return classBuilder() as! ProtobufUnittest.TestUnpackedExtensions.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestUnpackedExtensions.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestUnpackedExtensions.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
       return try ProtobufUnittest.TestUnpackedExtensions.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestUnpackedExtensions) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
       return try ProtobufUnittest.TestUnpackedExtensions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -26882,19 +26263,19 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestUnpackedExtensions {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestUnpackedExtensions {
       return try ProtobufUnittest.TestUnpackedExtensions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestUnpackedExtensions {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestUnpackedExtensions {
       return try ProtobufUnittest.TestUnpackedExtensions.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += try getExtensionDescription(startInclusive:1, endExclusive:536870912, indent:indent)
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 1, endExclusive:536870912))
@@ -26906,37 +26287,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestUnpackedExtensions"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestUnpackedExtensions"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestUnpackedExtensions
       fileprivate var builderResult:ProtobufUnittest.TestUnpackedExtensions = ProtobufUnittest.TestUnpackedExtensions()
       public func getMessage() -> ProtobufUnittest.TestUnpackedExtensions {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestUnpackedExtensions.Builder {
+      public func clear() -> ProtobufUnittest.TestUnpackedExtensions.Builder {
         builderResult = ProtobufUnittest.TestUnpackedExtensions()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
+      public func clone() throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
         return try ProtobufUnittest.TestUnpackedExtensions.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestUnpackedExtensions {
+      public func build() throws -> ProtobufUnittest.TestUnpackedExtensions {
            try checkInitialized()
            return buildPartial()
       }
@@ -26954,11 +26336,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -26979,7 +26361,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestUnpackedExtensions.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestUnpackedExtensions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -26993,7 +26375,9 @@ public extension ProtobufUnittest {
   // Used by ExtensionSetTest/DynamicExtensions.  The test actually builds
   // a set of extensions to TestAllExtensions dynamically, based on the fields
   // of this message type.
-  final public class TestDynamicExtensions : GeneratedMessage {
+  final public class TestDynamicExtensions  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestDynamicExtensions, rhs: ProtobufUnittest.TestDynamicExtensions) -> Bool {
       if (lhs === rhs) {
@@ -27015,7 +26399,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class DynamicMessageType : GeneratedMessage {
+      final public class DynamicMessageType  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType, rhs: ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) -> Bool {
           if (lhs === rhs) {
@@ -27031,18 +26417,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasDynamicField:Bool = false
 
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasDynamicField {
             try codedOutputStream.write.int32(fieldNumber: 2100, value:dynamicField)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -27050,23 +26435,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasDynamicField {
-            serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 2100, value: dynamicField)
+            serialize_size += ProtobufWire.int32().computeSizeWith(tag: 2100, value: dynamicField)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
-          return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.classBuilder() as! ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
-          return classBuilder() as! ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
           return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.builderWithPrototype(prototype:self)
@@ -27074,7 +26447,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
           return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -27085,13 +26458,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
           return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
           return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasDynamicField {
             output += "\(indent) dynamicField: \(dynamicField) \n"
@@ -27099,7 +26472,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasDynamicField {
@@ -27113,22 +26486,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestDynamicExtensions.DynamicMessageType"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestDynamicExtensions.DynamicMessageType"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType
           fileprivate var builderResult:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType()
           public func getMessage() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasDynamicField:Bool {
                get {
@@ -27155,20 +26528,21 @@ public extension ProtobufUnittest {
                builderResult.dynamicField = Int32(0)
                return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
+          public func clear() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             builderResult = ProtobufUnittest.TestDynamicExtensions.DynamicMessageType()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
+          public func clone() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             return try ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
+          public func build() throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType {
                try checkInitialized()
                return buildPartial()
           }
@@ -27188,11 +26562,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -27219,7 +26593,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -27283,12 +26657,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var packedExtension:Array<Int32> = Array<Int32>()
     private var packedExtensionMemoizedSerializedSize:Int32 = -1
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasScalarExtension {
         try codedOutputStream.write.fixed32(fieldNumber: 2000, value:scalarExtension)
       }
@@ -27318,7 +26691,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -27326,7 +26699,7 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasScalarExtension {
-        serialize_size += try ProtobufWire.Size(wireType:.fixed32).with(tag: 2000, value: scalarExtension)
+        serialize_size += ProtobufWire.fixed32().computeSizeWith(tag: 2000, value: scalarExtension)
       }
       if (hasEnumExtension) {
         serialize_size += enumExtension.rawValue.computeEnumSize(fieldNumber: 2001)
@@ -27335,42 +26708,26 @@ public extension ProtobufUnittest {
         serialize_size += dynamicEnumExtension.rawValue.computeEnumSize(fieldNumber: 2002)
       }
       if hasMessageExtension {
-          if let varSizemessageExtension = try ProtobufWire.Size(wireType:.message).with(tag: 2003, value:messageExtension) {
-              serialize_size += varSizemessageExtension
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 2003, value:messageExtension)
       }
       if hasDynamicMessageExtension {
-          if let varSizedynamicMessageExtension = try ProtobufWire.Size(wireType:.message).with(tag: 2004, value:dynamicMessageExtension) {
-              serialize_size += varSizedynamicMessageExtension
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 2004, value:dynamicMessageExtension)
       }
       var dataSizeRepeatedExtension:Int32 = 0
-      dataSizeRepeatedExtension += try ProtobufWire.Size(wireType: .string).repeatedWithoutTag(value: repeatedExtension)
+      dataSizeRepeatedExtension += ProtobufWire.string().repeatedWithoutTag(value: repeatedExtension)
       serialize_size += dataSizeRepeatedExtension
       serialize_size += 2 * Int32(repeatedExtension.count)
       var dataSizePackedExtension:Int32 = 0
-      dataSizePackedExtension += try ProtobufWire.Size(wireType: .sint32).repeatedWithoutTag(value: packedExtension)
+      dataSizePackedExtension += ProtobufWire.sint32().repeatedWithoutTag(value: packedExtension)
       serialize_size += dataSizePackedExtension
       if !packedExtension.isEmpty {
         serialize_size += 2
-        serialize_size += try ProtobufWire.Size(wireType: PackedExtension).withoutTag(value: dataSizePackedExtension)
+        serialize_size += ProtobufWirePackedExtension().repeatedWithoutTag(value: dataSizePackedExtension)
       }
       packedExtensionMemoizedSerializedSize = dataSizePackedExtension
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.Builder {
-      return ProtobufUnittest.TestDynamicExtensions.classBuilder() as! ProtobufUnittest.TestDynamicExtensions.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestDynamicExtensions.Builder {
-      return classBuilder() as! ProtobufUnittest.TestDynamicExtensions.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDynamicExtensions.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestDynamicExtensions.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
       return try ProtobufUnittest.TestDynamicExtensions.builderWithPrototype(prototype:self)
@@ -27378,7 +26735,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestDynamicExtensions) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
       return try ProtobufUnittest.TestDynamicExtensions.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -27415,13 +26772,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDynamicExtensions {
       return try ProtobufUnittest.TestDynamicExtensions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions {
       return try ProtobufUnittest.TestDynamicExtensions.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasScalarExtension {
         output += "\(indent) scalarExtension: \(scalarExtension) \n"
@@ -27459,7 +26816,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasScalarExtension {
@@ -27495,22 +26852,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestDynamicExtensions"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestDynamicExtensions"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestDynamicExtensions
       fileprivate var builderResult:ProtobufUnittest.TestDynamicExtensions = ProtobufUnittest.TestDynamicExtensions()
       public func getMessage() -> ProtobufUnittest.TestDynamicExtensions {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasScalarExtension:Bool {
            get {
@@ -27731,20 +27088,21 @@ public extension ProtobufUnittest {
          builderResult.packedExtension.removeAll(keepingCapacity: false)
          return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestDynamicExtensions {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestDynamicExtensions.Builder {
+      public func clear() -> ProtobufUnittest.TestDynamicExtensions.Builder {
         builderResult = ProtobufUnittest.TestDynamicExtensions()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
+      public func clone() throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         return try ProtobufUnittest.TestDynamicExtensions.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestDynamicExtensions {
+      public func build() throws -> ProtobufUnittest.TestDynamicExtensions {
            try checkInitialized()
            return buildPartial()
       }
@@ -27782,11 +27140,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -27884,7 +27242,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestDynamicExtensions.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -27895,7 +27253,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestRepeatedScalarDifferentTagSizes : GeneratedMessage {
+  final public class TestRepeatedScalarDifferentTagSizes  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes, rhs: ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) -> Bool {
       if (lhs === rhs) {
@@ -27925,12 +27285,11 @@ public extension ProtobufUnittest {
     public fileprivate(set) var repeatedFloat:Array<Float> = Array<Float>()
     public fileprivate(set) var repeatedUint64:Array<UInt64> = Array<UInt64>()
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if !repeatedFixed32.isEmpty {
         for oneValuerepeatedFixed32 in repeatedFixed32 {
           try codedOutputStream.write.fixed32(fieldNumber: 12, value:oneValuerepeatedFixed32)
@@ -27963,7 +27322,7 @@ public extension ProtobufUnittest {
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -27975,7 +27334,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFixed32
       serialize_size += 1 * Int32(repeatedFixed32.count)
       var dataSizeRepeatedInt32:Int32 = 0
-      dataSizeRepeatedInt32 += try ProtobufWire.Size(wireType: .int32).repeatedWithoutTag(value: repeatedInt32)
+      dataSizeRepeatedInt32 += ProtobufWire.int32().repeatedWithoutTag(value: repeatedInt32)
       serialize_size += dataSizeRepeatedInt32
       serialize_size += 1 * Int32(repeatedInt32.count)
       var dataSizeRepeatedFixed64:Int32 = 0
@@ -27983,7 +27342,7 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFixed64
       serialize_size += 2 * Int32(repeatedFixed64.count)
       var dataSizeRepeatedInt64:Int32 = 0
-      dataSizeRepeatedInt64 += try ProtobufWire.Size(wireType: .int64).repeatedWithoutTag(value: repeatedInt64)
+      dataSizeRepeatedInt64 += ProtobufWire.int64().repeatedWithoutTag(value: repeatedInt64)
       serialize_size += dataSizeRepeatedInt64
       serialize_size += 2 * Int32(repeatedInt64.count)
       var dataSizeRepeatedFloat:Int32 = 0
@@ -27991,24 +27350,12 @@ public extension ProtobufUnittest {
       serialize_size += dataSizeRepeatedFloat
       serialize_size += 3 * Int32(repeatedFloat.count)
       var dataSizeRepeatedUint64:Int32 = 0
-      dataSizeRepeatedUint64 += try ProtobufWire.Size(wireType: .uint64).repeatedWithoutTag(value: repeatedUint64)
+      dataSizeRepeatedUint64 += ProtobufWire.uint64().repeatedWithoutTag(value: repeatedUint64)
       serialize_size += dataSizeRepeatedUint64
       serialize_size += 3 * Int32(repeatedUint64.count)
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
-      return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.classBuilder() as! ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
-      return classBuilder() as! ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
       return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.builderWithPrototype(prototype:self)
@@ -28016,7 +27363,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
       return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -28066,13 +27413,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
       return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
       return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       var repeatedFixed32ElementIndex:Int = 0
       for oneValueRepeatedFixed32 in repeatedFixed32  {
@@ -28107,7 +27454,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             for oneValueRepeatedFixed32 in repeatedFixed32 {
@@ -28136,22 +27483,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestRepeatedScalarDifferentTagSizes"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestRepeatedScalarDifferentTagSizes"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestRepeatedScalarDifferentTagSizes
       fileprivate var builderResult:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes = ProtobufUnittest.TestRepeatedScalarDifferentTagSizes()
       public func getMessage() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var repeatedFixed32:Array<UInt32> {
            get {
@@ -28261,20 +27608,21 @@ public extension ProtobufUnittest {
          builderResult.repeatedUint64.removeAll(keepingCapacity: false)
          return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
+      public func clear() -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         builderResult = ProtobufUnittest.TestRepeatedScalarDifferentTagSizes()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
+      public func clone() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         return try ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
+      public func build() throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes {
            try checkInitialized()
            return buildPartial()
       }
@@ -28309,11 +27657,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -28394,7 +27742,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -28408,6 +27756,8 @@ public extension ProtobufUnittest {
   // Test that if an optional or required message/group field appears multiple
   // times in the input, they need to be merged.
   final public class TestParsingMerge : ExtendableMessage {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestParsingMerge, rhs: ProtobufUnittest.TestParsingMerge) -> Bool {
       if (lhs === rhs) {
@@ -28433,7 +27783,9 @@ public extension ProtobufUnittest {
       // RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
       // Repeated fields in RepeatedFieldsGenerator are expected to be merged into
       // the corresponding required/optional fields in TestParsingMerge.
-      final public class RepeatedFieldsGenerator : GeneratedMessage {
+      final public class RepeatedFieldsGenerator  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) -> Bool {
           if (lhs === rhs) {
@@ -28455,7 +27807,9 @@ public extension ProtobufUnittest {
 
         //Nested type declaration start
 
-          final public class Group1 : GeneratedMessage {
+          final public class Group1  {
+            public var unknownFields = UnknownFieldSet(fields: [:])
+            fileprivate var memoizedSerializedSize:Int32 = -1
 
             public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
               if (lhs === rhs) {
@@ -28470,18 +27824,17 @@ public extension ProtobufUnittest {
             public fileprivate(set) var field1:ProtobufUnittest.TestAllTypes!
             public fileprivate(set) var hasField1:Bool = false
             required public init() {
-                 super.init()
             }
-            override public func isInitialized() -> Bool {
+            public func isInitialized() -> Bool {
              return true
             }
-            override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+            public func writeTo(codedOutputStream: CodedOutputStream) throws {
               if hasField1 {
                 try codedOutputStream.write.message(fieldNumber: 11, value:field1)
               }
               try unknownFields.writeTo(codedOutputStream: codedOutputStream)
             }
-            override public func serializedSize() throws -> Int32 {
+            public func serializedSize() throws -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
               if serialize_size != -1 {
                return serialize_size
@@ -28489,25 +27842,11 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:field1) {
-                      serialize_size += varSizefield1
-                  }
+                serialize_size += ProtobufWire.message().computeSizeWith(tag: 11, value:field1)
               }
               serialize_size += unknownFields.serializedSize()
               memoizedSerializedSize = serialize_size
               return serialize_size
-            }
-            public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder
-            }
-            public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
-              return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder
-            }
-            override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
-            }
-            override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.builderWithPrototype(prototype:self)
@@ -28515,7 +27854,7 @@ public extension ProtobufUnittest {
             public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder().mergeFrom(other:prototype)
             }
-            override public func encode() throws -> Dictionary<String,Any> {
+            public func encode() throws -> Dictionary<String,Any> {
               guard isInitialized() else {
                 throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
               }
@@ -28526,13 +27865,13 @@ public extension ProtobufUnittest {
               }
               return jsonMap
             }
-            override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+            class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+            class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder.fromJSONToBuilder(data:data).build()
             }
-            override public func getDescription(indent:String) throws -> String {
+            public func getDescription(indent:String) throws -> String {
               var output = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
@@ -28544,7 +27883,7 @@ public extension ProtobufUnittest {
               output += unknownFields.getDescription(indent: indent)
               return output
             }
-            override public var hashValue:Int {
+            public var hashValue:Int {
                 get {
                     var hashCode:Int = 7
                     if hasField1 {
@@ -28560,22 +27899,22 @@ public extension ProtobufUnittest {
 
             //Meta information declaration start
 
-            override public class func className() -> String {
+            public class func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1"
             }
-            override public func className() -> String {
+            public func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1"
             }
             //Meta information declaration end
 
-            final public class Builder : GeneratedMessageBuilder {
+            final public class Builder : GeneratedMessageBuilderProtocol {
+              public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1
               fileprivate var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1()
               public func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
                   return builderResult
               }
 
-              required override public init () {
-                 super.init()
+              required public init () {
               }
               public var hasField1:Bool {
                    get {
@@ -28631,20 +27970,21 @@ public extension ProtobufUnittest {
                 builderResult.field1 = nil
                 return self
               }
-              override public var internalGetResult:GeneratedMessage {
+              public var internalGetResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
                    get {
                       return builderResult
                    }
+                  set{}
               }
               @discardableResult
-              override public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
+              public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 builderResult = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1()
                 return self
               }
-              override public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
+              public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.builderWithPrototype(prototype:builderResult)
               }
-              override public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
+              public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1 {
                    try checkInitialized()
                    return buildPartial()
               }
@@ -28664,11 +28004,11 @@ public extension ProtobufUnittest {
                 return self
               }
               @discardableResult
-              override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
+              public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
               @discardableResult
-              override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
+              public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
                 while (true) {
                   let protobufTag = try codedInputStream.readTag()
@@ -28701,7 +28041,7 @@ public extension ProtobufUnittest {
                 }
                 return resultDecodedBuilder
               }
-              override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
+              class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder {
                 let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -28718,7 +28058,9 @@ public extension ProtobufUnittest {
 
         //Nested type declaration start
 
-          final public class Group2 : GeneratedMessage {
+          final public class Group2  {
+            public var unknownFields = UnknownFieldSet(fields: [:])
+            fileprivate var memoizedSerializedSize:Int32 = -1
 
             public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2, rhs: ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
               if (lhs === rhs) {
@@ -28733,18 +28075,17 @@ public extension ProtobufUnittest {
             public fileprivate(set) var field1:ProtobufUnittest.TestAllTypes!
             public fileprivate(set) var hasField1:Bool = false
             required public init() {
-                 super.init()
             }
-            override public func isInitialized() -> Bool {
+            public func isInitialized() -> Bool {
              return true
             }
-            override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+            public func writeTo(codedOutputStream: CodedOutputStream) throws {
               if hasField1 {
                 try codedOutputStream.write.message(fieldNumber: 21, value:field1)
               }
               try unknownFields.writeTo(codedOutputStream: codedOutputStream)
             }
-            override public func serializedSize() throws -> Int32 {
+            public func serializedSize() throws -> Int32 {
               var serialize_size:Int32 = memoizedSerializedSize
               if serialize_size != -1 {
                return serialize_size
@@ -28752,25 +28093,11 @@ public extension ProtobufUnittest {
 
               serialize_size = 0
               if hasField1 {
-                  if let varSizefield1 = try ProtobufWire.Size(wireType:.message).with(tag: 21, value:field1) {
-                      serialize_size += varSizefield1
-                  }
+                serialize_size += ProtobufWire.message().computeSizeWith(tag: 21, value:field1)
               }
               serialize_size += unknownFields.serializedSize()
               memoizedSerializedSize = serialize_size
               return serialize_size
-            }
-            public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder
-            }
-            public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
-              return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder
-            }
-            override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
-            }
-            override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-              return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder()
             }
             public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.builderWithPrototype(prototype:self)
@@ -28778,7 +28105,7 @@ public extension ProtobufUnittest {
             public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder().mergeFrom(other:prototype)
             }
-            override public func encode() throws -> Dictionary<String,Any> {
+            public func encode() throws -> Dictionary<String,Any> {
               guard isInitialized() else {
                 throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
               }
@@ -28789,13 +28116,13 @@ public extension ProtobufUnittest {
               }
               return jsonMap
             }
-            override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+            class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+            class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
               return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder.fromJSONToBuilder(data:data).build()
             }
-            override public func getDescription(indent:String) throws -> String {
+            public func getDescription(indent:String) throws -> String {
               var output = ""
               if hasField1 {
                 output += "\(indent) field1 {\n"
@@ -28807,7 +28134,7 @@ public extension ProtobufUnittest {
               output += unknownFields.getDescription(indent: indent)
               return output
             }
-            override public var hashValue:Int {
+            public var hashValue:Int {
                 get {
                     var hashCode:Int = 7
                     if hasField1 {
@@ -28823,22 +28150,22 @@ public extension ProtobufUnittest {
 
             //Meta information declaration start
 
-            override public class func className() -> String {
+            public class func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2"
             }
-            override public func className() -> String {
+            public func className() -> String {
                 return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2"
             }
             //Meta information declaration end
 
-            final public class Builder : GeneratedMessageBuilder {
+            final public class Builder : GeneratedMessageBuilderProtocol {
+              public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2
               fileprivate var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2()
               public func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
                   return builderResult
               }
 
-              required override public init () {
-                 super.init()
+              required public init () {
               }
               public var hasField1:Bool {
                    get {
@@ -28894,20 +28221,21 @@ public extension ProtobufUnittest {
                 builderResult.field1 = nil
                 return self
               }
-              override public var internalGetResult:GeneratedMessage {
+              public var internalGetResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
                    get {
                       return builderResult
                    }
+                  set{}
               }
               @discardableResult
-              override public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
+              public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 builderResult = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2()
                 return self
               }
-              override public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
+              public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.builderWithPrototype(prototype:builderResult)
               }
-              override public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
+              public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2 {
                    try checkInitialized()
                    return buildPartial()
               }
@@ -28927,11 +28255,11 @@ public extension ProtobufUnittest {
                 return self
               }
               @discardableResult
-              override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
+              public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
               }
               @discardableResult
-              override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
+              public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
                 while (true) {
                   let protobufTag = try codedInputStream.readTag()
@@ -28964,7 +28292,7 @@ public extension ProtobufUnittest {
                 }
                 return resultDecodedBuilder
               }
-              override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
+              class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder {
                 let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -28985,12 +28313,11 @@ public extension ProtobufUnittest {
         public fileprivate(set) var ext1:Array<ProtobufUnittest.TestAllTypes>  = Array<ProtobufUnittest.TestAllTypes>()
         public fileprivate(set) var ext2:Array<ProtobufUnittest.TestAllTypes>  = Array<ProtobufUnittest.TestAllTypes>()
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           for oneElementField1 in field1 {
               try codedOutputStream.write.message(fieldNumber: 1, value:oneElementField1)
           }
@@ -29014,35 +28341,23 @@ public extension ProtobufUnittest {
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
           }
 
           serialize_size = 0
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1, value: field1)
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 2, value: field2)
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: field3)
-          serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 10, value: group1)
-          serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 20, value: group2)
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1000, value: ext1)
-          serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 1001, value: ext2)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 1, value: field1)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 2, value: field2)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 3, value: field3)
+          serialize_size += ProtobufWire.group().repeatedWith(tag: 10, value: group1)
+          serialize_size += ProtobufWire.group().repeatedWith(tag: 20, value: group2)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 1000, value: ext1)
+          serialize_size += ProtobufWire.message().repeatedWith(tag: 1001, value: ext2)
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
-          return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.builderWithPrototype(prototype:self)
@@ -29050,7 +28365,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -29114,13 +28429,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
           return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
           return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           var field1ElementIndex:Int = 0
           for oneElementField1 in field1 {
@@ -29174,7 +28489,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 for oneElementField1 in field1 {
@@ -29206,22 +28521,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator
           fileprivate var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator()
           public func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var field1:Array<ProtobufUnittest.TestAllTypes> {
                get {
@@ -29349,20 +28664,21 @@ public extension ProtobufUnittest {
             builderResult.ext2.removeAll(keepingCapacity: false)
             return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
+          public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
             builderResult = ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
+          public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
             return try ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
+          public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator {
                try checkInitialized()
                return buildPartial()
           }
@@ -29400,11 +28716,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -29523,7 +28839,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -29540,7 +28856,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class OptionalGroup : GeneratedMessage {
+      final public class OptionalGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestParsingMerge.OptionalGroup, rhs: ProtobufUnittest.TestParsingMerge.OptionalGroup) -> Bool {
           if (lhs === rhs) {
@@ -29555,18 +28873,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var optionalGroupAllTypes:ProtobufUnittest.TestAllTypes!
         public fileprivate(set) var hasOptionalGroupAllTypes:Bool = false
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasOptionalGroupAllTypes {
             try codedOutputStream.write.message(fieldNumber: 11, value:optionalGroupAllTypes)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -29574,25 +28891,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasOptionalGroupAllTypes {
-              if let varSizeoptionalGroupAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 11, value:optionalGroupAllTypes) {
-                  serialize_size += varSizeoptionalGroupAllTypes
-              }
+            serialize_size += ProtobufWire.message().computeSizeWith(tag: 11, value:optionalGroupAllTypes)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
-          return ProtobufUnittest.TestParsingMerge.OptionalGroup.classBuilder() as! ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.OptionalGroup.builderWithPrototype(prototype:self)
@@ -29600,7 +28903,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.OptionalGroup) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -29611,13 +28914,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
           return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
           return try ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasOptionalGroupAllTypes {
             output += "\(indent) optionalGroupAllTypes {\n"
@@ -29629,7 +28932,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasOptionalGroupAllTypes {
@@ -29645,22 +28948,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.OptionalGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.OptionalGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge.OptionalGroup
           fileprivate var builderResult:ProtobufUnittest.TestParsingMerge.OptionalGroup = ProtobufUnittest.TestParsingMerge.OptionalGroup()
           public func getMessage() -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasOptionalGroupAllTypes:Bool {
                get {
@@ -29716,20 +29019,21 @@ public extension ProtobufUnittest {
             builderResult.optionalGroupAllTypes = nil
             return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestParsingMerge.OptionalGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             builderResult = ProtobufUnittest.TestParsingMerge.OptionalGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             return try ProtobufUnittest.TestParsingMerge.OptionalGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
+          public func build() throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -29749,11 +29053,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -29786,7 +29090,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -29803,7 +29107,9 @@ public extension ProtobufUnittest {
 
     //Nested type declaration start
 
-      final public class RepeatedGroup : GeneratedMessage {
+      final public class RepeatedGroup  {
+        public var unknownFields = UnknownFieldSet(fields: [:])
+        fileprivate var memoizedSerializedSize:Int32 = -1
 
         public static func == (lhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup, rhs: ProtobufUnittest.TestParsingMerge.RepeatedGroup) -> Bool {
           if (lhs === rhs) {
@@ -29818,18 +29124,17 @@ public extension ProtobufUnittest {
         public fileprivate(set) var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypes!
         public fileprivate(set) var hasRepeatedGroupAllTypes:Bool = false
         required public init() {
-             super.init()
         }
-        override public func isInitialized() -> Bool {
+        public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        public func writeTo(codedOutputStream: CodedOutputStream) throws {
           if hasRepeatedGroupAllTypes {
             try codedOutputStream.write.message(fieldNumber: 21, value:repeatedGroupAllTypes)
           }
           try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
-        override public func serializedSize() throws -> Int32 {
+        public func serializedSize() throws -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
           if serialize_size != -1 {
            return serialize_size
@@ -29837,25 +29142,11 @@ public extension ProtobufUnittest {
 
           serialize_size = 0
           if hasRepeatedGroupAllTypes {
-              if let varSizerepeatedGroupAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 21, value:repeatedGroupAllTypes) {
-                  serialize_size += varSizerepeatedGroupAllTypes
-              }
+            serialize_size += ProtobufWire.message().computeSizeWith(tag: 21, value:repeatedGroupAllTypes)
           }
           serialize_size += unknownFields.serializedSize()
           memoizedSerializedSize = serialize_size
           return serialize_size
-        }
-        public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedGroup.classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder
-        }
-        public func getBuilder() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
-          return classBuilder() as! ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder
-        }
-        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
-        }
-        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-          return ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder()
         }
         public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.builderWithPrototype(prototype:self)
@@ -29863,7 +29154,7 @@ public extension ProtobufUnittest {
         public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge.RepeatedGroup) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
           return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder().mergeFrom(other:prototype)
         }
-        override public func encode() throws -> Dictionary<String,Any> {
+        public func encode() throws -> Dictionary<String,Any> {
           guard isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
           }
@@ -29874,13 +29165,13 @@ public extension ProtobufUnittest {
           }
           return jsonMap
         }
-        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
+        class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
           return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
+        class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
           return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder.fromJSONToBuilder(data:data).build()
         }
-        override public func getDescription(indent:String) throws -> String {
+        public func getDescription(indent:String) throws -> String {
           var output = ""
           if hasRepeatedGroupAllTypes {
             output += "\(indent) repeatedGroupAllTypes {\n"
@@ -29892,7 +29183,7 @@ public extension ProtobufUnittest {
           output += unknownFields.getDescription(indent: indent)
           return output
         }
-        override public var hashValue:Int {
+        public var hashValue:Int {
             get {
                 var hashCode:Int = 7
                 if hasRepeatedGroupAllTypes {
@@ -29908,22 +29199,22 @@ public extension ProtobufUnittest {
 
         //Meta information declaration start
 
-        override public class func className() -> String {
+        public class func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedGroup"
         }
-        override public func className() -> String {
+        public func className() -> String {
             return "ProtobufUnittest.TestParsingMerge.RepeatedGroup"
         }
         //Meta information declaration end
 
-        final public class Builder : GeneratedMessageBuilder {
+        final public class Builder : GeneratedMessageBuilderProtocol {
+          public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge.RepeatedGroup
           fileprivate var builderResult:ProtobufUnittest.TestParsingMerge.RepeatedGroup = ProtobufUnittest.TestParsingMerge.RepeatedGroup()
           public func getMessage() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
               return builderResult
           }
 
-          required override public init () {
-             super.init()
+          required public init () {
           }
           public var hasRepeatedGroupAllTypes:Bool {
                get {
@@ -29979,20 +29270,21 @@ public extension ProtobufUnittest {
             builderResult.repeatedGroupAllTypes = nil
             return self
           }
-          override public var internalGetResult:GeneratedMessage {
+          public var internalGetResult:ProtobufUnittest.TestParsingMerge.RepeatedGroup {
                get {
                   return builderResult
                }
+              set{}
           }
           @discardableResult
-          override public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
+          public func clear() -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             builderResult = ProtobufUnittest.TestParsingMerge.RepeatedGroup()
             return self
           }
-          override public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
+          public func clone() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             return try ProtobufUnittest.TestParsingMerge.RepeatedGroup.builderWithPrototype(prototype:builderResult)
           }
-          override public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
+          public func build() throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup {
                try checkInitialized()
                return buildPartial()
           }
@@ -30012,11 +29304,11 @@ public extension ProtobufUnittest {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
+          public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -30049,7 +29341,7 @@ public extension ProtobufUnittest {
             }
             return resultDecodedBuilder
           }
-          override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
+          class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder {
             let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -30077,9 +29369,8 @@ public extension ProtobufUnittest {
          return TestParsingMergerepeatedExt
     }
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
       if !hasRequiredAllTypes {
         return false
       }
@@ -30088,7 +29379,7 @@ public extension ProtobufUnittest {
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasRequiredAllTypes {
         try codedOutputStream.write.message(fieldNumber: 1, value:requiredAllTypes)
       }
@@ -30107,7 +29398,7 @@ public extension ProtobufUnittest {
       try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1000, endExclusive:536870912)
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -30115,38 +29406,20 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasRequiredAllTypes {
-          if let varSizerequiredAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:requiredAllTypes) {
-              serialize_size += varSizerequiredAllTypes
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:requiredAllTypes)
       }
       if hasOptionalAllTypes {
-          if let varSizeoptionalAllTypes = try ProtobufWire.Size(wireType:.message).with(tag: 2, value:optionalAllTypes) {
-              serialize_size += varSizeoptionalAllTypes
-          }
+        serialize_size += ProtobufWire.message().computeSizeWith(tag: 2, value:optionalAllTypes)
       }
-      serialize_size += try ProtobufWire.Size(wireType: .message).repeatedWith(tag: 3, value: repeatedAllTypes)
+      serialize_size += ProtobufWire.message().repeatedWith(tag: 3, value: repeatedAllTypes)
       if hasOptionalGroup {
-          if let varSizeoptionalGroup = try ProtobufWire.Size(wireType:.group).with(tag: 10, value:optionalGroup) {
-              serialize_size += varSizeoptionalGroup
-          }
+        serialize_size += ProtobufWire.group().computeSizeWith(tag: 10, value:optionalGroup)
       }
-      serialize_size += try ProtobufWire.Size(wireType: .group).repeatedWith(tag: 20, value: repeatedGroup)
+      serialize_size += ProtobufWire.group().repeatedWith(tag: 20, value: repeatedGroup)
       serialize_size += extensionsSerializedSize()
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestParsingMerge.Builder {
-      return ProtobufUnittest.TestParsingMerge.classBuilder() as! ProtobufUnittest.TestParsingMerge.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestParsingMerge.Builder {
-      return classBuilder() as! ProtobufUnittest.TestParsingMerge.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestParsingMerge.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestParsingMerge.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestParsingMerge.Builder {
       return try ProtobufUnittest.TestParsingMerge.builderWithPrototype(prototype:self)
@@ -30154,7 +29427,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestParsingMerge) throws -> ProtobufUnittest.TestParsingMerge.Builder {
       return try ProtobufUnittest.TestParsingMerge.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -30187,13 +29460,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMerge {
       return try ProtobufUnittest.TestParsingMerge.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestParsingMerge {
       return try ProtobufUnittest.TestParsingMerge.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasRequiredAllTypes {
         output += "\(indent) requiredAllTypes {\n"
@@ -30234,7 +29507,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasRequiredAllTypes {
@@ -30267,22 +29540,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestParsingMerge"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestParsingMerge"
     }
     //Meta information declaration end
 
     final public class Builder : ExtendableMessageBuilder {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestParsingMerge
       fileprivate var builderResult:ProtobufUnittest.TestParsingMerge = ProtobufUnittest.TestParsingMerge()
       public func getMessage() -> ProtobufUnittest.TestParsingMerge {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasRequiredAllTypes:Bool {
            get {
@@ -30482,20 +29755,21 @@ public extension ProtobufUnittest {
         builderResult.repeatedGroup.removeAll(keepingCapacity: false)
         return self
       }
-      override public var internalGetResult:ExtendableMessage {
+      public var internalGetResult:ExtendableMessage {
            get {
                return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestParsingMerge.Builder {
+      public func clear() -> ProtobufUnittest.TestParsingMerge.Builder {
         builderResult = ProtobufUnittest.TestParsingMerge()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestParsingMerge.Builder {
+      public func clone() throws -> ProtobufUnittest.TestParsingMerge.Builder {
         return try ProtobufUnittest.TestParsingMerge.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestParsingMerge {
+      public func build() throws -> ProtobufUnittest.TestParsingMerge {
            try checkInitialized()
            return buildPartial()
       }
@@ -30528,11 +29802,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestParsingMerge.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -30617,7 +29891,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestParsingMerge.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -30628,7 +29902,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class TestCommentInjectionMessage : GeneratedMessage {
+  final public class TestCommentInjectionMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.TestCommentInjectionMessage, rhs: ProtobufUnittest.TestCommentInjectionMessage) -> Bool {
       if (lhs === rhs) {
@@ -30645,18 +29921,17 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasA:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.write.string(fieldNumber: 1, value:a)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -30664,23 +29939,11 @@ public extension ProtobufUnittest {
 
       serialize_size = 0
       if hasA {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: a)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: a)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
-      return ProtobufUnittest.TestCommentInjectionMessage.classBuilder() as! ProtobufUnittest.TestCommentInjectionMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.TestCommentInjectionMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestCommentInjectionMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.TestCommentInjectionMessage.Builder()
     }
     public func toBuilder() throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
       return try ProtobufUnittest.TestCommentInjectionMessage.builderWithPrototype(prototype:self)
@@ -30688,7 +29951,7 @@ public extension ProtobufUnittest {
     public class func builderWithPrototype(prototype:ProtobufUnittest.TestCommentInjectionMessage) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
       return try ProtobufUnittest.TestCommentInjectionMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -30699,13 +29962,13 @@ public extension ProtobufUnittest {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCommentInjectionMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestCommentInjectionMessage {
       return try ProtobufUnittest.TestCommentInjectionMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestCommentInjectionMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.TestCommentInjectionMessage {
       return try ProtobufUnittest.TestCommentInjectionMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasA {
         output += "\(indent) a: \(a) \n"
@@ -30713,7 +29976,7 @@ public extension ProtobufUnittest {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasA {
@@ -30727,22 +29990,22 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.TestCommentInjectionMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.TestCommentInjectionMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.TestCommentInjectionMessage
       fileprivate var builderResult:ProtobufUnittest.TestCommentInjectionMessage = ProtobufUnittest.TestCommentInjectionMessage()
       public func getMessage() -> ProtobufUnittest.TestCommentInjectionMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasA:Bool {
            get {
@@ -30769,20 +30032,21 @@ public extension ProtobufUnittest {
            builderResult.a = "*/ <- Neither should this."
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.TestCommentInjectionMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
+      public func clear() -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
         builderResult = ProtobufUnittest.TestCommentInjectionMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
         return try ProtobufUnittest.TestCommentInjectionMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.TestCommentInjectionMessage {
+      public func build() throws -> ProtobufUnittest.TestCommentInjectionMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -30802,11 +30066,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -30833,7 +30097,7 @@ public extension ProtobufUnittest {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.TestCommentInjectionMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -30845,7 +30109,9 @@ public extension ProtobufUnittest {
   }
 
   // Test that RPC services work.
-  final public class FooRequest : GeneratedMessage {
+  final public class FooRequest  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.FooRequest, rhs: ProtobufUnittest.FooRequest) -> Bool {
       if (lhs === rhs) {
@@ -30857,15 +30123,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -30876,25 +30141,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.FooRequest.Builder {
-      return ProtobufUnittest.FooRequest.classBuilder() as! ProtobufUnittest.FooRequest.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.FooRequest.Builder {
-      return classBuilder() as! ProtobufUnittest.FooRequest.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooRequest.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooRequest.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.FooRequest.Builder {
       return try ProtobufUnittest.FooRequest.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.FooRequest) throws -> ProtobufUnittest.FooRequest.Builder {
       return try ProtobufUnittest.FooRequest.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -30902,18 +30155,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooRequest {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooRequest {
       return try ProtobufUnittest.FooRequest.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooRequest {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooRequest {
       return try ProtobufUnittest.FooRequest.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -30924,37 +30177,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.FooRequest"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.FooRequest"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.FooRequest
       fileprivate var builderResult:ProtobufUnittest.FooRequest = ProtobufUnittest.FooRequest()
       public func getMessage() -> ProtobufUnittest.FooRequest {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.FooRequest {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.FooRequest.Builder {
+      public func clear() -> ProtobufUnittest.FooRequest.Builder {
         builderResult = ProtobufUnittest.FooRequest()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.FooRequest.Builder {
+      public func clone() throws -> ProtobufUnittest.FooRequest.Builder {
         return try ProtobufUnittest.FooRequest.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.FooRequest {
+      public func build() throws -> ProtobufUnittest.FooRequest {
            try checkInitialized()
            return buildPartial()
       }
@@ -30971,11 +30225,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooRequest.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooRequest.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooRequest.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooRequest.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -30996,7 +30250,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.FooRequest.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooRequest.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooRequest.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31007,7 +30261,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class FooResponse : GeneratedMessage {
+  final public class FooResponse  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.FooResponse, rhs: ProtobufUnittest.FooResponse) -> Bool {
       if (lhs === rhs) {
@@ -31019,15 +30275,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31038,25 +30293,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.FooResponse.Builder {
-      return ProtobufUnittest.FooResponse.classBuilder() as! ProtobufUnittest.FooResponse.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.FooResponse.Builder {
-      return classBuilder() as! ProtobufUnittest.FooResponse.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooResponse.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooResponse.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.FooResponse.Builder {
       return try ProtobufUnittest.FooResponse.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.FooResponse) throws -> ProtobufUnittest.FooResponse.Builder {
       return try ProtobufUnittest.FooResponse.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -31064,18 +30307,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooResponse {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooResponse {
       return try ProtobufUnittest.FooResponse.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooResponse {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooResponse {
       return try ProtobufUnittest.FooResponse.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -31086,37 +30329,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.FooResponse"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.FooResponse"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.FooResponse
       fileprivate var builderResult:ProtobufUnittest.FooResponse = ProtobufUnittest.FooResponse()
       public func getMessage() -> ProtobufUnittest.FooResponse {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.FooResponse {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.FooResponse.Builder {
+      public func clear() -> ProtobufUnittest.FooResponse.Builder {
         builderResult = ProtobufUnittest.FooResponse()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.FooResponse.Builder {
+      public func clone() throws -> ProtobufUnittest.FooResponse.Builder {
         return try ProtobufUnittest.FooResponse.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.FooResponse {
+      public func build() throws -> ProtobufUnittest.FooResponse {
            try checkInitialized()
            return buildPartial()
       }
@@ -31133,11 +30377,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooResponse.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooResponse.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooResponse.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooResponse.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -31158,7 +30402,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.FooResponse.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooResponse.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooResponse.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31169,7 +30413,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class FooClientMessage : GeneratedMessage {
+  final public class FooClientMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.FooClientMessage, rhs: ProtobufUnittest.FooClientMessage) -> Bool {
       if (lhs === rhs) {
@@ -31181,15 +30427,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31200,25 +30445,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.FooClientMessage.Builder {
-      return ProtobufUnittest.FooClientMessage.classBuilder() as! ProtobufUnittest.FooClientMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.FooClientMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.FooClientMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooClientMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooClientMessage.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.FooClientMessage.Builder {
       return try ProtobufUnittest.FooClientMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.FooClientMessage) throws -> ProtobufUnittest.FooClientMessage.Builder {
       return try ProtobufUnittest.FooClientMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -31226,18 +30459,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooClientMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooClientMessage {
       return try ProtobufUnittest.FooClientMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooClientMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooClientMessage {
       return try ProtobufUnittest.FooClientMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -31248,37 +30481,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.FooClientMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.FooClientMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.FooClientMessage
       fileprivate var builderResult:ProtobufUnittest.FooClientMessage = ProtobufUnittest.FooClientMessage()
       public func getMessage() -> ProtobufUnittest.FooClientMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.FooClientMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.FooClientMessage.Builder {
+      public func clear() -> ProtobufUnittest.FooClientMessage.Builder {
         builderResult = ProtobufUnittest.FooClientMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.FooClientMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.FooClientMessage.Builder {
         return try ProtobufUnittest.FooClientMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.FooClientMessage {
+      public func build() throws -> ProtobufUnittest.FooClientMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -31295,11 +30529,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooClientMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooClientMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooClientMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooClientMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -31320,7 +30554,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.FooClientMessage.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooClientMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooClientMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31331,7 +30565,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class FooServerMessage : GeneratedMessage {
+  final public class FooServerMessage  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.FooServerMessage, rhs: ProtobufUnittest.FooServerMessage) -> Bool {
       if (lhs === rhs) {
@@ -31343,15 +30579,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31362,25 +30597,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.FooServerMessage.Builder {
-      return ProtobufUnittest.FooServerMessage.classBuilder() as! ProtobufUnittest.FooServerMessage.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.FooServerMessage.Builder {
-      return classBuilder() as! ProtobufUnittest.FooServerMessage.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooServerMessage.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.FooServerMessage.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.FooServerMessage.Builder {
       return try ProtobufUnittest.FooServerMessage.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.FooServerMessage) throws -> ProtobufUnittest.FooServerMessage.Builder {
       return try ProtobufUnittest.FooServerMessage.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -31388,18 +30611,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooServerMessage {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.FooServerMessage {
       return try ProtobufUnittest.FooServerMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooServerMessage {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.FooServerMessage {
       return try ProtobufUnittest.FooServerMessage.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -31410,37 +30633,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.FooServerMessage"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.FooServerMessage"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.FooServerMessage
       fileprivate var builderResult:ProtobufUnittest.FooServerMessage = ProtobufUnittest.FooServerMessage()
       public func getMessage() -> ProtobufUnittest.FooServerMessage {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.FooServerMessage {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.FooServerMessage.Builder {
+      public func clear() -> ProtobufUnittest.FooServerMessage.Builder {
         builderResult = ProtobufUnittest.FooServerMessage()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.FooServerMessage.Builder {
+      public func clone() throws -> ProtobufUnittest.FooServerMessage.Builder {
         return try ProtobufUnittest.FooServerMessage.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.FooServerMessage {
+      public func build() throws -> ProtobufUnittest.FooServerMessage {
            try checkInitialized()
            return buildPartial()
       }
@@ -31457,11 +30681,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooServerMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.FooServerMessage.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooServerMessage.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.FooServerMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -31482,7 +30706,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.FooServerMessage.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooServerMessage.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.FooServerMessage.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31493,7 +30717,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class BarRequest : GeneratedMessage {
+  final public class BarRequest  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.BarRequest, rhs: ProtobufUnittest.BarRequest) -> Bool {
       if (lhs === rhs) {
@@ -31505,15 +30731,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31524,25 +30749,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.BarRequest.Builder {
-      return ProtobufUnittest.BarRequest.classBuilder() as! ProtobufUnittest.BarRequest.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.BarRequest.Builder {
-      return classBuilder() as! ProtobufUnittest.BarRequest.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BarRequest.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BarRequest.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.BarRequest.Builder {
       return try ProtobufUnittest.BarRequest.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.BarRequest) throws -> ProtobufUnittest.BarRequest.Builder {
       return try ProtobufUnittest.BarRequest.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -31550,18 +30763,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BarRequest {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BarRequest {
       return try ProtobufUnittest.BarRequest.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.BarRequest {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.BarRequest {
       return try ProtobufUnittest.BarRequest.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -31572,37 +30785,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.BarRequest"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.BarRequest"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.BarRequest
       fileprivate var builderResult:ProtobufUnittest.BarRequest = ProtobufUnittest.BarRequest()
       public func getMessage() -> ProtobufUnittest.BarRequest {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.BarRequest {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.BarRequest.Builder {
+      public func clear() -> ProtobufUnittest.BarRequest.Builder {
         builderResult = ProtobufUnittest.BarRequest()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.BarRequest.Builder {
+      public func clone() throws -> ProtobufUnittest.BarRequest.Builder {
         return try ProtobufUnittest.BarRequest.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.BarRequest {
+      public func build() throws -> ProtobufUnittest.BarRequest {
            try checkInitialized()
            return buildPartial()
       }
@@ -31619,11 +30833,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarRequest.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarRequest.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarRequest.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarRequest.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -31644,7 +30858,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.BarRequest.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BarRequest.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BarRequest.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31655,7 +30869,9 @@ public extension ProtobufUnittest {
 
   }
 
-  final public class BarResponse : GeneratedMessage {
+  final public class BarResponse  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: ProtobufUnittest.BarResponse, rhs: ProtobufUnittest.BarResponse) -> Bool {
       if (lhs === rhs) {
@@ -31667,15 +30883,14 @@ public extension ProtobufUnittest {
     }
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -31686,25 +30901,13 @@ public extension ProtobufUnittest {
       memoizedSerializedSize = serialize_size
       return serialize_size
     }
-    public class func getBuilder() -> ProtobufUnittest.BarResponse.Builder {
-      return ProtobufUnittest.BarResponse.classBuilder() as! ProtobufUnittest.BarResponse.Builder
-    }
-    public func getBuilder() -> ProtobufUnittest.BarResponse.Builder {
-      return classBuilder() as! ProtobufUnittest.BarResponse.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BarResponse.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return ProtobufUnittest.BarResponse.Builder()
-    }
     public func toBuilder() throws -> ProtobufUnittest.BarResponse.Builder {
       return try ProtobufUnittest.BarResponse.builderWithPrototype(prototype:self)
     }
     public class func builderWithPrototype(prototype:ProtobufUnittest.BarResponse) throws -> ProtobufUnittest.BarResponse.Builder {
       return try ProtobufUnittest.BarResponse.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -31712,18 +30915,18 @@ public extension ProtobufUnittest {
       let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BarResponse {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.BarResponse {
       return try ProtobufUnittest.BarResponse.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> ProtobufUnittest.BarResponse {
+    class public func fromJSON(data:Data) throws -> ProtobufUnittest.BarResponse {
       return try ProtobufUnittest.BarResponse.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             hashCode = (hashCode &* 31) &+  unknownFields.hashValue
@@ -31734,37 +30937,38 @@ public extension ProtobufUnittest {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "ProtobufUnittest.BarResponse"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "ProtobufUnittest.BarResponse"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = ProtobufUnittest.BarResponse
       fileprivate var builderResult:ProtobufUnittest.BarResponse = ProtobufUnittest.BarResponse()
       public func getMessage() -> ProtobufUnittest.BarResponse {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:ProtobufUnittest.BarResponse {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> ProtobufUnittest.BarResponse.Builder {
+      public func clear() -> ProtobufUnittest.BarResponse.Builder {
         builderResult = ProtobufUnittest.BarResponse()
         return self
       }
-      override public func clone() throws -> ProtobufUnittest.BarResponse.Builder {
+      public func clone() throws -> ProtobufUnittest.BarResponse.Builder {
         return try ProtobufUnittest.BarResponse.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> ProtobufUnittest.BarResponse {
+      public func build() throws -> ProtobufUnittest.BarResponse {
            try checkInitialized()
            return buildPartial()
       }
@@ -31781,11 +30985,11 @@ public extension ProtobufUnittest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarResponse.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittest.BarResponse.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarResponse.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittest.BarResponse.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -31806,7 +31010,7 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.BarResponse.Builder()
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BarResponse.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittest.BarResponse.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -31819,6 +31023,12 @@ public extension ProtobufUnittest {
 
 }
 extension ProtobufUnittest.TestAllTypes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestAllTypes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestAllTypes> {
     var mergedArray = Array<ProtobufUnittest.TestAllTypes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31849,6 +31059,12 @@ extension ProtobufUnittest.TestAllTypes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestAllTypes.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestAllTypes.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestAllTypes.NestedMessage> {
     var mergedArray = Array<ProtobufUnittest.TestAllTypes.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31879,6 +31095,12 @@ extension ProtobufUnittest.TestAllTypes.NestedMessage: GeneratedMessageProtocol 
   }
 }
 extension ProtobufUnittest.TestAllTypes.OptionalGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestAllTypes.OptionalGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestAllTypes.OptionalGroup> {
     var mergedArray = Array<ProtobufUnittest.TestAllTypes.OptionalGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31909,6 +31131,12 @@ extension ProtobufUnittest.TestAllTypes.OptionalGroup: GeneratedMessageProtocol 
   }
 }
 extension ProtobufUnittest.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestAllTypes.RepeatedGroup> {
     var mergedArray = Array<ProtobufUnittest.TestAllTypes.RepeatedGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31939,6 +31167,12 @@ extension ProtobufUnittest.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol 
   }
 }
 extension ProtobufUnittest.NestedTestAllTypes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.NestedTestAllTypes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.NestedTestAllTypes> {
     var mergedArray = Array<ProtobufUnittest.NestedTestAllTypes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31969,6 +31203,12 @@ extension ProtobufUnittest.NestedTestAllTypes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDeprecatedFields: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDeprecatedFields.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDeprecatedFields> {
     var mergedArray = Array<ProtobufUnittest.TestDeprecatedFields>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -31999,6 +31239,12 @@ extension ProtobufUnittest.TestDeprecatedFields: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.ForeignMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.ForeignMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.ForeignMessage> {
     var mergedArray = Array<ProtobufUnittest.ForeignMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32029,6 +31275,12 @@ extension ProtobufUnittest.ForeignMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestReservedFields: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestReservedFields.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestReservedFields> {
     var mergedArray = Array<ProtobufUnittest.TestReservedFields>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32059,6 +31311,12 @@ extension ProtobufUnittest.TestReservedFields: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestAllExtensions: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestAllExtensions.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestAllExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestAllExtensions>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32089,6 +31347,12 @@ extension ProtobufUnittest.TestAllExtensions: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.OptionalGroupExtension: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.OptionalGroupExtension.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.OptionalGroupExtension> {
     var mergedArray = Array<ProtobufUnittest.OptionalGroupExtension>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32119,6 +31383,12 @@ extension ProtobufUnittest.OptionalGroupExtension: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.RepeatedGroupExtension: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.RepeatedGroupExtension.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.RepeatedGroupExtension> {
     var mergedArray = Array<ProtobufUnittest.RepeatedGroupExtension>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32149,6 +31419,12 @@ extension ProtobufUnittest.RepeatedGroupExtension: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestNestedExtension: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestNestedExtension.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestNestedExtension> {
     var mergedArray = Array<ProtobufUnittest.TestNestedExtension>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32179,6 +31455,12 @@ extension ProtobufUnittest.TestNestedExtension: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestRequired: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRequired.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequired> {
     var mergedArray = Array<ProtobufUnittest.TestRequired>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32209,6 +31491,12 @@ extension ProtobufUnittest.TestRequired: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestRequiredForeign: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRequiredForeign.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredForeign> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredForeign>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32239,6 +31527,12 @@ extension ProtobufUnittest.TestRequiredForeign: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestForeignNested: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestForeignNested.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestForeignNested> {
     var mergedArray = Array<ProtobufUnittest.TestForeignNested>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32269,6 +31563,12 @@ extension ProtobufUnittest.TestForeignNested: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestEmptyMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestEmptyMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestEmptyMessage> {
     var mergedArray = Array<ProtobufUnittest.TestEmptyMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32299,6 +31599,12 @@ extension ProtobufUnittest.TestEmptyMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestEmptyMessageWithExtensions: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestEmptyMessageWithExtensions.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestEmptyMessageWithExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestEmptyMessageWithExtensions>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32329,6 +31635,12 @@ extension ProtobufUnittest.TestEmptyMessageWithExtensions: GeneratedMessageProto
   }
 }
 extension ProtobufUnittest.TestMultipleExtensionRanges: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestMultipleExtensionRanges.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMultipleExtensionRanges> {
     var mergedArray = Array<ProtobufUnittest.TestMultipleExtensionRanges>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32359,6 +31671,12 @@ extension ProtobufUnittest.TestMultipleExtensionRanges: GeneratedMessageProtocol
   }
 }
 extension ProtobufUnittest.TestReallyLargeTagNumber: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestReallyLargeTagNumber.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestReallyLargeTagNumber> {
     var mergedArray = Array<ProtobufUnittest.TestReallyLargeTagNumber>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32389,6 +31707,12 @@ extension ProtobufUnittest.TestReallyLargeTagNumber: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestRecursiveMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRecursiveMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRecursiveMessage> {
     var mergedArray = Array<ProtobufUnittest.TestRecursiveMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32419,6 +31743,12 @@ extension ProtobufUnittest.TestRecursiveMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestMutualRecursionA: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestMutualRecursionA.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMutualRecursionA> {
     var mergedArray = Array<ProtobufUnittest.TestMutualRecursionA>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32449,6 +31779,12 @@ extension ProtobufUnittest.TestMutualRecursionA: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestMutualRecursionB: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestMutualRecursionB.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMutualRecursionB> {
     var mergedArray = Array<ProtobufUnittest.TestMutualRecursionB>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32479,6 +31815,12 @@ extension ProtobufUnittest.TestMutualRecursionB: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDupFieldNumber: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDupFieldNumber.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDupFieldNumber> {
     var mergedArray = Array<ProtobufUnittest.TestDupFieldNumber>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32509,6 +31851,12 @@ extension ProtobufUnittest.TestDupFieldNumber: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDupFieldNumber.Foo: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDupFieldNumber.Foo.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDupFieldNumber.Foo> {
     var mergedArray = Array<ProtobufUnittest.TestDupFieldNumber.Foo>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32539,6 +31887,12 @@ extension ProtobufUnittest.TestDupFieldNumber.Foo: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDupFieldNumber.Bar: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDupFieldNumber.Bar.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDupFieldNumber.Bar> {
     var mergedArray = Array<ProtobufUnittest.TestDupFieldNumber.Bar>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32569,6 +31923,12 @@ extension ProtobufUnittest.TestDupFieldNumber.Bar: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestEagerMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestEagerMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestEagerMessage> {
     var mergedArray = Array<ProtobufUnittest.TestEagerMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32599,6 +31959,12 @@ extension ProtobufUnittest.TestEagerMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestLazyMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestLazyMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestLazyMessage> {
     var mergedArray = Array<ProtobufUnittest.TestLazyMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32629,6 +31995,12 @@ extension ProtobufUnittest.TestLazyMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestNestedMessageHasBits: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestNestedMessageHasBits.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestNestedMessageHasBits> {
     var mergedArray = Array<ProtobufUnittest.TestNestedMessageHasBits>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32659,6 +32031,12 @@ extension ProtobufUnittest.TestNestedMessageHasBits: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestNestedMessageHasBits.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestNestedMessageHasBits.NestedMessage> {
     var mergedArray = Array<ProtobufUnittest.TestNestedMessageHasBits.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32689,6 +32067,12 @@ extension ProtobufUnittest.TestNestedMessageHasBits.NestedMessage: GeneratedMess
   }
 }
 extension ProtobufUnittest.TestCamelCaseFieldNames: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestCamelCaseFieldNames.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestCamelCaseFieldNames> {
     var mergedArray = Array<ProtobufUnittest.TestCamelCaseFieldNames>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32719,6 +32103,12 @@ extension ProtobufUnittest.TestCamelCaseFieldNames: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestFieldOrderings: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestFieldOrderings.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestFieldOrderings> {
     var mergedArray = Array<ProtobufUnittest.TestFieldOrderings>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32749,6 +32139,12 @@ extension ProtobufUnittest.TestFieldOrderings: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestFieldOrderings.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestFieldOrderings.NestedMessage> {
     var mergedArray = Array<ProtobufUnittest.TestFieldOrderings.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32779,6 +32175,12 @@ extension ProtobufUnittest.TestFieldOrderings.NestedMessage: GeneratedMessagePro
   }
 }
 extension ProtobufUnittest.TestExtremeDefaultValues: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestExtremeDefaultValues.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestExtremeDefaultValues> {
     var mergedArray = Array<ProtobufUnittest.TestExtremeDefaultValues>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32809,6 +32211,12 @@ extension ProtobufUnittest.TestExtremeDefaultValues: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.SparseEnumMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.SparseEnumMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.SparseEnumMessage> {
     var mergedArray = Array<ProtobufUnittest.SparseEnumMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32839,6 +32247,12 @@ extension ProtobufUnittest.SparseEnumMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.OneString: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.OneString.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.OneString> {
     var mergedArray = Array<ProtobufUnittest.OneString>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32869,6 +32283,12 @@ extension ProtobufUnittest.OneString: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.MoreString: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.MoreString.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.MoreString> {
     var mergedArray = Array<ProtobufUnittest.MoreString>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32899,6 +32319,12 @@ extension ProtobufUnittest.MoreString: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.OneBytes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.OneBytes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.OneBytes> {
     var mergedArray = Array<ProtobufUnittest.OneBytes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32929,6 +32355,12 @@ extension ProtobufUnittest.OneBytes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.MoreBytes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.MoreBytes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.MoreBytes> {
     var mergedArray = Array<ProtobufUnittest.MoreBytes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32959,6 +32391,12 @@ extension ProtobufUnittest.MoreBytes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.Int32Message: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.Int32Message.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Int32Message> {
     var mergedArray = Array<ProtobufUnittest.Int32Message>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -32989,6 +32427,12 @@ extension ProtobufUnittest.Int32Message: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.Uint32Message: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.Uint32Message.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Uint32Message> {
     var mergedArray = Array<ProtobufUnittest.Uint32Message>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33019,6 +32463,12 @@ extension ProtobufUnittest.Uint32Message: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.Int64Message: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.Int64Message.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Int64Message> {
     var mergedArray = Array<ProtobufUnittest.Int64Message>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33049,6 +32499,12 @@ extension ProtobufUnittest.Int64Message: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.Uint64Message: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.Uint64Message.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Uint64Message> {
     var mergedArray = Array<ProtobufUnittest.Uint64Message>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33079,6 +32535,12 @@ extension ProtobufUnittest.Uint64Message: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.BoolMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.BoolMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BoolMessage> {
     var mergedArray = Array<ProtobufUnittest.BoolMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33109,6 +32571,12 @@ extension ProtobufUnittest.BoolMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestOneof: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneof.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneof> {
     var mergedArray = Array<ProtobufUnittest.TestOneof>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33139,6 +32607,12 @@ extension ProtobufUnittest.TestOneof: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestOneof.FooGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneof.FooGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneof.FooGroup> {
     var mergedArray = Array<ProtobufUnittest.TestOneof.FooGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33169,6 +32643,12 @@ extension ProtobufUnittest.TestOneof.FooGroup: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestOneofBackwardsCompatible: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneofBackwardsCompatible.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneofBackwardsCompatible> {
     var mergedArray = Array<ProtobufUnittest.TestOneofBackwardsCompatible>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33199,6 +32679,12 @@ extension ProtobufUnittest.TestOneofBackwardsCompatible: GeneratedMessageProtoco
   }
 }
 extension ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup> {
     var mergedArray = Array<ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33229,6 +32715,12 @@ extension ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup: GeneratedMessa
   }
 }
 extension ProtobufUnittest.TestOneof2: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneof2.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneof2> {
     var mergedArray = Array<ProtobufUnittest.TestOneof2>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33259,6 +32751,12 @@ extension ProtobufUnittest.TestOneof2: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestOneof2.FooGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneof2.FooGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneof2.FooGroup> {
     var mergedArray = Array<ProtobufUnittest.TestOneof2.FooGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33289,6 +32787,12 @@ extension ProtobufUnittest.TestOneof2.FooGroup: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestOneof2.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestOneof2.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneof2.NestedMessage> {
     var mergedArray = Array<ProtobufUnittest.TestOneof2.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33319,6 +32823,12 @@ extension ProtobufUnittest.TestOneof2.NestedMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestRequiredOneof: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRequiredOneof.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOneof> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredOneof>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33349,6 +32859,12 @@ extension ProtobufUnittest.TestRequiredOneof: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestRequiredOneof.NestedMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOneof.NestedMessage> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredOneof.NestedMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33379,6 +32895,12 @@ extension ProtobufUnittest.TestRequiredOneof.NestedMessage: GeneratedMessageProt
   }
 }
 extension ProtobufUnittest.TestPackedTypes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestPackedTypes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestPackedTypes> {
     var mergedArray = Array<ProtobufUnittest.TestPackedTypes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33409,6 +32931,12 @@ extension ProtobufUnittest.TestPackedTypes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestUnpackedTypes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestUnpackedTypes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestUnpackedTypes> {
     var mergedArray = Array<ProtobufUnittest.TestUnpackedTypes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33439,6 +32967,12 @@ extension ProtobufUnittest.TestUnpackedTypes: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestPackedExtensions: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestPackedExtensions.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestPackedExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestPackedExtensions>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33469,6 +33003,12 @@ extension ProtobufUnittest.TestPackedExtensions: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestUnpackedExtensions: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestUnpackedExtensions.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestUnpackedExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestUnpackedExtensions>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33499,6 +33039,12 @@ extension ProtobufUnittest.TestUnpackedExtensions: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDynamicExtensions: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDynamicExtensions.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDynamicExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestDynamicExtensions>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33529,6 +33075,12 @@ extension ProtobufUnittest.TestDynamicExtensions: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestDynamicExtensions.DynamicMessageType: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestDynamicExtensions.DynamicMessageType> {
     var mergedArray = Array<ProtobufUnittest.TestDynamicExtensions.DynamicMessageType>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33559,6 +33111,12 @@ extension ProtobufUnittest.TestDynamicExtensions.DynamicMessageType: GeneratedMe
   }
 }
 extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRepeatedScalarDifferentTagSizes> {
     var mergedArray = Array<ProtobufUnittest.TestRepeatedScalarDifferentTagSizes>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33589,6 +33147,12 @@ extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes: GeneratedMessage
   }
 }
 extension ProtobufUnittest.TestParsingMerge: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33619,6 +33183,12 @@ extension ProtobufUnittest.TestParsingMerge: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33649,6 +33219,12 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator: GeneratedMe
   }
 }
 extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33679,6 +33255,12 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1: Gene
   }
 }
 extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33709,6 +33291,12 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2: Gene
   }
 }
 extension ProtobufUnittest.TestParsingMerge.OptionalGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge.OptionalGroup> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge.OptionalGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33739,6 +33327,12 @@ extension ProtobufUnittest.TestParsingMerge.OptionalGroup: GeneratedMessageProto
   }
 }
 extension ProtobufUnittest.TestParsingMerge.RepeatedGroup: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestParsingMerge.RepeatedGroup> {
     var mergedArray = Array<ProtobufUnittest.TestParsingMerge.RepeatedGroup>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33769,6 +33363,12 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedGroup: GeneratedMessageProto
   }
 }
 extension ProtobufUnittest.TestCommentInjectionMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.TestCommentInjectionMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestCommentInjectionMessage> {
     var mergedArray = Array<ProtobufUnittest.TestCommentInjectionMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33799,6 +33399,12 @@ extension ProtobufUnittest.TestCommentInjectionMessage: GeneratedMessageProtocol
   }
 }
 extension ProtobufUnittest.FooRequest: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.FooRequest.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooRequest> {
     var mergedArray = Array<ProtobufUnittest.FooRequest>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33829,6 +33435,12 @@ extension ProtobufUnittest.FooRequest: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.FooResponse: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.FooResponse.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooResponse> {
     var mergedArray = Array<ProtobufUnittest.FooResponse>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33859,6 +33471,12 @@ extension ProtobufUnittest.FooResponse: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.FooClientMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.FooClientMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooClientMessage> {
     var mergedArray = Array<ProtobufUnittest.FooClientMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33889,6 +33507,12 @@ extension ProtobufUnittest.FooClientMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.FooServerMessage: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.FooServerMessage.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooServerMessage> {
     var mergedArray = Array<ProtobufUnittest.FooServerMessage>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33919,6 +33543,12 @@ extension ProtobufUnittest.FooServerMessage: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.BarRequest: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.BarRequest.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BarRequest> {
     var mergedArray = Array<ProtobufUnittest.BarRequest>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -33949,6 +33579,12 @@ extension ProtobufUnittest.BarRequest: GeneratedMessageProtocol {
   }
 }
 extension ProtobufUnittest.BarResponse: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return ProtobufUnittest.BarResponse.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BarResponse> {
     var mergedArray = Array<ProtobufUnittest.BarResponse>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

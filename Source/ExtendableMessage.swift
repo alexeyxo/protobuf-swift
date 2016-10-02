@@ -18,31 +18,18 @@
 import Foundation
 
 
-typealias ExtensionsValueType = Hashable & Equatable
+typealias ExtensionsValueType = Equatable
 
 
-open class ExtendableMessage : GeneratedMessage
-{
+open class ExtendableMessage : GeneratedMessageProtocol {
 
-    fileprivate var extensionMap:[Int32:Any] = [Int32:Any]()
+
+    fileprivate var extensionMap:[Int32:ExtensionsValueType] = [Int32:ExtensionsValueType]()
     public var extensionRegistry:[Int32:ConcreateExtensionField] = [Int32:ConcreateExtensionField]()
 
-    required public init()
-    {
-        super.init()
-        
+    required public init() {
+
     }
-    
-    //Override
-    override open class func className() -> String
-    {
-        return "ExtendableMessage"
-    }
-    override open func className() -> String
-    {
-        return "ExtendableMessage"
-    }
-    //
     
     public func isInitialized(object:Any) -> Bool
     {
@@ -56,7 +43,7 @@ open class ExtendableMessage : GeneratedMessage
                     return false
                 }
             }
-        case let array as Array<GeneratedMessage>:
+        case let array as Array<GeneratedMessageProtocol>:
             for child in array
             {
                 if (!isInitialized(object: child))
@@ -64,7 +51,7 @@ open class ExtendableMessage : GeneratedMessage
                     return false
                 }
             }
-        case let message as GeneratedMessage:
+        case let message as GeneratedMessageProtocol:
             return message.isInitialized()
         default:
             return true
@@ -143,10 +130,8 @@ open class ExtendableMessage : GeneratedMessage
         return true
     }
     
-    private func compare(lhs:Any, rhs:Any) -> Bool
-    {
-        switch (lhs,rhs)
-        {
+    private func compare<T:Equatable>(lhs:T, rhs:T) -> Bool {
+        switch (lhs,rhs) {
         case (let value as Int32, let value2 as Int32):
             return value == value2
         case (let value as Int64, let value2 as Int64):
@@ -165,7 +150,7 @@ open class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as UInt64, let value2 as UInt64):
             return value == value2
-        case (let value as GeneratedMessage, let value2 as GeneratedMessage):
+        case (let value as GeneratedMessageProtocol, let value2 as GeneratedMessageProtocol):
             return value == value2
         case (let value as [Int32], let value2 as [Int32]):
             return value == value2
@@ -185,7 +170,7 @@ open class ExtendableMessage : GeneratedMessage
             return value == value2
         case (let value as [UInt64], let value2 as [UInt64]):
             return value == value2
-        case (let value as [GeneratedMessage], let value2 as [GeneratedMessage]):
+        case (let value as [GeneratedMessageProtocol], let value2 as [GeneratedMessageProtocol]):
             return value == value2
         default:
             return false
@@ -212,7 +197,7 @@ open class ExtendableMessage : GeneratedMessage
             return getHashValue(lhs: value)
         case let value as String:
             return getHashValue(lhs: value)
-        case let value as GeneratedMessage:
+        case let value as GeneratedMessageProtocol:
             return getHashValue(lhs: value)
         case let value as Data:
             return value.hashValue
@@ -234,7 +219,7 @@ open class ExtendableMessage : GeneratedMessage
             return getHashValueRepeated(lhs: value)
         case let value as Array<Data>:
             return getHashValueRepeated(lhs: value)
-        case let value as [GeneratedMessage]:
+        case let value as [GeneratedMessageProtocol]:
             return getHashValueRepeated(lhs: value)
         default:
             return nil
@@ -282,19 +267,8 @@ open class ExtendableMessage : GeneratedMessage
     }
 }
 
-open class ExtendableMessageBuilder:GeneratedMessageBuilder
-{
-    override open var internalGetResult:ExtendableMessage {
-        get
-        {
-            return ExtendableMessage()
-        }
-        
-    }
-    
-    
-    override open func checkInitialized() throws
-    {
+open class ExtendableMessageBuilder:GeneratedMessageBuilderProtocol {
+    func checkInitialized() throws {
         let result = internalGetResult
         if (!result.isInitialized())
         {
@@ -302,7 +276,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         }
     }
     
-    override open func checkInitializedParsed() throws
+    open func checkInitializedParsed() throws
     {
         let result = internalGetResult
         if (!result.isInitialized())
@@ -310,20 +284,18 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
-    
-    override open func isInitialized() -> Bool
-    {
+
+    func isInitialized() -> Bool {
         return internalGetResult.isInitialized()
     }
     @discardableResult
-    override open func merge(unknownField: UnknownFieldSet) throws -> Self
-    {
-        let result:GeneratedMessage = internalGetResult
+    func merge(unknownField: UnknownFieldSet) throws -> Self {
+        var result:GeneratedMessageProtocol = internalGetResult
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()
         return self
     }
     
-    override public func parse(codedInputStream:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
+    public func parse(codedInputStream:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
         
         let message = internalGetResult
         let wireType = WireFormat.getTagWireType(tag: tag)
@@ -362,14 +334,12 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         let message = internalGetResult
         message.ensureExtensionIsRegistered(extensions: extensions)
         
-        guard extensions.isRepeated else
-        {
+        guard extensions.isRepeated else {
             throw ProtocolBuffersError.illegalArgument("Must call addExtension() for repeated types.")
         }        
         let fieldNumber = extensions.fieldNumber
-        if let val = value as? GeneratedMessage
-        {
-            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
+        if let val = value as? GeneratedMessageProtocol {
+            var list:[GeneratedMessageProtocol]! = message.extensionMap[fieldNumber] as? [GeneratedMessageProtocol] ?? []
             list.append(val)
             message.extensionMap[fieldNumber] = list
         }
@@ -390,9 +360,9 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
             throw ProtocolBuffersError.illegalArgument("Must call setExtension() for singular types.")
         }
         let fieldNumber = extensions.fieldNumber
-        if let val = value as? GeneratedMessage
+        if let val = value as? GeneratedMessageProtocol
         {
-            var list:[GeneratedMessage]! = message.extensionMap[fieldNumber] as? [GeneratedMessage] ?? []
+            var list:[GeneratedMessageProtocol]! = message.extensionMap[fieldNumber] as? [GeneratedMessageProtocol] ?? []
             list[Int(index)] = val
             message.extensionMap[fieldNumber] = list
         }
@@ -453,14 +423,12 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(otherList: values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     case let values as Array<Data>:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(otherList: values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
-                    case let values as [GeneratedMessage]:
+                    case let values as [GeneratedMessageProtocol]:
                         thisMessage.extensionMap[fieldNumber] = mergeRepeatedExtensionFields(otherList: values, extensionMap: thisMessage.extensionMap, fieldNumber: fieldNumber)
                     default:
                         break
                     }
-                }
-                else
-                {
+                } else {
                     thisMessage.extensionMap[fieldNumber] = value
                 }
                 

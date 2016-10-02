@@ -224,9 +224,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    if let varSize$name$ = try ProtobufWire.Size(wireType:$group_or_message$).with(tag: $number$, value:$name_reserved$) {\n"
-                       "        serialize_size += varSize$name$\n"
-                       "    }\n"
+                       "  serialize_size += ProtobufWire$group_or_message$().computeSizeWith(tag: $number$, value:$name_reserved$)\n"
                        "}\n");
     }
     
@@ -374,7 +372,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
-                       "serialize_size += try ProtobufWire.Size(wireType: $group_or_message$).repeatedWith(tag: $number$, value: $name_reserved$)\n");
+                       "serialize_size += ProtobufWire$group_or_message$().repeatedWith(tag: $number$, value: $name_reserved$)\n");
     }
     
     void RepeatedMessageFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {

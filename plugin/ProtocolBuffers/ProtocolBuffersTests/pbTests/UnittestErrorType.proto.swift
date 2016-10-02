@@ -72,7 +72,9 @@ public enum ServiceError:Error, RawRepresentable, CustomDebugStringConvertible, 
 
 //Enum type declaration end 
 
-final public class UserProfile : GeneratedMessage {
+final public class UserProfile  {
+  public var unknownFields = UnknownFieldSet(fields: [:])
+  fileprivate var memoizedSerializedSize:Int32 = -1
 
   public static func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
     if (lhs === rhs) {
@@ -90,7 +92,9 @@ final public class UserProfile : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class Request : GeneratedMessage {
+    final public class Request  {
+      public var unknownFields = UnknownFieldSet(fields: [:])
+      fileprivate var memoizedSerializedSize:Int32 = -1
 
       public static func == (lhs: UserProfile.Request, rhs: UserProfile.Request) -> Bool {
         if (lhs === rhs) {
@@ -106,21 +110,20 @@ final public class UserProfile : GeneratedMessage {
       public fileprivate(set) var hasUserId:Bool = false
 
       required public init() {
-           super.init()
       }
-      override public func isInitialized() -> Bool {
+      public func isInitialized() -> Bool {
         if !hasUserId {
           return false
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasUserId {
           try codedOutputStream.write.string(fieldNumber: 1, value:userId)
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() throws -> Int32 {
+      public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -128,23 +131,11 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasUserId {
-          serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: userId)
+          serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: userId)
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
         return serialize_size
-      }
-      public class func getBuilder() -> UserProfile.Request.Builder {
-        return UserProfile.Request.classBuilder() as! UserProfile.Request.Builder
-      }
-      public func getBuilder() -> UserProfile.Request.Builder {
-        return classBuilder() as! UserProfile.Request.Builder
-      }
-      override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Request.Builder()
-      }
-      override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Request.Builder()
       }
       public func toBuilder() throws -> UserProfile.Request.Builder {
         return try UserProfile.Request.builderWithPrototype(prototype:self)
@@ -152,7 +143,7 @@ final public class UserProfile : GeneratedMessage {
       public class func builderWithPrototype(prototype:UserProfile.Request) throws -> UserProfile.Request.Builder {
         return try UserProfile.Request.Builder().mergeFrom(other:prototype)
       }
-      override public func encode() throws -> Dictionary<String,Any> {
+      public func encode() throws -> Dictionary<String,Any> {
         guard isInitialized() else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
@@ -163,13 +154,13 @@ final public class UserProfile : GeneratedMessage {
         }
         return jsonMap
       }
-      override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Request {
+      class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Request {
         return try UserProfile.Request.Builder.decodeToBuilder(jsonMap:jsonMap).build()
       }
-      override class public func fromJSON(data:Data) throws -> UserProfile.Request {
+      class public func fromJSON(data:Data) throws -> UserProfile.Request {
         return try UserProfile.Request.Builder.fromJSONToBuilder(data:data).build()
       }
-      override public func getDescription(indent:String) throws -> String {
+      public func getDescription(indent:String) throws -> String {
         var output = ""
         if hasUserId {
           output += "\(indent) userId: \(userId) \n"
@@ -177,7 +168,7 @@ final public class UserProfile : GeneratedMessage {
         output += unknownFields.getDescription(indent: indent)
         return output
       }
-      override public var hashValue:Int {
+      public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasUserId {
@@ -191,22 +182,22 @@ final public class UserProfile : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      public class func className() -> String {
           return "UserProfile.Request"
       }
-      override public func className() -> String {
+      public func className() -> String {
           return "UserProfile.Request"
       }
       //Meta information declaration end
 
-      final public class Builder : GeneratedMessageBuilder {
+      final public class Builder : GeneratedMessageBuilderProtocol {
+        public typealias GeneratedMessageType = UserProfile.Request
         fileprivate var builderResult:UserProfile.Request = UserProfile.Request()
         public func getMessage() -> UserProfile.Request {
             return builderResult
         }
 
-        required override public init () {
-           super.init()
+        required public init () {
         }
         public var hasUserId:Bool {
              get {
@@ -233,20 +224,21 @@ final public class UserProfile : GeneratedMessage {
              builderResult.userId = ""
              return self
         }
-        override public var internalGetResult:GeneratedMessage {
+        public var internalGetResult:UserProfile.Request {
              get {
                 return builderResult
              }
+            set{}
         }
         @discardableResult
-        override public func clear() -> UserProfile.Request.Builder {
+        public func clear() -> UserProfile.Request.Builder {
           builderResult = UserProfile.Request()
           return self
         }
-        override public func clone() throws -> UserProfile.Request.Builder {
+        public func clone() throws -> UserProfile.Request.Builder {
           return try UserProfile.Request.builderWithPrototype(prototype:builderResult)
         }
-        override public func build() throws -> UserProfile.Request {
+        public func build() throws -> UserProfile.Request {
              try checkInitialized()
              return buildPartial()
         }
@@ -266,11 +258,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -297,7 +289,7 @@ final public class UserProfile : GeneratedMessage {
           }
           return resultDecodedBuilder
         }
-        override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Request.Builder {
+        class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Request.Builder {
           let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
           guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -314,7 +306,9 @@ final public class UserProfile : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class Response : GeneratedMessage {
+    final public class Response  {
+      public var unknownFields = UnknownFieldSet(fields: [:])
+      fileprivate var memoizedSerializedSize:Int32 = -1
 
       public static func == (lhs: UserProfile.Response, rhs: UserProfile.Response) -> Bool {
         if (lhs === rhs) {
@@ -335,9 +329,8 @@ final public class UserProfile : GeneratedMessage {
       public fileprivate(set) var exception:UserProfile.Exception!
       public fileprivate(set) var hasException:Bool = false
       required public init() {
-           super.init()
       }
-      override public func isInitialized() -> Bool {
+      public func isInitialized() -> Bool {
         if hasException {
          if !exception.isInitialized() {
            return false
@@ -345,7 +338,7 @@ final public class UserProfile : GeneratedMessage {
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasProfile {
           try codedOutputStream.write.message(fieldNumber: 1, value:profile)
         }
@@ -357,7 +350,7 @@ final public class UserProfile : GeneratedMessage {
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() throws -> Int32 {
+      public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -365,33 +358,17 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasProfile {
-            if let varSizeprofile = try ProtobufWire.Size(wireType:.message).with(tag: 1, value:profile) {
-                serialize_size += varSizeprofile
-            }
+          serialize_size += ProtobufWire.message().computeSizeWith(tag: 1, value:profile)
         }
         if (hasError) {
           serialize_size += error.rawValue.computeEnumSize(fieldNumber: 2)
         }
         if hasException {
-            if let varSizeexception = try ProtobufWire.Size(wireType:.message).with(tag: 3, value:exception) {
-                serialize_size += varSizeexception
-            }
+          serialize_size += ProtobufWire.message().computeSizeWith(tag: 3, value:exception)
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
         return serialize_size
-      }
-      public class func getBuilder() -> UserProfile.Response.Builder {
-        return UserProfile.Response.classBuilder() as! UserProfile.Response.Builder
-      }
-      public func getBuilder() -> UserProfile.Response.Builder {
-        return classBuilder() as! UserProfile.Response.Builder
-      }
-      override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Response.Builder()
-      }
-      override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Response.Builder()
       }
       public func toBuilder() throws -> UserProfile.Response.Builder {
         return try UserProfile.Response.builderWithPrototype(prototype:self)
@@ -399,7 +376,7 @@ final public class UserProfile : GeneratedMessage {
       public class func builderWithPrototype(prototype:UserProfile.Response) throws -> UserProfile.Response.Builder {
         return try UserProfile.Response.Builder().mergeFrom(other:prototype)
       }
-      override public func encode() throws -> Dictionary<String,Any> {
+      public func encode() throws -> Dictionary<String,Any> {
         guard isInitialized() else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
@@ -416,13 +393,13 @@ final public class UserProfile : GeneratedMessage {
         }
         return jsonMap
       }
-      override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Response {
+      class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Response {
         return try UserProfile.Response.Builder.decodeToBuilder(jsonMap:jsonMap).build()
       }
-      override class public func fromJSON(data:Data) throws -> UserProfile.Response {
+      class public func fromJSON(data:Data) throws -> UserProfile.Response {
         return try UserProfile.Response.Builder.fromJSONToBuilder(data:data).build()
       }
-      override public func getDescription(indent:String) throws -> String {
+      public func getDescription(indent:String) throws -> String {
         var output = ""
         if hasProfile {
           output += "\(indent) profile {\n"
@@ -444,7 +421,7 @@ final public class UserProfile : GeneratedMessage {
         output += unknownFields.getDescription(indent: indent)
         return output
       }
-      override public var hashValue:Int {
+      public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasProfile {
@@ -468,22 +445,22 @@ final public class UserProfile : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      public class func className() -> String {
           return "UserProfile.Response"
       }
-      override public func className() -> String {
+      public func className() -> String {
           return "UserProfile.Response"
       }
       //Meta information declaration end
 
-      final public class Builder : GeneratedMessageBuilder {
+      final public class Builder : GeneratedMessageBuilderProtocol {
+        public typealias GeneratedMessageType = UserProfile.Response
         fileprivate var builderResult:UserProfile.Response = UserProfile.Response()
         public func getMessage() -> UserProfile.Response {
             return builderResult
         }
 
-        required override public init () {
-           super.init()
+        required public init () {
         }
         public var hasProfile:Bool {
              get {
@@ -618,20 +595,21 @@ final public class UserProfile : GeneratedMessage {
           builderResult.exception = nil
           return self
         }
-        override public var internalGetResult:GeneratedMessage {
+        public var internalGetResult:UserProfile.Response {
              get {
                 return builderResult
              }
+            set{}
         }
         @discardableResult
-        override public func clear() -> UserProfile.Response.Builder {
+        public func clear() -> UserProfile.Response.Builder {
           builderResult = UserProfile.Response()
           return self
         }
-        override public func clone() throws -> UserProfile.Response.Builder {
+        public func clone() throws -> UserProfile.Response.Builder {
           return try UserProfile.Response.builderWithPrototype(prototype:builderResult)
         }
-        override public func build() throws -> UserProfile.Response {
+        public func build() throws -> UserProfile.Response {
              try checkInitialized()
              return buildPartial()
         }
@@ -657,11 +635,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -717,7 +695,7 @@ final public class UserProfile : GeneratedMessage {
           }
           return resultDecodedBuilder
         }
-        override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Response.Builder {
+        class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Response.Builder {
           let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
           guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -734,7 +712,9 @@ final public class UserProfile : GeneratedMessage {
 
   //Nested type declaration start
 
-    final public class Exception : GeneratedMessage, Error {
+    final public class Exception : Error {
+      public var unknownFields = UnknownFieldSet(fields: [:])
+      fileprivate var memoizedSerializedSize:Int32 = -1
 
       public static func == (lhs: UserProfile.Exception, rhs: UserProfile.Exception) -> Bool {
         if (lhs === rhs) {
@@ -754,9 +734,8 @@ final public class UserProfile : GeneratedMessage {
       public fileprivate(set) var hasErrorDescription:Bool = false
 
       required public init() {
-           super.init()
       }
-      override public func isInitialized() -> Bool {
+      public func isInitialized() -> Bool {
         if !hasErrorCode {
           return false
         }
@@ -765,7 +744,7 @@ final public class UserProfile : GeneratedMessage {
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      public func writeTo(codedOutputStream: CodedOutputStream) throws {
         if hasErrorCode {
           try codedOutputStream.write.int32(fieldNumber: 1, value:errorCode)
         }
@@ -774,7 +753,7 @@ final public class UserProfile : GeneratedMessage {
         }
         try unknownFields.writeTo(codedOutputStream: codedOutputStream)
       }
-      override public func serializedSize() throws -> Int32 {
+      public func serializedSize() throws -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
         if serialize_size != -1 {
          return serialize_size
@@ -782,26 +761,14 @@ final public class UserProfile : GeneratedMessage {
 
         serialize_size = 0
         if hasErrorCode {
-          serialize_size += try ProtobufWire.Size(wireType:.int32).with(tag: 1, value: errorCode)
+          serialize_size += ProtobufWire.int32().computeSizeWith(tag: 1, value: errorCode)
         }
         if hasErrorDescription {
-          serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: errorDescription)
+          serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: errorDescription)
         }
         serialize_size += unknownFields.serializedSize()
         memoizedSerializedSize = serialize_size
         return serialize_size
-      }
-      public class func getBuilder() -> UserProfile.Exception.Builder {
-        return UserProfile.Exception.classBuilder() as! UserProfile.Exception.Builder
-      }
-      public func getBuilder() -> UserProfile.Exception.Builder {
-        return classBuilder() as! UserProfile.Exception.Builder
-      }
-      override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Exception.Builder()
-      }
-      override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-        return UserProfile.Exception.Builder()
       }
       public func toBuilder() throws -> UserProfile.Exception.Builder {
         return try UserProfile.Exception.builderWithPrototype(prototype:self)
@@ -809,7 +776,7 @@ final public class UserProfile : GeneratedMessage {
       public class func builderWithPrototype(prototype:UserProfile.Exception) throws -> UserProfile.Exception.Builder {
         return try UserProfile.Exception.Builder().mergeFrom(other:prototype)
       }
-      override public func encode() throws -> Dictionary<String,Any> {
+      public func encode() throws -> Dictionary<String,Any> {
         guard isInitialized() else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
@@ -823,13 +790,13 @@ final public class UserProfile : GeneratedMessage {
         }
         return jsonMap
       }
-      override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception {
+      class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception {
         return try UserProfile.Exception.Builder.decodeToBuilder(jsonMap:jsonMap).build()
       }
-      override class public func fromJSON(data:Data) throws -> UserProfile.Exception {
+      class public func fromJSON(data:Data) throws -> UserProfile.Exception {
         return try UserProfile.Exception.Builder.fromJSONToBuilder(data:data).build()
       }
-      override public func getDescription(indent:String) throws -> String {
+      public func getDescription(indent:String) throws -> String {
         var output = ""
         if hasErrorCode {
           output += "\(indent) errorCode: \(errorCode) \n"
@@ -840,7 +807,7 @@ final public class UserProfile : GeneratedMessage {
         output += unknownFields.getDescription(indent: indent)
         return output
       }
-      override public var hashValue:Int {
+      public var hashValue:Int {
           get {
               var hashCode:Int = 7
               if hasErrorCode {
@@ -857,22 +824,22 @@ final public class UserProfile : GeneratedMessage {
 
       //Meta information declaration start
 
-      override public class func className() -> String {
+      public class func className() -> String {
           return "UserProfile.Exception"
       }
-      override public func className() -> String {
+      public func className() -> String {
           return "UserProfile.Exception"
       }
       //Meta information declaration end
 
-      final public class Builder : GeneratedMessageBuilder {
+      final public class Builder : GeneratedMessageBuilderProtocol {
+        public typealias GeneratedMessageType = UserProfile.Exception
         fileprivate var builderResult:UserProfile.Exception = UserProfile.Exception()
         public func getMessage() -> UserProfile.Exception {
             return builderResult
         }
 
-        required override public init () {
-           super.init()
+        required public init () {
         }
         public var hasErrorCode:Bool {
              get {
@@ -924,20 +891,21 @@ final public class UserProfile : GeneratedMessage {
              builderResult.errorDescription = ""
              return self
         }
-        override public var internalGetResult:GeneratedMessage {
+        public var internalGetResult:UserProfile.Exception {
              get {
                 return builderResult
              }
+            set{}
         }
         @discardableResult
-        override public func clear() -> UserProfile.Exception.Builder {
+        public func clear() -> UserProfile.Exception.Builder {
           builderResult = UserProfile.Exception()
           return self
         }
-        override public func clone() throws -> UserProfile.Exception.Builder {
+        public func clone() throws -> UserProfile.Exception.Builder {
           return try UserProfile.Exception.builderWithPrototype(prototype:builderResult)
         }
-        override public func build() throws -> UserProfile.Exception {
+        public func build() throws -> UserProfile.Exception {
              try checkInitialized()
              return buildPartial()
         }
@@ -960,11 +928,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
              return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
+        public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -997,7 +965,7 @@ final public class UserProfile : GeneratedMessage {
           }
           return resultDecodedBuilder
         }
-        override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Exception.Builder {
+        class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Exception.Builder {
           let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
           guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -1020,12 +988,11 @@ final public class UserProfile : GeneratedMessage {
   public fileprivate(set) var hasAvatarUrl:Bool = false
 
   required public init() {
-       super.init()
   }
-  override public func isInitialized() -> Bool {
+  public func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+  public func writeTo(codedOutputStream: CodedOutputStream) throws {
     if hasFirstName {
       try codedOutputStream.write.string(fieldNumber: 1, value:firstName)
     }
@@ -1037,7 +1004,7 @@ final public class UserProfile : GeneratedMessage {
     }
     try unknownFields.writeTo(codedOutputStream: codedOutputStream)
   }
-  override public func serializedSize() throws -> Int32 {
+  public func serializedSize() throws -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
     if serialize_size != -1 {
      return serialize_size
@@ -1045,29 +1012,17 @@ final public class UserProfile : GeneratedMessage {
 
     serialize_size = 0
     if hasFirstName {
-      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: firstName)
+      serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: firstName)
     }
     if hasLastName {
-      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 2, value: lastName)
+      serialize_size += ProtobufWire.string().computeSizeWith(tag: 2, value: lastName)
     }
     if hasAvatarUrl {
-      serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 3, value: avatarUrl)
+      serialize_size += ProtobufWire.string().computeSizeWith(tag: 3, value: avatarUrl)
     }
     serialize_size += unknownFields.serializedSize()
     memoizedSerializedSize = serialize_size
     return serialize_size
-  }
-  public class func getBuilder() -> UserProfile.Builder {
-    return UserProfile.classBuilder() as! UserProfile.Builder
-  }
-  public func getBuilder() -> UserProfile.Builder {
-    return classBuilder() as! UserProfile.Builder
-  }
-  override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-    return UserProfile.Builder()
-  }
-  override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-    return UserProfile.Builder()
   }
   public func toBuilder() throws -> UserProfile.Builder {
     return try UserProfile.builderWithPrototype(prototype:self)
@@ -1075,7 +1030,7 @@ final public class UserProfile : GeneratedMessage {
   public class func builderWithPrototype(prototype:UserProfile) throws -> UserProfile.Builder {
     return try UserProfile.Builder().mergeFrom(other:prototype)
   }
-  override public func encode() throws -> Dictionary<String,Any> {
+  public func encode() throws -> Dictionary<String,Any> {
     guard isInitialized() else {
       throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
     }
@@ -1092,13 +1047,13 @@ final public class UserProfile : GeneratedMessage {
     }
     return jsonMap
   }
-  override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile {
+  class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile {
     return try UserProfile.Builder.decodeToBuilder(jsonMap:jsonMap).build()
   }
-  override class public func fromJSON(data:Data) throws -> UserProfile {
+  class public func fromJSON(data:Data) throws -> UserProfile {
     return try UserProfile.Builder.fromJSONToBuilder(data:data).build()
   }
-  override public func getDescription(indent:String) throws -> String {
+  public func getDescription(indent:String) throws -> String {
     var output = ""
     if hasFirstName {
       output += "\(indent) firstName: \(firstName) \n"
@@ -1112,7 +1067,7 @@ final public class UserProfile : GeneratedMessage {
     output += unknownFields.getDescription(indent: indent)
     return output
   }
-  override public var hashValue:Int {
+  public var hashValue:Int {
       get {
           var hashCode:Int = 7
           if hasFirstName {
@@ -1132,22 +1087,22 @@ final public class UserProfile : GeneratedMessage {
 
   //Meta information declaration start
 
-  override public class func className() -> String {
+  public class func className() -> String {
       return "UserProfile"
   }
-  override public func className() -> String {
+  public func className() -> String {
       return "UserProfile"
   }
   //Meta information declaration end
 
-  final public class Builder : GeneratedMessageBuilder {
+  final public class Builder : GeneratedMessageBuilderProtocol {
+    public typealias GeneratedMessageType = UserProfile
     fileprivate var builderResult:UserProfile = UserProfile()
     public func getMessage() -> UserProfile {
         return builderResult
     }
 
-    required override public init () {
-       super.init()
+    required public init () {
     }
     public var hasFirstName:Bool {
          get {
@@ -1224,20 +1179,21 @@ final public class UserProfile : GeneratedMessage {
          builderResult.avatarUrl = ""
          return self
     }
-    override public var internalGetResult:GeneratedMessage {
+    public var internalGetResult:UserProfile {
          get {
             return builderResult
          }
+        set{}
     }
     @discardableResult
-    override public func clear() -> UserProfile.Builder {
+    public func clear() -> UserProfile.Builder {
       builderResult = UserProfile()
       return self
     }
-    override public func clone() throws -> UserProfile.Builder {
+    public func clone() throws -> UserProfile.Builder {
       return try UserProfile.builderWithPrototype(prototype:builderResult)
     }
-    override public func build() throws -> UserProfile {
+    public func build() throws -> UserProfile {
          try checkInitialized()
          return buildPartial()
     }
@@ -1263,11 +1219,11 @@ final public class UserProfile : GeneratedMessage {
       return self
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
+    public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
          return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Builder {
+    public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -1306,7 +1262,7 @@ final public class UserProfile : GeneratedMessage {
       }
       return resultDecodedBuilder
     }
-    override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Builder {
+    class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Builder {
       let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
       guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -1318,6 +1274,12 @@ final public class UserProfile : GeneratedMessage {
 }
 
 extension UserProfile: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return UserProfile.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UserProfile> {
     var mergedArray = Array<UserProfile>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -1348,6 +1310,12 @@ extension UserProfile: GeneratedMessageProtocol {
   }
 }
 extension UserProfile.Request: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return UserProfile.Request.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UserProfile.Request> {
     var mergedArray = Array<UserProfile.Request>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -1378,6 +1346,12 @@ extension UserProfile.Request: GeneratedMessageProtocol {
   }
 }
 extension UserProfile.Response: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return UserProfile.Response.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UserProfile.Response> {
     var mergedArray = Array<UserProfile.Response>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {
@@ -1408,6 +1382,12 @@ extension UserProfile.Response: GeneratedMessageProtocol {
   }
 }
 extension UserProfile.Exception: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return UserProfile.Exception.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UserProfile.Exception> {
     var mergedArray = Array<UserProfile.Exception>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

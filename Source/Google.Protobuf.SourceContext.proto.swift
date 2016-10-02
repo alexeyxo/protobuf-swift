@@ -22,7 +22,9 @@ public extension Google.Protobuf {
 
   // `SourceContext` represents information about the source of a
   // protobuf element, like the file in which it is defined.
-  final public class SourceContext : GeneratedMessage {
+  final public class SourceContext  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
       if (lhs === rhs) {
@@ -40,18 +42,17 @@ public extension Google.Protobuf {
     public fileprivate(set) var hasFileName:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasFileName {
         try codedOutputStream.write.string(fieldNumber: 1, value:fileName)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -59,23 +60,11 @@ public extension Google.Protobuf {
 
       serialize_size = 0
       if hasFileName {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: fileName)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: fileName)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> Google.Protobuf.SourceContext.Builder {
-      return Google.Protobuf.SourceContext.classBuilder() as! Google.Protobuf.SourceContext.Builder
-    }
-    public func getBuilder() -> Google.Protobuf.SourceContext.Builder {
-      return classBuilder() as! Google.Protobuf.SourceContext.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Google.Protobuf.SourceContext.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Google.Protobuf.SourceContext.Builder()
     }
     public func toBuilder() throws -> Google.Protobuf.SourceContext.Builder {
       return try Google.Protobuf.SourceContext.builderWithPrototype(prototype:self)
@@ -83,7 +72,7 @@ public extension Google.Protobuf {
     public class func builderWithPrototype(prototype:Google.Protobuf.SourceContext) throws -> Google.Protobuf.SourceContext.Builder {
       return try Google.Protobuf.SourceContext.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -94,13 +83,13 @@ public extension Google.Protobuf {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext {
       return try Google.Protobuf.SourceContext.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Google.Protobuf.SourceContext {
+    class public func fromJSON(data:Data) throws -> Google.Protobuf.SourceContext {
       return try Google.Protobuf.SourceContext.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasFileName {
         output += "\(indent) fileName: \(fileName) \n"
@@ -108,7 +97,7 @@ public extension Google.Protobuf {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasFileName {
@@ -122,22 +111,22 @@ public extension Google.Protobuf {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "Google.Protobuf.SourceContext"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "Google.Protobuf.SourceContext"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = Google.Protobuf.SourceContext
       fileprivate var builderResult:Google.Protobuf.SourceContext = Google.Protobuf.SourceContext()
       public func getMessage() -> Google.Protobuf.SourceContext {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasFileName:Bool {
            get {
@@ -164,20 +153,21 @@ public extension Google.Protobuf {
            builderResult.fileName = ""
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:Google.Protobuf.SourceContext {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> Google.Protobuf.SourceContext.Builder {
+      public func clear() -> Google.Protobuf.SourceContext.Builder {
         builderResult = Google.Protobuf.SourceContext()
         return self
       }
-      override public func clone() throws -> Google.Protobuf.SourceContext.Builder {
+      public func clone() throws -> Google.Protobuf.SourceContext.Builder {
         return try Google.Protobuf.SourceContext.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Google.Protobuf.SourceContext {
+      public func build() throws -> Google.Protobuf.SourceContext {
            try checkInitialized()
            return buildPartial()
       }
@@ -197,11 +187,11 @@ public extension Google.Protobuf {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SourceContext.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SourceContext.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SourceContext.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -228,7 +218,7 @@ public extension Google.Protobuf {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SourceContext.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SourceContext.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -241,6 +231,12 @@ public extension Google.Protobuf {
 
 }
 extension Google.Protobuf.SourceContext: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return Google.Protobuf.SourceContext.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SourceContext> {
     var mergedArray = Array<Google.Protobuf.SourceContext>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

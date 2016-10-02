@@ -48,7 +48,7 @@ final public class ConcreateExtensionField:ExtensionField,Equatable {
     internal var type:ExtensionType
     public var fieldNumber:Int32
     public var extendedClass:AnyClassType
-    public var messageOrGroupClass:Any.Type
+    public var messageOrGroupClass:GeneratedMessageProtocol.Type
     var defaultValue:Any
     var isRepeated:Bool = false
     var isPacked:Bool
@@ -375,15 +375,15 @@ messageOrGroupClass:Any.Type,
             return downCastValue.computeStringSize(fieldNumber: fieldNumber)
             
         case .extensionTypeGroup:
-            let downCastValue = value as! GeneratedMessage
+            let downCastValue = value as! GeneratedMessageProtocol
             return downCastValue.computeGroupSize(fieldNumber: fieldNumber)
             
         case .extensionTypeMessage where isMessageSetWireFormat == true:
-            let downCastValue = value as! GeneratedMessage
+            let downCastValue = value as! GeneratedMessageProtocol
             return downCastValue.computeMessageSetExtensionSize(fieldNumber: fieldNumber)
             
         case .extensionTypeMessage where isMessageSetWireFormat == false:
-            let downCastValue = value as! GeneratedMessage
+            let downCastValue = value as! GeneratedMessageProtocol
             return downCastValue.computeMessageSize(fieldNumber: fieldNumber)
         case .extensionTypeBool:
             let downCastValue = value as! Bool
@@ -477,7 +477,7 @@ messageOrGroupClass:Any.Type,
         if typeIsPrimitive(type: type) {
             output += "\(indent)\(value)\n"
         }
-        else if let values = value as? GeneratedMessage {
+        else if let values = value as? GeneratedMessageProtocol {
             output += try values.getDescription(indent: indent)
         }
         else {
@@ -570,7 +570,7 @@ messageOrGroupClass:Any.Type,
                 return computeRepeatedSerializedSizeIncludingTags(values: values)
             case let values as Array<Data>:
                 return computeRepeatedSerializedSizeIncludingTags(values: values)
-            case let values as [GeneratedMessage]:
+            case let values as [GeneratedMessageProtocol]:
                 return computeRepeatedSerializedSizeIncludingTags(values: values)
             default:
                 return 0
@@ -608,7 +608,7 @@ messageOrGroupClass:Any.Type,
                 try writeRepeatedValuesIncludingTags(values: values, output:output)
             case let values as Array<Data>:
                 try writeRepeatedValuesIncludingTags(values: values, output:output)
-            case let values as [GeneratedMessage]:
+            case let values as [GeneratedMessageProtocol]:
                 try writeRepeatedValuesIncludingTags(values: values, output:output)
             default:
                 break
@@ -657,7 +657,7 @@ messageOrGroupClass:Any.Type,
                 output += try iterationRepetedValuesForDescription(values: values, indent: indent)
             case let values as Array<Data>:
                 output += try iterationRepetedValuesForDescription(values: values, indent: indent)
-            case let values as [GeneratedMessage]:
+            case let values as [GeneratedMessageProtocol]:
                 output += try iterationRepetedValuesForDescription(values: values, indent: indent)
             default:
                 break
@@ -680,6 +680,7 @@ messageOrGroupClass:Any.Type,
     
     func readSingleValueFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Any
     {
+        var input = input
         switch type {
         case .extensionTypeBool:
             return try input.readBool()
@@ -714,15 +715,15 @@ messageOrGroupClass:Any.Type,
         case .extensionTypeEnum:
             return try input.readEnum()
         case .extensionTypeGroup:
-            if let mg = messageOrGroupClass as? GeneratedMessage.Type
-            {
-                let buider = mg.classBuilder()
+//            if let mg = messageOrGroupClass //as? GeneratedMessageProtocol.Type
+//            {
+                let buider = messageOrGroupClass.getBuilder()
                 try input.readGroup(fieldNumber: Int(fieldNumber), builder: buider, extensionRegistry: extensionRegistry)
                 let mes = try buider.build()
                 return mes
-            }
+//            }
         case .extensionTypeMessage:
-            if let mg = messageOrGroupClass as? GeneratedMessage.Type
+            if let mg = messageOrGroupClass as? GeneratedMessageProtocol.Type
             {
                 let buider = mg.classBuilder()
                 try input.readMessage(builder: buider, extensionRegistry: extensionRegistry)

@@ -21,7 +21,9 @@ public extension Baz {
     }
   }
 
-  final public class Foo : GeneratedMessage {
+  final public class Foo  {
+    public var unknownFields = UnknownFieldSet(fields: [:])
+    fileprivate var memoizedSerializedSize:Int32 = -1
 
     public static func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
       if (lhs === rhs) {
@@ -37,18 +39,17 @@ public extension Baz {
     public fileprivate(set) var hasHello:Bool = false
 
     required public init() {
-         super.init()
     }
-    override public func isInitialized() -> Bool {
+    public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: CodedOutputStream) throws {
       if hasHello {
         try codedOutputStream.write.string(fieldNumber: 1, value:hello)
       }
       try unknownFields.writeTo(codedOutputStream: codedOutputStream)
     }
-    override public func serializedSize() throws -> Int32 {
+    public func serializedSize() throws -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
       if serialize_size != -1 {
        return serialize_size
@@ -56,23 +57,11 @@ public extension Baz {
 
       serialize_size = 0
       if hasHello {
-        serialize_size += try ProtobufWire.Size(wireType:.string).with(tag: 1, value: hello)
+        serialize_size += ProtobufWire.string().computeSizeWith(tag: 1, value: hello)
       }
       serialize_size += unknownFields.serializedSize()
       memoizedSerializedSize = serialize_size
       return serialize_size
-    }
-    public class func getBuilder() -> Baz.Foo.Builder {
-      return Baz.Foo.classBuilder() as! Baz.Foo.Builder
-    }
-    public func getBuilder() -> Baz.Foo.Builder {
-      return classBuilder() as! Baz.Foo.Builder
-    }
-    override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Baz.Foo.Builder()
-    }
-    override public func classBuilder() -> ProtocolBuffersMessageBuilder {
-      return Baz.Foo.Builder()
     }
     public func toBuilder() throws -> Baz.Foo.Builder {
       return try Baz.Foo.builderWithPrototype(prototype:self)
@@ -80,7 +69,7 @@ public extension Baz {
     public class func builderWithPrototype(prototype:Baz.Foo) throws -> Baz.Foo.Builder {
       return try Baz.Foo.Builder().mergeFrom(other:prototype)
     }
-    override public func encode() throws -> Dictionary<String,Any> {
+    public func encode() throws -> Dictionary<String,Any> {
       guard isInitialized() else {
         throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
       }
@@ -91,13 +80,13 @@ public extension Baz {
       }
       return jsonMap
     }
-    override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo {
+    class public func decode(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo {
       return try Baz.Foo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> Baz.Foo {
+    class public func fromJSON(data:Data) throws -> Baz.Foo {
       return try Baz.Foo.Builder.fromJSONToBuilder(data:data).build()
     }
-    override public func getDescription(indent:String) throws -> String {
+    public func getDescription(indent:String) throws -> String {
       var output = ""
       if hasHello {
         output += "\(indent) hello: \(hello) \n"
@@ -105,7 +94,7 @@ public extension Baz {
       output += unknownFields.getDescription(indent: indent)
       return output
     }
-    override public var hashValue:Int {
+    public var hashValue:Int {
         get {
             var hashCode:Int = 7
             if hasHello {
@@ -119,22 +108,22 @@ public extension Baz {
 
     //Meta information declaration start
 
-    override public class func className() -> String {
+    public class func className() -> String {
         return "Baz.Foo"
     }
-    override public func className() -> String {
+    public func className() -> String {
         return "Baz.Foo"
     }
     //Meta information declaration end
 
-    final public class Builder : GeneratedMessageBuilder {
+    final public class Builder : GeneratedMessageBuilderProtocol {
+      public typealias GeneratedMessageType = Baz.Foo
       fileprivate var builderResult:Baz.Foo = Baz.Foo()
       public func getMessage() -> Baz.Foo {
           return builderResult
       }
 
-      required override public init () {
-         super.init()
+      required public init () {
       }
       public var hasHello:Bool {
            get {
@@ -161,20 +150,21 @@ public extension Baz {
            builderResult.hello = ""
            return self
       }
-      override public var internalGetResult:GeneratedMessage {
+      public var internalGetResult:Baz.Foo {
            get {
               return builderResult
            }
+          set{}
       }
       @discardableResult
-      override public func clear() -> Baz.Foo.Builder {
+      public func clear() -> Baz.Foo.Builder {
         builderResult = Baz.Foo()
         return self
       }
-      override public func clone() throws -> Baz.Foo.Builder {
+      public func clone() throws -> Baz.Foo.Builder {
         return try Baz.Foo.builderWithPrototype(prototype:builderResult)
       }
-      override public func build() throws -> Baz.Foo {
+      public func build() throws -> Baz.Foo {
            try checkInitialized()
            return buildPartial()
       }
@@ -194,11 +184,11 @@ public extension Baz {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo.Builder {
            return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
+      public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -225,7 +215,7 @@ public extension Baz {
         }
         return resultDecodedBuilder
       }
-      override class public func fromJSONToBuilder(data:Data) throws -> Baz.Foo.Builder {
+      class public func fromJSONToBuilder(data:Data) throws -> Baz.Foo.Builder {
         let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
         guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
           throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
@@ -238,6 +228,12 @@ public extension Baz {
 
 }
 extension Baz.Foo: GeneratedMessageProtocol {
+  public static func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return Baz.Foo.Builder() as! T
+  }
+  public func getBuilder() -> GeneratedMessageBuilderProtocol {
+    return getBuilder()
+  }
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Baz.Foo> {
     var mergedArray = Array<Baz.Foo>()
     while let value = try parseDelimitedFrom(inputStream: inputStream) {

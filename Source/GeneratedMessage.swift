@@ -17,81 +17,41 @@
 
 import Foundation
 
-public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
-{
+public protocol GeneratedMessageProtocol: ProtocolBuffersMessage {
+
     static func parseFrom(data: Data) throws -> Self
     static func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFrom(inputStream:InputStream) throws -> Self
     static func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
-    static func parseFrom(codedInputStream:CodedInputStream) throws -> Self
-    static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(codedInputStream: inout CodedInputStream) throws -> Self
+    static func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
-open class GeneratedMessage:AbstractProtocolBuffersMessage
-{
-    public var memoizedSerializedSize:Int32 = -1
-    required public init()
-    {
-        super.init()
-       self.unknownFields = UnknownFieldSet(fields: [:])
-    }
-    
-    //Override
-    open class func className() -> String
-    {
-        return "GeneratedMessage"
-    }
-    open func className() -> String
-    {
-        return "GeneratedMessage"
-    }
-    open override class func classBuilder() -> ProtocolBuffersMessageBuilder
-    {
-        return GeneratedMessageBuilder()
-    }
-    open override func classBuilder() -> ProtocolBuffersMessageBuilder
-    {
-        return GeneratedMessageBuilder()
-    }
-    //
+public protocol GeneratedMessageBuilderProtocol:ProtocolBuffersMessageBuilder {
+    var internalGetResult:GeneratedMessageType { get set }
+    var unknownFields:UnknownFieldSet { get set}
+    func checkInitialized() throws
+    func checkInitializedParsed() throws 
 }
 
-open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
-{
-    open var internalGetResult:GeneratedMessage
-    {
-        get
-        {
-            return GeneratedMessage()
-        }
-        
-    }
-    
-    override open var unknownFields:UnknownFieldSet
-    {
-        get
-        {
+extension GeneratedMessageBuilderProtocol {
+    public var unknownFields:UnknownFieldSet {
+        get {
             return internalGetResult.unknownFields
         }
-
-        set (fields)
-        {
+        set (fields) {
             internalGetResult.unknownFields = fields
         }
-        
     }
-    public func checkInitialized() throws
-    {
+    public func checkInitialized() throws {
         let result = internalGetResult
         
-        guard result.isInitialized() else
-        {
+        guard result.isInitialized() else {
             throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
         }
     }
     
-    public func checkInitializedParsed() throws
-    {
+    public func checkInitializedParsed() throws {
         let result = internalGetResult
         guard result.isInitialized() else
         {
@@ -99,14 +59,12 @@ open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
         }
     }
     
-    override open func isInitialized() -> Bool
-    {
+    public func isInitialized() -> Bool {
         return internalGetResult.isInitialized()
     }
     @discardableResult
-    override open func merge(unknownField: UnknownFieldSet) throws -> Self
-    {
-        let result:GeneratedMessage = internalGetResult
+    public func merge(unknownField: UnknownFieldSet) throws -> Self {
+        var result = internalGetResult
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()
         return self
     }
@@ -115,15 +73,13 @@ open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
     }
 }
 
-extension GeneratedMessage:CustomDebugStringConvertible
-{
+extension GeneratedMessageProtocol {
     public var debugDescription:String {
-            return description
+        return description
     }
 }
 
-extension GeneratedMessage:CustomStringConvertible
-{
+extension GeneratedMessageProtocol {
     public var description:String {
         get {
             var output:String = ""
@@ -133,13 +89,12 @@ extension GeneratedMessage:CustomStringConvertible
     }
 }
 
-extension GeneratedMessageBuilder:CustomDebugStringConvertible
-{
+extension GeneratedMessageBuilderProtocol {
     public var debugDescription:String {
         return internalGetResult.description
     }
 }
-extension GeneratedMessageBuilder:CustomStringConvertible {
+extension GeneratedMessageBuilderProtocol {
     public var description:String {
         get {
             return internalGetResult.description
