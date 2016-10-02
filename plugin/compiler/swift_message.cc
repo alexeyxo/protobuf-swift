@@ -367,7 +367,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         sort(sorted_extensions.begin(), sorted_extensions.end(),
              ExtensionRangeOrdering());
         
-        printer->Print(variables_,"override $acontrol$ func writeTo(codedOutputStream: CodedOutputStream) throws {\n");
+        printer->Print(variables_,"override $acontrol$ func writeTo(codedOutputStream: inout CodedOutputStream) throws {\n");
         printer->Indent();
         
         for (int i = 0, j = 0;
@@ -384,9 +384,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         if (descriptor_->options().message_set_wire_format()) {
-            printer->Print("try unknownFields.writeAsMessageSetTo(codedOutputStream: codedOutputStream)\n");
+            printer->Print("try unknownFields.writeAsMessageSetTo(codedOutputStream: &codedOutputStream)\n");
         } else {
-            printer->Print("try unknownFields.writeTo(codedOutputStream: codedOutputStream)\n");
+            printer->Print("try unknownFields.writeTo(codedOutputStream: &codedOutputStream)\n");
         }
         printer->Outdent();
         
@@ -653,11 +653,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream).build()\n"
+                       "$acontrol$ class func parseFrom(codedInputStream: inout CodedInputStream) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: &codedInputStream).build()\n"
                        "}\n"
-                       "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
+                       "$acontrol$ class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
+                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
       
         printer->Outdent();
@@ -677,7 +677,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateSerializeOneExtensionRangeSource(io::Printer* printer, const Descriptor::ExtensionRange* range) {
         printer->Print(
-                       "try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:$from$, endExclusive:$to$)\n",
+                       "try writeExtensionsTo(codedOutputStream: &codedOutputStream, startInclusive:$from$, endExclusive:$to$)\n",
                        "from", SimpleItoa(range->start),
                        "to", SimpleItoa(range->end));
     }
@@ -836,11 +836,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,
                        "@discardableResult\n"
-                       "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
-                       "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
+                       "override $acontrol$ func mergeFrom(codedInputStream: inout CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
+                       "     return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
                        "@discardableResult\n"
-                       "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
+                       "override $acontrol$ func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(
@@ -879,7 +879,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("\n");
         }
         printer->Print("default:\n"
-                       "  if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {\n"
+                       "  if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {\n"
                        "     unknownFields = try unknownFieldsBuilder.build()\n"
                        "     return self\n"
                        "  }\n"

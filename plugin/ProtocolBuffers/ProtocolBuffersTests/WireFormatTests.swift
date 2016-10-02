@@ -83,8 +83,8 @@ class WireFormatTests: XCTestCase {
             // it should work.
             let message = try TestUtilities.allSet()
             let rawBytes = message.data()
-            let registry = ExtensionRegistry()
-            TestUtilities.registerAllExtensions(registry)
+            var registry = ExtensionRegistry()
+            TestUtilities.registerAllExtensions(&registry)
             let message2 = try ProtobufUnittest.TestAllExtensions.parseFrom(data:rawBytes, extensionRegistry:registry)
             TestUtilities.assertAllExtensionsSet(message2)
         }

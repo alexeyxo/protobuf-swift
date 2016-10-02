@@ -167,7 +167,7 @@ final public class Field:Equatable,Hashable
         return result
     }
     
-    public func writeTo(fieldNumber:Int32, output:CodedOutputStream) throws
+    public func writeTo(fieldNumber:Int32, output: inout CodedOutputStream) throws
     {
 
         for value in variantArray
@@ -226,7 +226,7 @@ final public class Field:Equatable,Hashable
 
     }
     
-    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, codedOutputStream:CodedOutputStream) throws
+    public func writeAsMessageSetExtensionTo(fieldNumber:Int32, codedOutputStream: inout CodedOutputStream) throws
     {
         for value in lengthDelimited
         {

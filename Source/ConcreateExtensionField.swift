@@ -146,7 +146,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  writeSingleValueIncludingTag(value:Any, output:CodedOutputStream) throws
+    func  writeSingleValueIncludingTag(value:Any, output: inout CodedOutputStream) throws
     {
         switch type {
 
@@ -231,7 +231,7 @@ messageOrGroupClass:Any.Type,
         }
     }
     
-    func  writeSingleValueNoTag(value:Any, output:CodedOutputStream) throws
+    func  writeSingleValueNoTag(value:Any, output: inout CodedOutputStream) throws
     {
         switch type {
 
@@ -486,7 +486,7 @@ messageOrGroupClass:Any.Type,
         return output
     }
     
-    func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output:CodedOutputStream) throws {
+    func writeRepeatedValuesIncludingTags<T>(values:Array<T>, output: inout CodedOutputStream) throws {
         if (isPacked) {
             try output.writeTag(fieldNumber: fieldNumber, format: WireFormat.lengthDelimited)
             var dataSize:Int32 = 0
@@ -505,7 +505,7 @@ messageOrGroupClass:Any.Type,
             try output.writeRawVarint32(value: dataSize)
             for value in values
             {
-                try writeSingleValueNoTag(value: value, output: output)
+                try writeSingleValueNoTag(value: value, output: &output)
             }
             
         }
@@ -513,7 +513,7 @@ messageOrGroupClass:Any.Type,
         {
             for value in values
             {
-               try writeSingleValueIncludingTag(value: value, output: output)
+               try writeSingleValueIncludingTag(value: value, output: &output)
             }
         }
     }
@@ -583,7 +583,7 @@ messageOrGroupClass:Any.Type,
     }
 
     
-    public func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
+    public func writeValueIncludingTagToCodedOutputStream(value:Any, output: inout CodedOutputStream) throws
     {
         
         if isRepeated
@@ -591,25 +591,25 @@ messageOrGroupClass:Any.Type,
             switch value
             {
             case let values as [Int32]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [Int64]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [UInt64]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [UInt32]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [Bool]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [Float]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [Double]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [String]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as Array<Data>:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             case let values as [GeneratedMessage]:
-                try writeRepeatedValuesIncludingTags(values: values, output:output)
+                try writeRepeatedValuesIncludingTags(values: values, output:&output)
             default:
                 break
             }
@@ -617,7 +617,7 @@ messageOrGroupClass:Any.Type,
         }
         else
         {
-            try writeSingleValueIncludingTag(value: value, output:output)
+            try writeSingleValueIncludingTag(value: value, output:&output)
         }
     }
     
@@ -678,7 +678,7 @@ messageOrGroupClass:Any.Type,
          throw ProtocolBuffersError.illegalState("Method Not Supported")
     }
     
-    func readSingleValueFromCodedInputStream(input:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Any
+    func readSingleValueFromCodedInputStream(input: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Any
     {
         switch type {
         case .extensionTypeBool:
@@ -733,23 +733,23 @@ messageOrGroupClass:Any.Type,
         return ""
     }
     
-    public func mergeFrom(codedInputStream:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws {
+    public func mergeFrom(codedInput: inout CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws {
         if (isPacked) {
-            let length:Int32 = try codedInputStream.readRawVarint32()
-            let limit = Int(try codedInputStream.pushLimit(byteLimit: Int(length)))
-            while (codedInputStream.bytesUntilLimit() > 0) {
-                let value = try readSingleValueFromCodedInputStream(input: codedInputStream, extensionRegistry:extensionRegistry)
+            let length:Int32 = try codedInput.readRawVarint32()
+            let limit = try Int(codedInput.pushLimit(byteLimit: Int(length)))
+            while (codedInput.bytesUntilLimit() > 0) {
+                let value = try readSingleValueFromCodedInputStream(input: &codedInput, extensionRegistry:extensionRegistry)
                 _  = try builder.addExtension(extensions: self, value:value)
             }
-            codedInputStream.popLimit(oldLimit: Int(limit))
+            codedInput.popLimit(oldLimit: Int(limit))
         }
         else if isMessageSetWireFormat
         {
-            try mergeMessageSetExtentionFromCodedInputStream(input: codedInputStream, unknownFields:unknownFields)
+            try mergeMessageSetExtentionFromCodedInputStream(input: codedInput, unknownFields:unknownFields)
         }
         else
         {
-            let value = try readSingleValueFromCodedInputStream(input: codedInputStream, extensionRegistry:extensionRegistry)
+            let value = try readSingleValueFromCodedInputStream(input: &codedInput, extensionRegistry:extensionRegistry)
             if (isRepeated) {
                 try builder.addExtension(extensions: self, value:value)
             } else {

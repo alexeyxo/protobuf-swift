@@ -36,7 +36,7 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
-    func writeTo(codedOutputStream:CodedOutputStream) throws
+    func writeTo(codedOutputStream: inout CodedOutputStream) throws
     func writeTo(outputStream:OutputStream) throws
     func data() throws -> Data
     static func classBuilder()-> ProtocolBuffersMessageBuilder
@@ -56,8 +56,8 @@ public protocol ProtocolBuffersMessageBuilder {
      func isInitialized()-> Bool
      func build() throws -> AbstractProtocolBuffersMessage
      func merge(unknownField:UnknownFieldSet) throws -> Self
-     func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self
-     func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+     func mergeFrom(codedInputStream: inout CodedInputStream) throws ->  Self
+     func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
      func mergeFrom(data:Data) throws -> Self
      func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws -> Self
      func mergeFrom(inputStream:InputStream) throws -> Self
@@ -82,9 +82,9 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     final public func data() -> Data {
         let ser_size = serializedSize()
         let data = Data(count: Int(ser_size))
-        let stream:CodedOutputStream = CodedOutputStream(data: data)
+        var stream:CodedOutputStream = CodedOutputStream(data: data)
         do {
-            try writeTo(codedOutputStream: stream)
+            try writeTo(codedOutputStream: &stream)
         }
         catch {}
         return Data(bytes: stream.buffer.buffer, count: Int(ser_size))
@@ -100,21 +100,22 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         throw ProtocolBuffersError.obvious("Override")
     }
     
-    open func writeTo(codedOutputStream: CodedOutputStream) throws {
+    open func writeTo(codedOutputStream: inout
+        CodedOutputStream) throws {
         throw ProtocolBuffersError.obvious("Override")
     }
     
     final public func writeTo(outputStream: OutputStream) throws {
-        let codedOutput:CodedOutputStream = CodedOutputStream(stream:outputStream)
-        try! writeTo(codedOutputStream: codedOutput)
+        var codedOutput:CodedOutputStream = CodedOutputStream(stream:outputStream)
+        try! writeTo(codedOutputStream: &codedOutput)
         try codedOutput.flush()
     }
     
     public func writeDelimitedTo(outputStream: OutputStream) throws {
         let serializedDataSize = serializedSize()
-        let codedOutputStream = CodedOutputStream(stream: outputStream)
+        var codedOutputStream = CodedOutputStream(stream: outputStream)
         try codedOutputStream.writeRawVarint32(value: serializedDataSize)
-        try writeTo(codedOutputStream: codedOutputStream)
+        try writeTo(codedOutputStream: &codedOutputStream)
         try codedOutputStream.flush()
     }
     
@@ -176,11 +177,11 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         return false
     }
     @discardableResult
-    open func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self {
-        return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+    open func mergeFrom(codedInputStream: inout CodedInputStream) throws ->  Self {
+        return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     
-    open func mergeFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self {
+    open func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws ->  Self {
         throw ProtocolBuffersError.obvious("Override")
     }
     @discardableResult
@@ -191,23 +192,23 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     }
     @discardableResult
     final public func mergeFrom(data:Data) throws ->  Self {
-        let input:CodedInputStream = CodedInputStream(data:data)
-        _ = try mergeFrom(codedInputStream: input)
+        var input:CodedInputStream = CodedInputStream(data:data)
+        _ = try mergeFrom(codedInputStream: &input)
         try input.checkLastTagWas(value: 0)
         return self
     }
     
     @discardableResult
     final public func mergeFrom(data:Data, extensionRegistry:ExtensionRegistry) throws ->  Self {
-        let input:CodedInputStream = CodedInputStream(data:data)
-        _ = try mergeFrom(codedInputStream: input, extensionRegistry:extensionRegistry)
+        var input:CodedInputStream = CodedInputStream(data:data)
+        _ = try mergeFrom(codedInputStream: &input, extensionRegistry:extensionRegistry)
         try input.checkLastTagWas(value: 0)
         return self
     }
     @discardableResult
     final public func mergeFrom(inputStream: InputStream) throws -> Self {
-        let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
-        _ = try mergeFrom(codedInputStream: codedInput)
+        var codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
+        _ = try mergeFrom(codedInputStream: &codedInput)
         try codedInput.checkLastTagWas(value: 0)
         return self
         
@@ -215,8 +216,8 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
     }
     @discardableResult
     final public func mergeFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Self {
-        let codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
-        _ = try mergeFrom(codedInputStream: codedInput, extensionRegistry:extensionRegistry)
+        var codedInput:CodedInputStream = CodedInputStream(stream: inputStream)
+        _ = try mergeFrom(codedInputStream: &codedInput, extensionRegistry:extensionRegistry)
         try codedInput.checkLastTagWas(value: 0)
         return self
     }

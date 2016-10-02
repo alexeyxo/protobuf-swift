@@ -101,7 +101,7 @@ open class ExtendableMessage : GeneratedMessage
         }
         return true
     }
-    public func writeExtensionsTo(codedOutputStream:CodedOutputStream, startInclusive:Int32, endExclusive:Int32) throws
+    public func writeExtensionsTo(codedOutputStream: inout CodedOutputStream, startInclusive:Int32, endExclusive:Int32) throws
     {
         var keys = Array(extensionMap.keys)
         keys.sort(by: { $0 < $1 })
@@ -109,7 +109,7 @@ open class ExtendableMessage : GeneratedMessage
             if (fieldNumber >= startInclusive && fieldNumber < endExclusive) {
                 let extensions = extensionRegistry[fieldNumber]!
                 let value = extensionMap[fieldNumber]!
-                try extensions.writeValueIncludingTagToCodedOutputStream(value: value, output: codedOutputStream)
+                try extensions.writeValueIncludingTagToCodedOutputStream(value: value, output: &codedOutputStream)
             }
         }
     }
@@ -323,7 +323,7 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         return self
     }
     
-    override public func parse(codedInputStream:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
+    override public func parse(codedInputStream: inout CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
         
         let message = internalGetResult
         let wireType = WireFormat.getTagWireType(tag: tag)
@@ -333,11 +333,11 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
         
         if extensions != nil {
             if extensions!.wireType.rawValue == wireType {
-                try extensions!.mergeFrom(codedInputStream: codedInputStream, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
+                try extensions!.mergeFrom(codedInput: &codedInputStream, unknownFields:unknownFields, extensionRegistry:extensionRegistry, builder:self, tag:tag)
                 return true
             }
         }
-        return try super.parse(codedInputStream: codedInputStream, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
+        return try super.parse(codedInputStream: &codedInputStream, unknownFields: unknownFields, extensionRegistry: extensionRegistry, tag: tag)
     }
     public func getExtension(extensions:ConcreateExtensionField) -> Any
     {

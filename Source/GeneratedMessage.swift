@@ -23,8 +23,8 @@ public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
     static func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFrom(inputStream:InputStream) throws -> Self
     static func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
-    static func parseFrom(codedInputStream:CodedInputStream) throws -> Self
-    static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    static func parseFrom(codedInputStream: inout CodedInputStream) throws -> Self
+    static func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
 }
 
 open class GeneratedMessage:AbstractProtocolBuffersMessage
@@ -110,8 +110,8 @@ open class GeneratedMessageBuilder:AbstractProtocolBuffersMessageBuilder
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()
         return self
     }
-    public func parse(codedInputStream:CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
-        return try unknownFields.mergeFieldFrom(tag: tag, input:codedInputStream)
+    public func parse(codedInputStream:inout CodedInputStream ,unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, tag:Int32) throws -> Bool {
+        return try unknownFields.mergeFieldFrom(tag: tag, input:&codedInputStream)
     }
 }
 

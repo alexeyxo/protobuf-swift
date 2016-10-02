@@ -52,18 +52,18 @@ public class UnknownFieldSet:Hashable,Equatable {
         }
         return Field()
     }
-    public func writeTo(codedOutputStream:CodedOutputStream) throws {
+    public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
         var sortedKeys = Array(fields.keys)
         sortedKeys.sort(by: { $0 < $1 })
         for number in sortedKeys {
             let value:Field = fields[number]!
-            try value.writeTo(fieldNumber: number, output: codedOutputStream)
+            try value.writeTo(fieldNumber: number, output: &codedOutputStream)
         }
     }
     
     public func writeTo(outputStream:OutputStream) throws {
-        let codedOutput:CodedOutputStream = CodedOutputStream(stream: outputStream)
-        try writeTo(codedOutputStream: codedOutput)
+        var codedOutput:CodedOutputStream = CodedOutputStream(stream: outputStream)
+        try writeTo(codedOutputStream: &codedOutput)
         try codedOutput.flush()
     }
     
@@ -82,8 +82,8 @@ public class UnknownFieldSet:Hashable,Equatable {
         return UnknownFieldSet.Builder()
     }
     
-    public class func parseFrom(codedInputStream:CodedInputStream) throws -> UnknownFieldSet {
-        return try UnknownFieldSet.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+    public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UnknownFieldSet {
+        return try UnknownFieldSet.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
     }
     
     
@@ -109,10 +109,10 @@ public class UnknownFieldSet:Hashable,Equatable {
         return result
     }
     
-    public func writeAsMessageSetTo(codedOutputStream:CodedOutputStream) throws {
+    public func writeAsMessageSetTo(codedOutputStream: inout CodedOutputStream) throws {
         for number in fields.keys {
             let field:Field = fields[number]!
-            try field.writeAsMessageSetExtensionTo(fieldNumber: number, codedOutputStream:codedOutputStream)
+            try field.writeAsMessageSetExtensionTo(fieldNumber: number, codedOutputStream:&codedOutputStream)
         }
     }
     
@@ -128,8 +128,8 @@ public class UnknownFieldSet:Hashable,Equatable {
     public func data() throws -> Data {
         let size = serializedSize()
         let data = Data(bytes: [0], count: Int(size))
-        let stream:CodedOutputStream = CodedOutputStream(data: data)
-        try writeTo(codedOutputStream: stream)
+        var stream:CodedOutputStream = CodedOutputStream(data: data)
+        try writeTo(codedOutputStream: &stream)
         return Data(bytes: stream.buffer.buffer, count: Int(size))
     }
     
@@ -236,8 +236,8 @@ public class UnknownFieldSet:Hashable,Equatable {
         
         @discardableResult
         public func mergeFrom(data:Data) throws -> UnknownFieldSet.Builder {
-            let input:CodedInputStream = CodedInputStream(data: data)
-            try mergeFrom(codedInputStream: input)
+            var input:CodedInputStream = CodedInputStream(data: data)
+            try mergeFrom(codedInputStream: &input)
             try input.checkLastTagWas(value: 0)
             return self
         }
@@ -258,7 +258,7 @@ public class UnknownFieldSet:Hashable,Equatable {
             return self
         }
         @discardableResult
-        public func mergeFieldFrom(tag:Int32, input:CodedInputStream) throws -> Bool {
+        public func mergeFieldFrom(tag:Int32, input: inout CodedInputStream) throws -> Bool {
             
             let number = WireFormat.getTagFieldNumber(tag: tag)
             let tags = WireFormat.getTagWireType(tag: tag)
@@ -295,10 +295,10 @@ public class UnknownFieldSet:Hashable,Equatable {
         }
         
         @discardableResult
-        public func mergeFrom(codedInputStream:CodedInputStream) throws -> UnknownFieldSet.Builder {
+        public func mergeFrom(codedInputStream:inout CodedInputStream) throws -> UnknownFieldSet.Builder {
             while (true) {
                 let tag:Int32 = try codedInputStream.readTag()
-                let mergeField = try mergeFieldFrom(tag: tag, input:codedInputStream)
+                let mergeField = try mergeFieldFrom(tag: tag, input: &codedInputStream)
                 if tag == 0 || !(mergeField)
                 {
                     break

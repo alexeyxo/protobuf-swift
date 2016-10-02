@@ -1417,14 +1417,14 @@ class  TestUtilities {
         try message.setExtension(extensions:ProtobufUnittest.UnittestRoot.defaultCordExtension(), value:"425")
         
     }
-    class func registerAllExtensions(_ registry:ExtensionRegistry)
+    class func registerAllExtensions(_ registry:inout ExtensionRegistry)
     {
-        ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry:registry)
+        ProtobufUnittest.UnittestRoot.default.registerAllExtensions(registry:&registry)
     }
     
     class func extensionRegistry() -> ExtensionRegistry {
-        let registry:ExtensionRegistry = ExtensionRegistry()
-        TestUtilities.registerAllExtensions(registry)
+        var registry:ExtensionRegistry = ExtensionRegistry()
+        TestUtilities.registerAllExtensions(&registry)
         return registry
     }
     

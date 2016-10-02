@@ -33,7 +33,7 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func assertWriteLittleEndian32(_ data:Data, value:Int32) throws {
         let rawOutput:OutputStream = openMemoryStream()
-        let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
+        var output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
 
         try output.writeRawLittleEndian32(value: value)
         try output.flush()
@@ -45,7 +45,7 @@ internal class CodedOuputStreamTests: XCTestCase
         var blockSize:Int = 1
         while blockSize <= 16 {
             let rawOutput:OutputStream = openMemoryStream()
-            let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
+            var output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
             try output.writeRawLittleEndian32(value: value)
             try output.flush()
@@ -58,7 +58,7 @@ internal class CodedOuputStreamTests: XCTestCase
     
     func assertWriteLittleEndian64(_ data:Data, value:Int64) throws {
         let rawOutput:OutputStream = openMemoryStream()
-        let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
+        var output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
         try output.writeRawLittleEndian64(value: value)
         try output.flush()
         
@@ -70,7 +70,7 @@ internal class CodedOuputStreamTests: XCTestCase
         var blockSize:Int = 1
         while blockSize <= 16 {
             let rawOutput:OutputStream = openMemoryStream()
-            let output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
+            var output:CodedOutputStream = CodedOutputStream(stream: rawOutput, bufferSize: blockSize)
             
             try output.writeRawLittleEndian64(value: value)
             try output.flush()
@@ -89,7 +89,7 @@ internal class CodedOuputStreamTests: XCTestCase
         if (shift == 0)
         {
             let rawOutput1:OutputStream = openMemoryStream()
-            let output1:CodedOutputStream = CodedOutputStream(stream: rawOutput1)
+            var output1:CodedOutputStream = CodedOutputStream(stream: rawOutput1)
             let invalue = Int32(value)
             try output1.writeRawVarint32(value: invalue)
             try output1.flush()
@@ -101,7 +101,7 @@ internal class CodedOuputStreamTests: XCTestCase
         }
     
         let rawOutput2:OutputStream = openMemoryStream()
-        let output2:CodedOutputStream = CodedOutputStream(stream:rawOutput2)
+        var output2:CodedOutputStream = CodedOutputStream(stream:rawOutput2)
         try output2.writeRawVarint64(value: value)
         try output2.flush()
     
@@ -116,7 +116,7 @@ internal class CodedOuputStreamTests: XCTestCase
             if (WireFormat.logicalRightShift64(value:value, spaces: 31) == 0)
             {
                 let rawOutput3:OutputStream = openMemoryStream()
-                let output3:CodedOutputStream = CodedOutputStream(stream: rawOutput3, bufferSize: blockSize)
+                var output3:CodedOutputStream = CodedOutputStream(stream: rawOutput3, bufferSize: blockSize)
                 
                 try output3.writeRawVarint32(value: Int32(value))
                 try output3.flush()
@@ -127,7 +127,7 @@ internal class CodedOuputStreamTests: XCTestCase
             
             
             let rawOutput4:OutputStream = openMemoryStream()
-            let output4:CodedOutputStream = CodedOutputStream(stream: rawOutput4, bufferSize: blockSize)
+            var output4:CodedOutputStream = CodedOutputStream(stream: rawOutput4, bufferSize: blockSize)
             try output4.writeRawVarint64(value: value)
             try output4.flush()
             
@@ -329,8 +329,8 @@ internal class CodedOuputStreamTests: XCTestCase
             var blockSize:Int = 1
             while blockSize <= 256 {
                 let rawOutput = openMemoryStream()
-                let output:CodedOutputStream = CodedOutputStream(stream:rawOutput, bufferSize:blockSize)
-                try message.writeTo(codedOutputStream:output)
+                var output:CodedOutputStream = CodedOutputStream(stream:rawOutput, bufferSize:blockSize)
+                try message.writeTo(codedOutputStream:&output)
                 try output.flush()
                 let actual = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
                 XCTAssertTrue(rawBytes == actual, "")

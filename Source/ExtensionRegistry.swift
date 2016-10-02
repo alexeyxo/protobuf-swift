@@ -24,25 +24,18 @@ public protocol ExtensionField
     var fieldNumber:Int32 {get set}
     var extendedClass:AnyClassType {get}
     var wireType:WireFormat {get}
-    func writeValueIncludingTagToCodedOutputStream(value:Any, output:CodedOutputStream) throws
+    func writeValueIncludingTagToCodedOutputStream(value:Any, output: inout CodedOutputStream) throws
     func computeSerializedSizeIncludingTag(value:Any) throws -> Int32
     func getDescription(value:Any, indent:String) throws -> String
-    func mergeFrom(codedInputStream:CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
+    func mergeFrom(codedInput: inout CodedInputStream, unknownFields:UnknownFieldSet.Builder, extensionRegistry:ExtensionRegistry, builder:ExtendableMessageBuilder, tag:Int32) throws
     
 }
 
-public class ExtensionRegistry 
+public struct ExtensionRegistry
 {
-    private var classMap:[String : [Int32 : ConcreateExtensionField]]
-    
-    public init()
-    {
-        self.classMap = [:]
-    }
-    public init(classMap:[String : [Int32 : ConcreateExtensionField]])
-    {
-        self.classMap = classMap
-    }
+    private var classMap:[String : [Int32 : ConcreateExtensionField]] = [:]
+
+    public init() {}
     
     public func getExtension(clName:AnyClassType, fieldNumber:Int32) -> ConcreateExtensionField? {
         
@@ -54,7 +47,7 @@ public class ExtensionRegistry
         return extensionMap![fieldNumber]
     }
     
-    public func addExtension(extensions:ConcreateExtensionField)
+    public mutating func addExtension(extensions:ConcreateExtensionField)
     {
         let extendedClass = extensions.extendedClass.className()
         var extensionMap = classMap[extendedClass]

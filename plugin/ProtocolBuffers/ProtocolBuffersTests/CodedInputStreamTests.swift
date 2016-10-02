@@ -53,13 +53,13 @@ class CodedInputStreamTests: XCTestCase
         let shift = WireFormat.logicalRightShift64(value:value, spaces: 31)
         if (shift == 0)
         {
-            let input1:CodedInputStream = CodedInputStream(data:data)
+            var input1:CodedInputStream = CodedInputStream(data:data)
             let result = try input1.readRawVarint32()
             XCTAssertTrue(Int32(value) == result, "")
 
         }
 
-        let input2:CodedInputStream = CodedInputStream(data:data)
+        var input2:CodedInputStream = CodedInputStream(data:data)
         
         let ints = try input2.readRawVarint64()
         XCTAssertTrue(value == ints, "")
@@ -67,12 +67,12 @@ class CodedInputStreamTests: XCTestCase
         if (shift == 0)
         {
             
-            let input3:CodedInputStream = CodedInputStream(stream:InputStream(data:data))
+            var input3:CodedInputStream = CodedInputStream(stream:InputStream(data:data))
             let variant = try input3.readRawVarint32()
             XCTAssertTrue(Int32(value) == variant, "")
         }
         
-        let input4:CodedInputStream = CodedInputStream(stream:InputStream(data:data))
+        var input4:CodedInputStream = CodedInputStream(stream:InputStream(data:data))
         let result4 = try input4.readRawVarint64()
         XCTAssertTrue(value == result4, "")
     
@@ -83,14 +83,14 @@ class CodedInputStreamTests: XCTestCase
             if (shift == 0) {
                 let smallblock:SmallBlockInputStream = SmallBlockInputStream()
                 smallblock.setup(data: data, blocksSize: blockSize)
-                let inputs:CodedInputStream = CodedInputStream(stream:smallblock)
+                var inputs:CodedInputStream = CodedInputStream(stream:smallblock)
                 let result2 = try inputs.readRawVarint32()
                 XCTAssertTrue(Int32(value) == result2, "")
             }
             
             let smallblock2:SmallBlockInputStream = SmallBlockInputStream()
             smallblock2.setup(data: data, blocksSize: blockSize)
-            let inputs2:CodedInputStream = CodedInputStream(stream:smallblock2)
+            var inputs2:CodedInputStream = CodedInputStream(stream:smallblock2)
             let varin64 = try inputs2.readRawVarint64()
             XCTAssertTrue(value == varin64, "")
             blockSize *= 2
@@ -102,7 +102,7 @@ class CodedInputStreamTests: XCTestCase
         var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/MemoryLayout<UInt8>.size)
         (data as NSData).getBytes(&dataByte, length: data.count)
         
-        let input:CodedInputStream = CodedInputStream(data:data)
+        var input:CodedInputStream = CodedInputStream(data:data)
         let readRes = try input.readRawLittleEndian32()
         XCTAssertTrue(value == readRes, "")
         
@@ -111,7 +111,7 @@ class CodedInputStreamTests: XCTestCase
             let smallblock:SmallBlockInputStream = SmallBlockInputStream()
             smallblock.setup(data: data, blocksSize: blockSize)
             
-            let input2:CodedInputStream = CodedInputStream(stream:smallblock)
+            var input2:CodedInputStream = CodedInputStream(stream:smallblock)
             let readRes2 = try input2.readRawLittleEndian32()
             XCTAssertTrue(value == readRes2, "")
             blockSize *= 2
@@ -124,7 +124,7 @@ class CodedInputStreamTests: XCTestCase
         var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count/MemoryLayout<UInt8>.size)
         (data as NSData).getBytes(&dataByte, length: data.count)
         
-        let input:CodedInputStream = CodedInputStream(data:data)
+        var input:CodedInputStream = CodedInputStream(data:data)
         let inputValue = try input.readRawLittleEndian64()
         XCTAssertTrue(value == inputValue, "")
         var blockSize:Int32 = 1
@@ -132,7 +132,7 @@ class CodedInputStreamTests: XCTestCase
             let smallblock:SmallBlockInputStream = SmallBlockInputStream()
             smallblock.setup(data: data, blocksSize: blockSize)
             
-            let input2:CodedInputStream = CodedInputStream(stream:smallblock)
+            var input2:CodedInputStream = CodedInputStream(stream:smallblock)
             
             let input2Value = try input2.readRawLittleEndian64()
             XCTAssertTrue(value == input2Value, "")
@@ -145,9 +145,9 @@ class CodedInputStreamTests: XCTestCase
         var dataByte:[UInt8] = [UInt8](repeating: 0, count: data.count)
         (data as NSData).getBytes(&dataByte, length:data.count)
         
-        let input:CodedInputStream = CodedInputStream(data:data)
+        var input:CodedInputStream = CodedInputStream(data:data)
         _ = try input.readRawVarint32()
-        let input2:CodedInputStream = CodedInputStream(data:data)
+        var input2:CodedInputStream = CodedInputStream(data:data)
         _ = try input2.readRawVarint64()
         
     
@@ -237,7 +237,7 @@ class CodedInputStreamTests: XCTestCase
         do {
             let rawOutput:OutputStream = OutputStream.toMemory()
             rawOutput.open()
-            let output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
+            var output:CodedOutputStream = CodedOutputStream(stream: rawOutput)
             
             let tag:Int32 = WireFormat.lengthDelimited.makeTag(fieldNumber: 1)
             
@@ -260,7 +260,7 @@ class CodedInputStreamTests: XCTestCase
             }
             
             let data:Data = rawOutput.property(forKey: Stream.PropertyKey.dataWrittenToMemoryStreamKey) as! Data
-            let input:CodedInputStream = CodedInputStream(data: data)
+            var input:CodedInputStream = CodedInputStream(data: data)
             let readedTag = try input.readTag()
             XCTAssertTrue(tag == readedTag, "")
         }
@@ -285,9 +285,9 @@ class CodedInputStreamTests: XCTestCase
             var message2 = try ProtobufUnittest.TestAllTypes.parseFrom(data: rawBytes)
             TestUtilities.assertAllFieldsSet(message2)
             let stream:InputStream = InputStream(data: rawBytes)
-            let codedStream  = CodedInputStream(stream
+            var codedStream  = CodedInputStream(stream
                 :stream)
-            let message3 = try ProtobufUnittest.TestAllTypes.parseFrom(codedInputStream:codedStream)
+            let message3 = try ProtobufUnittest.TestAllTypes.parseFrom(codedInputStream:&codedStream)
             TestUtilities.assertAllFieldsSet(message3)
             XCTAssertTrue(message3 == message2, "")
             
@@ -312,8 +312,8 @@ class CodedInputStreamTests: XCTestCase
         do {
             let message = try TestUtilities.allSet()
             let rawBytes = message.data()
-            let input1 = CodedInputStream(data:rawBytes)
-            let input2 = CodedInputStream(data:rawBytes)
+            var input1 = CodedInputStream(data:rawBytes)
+            var input2 = CodedInputStream(data:rawBytes)
             let unknownFields = UnknownFieldSet.Builder()
             
             while (true) {
@@ -323,7 +323,7 @@ class CodedInputStreamTests: XCTestCase
                 if (tag2 == 0) {
                     break
                 }
-                try unknownFields.mergeFieldFrom(tag: tag, input:input1)
+                try unknownFields.mergeFieldFrom(tag: tag, input:&input1)
                 try input2.skipField(tag: tag2)
             }
         }
