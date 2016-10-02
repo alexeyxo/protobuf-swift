@@ -12,9 +12,9 @@ public struct UnittestThreadingRoot {
 
   init() {
     extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(registry: extensionRegistry)
+    registerAllExtensions(registry: &extensionRegistry)
   }
-  public func registerAllExtensions(registry: ExtensionRegistry) {
+  public func registerAllExtensions(registry: inout ExtensionRegistry) {
   }
 }
 
@@ -39,11 +39,11 @@ final public class ThreadingMessages : GeneratedMessage {
   override public func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+  override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
     if hasTestString {
       try codedOutputStream.writeString(fieldNumber: 1, value:testString)
     }
-    try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+    try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
   }
   override public func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
@@ -191,11 +191,11 @@ final public class ThreadingMessages : GeneratedMessage {
       return self
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages.Builder {
-         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+    override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ThreadingMessages.Builder {
+         return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
+    override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -208,7 +208,7 @@ final public class ThreadingMessages : GeneratedMessage {
           testString = try codedInputStream.readString()
 
         default:
-          if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+          if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -256,11 +256,11 @@ extension ThreadingMessages: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
     return try ThreadingMessages.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
-    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ThreadingMessages {
+    return try ThreadingMessages.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

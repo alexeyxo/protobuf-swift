@@ -22,9 +22,9 @@ public extension Google.Protobuf.NoGenericServicesTest {
     init() {
       UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.NoGenericServicesTest.TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(registry: extensionRegistry)
+      registerAllExtensions(registry: &extensionRegistry)
     }
-    public func registerAllExtensions(registry: ExtensionRegistry) {
+    public func registerAllExtensions(registry: inout ExtensionRegistry) {
       registry.addExtension(extensions: UnittestNoGenericServicesRoottestExtensionStatic)
     }
     public static func testExtension() -> ConcreateExtensionField {
@@ -85,12 +85,12 @@ public extension Google.Protobuf.NoGenericServicesTest {
       }
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasA {
         try codedOutputStream.writeInt32(fieldNumber: 1, value:a)
       }
-      try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1000, endExclusive:536870912)
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try writeExtensionsTo(codedOutputStream: &codedOutputStream, startInclusive:1000, endExclusive:536870912)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -242,11 +242,11 @@ public extension Google.Protobuf.NoGenericServicesTest {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -259,7 +259,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
             a = try codedInputStream.readInt32()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -308,11 +308,11 @@ extension Google.Protobuf.NoGenericServicesTest.TestMessage: GeneratedMessagePro
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
     return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
-    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
+    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
-    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
+    return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

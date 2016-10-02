@@ -12,10 +12,10 @@ public struct UnittestErrorTypeRoot {
 
   init() {
     extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(registry: extensionRegistry)
-    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+    registerAllExtensions(registry: &extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: &extensionRegistry)
   }
-  public func registerAllExtensions(registry: ExtensionRegistry) {
+  public func registerAllExtensions(registry: inout ExtensionRegistry) {
   }
 }
 
@@ -114,11 +114,11 @@ final public class UserProfile : GeneratedMessage {
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
         if hasUserId {
           try codedOutputStream.writeString(fieldNumber: 1, value:userId)
         }
-        try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
       }
       override public func serializedSize() -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
@@ -266,11 +266,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request.Builder {
-             return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+        override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Request.Builder {
+             return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request.Builder {
+        override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -283,7 +283,7 @@ final public class UserProfile : GeneratedMessage {
               userId = try codedInputStream.readString()
 
             default:
-              if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+              if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                  unknownFields = try unknownFieldsBuilder.build()
                  return self
               }
@@ -345,7 +345,7 @@ final public class UserProfile : GeneratedMessage {
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
         if hasProfile {
           try codedOutputStream.writeMessage(fieldNumber: 1, value:profile)
         }
@@ -355,7 +355,7 @@ final public class UserProfile : GeneratedMessage {
         if hasException {
           try codedOutputStream.writeMessage(fieldNumber: 3, value:exception)
         }
-        try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
       }
       override public func serializedSize() -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
@@ -657,11 +657,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response.Builder {
-             return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+        override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Response.Builder {
+             return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response.Builder {
+        override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -695,7 +695,7 @@ final public class UserProfile : GeneratedMessage {
               exception = subBuilder.buildPartial()
 
             default:
-              if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+              if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                  unknownFields = try unknownFieldsBuilder.build()
                  return self
               }
@@ -765,14 +765,14 @@ final public class UserProfile : GeneratedMessage {
         }
        return true
       }
-      override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+      override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
         if hasErrorCode {
           try codedOutputStream.writeInt32(fieldNumber: 1, value:errorCode)
         }
         if hasErrorDescription {
           try codedOutputStream.writeString(fieldNumber: 2, value:errorDescription)
         }
-        try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
       }
       override public func serializedSize() -> Int32 {
         var serialize_size:Int32 = memoizedSerializedSize
@@ -960,11 +960,11 @@ final public class UserProfile : GeneratedMessage {
           return self
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception.Builder {
-             return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+        override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Exception.Builder {
+             return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
         }
         @discardableResult
-        override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
+        override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception.Builder {
           let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
           while (true) {
             let protobufTag = try codedInputStream.readTag()
@@ -980,7 +980,7 @@ final public class UserProfile : GeneratedMessage {
               errorDescription = try codedInputStream.readString()
 
             default:
-              if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+              if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                  unknownFields = try unknownFieldsBuilder.build()
                  return self
               }
@@ -1025,7 +1025,7 @@ final public class UserProfile : GeneratedMessage {
   override public func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+  override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
     if hasFirstName {
       try codedOutputStream.writeString(fieldNumber: 1, value:firstName)
     }
@@ -1035,7 +1035,7 @@ final public class UserProfile : GeneratedMessage {
     if hasAvatarUrl {
       try codedOutputStream.writeString(fieldNumber: 3, value:avatarUrl)
     }
-    try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+    try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
   }
   override public func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
@@ -1263,11 +1263,11 @@ final public class UserProfile : GeneratedMessage {
       return self
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Builder {
-         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+    override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Builder {
+         return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Builder {
+    override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -1286,7 +1286,7 @@ final public class UserProfile : GeneratedMessage {
           avatarUrl = try codedInputStream.readString()
 
         default:
-          if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+          if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -1340,11 +1340,11 @@ extension UserProfile: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile {
     return try UserProfile.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UserProfile {
-    return try UserProfile.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile {
+    return try UserProfile.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile {
-    return try UserProfile.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile {
+    return try UserProfile.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension UserProfile.Request: GeneratedMessageProtocol {
@@ -1370,11 +1370,11 @@ extension UserProfile.Request: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request {
     return try UserProfile.Request.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Request {
-    return try UserProfile.Request.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Request {
+    return try UserProfile.Request.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request {
-    return try UserProfile.Request.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Request {
+    return try UserProfile.Request.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension UserProfile.Response: GeneratedMessageProtocol {
@@ -1400,11 +1400,11 @@ extension UserProfile.Response: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response {
     return try UserProfile.Response.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Response {
-    return try UserProfile.Response.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Response {
+    return try UserProfile.Response.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response {
-    return try UserProfile.Response.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Response {
+    return try UserProfile.Response.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension UserProfile.Exception: GeneratedMessageProtocol {
@@ -1430,11 +1430,11 @@ extension UserProfile.Exception: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
     return try UserProfile.Exception.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UserProfile.Exception {
-    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
-    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UserProfile.Exception {
+    return try UserProfile.Exception.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

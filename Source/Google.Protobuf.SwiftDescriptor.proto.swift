@@ -34,10 +34,10 @@ public extension Google.Protobuf {
       SwiftDescriptorRootswiftMessageOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 5092016, defaultValue:Google.Protobuf.SwiftMessageOptions(), messageOrGroupClass:Google.Protobuf.SwiftMessageOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(registry: extensionRegistry)
-      Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+      registerAllExtensions(registry: &extensionRegistry)
+      Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: &extensionRegistry)
     }
-    public func registerAllExtensions(registry: ExtensionRegistry) {
+    public func registerAllExtensions(registry: inout ExtensionRegistry) {
       registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
       registry.addExtension(extensions: SwiftDescriptorRootswiftMessageOptionsStatic)
       registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
@@ -117,7 +117,7 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasClassPrefix {
         try codedOutputStream.writeString(fieldNumber: 1, value:classPrefix)
       }
@@ -130,7 +130,7 @@ public extension Google.Protobuf {
       if hasGenerateStruct {
         try codedOutputStream.writeBool(fieldNumber: 4, value:generateStruct)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -398,11 +398,11 @@ public extension Google.Protobuf {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -429,7 +429,7 @@ public extension Google.Protobuf {
             generateStruct = try codedInputStream.readBool()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -484,11 +484,11 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasGenerateErrorType {
         try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -636,11 +636,11 @@ public extension Google.Protobuf {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -653,7 +653,7 @@ public extension Google.Protobuf {
             generateErrorType = try codedInputStream.readBool()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -699,11 +699,11 @@ public extension Google.Protobuf {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasGenerateErrorType {
         try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -851,11 +851,11 @@ public extension Google.Protobuf {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -868,7 +868,7 @@ public extension Google.Protobuf {
             generateErrorType = try codedInputStream.readBool()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -917,11 +917,11 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
     return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
-    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
-    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFileOptions {
+    return try Google.Protobuf.SwiftFileOptions.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
@@ -947,11 +947,11 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
     return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions {
-    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
-    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftMessageOptions {
+    return try Google.Protobuf.SwiftMessageOptions.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
@@ -977,11 +977,11 @@ extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
     return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions {
-    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
-    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftEnumOptions {
+    return try Google.Protobuf.SwiftEnumOptions.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

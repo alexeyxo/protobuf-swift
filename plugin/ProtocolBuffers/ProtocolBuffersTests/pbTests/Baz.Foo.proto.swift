@@ -15,9 +15,9 @@ public extension Baz {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(registry: extensionRegistry)
+      registerAllExtensions(registry: &extensionRegistry)
     }
-    public func registerAllExtensions(registry: ExtensionRegistry) {
+    public func registerAllExtensions(registry: inout ExtensionRegistry) {
     }
   }
 
@@ -42,11 +42,11 @@ public extension Baz {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasHello {
         try codedOutputStream.writeString(fieldNumber: 1, value:hello)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -194,11 +194,11 @@ public extension Baz {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> Baz.Foo.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -211,7 +211,7 @@ public extension Baz {
             hello = try codedInputStream.readString()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -260,11 +260,11 @@ extension Baz.Foo: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
     return try Baz.Foo.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> Baz.Foo {
-    return try Baz.Foo.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> Baz.Foo {
+    return try Baz.Foo.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
-    return try Baz.Foo.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Baz.Foo {
+    return try Baz.Foo.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

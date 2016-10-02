@@ -15,11 +15,11 @@ public extension ProtobufUnittestNoArena {
 
     init() {
       extensionRegistry = ExtensionRegistry()
-      registerAllExtensions(registry: extensionRegistry)
-      ProtobufUnittestImport.UnittestImportRoot.default.registerAllExtensions(registry: extensionRegistry)
-      Proto2ArenaUnittest.UnittestArenaRoot.default.registerAllExtensions(registry: extensionRegistry)
+      registerAllExtensions(registry: &extensionRegistry)
+      ProtobufUnittestImport.UnittestImportRoot.default.registerAllExtensions(registry: &extensionRegistry)
+      Proto2ArenaUnittest.UnittestArenaRoot.default.registerAllExtensions(registry: &extensionRegistry)
     }
-    public func registerAllExtensions(registry: ExtensionRegistry) {
+    public func registerAllExtensions(registry: inout ExtensionRegistry) {
     }
   }
 
@@ -176,11 +176,11 @@ public extension ProtobufUnittestNoArena {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
           if hasBb {
             try codedOutputStream.writeInt32(fieldNumber: 1, value:bb)
           }
-          try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+          try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -328,11 +328,11 @@ public extension ProtobufUnittestNoArena {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-               return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+          override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+               return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+          override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -345,7 +345,7 @@ public extension ProtobufUnittestNoArena {
                 bb = try codedInputStream.readInt32()
 
               default:
-                if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -397,11 +397,11 @@ public extension ProtobufUnittestNoArena {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.writeInt32(fieldNumber: 17, value:a)
           }
-          try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+          try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -549,11 +549,11 @@ public extension ProtobufUnittestNoArena {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
-               return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+          override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+               return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+          override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -566,7 +566,7 @@ public extension ProtobufUnittestNoArena {
                 a = try codedInputStream.readInt32()
 
               default:
-                if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -618,11 +618,11 @@ public extension ProtobufUnittestNoArena {
         override public func isInitialized() -> Bool {
          return true
         }
-        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+        override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
           if hasA {
             try codedOutputStream.writeInt32(fieldNumber: 47, value:a)
           }
-          try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+          try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
         }
         override public func serializedSize() -> Int32 {
           var serialize_size:Int32 = memoizedSerializedSize
@@ -770,11 +770,11 @@ public extension ProtobufUnittestNoArena {
             return self
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
-               return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+          override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+               return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
           }
           @discardableResult
-          override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+          override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
             let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
             while (true) {
               let protobufTag = try codedInputStream.readTag()
@@ -787,7 +787,7 @@ public extension ProtobufUnittestNoArena {
                 a = try codedInputStream.readInt32()
 
               default:
-                if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                    unknownFields = try unknownFieldsBuilder.build()
                    return self
                 }
@@ -1183,7 +1183,7 @@ public extension ProtobufUnittestNoArena {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasOptionalInt32 {
         try codedOutputStream.writeInt32(fieldNumber: 1, value:optionalInt32)
       }
@@ -1446,7 +1446,7 @@ public extension ProtobufUnittestNoArena {
       if hasLazyOneofNestedMessage {
         try codedOutputStream.writeMessage(fieldNumber: 115, value:lazyOneofNestedMessage)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -4926,11 +4926,11 @@ public extension ProtobufUnittestNoArena {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -5263,7 +5263,7 @@ public extension ProtobufUnittestNoArena {
             lazyOneofNestedMessage = subBuilder.buildPartial()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -5657,11 +5657,11 @@ public extension ProtobufUnittestNoArena {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasC {
         try codedOutputStream.writeInt32(fieldNumber: 1, value:c)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -5809,11 +5809,11 @@ public extension ProtobufUnittestNoArena {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -5826,7 +5826,7 @@ public extension ProtobufUnittestNoArena {
             c = try codedInputStream.readInt32()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -5871,11 +5871,11 @@ public extension ProtobufUnittestNoArena {
     override public func isInitialized() -> Bool {
      return true
     }
-    override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+    override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
       if hasArenaMessage {
         try codedOutputStream.writeMessage(fieldNumber: 1, value:arenaMessage)
       }
-      try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+      try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
     }
     override public func serializedSize() -> Int32 {
       var serialize_size:Int32 = memoizedSerializedSize
@@ -6060,11 +6060,11 @@ public extension ProtobufUnittestNoArena {
         return self
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
-           return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+      override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+           return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
       }
       @discardableResult
-      override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+      override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
         while (true) {
           let protobufTag = try codedInputStream.readTag()
@@ -6082,7 +6082,7 @@ public extension ProtobufUnittestNoArena {
             arenaMessage = subBuilder.buildPartial()
 
           default:
-            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+            if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                unknownFields = try unknownFieldsBuilder.build()
                return self
             }
@@ -6132,11 +6132,11 @@ extension ProtobufUnittestNoArena.TestAllTypes: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
     return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
-    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
-    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes {
+    return try ProtobufUnittestNoArena.TestAllTypes.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension ProtobufUnittestNoArena.TestAllTypes.NestedMessage: GeneratedMessageProtocol {
@@ -6162,11 +6162,11 @@ extension ProtobufUnittestNoArena.TestAllTypes.NestedMessage: GeneratedMessagePr
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
     return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
-    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage {
+    return try ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension ProtobufUnittestNoArena.TestAllTypes.OptionalGroup: GeneratedMessageProtocol {
@@ -6192,11 +6192,11 @@ extension ProtobufUnittestNoArena.TestAllTypes.OptionalGroup: GeneratedMessagePr
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
     return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
-    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol {
@@ -6222,11 +6222,11 @@ extension ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup: GeneratedMessagePr
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
     return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
-    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup {
+    return try ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension ProtobufUnittestNoArena.ForeignMessage: GeneratedMessageProtocol {
@@ -6252,11 +6252,11 @@ extension ProtobufUnittestNoArena.ForeignMessage: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
     return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
-    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
-    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.ForeignMessage {
+    return try ProtobufUnittestNoArena.ForeignMessage.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 extension ProtobufUnittestNoArena.TestNoArenaMessage: GeneratedMessageProtocol {
@@ -6282,11 +6282,11 @@ extension ProtobufUnittestNoArena.TestNoArenaMessage: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
     return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
-    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> ProtobufUnittestNoArena.TestNoArenaMessage {
+    return try ProtobufUnittestNoArena.TestNoArenaMessage.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

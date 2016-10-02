@@ -12,10 +12,10 @@ public struct UnittestStructRoot {
 
   init() {
     extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(registry: extensionRegistry)
-    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+    registerAllExtensions(registry: &extensionRegistry)
+    Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: &extensionRegistry)
   }
-  public func registerAllExtensions(registry: ExtensionRegistry) {
+  public func registerAllExtensions(registry: inout ExtensionRegistry) {
   }
 }
 
@@ -44,14 +44,14 @@ final public class UnitTestStruct : GeneratedMessage {
   override public func isInitialized() -> Bool {
    return true
   }
-  override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+  override public func writeTo(codedOutputStream: inout CodedOutputStream) throws {
     if hasTestStr {
       try codedOutputStream.writeString(fieldNumber: 1, value:testStr)
     }
     if hasTestInt {
       try codedOutputStream.writeInt32(fieldNumber: 2, value:testInt)
     }
-    try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+    try unknownFields.writeTo(codedOutputStream: &codedOutputStream)
   }
   override public func serializedSize() -> Int32 {
     var serialize_size:Int32 = memoizedSerializedSize
@@ -239,11 +239,11 @@ final public class UnitTestStruct : GeneratedMessage {
       return self
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct.Builder {
-         return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+    override public func mergeFrom(codedInputStream: inout CodedInputStream) throws -> UnitTestStruct.Builder {
+         return try mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:ExtensionRegistry())
     }
     @discardableResult
-    override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct.Builder {
+    override public func mergeFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct.Builder {
       let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
       while (true) {
         let protobufTag = try codedInputStream.readTag()
@@ -259,7 +259,7 @@ final public class UnitTestStruct : GeneratedMessage {
           testInt = try codedInputStream.readInt32()
 
         default:
-          if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+          if (!(try parse(codedInputStream:&codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
              unknownFields = try unknownFieldsBuilder.build()
              return self
           }
@@ -310,11 +310,11 @@ extension UnitTestStruct: GeneratedMessageProtocol {
   public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct {
     return try UnitTestStruct.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream) throws -> UnitTestStruct {
-    return try UnitTestStruct.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream) throws -> UnitTestStruct {
+    return try UnitTestStruct.Builder().mergeFrom(codedInputStream: &codedInputStream).build()
   }
-  public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct {
-    return try UnitTestStruct.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+  public class func parseFrom(codedInputStream: inout CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> UnitTestStruct {
+    return try UnitTestStruct.Builder().mergeFrom(codedInputStream: &codedInputStream, extensionRegistry:extensionRegistry).build()
   }
 }
 

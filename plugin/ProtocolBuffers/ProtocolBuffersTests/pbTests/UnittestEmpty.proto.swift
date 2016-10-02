@@ -12,9 +12,9 @@ public struct UnittestEmptyRoot {
 
   init() {
     extensionRegistry = ExtensionRegistry()
-    registerAllExtensions(registry: extensionRegistry)
+    registerAllExtensions(registry: &extensionRegistry)
   }
-  public func registerAllExtensions(registry: ExtensionRegistry) {
+  public func registerAllExtensions(registry: inout ExtensionRegistry) {
   }
 }
 
