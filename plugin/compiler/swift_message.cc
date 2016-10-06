@@ -498,7 +498,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateMessageBuilderJSONSource(io::Printer* printer) {
         //
-        printer->Print(variables_, "class $acontrol$ func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$.Builder {\n");
+        printer->Print(variables_, "class override $acontrol$ func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$.Builder {\n");
         
         printer->Indent();
         printer->Print(variables_,"let resultDecodedBuilder = $classNameReturnedType$.Builder()\n");
