@@ -230,7 +230,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileDescriptorSet.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileDescriptorSet.Builder {
         let resultDecodedBuilder = Google.Protobuf.FileDescriptorSet.Builder()
         if let jsonValueFile = jsonMap["file"] as? Array<Dictionary<String,Any>> {
           var jsonArrayFile:Array<Google.Protobuf.FileDescriptorProto> = []
@@ -1151,7 +1151,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.FileDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -1513,7 +1513,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ExtensionRange.Builder()
             if let jsonValueStart = jsonMap["start"] as? Int {
               resultDecodedBuilder.start = Int32(jsonValueStart)
@@ -1792,7 +1792,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ReservedRange.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ReservedRange.Builder {
             let resultDecodedBuilder = Google.Protobuf.DescriptorProto.ReservedRange.Builder()
             if let jsonValueStart = jsonMap["start"] as? Int {
               resultDecodedBuilder.start = Int32(jsonValueStart)
@@ -2555,7 +2555,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.DescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -3520,7 +3520,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.FieldDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -3860,7 +3860,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.OneofDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.OneofDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.OneofDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -4238,7 +4238,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.EnumDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -4613,7 +4613,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumValueDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumValueDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.EnumValueDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -4994,7 +4994,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ServiceDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ServiceDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.ServiceDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -5523,7 +5523,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MethodDescriptorProto.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MethodDescriptorProto.Builder {
         let resultDecodedBuilder = Google.Protobuf.MethodDescriptorProto.Builder()
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -6567,7 +6567,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FileOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.FileOptions.Builder()
         if let jsonValueJavaPackage = jsonMap["javaPackage"] as? String {
           resultDecodedBuilder.javaPackage = jsonValueJavaPackage
@@ -7091,7 +7091,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MessageOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MessageOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.MessageOptions.Builder()
         if let jsonValueMessageSetWireFormat = jsonMap["messageSetWireFormat"] as? Bool {
           resultDecodedBuilder.messageSetWireFormat = jsonValueMessageSetWireFormat
@@ -7765,7 +7765,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.FieldOptions.Builder()
         if let jsonValueCtype = jsonMap["ctype"] as? String {
           resultDecodedBuilder.ctype = try Google.Protobuf.FieldOptions.Ctype.fromString(str: jsonValueCtype)
@@ -8025,7 +8025,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.OneofOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.OneofOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.OneofOptions.Builder()
         if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
           var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []
@@ -8373,7 +8373,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.EnumOptions.Builder()
         if let jsonValueAllowAlias = jsonMap["allowAlias"] as? Bool {
           resultDecodedBuilder.allowAlias = jsonValueAllowAlias
@@ -8675,7 +8675,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumValueOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumValueOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.EnumValueOptions.Builder()
         if let jsonValueDeprecated = jsonMap["deprecated"] as? Bool {
           resultDecodedBuilder.deprecated = jsonValueDeprecated
@@ -8974,7 +8974,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ServiceOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ServiceOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.ServiceOptions.Builder()
         if let jsonValueDeprecated = jsonMap["deprecated"] as? Bool {
           resultDecodedBuilder.deprecated = jsonValueDeprecated
@@ -9273,7 +9273,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MethodOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.MethodOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.MethodOptions.Builder()
         if let jsonValueDeprecated = jsonMap["deprecated"] as? Bool {
           resultDecodedBuilder.deprecated = jsonValueDeprecated
@@ -9586,7 +9586,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.UninterpretedOption.NamePart.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.UninterpretedOption.NamePart.Builder {
             let resultDecodedBuilder = Google.Protobuf.UninterpretedOption.NamePart.Builder()
             if let jsonValueNamePart = jsonMap["namePart"] as? String {
               resultDecodedBuilder.namePart = jsonValueNamePart
@@ -10102,7 +10102,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.UninterpretedOption.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.UninterpretedOption.Builder {
         let resultDecodedBuilder = Google.Protobuf.UninterpretedOption.Builder()
         if let jsonValueName = jsonMap["name"] as? Array<Dictionary<String,Any>> {
           var jsonArrayName:Array<Google.Protobuf.UninterpretedOption.NamePart> = []
@@ -10651,7 +10651,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Location.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Location.Builder {
             let resultDecodedBuilder = Google.Protobuf.SourceCodeInfo.Location.Builder()
             if let jsonValuePath = jsonMap["path"] as? Array<Int> {
               var jsonArrayPath:Array<Int32> = []
@@ -10882,7 +10882,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceCodeInfo.Builder {
         let resultDecodedBuilder = Google.Protobuf.SourceCodeInfo.Builder()
         if let jsonValueLocation = jsonMap["location"] as? Array<Dictionary<String,Any>> {
           var jsonArrayLocation:Array<Google.Protobuf.SourceCodeInfo.Location> = []
@@ -11294,7 +11294,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.GeneratedCodeInfo.Annotation.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.GeneratedCodeInfo.Annotation.Builder {
             let resultDecodedBuilder = Google.Protobuf.GeneratedCodeInfo.Annotation.Builder()
             if let jsonValuePath = jsonMap["path"] as? Array<Int> {
               var jsonArrayPath:Array<Int32> = []
@@ -11514,7 +11514,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.GeneratedCodeInfo.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.GeneratedCodeInfo.Builder {
         let resultDecodedBuilder = Google.Protobuf.GeneratedCodeInfo.Builder()
         if let jsonValueAnnotation = jsonMap["annotation"] as? Array<Dictionary<String,Any>> {
           var jsonArrayAnnotation:Array<Google.Protobuf.GeneratedCodeInfo.Annotation> = []

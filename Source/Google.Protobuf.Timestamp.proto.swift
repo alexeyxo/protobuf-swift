@@ -313,7 +313,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Timestamp.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Timestamp.Builder {
         let resultDecodedBuilder = Google.Protobuf.Timestamp.Builder()
         if let jsonValueSeconds = jsonMap["seconds"] as? String {
           resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!

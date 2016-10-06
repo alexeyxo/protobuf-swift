@@ -361,7 +361,7 @@ public extension Google.Protobuf {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.FieldsEntry.Builder {
             let resultDecodedBuilder = Google.Protobuf.Struct.FieldsEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -586,7 +586,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Struct.Builder {
         let resultDecodedBuilder = Google.Protobuf.Struct.Builder()
         if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,Any>> {
             var mapFields = Dictionary<String, Google.Protobuf.Value>()
@@ -1326,7 +1326,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Value.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Value.Builder {
         let resultDecodedBuilder = Google.Protobuf.Value.Builder()
         if let jsonValueNullValue = jsonMap["nullValue"] as? String {
           resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(str: jsonValueNullValue)
@@ -1561,7 +1561,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ListValue.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ListValue.Builder {
         let resultDecodedBuilder = Google.Protobuf.ListValue.Builder()
         if let jsonValueValues = jsonMap["values"] as? Array<Dictionary<String,Any>> {
           var jsonArrayValues:Array<Google.Protobuf.Value> = []

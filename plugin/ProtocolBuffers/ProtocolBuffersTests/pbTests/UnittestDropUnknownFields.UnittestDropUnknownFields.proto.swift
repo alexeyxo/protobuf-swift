@@ -308,7 +308,7 @@ public extension UnittestDropUnknownFields {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
           resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)
@@ -670,7 +670,7 @@ public extension UnittestDropUnknownFields {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
           resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)

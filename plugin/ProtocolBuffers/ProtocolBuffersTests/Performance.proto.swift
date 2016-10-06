@@ -307,7 +307,7 @@ final internal class PBUser : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBUser.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBUser.Builder {
       let resultDecodedBuilder = PBUser.Builder()
       if let jsonValueGroup = jsonMap["group"] as? Dictionary<String,Any> {
         resultDecodedBuilder.group = try PBGroup.Builder.decodeToBuilder(jsonMap:jsonValueGroup).build()
@@ -567,7 +567,7 @@ final internal class PBGroup : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBGroup.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBGroup.Builder {
       let resultDecodedBuilder = PBGroup.Builder()
       if let jsonValueOwner = jsonMap["owner"] as? Dictionary<String,Any> {
         resultDecodedBuilder.owner = try PBUser.Builder.decodeToBuilder(jsonMap:jsonValueOwner).build()
@@ -795,7 +795,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomanceBatch.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomanceBatch.Builder {
       let resultDecodedBuilder = PBPerfomanceBatch.Builder()
       if let jsonValueBatch = jsonMap["batch"] as? Array<Dictionary<String,Any>> {
         var jsonArrayBatch:Array<PBPerfomance> = []
@@ -1328,7 +1328,7 @@ final internal class PBPerfomance : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance.Builder {
       let resultDecodedBuilder = PBPerfomance.Builder()
       if let jsonValueInts = jsonMap["ints"] as? Int {
         resultDecodedBuilder.ints = Int32(jsonValueInts)
@@ -1617,7 +1617,7 @@ final internal class PBProtoPoint : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint.Builder {
       let resultDecodedBuilder = PBProtoPoint.Builder()
       if let jsonValueLatitude = jsonMap["latitude"] as? Float {
         resultDecodedBuilder.latitude = Float(jsonValueLatitude)
@@ -1921,7 +1921,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone.Builder {
       let resultDecodedBuilder = PBIceCreamCone.Builder()
       if let jsonValueScoops = jsonMap["scoops"] as? Int {
         resultDecodedBuilder.scoops = Int32(jsonValueScoops)
@@ -2141,7 +2141,7 @@ final internal class PBFoo : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBFoo.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBFoo.Builder {
       let resultDecodedBuilder = PBFoo.Builder()
       if let jsonValueVal = jsonMap["val"] as? Int {
         resultDecodedBuilder.val = Int32(jsonValueVal)
@@ -2397,7 +2397,7 @@ final internal class PBBar : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBBar.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBBar.Builder {
       let resultDecodedBuilder = PBBar.Builder()
       if let jsonValueFoo = jsonMap["foo"] as? Dictionary<String,Any> {
         resultDecodedBuilder.foo = try PBFoo.Builder.decodeToBuilder(jsonMap:jsonValueFoo).build()
@@ -2654,7 +2654,7 @@ final internal class PBBaz : GeneratedMessage {
         }
       }
     }
-    class internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBBaz.Builder {
+    class override internal func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> PBBaz.Builder {
       let resultDecodedBuilder = PBBaz.Builder()
       if let jsonValueBar = jsonMap["bar"] as? Dictionary<String,Any> {
         resultDecodedBuilder.bar = try PBBar.Builder.decodeToBuilder(jsonMap:jsonValueBar).build()

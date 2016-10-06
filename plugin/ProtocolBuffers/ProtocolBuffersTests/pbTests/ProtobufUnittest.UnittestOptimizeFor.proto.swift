@@ -514,7 +514,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptimizedForSize.Builder()
         if let jsonValueI = jsonMap["i"] as? Int {
           resultDecodedBuilder.i = Int32(jsonValueI)
@@ -742,7 +742,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestRequiredOptimizedForSize.Builder()
         if let jsonValueX = jsonMap["x"] as? Int {
           resultDecodedBuilder.x = Int32(jsonValueX)
@@ -1003,7 +1003,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestOptionalOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestOptionalOptimizedForSize.Builder()
         if let jsonValueO = jsonMap["o"] as? Dictionary<String,Any> {
           resultDecodedBuilder.o = try ProtobufUnittest.TestRequiredOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonValueO).build()

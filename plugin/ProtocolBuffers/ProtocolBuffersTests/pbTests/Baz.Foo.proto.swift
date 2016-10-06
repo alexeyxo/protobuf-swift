@@ -218,7 +218,7 @@ public extension Baz {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Baz.Foo.Builder {
         let resultDecodedBuilder = Baz.Foo.Builder()
         if let jsonValueHello = jsonMap["hello"] as? String {
           resultDecodedBuilder.hello = jsonValueHello

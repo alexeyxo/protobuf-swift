@@ -327,7 +327,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmbedOptimizedForSize.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestEmbedOptimizedForSize.Builder()
         if let jsonValueOptionalMessage = jsonMap["optionalMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.optionalMessage = try ProtobufUnittest.TestOptimizedForSize.Builder.decodeToBuilder(jsonMap:jsonValueOptionalMessage).build()

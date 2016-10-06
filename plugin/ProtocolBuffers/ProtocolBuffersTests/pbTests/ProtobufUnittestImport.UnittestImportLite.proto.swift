@@ -255,7 +255,7 @@ public extension ProtobufUnittestImport {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.ImportMessageLite.Builder {
         let resultDecodedBuilder = ProtobufUnittestImport.ImportMessageLite.Builder()
         if let jsonValueD = jsonMap["d"] as? Int {
           resultDecodedBuilder.d = Int32(jsonValueD)

@@ -173,7 +173,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Empty.Builder {
         let resultDecodedBuilder = Google.Protobuf.Empty.Builder()
         return resultDecodedBuilder
       }

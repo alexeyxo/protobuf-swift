@@ -260,7 +260,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestLiteImportsNonlite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestLiteImportsNonlite.Builder()
         if let jsonValueMessage = jsonMap["message"] as? Dictionary<String,Any> {
           resultDecodedBuilder.message = try ProtobufUnittest.TestAllTypes.Builder.decodeToBuilder(jsonMap:jsonValueMessage).build()

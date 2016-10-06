@@ -1089,7 +1089,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestWellKnownTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestWellKnownTypes.Builder()
         if let jsonValueAnyField = jsonMap["anyField"] as? Dictionary<String,Any> {
           resultDecodedBuilder.anyField = try Google.Protobuf.`Any`.Builder.decodeToBuilder(jsonMap:jsonValueAnyField).build()

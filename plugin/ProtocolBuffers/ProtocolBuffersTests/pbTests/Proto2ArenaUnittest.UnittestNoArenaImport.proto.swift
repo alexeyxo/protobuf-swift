@@ -218,7 +218,7 @@ public extension Proto2ArenaUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder()
         if let jsonValueD = jsonMap["d"] as? Int {
           resultDecodedBuilder.d = Int32(jsonValueD)

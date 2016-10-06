@@ -194,7 +194,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSet.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSet.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSet.Builder()
         return resultDecodedBuilder
       }
@@ -452,7 +452,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetContainer.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetContainer.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetContainer.Builder()
         if let jsonValueMessageSet = jsonMap["messageSet"] as? Dictionary<String,Any> {
           resultDecodedBuilder.messageSet = try ProtobufUnittest.TestMessageSet.Builder.decodeToBuilder(jsonMap:jsonValueMessageSet).build()
@@ -671,7 +671,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetExtension1.Builder()
         if let jsonValueI = jsonMap["i"] as? Int {
           resultDecodedBuilder.i = Int32(jsonValueI)
@@ -889,7 +889,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension2.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageSetExtension2.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetExtension2.Builder()
         if let jsonValueStr = jsonMap["str"] as? String {
           resultDecodedBuilder.str = jsonValueStr
@@ -1177,7 +1177,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Item.Builder {
             let resultDecodedBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
             if let jsonValueTypeId = jsonMap["typeId"] as? Int {
               resultDecodedBuilder.typeId = Int32(jsonValueTypeId)
@@ -1397,7 +1397,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RawMessageSet.Builder {
         let resultDecodedBuilder = ProtobufUnittest.RawMessageSet.Builder()
         if let jsonValueItem = jsonMap["item"] as? Array<Dictionary<String,Any>> {
           var jsonArrayItem:Array<ProtobufUnittest.RawMessageSet.Item> = []

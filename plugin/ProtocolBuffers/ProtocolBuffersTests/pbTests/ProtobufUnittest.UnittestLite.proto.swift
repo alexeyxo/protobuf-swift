@@ -1353,7 +1353,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder()
             if let jsonValueBb = jsonMap["bb"] as? Int {
               resultDecodedBuilder.bb = Int32(jsonValueBb)
@@ -1574,7 +1574,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder()
             if let jsonValueA = jsonMap["a"] as? Int {
               resultDecodedBuilder.a = Int32(jsonValueA)
@@ -1795,7 +1795,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.RepeatedGroup.Builder()
             if let jsonValueA = jsonMap["a"] as? Int {
               resultDecodedBuilder.a = Int32(jsonValueA)
@@ -6149,7 +6149,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllTypesLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestAllTypesLite.Builder()
         if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int {
           resultDecodedBuilder.optionalInt32 = Int32(jsonValueOptionalInt32)
@@ -6706,7 +6706,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ForeignMessageLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ForeignMessageLite.Builder()
         if let jsonValueC = jsonMap["c"] as? Int {
           resultDecodedBuilder.c = Int32(jsonValueC)
@@ -7758,7 +7758,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedTypesLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestPackedTypesLite.Builder()
         if let jsonValuePackedInt32 = jsonMap["packedInt32"] as? Array<Int> {
           var jsonArrayPackedInt32:Array<Int32> = []
@@ -8028,7 +8028,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestAllExtensionsLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestAllExtensionsLite.Builder()
         return resultDecodedBuilder
       }
@@ -8240,7 +8240,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.OptionalGroupExtensionLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.OptionalGroupExtensionLite.Builder()
         if let jsonValueA = jsonMap["a"] as? Int {
           resultDecodedBuilder.a = Int32(jsonValueA)
@@ -8455,7 +8455,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.RepeatedGroupExtensionLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.RepeatedGroupExtensionLite.Builder()
         if let jsonValueA = jsonMap["a"] as? Int {
           resultDecodedBuilder.a = Int32(jsonValueA)
@@ -8629,7 +8629,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestPackedExtensionsLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestPackedExtensionsLite.Builder()
         return resultDecodedBuilder
       }
@@ -8794,7 +8794,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestNestedExtensionLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestNestedExtensionLite.Builder()
         return resultDecodedBuilder
       }
@@ -9009,7 +9009,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestDeprecatedLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestDeprecatedLite.Builder()
         if let jsonValueDeprecatedField = jsonMap["deprecatedField"] as? Int {
           resultDecodedBuilder.deprecatedField = Int32(jsonValueDeprecatedField)
@@ -9309,7 +9309,7 @@ public extension ProtobufUnittest {
                   }
                 }
               }
-              class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
+              class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder {
                 let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group1.Builder()
                 if let jsonValueField1 = jsonMap["field1"] as? Dictionary<String,Any> {
                   resultDecodedBuilder.field1 = try ProtobufUnittest.TestAllTypesLite.Builder.decodeToBuilder(jsonMap:jsonValueField1).build()
@@ -9572,7 +9572,7 @@ public extension ProtobufUnittest {
                   }
                 }
               }
-              class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
+              class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder {
                 let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Group2.Builder()
                 if let jsonValueField1 = jsonMap["field1"] as? Dictionary<String,Any> {
                   resultDecodedBuilder.field1 = try ProtobufUnittest.TestAllTypesLite.Builder.decodeToBuilder(jsonMap:jsonValueField1).build()
@@ -10086,7 +10086,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedFieldsGenerator.Builder()
             if let jsonValueField1 = jsonMap["field1"] as? Array<Dictionary<String,Any>> {
               var jsonArrayField1:Array<ProtobufUnittest.TestAllTypesLite> = []
@@ -10408,7 +10408,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder()
             if let jsonValueOptionalGroupAllTypes = jsonMap["optionalGroupAllTypes"] as? Dictionary<String,Any> {
               resultDecodedBuilder.optionalGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.Builder.decodeToBuilder(jsonMap:jsonValueOptionalGroupAllTypes).build()
@@ -10671,7 +10671,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.RepeatedGroup.Builder()
             if let jsonValueRepeatedGroupAllTypes = jsonMap["repeatedGroupAllTypes"] as? Dictionary<String,Any> {
               resultDecodedBuilder.repeatedGroupAllTypes = try ProtobufUnittest.TestAllTypesLite.Builder.decodeToBuilder(jsonMap:jsonValueRepeatedGroupAllTypes).build()
@@ -11217,7 +11217,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestParsingMergeLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestParsingMergeLite.Builder()
         if let jsonValueRequiredAllTypes = jsonMap["requiredAllTypes"] as? Dictionary<String,Any> {
           resultDecodedBuilder.requiredAllTypes = try ProtobufUnittest.TestAllTypesLite.Builder.decodeToBuilder(jsonMap:jsonValueRequiredAllTypes).build()
@@ -11410,7 +11410,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestEmptyMessageLite.Builder()
         return resultDecodedBuilder
       }
@@ -11583,7 +11583,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestEmptyMessageWithExtensionsLite.Builder()
         return resultDecodedBuilder
       }

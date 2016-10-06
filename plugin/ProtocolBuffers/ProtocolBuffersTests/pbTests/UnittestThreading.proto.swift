@@ -215,7 +215,7 @@ final public class ThreadingMessages : GeneratedMessage {
         }
       }
     }
-    class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ThreadingMessages.Builder {
+    class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ThreadingMessages.Builder {
       let resultDecodedBuilder = ThreadingMessages.Builder()
       if let jsonValueTestString = jsonMap["testString"] as? String {
         resultDecodedBuilder.testString = jsonValueTestString

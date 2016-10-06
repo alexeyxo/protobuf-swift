@@ -266,7 +266,7 @@ final public class UnitTestStruct : GeneratedMessage {
         }
       }
     }
-    class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnitTestStruct.Builder {
+    class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UnitTestStruct.Builder {
       let resultDecodedBuilder = UnitTestStruct.Builder()
       if let jsonValueTestStr = jsonMap["testStr"] as? String {
         resultDecodedBuilder.testStr = jsonValueTestStr

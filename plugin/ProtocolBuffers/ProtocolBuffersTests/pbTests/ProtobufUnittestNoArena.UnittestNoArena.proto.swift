@@ -352,7 +352,7 @@ public extension ProtobufUnittestNoArena {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder()
             if let jsonValueBb = jsonMap["bb"] as? Int {
               resultDecodedBuilder.bb = Int32(jsonValueBb)
@@ -573,7 +573,7 @@ public extension ProtobufUnittestNoArena {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder()
             if let jsonValueA = jsonMap["a"] as? Int {
               resultDecodedBuilder.a = Int32(jsonValueA)
@@ -794,7 +794,7 @@ public extension ProtobufUnittestNoArena {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
             let resultDecodedBuilder = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder()
             if let jsonValueA = jsonMap["a"] as? Int {
               resultDecodedBuilder.a = Int32(jsonValueA)
@@ -5270,7 +5270,7 @@ public extension ProtobufUnittestNoArena {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
         let resultDecodedBuilder = ProtobufUnittestNoArena.TestAllTypes.Builder()
         if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int {
           resultDecodedBuilder.optionalInt32 = Int32(jsonValueOptionalInt32)
@@ -5833,7 +5833,7 @@ public extension ProtobufUnittestNoArena {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittestNoArena.ForeignMessage.Builder()
         if let jsonValueC = jsonMap["c"] as? Int {
           resultDecodedBuilder.c = Int32(jsonValueC)
@@ -6089,7 +6089,7 @@ public extension ProtobufUnittestNoArena {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittestNoArena.TestNoArenaMessage.Builder()
         if let jsonValueArenaMessage = jsonMap["arenaMessage"] as? Dictionary<String,Any> {
           resultDecodedBuilder.arenaMessage = try Proto2ArenaUnittest.ArenaMessage.Builder.decodeToBuilder(jsonMap:jsonValueArenaMessage).build()

@@ -221,7 +221,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SourceContext.Builder {
         let resultDecodedBuilder = Google.Protobuf.SourceContext.Builder()
         if let jsonValueFileName = jsonMap["fileName"] as? String {
           resultDecodedBuilder.fileName = jsonValueFileName

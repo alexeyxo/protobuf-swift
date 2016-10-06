@@ -218,7 +218,7 @@ public extension SwiftProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MapMessageValue.Builder()
         if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? Int {
           resultDecodedBuilder.valueInMapMessage = Int32(jsonValueValueInMapMessage)
@@ -504,7 +504,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? Int {
               resultDecodedBuilder.key = Int32(jsonValueKey)
@@ -778,7 +778,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = Int64(jsonValueKey)!
@@ -1052,7 +1052,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1326,7 +1326,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1641,7 +1641,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = jsonValueKey
@@ -1920,7 +1920,7 @@ public extension SwiftProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? Int {
               resultDecodedBuilder.key = Int32(jsonValueKey)
@@ -2501,7 +2501,7 @@ public extension SwiftProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
         let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.Builder()
         if let jsonValueMapInt32Int32 = jsonMap["mapInt32Int32"] as? Dictionary<String, Int> {
             var mapMapInt32Int32 = Dictionary<Int32, Int32>()

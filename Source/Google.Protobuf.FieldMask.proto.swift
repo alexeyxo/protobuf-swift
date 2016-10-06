@@ -315,7 +315,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldMask.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldMask.Builder {
         let resultDecodedBuilder = Google.Protobuf.FieldMask.Builder()
         if let jsonValuePaths = jsonMap["paths"] as? Array<String> {
           var jsonArrayPaths:Array<String> = []

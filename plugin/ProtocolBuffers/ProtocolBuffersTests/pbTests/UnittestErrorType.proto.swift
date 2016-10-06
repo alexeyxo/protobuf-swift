@@ -290,7 +290,7 @@ final public class UserProfile : GeneratedMessage {
             }
           }
         }
-        class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Request.Builder {
+        class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Request.Builder {
           let resultDecodedBuilder = UserProfile.Request.Builder()
           if let jsonValueUserId = jsonMap["userId"] as? String {
             resultDecodedBuilder.userId = jsonValueUserId
@@ -702,7 +702,7 @@ final public class UserProfile : GeneratedMessage {
             }
           }
         }
-        class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Response.Builder {
+        class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Response.Builder {
           let resultDecodedBuilder = UserProfile.Response.Builder()
           if let jsonValueProfile = jsonMap["profile"] as? Dictionary<String,Any> {
             resultDecodedBuilder.profile = try UserProfile.Builder.decodeToBuilder(jsonMap:jsonValueProfile).build()
@@ -987,7 +987,7 @@ final public class UserProfile : GeneratedMessage {
             }
           }
         }
-        class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception.Builder {
+        class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception.Builder {
           let resultDecodedBuilder = UserProfile.Exception.Builder()
           if let jsonValueErrorCode = jsonMap["errorCode"] as? Int {
             resultDecodedBuilder.errorCode = Int32(jsonValueErrorCode)
@@ -1293,7 +1293,7 @@ final public class UserProfile : GeneratedMessage {
         }
       }
     }
-    class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Builder {
+    class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Builder {
       let resultDecodedBuilder = UserProfile.Builder()
       if let jsonValueFirstName = jsonMap["firstName"] as? String {
         resultDecodedBuilder.firstName = jsonValueFirstName

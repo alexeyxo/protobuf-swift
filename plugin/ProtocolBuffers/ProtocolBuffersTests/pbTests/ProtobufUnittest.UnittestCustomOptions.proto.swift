@@ -787,7 +787,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.TestMessageWithCustomOptions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageWithCustomOptions.Builder()
         if let jsonValueField1 = jsonMap["field1"] as? String {
           resultDecodedBuilder.field1 = jsonValueField1
@@ -954,7 +954,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooRequest.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooRequest.Builder()
         return resultDecodedBuilder
       }
@@ -1116,7 +1116,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooResponse.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooResponse.Builder()
         return resultDecodedBuilder
       }
@@ -1278,7 +1278,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooClientMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooClientMessage.Builder()
         return resultDecodedBuilder
       }
@@ -1440,7 +1440,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionFooServerMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionFooServerMessage.Builder()
         return resultDecodedBuilder
       }
@@ -1634,7 +1634,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageContainingEnum.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageContainingEnum.Builder()
         return resultDecodedBuilder
       }
@@ -1796,7 +1796,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder()
         return resultDecodedBuilder
       }
@@ -1958,7 +1958,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMinIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMinIntegerValues.Builder()
         return resultDecodedBuilder
       }
@@ -2120,7 +2120,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionMaxIntegerValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionMaxIntegerValues.Builder()
         return resultDecodedBuilder
       }
@@ -2282,7 +2282,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.CustomOptionOtherValues.Builder {
         let resultDecodedBuilder = ProtobufUnittest.CustomOptionOtherValues.Builder()
         return resultDecodedBuilder
       }
@@ -2444,7 +2444,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromPositiveInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromPositiveInts.Builder()
         return resultDecodedBuilder
       }
@@ -2606,7 +2606,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SettingRealsFromNegativeInts.Builder {
         let resultDecodedBuilder = ProtobufUnittest.SettingRealsFromNegativeInts.Builder()
         return resultDecodedBuilder
       }
@@ -2979,7 +2979,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType1.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType1.Builder()
         if let jsonValueFoo = jsonMap["foo"] as? Int {
           resultDecodedBuilder.foo = Int32(jsonValueFoo)
@@ -3230,7 +3230,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
             if let jsonValueWaldo = jsonMap["waldo"] as? Int {
               resultDecodedBuilder.waldo = Int32(jsonValueWaldo)
@@ -3679,7 +3679,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType2.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.Builder()
         if let jsonValueBar = jsonMap["bar"] as? Dictionary<String,Any> {
           resultDecodedBuilder.bar = try ProtobufUnittest.ComplexOptionType1.Builder.decodeToBuilder(jsonMap:jsonValueBar).build()
@@ -3928,7 +3928,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
             if let jsonValuePlugh = jsonMap["plugh"] as? Int {
               resultDecodedBuilder.plugh = Int32(jsonValuePlugh)
@@ -4223,7 +4223,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOptionType3.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.Builder()
         if let jsonValueQux = jsonMap["qux"] as? Int {
           resultDecodedBuilder.qux = Int32(jsonValueQux)
@@ -4442,7 +4442,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.ComplexOpt6.Builder {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOpt6.Builder()
         if let jsonValueXyzzy = jsonMap["xyzzy"] as? Int {
           resultDecodedBuilder.xyzzy = Int32(jsonValueXyzzy)
@@ -4608,7 +4608,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.VariousComplexOptions.Builder {
         let resultDecodedBuilder = ProtobufUnittest.VariousComplexOptions.Builder()
         return resultDecodedBuilder
       }
@@ -4779,7 +4779,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSet.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessageSet.Builder()
         return resultDecodedBuilder
       }
@@ -4994,7 +4994,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessageSetElement.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessageSetElement.Builder()
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
@@ -5551,7 +5551,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.Aggregate.Builder {
         let resultDecodedBuilder = ProtobufUnittest.Aggregate.Builder()
         if let jsonValueI = jsonMap["i"] as? Int {
           resultDecodedBuilder.i = Int32(jsonValueI)
@@ -5781,7 +5781,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.AggregateMessage.Builder {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessage.Builder()
         if let jsonValueFieldname = jsonMap["fieldname"] as? Int {
           resultDecodedBuilder.fieldname = Int32(jsonValueFieldname)
@@ -6012,7 +6012,7 @@ public extension ProtobufUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder {
             let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
             if let jsonValueNestedField = jsonMap["nestedField"] as? Int {
               resultDecodedBuilder.nestedField = Int32(jsonValueNestedField)
@@ -6199,7 +6199,7 @@ public extension ProtobufUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.NestedOptionType.Builder {
         let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.Builder()
         return resultDecodedBuilder
       }

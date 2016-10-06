@@ -314,7 +314,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.`Any`.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.`Any`.Builder {
         let resultDecodedBuilder = Google.Protobuf.`Any`.Builder()
         if let jsonValueTypeUrl = jsonMap["typeUrl"] as? String {
           resultDecodedBuilder.typeUrl = jsonValueTypeUrl

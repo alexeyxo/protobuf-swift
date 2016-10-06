@@ -436,7 +436,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftFileOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftFileOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.SwiftFileOptions.Builder()
         if let jsonValueClassPrefix = jsonMap["classPrefix"] as? String {
           resultDecodedBuilder.classPrefix = jsonValueClassPrefix
@@ -660,7 +660,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.SwiftMessageOptions.Builder()
         if let jsonValueGenerateErrorType = jsonMap["generateErrorType"] as? Bool {
           resultDecodedBuilder.generateErrorType = jsonValueGenerateErrorType
@@ -875,7 +875,7 @@ public extension Google.Protobuf {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftEnumOptions.Builder {
         let resultDecodedBuilder = Google.Protobuf.SwiftEnumOptions.Builder()
         if let jsonValueGenerateErrorType = jsonMap["generateErrorType"] as? Bool {
           resultDecodedBuilder.generateErrorType = jsonValueGenerateErrorType

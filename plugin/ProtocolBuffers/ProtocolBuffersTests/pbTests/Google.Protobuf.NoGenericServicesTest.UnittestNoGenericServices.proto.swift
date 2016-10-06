@@ -266,7 +266,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
         let resultDecodedBuilder = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
         if let jsonValueA = jsonMap["a"] as? Int {
           resultDecodedBuilder.a = Int32(jsonValueA)

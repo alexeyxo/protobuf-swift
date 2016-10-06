@@ -322,7 +322,7 @@ public extension Proto2NofieldpresenceUnittest {
               }
             }
           }
-          class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
+          class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
             let resultDecodedBuilder = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder()
             if let jsonValueBb = jsonMap["bb"] as? Int {
               resultDecodedBuilder.bb = Int32(jsonValueBb)
@@ -3532,7 +3532,7 @@ public extension Proto2NofieldpresenceUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
         let resultDecodedBuilder = Proto2NofieldpresenceUnittest.TestAllTypes.Builder()
         if let jsonValueOptionalInt32 = jsonMap["optionalInt32"] as? Int {
           resultDecodedBuilder.optionalInt32 = Int32(jsonValueOptionalInt32)
@@ -4047,7 +4047,7 @@ public extension Proto2NofieldpresenceUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
         let resultDecodedBuilder = Proto2NofieldpresenceUnittest.TestProto2Required.Builder()
         if let jsonValueProto2 = jsonMap["proto2"] as? Dictionary<String,Any> {
           resultDecodedBuilder.proto2 = try ProtobufUnittest.TestRequired.Builder.decodeToBuilder(jsonMap:jsonValueProto2).build()
@@ -4265,7 +4265,7 @@ public extension Proto2NofieldpresenceUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
         let resultDecodedBuilder = Proto2NofieldpresenceUnittest.ForeignMessage.Builder()
         if let jsonValueC = jsonMap["c"] as? Int {
           resultDecodedBuilder.c = Int32(jsonValueC)

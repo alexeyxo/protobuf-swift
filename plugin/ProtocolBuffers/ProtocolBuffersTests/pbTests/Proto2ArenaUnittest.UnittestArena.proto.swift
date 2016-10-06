@@ -219,7 +219,7 @@ public extension Proto2ArenaUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.NestedMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.NestedMessage.Builder()
         if let jsonValueD = jsonMap["d"] as? Int {
           resultDecodedBuilder.d = Int32(jsonValueD)
@@ -488,7 +488,7 @@ public extension Proto2ArenaUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto2ArenaUnittest.ArenaMessage.Builder {
         let resultDecodedBuilder = Proto2ArenaUnittest.ArenaMessage.Builder()
         if let jsonValueRepeatedNestedMessage = jsonMap["repeatedNestedMessage"] as? Array<Dictionary<String,Any>> {
           var jsonArrayRepeatedNestedMessage:Array<Proto2ArenaUnittest.NestedMessage> = []

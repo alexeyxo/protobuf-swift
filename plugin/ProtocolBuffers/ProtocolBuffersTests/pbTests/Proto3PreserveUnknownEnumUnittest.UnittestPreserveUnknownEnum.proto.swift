@@ -688,7 +688,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessage.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
           resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnum.fromString(str: jsonValueE)
@@ -1327,7 +1327,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
           }
         }
       }
-      class public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+      class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
         let resultDecodedBuilder = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder()
         if let jsonValueE = jsonMap["e"] as? String {
           resultDecodedBuilder.e = try Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra.fromString(str: jsonValueE)
