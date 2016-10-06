@@ -463,8 +463,10 @@ public class CodedInputStream {
     public func readString() throws -> String {
         let size = Int(try readRawVarint32())
         if size <= (bufferSize - bufferPos) && size > 0 {
-//            let pointer = UnsafeMutablePointerInt8From(data: buffer)
             let result = String(bytesNoCopy: &buffer + bufferPos, length: size, encoding: String.Encoding.utf8, freeWhenDone: false)
+            guard result != nil else {
+                throw ProtocolBuffersError.invalidProtocolBuffer("InvalidUTF8StringData")
+            }
             bufferPos += size
             return result!
         } else {
