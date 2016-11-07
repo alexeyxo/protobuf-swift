@@ -10,14 +10,14 @@ protocol IGPRequestProtocol {
     func setIgpRequest(_ value:IGPRequest!) -> GeneratedMessageBuilder
 }
 
-public class GeneratedRequestMessageBuilder: GeneratedMessageBuilder, IGPRequestProtocol {
-    public func setIgpRequest(_ value:IGPRequest!) -> GeneratedMessageBuilder {
+open class GeneratedRequestMessageBuilder: GeneratedMessageBuilder, IGPRequestProtocol {
+    open func setIgpRequest(_ value:IGPRequest!) -> GeneratedMessageBuilder {
         return self
     }
 }
 
 
-public class GeneratedResponseMessageBuilder: GeneratedMessageBuilder {
+open class GeneratedResponseMessageBuilder: GeneratedMessageBuilder {
     
 }
 
