@@ -6,6 +6,18 @@
 //  Copyright © 2016 alexeyxo. All rights reserved.
 //
 
+//MARK: - GeneratedMessage
+open class GeneratedRequestMessage : GeneratedMessage {
+    
+}
+
+open class GeneratedResponseMessage : GeneratedMessage {
+    open var igpResponse:IGPResponse!
+    open var hasIgpResponse:Bool = false
+}
+
+
+//MARK: - GeneratedMessageBuilder
 protocol IGPRequestProtocol {
     func setIgpRequest(_ value:IGPRequest!) -> GeneratedMessageBuilder
 }

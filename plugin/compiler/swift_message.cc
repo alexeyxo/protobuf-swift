@@ -216,14 +216,48 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(comments.c_str());
         }
 
+        
+        
+        bool isResponse = false;
+        bool isRequest = false;
+        
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            try {
+                string nameS = descriptor_->field(i)->name();
+                if (nameS == "IGP_request") {
+                    isRequest = true;
+                }else if (nameS == "IGP_response") {
+                    isResponse = true;
+                }
+                //const char* name = nameS.c_str();
+                //printer->Print(name);
+            } catch (int e) {
+                
+            }
+        }
+        
+        
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class $className$ : ExtendableMessage$errorType$ {\n"
                           );
         } else {
-            printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
-                           );
+            
+            if (isRequest) {
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
+                               );
+            } else if (isResponse){
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedResponseMessage$errorType$ {\n"
+                               );
+            } else {
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
+                               );
+            }
+            
+            
         }
         printer->Indent();
         
@@ -245,9 +279,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //Oneof
         
         
-        
+        printer->Print("\n\n//iGap Properties declaration start\n\n");
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
             string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
+            
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
             printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.OneOf$storageName$NotSet\n",
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
@@ -260,6 +295,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                            "classname", classNames);
         }
+        printer->Print("\n\n//iGap Properties declaration end\n\n");
         
         ////
         
@@ -277,36 +313,51 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         ///
         
         
-        
+
         for (int i = 0; i < descriptor_->field_count(); i++) {
             if (descriptor_->field(i)->options().deprecated()) {
                 printer->Print("@available(*, deprecated:0.1, message:\"The field is marked as \\\"Deprecated\\\"\")\n");
             }
-            field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            string nameS = descriptor_->field(i)->name();
+//            const char* name = nameS.c_str();
+//            printer->Print("\n\n//iGAAAAAAp ");
+//            printer->Print(name);
+//            printer->Print("\n");
+            
+            if (nameS == "IGP_request" && isRequest) {
+                field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            } else if (nameS == "IGP_response" && isResponse) {
+                
+            } else {
+                field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            }
+            
+            
         }
-        
         
         for (int i = 0; i < descriptor_->extension_count(); i++) {
             ExtensionGenerator(ClassNameExtensions(descriptor_), descriptor_->extension(i)).GenerateMembersSource(printer);
         }
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
+
             field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
         }
+        
         
         printer->Print(variables_,"required $acontrol$ init() {\n");
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
-         
+            
+            
             field_generators_.get(descriptor_->field(i)).GenerateInitializationSource(printer);
         }
         
         
         printer->Print("     super.init()\n"
                        "}\n");
-        
-        
+
         GenerateIsInitializedSource(printer);
         GenerateMessageSerializationMethodsSource(printer);
         
