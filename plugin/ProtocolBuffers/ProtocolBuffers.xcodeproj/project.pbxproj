@@ -1225,7 +1225,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeyxo.ProtocolBuffers;
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -1249,7 +1249,7 @@
 				PRODUCT_NAME = ProtocolBuffers;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
