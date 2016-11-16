@@ -85,12 +85,12 @@ message Person {
 ```
 
 ```swift
-let personBuilder = Person.builder()
+let personBuilder = Person.Builder()
 personBuilder.id = 123
 personBuilder.name = "Bob"
 personBuilder.email = "bob@example.com"
-let person = personBuilder.build()
-println("\(person)")
+let person = try! personBuilder.build()
+print(person)
 
 person.data() //return NSData
 ```
