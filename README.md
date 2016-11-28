@@ -1,6 +1,6 @@
 #Protocol Buffers for Swift
 
-[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](http://img.shields.io/cocoapods/p/ProtocolBuffers-Swift.svg)](http://cocoapods.org/?q=ProtocolBuffers)
+[![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg?style=flat-square)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](https://img.shields.io/badge/platform-ios%7Cmacos%7Ctvos%7Cwatchos%7Clinux-brightgreen.svg?style=flat-square)](http://cocoapods.org/?q=ProtocolBuffers)
 
 An implementation of Protocol Buffers in Swift.
 
@@ -85,12 +85,12 @@ message Person {
 ```
 
 ```swift
-let personBuilder = Person.builder()
+let personBuilder = Person.Builder()
 personBuilder.id = 123
 personBuilder.name = "Bob"
 personBuilder.email = "bob@example.com"
-let person = personBuilder.build()
-println("\(person)")
+let person = try! personBuilder.build()
+print(person)
 
 person.data() //return NSData
 ```
