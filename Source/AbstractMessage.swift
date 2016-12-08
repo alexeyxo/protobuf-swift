@@ -23,7 +23,7 @@ public typealias ONEOF_NOT_SET = Int
 public protocol ProtocolBuffersMessageInit {
 }
 
-public enum ProtocolBuffersError: Error {
+open enum ProtocolBuffersError: Error {
     case obvious(String)
     //Streams
     case invalidProtocolBuffer(String)
@@ -32,7 +32,7 @@ public enum ProtocolBuffersError: Error {
     case outOfSpace
 }
 
-public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
+open protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
     func isInitialized() -> Bool
