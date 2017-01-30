@@ -19,116 +19,102 @@
 
 namespace google {
 namespace protobuf {
+class SwiftFileOptionsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<SwiftFileOptions> {
+} _SwiftFileOptions_default_instance_;
+class SwiftMessageOptionsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<SwiftMessageOptions> {
+} _SwiftMessageOptions_default_instance_;
+class SwiftEnumOptionsDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<SwiftEnumOptions> {
+} _SwiftEnumOptions_default_instance_;
+
+namespace protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto {
+
 
 namespace {
 
-const ::google::protobuf::Descriptor* SwiftFileOptions_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SwiftFileOptions_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SwiftMessageOptions_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SwiftMessageOptions_reflection_ = NULL;
-const ::google::protobuf::Descriptor* SwiftEnumOptions_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  SwiftEnumOptions_reflection_ = NULL;
-const ::google::protobuf::EnumDescriptor* AccessControl_descriptor_ = NULL;
+::google::protobuf::Metadata file_level_metadata[3];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 }  // namespace
 
+const ::google::protobuf::uint32 TableStruct::offsets[] = {
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_prefix_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, entities_access_control_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, compile_for_framework_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, generate_struct_),
+  0,
+  2,
+  3,
+  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_error_type_),
+  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, generate_error_type_),
+  0,
+};
 
-void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() GOOGLE_ATTRIBUTE_COLD;
-void protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
-  protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
-  const ::google::protobuf::FileDescriptor* file =
-    ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
-      "google/protobuf/swift-descriptor.proto");
-  GOOGLE_CHECK(file != NULL);
-  SwiftFileOptions_descriptor_ = file->message_type(0);
-  static const int SwiftFileOptions_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_prefix_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, entities_access_control_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, compile_for_framework_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, generate_struct_),
-  };
-  SwiftFileOptions_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      SwiftFileOptions_descriptor_,
-      SwiftFileOptions::internal_default_instance(),
-      SwiftFileOptions_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _has_bits_),
-      -1,
-      -1,
-      sizeof(SwiftFileOptions),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _internal_metadata_));
-  SwiftMessageOptions_descriptor_ = file->message_type(1);
-  static const int SwiftMessageOptions_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_error_type_),
-  };
-  SwiftMessageOptions_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      SwiftMessageOptions_descriptor_,
-      SwiftMessageOptions::internal_default_instance(),
-      SwiftMessageOptions_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, _has_bits_),
-      -1,
-      -1,
-      sizeof(SwiftMessageOptions),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, _internal_metadata_));
-  SwiftEnumOptions_descriptor_ = file->message_type(2);
-  static const int SwiftEnumOptions_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, generate_error_type_),
-  };
-  SwiftEnumOptions_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      SwiftEnumOptions_descriptor_,
-      SwiftEnumOptions::internal_default_instance(),
-      SwiftEnumOptions_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _has_bits_),
-      -1,
-      -1,
-      sizeof(SwiftEnumOptions),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _internal_metadata_));
-  AccessControl_descriptor_ = file->enum_type(0);
-}
+static const ::google::protobuf::internal::MigrationSchema schemas[] = {
+  { 0, 8, sizeof(SwiftFileOptions)},
+  { 12, 17, sizeof(SwiftMessageOptions)},
+  { 18, 23, sizeof(SwiftEnumOptions)},
+};
+
+static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftFileOptions_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftMessageOptions_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftEnumOptions_default_instance_),
+};
 
 namespace {
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);
+void protobuf_AssignDescriptors() {
+  AddDescriptors();
+  ::google::protobuf::MessageFactory* factory = NULL;
+  AssignDescriptors(
+      "google/protobuf/swift-descriptor.proto", schemas, file_default_instances, TableStruct::offsets, factory,
+      file_level_metadata, file_level_enum_descriptors, NULL);
+}
+
 void protobuf_AssignDescriptorsOnce() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AssignDescriptors_once_,
-                 &protobuf_AssignDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &protobuf_AssignDescriptors);
 }
 
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SwiftFileOptions_descriptor_, SwiftFileOptions::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SwiftMessageOptions_descriptor_, SwiftMessageOptions::internal_default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      SwiftEnumOptions_descriptor_, SwiftEnumOptions::internal_default_instance());
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 3);
 }
 
 }  // namespace
 
-void protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
-  SwiftFileOptions_default_instance_.Shutdown();
-  delete SwiftFileOptions_reflection_;
-  SwiftMessageOptions_default_instance_.Shutdown();
-  delete SwiftMessageOptions_reflection_;
-  SwiftEnumOptions_default_instance_.Shutdown();
-  delete SwiftEnumOptions_reflection_;
+void TableStruct::Shutdown() {
+  _SwiftFileOptions_default_instance_.Shutdown();
+  delete file_level_metadata[0].reflection;
+  _SwiftMessageOptions_default_instance_.Shutdown();
+  delete file_level_metadata[1].reflection;
+  _SwiftEnumOptions_default_instance_.Shutdown();
+  delete file_level_metadata[2].reflection;
 }
 
-void protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto_impl() {
+void TableStruct::InitDefaultsImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
-  ::google::protobuf::protobuf_InitDefaults_google_2fprotobuf_2fdescriptor_2eproto();
-  ::google::protobuf::internal::GetEmptyString();
-  SwiftFileOptions_default_instance_.DefaultConstruct();
-  SwiftMessageOptions_default_instance_.DefaultConstruct();
-  SwiftEnumOptions_default_instance_.DefaultConstruct();
+  ::google::protobuf::internal::InitProtobufDefaults();
+  ::google::protobuf::protobuf_google_2fprotobuf_2fdescriptor_2eproto::InitDefaults();
+  _SwiftFileOptions_default_instance_.DefaultConstruct();
+  _SwiftMessageOptions_default_instance_.DefaultConstruct();
+  _SwiftEnumOptions_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::FileOptions::internal_default_instance(),
     5092014, 11, false, false,
@@ -141,61 +127,60 @@ void protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto_impl()
     ::google::protobuf::EnumOptions::internal_default_instance(),
     5092015, 11, false, false,
     ::google::protobuf::SwiftEnumOptions::internal_default_instance());
-  SwiftFileOptions_default_instance_.get_mutable()->InitAsDefaultInstance();
-  SwiftMessageOptions_default_instance_.get_mutable()->InitAsDefaultInstance();
-  SwiftEnumOptions_default_instance_.get_mutable()->InitAsDefaultInstance();
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto_once_);
-void protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto_once_,
-                 &protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto_impl);
+void InitDefaults() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &TableStruct::InitDefaultsImpl);
 }
-void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto_impl() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+void AddDescriptorsImpl() {
+  InitDefaults();
+  static const char descriptor[] = {
+      "\n&google/protobuf/swift-descriptor.proto"
+      "\022\017google.protobuf\032 google/protobuf/descr"
+      "iptor.proto\"\276\001\n\020SwiftFileOptions\022\024\n\014clas"
+      "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
+      "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
+      "\016PublicEntities\022#\n\025compile_for_framework"
+      "\030\003 \001(\010:\004true\022\036\n\017generate_struct\030\004 \001(\010:\005f"
+      "alse\"9\n\023SwiftMessageOptions\022\"\n\023generate_"
+      "error_type\030\001 \001(\010:\005false\"6\n\020SwiftEnumOpti"
+      "ons\022\"\n\023generate_error_type\030\001 \001(\010:\005false*"
+      "9\n\rAccessControl\022\024\n\020InternalEntities\020\000\022\022"
+      "\n\016PublicEntities\020\001:^\n\022swift_file_options"
+      "\022\034.google.protobuf.FileOptions\030\256\345\266\002 \001(\0132"
+      "!.google.protobuf.SwiftFileOptions:g\n\025sw"
+      "ift_message_options\022\037.google.protobuf.Me"
+      "ssageOptions\030\260\345\266\002 \001(\0132$.google.protobuf."
+      "SwiftMessageOptions:^\n\022swift_enum_option"
+      "s\022\034.google.protobuf.EnumOptions\030\257\345\266\002 \001(\013"
+      "2!.google.protobuf.SwiftEnumOptionsB\016\362\252\266"
+      "\023\002\030\000\362\252\266\023\002\020\001"
+  };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n&google/protobuf/swift-descriptor.proto"
-    "\022\017google.protobuf\032 google/protobuf/descr"
-    "iptor.proto\"\276\001\n\020SwiftFileOptions\022\024\n\014clas"
-    "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
-    "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
-    "\016PublicEntities\022#\n\025compile_for_framework"
-    "\030\003 \001(\010:\004true\022\036\n\017generate_struct\030\004 \001(\010:\005f"
-    "alse\"9\n\023SwiftMessageOptions\022\"\n\023generate_"
-    "error_type\030\001 \001(\010:\005false\"6\n\020SwiftEnumOpti"
-    "ons\022\"\n\023generate_error_type\030\001 \001(\010:\005false*"
-    "9\n\rAccessControl\022\024\n\020InternalEntities\020\000\022\022"
-    "\n\016PublicEntities\020\001:^\n\022swift_file_options"
-    "\022\034.google.protobuf.FileOptions\030\256\345\266\002 \001(\0132"
-    "!.google.protobuf.SwiftFileOptions:g\n\025sw"
-    "ift_message_options\022\037.google.protobuf.Me"
-    "ssageOptions\030\260\345\266\002 \001(\0132$.google.protobuf."
-    "SwiftMessageOptions:^\n\022swift_enum_option"
-    "s\022\034.google.protobuf.EnumOptions\030\257\345\266\002 \001(\013"
-    "2!.google.protobuf.SwiftEnumOptionsB\016\362\252\266"
-    "\023\002\030\000\362\252\266\023\002\020\001", 771);
+      descriptor, 771);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
-  ::google::protobuf::protobuf_AddDesc_google_2fprotobuf_2fdescriptor_2eproto();
-  ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_google_2fprotobuf_2fswift_2ddescriptor_2eproto);
+  ::google::protobuf::protobuf_google_2fprotobuf_2fdescriptor_2eproto::AddDescriptors();
+  ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
 }
 
-GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto_once_);
-void protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
-  ::google::protobuf::GoogleOnceInit(&protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto_once_,
-                 &protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto_impl);
+void AddDescriptors() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &AddDescriptorsImpl);
 }
 // Force AddDescriptors() to be called at static initialization time.
-struct StaticDescriptorInitializer_google_2fprotobuf_2fswift_2ddescriptor_2eproto {
-  StaticDescriptorInitializer_google_2fprotobuf_2fswift_2ddescriptor_2eproto() {
-    protobuf_AddDesc_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+struct StaticDescriptorInitializer {
+  StaticDescriptorInitializer() {
+    AddDescriptors();
   }
-} static_descriptor_initializer_google_2fprotobuf_2fswift_2ddescriptor_2eproto_;
+} static_descriptor_initializer;
+
+}  // namespace protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto
+
 const ::google::protobuf::EnumDescriptor* AccessControl_descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return AccessControl_descriptor_;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_enum_descriptors[0];
 }
 bool AccessControl_IsValid(int value) {
   switch (value) {
@@ -206,16 +191,6 @@ bool AccessControl_IsValid(int value) {
       return false;
   }
 }
-
-
-namespace {
-
-static void MergeFromFail(int line) GOOGLE_ATTRIBUTE_COLD GOOGLE_ATTRIBUTE_NORETURN;
-static void MergeFromFail(int line) {
-  ::google::protobuf::internal::MergeFromFail(__FILE__, line);
-}
-
-}  // namespace
 
 
 // ===================================================================
@@ -229,19 +204,25 @@ const int SwiftFileOptions::kGenerateStructFieldNumber;
 
 SwiftFileOptions::SwiftFileOptions()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.SwiftFileOptions)
 }
-
-void SwiftFileOptions::InitAsDefaultInstance() {
-}
-
 SwiftFileOptions::SwiftFileOptions(const SwiftFileOptions& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  class_prefix_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_class_prefix()) {
+    class_prefix_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.class_prefix_);
+  }
+  ::memcpy(&generate_struct_, &from.generate_struct_,
+    reinterpret_cast<char*>(&compile_for_framework_) -
+    reinterpret_cast<char*>(&generate_struct_) + sizeof(compile_for_framework_));
   // @@protoc_insertion_point(copy_constructor:google.protobuf.SwiftFileOptions)
 }
 
@@ -268,16 +249,14 @@ void SwiftFileOptions::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* SwiftFileOptions::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SwiftFileOptions_descriptor_;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[0].descriptor;
 }
 
 const SwiftFileOptions& SwiftFileOptions::default_instance() {
-  protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
   return *internal_default_instance();
 }
-
-::google::protobuf::internal::ExplicitlyConstructed<SwiftFileOptions> SwiftFileOptions_default_instance_;
 
 SwiftFileOptions* SwiftFileOptions::New(::google::protobuf::Arena* arena) const {
   SwiftFileOptions* n = new SwiftFileOptions;
@@ -289,18 +268,17 @@ SwiftFileOptions* SwiftFileOptions::New(::google::protobuf::Arena* arena) const 
 
 void SwiftFileOptions::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.protobuf.SwiftFileOptions)
-  if (_has_bits_[0 / 32] & 15u) {
-    if (has_class_prefix()) {
-      class_prefix_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-    }
+  if (has_class_prefix()) {
+    GOOGLE_DCHECK(!class_prefix_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*class_prefix_.UnsafeRawStringPointer())->clear();
+  }
+  if (_has_bits_[0 / 32] & 14u) {
+    generate_struct_ = false;
     entities_access_control_ = 1;
     compile_for_framework_ = true;
-    generate_struct_ = false;
   }
   _has_bits_.Clear();
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  _internal_metadata_.Clear();
 }
 
 bool SwiftFileOptions::MergePartialFromCodedStream(
@@ -309,13 +287,13 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.SwiftFileOptions)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional string class_prefix = 1;
       case 1: {
-        if (tag == 10) {
+        if (tag == 10u) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_class_prefix()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -325,14 +303,12 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_entities_access_control;
         break;
       }
 
       // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
       case 2: {
-        if (tag == 16) {
-         parse_entities_access_control:
+        if (tag == 16u) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -345,14 +321,12 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_compile_for_framework;
         break;
       }
 
       // optional bool compile_for_framework = 3 [default = true];
       case 3: {
-        if (tag == 24) {
-         parse_compile_for_framework:
+        if (tag == 24u) {
           set_has_compile_for_framework();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -360,14 +334,12 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_generate_struct;
         break;
       }
 
       // optional bool generate_struct = 4 [default = false];
       case 4: {
-        if (tag == 32) {
-         parse_generate_struct:
+        if (tag == 32u) {
           set_has_generate_struct();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -375,7 +347,6 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -439,7 +410,7 @@ void SwiftFileOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftFileOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftFileOptions)
   // optional string class_prefix = 1;
   if (has_class_prefix()) {
@@ -480,12 +451,22 @@ size_t SwiftFileOptions::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.protobuf.SwiftFileOptions)
   size_t total_size = 0;
 
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
   if (_has_bits_[0 / 32] & 15u) {
     // optional string class_prefix = 1;
     if (has_class_prefix()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->class_prefix());
+    }
+
+    // optional bool generate_struct = 4 [default = false];
+    if (has_generate_struct()) {
+      total_size += 1 + 1;
     }
 
     // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
@@ -499,16 +480,6 @@ size_t SwiftFileOptions::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool generate_struct = 4 [default = false];
-    if (has_generate_struct()) {
-      total_size += 1 + 1;
-    }
-
-  }
-  if (_internal_metadata_.have_unknown_fields()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -519,7 +490,7 @@ size_t SwiftFileOptions::ByteSizeLong() const {
 
 void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftFileOptions)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
   const SwiftFileOptions* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SwiftFileOptions>(
           &from);
@@ -528,25 +499,21 @@ void SwiftFileOptions::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SwiftFileOptions)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftFileOptions)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void SwiftFileOptions::UnsafeMergeFrom(const SwiftFileOptions& from) {
-  GOOGLE_DCHECK(&from != this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._has_bits_[0 / 32] & 15u) {
     if (from.has_class_prefix()) {
       set_has_class_prefix();
       class_prefix_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.class_prefix_);
+    }
+    if (from.has_generate_struct()) {
+      set_generate_struct(from.generate_struct());
     }
     if (from.has_entities_access_control()) {
       set_entities_access_control(from.entities_access_control());
@@ -554,13 +521,6 @@ void SwiftFileOptions::UnsafeMergeFrom(const SwiftFileOptions& from) {
     if (from.has_compile_for_framework()) {
       set_compile_for_framework(from.compile_for_framework());
     }
-    if (from.has_generate_struct()) {
-      set_generate_struct(from.generate_struct());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
-      from.unknown_fields(), &_internal_metadata_);
   }
 }
 
@@ -575,11 +535,10 @@ void SwiftFileOptions::CopyFrom(const SwiftFileOptions& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.SwiftFileOptions)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool SwiftFileOptions::IsInitialized() const {
-
   return true;
 }
 
@@ -589,20 +548,17 @@ void SwiftFileOptions::Swap(SwiftFileOptions* other) {
 }
 void SwiftFileOptions::InternalSwap(SwiftFileOptions* other) {
   class_prefix_.Swap(&other->class_prefix_);
+  std::swap(generate_struct_, other->generate_struct_);
   std::swap(entities_access_control_, other->entities_access_control_);
   std::swap(compile_for_framework_, other->compile_for_framework_);
-  std::swap(generate_struct_, other->generate_struct_);
   std::swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata SwiftFileOptions::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SwiftFileOptions_descriptor_;
-  metadata.reflection = SwiftFileOptions_reflection_;
-  return metadata;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[0];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -624,13 +580,21 @@ void SwiftFileOptions::clear_class_prefix() {
 }
 const ::std::string& SwiftFileOptions::class_prefix() const {
   // @@protoc_insertion_point(field_get:google.protobuf.SwiftFileOptions.class_prefix)
-  return class_prefix_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return class_prefix_.GetNoArena();
 }
 void SwiftFileOptions::set_class_prefix(const ::std::string& value) {
   set_has_class_prefix();
   class_prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.class_prefix)
 }
+#if LANG_CXX11
+void SwiftFileOptions::set_class_prefix(::std::string&& value) {
+  set_has_class_prefix();
+  class_prefix_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.SwiftFileOptions.class_prefix)
+}
+#endif
 void SwiftFileOptions::set_class_prefix(const char* value) {
   set_has_class_prefix();
   class_prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
@@ -664,13 +628,13 @@ void SwiftFileOptions::set_allocated_class_prefix(::std::string* class_prefix) {
 
 // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
 bool SwiftFileOptions::has_entities_access_control() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void SwiftFileOptions::set_has_entities_access_control() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void SwiftFileOptions::clear_has_entities_access_control() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void SwiftFileOptions::clear_entities_access_control() {
   entities_access_control_ = 1;
@@ -689,13 +653,13 @@ void SwiftFileOptions::set_entities_access_control(::google::protobuf::AccessCon
 
 // optional bool compile_for_framework = 3 [default = true];
 bool SwiftFileOptions::has_compile_for_framework() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void SwiftFileOptions::set_has_compile_for_framework() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void SwiftFileOptions::clear_has_compile_for_framework() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void SwiftFileOptions::clear_compile_for_framework() {
   compile_for_framework_ = true;
@@ -713,13 +677,13 @@ void SwiftFileOptions::set_compile_for_framework(bool value) {
 
 // optional bool generate_struct = 4 [default = false];
 bool SwiftFileOptions::has_generate_struct() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 void SwiftFileOptions::set_has_generate_struct() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000002u;
 }
 void SwiftFileOptions::clear_has_generate_struct() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 void SwiftFileOptions::clear_generate_struct() {
   generate_struct_ = false;
@@ -735,9 +699,6 @@ void SwiftFileOptions::set_generate_struct(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_struct)
 }
 
-inline const SwiftFileOptions* SwiftFileOptions::internal_default_instance() {
-  return &SwiftFileOptions_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -748,19 +709,19 @@ const int SwiftMessageOptions::kGenerateErrorTypeFieldNumber;
 
 SwiftMessageOptions::SwiftMessageOptions()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.SwiftMessageOptions)
 }
-
-void SwiftMessageOptions::InitAsDefaultInstance() {
-}
-
 SwiftMessageOptions::SwiftMessageOptions(const SwiftMessageOptions& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  generate_error_type_ = from.generate_error_type_;
   // @@protoc_insertion_point(copy_constructor:google.protobuf.SwiftMessageOptions)
 }
 
@@ -783,16 +744,14 @@ void SwiftMessageOptions::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* SwiftMessageOptions::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SwiftMessageOptions_descriptor_;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[1].descriptor;
 }
 
 const SwiftMessageOptions& SwiftMessageOptions::default_instance() {
-  protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
   return *internal_default_instance();
 }
-
-::google::protobuf::internal::ExplicitlyConstructed<SwiftMessageOptions> SwiftMessageOptions_default_instance_;
 
 SwiftMessageOptions* SwiftMessageOptions::New(::google::protobuf::Arena* arena) const {
   SwiftMessageOptions* n = new SwiftMessageOptions;
@@ -806,9 +765,7 @@ void SwiftMessageOptions::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.protobuf.SwiftMessageOptions)
   generate_error_type_ = false;
   _has_bits_.Clear();
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  _internal_metadata_.Clear();
 }
 
 bool SwiftMessageOptions::MergePartialFromCodedStream(
@@ -817,13 +774,13 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.SwiftMessageOptions)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional bool generate_error_type = 1 [default = false];
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           set_has_generate_error_type();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -831,7 +788,6 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -874,7 +830,7 @@ void SwiftMessageOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftMessageOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftMessageOptions)
   // optional bool generate_error_type = 1 [default = false];
   if (has_generate_error_type()) {
@@ -893,16 +849,16 @@ size_t SwiftMessageOptions::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.protobuf.SwiftMessageOptions)
   size_t total_size = 0;
 
-  // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
-    total_size += 1 + 1;
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  // optional bool generate_error_type = 1 [default = false];
+  if (has_generate_error_type()) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -912,7 +868,7 @@ size_t SwiftMessageOptions::ByteSizeLong() const {
 
 void SwiftMessageOptions::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftMessageOptions)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
   const SwiftMessageOptions* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SwiftMessageOptions>(
           &from);
@@ -921,29 +877,16 @@ void SwiftMessageOptions::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SwiftMessageOptions)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void SwiftMessageOptions::MergeFrom(const SwiftMessageOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftMessageOptions)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void SwiftMessageOptions::UnsafeMergeFrom(const SwiftMessageOptions& from) {
-  GOOGLE_DCHECK(&from != this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_generate_error_type()) {
-      set_generate_error_type(from.generate_error_type());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
-      from.unknown_fields(), &_internal_metadata_);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_generate_error_type()) {
+    set_generate_error_type(from.generate_error_type());
   }
 }
 
@@ -958,11 +901,10 @@ void SwiftMessageOptions::CopyFrom(const SwiftMessageOptions& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.SwiftMessageOptions)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool SwiftMessageOptions::IsInitialized() const {
-
   return true;
 }
 
@@ -978,11 +920,8 @@ void SwiftMessageOptions::InternalSwap(SwiftMessageOptions* other) {
 }
 
 ::google::protobuf::Metadata SwiftMessageOptions::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SwiftMessageOptions_descriptor_;
-  metadata.reflection = SwiftMessageOptions_reflection_;
-  return metadata;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[1];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1012,9 +951,6 @@ void SwiftMessageOptions::set_generate_error_type(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_error_type)
 }
 
-inline const SwiftMessageOptions* SwiftMessageOptions::internal_default_instance() {
-  return &SwiftMessageOptions_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
@@ -1025,19 +961,19 @@ const int SwiftEnumOptions::kGenerateErrorTypeFieldNumber;
 
 SwiftEnumOptions::SwiftEnumOptions()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  if (this != internal_default_instance()) protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
+  }
   SharedCtor();
   // @@protoc_insertion_point(constructor:google.protobuf.SwiftEnumOptions)
 }
-
-void SwiftEnumOptions::InitAsDefaultInstance() {
-}
-
 SwiftEnumOptions::SwiftEnumOptions(const SwiftEnumOptions& from)
   : ::google::protobuf::Message(),
-    _internal_metadata_(NULL) {
-  SharedCtor();
-  UnsafeMergeFrom(from);
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  generate_error_type_ = from.generate_error_type_;
   // @@protoc_insertion_point(copy_constructor:google.protobuf.SwiftEnumOptions)
 }
 
@@ -1060,16 +996,14 @@ void SwiftEnumOptions::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
 const ::google::protobuf::Descriptor* SwiftEnumOptions::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return SwiftEnumOptions_descriptor_;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[2].descriptor;
 }
 
 const SwiftEnumOptions& SwiftEnumOptions::default_instance() {
-  protobuf_InitDefaults_google_2fprotobuf_2fswift_2ddescriptor_2eproto();
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
   return *internal_default_instance();
 }
-
-::google::protobuf::internal::ExplicitlyConstructed<SwiftEnumOptions> SwiftEnumOptions_default_instance_;
 
 SwiftEnumOptions* SwiftEnumOptions::New(::google::protobuf::Arena* arena) const {
   SwiftEnumOptions* n = new SwiftEnumOptions;
@@ -1083,9 +1017,7 @@ void SwiftEnumOptions::Clear() {
 // @@protoc_insertion_point(message_clear_start:google.protobuf.SwiftEnumOptions)
   generate_error_type_ = false;
   _has_bits_.Clear();
-  if (_internal_metadata_.have_unknown_fields()) {
-    mutable_unknown_fields()->Clear();
-  }
+  _internal_metadata_.Clear();
 }
 
 bool SwiftEnumOptions::MergePartialFromCodedStream(
@@ -1094,13 +1026,13 @@ bool SwiftEnumOptions::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:google.protobuf.SwiftEnumOptions)
   for (;;) {
-    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional bool generate_error_type = 1 [default = false];
       case 1: {
-        if (tag == 8) {
+        if (tag == 8u) {
           set_has_generate_error_type();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1108,7 +1040,6 @@ bool SwiftEnumOptions::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
@@ -1151,7 +1082,7 @@ void SwiftEnumOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftEnumOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
+  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftEnumOptions)
   // optional bool generate_error_type = 1 [default = false];
   if (has_generate_error_type()) {
@@ -1170,16 +1101,16 @@ size_t SwiftEnumOptions::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:google.protobuf.SwiftEnumOptions)
   size_t total_size = 0;
 
-  // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
-    total_size += 1 + 1;
-  }
-
   if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
   }
+  // optional bool generate_error_type = 1 [default = false];
+  if (has_generate_error_type()) {
+    total_size += 1 + 1;
+  }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -1189,7 +1120,7 @@ size_t SwiftEnumOptions::ByteSizeLong() const {
 
 void SwiftEnumOptions::MergeFrom(const ::google::protobuf::Message& from) {
 // @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.SwiftEnumOptions)
-  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  GOOGLE_DCHECK_NE(&from, this);
   const SwiftEnumOptions* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const SwiftEnumOptions>(
           &from);
@@ -1198,29 +1129,16 @@ void SwiftEnumOptions::MergeFrom(const ::google::protobuf::Message& from) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
   // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.SwiftEnumOptions)
-    UnsafeMergeFrom(*source);
+    MergeFrom(*source);
   }
 }
 
 void SwiftEnumOptions::MergeFrom(const SwiftEnumOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftEnumOptions)
-  if (GOOGLE_PREDICT_TRUE(&from != this)) {
-    UnsafeMergeFrom(from);
-  } else {
-    MergeFromFail(__LINE__);
-  }
-}
-
-void SwiftEnumOptions::UnsafeMergeFrom(const SwiftEnumOptions& from) {
-  GOOGLE_DCHECK(&from != this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_generate_error_type()) {
-      set_generate_error_type(from.generate_error_type());
-    }
-  }
-  if (from._internal_metadata_.have_unknown_fields()) {
-    ::google::protobuf::UnknownFieldSet::MergeToInternalMetdata(
-      from.unknown_fields(), &_internal_metadata_);
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_generate_error_type()) {
+    set_generate_error_type(from.generate_error_type());
   }
 }
 
@@ -1235,11 +1153,10 @@ void SwiftEnumOptions::CopyFrom(const SwiftEnumOptions& from) {
 // @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.SwiftEnumOptions)
   if (&from == this) return;
   Clear();
-  UnsafeMergeFrom(from);
+  MergeFrom(from);
 }
 
 bool SwiftEnumOptions::IsInitialized() const {
-
   return true;
 }
 
@@ -1255,11 +1172,8 @@ void SwiftEnumOptions::InternalSwap(SwiftEnumOptions* other) {
 }
 
 ::google::protobuf::Metadata SwiftEnumOptions::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = SwiftEnumOptions_descriptor_;
-  metadata.reflection = SwiftEnumOptions_reflection_;
-  return metadata;
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[2];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1289,9 +1203,6 @@ void SwiftEnumOptions::set_generate_error_type(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftEnumOptions.generate_error_type)
 }
 
-inline const SwiftEnumOptions* SwiftEnumOptions::internal_default_instance() {
-  return &SwiftEnumOptions_default_instance_.get();
-}
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >

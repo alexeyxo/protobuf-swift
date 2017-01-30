@@ -2693,6 +2693,9 @@ public extension Google.Protobuf {
         case typeString = 9
 
         // Tag-delimited aggregate.
+        // Group type is deprecated and not supported in proto3. However, Proto3
+        // implementations should still be able to parse the group wire format and
+        // treat group fields as unknown fields.
         case typeGroup = 10
 
         // Length-delimited aggregate.
@@ -2791,8 +2794,6 @@ public extension Google.Protobuf {
         // 0 is reserved for errors
         case labelOptional = 1
         case labelRequired = 2
-
-        // TODO(sanjay): Should we add LABEL_MAP?
         case labelRepeated = 3
         public func toString() -> String {
           switch self {
@@ -5578,6 +5579,7 @@ public extension Google.Protobuf {
       fieldCheck = fieldCheck && (lhs.hasCcEnableArenas == rhs.hasCcEnableArenas) && (!lhs.hasCcEnableArenas || lhs.ccEnableArenas == rhs.ccEnableArenas)
       fieldCheck = fieldCheck && (lhs.hasObjcClassPrefix == rhs.hasObjcClassPrefix) && (!lhs.hasObjcClassPrefix || lhs.objcClassPrefix == rhs.objcClassPrefix)
       fieldCheck = fieldCheck && (lhs.hasCsharpNamespace == rhs.hasCsharpNamespace) && (!lhs.hasCsharpNamespace || lhs.csharpNamespace == rhs.csharpNamespace)
+      fieldCheck = fieldCheck && (lhs.hasSwiftPrefix == rhs.hasSwiftPrefix) && (!lhs.hasSwiftPrefix || lhs.swiftPrefix == rhs.swiftPrefix)
       fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
       fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
       fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -5713,6 +5715,13 @@ public extension Google.Protobuf {
     public fileprivate(set) var csharpNamespace:String = ""
     public fileprivate(set) var hasCsharpNamespace:Bool = false
 
+    // By default Swift generators will take the proto package and CamelCase it
+    // replacing '.' with underscore and use that to prefix the types/symbols
+    // defined. When this options is provided, they will use this value instead
+    // to prefix the types/symbols defined.
+    public fileprivate(set) var swiftPrefix:String = ""
+    public fileprivate(set) var hasSwiftPrefix:Bool = false
+
     public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
     required public init() {
          super.init()
@@ -5776,6 +5785,9 @@ public extension Google.Protobuf {
       if hasCsharpNamespace {
         try codedOutputStream.writeString(fieldNumber: 37, value:csharpNamespace)
       }
+      if hasSwiftPrefix {
+        try codedOutputStream.writeString(fieldNumber: 39, value:swiftPrefix)
+      }
       for oneElementUninterpretedOption in uninterpretedOption {
           try codedOutputStream.writeMessage(fieldNumber: 999, value:oneElementUninterpretedOption)
       }
@@ -5830,6 +5842,9 @@ public extension Google.Protobuf {
       }
       if hasCsharpNamespace {
         serialize_size += csharpNamespace.computeStringSize(fieldNumber: 37)
+      }
+      if hasSwiftPrefix {
+        serialize_size += swiftPrefix.computeStringSize(fieldNumber: 39)
       }
       for oneElementUninterpretedOption in uninterpretedOption {
           serialize_size += oneElementUninterpretedOption.computeMessageSize(fieldNumber: 999)
@@ -5905,6 +5920,9 @@ public extension Google.Protobuf {
       if hasCsharpNamespace {
         jsonMap["csharpNamespace"] = csharpNamespace
       }
+      if hasSwiftPrefix {
+        jsonMap["swiftPrefix"] = swiftPrefix
+      }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,Any>> = []
           for oneValueUninterpretedOption in uninterpretedOption {
@@ -5965,6 +5983,9 @@ public extension Google.Protobuf {
       if hasCsharpNamespace {
         output += "\(indent) csharpNamespace: \(csharpNamespace) \n"
       }
+      if hasSwiftPrefix {
+        output += "\(indent) swiftPrefix: \(swiftPrefix) \n"
+      }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementUninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -6020,6 +6041,9 @@ public extension Google.Protobuf {
             }
             if hasCsharpNamespace {
                hashCode = (hashCode &* 31) &+ csharpNamespace.hashValue
+            }
+            if hasSwiftPrefix {
+               hashCode = (hashCode &* 31) &+ swiftPrefix.hashValue
             }
             for oneElementUninterpretedOption in uninterpretedOption {
                 hashCode = (hashCode &* 31) &+ oneElementUninterpretedOption.hashValue
@@ -6400,6 +6424,31 @@ public extension Google.Protobuf {
            builderResult.csharpNamespace = ""
            return self
       }
+      public var hasSwiftPrefix:Bool {
+           get {
+                return builderResult.hasSwiftPrefix
+           }
+      }
+      public var swiftPrefix:String {
+           get {
+                return builderResult.swiftPrefix
+           }
+           set (value) {
+               builderResult.hasSwiftPrefix = true
+               builderResult.swiftPrefix = value
+           }
+      }
+      @discardableResult
+      public func setSwiftPrefix(_ value:String) -> Google.Protobuf.FileOptions.Builder {
+        self.swiftPrefix = value
+        return self
+      }
+      @discardableResult
+      public func clearSwiftPrefix() -> Google.Protobuf.FileOptions.Builder{
+           builderResult.hasSwiftPrefix = false
+           builderResult.swiftPrefix = ""
+           return self
+      }
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -6486,6 +6535,9 @@ public extension Google.Protobuf {
         if other.hasCsharpNamespace {
              csharpNamespace = other.csharpNamespace
         }
+        if other.hasSwiftPrefix {
+             swiftPrefix = other.swiftPrefix
+        }
         if !other.uninterpretedOption.isEmpty  {
            builderResult.uninterpretedOption += other.uninterpretedOption
         }
@@ -6554,6 +6606,9 @@ public extension Google.Protobuf {
           case 298:
             csharpNamespace = try codedInputStream.readString()
 
+          case 314:
+            swiftPrefix = try codedInputStream.readString()
+
           case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
@@ -6610,6 +6665,9 @@ public extension Google.Protobuf {
         }
         if let jsonValueCsharpNamespace = jsonMap["csharpNamespace"] as? String {
           resultDecodedBuilder.csharpNamespace = jsonValueCsharpNamespace
+        }
+        if let jsonValueSwiftPrefix = jsonMap["swiftPrefix"] as? String {
+          resultDecodedBuilder.swiftPrefix = jsonValueSwiftPrefix
         }
         if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
           var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []
@@ -9009,11 +9067,55 @@ public extension Google.Protobuf {
       }
       var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
       fieldCheck = fieldCheck && (lhs.hasDeprecated == rhs.hasDeprecated) && (!lhs.hasDeprecated || lhs.deprecated == rhs.deprecated)
+      fieldCheck = fieldCheck && (lhs.hasIdempotencyLevel == rhs.hasIdempotencyLevel) && (!lhs.hasIdempotencyLevel || lhs.idempotencyLevel == rhs.idempotencyLevel)
       fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
       fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
       fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
       return fieldCheck
     }
+
+
+
+      //Enum type declaration start 
+
+      // Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+      // or neither? HTTP based RPC implementation may choose GET verb for safe
+      // methods, and PUT verb for idempotent methods instead of the default POST.
+      public enum IdempotencyLevel:Int32, CustomDebugStringConvertible, CustomStringConvertible {
+        case idempotencyUnknown = 0
+
+        // implies idempotent
+        case noSideEffects = 1
+
+        // idempotent, but may have side effects
+        case idempotent = 2
+        public func toString() -> String {
+          switch self {
+          case .idempotencyUnknown: return "IDEMPOTENCY_UNKNOWN"
+          case .noSideEffects: return "NO_SIDE_EFFECTS"
+          case .idempotent: return "IDEMPOTENT"
+          }
+        }
+        public static func fromString(str:String) throws -> Google.Protobuf.MethodOptions.IdempotencyLevel {
+          switch str {
+          case "IDEMPOTENCY_UNKNOWN":  return .idempotencyUnknown
+          case "NO_SIDE_EFFECTS":  return .noSideEffects
+          case "IDEMPOTENT":  return .idempotent
+          default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
+          }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+          switch self {
+          case .idempotencyUnknown: return ".idempotencyUnknown"
+          case .noSideEffects: return ".noSideEffects"
+          case .idempotent: return ".idempotent"
+          }
+        }
+      }
+
+      //Enum type declaration end 
 
     // Is this method deprecated?
     // Depending on the target platform, this can emit Deprecated annotations
@@ -9022,6 +9124,8 @@ public extension Google.Protobuf {
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
+    public fileprivate(set) var idempotencyLevel:Google.Protobuf.MethodOptions.IdempotencyLevel = Google.Protobuf.MethodOptions.IdempotencyLevel.idempotencyUnknown
+    public fileprivate(set) var hasIdempotencyLevel:Bool = false
     public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
     required public init() {
          super.init()
@@ -9046,6 +9150,9 @@ public extension Google.Protobuf {
       if hasDeprecated {
         try codedOutputStream.writeBool(fieldNumber: 33, value:deprecated)
       }
+      if hasIdempotencyLevel {
+        try codedOutputStream.writeEnum(fieldNumber: 34, value:idempotencyLevel.rawValue)
+      }
       for oneElementUninterpretedOption in uninterpretedOption {
           try codedOutputStream.writeMessage(fieldNumber: 999, value:oneElementUninterpretedOption)
       }
@@ -9061,6 +9168,9 @@ public extension Google.Protobuf {
       serialize_size = 0
       if hasDeprecated {
         serialize_size += deprecated.computeBoolSize(fieldNumber: 33)
+      }
+      if (hasIdempotencyLevel) {
+        serialize_size += idempotencyLevel.rawValue.computeEnumSize(fieldNumber: 34)
       }
       for oneElementUninterpretedOption in uninterpretedOption {
           serialize_size += oneElementUninterpretedOption.computeMessageSize(fieldNumber: 999)
@@ -9097,6 +9207,9 @@ public extension Google.Protobuf {
       if hasDeprecated {
         jsonMap["deprecated"] = deprecated
       }
+      if hasIdempotencyLevel {
+        jsonMap["idempotencyLevel"] = idempotencyLevel.toString()
+      }
       if !uninterpretedOption.isEmpty {
         var jsonArrayUninterpretedOption:Array<Dictionary<String,Any>> = []
           for oneValueUninterpretedOption in uninterpretedOption {
@@ -9118,6 +9231,9 @@ public extension Google.Protobuf {
       if hasDeprecated {
         output += "\(indent) deprecated: \(deprecated) \n"
       }
+      if (hasIdempotencyLevel) {
+        output += "\(indent) idempotencyLevel: \(idempotencyLevel.description)\n"
+      }
       var uninterpretedOptionElementIndex:Int = 0
       for oneElementUninterpretedOption in uninterpretedOption {
           output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -9134,6 +9250,9 @@ public extension Google.Protobuf {
             var hashCode:Int = 7
             if hasDeprecated {
                hashCode = (hashCode &* 31) &+ deprecated.hashValue
+            }
+            if hasIdempotencyLevel {
+               hashCode = (hashCode &* 31) &+ Int(idempotencyLevel.rawValue)
             }
             for oneElementUninterpretedOption in uninterpretedOption {
                 hashCode = (hashCode &* 31) &+ oneElementUninterpretedOption.hashValue
@@ -9189,6 +9308,31 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
+        public var hasIdempotencyLevel:Bool{
+            get {
+                return builderResult.hasIdempotencyLevel
+            }
+        }
+        public var idempotencyLevel:Google.Protobuf.MethodOptions.IdempotencyLevel {
+            get {
+                return builderResult.idempotencyLevel
+            }
+            set (value) {
+                builderResult.hasIdempotencyLevel = true
+                builderResult.idempotencyLevel = value
+            }
+        }
+      @discardableResult
+        public func setIdempotencyLevel(_ value:Google.Protobuf.MethodOptions.IdempotencyLevel) -> Google.Protobuf.MethodOptions.Builder {
+          self.idempotencyLevel = value
+          return self
+        }
+      @discardableResult
+        public func clearIdempotencyLevel() -> Google.Protobuf.MethodOptions.Builder {
+           builderResult.hasIdempotencyLevel = false
+           builderResult.idempotencyLevel = .idempotencyUnknown
+           return self
+        }
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -9236,6 +9380,9 @@ public extension Google.Protobuf {
         if other.hasDeprecated {
              deprecated = other.deprecated
         }
+        if other.hasIdempotencyLevel {
+             idempotencyLevel = other.idempotencyLevel
+        }
         if !other.uninterpretedOption.isEmpty  {
            builderResult.uninterpretedOption += other.uninterpretedOption
         }
@@ -9260,6 +9407,14 @@ public extension Google.Protobuf {
           case 264:
             deprecated = try codedInputStream.readBool()
 
+          case 272:
+            let valueIntidempotencyLevel = try codedInputStream.readEnum()
+            if let enumsidempotencyLevel = Google.Protobuf.MethodOptions.IdempotencyLevel(rawValue:valueIntidempotencyLevel){
+                 idempotencyLevel = enumsidempotencyLevel
+            } else {
+                 try unknownFieldsBuilder.mergeVarintField(fieldNumber: 34, value:Int64(valueIntidempotencyLevel))
+            }
+
           case 7994:
             let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
             try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
@@ -9277,6 +9432,9 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.MethodOptions.Builder()
         if let jsonValueDeprecated = jsonMap["deprecated"] as? Bool {
           resultDecodedBuilder.deprecated = jsonValueDeprecated
+        }
+        if let jsonValueIdempotencyLevel = jsonMap["idempotencyLevel"] as? String {
+          resultDecodedBuilder.idempotencyLevel = try Google.Protobuf.MethodOptions.IdempotencyLevel.fromString(str: jsonValueIdempotencyLevel)
         }
         if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
           var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []
