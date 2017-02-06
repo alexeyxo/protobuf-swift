@@ -270,6 +270,8 @@ public extension Google.Protobuf.NoGenericServicesTest {
         let resultDecodedBuilder = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder()
         if let jsonValueA = jsonMap["a"] as? Int {
           resultDecodedBuilder.a = Int32(jsonValueA)
+        } else if let jsonValueA = jsonMap["a"] as? String {
+          resultDecodedBuilder.a = Int32(jsonValueA)!
         }
         return resultDecodedBuilder
       }

@@ -675,6 +675,8 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.TestMessageSetExtension1.Builder()
         if let jsonValueI = jsonMap["i"] as? Int {
           resultDecodedBuilder.i = Int32(jsonValueI)
+        } else if let jsonValueI = jsonMap["i"] as? String {
+          resultDecodedBuilder.i = Int32(jsonValueI)!
         }
         return resultDecodedBuilder
       }
@@ -1181,6 +1183,8 @@ public extension ProtobufUnittest {
             let resultDecodedBuilder = ProtobufUnittest.RawMessageSet.Item.Builder()
             if let jsonValueTypeId = jsonMap["typeId"] as? Int {
               resultDecodedBuilder.typeId = Int32(jsonValueTypeId)
+            } else if let jsonValueTypeId = jsonMap["typeId"] as? String {
+              resultDecodedBuilder.typeId = Int32(jsonValueTypeId)!
             }
             if let jsonValueMessage = jsonMap["message"] as? String {
               resultDecodedBuilder.message = Data(base64Encoded:jsonValueMessage, options: Data.Base64DecodingOptions(rawValue:0))!

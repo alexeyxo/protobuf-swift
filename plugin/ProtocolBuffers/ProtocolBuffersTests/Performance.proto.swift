@@ -1332,15 +1332,23 @@ final internal class PBPerfomance : GeneratedMessage {
       let resultDecodedBuilder = PBPerfomance.Builder()
       if let jsonValueInts = jsonMap["ints"] as? Int {
         resultDecodedBuilder.ints = Int32(jsonValueInts)
+      } else if let jsonValueInts = jsonMap["ints"] as? String {
+        resultDecodedBuilder.ints = Int32(jsonValueInts)!
       }
       if let jsonValueInts64 = jsonMap["ints64"] as? String {
         resultDecodedBuilder.ints64 = Int64(jsonValueInts64)!
+      } else if let jsonValueInts64 = jsonMap["ints64"] as? Int {
+        resultDecodedBuilder.ints64 = Int64(jsonValueInts64)
       }
       if let jsonValueDoubles = jsonMap["doubles"] as? Double {
         resultDecodedBuilder.doubles = Double(jsonValueDoubles)
+      } else if let jsonValueDoubles = jsonMap["doubles"] as? String {
+        resultDecodedBuilder.doubles = Double(jsonValueDoubles)!
       }
       if let jsonValueFloats = jsonMap["floats"] as? Float {
         resultDecodedBuilder.floats = Float(jsonValueFloats)
+      } else if let jsonValueFloats = jsonMap["floats"] as? String {
+        resultDecodedBuilder.floats = Float(jsonValueFloats)!
       }
       if let jsonValueStr = jsonMap["str"] as? String {
         resultDecodedBuilder.str = jsonValueStr
@@ -1621,9 +1629,13 @@ final internal class PBProtoPoint : GeneratedMessage {
       let resultDecodedBuilder = PBProtoPoint.Builder()
       if let jsonValueLatitude = jsonMap["latitude"] as? Float {
         resultDecodedBuilder.latitude = Float(jsonValueLatitude)
+      } else if let jsonValueLatitude = jsonMap["latitude"] as? String {
+        resultDecodedBuilder.latitude = Float(jsonValueLatitude)!
       }
       if let jsonValueLongitude = jsonMap["longitude"] as? Float {
         resultDecodedBuilder.longitude = Float(jsonValueLongitude)
+      } else if let jsonValueLongitude = jsonMap["longitude"] as? String {
+        resultDecodedBuilder.longitude = Float(jsonValueLongitude)!
       }
       return resultDecodedBuilder
     }
@@ -1925,6 +1937,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
       let resultDecodedBuilder = PBIceCreamCone.Builder()
       if let jsonValueScoops = jsonMap["scoops"] as? Int {
         resultDecodedBuilder.scoops = Int32(jsonValueScoops)
+      } else if let jsonValueScoops = jsonMap["scoops"] as? String {
+        resultDecodedBuilder.scoops = Int32(jsonValueScoops)!
       }
       if let jsonValueFlavor = jsonMap["flavor"] as? String {
         resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(str: jsonValueFlavor)
@@ -2145,6 +2159,8 @@ final internal class PBFoo : GeneratedMessage {
       let resultDecodedBuilder = PBFoo.Builder()
       if let jsonValueVal = jsonMap["val"] as? Int {
         resultDecodedBuilder.val = Int32(jsonValueVal)
+      } else if let jsonValueVal = jsonMap["val"] as? String {
+        resultDecodedBuilder.val = Int32(jsonValueVal)!
       }
       return resultDecodedBuilder
     }

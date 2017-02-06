@@ -991,6 +991,8 @@ final public class UserProfile : GeneratedMessage {
           let resultDecodedBuilder = UserProfile.Exception.Builder()
           if let jsonValueErrorCode = jsonMap["errorCode"] as? Int {
             resultDecodedBuilder.errorCode = Int32(jsonValueErrorCode)
+          } else if let jsonValueErrorCode = jsonMap["errorCode"] as? String {
+            resultDecodedBuilder.errorCode = Int32(jsonValueErrorCode)!
           }
           if let jsonValueErrorDescription = jsonMap["errorDescription"] as? String {
             resultDecodedBuilder.errorDescription = jsonValueErrorDescription

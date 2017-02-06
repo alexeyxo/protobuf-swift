@@ -200,7 +200,33 @@ class MessageTests: XCTestCase {
         
         do {
             let point1 = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(2.0).build().toJSON()
+            
             let point2 = try PBProtoPoint.fromJSON(data: point1)
+            
+            XCTAssert(point2.longitude == 2.0, "")
+            XCTAssert(point2.latitude == 1.0, "")
+            
+            // Fails, should call the == function from ProtoPoint.pb.swift and take the inverse just like the testRegularPoint() does. But that doesn't happen.
+        }
+        catch
+        {
+            XCTFail("testProtoJsonWork")
+        }
+    }
+    
+    func testProtoJsonWorkAdditional() {
+        
+        do {
+            let point1 = try PBProtoPoint.Builder().setLatitude(1.0).setLongitude(2.0).build().toJSON()
+            
+            guard var dict = try JSONSerialization.jsonObject(with: point1, options: .mutableContainers) as? [String:Any] else {
+                XCTFail("testProtoJsonWork")
+                return
+            }
+            dict["latitude"] = "1.0"
+            dict["longitude"] = "2.0"
+            let dd = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+            let point2 = try PBProtoPoint.fromJSON(data: dd)
             
             XCTAssert(point2.longitude == 2.0, "")
             XCTAssert(point2.latitude == 1.0, "")

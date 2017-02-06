@@ -312,6 +312,8 @@ public extension UnittestDropUnknownFields {
         let resultDecodedBuilder = UnittestDropUnknownFields.Foo.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
           resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)
+        } else if let jsonValueInt32Value = jsonMap["int32Value"] as? String {
+          resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)!
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(str: jsonValueEnumValue)
@@ -674,12 +676,16 @@ public extension UnittestDropUnknownFields {
         let resultDecodedBuilder = UnittestDropUnknownFields.FooWithExtraFields.Builder()
         if let jsonValueInt32Value = jsonMap["int32Value"] as? Int {
           resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)
+        } else if let jsonValueInt32Value = jsonMap["int32Value"] as? String {
+          resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)!
         }
         if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
           resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.fromString(str: jsonValueEnumValue)
         }
         if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? Int {
           resultDecodedBuilder.extraInt32Value = Int32(jsonValueExtraInt32Value)
+        } else if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? String {
+          resultDecodedBuilder.extraInt32Value = Int32(jsonValueExtraInt32Value)!
         }
         return resultDecodedBuilder
       }
