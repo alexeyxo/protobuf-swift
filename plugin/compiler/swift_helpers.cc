@@ -966,6 +966,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
     }
+    
+    //JSON
+    string JSONCastingValueAdditional(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "String" ;
+            case FieldDescriptor::TYPE_UINT32  : return "String" ;
+            case FieldDescriptor::TYPE_SINT32  : return "String" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "String" ;
+            case FieldDescriptor::TYPE_SFIXED32: return "String" ;
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt";
+            case FieldDescriptor::TYPE_SINT64  : return "Int";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "String";
+            case FieldDescriptor::TYPE_DOUBLE  : return "String";
+            default: return "";
+        }
+        return "";
+    }
 
     
     string FromJSONValue(const FieldDescriptor* field, string value) {
@@ -994,6 +1016,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
     }
+    string FromJSONValueAdditional(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32(" + value + ")!";
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32(" + value + ")!";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32(" + value + ")!";
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64(" + value + ")";
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64(" + value + ")";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64(" + value + ")";
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64(" + value + ")";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64(" + value + ")";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "Float(" + value + ")!" ;
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double(" + value + ")!";
+            default: GOOGLE_LOG(FATAL) << "Can't get here."; return "";
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
     string FromJSONMapKeyValue(const FieldDescriptor* field, string value) {
         switch (field->type()) {
             case FieldDescriptor::TYPE_INT32   : return "Int32(" + value + ")!";

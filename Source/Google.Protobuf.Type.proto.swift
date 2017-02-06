@@ -1272,6 +1272,8 @@ public extension Google.Protobuf {
         }
         if let jsonValueNumber = jsonMap["number"] as? Int {
           resultDecodedBuilder.number = Int32(jsonValueNumber)
+        } else if let jsonValueNumber = jsonMap["number"] as? String {
+          resultDecodedBuilder.number = Int32(jsonValueNumber)!
         }
         if let jsonValueName = jsonMap["name"] as? String {
           resultDecodedBuilder.name = jsonValueName
@@ -1281,6 +1283,8 @@ public extension Google.Protobuf {
         }
         if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? Int {
           resultDecodedBuilder.oneofIndex = Int32(jsonValueOneofIndex)
+        } else if let jsonValueOneofIndex = jsonMap["oneofIndex"] as? String {
+          resultDecodedBuilder.oneofIndex = Int32(jsonValueOneofIndex)!
         }
         if let jsonValuePacked = jsonMap["packed"] as? Bool {
           resultDecodedBuilder.packed = jsonValuePacked
@@ -2050,6 +2054,8 @@ public extension Google.Protobuf {
         }
         if let jsonValueNumber = jsonMap["number"] as? Int {
           resultDecodedBuilder.number = Int32(jsonValueNumber)
+        } else if let jsonValueNumber = jsonMap["number"] as? String {
+          resultDecodedBuilder.number = Int32(jsonValueNumber)!
         }
         if let jsonValueOptions = jsonMap["options"] as? Array<Dictionary<String,Any>> {
           var jsonArrayOptions:Array<Google.Protobuf.Option> = []

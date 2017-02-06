@@ -1333,6 +1333,8 @@ public extension Google.Protobuf {
         }
         if let jsonValueNumberValue = jsonMap["numberValue"] as? Double {
           resultDecodedBuilder.numberValue = Double(jsonValueNumberValue)
+        } else if let jsonValueNumberValue = jsonMap["numberValue"] as? String {
+          resultDecodedBuilder.numberValue = Double(jsonValueNumberValue)!
         }
         if let jsonValueStringValue = jsonMap["stringValue"] as? String {
           resultDecodedBuilder.stringValue = jsonValueStringValue
