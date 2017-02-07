@@ -169,7 +169,9 @@ namespace google {
                 
                 //JSON
                 string JSONCastingValue(const FieldDescriptor* field);
+                string JSONCastingValueAdditional(const FieldDescriptor* field);
                 string FromJSONValue(const FieldDescriptor* field, string value);
+                string FromJSONValueAdditional(const FieldDescriptor* field, string value);
                 string FromJSONMapKeyValue(const FieldDescriptor* field, string value);
                 string ToJSONValue(const FieldDescriptor* field, string value);
                 string ToJSONValueRepeatedStorageType(const FieldDescriptor* field);

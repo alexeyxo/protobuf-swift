@@ -2983,12 +2983,18 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType1.Builder()
         if let jsonValueFoo = jsonMap["foo"] as? Int {
           resultDecodedBuilder.foo = Int32(jsonValueFoo)
+        } else if let jsonValueFoo = jsonMap["foo"] as? String {
+          resultDecodedBuilder.foo = Int32(jsonValueFoo)!
         }
         if let jsonValueFoo2 = jsonMap["foo2"] as? Int {
           resultDecodedBuilder.foo2 = Int32(jsonValueFoo2)
+        } else if let jsonValueFoo2 = jsonMap["foo2"] as? String {
+          resultDecodedBuilder.foo2 = Int32(jsonValueFoo2)!
         }
         if let jsonValueFoo3 = jsonMap["foo3"] as? Int {
           resultDecodedBuilder.foo3 = Int32(jsonValueFoo3)
+        } else if let jsonValueFoo3 = jsonMap["foo3"] as? String {
+          resultDecodedBuilder.foo3 = Int32(jsonValueFoo3)!
         }
         if let jsonValueFoo4 = jsonMap["foo4"] as? Array<Int> {
           var jsonArrayFoo4:Array<Int32> = []
@@ -3234,6 +3240,8 @@ public extension ProtobufUnittest {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder()
             if let jsonValueWaldo = jsonMap["waldo"] as? Int {
               resultDecodedBuilder.waldo = Int32(jsonValueWaldo)
+            } else if let jsonValueWaldo = jsonMap["waldo"] as? String {
+              resultDecodedBuilder.waldo = Int32(jsonValueWaldo)!
             }
             return resultDecodedBuilder
           }
@@ -3687,6 +3695,8 @@ public extension ProtobufUnittest {
         }
         if let jsonValueBaz = jsonMap["baz"] as? Int {
           resultDecodedBuilder.baz = Int32(jsonValueBaz)
+        } else if let jsonValueBaz = jsonMap["baz"] as? String {
+          resultDecodedBuilder.baz = Int32(jsonValueBaz)!
         }
         if let jsonValueFred = jsonMap["fred"] as? Dictionary<String,Any> {
           resultDecodedBuilder.fred = try ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder.decodeToBuilder(jsonMap:jsonValueFred).build()
@@ -3932,6 +3942,8 @@ public extension ProtobufUnittest {
             let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder()
             if let jsonValuePlugh = jsonMap["plugh"] as? Int {
               resultDecodedBuilder.plugh = Int32(jsonValuePlugh)
+            } else if let jsonValuePlugh = jsonMap["plugh"] as? String {
+              resultDecodedBuilder.plugh = Int32(jsonValuePlugh)!
             }
             return resultDecodedBuilder
           }
@@ -4227,6 +4239,8 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOptionType3.Builder()
         if let jsonValueQux = jsonMap["qux"] as? Int {
           resultDecodedBuilder.qux = Int32(jsonValueQux)
+        } else if let jsonValueQux = jsonMap["qux"] as? String {
+          resultDecodedBuilder.qux = Int32(jsonValueQux)!
         }
         if let jsonValueComplexOptionType5 = jsonMap["complexoptiontype5"] as? Dictionary<String,Any> {
           resultDecodedBuilder.complexOptionType5 = try ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder.decodeToBuilder(jsonMap:jsonValueComplexOptionType5).build()
@@ -4446,6 +4460,8 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.ComplexOpt6.Builder()
         if let jsonValueXyzzy = jsonMap["xyzzy"] as? Int {
           resultDecodedBuilder.xyzzy = Int32(jsonValueXyzzy)
+        } else if let jsonValueXyzzy = jsonMap["xyzzy"] as? String {
+          resultDecodedBuilder.xyzzy = Int32(jsonValueXyzzy)!
         }
         return resultDecodedBuilder
       }
@@ -5555,6 +5571,8 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.Aggregate.Builder()
         if let jsonValueI = jsonMap["i"] as? Int {
           resultDecodedBuilder.i = Int32(jsonValueI)
+        } else if let jsonValueI = jsonMap["i"] as? String {
+          resultDecodedBuilder.i = Int32(jsonValueI)!
         }
         if let jsonValueS = jsonMap["s"] as? String {
           resultDecodedBuilder.s = jsonValueS
@@ -5785,6 +5803,8 @@ public extension ProtobufUnittest {
         let resultDecodedBuilder = ProtobufUnittest.AggregateMessage.Builder()
         if let jsonValueFieldname = jsonMap["fieldname"] as? Int {
           resultDecodedBuilder.fieldname = Int32(jsonValueFieldname)
+        } else if let jsonValueFieldname = jsonMap["fieldname"] as? String {
+          resultDecodedBuilder.fieldname = Int32(jsonValueFieldname)!
         }
         return resultDecodedBuilder
       }
@@ -6016,6 +6036,8 @@ public extension ProtobufUnittest {
             let resultDecodedBuilder = ProtobufUnittest.NestedOptionType.NestedMessage.Builder()
             if let jsonValueNestedField = jsonMap["nestedField"] as? Int {
               resultDecodedBuilder.nestedField = Int32(jsonValueNestedField)
+            } else if let jsonValueNestedField = jsonMap["nestedField"] as? String {
+              resultDecodedBuilder.nestedField = Int32(jsonValueNestedField)!
             }
             return resultDecodedBuilder
           }

@@ -222,6 +222,8 @@ public extension ProtobufUnittestImport {
         let resultDecodedBuilder = ProtobufUnittestImport.PublicImportMessageLite.Builder()
         if let jsonValueE = jsonMap["e"] as? Int {
           resultDecodedBuilder.e = Int32(jsonValueE)
+        } else if let jsonValueE = jsonMap["e"] as? String {
+          resultDecodedBuilder.e = Int32(jsonValueE)!
         }
         return resultDecodedBuilder
       }

@@ -223,6 +223,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.DoubleValue.Builder()
         if let jsonValueValue = jsonMap["value"] as? Double {
           resultDecodedBuilder.value = Double(jsonValueValue)
+        } else if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = Double(jsonValueValue)!
         }
         return resultDecodedBuilder
       }
@@ -440,6 +442,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.FloatValue.Builder()
         if let jsonValueValue = jsonMap["value"] as? Float {
           resultDecodedBuilder.value = Float(jsonValueValue)
+        } else if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = Float(jsonValueValue)!
         }
         return resultDecodedBuilder
       }
@@ -657,6 +661,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Int64Value.Builder()
         if let jsonValueValue = jsonMap["value"] as? String {
           resultDecodedBuilder.value = Int64(jsonValueValue)!
+        } else if let jsonValueValue = jsonMap["value"] as? Int {
+          resultDecodedBuilder.value = Int64(jsonValueValue)
         }
         return resultDecodedBuilder
       }
@@ -874,6 +880,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Uint64Value.Builder()
         if let jsonValueValue = jsonMap["value"] as? String {
           resultDecodedBuilder.value = UInt64(jsonValueValue)!
+        } else if let jsonValueValue = jsonMap["value"] as? UInt {
+          resultDecodedBuilder.value = UInt64(jsonValueValue)
         }
         return resultDecodedBuilder
       }
@@ -1091,6 +1099,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Int32Value.Builder()
         if let jsonValueValue = jsonMap["value"] as? Int {
           resultDecodedBuilder.value = Int32(jsonValueValue)
+        } else if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = Int32(jsonValueValue)!
         }
         return resultDecodedBuilder
       }
@@ -1308,6 +1318,8 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Uint32Value.Builder()
         if let jsonValueValue = jsonMap["value"] as? UInt {
           resultDecodedBuilder.value = UInt32(jsonValueValue)
+        } else if let jsonValueValue = jsonMap["value"] as? String {
+          resultDecodedBuilder.value = UInt32(jsonValueValue)!
         }
         return resultDecodedBuilder
       }

@@ -222,6 +222,8 @@ public extension SwiftProtobufUnittest {
         let resultDecodedBuilder = SwiftProtobufUnittest.MapMessageValue.Builder()
         if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? Int {
           resultDecodedBuilder.valueInMapMessage = Int32(jsonValueValueInMapMessage)
+        } else if let jsonValueValueInMapMessage = jsonMap["valueInMapMessage"] as? String {
+          resultDecodedBuilder.valueInMapMessage = Int32(jsonValueValueInMapMessage)!
         }
         return resultDecodedBuilder
       }
@@ -508,9 +510,13 @@ public extension SwiftProtobufUnittest {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? Int {
               resultDecodedBuilder.key = Int32(jsonValueKey)
+            } else if let jsonValueKey = jsonMap["key"] as? String {
+              resultDecodedBuilder.key = Int32(jsonValueKey)!
             }
             if let jsonValueValue = jsonMap["value"] as? Int {
               resultDecodedBuilder.value = Int32(jsonValueValue)
+            } else if let jsonValueValue = jsonMap["value"] as? String {
+              resultDecodedBuilder.value = Int32(jsonValueValue)!
             }
             return resultDecodedBuilder
           }
@@ -782,9 +788,13 @@ public extension SwiftProtobufUnittest {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder()
             if let jsonValueKey = jsonMap["key"] as? String {
               resultDecodedBuilder.key = Int64(jsonValueKey)!
+            } else if let jsonValueKey = jsonMap["key"] as? Int {
+              resultDecodedBuilder.key = Int64(jsonValueKey)
             }
             if let jsonValueValue = jsonMap["value"] as? String {
               resultDecodedBuilder.value = Int64(jsonValueValue)!
+            } else if let jsonValueValue = jsonMap["value"] as? Int {
+              resultDecodedBuilder.value = Int64(jsonValueValue)
             }
             return resultDecodedBuilder
           }
@@ -1924,6 +1934,8 @@ public extension SwiftProtobufUnittest {
             let resultDecodedBuilder = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder()
             if let jsonValueKey = jsonMap["key"] as? Int {
               resultDecodedBuilder.key = Int32(jsonValueKey)
+            } else if let jsonValueKey = jsonMap["key"] as? String {
+              resultDecodedBuilder.key = Int32(jsonValueKey)!
             }
             if let jsonValueValue = jsonMap["value"] as? String {
               resultDecodedBuilder.value = try SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.fromString(str: jsonValueValue)

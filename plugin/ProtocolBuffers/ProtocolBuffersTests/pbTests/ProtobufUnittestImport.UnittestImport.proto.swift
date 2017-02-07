@@ -259,6 +259,8 @@ public extension ProtobufUnittestImport {
         let resultDecodedBuilder = ProtobufUnittestImport.ImportMessage.Builder()
         if let jsonValueD = jsonMap["d"] as? Int {
           resultDecodedBuilder.d = Int32(jsonValueD)
+        } else if let jsonValueD = jsonMap["d"] as? String {
+          resultDecodedBuilder.d = Int32(jsonValueD)!
         }
         return resultDecodedBuilder
       }

@@ -273,6 +273,8 @@ final public class UnitTestStruct : GeneratedMessage {
       }
       if let jsonValueTestInt = jsonMap["testInt"] as? Int {
         resultDecodedBuilder.testInt = Int32(jsonValueTestInt)
+      } else if let jsonValueTestInt = jsonMap["testInt"] as? String {
+        resultDecodedBuilder.testInt = Int32(jsonValueTestInt)!
       }
       return resultDecodedBuilder
     }

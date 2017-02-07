@@ -10,11 +10,11 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 ##How To Install Protobuf Compiler on Linux(Ubuntu 14.04)
 
-1.`wget https://github.com/google/protobuf/archive/v3.1.0.tar.gz`
+1.`wget https://github.com/google/protobuf/archive/v3.2.0.tar.gz`
 
-2.`tar xzf v3.1.0.tar.gz`
+2.`tar xzf v3.2.0.tar.gz`
 
-3.`cd protobuf-3.1.0/`
+3.`cd protobuf-3.2.0/`
 
 4.`sudo apt-get install autoreconf automake libtool make`
 
@@ -24,7 +24,7 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 7.`sudo make && sudo make install`
 
-8.`cd .. && wget https://github.com/alexeyxo/protobuf-swift/archive/3.0.5.tar.gz && tar xzf 3.0.5.tar.gz && cd protobuf-swift-3.0.5`
+8.`cd .. && wget https://github.com/alexeyxo/protobuf-swift/archive/3.0.9.tar.gz && tar xzf 3.0.9.tar.gz && cd protobuf-swift-3.0.9`
 
 9.`./script/build.sh && swift build`
  

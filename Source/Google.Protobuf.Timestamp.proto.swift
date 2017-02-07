@@ -317,9 +317,13 @@ public extension Google.Protobuf {
         let resultDecodedBuilder = Google.Protobuf.Timestamp.Builder()
         if let jsonValueSeconds = jsonMap["seconds"] as? String {
           resultDecodedBuilder.seconds = Int64(jsonValueSeconds)!
+        } else if let jsonValueSeconds = jsonMap["seconds"] as? Int {
+          resultDecodedBuilder.seconds = Int64(jsonValueSeconds)
         }
         if let jsonValueNanos = jsonMap["nanos"] as? Int {
           resultDecodedBuilder.nanos = Int32(jsonValueNanos)
+        } else if let jsonValueNanos = jsonMap["nanos"] as? String {
+          resultDecodedBuilder.nanos = Int32(jsonValueNanos)!
         }
         return resultDecodedBuilder
       }

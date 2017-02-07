@@ -120,6 +120,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);
             (*variables)["from_json_value_repeated"] = FromJSONValue(descriptor, "oneValue" + capname);
             (*variables)["json_casting_type"] = JSONCastingValue(descriptor);
+            if (JSONCastingValueAdditional(descriptor) != "") {
+                (*variables)["json_casting_type_additional"] = JSONCastingValueAdditional(descriptor);
+                (*variables)["from_json_value_additional"] = FromJSONValueAdditional(descriptor, "jsonValue" + capname);
+                (*variables)["from_json_value_repeated_additional"] = FromJSONValueAdditional(descriptor, "oneValue" + capname);
+                
+            }
+            
             ///
             (*variables)["storage_type"] = PrimitiveTypeName(descriptor);
             (*variables)["storage_attribute"] = "";
@@ -285,10 +292,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void PrimitiveFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
+        if (variables_.find("json_casting_type_additional") == variables_.end()) {
             printer->Print(variables_,
                            "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
                            "  resultDecodedBuilder.$name_reserved$ = $from_json_value$\n"
                            "}\n");
+        } else {
+            printer->Print(variables_,
+                           "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type$ {\n"
+                           "  resultDecodedBuilder.$name_reserved$ = $from_json_value$\n"
+                           "} else if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? $json_casting_type_additional$ {\n"
+                           "  resultDecodedBuilder.$name_reserved$ = $from_json_value_additional$\n"
+                           "}\n"
+                           );
+        }
     }
     
     void PrimitiveFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
