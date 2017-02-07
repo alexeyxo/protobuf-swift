@@ -720,13 +720,44 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateBuilderSource(io::Printer* printer) {
+        bool isResponse = false;
+        bool isRequest = false;
+        
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            try {
+                string nameS = descriptor_->field(i)->name();
+                if (nameS == "IGP_request") {
+                    isRequest = true;
+                }else if (nameS == "IGP_response") {
+                    isResponse = true;
+                }
+                //const char* name = nameS.c_str();
+                //printer->Print(name);
+            } catch (int e) {
+                
+            }
+        }
+        
+        
+        
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class Builder : ExtendableMessageBuilder {\n");
         } else {
-            printer->Print(variables_,
-                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
+            
+            if (isRequest) {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedRequestMessageBuilder {\n");
+            } else if (isResponse) {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedResponseMessageBuilder {\n");
+            } else {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
+            }
+//            printer->Print(variables_,
+//                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
         }
         
         printer->Indent();

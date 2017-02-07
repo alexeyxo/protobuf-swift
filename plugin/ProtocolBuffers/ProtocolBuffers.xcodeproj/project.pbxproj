@@ -175,6 +175,9 @@
 		3FF2DCC01A1A681A00226761 /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
 		F77F9EAD1D89436200BCBB5B /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
 		F77F9EAE1D89436300BCBB5B /* ErrorHandlingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCFED1F1D7B00E4006CF502 /* ErrorHandlingTest.swift */; };
+		FACD65961DCDE69A00CE8AEB /* GeneratedMessageiGap.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD65951DCDE69A00CE8AEB /* GeneratedMessageiGap.swift */; };
+		FACD659C1DCE0F9B00CE8AEB /* Request.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD659A1DCE0F9B00CE8AEB /* Request.proto.swift */; };
+		FACD659D1DCE0F9B00CE8AEB /* Response.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACD659B1DCE0F9B00CE8AEB /* Response.proto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -298,6 +301,9 @@
 		3FE641F61B53AE4000BDAE9A /* UnittestEmpty.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnittestEmpty.proto.swift; sourceTree = "<group>"; };
 		3FE641F71B53AE4000BDAE9A /* UnittestThreading.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnittestThreading.proto.swift; sourceTree = "<group>"; };
 		3FEFE99E1A12612E005DEAF3 /* MessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MessageTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		FACD65951DCDE69A00CE8AEB /* GeneratedMessageiGap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMessageiGap.swift; sourceTree = "<group>"; };
+		FACD659A1DCE0F9B00CE8AEB /* Request.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.proto.swift; sourceTree = "<group>"; };
+		FACD659B1DCE0F9B00CE8AEB /* Response.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.proto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +472,7 @@
 		3F89A7E91C396BA9009876B8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				FACD65991DCE0F6100CE8AEB /* iGap */,
 				3F89A7EA1C396BA9009876B8 /* AbstractMessage.swift */,
 				3F89A7EB1C396BA9009876B8 /* CodedInputStream.swift */,
 				3F89A7EC1C396BA9009876B8 /* CodedOutputStream.swift */,
@@ -523,6 +530,16 @@
 			);
 			name = OSX;
 			path = "../ProtocolBuffers(OSX)";
+			sourceTree = "<group>";
+		};
+		FACD65991DCE0F6100CE8AEB /* iGap */ = {
+			isa = PBXGroup;
+			children = (
+				FACD659A1DCE0F9B00CE8AEB /* Request.proto.swift */,
+				FACD659B1DCE0F9B00CE8AEB /* Response.proto.swift */,
+				FACD65951DCDE69A00CE8AEB /* GeneratedMessageiGap.swift */,
+			);
+			name = iGap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -859,6 +876,8 @@
 			files = (
 				3F89A8041C396BA9009876B8 /* CodedOutputStream.swift in Sources */,
 				3F89A8191C396BA9009876B8 /* WireFormat.swift in Sources */,
+				FACD65961DCDE69A00CE8AEB /* GeneratedMessageiGap.swift in Sources */,
+				FACD659C1DCE0F9B00CE8AEB /* Request.proto.swift in Sources */,
 				3F89A80E1C396BA9009876B8 /* Google.Protobuf.Empty.proto.swift in Sources */,
 				3F89A80D1C396BA9009876B8 /* Google.Protobuf.Duration.proto.swift in Sources */,
 				3F89A8061C396BA9009876B8 /* ExtendableMessage.swift in Sources */,
@@ -867,6 +886,7 @@
 				3F89A80B1C396BA9009876B8 /* Google.Protobuf.Api.proto.swift in Sources */,
 				3F89A8051C396BA9009876B8 /* ConcreateExtensionField.swift in Sources */,
 				3F89A8111C396BA9009876B8 /* Google.Protobuf.Struct.proto.swift in Sources */,
+				FACD659D1DCE0F9B00CE8AEB /* Response.proto.swift in Sources */,
 				3F89A8181C396BA9009876B8 /* UnknownFieldSet.swift in Sources */,
 				3F89A8031C396BA9009876B8 /* CodedInputStream.swift in Sources */,
 				3F89A8071C396BA9009876B8 /* ExtensionRegistry.swift in Sources */,
