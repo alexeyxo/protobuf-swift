@@ -83,15 +83,27 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MapFieldGenerator::GenerateVariablesSource(io::Printer* printer) const
     {
-        printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+        
         printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");
+        printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateMembersSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-        
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
                        "$acontrol$var has$capitalized_name$:Bool {\n"
                        "     get {\n"
@@ -186,7 +198,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Dictionary<String, $json_casting_type_value$> {\n"
                        "    var map$capitalized_name$ = Dictionary<$keyType$, $valueType$>()\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n"
-                       "        let keyFrom$capitalized_name$ = $from_json_key_value$\n"
+                       "        guard let keyFrom$capitalized_name$ = $keyType$(key$capitalized_name$) else {\n"
+                       "            throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
+                       "        }\n"
                        "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n"
                        "    }\n"
                        "    resultDecodedBuilder.$name_reserved$ = map$capitalized_name$\n"

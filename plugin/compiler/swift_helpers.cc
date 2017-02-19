@@ -921,7 +921,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         SplitStringUsing(comments, "\n", &lines);
         while (!lines.empty() && lines.back().empty())
             lines.pop_back();
-        string prefix("//");
+        string prefix("///");
         string suffix("\n");
         string final_comments;
         for (unsigned i = 0; i < lines.size(); i++)

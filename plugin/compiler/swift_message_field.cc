@@ -123,12 +123,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void MessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
-                       "$acontrol$var has$capitalized_name$:Bool {\n"
-                       "     get {\n"
-                       "         return builderResult.has$capitalized_name$\n"
-                       "     }\n"
-                       "}\n"
                        "$acontrol$var $name_reserved$:$type$! {\n"
                        "     get {\n"
                        "         if $name$Builder_ != nil {\n"
@@ -139,6 +140,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     set (value) {\n"
                        "         builderResult.has$capitalized_name$ = true\n"
                        "         builderResult.$name_reserved$ = value\n"
+                       "     }\n"
+                       "}\n"
+                       "$acontrol$var has$capitalized_name$:Bool {\n"
+                       "     get {\n"
+                       "         return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
                        "fileprivate var $name$Builder_:$type$.Builder! {\n"
@@ -316,6 +322,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
                        "$acontrol$var $name_reserved$:Array<$type$> {\n"
                        "     get {\n"

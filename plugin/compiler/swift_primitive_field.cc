@@ -217,12 +217,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void PrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
         
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
-                       "$acontrol$var has$capitalized_name$:Bool {\n"
-                       "     get {\n"
-                       "          return builderResult.has$capitalized_name$\n"
-                       "     }\n"
-                       "}\n"
                        "$acontrol$var $name_reserved$:$storage_type$ {\n"
                        "     get {\n"
                        "          return builderResult.$name_reserved$\n"
@@ -230,6 +230,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "     set (value) {\n"
                        "         builderResult.has$capitalized_name$ = true\n"
                        "         builderResult.$name_reserved$ = value\n"
+                       "     }\n"
+                       "}\n"
+                       "$acontrol$var has$capitalized_name$:Bool {\n"
+                       "     get {\n"
+                       "          return builderResult.has$capitalized_name$\n"
                        "     }\n"
                        "}\n"
                        "@discardableResult\n"
@@ -359,6 +364,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
                        "$acontrol$var $name_reserved$:Array<$storage_type$> {\n"
                        "     get {\n"
