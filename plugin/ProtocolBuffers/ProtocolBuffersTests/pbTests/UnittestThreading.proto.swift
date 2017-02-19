@@ -133,11 +133,6 @@ final public class ThreadingMessages : GeneratedMessage {
     required override public init () {
        super.init()
     }
-    public var hasTestString:Bool {
-         get {
-              return builderResult.hasTestString
-         }
-    }
     public var testString:String {
          get {
               return builderResult.testString
@@ -145,6 +140,11 @@ final public class ThreadingMessages : GeneratedMessage {
          set (value) {
              builderResult.hasTestString = true
              builderResult.testString = value
+         }
+    }
+    public var hasTestString:Bool {
+         get {
+              return builderResult.hasTestString
          }
     }
     @discardableResult

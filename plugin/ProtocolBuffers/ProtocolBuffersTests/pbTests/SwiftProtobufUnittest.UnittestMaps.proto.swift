@@ -136,11 +136,6 @@ public extension SwiftProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasValueInMapMessage:Bool {
-           get {
-                return builderResult.hasValueInMapMessage
-           }
-      }
       public var valueInMapMessage:Int32 {
            get {
                 return builderResult.valueInMapMessage
@@ -148,6 +143,11 @@ public extension SwiftProtobufUnittest {
            set (value) {
                builderResult.hasValueInMapMessage = true
                builderResult.valueInMapMessage = value
+           }
+      }
+      public var hasValueInMapMessage:Bool {
+           get {
+                return builderResult.hasValueInMapMessage
            }
       }
       @discardableResult
@@ -393,11 +393,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:Int32 {
                get {
                     return builderResult.key
@@ -405,6 +400,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -418,11 +418,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = Int32(0)
                return self
           }
-          public var hasValue:Bool {
-               get {
-                    return builderResult.hasValue
-               }
-          }
           public var value:Int32 {
                get {
                     return builderResult.value
@@ -430,6 +425,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                    return builderResult.hasValue
                }
           }
           @discardableResult
@@ -671,11 +671,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:Int64 {
                get {
                     return builderResult.key
@@ -683,6 +678,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -696,11 +696,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = Int64(0)
                return self
           }
-          public var hasValue:Bool {
-               get {
-                    return builderResult.hasValue
-               }
-          }
           public var value:Int64 {
                get {
                     return builderResult.value
@@ -708,6 +703,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                    return builderResult.hasValue
                }
           }
           @discardableResult
@@ -949,11 +949,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:String {
                get {
                     return builderResult.key
@@ -961,6 +956,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -974,11 +974,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = ""
                return self
           }
-          public var hasValue:Bool {
-               get {
-                    return builderResult.hasValue
-               }
-          }
           public var value:String {
                get {
                     return builderResult.value
@@ -986,6 +981,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                    return builderResult.hasValue
                }
           }
           @discardableResult
@@ -1223,11 +1223,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:String {
                get {
                     return builderResult.key
@@ -1235,6 +1230,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -1248,11 +1248,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = ""
                return self
           }
-          public var hasValue:Bool {
-               get {
-                    return builderResult.hasValue
-               }
-          }
           public var value:Data {
                get {
                     return builderResult.value
@@ -1260,6 +1255,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                    return builderResult.hasValue
                }
           }
           @discardableResult
@@ -1504,11 +1504,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:String {
                get {
                     return builderResult.key
@@ -1516,6 +1511,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -1529,11 +1529,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = ""
                return self
           }
-          public var hasValue:Bool {
-               get {
-                   return builderResult.hasValue
-               }
-          }
           public var value:SwiftProtobufUnittest.MapMessageValue! {
                get {
                    if valueBuilder_ != nil {
@@ -1544,6 +1539,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                   return builderResult.hasValue
                }
           }
           fileprivate var valueBuilder_:SwiftProtobufUnittest.MapMessageValue.Builder! {
@@ -1812,11 +1812,6 @@ public extension SwiftProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:Int32 {
                get {
                     return builderResult.key
@@ -1824,6 +1819,11 @@ public extension SwiftProtobufUnittest {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -1837,11 +1837,6 @@ public extension SwiftProtobufUnittest {
                builderResult.key = Int32(0)
                return self
           }
-            public var hasValue:Bool{
-                get {
-                    return builderResult.hasValue
-                }
-            }
             public var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {
                 get {
                     return builderResult.value
@@ -1849,6 +1844,11 @@ public extension SwiftProtobufUnittest {
                 set (value) {
                     builderResult.hasValue = true
                     builderResult.value = value
+                }
+            }
+            public var hasValue:Bool{
+                get {
+                    return builderResult.hasValue
                 }
             }
           @discardableResult
@@ -1987,24 +1987,24 @@ public extension SwiftProtobufUnittest {
 
       //Enum type declaration end 
 
-    public fileprivate(set) var hasMapInt32Int32:Bool = false
     public fileprivate(set) var mapInt32Int32:Dictionary<Int32,Int32> = Dictionary<Int32,Int32>()
 
-    public fileprivate(set) var hasMapInt64Int64:Bool = false
+    public fileprivate(set) var hasMapInt32Int32:Bool = false
     public fileprivate(set) var mapInt64Int64:Dictionary<Int64,Int64> = Dictionary<Int64,Int64>()
 
-    public fileprivate(set) var hasMapStringString:Bool = false
+    public fileprivate(set) var hasMapInt64Int64:Bool = false
     public fileprivate(set) var mapStringString:Dictionary<String,String> = Dictionary<String,String>()
 
-    public fileprivate(set) var hasMapStringBytes:Bool = false
+    public fileprivate(set) var hasMapStringString:Bool = false
     public fileprivate(set) var mapStringBytes:Dictionary<String,Data> = Dictionary<String,Data>()
 
-    public fileprivate(set) var hasMapStringMessage:Bool = false
+    public fileprivate(set) var hasMapStringBytes:Bool = false
     public fileprivate(set) var mapStringMessage:Dictionary<String,SwiftProtobufUnittest.MapMessageValue> = Dictionary<String,SwiftProtobufUnittest.MapMessageValue>()
 
-    public fileprivate(set) var hasMapInt32Enum:Bool = false
+    public fileprivate(set) var hasMapStringMessage:Bool = false
     public fileprivate(set) var mapInt32Enum:Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> = Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
 
+    public fileprivate(set) var hasMapInt32Enum:Bool = false
     required public init() {
          super.init()
     }
@@ -2518,7 +2518,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapInt32Int32 = jsonMap["mapInt32Int32"] as? Dictionary<String, Int> {
             var mapMapInt32Int32 = Dictionary<Int32, Int32>()
             for (keyMapInt32Int32, valueMapInt32Int32) in jsonValueMapInt32Int32 {
-                let keyFromMapInt32Int32 = Int32(keyMapInt32Int32)!
+                guard let keyFromMapInt32Int32 = Int32(keyMapInt32Int32) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapInt32Int32[keyFromMapInt32Int32] = Int32(valueMapInt32Int32)
             }
             resultDecodedBuilder.mapInt32Int32 = mapMapInt32Int32
@@ -2526,7 +2528,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapInt64Int64 = jsonMap["mapInt64Int64"] as? Dictionary<String, String> {
             var mapMapInt64Int64 = Dictionary<Int64, Int64>()
             for (keyMapInt64Int64, valueMapInt64Int64) in jsonValueMapInt64Int64 {
-                let keyFromMapInt64Int64 = Int64(keyMapInt64Int64)!
+                guard let keyFromMapInt64Int64 = Int64(keyMapInt64Int64) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapInt64Int64[keyFromMapInt64Int64] = Int64(valueMapInt64Int64)!
             }
             resultDecodedBuilder.mapInt64Int64 = mapMapInt64Int64
@@ -2534,7 +2538,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapStringString = jsonMap["mapStringString"] as? Dictionary<String, String> {
             var mapMapStringString = Dictionary<String, String>()
             for (keyMapStringString, valueMapStringString) in jsonValueMapStringString {
-                let keyFromMapStringString = keyMapStringString
+                guard let keyFromMapStringString = String(keyMapStringString) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapStringString[keyFromMapStringString] = valueMapStringString
             }
             resultDecodedBuilder.mapStringString = mapMapStringString
@@ -2542,7 +2548,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapStringBytes = jsonMap["mapStringBytes"] as? Dictionary<String, String> {
             var mapMapStringBytes = Dictionary<String, Data>()
             for (keyMapStringBytes, valueMapStringBytes) in jsonValueMapStringBytes {
-                let keyFromMapStringBytes = keyMapStringBytes
+                guard let keyFromMapStringBytes = String(keyMapStringBytes) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapStringBytes[keyFromMapStringBytes] = Data(base64Encoded:valueMapStringBytes, options: Data.Base64DecodingOptions(rawValue:0))!
             }
             resultDecodedBuilder.mapStringBytes = mapMapStringBytes
@@ -2550,7 +2558,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapStringMessage = jsonMap["mapStringMessage"] as? Dictionary<String, Dictionary<String,Any>> {
             var mapMapStringMessage = Dictionary<String, SwiftProtobufUnittest.MapMessageValue>()
             for (keyMapStringMessage, valueMapStringMessage) in jsonValueMapStringMessage {
-                let keyFromMapStringMessage = keyMapStringMessage
+                guard let keyFromMapStringMessage = String(keyMapStringMessage) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapStringMessage[keyFromMapStringMessage] = try SwiftProtobufUnittest.MapMessageValue.Builder.decodeToBuilder(jsonMap:valueMapStringMessage).build()
 
             }
@@ -2559,7 +2569,9 @@ public extension SwiftProtobufUnittest {
         if let jsonValueMapInt32Enum = jsonMap["mapInt32Enum"] as? Dictionary<String, String> {
             var mapMapInt32Enum = Dictionary<Int32, SwiftProtobufUnittest.MessageContainsMap.EnumMapValue>()
             for (keyMapInt32Enum, valueMapInt32Enum) in jsonValueMapInt32Enum {
-                let keyFromMapInt32Enum = Int32(keyMapInt32Enum)!
+                guard let keyFromMapInt32Enum = Int32(keyMapInt32Enum) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapMapInt32Enum[keyFromMapInt32Enum] = try SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.fromString(str: valueMapInt32Enum)
             }
             resultDecodedBuilder.mapInt32Enum = mapMapInt32Enum

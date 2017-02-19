@@ -190,11 +190,6 @@ public extension UnittestDropUnknownFields {
       required override public init () {
          super.init()
       }
-      public var hasInt32Value:Bool {
-           get {
-                return builderResult.hasInt32Value
-           }
-      }
       public var int32Value:Int32 {
            get {
                 return builderResult.int32Value
@@ -202,6 +197,11 @@ public extension UnittestDropUnknownFields {
            set (value) {
                builderResult.hasInt32Value = true
                builderResult.int32Value = value
+           }
+      }
+      public var hasInt32Value:Bool {
+           get {
+                return builderResult.hasInt32Value
            }
       }
       @discardableResult
@@ -215,11 +215,6 @@ public extension UnittestDropUnknownFields {
            builderResult.int32Value = Int32(0)
            return self
       }
-        public var hasEnumValue:Bool{
-            get {
-                return builderResult.hasEnumValue
-            }
-        }
         public var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
             get {
                 return builderResult.enumValue
@@ -227,6 +222,11 @@ public extension UnittestDropUnknownFields {
             set (value) {
                 builderResult.hasEnumValue = true
                 builderResult.enumValue = value
+            }
+        }
+        public var hasEnumValue:Bool{
+            get {
+                return builderResult.hasEnumValue
             }
         }
       @discardableResult
@@ -523,11 +523,6 @@ public extension UnittestDropUnknownFields {
       required override public init () {
          super.init()
       }
-      public var hasInt32Value:Bool {
-           get {
-                return builderResult.hasInt32Value
-           }
-      }
       public var int32Value:Int32 {
            get {
                 return builderResult.int32Value
@@ -535,6 +530,11 @@ public extension UnittestDropUnknownFields {
            set (value) {
                builderResult.hasInt32Value = true
                builderResult.int32Value = value
+           }
+      }
+      public var hasInt32Value:Bool {
+           get {
+                return builderResult.hasInt32Value
            }
       }
       @discardableResult
@@ -548,11 +548,6 @@ public extension UnittestDropUnknownFields {
            builderResult.int32Value = Int32(0)
            return self
       }
-        public var hasEnumValue:Bool{
-            get {
-                return builderResult.hasEnumValue
-            }
-        }
         public var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
             get {
                 return builderResult.enumValue
@@ -560,6 +555,11 @@ public extension UnittestDropUnknownFields {
             set (value) {
                 builderResult.hasEnumValue = true
                 builderResult.enumValue = value
+            }
+        }
+        public var hasEnumValue:Bool{
+            get {
+                return builderResult.hasEnumValue
             }
         }
       @discardableResult
@@ -573,11 +573,6 @@ public extension UnittestDropUnknownFields {
            builderResult.enumValue = .foo
            return self
         }
-      public var hasExtraInt32Value:Bool {
-           get {
-                return builderResult.hasExtraInt32Value
-           }
-      }
       public var extraInt32Value:Int32 {
            get {
                 return builderResult.extraInt32Value
@@ -585,6 +580,11 @@ public extension UnittestDropUnknownFields {
            set (value) {
                builderResult.hasExtraInt32Value = true
                builderResult.extraInt32Value = value
+           }
+      }
+      public var hasExtraInt32Value:Bool {
+           get {
+                return builderResult.hasExtraInt32Value
            }
       }
       @discardableResult

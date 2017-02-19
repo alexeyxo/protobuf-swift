@@ -256,11 +256,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasClassPrefix:Bool {
-           get {
-                return builderResult.hasClassPrefix
-           }
-      }
       public var classPrefix:String {
            get {
                 return builderResult.classPrefix
@@ -268,6 +263,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasClassPrefix = true
                builderResult.classPrefix = value
+           }
+      }
+      public var hasClassPrefix:Bool {
+           get {
+                return builderResult.hasClassPrefix
            }
       }
       @discardableResult
@@ -281,11 +281,6 @@ public extension Google.Protobuf {
            builderResult.classPrefix = ""
            return self
       }
-        public var hasEntitiesAccessControl:Bool{
-            get {
-                return builderResult.hasEntitiesAccessControl
-            }
-        }
         public var entitiesAccessControl:Google.Protobuf.AccessControl {
             get {
                 return builderResult.entitiesAccessControl
@@ -293,6 +288,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasEntitiesAccessControl = true
                 builderResult.entitiesAccessControl = value
+            }
+        }
+        public var hasEntitiesAccessControl:Bool{
+            get {
+                return builderResult.hasEntitiesAccessControl
             }
         }
       @discardableResult
@@ -306,11 +306,6 @@ public extension Google.Protobuf {
            builderResult.entitiesAccessControl = .publicEntities
            return self
         }
-      public var hasCompileForFramework:Bool {
-           get {
-                return builderResult.hasCompileForFramework
-           }
-      }
       public var compileForFramework:Bool {
            get {
                 return builderResult.compileForFramework
@@ -318,6 +313,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasCompileForFramework = true
                builderResult.compileForFramework = value
+           }
+      }
+      public var hasCompileForFramework:Bool {
+           get {
+                return builderResult.hasCompileForFramework
            }
       }
       @discardableResult
@@ -331,11 +331,6 @@ public extension Google.Protobuf {
            builderResult.compileForFramework = true
            return self
       }
-      public var hasGenerateStruct:Bool {
-           get {
-                return builderResult.hasGenerateStruct
-           }
-      }
       public var generateStruct:Bool {
            get {
                 return builderResult.generateStruct
@@ -343,6 +338,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasGenerateStruct = true
                builderResult.generateStruct = value
+           }
+      }
+      public var hasGenerateStruct:Bool {
+           get {
+                return builderResult.hasGenerateStruct
            }
       }
       @discardableResult
@@ -578,11 +578,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasGenerateErrorType:Bool {
-           get {
-                return builderResult.hasGenerateErrorType
-           }
-      }
       public var generateErrorType:Bool {
            get {
                 return builderResult.generateErrorType
@@ -590,6 +585,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasGenerateErrorType = true
                builderResult.generateErrorType = value
+           }
+      }
+      public var hasGenerateErrorType:Bool {
+           get {
+                return builderResult.hasGenerateErrorType
            }
       }
       @discardableResult
@@ -793,11 +793,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasGenerateErrorType:Bool {
-           get {
-                return builderResult.hasGenerateErrorType
-           }
-      }
       public var generateErrorType:Bool {
            get {
                 return builderResult.generateErrorType
@@ -805,6 +800,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasGenerateErrorType = true
                builderResult.generateErrorType = value
+           }
+      }
+      public var hasGenerateErrorType:Bool {
+           get {
+                return builderResult.hasGenerateErrorType
            }
       }
       @discardableResult

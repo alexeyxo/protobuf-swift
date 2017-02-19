@@ -24,10 +24,10 @@ public extension Google.Protobuf {
 
   //Enum type declaration start 
 
-  // `NullValue` is a singleton enumeration to represent the null
-  // value for the `Value` type union.
+  /// `NullValue` is a singleton enumeration to represent the null
+  /// value for the `Value` type union.
   public enum NullValue:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-    // Null value.
+    /// Null value.
     case `NullValue` = 0
     public func toString() -> String {
       switch self {
@@ -51,12 +51,12 @@ public extension Google.Protobuf {
 
   //Enum type declaration end 
 
-  // `Struct` represents a structured data value, consisting of fields
-  // which map to dynamically typed values. In some languages, `Struct`
-  // might be supported by a native representation. For example, in
-  // scripting languages like JS a struct is represented as an
-  // object. The details of that representation are described together
-  // with the proto support for the language.
+  /// `Struct` represents a structured data value, consisting of fields
+  /// which map to dynamically typed values. In some languages, `Struct`
+  /// might be supported by a native representation. For example, in
+  /// scripting languages like JS a struct is represented as an
+  /// object. The details of that representation are described together
+  /// with the proto support for the language.
   final public class Struct : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Struct, rhs: Google.Protobuf.Struct) -> Bool {
@@ -214,11 +214,6 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
-          public var hasKey:Bool {
-               get {
-                    return builderResult.hasKey
-               }
-          }
           public var key:String {
                get {
                     return builderResult.key
@@ -226,6 +221,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasKey = true
                    builderResult.key = value
+               }
+          }
+          public var hasKey:Bool {
+               get {
+                    return builderResult.hasKey
                }
           }
           @discardableResult
@@ -239,11 +239,6 @@ public extension Google.Protobuf {
                builderResult.key = ""
                return self
           }
-          public var hasValue:Bool {
-               get {
-                   return builderResult.hasValue
-               }
-          }
           public var value:Google.Protobuf.Value! {
                get {
                    if valueBuilder_ != nil {
@@ -254,6 +249,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasValue = true
                    builderResult.value = value
+               }
+          }
+          public var hasValue:Bool {
+               get {
+                   return builderResult.hasValue
                }
           }
           fileprivate var valueBuilder_:Google.Protobuf.Value.Builder! {
@@ -385,9 +385,10 @@ public extension Google.Protobuf {
 
     //Nested type declaration end
 
-    public fileprivate(set) var hasFields:Bool = false
+    /// Map of dynamically typed values.
     public fileprivate(set) var fields:Dictionary<String,Google.Protobuf.Value> = Dictionary<String,Google.Protobuf.Value>()
 
+    public fileprivate(set) var hasFields:Bool = false
     required public init() {
          super.init()
     }
@@ -501,6 +502,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
+      /// Map of dynamically typed values.
       public var hasFields:Bool {
            get {
                 return builderResult.hasFields
@@ -591,7 +593,9 @@ public extension Google.Protobuf {
         if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,Any>> {
             var mapFields = Dictionary<String, Google.Protobuf.Value>()
             for (keyFields, valueFields) in jsonValueFields {
-                let keyFromFields = keyFields
+                guard let keyFromFields = String(keyFields) else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
                 mapFields[keyFromFields] = try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:valueFields).build()
 
             }
@@ -610,10 +614,10 @@ public extension Google.Protobuf {
 
   }
 
-  // `Value` represents a dynamically typed value which can be either
-  // null, a number, a string, a boolean, a recursive struct value, or a
-  // list of values. A producer of value is expected to set one of that
-  // variants, absence of any variant indicates an error.
+  /// `Value` represents a dynamically typed value which can be either
+  /// null, a number, a string, a boolean, a recursive struct value, or a
+  /// list of values. A producer of value is expected to set one of that
+  /// variants, absence of any variant indicates an error.
   final public class Value : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Value, rhs: Google.Protobuf.Value) -> Bool {
@@ -732,7 +736,7 @@ public extension Google.Protobuf {
           set(newValue) {
           }
     }
-    // Represents a double value.
+    /// Represents a double value.
     public fileprivate(set) var numberValue:Double!{
          get {
               return Value.Kind.getNumberValue(storageKind)
@@ -751,7 +755,7 @@ public extension Google.Protobuf {
           set(newValue) {
           }
     }
-    // Represents a string value.
+    /// Represents a string value.
     public fileprivate(set) var stringValue:String!{
          get {
               return Value.Kind.getStringValue(storageKind)
@@ -770,7 +774,7 @@ public extension Google.Protobuf {
           set(newValue) {
           }
     }
-    // Represents a boolean value.
+    /// Represents a boolean value.
     public fileprivate(set) var boolValue:Bool!{
          get {
               return Value.Kind.getBoolValue(storageKind)
@@ -1016,11 +1020,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-        public var hasNullValue:Bool{
-            get {
-                return builderResult.hasNullValue
-            }
-        }
+      /// Represents a null value.
         public var nullValue:Google.Protobuf.NullValue {
             get {
                 return builderResult.nullValue
@@ -1028,6 +1028,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasNullValue = true
                 builderResult.nullValue = value
+            }
+        }
+        public var hasNullValue:Bool{
+            get {
+                return builderResult.hasNullValue
             }
         }
       @discardableResult
@@ -1041,11 +1046,7 @@ public extension Google.Protobuf {
            builderResult.nullValue = .`NullValue`
            return self
         }
-      public var hasNumberValue:Bool {
-           get {
-                return builderResult.hasNumberValue
-           }
-      }
+      /// Represents a double value.
       public var numberValue:Double {
            get {
                 return builderResult.numberValue
@@ -1053,6 +1054,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNumberValue = true
                builderResult.numberValue = value
+           }
+      }
+      public var hasNumberValue:Bool {
+           get {
+                return builderResult.hasNumberValue
            }
       }
       @discardableResult
@@ -1066,11 +1072,7 @@ public extension Google.Protobuf {
            builderResult.numberValue = Double(0)
            return self
       }
-      public var hasStringValue:Bool {
-           get {
-                return builderResult.hasStringValue
-           }
-      }
+      /// Represents a string value.
       public var stringValue:String {
            get {
                 return builderResult.stringValue
@@ -1078,6 +1080,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasStringValue = true
                builderResult.stringValue = value
+           }
+      }
+      public var hasStringValue:Bool {
+           get {
+                return builderResult.hasStringValue
            }
       }
       @discardableResult
@@ -1091,11 +1098,7 @@ public extension Google.Protobuf {
            builderResult.stringValue = ""
            return self
       }
-      public var hasBoolValue:Bool {
-           get {
-                return builderResult.hasBoolValue
-           }
-      }
+      /// Represents a boolean value.
       public var boolValue:Bool {
            get {
                 return builderResult.boolValue
@@ -1103,6 +1106,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasBoolValue = true
                builderResult.boolValue = value
+           }
+      }
+      public var hasBoolValue:Bool {
+           get {
+                return builderResult.hasBoolValue
            }
       }
       @discardableResult
@@ -1116,11 +1124,7 @@ public extension Google.Protobuf {
            builderResult.boolValue = false
            return self
       }
-      public var hasStructValue:Bool {
-           get {
-               return builderResult.hasStructValue
-           }
-      }
+      /// Represents a structured value.
       public var structValue:Google.Protobuf.Struct! {
            get {
                if structValueBuilder_ != nil {
@@ -1131,6 +1135,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasStructValue = true
                builderResult.structValue = value
+           }
+      }
+      public var hasStructValue:Bool {
+           get {
+               return builderResult.hasStructValue
            }
       }
       fileprivate var structValueBuilder_:Google.Protobuf.Struct.Builder! {
@@ -1170,11 +1179,7 @@ public extension Google.Protobuf {
         builderResult.structValue = nil
         return self
       }
-      public var hasListValue:Bool {
-           get {
-               return builderResult.hasListValue
-           }
-      }
+      /// Represents a repeated `Value`.
       public var listValue:Google.Protobuf.ListValue! {
            get {
                if listValueBuilder_ != nil {
@@ -1185,6 +1190,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasListValue = true
                builderResult.listValue = value
+           }
+      }
+      public var hasListValue:Bool {
+           get {
+               return builderResult.hasListValue
            }
       }
       fileprivate var listValueBuilder_:Google.Protobuf.ListValue.Builder! {
@@ -1363,7 +1373,7 @@ public extension Google.Protobuf {
 
   }
 
-  // `ListValue` is a wrapper around a repeated field of values.
+  /// `ListValue` is a wrapper around a repeated field of values.
   final public class ListValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.ListValue, rhs: Google.Protobuf.ListValue) -> Bool {
@@ -1486,6 +1496,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
+      /// Repeated field of dynamically typed values.
       public var values:Array<Google.Protobuf.Value> {
            get {
                return builderResult.values

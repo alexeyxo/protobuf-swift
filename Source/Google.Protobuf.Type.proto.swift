@@ -22,7 +22,7 @@ public extension Google.Protobuf {
     }
   }
 
-  // A light-weight descriptor for a proto message type.
+  /// A light-weight descriptor for a proto message type.
   final public class `Type` : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.`Type`, rhs: Google.Protobuf.`Type`) -> Bool {
@@ -39,13 +39,13 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The fully qualified message name.
+    /// The fully qualified message name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
     public fileprivate(set) var fields:Array<Google.Protobuf.Field>  = Array<Google.Protobuf.Field>()
-    // The list of oneof definitions.
-    // The list of oneofs declared in this Type
+    /// The list of oneof definitions.
+    /// The list of oneofs declared in this Type
     public fileprivate(set) var oneofs:Array<String> = Array<String>()
     public fileprivate(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
     public fileprivate(set) var sourceContext:Google.Protobuf.SourceContext!
@@ -247,11 +247,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// The fully qualified message name.
       public var name:String {
            get {
                 return builderResult.name
@@ -259,6 +255,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -272,6 +273,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
+      /// The list of fields.
       public var fields:Array<Google.Protobuf.Field> {
            get {
                return builderResult.fields
@@ -290,6 +292,8 @@ public extension Google.Protobuf {
         builderResult.fields.removeAll(keepingCapacity: false)
         return self
       }
+      /// The list of oneof definitions.
+      /// The list of oneofs declared in this Type
       public var oneofs:Array<String> {
            get {
                return builderResult.oneofs
@@ -308,6 +312,7 @@ public extension Google.Protobuf {
          builderResult.oneofs.removeAll(keepingCapacity: false)
          return self
       }
+      /// The proto options.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options
@@ -326,11 +331,7 @@ public extension Google.Protobuf {
         builderResult.options.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasSourceContext:Bool {
-           get {
-               return builderResult.hasSourceContext
-           }
-      }
+      /// The source context.
       public var sourceContext:Google.Protobuf.SourceContext! {
            get {
                if sourceContextBuilder_ != nil {
@@ -341,6 +342,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSourceContext = true
                builderResult.sourceContext = value
+           }
+      }
+      public var hasSourceContext:Bool {
+           get {
+               return builderResult.hasSourceContext
            }
       }
       fileprivate var sourceContextBuilder_:Google.Protobuf.SourceContext.Builder! {
@@ -517,7 +523,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Field represents a single field of a message type.
+  /// Field represents a single field of a message type.
   final public class Field : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Field, rhs: Google.Protobuf.Field) -> Bool {
@@ -541,60 +547,60 @@ public extension Google.Protobuf {
 
       //Enum type declaration start 
 
-      // Kind represents a basic field type.
+      /// Kind represents a basic field type.
       public enum Kind:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // Field type unknown.
+        /// Field type unknown.
         case typeUnknown = 0
 
-        // Field type double.
+        /// Field type double.
         case typeDouble = 1
 
-        // Field type float.
+        /// Field type float.
         case typeFloat = 2
 
-        // Field type int64.
+        /// Field type int64.
         case typeInt64 = 3
 
-        // Field type uint64.
+        /// Field type uint64.
         case typeUint64 = 4
 
-        // Field type int32.
+        /// Field type int32.
         case typeInt32 = 5
 
-        // Field type fixed64.
+        /// Field type fixed64.
         case typeFixed64 = 6
 
-        // Field type fixed32.
+        /// Field type fixed32.
         case typeFixed32 = 7
 
-        // Field type bool.
+        /// Field type bool.
         case typeBool = 8
 
-        // Field type string.
+        /// Field type string.
         case typeString = 9
 
-        // Field type message.
+        /// Field type message.
         case typeMessage = 11
 
-        // Field type bytes.
+        /// Field type bytes.
         case typeBytes = 12
 
-        // Field type uint32.
+        /// Field type uint32.
         case typeUint32 = 13
 
-        // Field type enum.
+        /// Field type enum.
         case typeEnum = 14
 
-        // Field type sfixed32.
+        /// Field type sfixed32.
         case typeSfixed32 = 15
 
-        // Field type sfixed64.
+        /// Field type sfixed64.
         case typeSfixed64 = 16
 
-        // Field type sint32.
+        /// Field type sint32.
         case typeSint32 = 17
 
-        // Field type sint64.
+        /// Field type sint64.
         case typeSint64 = 18
         public func toString() -> String {
           switch self {
@@ -673,19 +679,19 @@ public extension Google.Protobuf {
 
       //Enum type declaration start 
 
-      // Cardinality represents whether a field is optional, required, or
-      // repeated.
+      /// Cardinality represents whether a field is optional, required, or
+      /// repeated.
       public enum Cardinality:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // The field cardinality is unknown. Typically an error condition.
+        /// The field cardinality is unknown. Typically an error condition.
         case cardinalityUnknown = 0
 
-        // For optional fields.
+        /// For optional fields.
         case cardinalityOptional = 1
 
-        // For required fields. Not used for proto3.
+        /// For required fields. Not used for proto3.
         case cardinalityRequired = 2
 
-        // For repeated fields.
+        /// For repeated fields.
         case cardinalityRepeated = 3
         public func toString() -> String {
           switch self {
@@ -722,24 +728,24 @@ public extension Google.Protobuf {
     public fileprivate(set) var hasKind:Bool = false
     public fileprivate(set) var cardinality:Google.Protobuf.Field.Cardinality = Google.Protobuf.Field.Cardinality.cardinalityUnknown
     public fileprivate(set) var hasCardinality:Bool = false
-    // The proto field number.
+    /// The proto field number.
     public fileprivate(set) var number:Int32 = Int32(0)
     public fileprivate(set) var hasNumber:Bool = false
 
-    // The field name.
+    /// The field name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
-    // The type URL (without the scheme) when the type is MESSAGE or ENUM,
-    // such as `type.googleapis.com/google.protobuf.Empty`.
+    /// The type URL (without the scheme) when the type is MESSAGE or ENUM,
+    /// such as `type.googleapis.com/google.protobuf.Empty`.
     public fileprivate(set) var typeUrl:String = ""
     public fileprivate(set) var hasTypeUrl:Bool = false
 
-    // Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
+    /// Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
     public fileprivate(set) var oneofIndex:Int32 = Int32(0)
     public fileprivate(set) var hasOneofIndex:Bool = false
 
-    // Whether to use alternative packed wire representation.
+    /// Whether to use alternative packed wire representation.
     public fileprivate(set) var packed:Bool = false
     public fileprivate(set) var hasPacked:Bool = false
 
@@ -958,11 +964,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-        public var hasKind:Bool{
-            get {
-                return builderResult.hasKind
-            }
-        }
+      /// The field kind.
         public var kind:Google.Protobuf.Field.Kind {
             get {
                 return builderResult.kind
@@ -970,6 +972,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasKind = true
                 builderResult.kind = value
+            }
+        }
+        public var hasKind:Bool{
+            get {
+                return builderResult.hasKind
             }
         }
       @discardableResult
@@ -983,11 +990,7 @@ public extension Google.Protobuf {
            builderResult.kind = .typeUnknown
            return self
         }
-        public var hasCardinality:Bool{
-            get {
-                return builderResult.hasCardinality
-            }
-        }
+      /// The field cardinality, i.e. optional/required/repeated.
         public var cardinality:Google.Protobuf.Field.Cardinality {
             get {
                 return builderResult.cardinality
@@ -995,6 +998,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasCardinality = true
                 builderResult.cardinality = value
+            }
+        }
+        public var hasCardinality:Bool{
+            get {
+                return builderResult.hasCardinality
             }
         }
       @discardableResult
@@ -1008,11 +1016,7 @@ public extension Google.Protobuf {
            builderResult.cardinality = .cardinalityUnknown
            return self
         }
-      public var hasNumber:Bool {
-           get {
-                return builderResult.hasNumber
-           }
-      }
+      /// The proto field number.
       public var number:Int32 {
            get {
                 return builderResult.number
@@ -1020,6 +1024,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNumber = true
                builderResult.number = value
+           }
+      }
+      public var hasNumber:Bool {
+           get {
+                return builderResult.hasNumber
            }
       }
       @discardableResult
@@ -1033,11 +1042,7 @@ public extension Google.Protobuf {
            builderResult.number = Int32(0)
            return self
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// The field name.
       public var name:String {
            get {
                 return builderResult.name
@@ -1045,6 +1050,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -1058,11 +1068,8 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasTypeUrl:Bool {
-           get {
-                return builderResult.hasTypeUrl
-           }
-      }
+      /// The type URL (without the scheme) when the type is MESSAGE or ENUM,
+      /// such as `type.googleapis.com/google.protobuf.Empty`.
       public var typeUrl:String {
            get {
                 return builderResult.typeUrl
@@ -1070,6 +1077,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasTypeUrl = true
                builderResult.typeUrl = value
+           }
+      }
+      public var hasTypeUrl:Bool {
+           get {
+                return builderResult.hasTypeUrl
            }
       }
       @discardableResult
@@ -1083,11 +1095,7 @@ public extension Google.Protobuf {
            builderResult.typeUrl = ""
            return self
       }
-      public var hasOneofIndex:Bool {
-           get {
-                return builderResult.hasOneofIndex
-           }
-      }
+      /// Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
       public var oneofIndex:Int32 {
            get {
                 return builderResult.oneofIndex
@@ -1095,6 +1103,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOneofIndex = true
                builderResult.oneofIndex = value
+           }
+      }
+      public var hasOneofIndex:Bool {
+           get {
+                return builderResult.hasOneofIndex
            }
       }
       @discardableResult
@@ -1108,11 +1121,7 @@ public extension Google.Protobuf {
            builderResult.oneofIndex = Int32(0)
            return self
       }
-      public var hasPacked:Bool {
-           get {
-                return builderResult.hasPacked
-           }
-      }
+      /// Whether to use alternative packed wire representation.
       public var packed:Bool {
            get {
                 return builderResult.packed
@@ -1120,6 +1129,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasPacked = true
                builderResult.packed = value
+           }
+      }
+      public var hasPacked:Bool {
+           get {
+                return builderResult.hasPacked
            }
       }
       @discardableResult
@@ -1133,6 +1147,7 @@ public extension Google.Protobuf {
            builderResult.packed = false
            return self
       }
+      /// The proto options.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options
@@ -1311,7 +1326,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Enum type definition.
+  /// Enum type definition.
   final public class Enum : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Enum, rhs: Google.Protobuf.Enum) -> Bool {
@@ -1327,7 +1342,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Enum type name.
+    /// Enum type name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -1506,11 +1521,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// Enum type name.
       public var name:String {
            get {
                 return builderResult.name
@@ -1518,6 +1529,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -1531,6 +1547,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
+      /// Enum value definitions.
       public var enumvalue:Array<Google.Protobuf.EnumValue> {
            get {
                return builderResult.enumvalue
@@ -1549,6 +1566,7 @@ public extension Google.Protobuf {
         builderResult.enumvalue.removeAll(keepingCapacity: false)
         return self
       }
+      /// Proto options for the enum type.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options
@@ -1567,11 +1585,7 @@ public extension Google.Protobuf {
         builderResult.options.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasSourceContext:Bool {
-           get {
-               return builderResult.hasSourceContext
-           }
-      }
+      /// The source context.
       public var sourceContext:Google.Protobuf.SourceContext! {
            get {
                if sourceContextBuilder_ != nil {
@@ -1582,6 +1596,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSourceContext = true
                builderResult.sourceContext = value
+           }
+      }
+      public var hasSourceContext:Bool {
+           get {
+               return builderResult.hasSourceContext
            }
       }
       fileprivate var sourceContextBuilder_:Google.Protobuf.SourceContext.Builder! {
@@ -1745,7 +1764,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Enum value definition.
+  /// Enum value definition.
   final public class EnumValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.EnumValue, rhs: Google.Protobuf.EnumValue) -> Bool {
@@ -1760,11 +1779,11 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Enum value name.
+    /// Enum value name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
-    // Enum value number.
+    /// Enum value number.
     public fileprivate(set) var number:Int32 = Int32(0)
     public fileprivate(set) var hasNumber:Bool = false
 
@@ -1908,11 +1927,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// Enum value name.
       public var name:String {
            get {
                 return builderResult.name
@@ -1920,6 +1935,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -1933,11 +1953,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasNumber:Bool {
-           get {
-                return builderResult.hasNumber
-           }
-      }
+      /// Enum value number.
       public var number:Int32 {
            get {
                 return builderResult.number
@@ -1945,6 +1961,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNumber = true
                builderResult.number = value
+           }
+      }
+      public var hasNumber:Bool {
+           get {
+                return builderResult.hasNumber
            }
       }
       @discardableResult
@@ -1958,6 +1979,7 @@ public extension Google.Protobuf {
            builderResult.number = Int32(0)
            return self
       }
+      /// Proto options for the enum value.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options
@@ -2079,7 +2101,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Proto option attached to messages/fields/enums etc.
+  /// Proto option attached to messages/fields/enums etc.
   final public class Option : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Option, rhs: Google.Protobuf.Option) -> Bool {
@@ -2093,7 +2115,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Proto option name.
+    /// Proto option name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
@@ -2222,11 +2244,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// Proto option name.
       public var name:String {
            get {
                 return builderResult.name
@@ -2234,6 +2252,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -2247,11 +2270,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasValue:Bool {
-           get {
-               return builderResult.hasValue
-           }
-      }
+      /// Proto option value.
       public var value:Google.Protobuf.`Any`! {
            get {
                if valueBuilder_ != nil {
@@ -2262,6 +2281,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+               return builderResult.hasValue
            }
       }
       fileprivate var valueBuilder_:Google.Protobuf.`Any`.Builder! {

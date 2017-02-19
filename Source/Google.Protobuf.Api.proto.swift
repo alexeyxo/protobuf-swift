@@ -22,7 +22,7 @@ public extension Google.Protobuf {
     }
   }
 
-  // Api is a light-weight descriptor for a protocol buffer service.
+  /// Api is a light-weight descriptor for a protocol buffer service.
   final public class Api : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Api, rhs: Google.Protobuf.Api) -> Bool {
@@ -39,32 +39,32 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The fully qualified name of this api, including package name
-    // followed by the api's simple name.
+    /// The fully qualified name of this api, including package name
+    /// followed by the api's simple name.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
     public fileprivate(set) var methods:Array<Google.Protobuf.Method>  = Array<Google.Protobuf.Method>()
     public fileprivate(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
-    // A version string for this api. If specified, must have the form
-    // `major-version.minor-version`, as in `1.10`. If the minor version
-    // is omitted, it defaults to zero. If the entire version field is
-    // empty, the major version is derived from the package name, as
-    // outlined below. If the field is not empty, the version in the
-    // package name will be verified to be consistent with what is
-    // provided here.
-    // The versioning schema uses [semantic
-    // versioning](http://semver.org) where the major version number
-    // indicates a breaking change and the minor version an additive,
-    // non-breaking change. Both version numbers are signals to users
-    // what to expect from different versions, and should be carefully
-    // chosen based on the product plan.
-    // The major version is also reflected in the package name of the
-    // API, which must end in `v<major-version>`, as in
-    // `google.feature.v1`. For major versions 0 and 1, the suffix can
-    // be omitted. Zero major versions must only be used for
-    // experimental, none-GA apis.
-    // See also: [design doc](http://go/api-versioning).
+    /// A version string for this api. If specified, must have the form
+    /// `major-version.minor-version`, as in `1.10`. If the minor version
+    /// is omitted, it defaults to zero. If the entire version field is
+    /// empty, the major version is derived from the package name, as
+    /// outlined below. If the field is not empty, the version in the
+    /// package name will be verified to be consistent with what is
+    /// provided here.
+    /// The versioning schema uses [semantic
+    /// versioning](http://semver.org) where the major version number
+    /// indicates a breaking change and the minor version an additive,
+    /// non-breaking change. Both version numbers are signals to users
+    /// what to expect from different versions, and should be carefully
+    /// chosen based on the product plan.
+    /// The major version is also reflected in the package name of the
+    /// API, which must end in `v<major-version>`, as in
+    /// `google.feature.v1`. For major versions 0 and 1, the suffix can
+    /// be omitted. Zero major versions must only be used for
+    /// experimental, none-GA apis.
+    /// See also: [design doc](http://go/api-versioning).
     public fileprivate(set) var version:String = ""
     public fileprivate(set) var hasVersion:Bool = false
 
@@ -256,11 +256,8 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// The fully qualified name of this api, including package name
+      /// followed by the api's simple name.
       public var name:String {
            get {
                 return builderResult.name
@@ -268,6 +265,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -281,6 +283,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
+      /// The methods of this api, in unspecified order.
       public var methods:Array<Google.Protobuf.Method> {
            get {
                return builderResult.methods
@@ -299,6 +302,7 @@ public extension Google.Protobuf {
         builderResult.methods.removeAll(keepingCapacity: false)
         return self
       }
+      /// Any metadata attached to the API.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options
@@ -317,11 +321,25 @@ public extension Google.Protobuf {
         builderResult.options.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasVersion:Bool {
-           get {
-                return builderResult.hasVersion
-           }
-      }
+      /// A version string for this api. If specified, must have the form
+      /// `major-version.minor-version`, as in `1.10`. If the minor version
+      /// is omitted, it defaults to zero. If the entire version field is
+      /// empty, the major version is derived from the package name, as
+      /// outlined below. If the field is not empty, the version in the
+      /// package name will be verified to be consistent with what is
+      /// provided here.
+      /// The versioning schema uses [semantic
+      /// versioning](http://semver.org) where the major version number
+      /// indicates a breaking change and the minor version an additive,
+      /// non-breaking change. Both version numbers are signals to users
+      /// what to expect from different versions, and should be carefully
+      /// chosen based on the product plan.
+      /// The major version is also reflected in the package name of the
+      /// API, which must end in `v<major-version>`, as in
+      /// `google.feature.v1`. For major versions 0 and 1, the suffix can
+      /// be omitted. Zero major versions must only be used for
+      /// experimental, none-GA apis.
+      /// See also: [design doc](http://go/api-versioning).
       public var version:String {
            get {
                 return builderResult.version
@@ -329,6 +347,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasVersion = true
                builderResult.version = value
+           }
+      }
+      public var hasVersion:Bool {
+           get {
+                return builderResult.hasVersion
            }
       }
       @discardableResult
@@ -342,11 +365,8 @@ public extension Google.Protobuf {
            builderResult.version = ""
            return self
       }
-      public var hasSourceContext:Bool {
-           get {
-               return builderResult.hasSourceContext
-           }
-      }
+      /// Source context for the protocol buffer service represented by this
+      /// message.
       public var sourceContext:Google.Protobuf.SourceContext! {
            get {
                if sourceContextBuilder_ != nil {
@@ -357,6 +377,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSourceContext = true
                builderResult.sourceContext = value
+           }
+      }
+      public var hasSourceContext:Bool {
+           get {
+               return builderResult.hasSourceContext
            }
       }
       fileprivate var sourceContextBuilder_:Google.Protobuf.SourceContext.Builder! {
@@ -529,7 +554,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Method represents a method of an api.
+  /// Method represents a method of an api.
   final public class Method : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Method, rhs: Google.Protobuf.Method) -> Bool {
@@ -547,23 +572,23 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The simple name of this method.
+    /// The simple name of this method.
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
-    // A URL of the input message type.
+    /// A URL of the input message type.
     public fileprivate(set) var requestTypeUrl:String = ""
     public fileprivate(set) var hasRequestTypeUrl:Bool = false
 
-    // If true, the request is streamed.
+    /// If true, the request is streamed.
     public fileprivate(set) var requestStreaming:Bool = false
     public fileprivate(set) var hasRequestStreaming:Bool = false
 
-    // The URL of the output message type.
+    /// The URL of the output message type.
     public fileprivate(set) var responseTypeUrl:String = ""
     public fileprivate(set) var hasResponseTypeUrl:Bool = false
 
-    // If true, the response is streamed.
+    /// If true, the response is streamed.
     public fileprivate(set) var responseStreaming:Bool = false
     public fileprivate(set) var hasResponseStreaming:Bool = false
 
@@ -752,11 +777,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// The simple name of this method.
       public var name:String {
            get {
                 return builderResult.name
@@ -764,6 +785,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -777,11 +803,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasRequestTypeUrl:Bool {
-           get {
-                return builderResult.hasRequestTypeUrl
-           }
-      }
+      /// A URL of the input message type.
       public var requestTypeUrl:String {
            get {
                 return builderResult.requestTypeUrl
@@ -789,6 +811,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasRequestTypeUrl = true
                builderResult.requestTypeUrl = value
+           }
+      }
+      public var hasRequestTypeUrl:Bool {
+           get {
+                return builderResult.hasRequestTypeUrl
            }
       }
       @discardableResult
@@ -802,11 +829,7 @@ public extension Google.Protobuf {
            builderResult.requestTypeUrl = ""
            return self
       }
-      public var hasRequestStreaming:Bool {
-           get {
-                return builderResult.hasRequestStreaming
-           }
-      }
+      /// If true, the request is streamed.
       public var requestStreaming:Bool {
            get {
                 return builderResult.requestStreaming
@@ -814,6 +837,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasRequestStreaming = true
                builderResult.requestStreaming = value
+           }
+      }
+      public var hasRequestStreaming:Bool {
+           get {
+                return builderResult.hasRequestStreaming
            }
       }
       @discardableResult
@@ -827,11 +855,7 @@ public extension Google.Protobuf {
            builderResult.requestStreaming = false
            return self
       }
-      public var hasResponseTypeUrl:Bool {
-           get {
-                return builderResult.hasResponseTypeUrl
-           }
-      }
+      /// The URL of the output message type.
       public var responseTypeUrl:String {
            get {
                 return builderResult.responseTypeUrl
@@ -839,6 +863,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasResponseTypeUrl = true
                builderResult.responseTypeUrl = value
+           }
+      }
+      public var hasResponseTypeUrl:Bool {
+           get {
+                return builderResult.hasResponseTypeUrl
            }
       }
       @discardableResult
@@ -852,11 +881,7 @@ public extension Google.Protobuf {
            builderResult.responseTypeUrl = ""
            return self
       }
-      public var hasResponseStreaming:Bool {
-           get {
-                return builderResult.hasResponseStreaming
-           }
-      }
+      /// If true, the response is streamed.
       public var responseStreaming:Bool {
            get {
                 return builderResult.responseStreaming
@@ -864,6 +889,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasResponseStreaming = true
                builderResult.responseStreaming = value
+           }
+      }
+      public var hasResponseStreaming:Bool {
+           get {
+                return builderResult.hasResponseStreaming
            }
       }
       @discardableResult
@@ -877,6 +907,7 @@ public extension Google.Protobuf {
            builderResult.responseStreaming = false
            return self
       }
+      /// Any metadata attached to the method.
       public var options:Array<Google.Protobuf.Option> {
            get {
                return builderResult.options

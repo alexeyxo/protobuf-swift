@@ -208,11 +208,6 @@ final public class UserProfile : GeneratedMessage {
         required override public init () {
            super.init()
         }
-        public var hasUserId:Bool {
-             get {
-                  return builderResult.hasUserId
-             }
-        }
         public var userId:String {
              get {
                   return builderResult.userId
@@ -220,6 +215,11 @@ final public class UserProfile : GeneratedMessage {
              set (value) {
                  builderResult.hasUserId = true
                  builderResult.userId = value
+             }
+        }
+        public var hasUserId:Bool {
+             get {
+                  return builderResult.hasUserId
              }
         }
         @discardableResult
@@ -485,11 +485,6 @@ final public class UserProfile : GeneratedMessage {
         required override public init () {
            super.init()
         }
-        public var hasProfile:Bool {
-             get {
-                 return builderResult.hasProfile
-             }
-        }
         public var profile:UserProfile! {
              get {
                  if profileBuilder_ != nil {
@@ -500,6 +495,11 @@ final public class UserProfile : GeneratedMessage {
              set (value) {
                  builderResult.hasProfile = true
                  builderResult.profile = value
+             }
+        }
+        public var hasProfile:Bool {
+             get {
+                 return builderResult.hasProfile
              }
         }
         fileprivate var profileBuilder_:UserProfile.Builder! {
@@ -539,11 +539,6 @@ final public class UserProfile : GeneratedMessage {
           builderResult.profile = nil
           return self
         }
-          public var hasError:Bool{
-              get {
-                  return builderResult.hasError
-              }
-          }
           public var error:ServiceError {
               get {
                   return builderResult.error
@@ -551,6 +546,11 @@ final public class UserProfile : GeneratedMessage {
               set (value) {
                   builderResult.hasError = true
                   builderResult.error = value
+              }
+          }
+          public var hasError:Bool{
+              get {
+                  return builderResult.hasError
               }
           }
         @discardableResult
@@ -564,11 +564,6 @@ final public class UserProfile : GeneratedMessage {
              builderResult.error = .badRequest
              return self
           }
-        public var hasException:Bool {
-             get {
-                 return builderResult.hasException
-             }
-        }
         public var exception:UserProfile.Exception! {
              get {
                  if exceptionBuilder_ != nil {
@@ -579,6 +574,11 @@ final public class UserProfile : GeneratedMessage {
              set (value) {
                  builderResult.hasException = true
                  builderResult.exception = value
+             }
+        }
+        public var hasException:Bool {
+             get {
+                 return builderResult.hasException
              }
         }
         fileprivate var exceptionBuilder_:UserProfile.Exception.Builder! {
@@ -874,11 +874,6 @@ final public class UserProfile : GeneratedMessage {
         required override public init () {
            super.init()
         }
-        public var hasErrorCode:Bool {
-             get {
-                  return builderResult.hasErrorCode
-             }
-        }
         public var errorCode:Int32 {
              get {
                   return builderResult.errorCode
@@ -886,6 +881,11 @@ final public class UserProfile : GeneratedMessage {
              set (value) {
                  builderResult.hasErrorCode = true
                  builderResult.errorCode = value
+             }
+        }
+        public var hasErrorCode:Bool {
+             get {
+                  return builderResult.hasErrorCode
              }
         }
         @discardableResult
@@ -899,11 +899,6 @@ final public class UserProfile : GeneratedMessage {
              builderResult.errorCode = Int32(0)
              return self
         }
-        public var hasErrorDescription:Bool {
-             get {
-                  return builderResult.hasErrorDescription
-             }
-        }
         public var errorDescription:String {
              get {
                   return builderResult.errorDescription
@@ -911,6 +906,11 @@ final public class UserProfile : GeneratedMessage {
              set (value) {
                  builderResult.hasErrorDescription = true
                  builderResult.errorDescription = value
+             }
+        }
+        public var hasErrorDescription:Bool {
+             get {
+                  return builderResult.hasErrorDescription
              }
         }
         @discardableResult
@@ -1151,11 +1151,6 @@ final public class UserProfile : GeneratedMessage {
     required override public init () {
        super.init()
     }
-    public var hasFirstName:Bool {
-         get {
-              return builderResult.hasFirstName
-         }
-    }
     public var firstName:String {
          get {
               return builderResult.firstName
@@ -1163,6 +1158,11 @@ final public class UserProfile : GeneratedMessage {
          set (value) {
              builderResult.hasFirstName = true
              builderResult.firstName = value
+         }
+    }
+    public var hasFirstName:Bool {
+         get {
+              return builderResult.hasFirstName
          }
     }
     @discardableResult
@@ -1176,11 +1176,6 @@ final public class UserProfile : GeneratedMessage {
          builderResult.firstName = ""
          return self
     }
-    public var hasLastName:Bool {
-         get {
-              return builderResult.hasLastName
-         }
-    }
     public var lastName:String {
          get {
               return builderResult.lastName
@@ -1188,6 +1183,11 @@ final public class UserProfile : GeneratedMessage {
          set (value) {
              builderResult.hasLastName = true
              builderResult.lastName = value
+         }
+    }
+    public var hasLastName:Bool {
+         get {
+              return builderResult.hasLastName
          }
     }
     @discardableResult
@@ -1201,11 +1201,6 @@ final public class UserProfile : GeneratedMessage {
          builderResult.lastName = ""
          return self
     }
-    public var hasAvatarUrl:Bool {
-         get {
-              return builderResult.hasAvatarUrl
-         }
-    }
     public var avatarUrl:String {
          get {
               return builderResult.avatarUrl
@@ -1213,6 +1208,11 @@ final public class UserProfile : GeneratedMessage {
          set (value) {
              builderResult.hasAvatarUrl = true
              builderResult.avatarUrl = value
+         }
+    }
+    public var hasAvatarUrl:Bool {
+         get {
+              return builderResult.hasAvatarUrl
          }
     }
     @discardableResult

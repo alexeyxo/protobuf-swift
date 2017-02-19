@@ -427,11 +427,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
       required override public init () {
          super.init()
       }
-        public var hasE:Bool{
-            get {
-                return builderResult.hasE
-            }
-        }
         public var e:Proto3PreserveUnknownEnumUnittest.MyEnum {
             get {
                 return builderResult.e
@@ -439,6 +434,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasE = true
                 builderResult.e = value
+            }
+        }
+        public var hasE:Bool{
+            get {
+                return builderResult.hasE
             }
         }
       @discardableResult
@@ -488,6 +488,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
         builderResult.repeatedPackedE.removeAll(keepingCapacity: false)
         return self
       }
+      /// not packed
       public var repeatedPackedUnexpectedE:Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> {
           get {
               return builderResult.repeatedPackedUnexpectedE
@@ -506,11 +507,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
         builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
       }
-        public var hasOneofE1:Bool{
-            get {
-                return builderResult.hasOneofE1
-            }
-        }
         public var oneofE1:Proto3PreserveUnknownEnumUnittest.MyEnum {
             get {
                 return builderResult.oneofE1
@@ -518,6 +514,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasOneofE1 = true
                 builderResult.oneofE1 = value
+            }
+        }
+        public var hasOneofE1:Bool{
+            get {
+                return builderResult.hasOneofE1
             }
         }
       @discardableResult
@@ -531,11 +532,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
            builderResult.oneofE1 = .foo
            return self
         }
-        public var hasOneofE2:Bool{
-            get {
-                return builderResult.hasOneofE2
-            }
-        }
         public var oneofE2:Proto3PreserveUnknownEnumUnittest.MyEnum {
             get {
                 return builderResult.oneofE2
@@ -543,6 +539,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasOneofE2 = true
                 builderResult.oneofE2 = value
+            }
+        }
+        public var hasOneofE2:Bool{
+            get {
+                return builderResult.hasOneofE2
             }
         }
       @discardableResult
@@ -1066,11 +1067,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
       required override public init () {
          super.init()
       }
-        public var hasE:Bool{
-            get {
-                return builderResult.hasE
-            }
-        }
         public var e:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra {
             get {
                 return builderResult.e
@@ -1078,6 +1074,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasE = true
                 builderResult.e = value
+            }
+        }
+        public var hasE:Bool{
+            get {
+                return builderResult.hasE
             }
         }
       @discardableResult
@@ -1145,11 +1146,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
         builderResult.repeatedPackedUnexpectedE.removeAll(keepingCapacity: false)
         return self
       }
-        public var hasOneofE1:Bool{
-            get {
-                return builderResult.hasOneofE1
-            }
-        }
         public var oneofE1:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra {
             get {
                 return builderResult.oneofE1
@@ -1157,6 +1153,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasOneofE1 = true
                 builderResult.oneofE1 = value
+            }
+        }
+        public var hasOneofE1:Bool{
+            get {
+                return builderResult.hasOneofE1
             }
         }
       @discardableResult
@@ -1170,11 +1171,6 @@ public extension Proto3PreserveUnknownEnumUnittest {
            builderResult.oneofE1 = .eFoo
            return self
         }
-        public var hasOneofE2:Bool{
-            get {
-                return builderResult.hasOneofE2
-            }
-        }
         public var oneofE2:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra {
             get {
                 return builderResult.oneofE2
@@ -1182,6 +1178,11 @@ public extension Proto3PreserveUnknownEnumUnittest {
             set (value) {
                 builderResult.hasOneofE2 = true
                 builderResult.oneofE2 = value
+            }
+        }
+        public var hasOneofE2:Bool{
+            get {
+                return builderResult.hasOneofE2
             }
         }
       @discardableResult

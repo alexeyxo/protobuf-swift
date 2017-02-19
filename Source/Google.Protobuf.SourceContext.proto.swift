@@ -20,8 +20,8 @@ public extension Google.Protobuf {
     }
   }
 
-  // `SourceContext` represents information about the source of a
-  // protobuf element, like the file in which it is defined.
+  /// `SourceContext` represents information about the source of a
+  /// protobuf element, like the file in which it is defined.
   final public class SourceContext : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
@@ -34,8 +34,8 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The path-qualified name of the .proto file that contained the associated
-    // protobuf element.  For example: `"google/protobuf/source.proto"`.
+    /// The path-qualified name of the .proto file that contained the associated
+    /// protobuf element.  For example: `"google/protobuf/source.proto"`.
     public fileprivate(set) var fileName:String = ""
     public fileprivate(set) var hasFileName:Bool = false
 
@@ -139,11 +139,8 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasFileName:Bool {
-           get {
-                return builderResult.hasFileName
-           }
-      }
+      /// The path-qualified name of the .proto file that contained the associated
+      /// protobuf element.  For example: `"google/protobuf/source.proto"`.
       public var fileName:String {
            get {
                 return builderResult.fileName
@@ -151,6 +148,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasFileName = true
                builderResult.fileName = value
+           }
+      }
+      public var hasFileName:Bool {
+           get {
+                return builderResult.hasFileName
            }
       }
       @discardableResult

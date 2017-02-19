@@ -37,7 +37,7 @@ public extension ProtobufUnittest {
     }
   }
 
-  // A message with message_set_wire_format.
+  /// A message with message_set_wire_format.
   final public class TestMessageSet : ExtendableMessage {
 
     public static func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
@@ -336,11 +336,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasMessageSet:Bool {
-           get {
-               return builderResult.hasMessageSet
-           }
-      }
       public var messageSet:ProtobufUnittest.TestMessageSet! {
            get {
                if messageSetBuilder_ != nil {
@@ -351,6 +346,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasMessageSet = true
                builderResult.messageSet = value
+           }
+      }
+      public var hasMessageSet:Bool {
+           get {
+               return builderResult.hasMessageSet
            }
       }
       fileprivate var messageSetBuilder_:ProtobufUnittest.TestMessageSet.Builder! {
@@ -589,11 +589,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasI:Bool {
-           get {
-                return builderResult.hasI
-           }
-      }
       public var i:Int32 {
            get {
                 return builderResult.i
@@ -601,6 +596,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasI = true
                builderResult.i = value
+           }
+      }
+      public var hasI:Bool {
+           get {
+                return builderResult.hasI
            }
       }
       @discardableResult
@@ -809,11 +809,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasStr:Bool {
-           get {
-                return builderResult.hasStr
-           }
-      }
       public var str:String {
            get {
                 return builderResult.str
@@ -821,6 +816,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasStr = true
                builderResult.str = value
+           }
+      }
+      public var hasStr:Bool {
+           get {
+                return builderResult.hasStr
            }
       }
       @discardableResult
@@ -909,7 +909,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // MessageSet wire format is equivalent to this.
+  /// MessageSet wire format is equivalent to this.
   final public class RawMessageSet : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.RawMessageSet) -> Bool {
@@ -1066,11 +1066,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasTypeId:Bool {
-               get {
-                    return builderResult.hasTypeId
-               }
-          }
           public var typeId:Int32 {
                get {
                     return builderResult.typeId
@@ -1078,6 +1073,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasTypeId = true
                    builderResult.typeId = value
+               }
+          }
+          public var hasTypeId:Bool {
+               get {
+                    return builderResult.hasTypeId
                }
           }
           @discardableResult
@@ -1091,11 +1091,6 @@ public extension ProtobufUnittest {
                builderResult.typeId = Int32(0)
                return self
           }
-          public var hasMessage:Bool {
-               get {
-                    return builderResult.hasMessage
-               }
-          }
           public var message:Data {
                get {
                     return builderResult.message
@@ -1103,6 +1098,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasMessage = true
                    builderResult.message = value
+               }
+          }
+          public var hasMessage:Bool {
+               get {
+                    return builderResult.hasMessage
                }
           }
           @discardableResult

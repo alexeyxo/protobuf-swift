@@ -136,11 +136,6 @@ public extension Baz {
       required override public init () {
          super.init()
       }
-      public var hasHello:Bool {
-           get {
-                return builderResult.hasHello
-           }
-      }
       public var hello:String {
            get {
                 return builderResult.hello
@@ -148,6 +143,11 @@ public extension Baz {
            set (value) {
                builderResult.hasHello = true
                builderResult.hello = value
+           }
+      }
+      public var hasHello:Bool {
+           get {
+                return builderResult.hasHello
            }
       }
       @discardableResult

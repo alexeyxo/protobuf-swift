@@ -183,11 +183,6 @@ public extension Google.Protobuf.NoGenericServicesTest {
       required override public init () {
          super.init()
       }
-      public var hasA:Bool {
-           get {
-                return builderResult.hasA
-           }
-      }
       public var a:Int32 {
            get {
                 return builderResult.a
@@ -195,6 +190,11 @@ public extension Google.Protobuf.NoGenericServicesTest {
            set (value) {
                builderResult.hasA = true
                builderResult.a = value
+           }
+      }
+      public var hasA:Bool {
+           get {
+                return builderResult.hasA
            }
       }
       @discardableResult

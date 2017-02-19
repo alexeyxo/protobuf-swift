@@ -23,8 +23,8 @@ public var UnittestCustomOptionsRootfieldOpt1:ConcreateExtensionField {
        return ProtobufUnittest.UnittestCustomOptionsRoot.default.UnittestCustomOptionsRootfieldOpt1Static
    }
 }
-// This is useful for testing that we correctly register default values for
-// extension options.
+/// This is useful for testing that we correctly register default values for
+/// extension options.
 public var UnittestCustomOptionsRootfieldOpt2:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestCustomOptionsRoot.default.UnittestCustomOptionsRootfieldOpt2Static
@@ -556,8 +556,8 @@ public extension ProtobufUnittest {
 
   //Enum type declaration end 
 
-  // A test message with custom options at all possible locations (and also some
-  // regular options, to make sure they interact nicely).
+  /// A test message with custom options at all possible locations (and also some
+  /// regular options, to make sure they interact nicely).
   final public class TestMessageWithCustomOptions : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
@@ -705,11 +705,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasField1:Bool {
-           get {
-                return builderResult.hasField1
-           }
-      }
       public var field1:String {
            get {
                 return builderResult.field1
@@ -717,6 +712,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasField1 = true
                builderResult.field1 = value
+           }
+      }
+      public var hasField1:Bool {
+           get {
+                return builderResult.hasField1
            }
       }
       @discardableResult
@@ -805,8 +805,8 @@ public extension ProtobufUnittest {
 
   }
 
-  // A test RPC service with custom options at all possible locations (and also
-  // some regular options, to make sure they interact nicely).
+  /// A test RPC service with custom options at all possible locations (and also
+  /// some regular options, to make sure they interact nicely).
   final public class CustomOptionFooRequest : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
@@ -2810,11 +2810,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasFoo:Bool {
-           get {
-                return builderResult.hasFoo
-           }
-      }
       public var foo:Int32 {
            get {
                 return builderResult.foo
@@ -2822,6 +2817,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFoo = true
                builderResult.foo = value
+           }
+      }
+      public var hasFoo:Bool {
+           get {
+                return builderResult.hasFoo
            }
       }
       @discardableResult
@@ -2835,11 +2835,6 @@ public extension ProtobufUnittest {
            builderResult.foo = Int32(0)
            return self
       }
-      public var hasFoo2:Bool {
-           get {
-                return builderResult.hasFoo2
-           }
-      }
       public var foo2:Int32 {
            get {
                 return builderResult.foo2
@@ -2847,6 +2842,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFoo2 = true
                builderResult.foo2 = value
+           }
+      }
+      public var hasFoo2:Bool {
+           get {
+                return builderResult.hasFoo2
            }
       }
       @discardableResult
@@ -2860,11 +2860,6 @@ public extension ProtobufUnittest {
            builderResult.foo2 = Int32(0)
            return self
       }
-      public var hasFoo3:Bool {
-           get {
-                return builderResult.hasFoo3
-           }
-      }
       public var foo3:Int32 {
            get {
                 return builderResult.foo3
@@ -2872,6 +2867,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFoo3 = true
                builderResult.foo3 = value
+           }
+      }
+      public var hasFoo3:Bool {
+           get {
+                return builderResult.hasFoo3
            }
       }
       @discardableResult
@@ -3154,11 +3154,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasWaldo:Bool {
-               get {
-                    return builderResult.hasWaldo
-               }
-          }
           public var waldo:Int32 {
                get {
                     return builderResult.waldo
@@ -3166,6 +3161,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasWaldo = true
                    builderResult.waldo = value
+               }
+          }
+          public var hasWaldo:Bool {
+               get {
+                    return builderResult.hasWaldo
                }
           }
           @discardableResult
@@ -3448,11 +3448,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasBar:Bool {
-           get {
-               return builderResult.hasBar
-           }
-      }
       public var bar:ProtobufUnittest.ComplexOptionType1! {
            get {
                if barBuilder_ != nil {
@@ -3463,6 +3458,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasBar = true
                builderResult.bar = value
+           }
+      }
+      public var hasBar:Bool {
+           get {
+               return builderResult.hasBar
            }
       }
       fileprivate var barBuilder_:ProtobufUnittest.ComplexOptionType1.Builder! {
@@ -3502,11 +3502,6 @@ public extension ProtobufUnittest {
         builderResult.bar = nil
         return self
       }
-      public var hasBaz:Bool {
-           get {
-                return builderResult.hasBaz
-           }
-      }
       public var baz:Int32 {
            get {
                 return builderResult.baz
@@ -3514,6 +3509,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasBaz = true
                builderResult.baz = value
+           }
+      }
+      public var hasBaz:Bool {
+           get {
+                return builderResult.hasBaz
            }
       }
       @discardableResult
@@ -3527,11 +3527,6 @@ public extension ProtobufUnittest {
            builderResult.baz = Int32(0)
            return self
       }
-      public var hasFred:Bool {
-           get {
-               return builderResult.hasFred
-           }
-      }
       public var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4! {
            get {
                if fredBuilder_ != nil {
@@ -3542,6 +3537,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFred = true
                builderResult.fred = value
+           }
+      }
+      public var hasFred:Bool {
+           get {
+               return builderResult.hasFred
            }
       }
       fileprivate var fredBuilder_:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder! {
@@ -3856,11 +3856,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasPlugh:Bool {
-               get {
-                    return builderResult.hasPlugh
-               }
-          }
           public var plugh:Int32 {
                get {
                     return builderResult.plugh
@@ -3868,6 +3863,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasPlugh = true
                    builderResult.plugh = value
+               }
+          }
+          public var hasPlugh:Bool {
+               get {
+                    return builderResult.hasPlugh
                }
           }
           @discardableResult
@@ -4088,11 +4088,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasQux:Bool {
-           get {
-                return builderResult.hasQux
-           }
-      }
       public var qux:Int32 {
            get {
                 return builderResult.qux
@@ -4100,6 +4095,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasQux = true
                builderResult.qux = value
+           }
+      }
+      public var hasQux:Bool {
+           get {
+                return builderResult.hasQux
            }
       }
       @discardableResult
@@ -4113,11 +4113,6 @@ public extension ProtobufUnittest {
            builderResult.qux = Int32(0)
            return self
       }
-      public var hasComplexOptionType5:Bool {
-           get {
-               return builderResult.hasComplexOptionType5
-           }
-      }
       public var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5! {
            get {
                if complexOptionType5Builder_ != nil {
@@ -4128,6 +4123,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasComplexOptionType5 = true
                builderResult.complexOptionType5 = value
+           }
+      }
+      public var hasComplexOptionType5:Bool {
+           get {
+               return builderResult.hasComplexOptionType5
            }
       }
       fileprivate var complexOptionType5Builder_:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder! {
@@ -4374,11 +4374,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasXyzzy:Bool {
-           get {
-                return builderResult.hasXyzzy
-           }
-      }
       public var xyzzy:Int32 {
            get {
                 return builderResult.xyzzy
@@ -4386,6 +4381,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasXyzzy = true
                builderResult.xyzzy = value
+           }
+      }
+      public var hasXyzzy:Bool {
+           get {
+                return builderResult.hasXyzzy
            }
       }
       @discardableResult
@@ -4476,7 +4476,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // Note that we try various different ways of naming the same extension.
+  /// Note that we try various different ways of naming the same extension.
   final public class VariousComplexOptions : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
@@ -4928,11 +4928,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasS:Bool {
-           get {
-                return builderResult.hasS
-           }
-      }
       public var s:String {
            get {
                 return builderResult.s
@@ -4940,6 +4935,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasS = true
                builderResult.s = value
+           }
+      }
+      public var hasS:Bool {
+           get {
+                return builderResult.hasS
            }
       }
       @discardableResult
@@ -5028,7 +5028,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // A helper type used to test aggregate option parsing
+  /// A helper type used to test aggregate option parsing
   final public class Aggregate : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
@@ -5259,11 +5259,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasI:Bool {
-           get {
-                return builderResult.hasI
-           }
-      }
       public var i:Int32 {
            get {
                 return builderResult.i
@@ -5271,6 +5266,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasI = true
                builderResult.i = value
+           }
+      }
+      public var hasI:Bool {
+           get {
+                return builderResult.hasI
            }
       }
       @discardableResult
@@ -5284,11 +5284,6 @@ public extension ProtobufUnittest {
            builderResult.i = Int32(0)
            return self
       }
-      public var hasS:Bool {
-           get {
-                return builderResult.hasS
-           }
-      }
       public var s:String {
            get {
                 return builderResult.s
@@ -5296,6 +5291,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasS = true
                builderResult.s = value
+           }
+      }
+      public var hasS:Bool {
+           get {
+                return builderResult.hasS
            }
       }
       @discardableResult
@@ -5309,11 +5309,7 @@ public extension ProtobufUnittest {
            builderResult.s = ""
            return self
       }
-      public var hasSub:Bool {
-           get {
-               return builderResult.hasSub
-           }
-      }
+      /// A nested object
       public var sub:ProtobufUnittest.Aggregate! {
            get {
                if subBuilder_ != nil {
@@ -5324,6 +5320,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasSub = true
                builderResult.sub = value
+           }
+      }
+      public var hasSub:Bool {
+           get {
+               return builderResult.hasSub
            }
       }
       fileprivate var subBuilder_:ProtobufUnittest.Aggregate.Builder! {
@@ -5363,11 +5364,7 @@ public extension ProtobufUnittest {
         builderResult.sub = nil
         return self
       }
-      public var hasFile:Bool {
-           get {
-               return builderResult.hasFile
-           }
-      }
+      /// To test the parsing of extensions inside aggregate values
       public var file:Google.Protobuf.FileOptions! {
            get {
                if fileBuilder_ != nil {
@@ -5378,6 +5375,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFile = true
                builderResult.file = value
+           }
+      }
+      public var hasFile:Bool {
+           get {
+               return builderResult.hasFile
            }
       }
       fileprivate var fileBuilder_:Google.Protobuf.FileOptions.Builder! {
@@ -5417,11 +5419,7 @@ public extension ProtobufUnittest {
         builderResult.file = nil
         return self
       }
-      public var hasMset:Bool {
-           get {
-               return builderResult.hasMset
-           }
-      }
+      /// An embedded message set
       public var mset:ProtobufUnittest.AggregateMessageSet! {
            get {
                if msetBuilder_ != nil {
@@ -5432,6 +5430,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasMset = true
                builderResult.mset = value
+           }
+      }
+      public var hasMset:Bool {
+           get {
+               return builderResult.hasMset
            }
       }
       fileprivate var msetBuilder_:ProtobufUnittest.AggregateMessageSet.Builder! {
@@ -5717,11 +5720,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasFieldname:Bool {
-           get {
-                return builderResult.hasFieldname
-           }
-      }
       public var fieldname:Int32 {
            get {
                 return builderResult.fieldname
@@ -5729,6 +5727,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFieldname = true
                builderResult.fieldname = value
+           }
+      }
+      public var hasFieldname:Bool {
+           get {
+                return builderResult.hasFieldname
            }
       }
       @discardableResult
@@ -5819,7 +5822,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // Test custom options for nested type.
+  /// Test custom options for nested type.
   final public class NestedOptionType : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
@@ -5950,11 +5953,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasNestedField:Bool {
-               get {
-                    return builderResult.hasNestedField
-               }
-          }
           public var nestedField:Int32 {
                get {
                     return builderResult.nestedField
@@ -5962,6 +5960,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasNestedField = true
                    builderResult.nestedField = value
+               }
+          }
+          public var hasNestedField:Bool {
+               get {
+                    return builderResult.hasNestedField
                }
           }
           @discardableResult

@@ -304,11 +304,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasI:Bool {
-           get {
-                return builderResult.hasI
-           }
-      }
       public var i:Int32 {
            get {
                 return builderResult.i
@@ -316,6 +311,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasI = true
                builderResult.i = value
+           }
+      }
+      public var hasI:Bool {
+           get {
+                return builderResult.hasI
            }
       }
       @discardableResult
@@ -329,11 +329,6 @@ public extension ProtobufUnittest {
            builderResult.i = Int32(0)
            return self
       }
-      public var hasMsg:Bool {
-           get {
-               return builderResult.hasMsg
-           }
-      }
       public var msg:ProtobufUnittest.ForeignMessage! {
            get {
                if msgBuilder_ != nil {
@@ -344,6 +339,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasMsg = true
                builderResult.msg = value
+           }
+      }
+      public var hasMsg:Bool {
+           get {
+               return builderResult.hasMsg
            }
       }
       fileprivate var msgBuilder_:ProtobufUnittest.ForeignMessage.Builder! {
@@ -383,11 +383,6 @@ public extension ProtobufUnittest {
         builderResult.msg = nil
         return self
       }
-      public var hasIntegerField:Bool {
-           get {
-                return builderResult.hasIntegerField
-           }
-      }
       public var integerField:Int32 {
            get {
                 return builderResult.integerField
@@ -395,6 +390,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasIntegerField = true
                builderResult.integerField = value
+           }
+      }
+      public var hasIntegerField:Bool {
+           get {
+                return builderResult.hasIntegerField
            }
       }
       @discardableResult
@@ -408,11 +408,6 @@ public extension ProtobufUnittest {
            builderResult.integerField = Int32(0)
            return self
       }
-      public var hasStringField:Bool {
-           get {
-                return builderResult.hasStringField
-           }
-      }
       public var stringField:String {
            get {
                 return builderResult.stringField
@@ -420,6 +415,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasStringField = true
                builderResult.stringField = value
+           }
+      }
+      public var hasStringField:Bool {
+           get {
+                return builderResult.hasStringField
            }
       }
       @discardableResult
@@ -664,11 +664,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasX:Bool {
-           get {
-                return builderResult.hasX
-           }
-      }
       public var x:Int32 {
            get {
                 return builderResult.x
@@ -676,6 +671,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasX = true
                builderResult.x = value
+           }
+      }
+      public var hasX:Bool {
+           get {
+                return builderResult.hasX
            }
       }
       @discardableResult
@@ -893,11 +893,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasO:Bool {
-           get {
-               return builderResult.hasO
-           }
-      }
       public var o:ProtobufUnittest.TestRequiredOptimizedForSize! {
            get {
                if oBuilder_ != nil {
@@ -908,6 +903,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasO = true
                builderResult.o = value
+           }
+      }
+      public var hasO:Bool {
+           get {
+               return builderResult.hasO
            }
       }
       fileprivate var oBuilder_:ProtobufUnittest.TestRequiredOptimizedForSize.Builder! {

@@ -8,7 +8,7 @@ import ProtocolBuffers
 
 public extension ProtobufUnittest{}
 
-// Singular
+/// Singular
 public var UnittestLiteRootoptionalInt32ExtensionLite:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootoptionalInt32ExtensionLiteStatic
@@ -139,7 +139,7 @@ public var UnittestLiteRootoptionalLazyMessageExtensionLite:ConcreateExtensionFi
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootoptionalLazyMessageExtensionLiteStatic
    }
 }
-// Repeated
+/// Repeated
 public var UnittestLiteRootrepeatedInt32ExtensionLite:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootrepeatedInt32ExtensionLiteStatic
@@ -265,7 +265,7 @@ public var UnittestLiteRootrepeatedLazyMessageExtensionLite:ConcreateExtensionFi
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootrepeatedLazyMessageExtensionLiteStatic
    }
 }
-// Singular with defaults
+/// Singular with defaults
 public var UnittestLiteRootdefaultInt32ExtensionLite:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootdefaultInt32ExtensionLiteStatic
@@ -366,7 +366,7 @@ public var UnittestLiteRootdefaultCordExtensionLite:ConcreateExtensionField {
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootdefaultCordExtensionLiteStatic
    }
 }
-// For oneof test
+/// For oneof test
 public var UnittestLiteRootoneofUint32ExtensionLite:ConcreateExtensionField {
    get {
        return ProtobufUnittest.UnittestLiteRoot.default.UnittestLiteRootoneofUint32ExtensionLiteStatic
@@ -1065,7 +1065,7 @@ public extension ProtobufUnittest {
 
   //Enum type declaration end 
 
-  // Same as TestAllTypes but with the lite runtime.
+  /// Same as TestAllTypes but with the lite runtime.
   final public class TestAllTypesLite : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.TestAllTypesLite, rhs: ProtobufUnittest.TestAllTypesLite) -> Bool {
@@ -1271,11 +1271,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasBb:Bool {
-               get {
-                    return builderResult.hasBb
-               }
-          }
           public var bb:Int32 {
                get {
                     return builderResult.bb
@@ -1283,6 +1278,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasBb = true
                    builderResult.bb = value
+               }
+          }
+          public var hasBb:Bool {
+               get {
+                    return builderResult.hasBb
                }
           }
           @discardableResult
@@ -1494,11 +1494,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasA:Bool {
-               get {
-                    return builderResult.hasA
-               }
-          }
           public var a:Int32 {
                get {
                     return builderResult.a
@@ -1506,6 +1501,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasA = true
                    builderResult.a = value
+               }
+          }
+          public var hasA:Bool {
+               get {
+                    return builderResult.hasA
                }
           }
           @discardableResult
@@ -1717,11 +1717,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasA:Bool {
-               get {
-                    return builderResult.hasA
-               }
-          }
           public var a:Int32 {
                get {
                     return builderResult.a
@@ -1729,6 +1724,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasA = true
                    builderResult.a = value
+               }
+          }
+          public var hasA:Bool {
+               get {
+                    return builderResult.hasA
                }
           }
           @discardableResult
@@ -1825,7 +1825,7 @@ public extension ProtobufUnittest {
 
     //OneOf declaration start
 
-    // For oneof test
+    /// For oneof test
     public enum OneofField {
       case OneOfOneofFieldNotSet
 
@@ -1921,7 +1921,7 @@ public extension ProtobufUnittest {
 
       //Enum type declaration end 
 
-    // Singular
+    /// Singular
     public fileprivate(set) var optionalInt32:Int32 = Int32(0)
     public fileprivate(set) var hasOptionalInt32:Bool = false
 
@@ -1991,7 +1991,7 @@ public extension ProtobufUnittest {
     public fileprivate(set) var hasOptionalPublicImportMessage:Bool = false
     public fileprivate(set) var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage!
     public fileprivate(set) var hasOptionalLazyMessage:Bool = false
-    // Repeated
+    /// Repeated
     public fileprivate(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     public fileprivate(set) var repeatedInt64:Array<Int64> = Array<Int64>()
     public fileprivate(set) var repeatedUint32:Array<UInt32> = Array<UInt32>()
@@ -2020,7 +2020,7 @@ public extension ProtobufUnittest {
     public fileprivate(set) var repeatedStringPiece:Array<String> = Array<String>()
     public fileprivate(set) var repeatedCord:Array<String> = Array<String>()
     public fileprivate(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>  = Array<ProtobufUnittest.TestAllTypesLite.NestedMessage>()
-    // Singular with defaults
+    /// Singular with defaults
     public fileprivate(set) var defaultInt32:Int32 = Int32(41)
     public fileprivate(set) var hasDefaultInt32:Bool = false
 
@@ -3661,11 +3661,7 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasOptionalInt32:Bool {
-           get {
-                return builderResult.hasOptionalInt32
-           }
-      }
+      /// Singular
       public var optionalInt32:Int32 {
            get {
                 return builderResult.optionalInt32
@@ -3673,6 +3669,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalInt32 = true
                builderResult.optionalInt32 = value
+           }
+      }
+      public var hasOptionalInt32:Bool {
+           get {
+                return builderResult.hasOptionalInt32
            }
       }
       @discardableResult
@@ -3686,11 +3687,6 @@ public extension ProtobufUnittest {
            builderResult.optionalInt32 = Int32(0)
            return self
       }
-      public var hasOptionalInt64:Bool {
-           get {
-                return builderResult.hasOptionalInt64
-           }
-      }
       public var optionalInt64:Int64 {
            get {
                 return builderResult.optionalInt64
@@ -3698,6 +3694,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalInt64 = true
                builderResult.optionalInt64 = value
+           }
+      }
+      public var hasOptionalInt64:Bool {
+           get {
+                return builderResult.hasOptionalInt64
            }
       }
       @discardableResult
@@ -3711,11 +3712,6 @@ public extension ProtobufUnittest {
            builderResult.optionalInt64 = Int64(0)
            return self
       }
-      public var hasOptionalUint32:Bool {
-           get {
-                return builderResult.hasOptionalUint32
-           }
-      }
       public var optionalUint32:UInt32 {
            get {
                 return builderResult.optionalUint32
@@ -3723,6 +3719,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalUint32 = true
                builderResult.optionalUint32 = value
+           }
+      }
+      public var hasOptionalUint32:Bool {
+           get {
+                return builderResult.hasOptionalUint32
            }
       }
       @discardableResult
@@ -3736,11 +3737,6 @@ public extension ProtobufUnittest {
            builderResult.optionalUint32 = UInt32(0)
            return self
       }
-      public var hasOptionalUint64:Bool {
-           get {
-                return builderResult.hasOptionalUint64
-           }
-      }
       public var optionalUint64:UInt64 {
            get {
                 return builderResult.optionalUint64
@@ -3748,6 +3744,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalUint64 = true
                builderResult.optionalUint64 = value
+           }
+      }
+      public var hasOptionalUint64:Bool {
+           get {
+                return builderResult.hasOptionalUint64
            }
       }
       @discardableResult
@@ -3761,11 +3762,6 @@ public extension ProtobufUnittest {
            builderResult.optionalUint64 = UInt64(0)
            return self
       }
-      public var hasOptionalSint32:Bool {
-           get {
-                return builderResult.hasOptionalSint32
-           }
-      }
       public var optionalSint32:Int32 {
            get {
                 return builderResult.optionalSint32
@@ -3773,6 +3769,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalSint32 = true
                builderResult.optionalSint32 = value
+           }
+      }
+      public var hasOptionalSint32:Bool {
+           get {
+                return builderResult.hasOptionalSint32
            }
       }
       @discardableResult
@@ -3786,11 +3787,6 @@ public extension ProtobufUnittest {
            builderResult.optionalSint32 = Int32(0)
            return self
       }
-      public var hasOptionalSint64:Bool {
-           get {
-                return builderResult.hasOptionalSint64
-           }
-      }
       public var optionalSint64:Int64 {
            get {
                 return builderResult.optionalSint64
@@ -3798,6 +3794,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalSint64 = true
                builderResult.optionalSint64 = value
+           }
+      }
+      public var hasOptionalSint64:Bool {
+           get {
+                return builderResult.hasOptionalSint64
            }
       }
       @discardableResult
@@ -3811,11 +3812,6 @@ public extension ProtobufUnittest {
            builderResult.optionalSint64 = Int64(0)
            return self
       }
-      public var hasOptionalFixed32:Bool {
-           get {
-                return builderResult.hasOptionalFixed32
-           }
-      }
       public var optionalFixed32:UInt32 {
            get {
                 return builderResult.optionalFixed32
@@ -3823,6 +3819,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalFixed32 = true
                builderResult.optionalFixed32 = value
+           }
+      }
+      public var hasOptionalFixed32:Bool {
+           get {
+                return builderResult.hasOptionalFixed32
            }
       }
       @discardableResult
@@ -3836,11 +3837,6 @@ public extension ProtobufUnittest {
            builderResult.optionalFixed32 = UInt32(0)
            return self
       }
-      public var hasOptionalFixed64:Bool {
-           get {
-                return builderResult.hasOptionalFixed64
-           }
-      }
       public var optionalFixed64:UInt64 {
            get {
                 return builderResult.optionalFixed64
@@ -3848,6 +3844,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalFixed64 = true
                builderResult.optionalFixed64 = value
+           }
+      }
+      public var hasOptionalFixed64:Bool {
+           get {
+                return builderResult.hasOptionalFixed64
            }
       }
       @discardableResult
@@ -3861,11 +3862,6 @@ public extension ProtobufUnittest {
            builderResult.optionalFixed64 = UInt64(0)
            return self
       }
-      public var hasOptionalSfixed32:Bool {
-           get {
-                return builderResult.hasOptionalSfixed32
-           }
-      }
       public var optionalSfixed32:Int32 {
            get {
                 return builderResult.optionalSfixed32
@@ -3873,6 +3869,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalSfixed32 = true
                builderResult.optionalSfixed32 = value
+           }
+      }
+      public var hasOptionalSfixed32:Bool {
+           get {
+                return builderResult.hasOptionalSfixed32
            }
       }
       @discardableResult
@@ -3886,11 +3887,6 @@ public extension ProtobufUnittest {
            builderResult.optionalSfixed32 = Int32(0)
            return self
       }
-      public var hasOptionalSfixed64:Bool {
-           get {
-                return builderResult.hasOptionalSfixed64
-           }
-      }
       public var optionalSfixed64:Int64 {
            get {
                 return builderResult.optionalSfixed64
@@ -3898,6 +3894,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalSfixed64 = true
                builderResult.optionalSfixed64 = value
+           }
+      }
+      public var hasOptionalSfixed64:Bool {
+           get {
+                return builderResult.hasOptionalSfixed64
            }
       }
       @discardableResult
@@ -3911,11 +3912,6 @@ public extension ProtobufUnittest {
            builderResult.optionalSfixed64 = Int64(0)
            return self
       }
-      public var hasOptionalFloat:Bool {
-           get {
-                return builderResult.hasOptionalFloat
-           }
-      }
       public var optionalFloat:Float {
            get {
                 return builderResult.optionalFloat
@@ -3923,6 +3919,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalFloat = true
                builderResult.optionalFloat = value
+           }
+      }
+      public var hasOptionalFloat:Bool {
+           get {
+                return builderResult.hasOptionalFloat
            }
       }
       @discardableResult
@@ -3936,11 +3937,6 @@ public extension ProtobufUnittest {
            builderResult.optionalFloat = Float(0)
            return self
       }
-      public var hasOptionalDouble:Bool {
-           get {
-                return builderResult.hasOptionalDouble
-           }
-      }
       public var optionalDouble:Double {
            get {
                 return builderResult.optionalDouble
@@ -3948,6 +3944,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalDouble = true
                builderResult.optionalDouble = value
+           }
+      }
+      public var hasOptionalDouble:Bool {
+           get {
+                return builderResult.hasOptionalDouble
            }
       }
       @discardableResult
@@ -3961,11 +3962,6 @@ public extension ProtobufUnittest {
            builderResult.optionalDouble = Double(0)
            return self
       }
-      public var hasOptionalBool:Bool {
-           get {
-                return builderResult.hasOptionalBool
-           }
-      }
       public var optionalBool:Bool {
            get {
                 return builderResult.optionalBool
@@ -3973,6 +3969,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalBool = true
                builderResult.optionalBool = value
+           }
+      }
+      public var hasOptionalBool:Bool {
+           get {
+                return builderResult.hasOptionalBool
            }
       }
       @discardableResult
@@ -3986,11 +3987,6 @@ public extension ProtobufUnittest {
            builderResult.optionalBool = false
            return self
       }
-      public var hasOptionalString:Bool {
-           get {
-                return builderResult.hasOptionalString
-           }
-      }
       public var optionalString:String {
            get {
                 return builderResult.optionalString
@@ -3998,6 +3994,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalString = true
                builderResult.optionalString = value
+           }
+      }
+      public var hasOptionalString:Bool {
+           get {
+                return builderResult.hasOptionalString
            }
       }
       @discardableResult
@@ -4011,11 +4012,6 @@ public extension ProtobufUnittest {
            builderResult.optionalString = ""
            return self
       }
-      public var hasOptionalBytes:Bool {
-           get {
-                return builderResult.hasOptionalBytes
-           }
-      }
       public var optionalBytes:Data {
            get {
                 return builderResult.optionalBytes
@@ -4023,6 +4019,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalBytes = true
                builderResult.optionalBytes = value
+           }
+      }
+      public var hasOptionalBytes:Bool {
+           get {
+                return builderResult.hasOptionalBytes
            }
       }
       @discardableResult
@@ -4036,11 +4037,6 @@ public extension ProtobufUnittest {
            builderResult.optionalBytes = Data()
            return self
       }
-      public var hasOptionalGroup:Bool {
-           get {
-               return builderResult.hasOptionalGroup
-           }
-      }
       public var optionalGroup:ProtobufUnittest.TestAllTypesLite.OptionalGroup! {
            get {
                if optionalGroupBuilder_ != nil {
@@ -4051,6 +4047,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalGroup = true
                builderResult.optionalGroup = value
+           }
+      }
+      public var hasOptionalGroup:Bool {
+           get {
+               return builderResult.hasOptionalGroup
            }
       }
       fileprivate var optionalGroupBuilder_:ProtobufUnittest.TestAllTypesLite.OptionalGroup.Builder! {
@@ -4090,11 +4091,6 @@ public extension ProtobufUnittest {
         builderResult.optionalGroup = nil
         return self
       }
-      public var hasOptionalNestedMessage:Bool {
-           get {
-               return builderResult.hasOptionalNestedMessage
-           }
-      }
       public var optionalNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
            get {
                if optionalNestedMessageBuilder_ != nil {
@@ -4105,6 +4101,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalNestedMessage = true
                builderResult.optionalNestedMessage = value
+           }
+      }
+      public var hasOptionalNestedMessage:Bool {
+           get {
+               return builderResult.hasOptionalNestedMessage
            }
       }
       fileprivate var optionalNestedMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder! {
@@ -4144,11 +4145,6 @@ public extension ProtobufUnittest {
         builderResult.optionalNestedMessage = nil
         return self
       }
-      public var hasOptionalForeignMessage:Bool {
-           get {
-               return builderResult.hasOptionalForeignMessage
-           }
-      }
       public var optionalForeignMessage:ProtobufUnittest.ForeignMessageLite! {
            get {
                if optionalForeignMessageBuilder_ != nil {
@@ -4159,6 +4155,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalForeignMessage = true
                builderResult.optionalForeignMessage = value
+           }
+      }
+      public var hasOptionalForeignMessage:Bool {
+           get {
+               return builderResult.hasOptionalForeignMessage
            }
       }
       fileprivate var optionalForeignMessageBuilder_:ProtobufUnittest.ForeignMessageLite.Builder! {
@@ -4198,11 +4199,6 @@ public extension ProtobufUnittest {
         builderResult.optionalForeignMessage = nil
         return self
       }
-      public var hasOptionalImportMessage:Bool {
-           get {
-               return builderResult.hasOptionalImportMessage
-           }
-      }
       public var optionalImportMessage:ProtobufUnittestImport.ImportMessageLite! {
            get {
                if optionalImportMessageBuilder_ != nil {
@@ -4213,6 +4209,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalImportMessage = true
                builderResult.optionalImportMessage = value
+           }
+      }
+      public var hasOptionalImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalImportMessage
            }
       }
       fileprivate var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessageLite.Builder! {
@@ -4252,11 +4253,6 @@ public extension ProtobufUnittest {
         builderResult.optionalImportMessage = nil
         return self
       }
-        public var hasOptionalNestedEnum:Bool{
-            get {
-                return builderResult.hasOptionalNestedEnum
-            }
-        }
         public var optionalNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum {
             get {
                 return builderResult.optionalNestedEnum
@@ -4264,6 +4260,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasOptionalNestedEnum = true
                 builderResult.optionalNestedEnum = value
+            }
+        }
+        public var hasOptionalNestedEnum:Bool{
+            get {
+                return builderResult.hasOptionalNestedEnum
             }
         }
       @discardableResult
@@ -4277,11 +4278,6 @@ public extension ProtobufUnittest {
            builderResult.optionalNestedEnum = .foo
            return self
         }
-        public var hasOptionalForeignEnum:Bool{
-            get {
-                return builderResult.hasOptionalForeignEnum
-            }
-        }
         public var optionalForeignEnum:ProtobufUnittest.ForeignEnumLite {
             get {
                 return builderResult.optionalForeignEnum
@@ -4289,6 +4285,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasOptionalForeignEnum = true
                 builderResult.optionalForeignEnum = value
+            }
+        }
+        public var hasOptionalForeignEnum:Bool{
+            get {
+                return builderResult.hasOptionalForeignEnum
             }
         }
       @discardableResult
@@ -4302,11 +4303,6 @@ public extension ProtobufUnittest {
            builderResult.optionalForeignEnum = .foreignLiteFoo
            return self
         }
-        public var hasOptionalImportEnum:Bool{
-            get {
-                return builderResult.hasOptionalImportEnum
-            }
-        }
         public var optionalImportEnum:ProtobufUnittestImport.ImportEnumLite {
             get {
                 return builderResult.optionalImportEnum
@@ -4314,6 +4310,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasOptionalImportEnum = true
                 builderResult.optionalImportEnum = value
+            }
+        }
+        public var hasOptionalImportEnum:Bool{
+            get {
+                return builderResult.hasOptionalImportEnum
             }
         }
       @discardableResult
@@ -4327,11 +4328,6 @@ public extension ProtobufUnittest {
            builderResult.optionalImportEnum = .importLiteFoo
            return self
         }
-      public var hasOptionalStringPiece:Bool {
-           get {
-                return builderResult.hasOptionalStringPiece
-           }
-      }
       public var optionalStringPiece:String {
            get {
                 return builderResult.optionalStringPiece
@@ -4339,6 +4335,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalStringPiece = true
                builderResult.optionalStringPiece = value
+           }
+      }
+      public var hasOptionalStringPiece:Bool {
+           get {
+                return builderResult.hasOptionalStringPiece
            }
       }
       @discardableResult
@@ -4352,11 +4353,6 @@ public extension ProtobufUnittest {
            builderResult.optionalStringPiece = ""
            return self
       }
-      public var hasOptionalCord:Bool {
-           get {
-                return builderResult.hasOptionalCord
-           }
-      }
       public var optionalCord:String {
            get {
                 return builderResult.optionalCord
@@ -4364,6 +4360,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalCord = true
                builderResult.optionalCord = value
+           }
+      }
+      public var hasOptionalCord:Bool {
+           get {
+                return builderResult.hasOptionalCord
            }
       }
       @discardableResult
@@ -4377,11 +4378,7 @@ public extension ProtobufUnittest {
            builderResult.optionalCord = ""
            return self
       }
-      public var hasOptionalPublicImportMessage:Bool {
-           get {
-               return builderResult.hasOptionalPublicImportMessage
-           }
-      }
+      /// Defined in unittest_import_public.proto
       public var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessageLite! {
            get {
                if optionalPublicImportMessageBuilder_ != nil {
@@ -4392,6 +4389,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalPublicImportMessage = true
                builderResult.optionalPublicImportMessage = value
+           }
+      }
+      public var hasOptionalPublicImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalPublicImportMessage
            }
       }
       fileprivate var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessageLite.Builder! {
@@ -4431,11 +4433,6 @@ public extension ProtobufUnittest {
         builderResult.optionalPublicImportMessage = nil
         return self
       }
-      public var hasOptionalLazyMessage:Bool {
-           get {
-               return builderResult.hasOptionalLazyMessage
-           }
-      }
       public var optionalLazyMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
            get {
                if optionalLazyMessageBuilder_ != nil {
@@ -4446,6 +4443,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalLazyMessage = true
                builderResult.optionalLazyMessage = value
+           }
+      }
+      public var hasOptionalLazyMessage:Bool {
+           get {
+               return builderResult.hasOptionalLazyMessage
            }
       }
       fileprivate var optionalLazyMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder! {
@@ -4485,6 +4487,7 @@ public extension ProtobufUnittest {
         builderResult.optionalLazyMessage = nil
         return self
       }
+      /// Repeated
       public var repeatedInt32:Array<Int32> {
            get {
                return builderResult.repeatedInt32
@@ -4935,11 +4938,7 @@ public extension ProtobufUnittest {
         builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasDefaultInt32:Bool {
-           get {
-                return builderResult.hasDefaultInt32
-           }
-      }
+      /// Singular with defaults
       public var defaultInt32:Int32 {
            get {
                 return builderResult.defaultInt32
@@ -4947,6 +4946,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultInt32 = true
                builderResult.defaultInt32 = value
+           }
+      }
+      public var hasDefaultInt32:Bool {
+           get {
+                return builderResult.hasDefaultInt32
            }
       }
       @discardableResult
@@ -4960,11 +4964,6 @@ public extension ProtobufUnittest {
            builderResult.defaultInt32 = Int32(41)
            return self
       }
-      public var hasDefaultInt64:Bool {
-           get {
-                return builderResult.hasDefaultInt64
-           }
-      }
       public var defaultInt64:Int64 {
            get {
                 return builderResult.defaultInt64
@@ -4972,6 +4971,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultInt64 = true
                builderResult.defaultInt64 = value
+           }
+      }
+      public var hasDefaultInt64:Bool {
+           get {
+                return builderResult.hasDefaultInt64
            }
       }
       @discardableResult
@@ -4985,11 +4989,6 @@ public extension ProtobufUnittest {
            builderResult.defaultInt64 = Int64(42)
            return self
       }
-      public var hasDefaultUint32:Bool {
-           get {
-                return builderResult.hasDefaultUint32
-           }
-      }
       public var defaultUint32:UInt32 {
            get {
                 return builderResult.defaultUint32
@@ -4997,6 +4996,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultUint32 = true
                builderResult.defaultUint32 = value
+           }
+      }
+      public var hasDefaultUint32:Bool {
+           get {
+                return builderResult.hasDefaultUint32
            }
       }
       @discardableResult
@@ -5010,11 +5014,6 @@ public extension ProtobufUnittest {
            builderResult.defaultUint32 = UInt32(43)
            return self
       }
-      public var hasDefaultUint64:Bool {
-           get {
-                return builderResult.hasDefaultUint64
-           }
-      }
       public var defaultUint64:UInt64 {
            get {
                 return builderResult.defaultUint64
@@ -5022,6 +5021,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultUint64 = true
                builderResult.defaultUint64 = value
+           }
+      }
+      public var hasDefaultUint64:Bool {
+           get {
+                return builderResult.hasDefaultUint64
            }
       }
       @discardableResult
@@ -5035,11 +5039,6 @@ public extension ProtobufUnittest {
            builderResult.defaultUint64 = UInt64(44)
            return self
       }
-      public var hasDefaultSint32:Bool {
-           get {
-                return builderResult.hasDefaultSint32
-           }
-      }
       public var defaultSint32:Int32 {
            get {
                 return builderResult.defaultSint32
@@ -5047,6 +5046,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultSint32 = true
                builderResult.defaultSint32 = value
+           }
+      }
+      public var hasDefaultSint32:Bool {
+           get {
+                return builderResult.hasDefaultSint32
            }
       }
       @discardableResult
@@ -5060,11 +5064,6 @@ public extension ProtobufUnittest {
            builderResult.defaultSint32 = Int32(-45)
            return self
       }
-      public var hasDefaultSint64:Bool {
-           get {
-                return builderResult.hasDefaultSint64
-           }
-      }
       public var defaultSint64:Int64 {
            get {
                 return builderResult.defaultSint64
@@ -5072,6 +5071,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultSint64 = true
                builderResult.defaultSint64 = value
+           }
+      }
+      public var hasDefaultSint64:Bool {
+           get {
+                return builderResult.hasDefaultSint64
            }
       }
       @discardableResult
@@ -5085,11 +5089,6 @@ public extension ProtobufUnittest {
            builderResult.defaultSint64 = Int64(46)
            return self
       }
-      public var hasDefaultFixed32:Bool {
-           get {
-                return builderResult.hasDefaultFixed32
-           }
-      }
       public var defaultFixed32:UInt32 {
            get {
                 return builderResult.defaultFixed32
@@ -5097,6 +5096,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultFixed32 = true
                builderResult.defaultFixed32 = value
+           }
+      }
+      public var hasDefaultFixed32:Bool {
+           get {
+                return builderResult.hasDefaultFixed32
            }
       }
       @discardableResult
@@ -5110,11 +5114,6 @@ public extension ProtobufUnittest {
            builderResult.defaultFixed32 = UInt32(47)
            return self
       }
-      public var hasDefaultFixed64:Bool {
-           get {
-                return builderResult.hasDefaultFixed64
-           }
-      }
       public var defaultFixed64:UInt64 {
            get {
                 return builderResult.defaultFixed64
@@ -5122,6 +5121,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultFixed64 = true
                builderResult.defaultFixed64 = value
+           }
+      }
+      public var hasDefaultFixed64:Bool {
+           get {
+                return builderResult.hasDefaultFixed64
            }
       }
       @discardableResult
@@ -5135,11 +5139,6 @@ public extension ProtobufUnittest {
            builderResult.defaultFixed64 = UInt64(48)
            return self
       }
-      public var hasDefaultSfixed32:Bool {
-           get {
-                return builderResult.hasDefaultSfixed32
-           }
-      }
       public var defaultSfixed32:Int32 {
            get {
                 return builderResult.defaultSfixed32
@@ -5147,6 +5146,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultSfixed32 = true
                builderResult.defaultSfixed32 = value
+           }
+      }
+      public var hasDefaultSfixed32:Bool {
+           get {
+                return builderResult.hasDefaultSfixed32
            }
       }
       @discardableResult
@@ -5160,11 +5164,6 @@ public extension ProtobufUnittest {
            builderResult.defaultSfixed32 = Int32(49)
            return self
       }
-      public var hasDefaultSfixed64:Bool {
-           get {
-                return builderResult.hasDefaultSfixed64
-           }
-      }
       public var defaultSfixed64:Int64 {
            get {
                 return builderResult.defaultSfixed64
@@ -5172,6 +5171,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultSfixed64 = true
                builderResult.defaultSfixed64 = value
+           }
+      }
+      public var hasDefaultSfixed64:Bool {
+           get {
+                return builderResult.hasDefaultSfixed64
            }
       }
       @discardableResult
@@ -5185,11 +5189,6 @@ public extension ProtobufUnittest {
            builderResult.defaultSfixed64 = Int64(-50)
            return self
       }
-      public var hasDefaultFloat:Bool {
-           get {
-                return builderResult.hasDefaultFloat
-           }
-      }
       public var defaultFloat:Float {
            get {
                 return builderResult.defaultFloat
@@ -5197,6 +5196,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultFloat = true
                builderResult.defaultFloat = value
+           }
+      }
+      public var hasDefaultFloat:Bool {
+           get {
+                return builderResult.hasDefaultFloat
            }
       }
       @discardableResult
@@ -5210,11 +5214,6 @@ public extension ProtobufUnittest {
            builderResult.defaultFloat = Float(51.5)
            return self
       }
-      public var hasDefaultDouble:Bool {
-           get {
-                return builderResult.hasDefaultDouble
-           }
-      }
       public var defaultDouble:Double {
            get {
                 return builderResult.defaultDouble
@@ -5222,6 +5221,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultDouble = true
                builderResult.defaultDouble = value
+           }
+      }
+      public var hasDefaultDouble:Bool {
+           get {
+                return builderResult.hasDefaultDouble
            }
       }
       @discardableResult
@@ -5235,11 +5239,6 @@ public extension ProtobufUnittest {
            builderResult.defaultDouble = Double(52000)
            return self
       }
-      public var hasDefaultBool:Bool {
-           get {
-                return builderResult.hasDefaultBool
-           }
-      }
       public var defaultBool:Bool {
            get {
                 return builderResult.defaultBool
@@ -5247,6 +5246,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultBool = true
                builderResult.defaultBool = value
+           }
+      }
+      public var hasDefaultBool:Bool {
+           get {
+                return builderResult.hasDefaultBool
            }
       }
       @discardableResult
@@ -5260,11 +5264,6 @@ public extension ProtobufUnittest {
            builderResult.defaultBool = true
            return self
       }
-      public var hasDefaultString:Bool {
-           get {
-                return builderResult.hasDefaultString
-           }
-      }
       public var defaultString:String {
            get {
                 return builderResult.defaultString
@@ -5272,6 +5271,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultString = true
                builderResult.defaultString = value
+           }
+      }
+      public var hasDefaultString:Bool {
+           get {
+                return builderResult.hasDefaultString
            }
       }
       @discardableResult
@@ -5285,11 +5289,6 @@ public extension ProtobufUnittest {
            builderResult.defaultString = "hello"
            return self
       }
-      public var hasDefaultBytes:Bool {
-           get {
-                return builderResult.hasDefaultBytes
-           }
-      }
       public var defaultBytes:Data {
            get {
                 return builderResult.defaultBytes
@@ -5297,6 +5296,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultBytes = true
                builderResult.defaultBytes = value
+           }
+      }
+      public var hasDefaultBytes:Bool {
+           get {
+                return builderResult.hasDefaultBytes
            }
       }
       @discardableResult
@@ -5310,11 +5314,6 @@ public extension ProtobufUnittest {
            builderResult.defaultBytes = Data(bytes:([UInt8]() + "world".utf8), count:5)
            return self
       }
-        public var hasDefaultNestedEnum:Bool{
-            get {
-                return builderResult.hasDefaultNestedEnum
-            }
-        }
         public var defaultNestedEnum:ProtobufUnittest.TestAllTypesLite.NestedEnum {
             get {
                 return builderResult.defaultNestedEnum
@@ -5322,6 +5321,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasDefaultNestedEnum = true
                 builderResult.defaultNestedEnum = value
+            }
+        }
+        public var hasDefaultNestedEnum:Bool{
+            get {
+                return builderResult.hasDefaultNestedEnum
             }
         }
       @discardableResult
@@ -5335,11 +5339,6 @@ public extension ProtobufUnittest {
            builderResult.defaultNestedEnum = .bar
            return self
         }
-        public var hasDefaultForeignEnum:Bool{
-            get {
-                return builderResult.hasDefaultForeignEnum
-            }
-        }
         public var defaultForeignEnum:ProtobufUnittest.ForeignEnumLite {
             get {
                 return builderResult.defaultForeignEnum
@@ -5347,6 +5346,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasDefaultForeignEnum = true
                 builderResult.defaultForeignEnum = value
+            }
+        }
+        public var hasDefaultForeignEnum:Bool{
+            get {
+                return builderResult.hasDefaultForeignEnum
             }
         }
       @discardableResult
@@ -5360,11 +5364,6 @@ public extension ProtobufUnittest {
            builderResult.defaultForeignEnum = .foreignLiteBar
            return self
         }
-        public var hasDefaultImportEnum:Bool{
-            get {
-                return builderResult.hasDefaultImportEnum
-            }
-        }
         public var defaultImportEnum:ProtobufUnittestImport.ImportEnumLite {
             get {
                 return builderResult.defaultImportEnum
@@ -5372,6 +5371,11 @@ public extension ProtobufUnittest {
             set (value) {
                 builderResult.hasDefaultImportEnum = true
                 builderResult.defaultImportEnum = value
+            }
+        }
+        public var hasDefaultImportEnum:Bool{
+            get {
+                return builderResult.hasDefaultImportEnum
             }
         }
       @discardableResult
@@ -5385,11 +5389,6 @@ public extension ProtobufUnittest {
            builderResult.defaultImportEnum = .importLiteBar
            return self
         }
-      public var hasDefaultStringPiece:Bool {
-           get {
-                return builderResult.hasDefaultStringPiece
-           }
-      }
       public var defaultStringPiece:String {
            get {
                 return builderResult.defaultStringPiece
@@ -5397,6 +5396,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultStringPiece = true
                builderResult.defaultStringPiece = value
+           }
+      }
+      public var hasDefaultStringPiece:Bool {
+           get {
+                return builderResult.hasDefaultStringPiece
            }
       }
       @discardableResult
@@ -5410,11 +5414,6 @@ public extension ProtobufUnittest {
            builderResult.defaultStringPiece = "abc"
            return self
       }
-      public var hasDefaultCord:Bool {
-           get {
-                return builderResult.hasDefaultCord
-           }
-      }
       public var defaultCord:String {
            get {
                 return builderResult.defaultCord
@@ -5422,6 +5421,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDefaultCord = true
                builderResult.defaultCord = value
+           }
+      }
+      public var hasDefaultCord:Bool {
+           get {
+                return builderResult.hasDefaultCord
            }
       }
       @discardableResult
@@ -5435,11 +5439,6 @@ public extension ProtobufUnittest {
            builderResult.defaultCord = "123"
            return self
       }
-      public var hasOneofUint32:Bool {
-           get {
-                return builderResult.hasOneofUint32
-           }
-      }
       public var oneofUint32:UInt32 {
            get {
                 return builderResult.oneofUint32
@@ -5447,6 +5446,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOneofUint32 = true
                builderResult.oneofUint32 = value
+           }
+      }
+      public var hasOneofUint32:Bool {
+           get {
+                return builderResult.hasOneofUint32
            }
       }
       @discardableResult
@@ -5460,11 +5464,6 @@ public extension ProtobufUnittest {
            builderResult.oneofUint32 = UInt32(0)
            return self
       }
-      public var hasOneofNestedMessage:Bool {
-           get {
-               return builderResult.hasOneofNestedMessage
-           }
-      }
       public var oneofNestedMessage:ProtobufUnittest.TestAllTypesLite.NestedMessage! {
            get {
                if oneofNestedMessageBuilder_ != nil {
@@ -5475,6 +5474,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOneofNestedMessage = true
                builderResult.oneofNestedMessage = value
+           }
+      }
+      public var hasOneofNestedMessage:Bool {
+           get {
+               return builderResult.hasOneofNestedMessage
            }
       }
       fileprivate var oneofNestedMessageBuilder_:ProtobufUnittest.TestAllTypesLite.NestedMessage.Builder! {
@@ -5514,11 +5518,6 @@ public extension ProtobufUnittest {
         builderResult.oneofNestedMessage = nil
         return self
       }
-      public var hasOneofString:Bool {
-           get {
-                return builderResult.hasOneofString
-           }
-      }
       public var oneofString:String {
            get {
                 return builderResult.oneofString
@@ -5526,6 +5525,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOneofString = true
                builderResult.oneofString = value
+           }
+      }
+      public var hasOneofString:Bool {
+           get {
+                return builderResult.hasOneofString
            }
       }
       @discardableResult
@@ -5539,11 +5543,6 @@ public extension ProtobufUnittest {
            builderResult.oneofString = ""
            return self
       }
-      public var hasOneofBytes:Bool {
-           get {
-                return builderResult.hasOneofBytes
-           }
-      }
       public var oneofBytes:Data {
            get {
                 return builderResult.oneofBytes
@@ -5551,6 +5550,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOneofBytes = true
                builderResult.oneofBytes = value
+           }
+      }
+      public var hasOneofBytes:Bool {
+           get {
+                return builderResult.hasOneofBytes
            }
       }
       @discardableResult
@@ -6680,11 +6684,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasC:Bool {
-           get {
-                return builderResult.hasC
-           }
-      }
       public var c:Int32 {
            get {
                 return builderResult.c
@@ -6692,6 +6691,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasC = true
                builderResult.c = value
+           }
+      }
+      public var hasC:Bool {
+           get {
+                return builderResult.hasC
            }
       }
       @discardableResult
@@ -8216,11 +8220,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasA:Bool {
-           get {
-                return builderResult.hasA
-           }
-      }
       public var a:Int32 {
            get {
                 return builderResult.a
@@ -8228,6 +8227,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasA = true
                builderResult.a = value
+           }
+      }
+      public var hasA:Bool {
+           get {
+                return builderResult.hasA
            }
       }
       @discardableResult
@@ -8433,11 +8437,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasA:Bool {
-           get {
-                return builderResult.hasA
-           }
-      }
       public var a:Int32 {
            get {
                 return builderResult.a
@@ -8445,6 +8444,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasA = true
                builderResult.a = value
+           }
+      }
+      public var hasA:Bool {
+           get {
+                return builderResult.hasA
            }
       }
       @discardableResult
@@ -8871,8 +8875,8 @@ public extension ProtobufUnittest {
 
   }
 
-  // Test that deprecated fields work.  We only verify that they compile (at one
-  // point this failed).
+  /// Test that deprecated fields work.  We only verify that they compile (at one
+  /// point this failed).
   final public class TestDeprecatedLite : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.TestDeprecatedLite, rhs: ProtobufUnittest.TestDeprecatedLite) -> Bool {
@@ -8989,11 +8993,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasDeprecatedField:Bool {
-           get {
-                return builderResult.hasDeprecatedField
-           }
-      }
       public var deprecatedField:Int32 {
            get {
                 return builderResult.deprecatedField
@@ -9001,6 +9000,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDeprecatedField = true
                builderResult.deprecatedField = value
+           }
+      }
+      public var hasDeprecatedField:Bool {
+           get {
+                return builderResult.hasDeprecatedField
            }
       }
       @discardableResult
@@ -9091,7 +9095,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // See the comments of the same type in unittest.proto.
+  /// See the comments of the same type in unittest.proto.
   final public class TestParsingMergeLite : ExtendableMessage {
 
     public static func == (lhs: ProtobufUnittest.TestParsingMergeLite, rhs: ProtobufUnittest.TestParsingMergeLite) -> Bool {
@@ -9257,11 +9261,6 @@ public extension ProtobufUnittest {
               required override public init () {
                  super.init()
               }
-              public var hasField1:Bool {
-                   get {
-                       return builderResult.hasField1
-                   }
-              }
               public var field1:ProtobufUnittest.TestAllTypesLite! {
                    get {
                        if field1Builder_ != nil {
@@ -9272,6 +9271,11 @@ public extension ProtobufUnittest {
                    set (value) {
                        builderResult.hasField1 = true
                        builderResult.field1 = value
+                   }
+              }
+              public var hasField1:Bool {
+                   get {
+                       return builderResult.hasField1
                    }
               }
               fileprivate var field1Builder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -9520,11 +9524,6 @@ public extension ProtobufUnittest {
               required override public init () {
                  super.init()
               }
-              public var hasField1:Bool {
-                   get {
-                       return builderResult.hasField1
-                   }
-              }
               public var field1:ProtobufUnittest.TestAllTypesLite! {
                    get {
                        if field1Builder_ != nil {
@@ -9535,6 +9534,11 @@ public extension ProtobufUnittest {
                    set (value) {
                        builderResult.hasField1 = true
                        builderResult.field1 = value
+                   }
+              }
+              public var hasField1:Bool {
+                   get {
+                       return builderResult.hasField1
                    }
               }
               fileprivate var field1Builder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -10356,11 +10360,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasOptionalGroupAllTypes:Bool {
-               get {
-                   return builderResult.hasOptionalGroupAllTypes
-               }
-          }
           public var optionalGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
                get {
                    if optionalGroupAllTypesBuilder_ != nil {
@@ -10371,6 +10370,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasOptionalGroupAllTypes = true
                    builderResult.optionalGroupAllTypes = value
+               }
+          }
+          public var hasOptionalGroupAllTypes:Bool {
+               get {
+                   return builderResult.hasOptionalGroupAllTypes
                }
           }
           fileprivate var optionalGroupAllTypesBuilder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -10619,11 +10623,6 @@ public extension ProtobufUnittest {
           required override public init () {
              super.init()
           }
-          public var hasRepeatedGroupAllTypes:Bool {
-               get {
-                   return builderResult.hasRepeatedGroupAllTypes
-               }
-          }
           public var repeatedGroupAllTypes:ProtobufUnittest.TestAllTypesLite! {
                get {
                    if repeatedGroupAllTypesBuilder_ != nil {
@@ -10634,6 +10633,11 @@ public extension ProtobufUnittest {
                set (value) {
                    builderResult.hasRepeatedGroupAllTypes = true
                    builderResult.repeatedGroupAllTypes = value
+               }
+          }
+          public var hasRepeatedGroupAllTypes:Bool {
+               get {
+                   return builderResult.hasRepeatedGroupAllTypes
                }
           }
           fileprivate var repeatedGroupAllTypesBuilder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -10982,11 +10986,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasRequiredAllTypes:Bool {
-           get {
-               return builderResult.hasRequiredAllTypes
-           }
-      }
       public var requiredAllTypes:ProtobufUnittest.TestAllTypesLite! {
            get {
                if requiredAllTypesBuilder_ != nil {
@@ -10997,6 +10996,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasRequiredAllTypes = true
                builderResult.requiredAllTypes = value
+           }
+      }
+      public var hasRequiredAllTypes:Bool {
+           get {
+               return builderResult.hasRequiredAllTypes
            }
       }
       fileprivate var requiredAllTypesBuilder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -11036,11 +11040,6 @@ public extension ProtobufUnittest {
         builderResult.requiredAllTypes = nil
         return self
       }
-      public var hasOptionalAllTypes:Bool {
-           get {
-               return builderResult.hasOptionalAllTypes
-           }
-      }
       public var optionalAllTypes:ProtobufUnittest.TestAllTypesLite! {
            get {
                if optionalAllTypesBuilder_ != nil {
@@ -11051,6 +11050,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalAllTypes = true
                builderResult.optionalAllTypes = value
+           }
+      }
+      public var hasOptionalAllTypes:Bool {
+           get {
+               return builderResult.hasOptionalAllTypes
            }
       }
       fileprivate var optionalAllTypesBuilder_:ProtobufUnittest.TestAllTypesLite.Builder! {
@@ -11108,11 +11112,6 @@ public extension ProtobufUnittest {
         builderResult.repeatedAllTypes.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOptionalGroup:Bool {
-           get {
-               return builderResult.hasOptionalGroup
-           }
-      }
       public var optionalGroup:ProtobufUnittest.TestParsingMergeLite.OptionalGroup! {
            get {
                if optionalGroupBuilder_ != nil {
@@ -11123,6 +11122,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalGroup = true
                builderResult.optionalGroup = value
+           }
+      }
+      public var hasOptionalGroup:Bool {
+           get {
+               return builderResult.hasOptionalGroup
            }
       }
       fileprivate var optionalGroupBuilder_:ProtobufUnittest.TestParsingMergeLite.OptionalGroup.Builder! {
@@ -11326,7 +11330,7 @@ public extension ProtobufUnittest {
 
   }
 
-  // TestEmptyMessageLite is used to test unknown fields support in lite mode.
+  /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
   final public class TestEmptyMessageLite : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.TestEmptyMessageLite, rhs: ProtobufUnittest.TestEmptyMessageLite) -> Bool {
@@ -11489,8 +11493,8 @@ public extension ProtobufUnittest {
 
   }
 
-  // Like above, but declare all field numbers as potential extensions.  No
-  // actual extensions should ever be defined for this type.
+  /// Like above, but declare all field numbers as potential extensions.  No
+  /// actual extensions should ever be defined for this type.
   final public class TestEmptyMessageWithExtensionsLite : ExtendableMessage {
 
     public static func == (lhs: ProtobufUnittest.TestEmptyMessageWithExtensionsLite, rhs: ProtobufUnittest.TestEmptyMessageWithExtensionsLite) -> Bool {

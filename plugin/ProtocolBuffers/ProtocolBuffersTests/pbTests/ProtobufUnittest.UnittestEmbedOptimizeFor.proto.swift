@@ -185,11 +185,8 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasOptionalMessage:Bool {
-           get {
-               return builderResult.hasOptionalMessage
-           }
-      }
+      /// Test that embedding a message which has optimize_for = CODE_SIZE into
+      /// one optimized for speed works.
       public var optionalMessage:ProtobufUnittest.TestOptimizedForSize! {
            get {
                if optionalMessageBuilder_ != nil {
@@ -200,6 +197,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasOptionalMessage = true
                builderResult.optionalMessage = value
+           }
+      }
+      public var hasOptionalMessage:Bool {
+           get {
+               return builderResult.hasOptionalMessage
            }
       }
       fileprivate var optionalMessageBuilder_:ProtobufUnittest.TestOptimizedForSize.Builder! {

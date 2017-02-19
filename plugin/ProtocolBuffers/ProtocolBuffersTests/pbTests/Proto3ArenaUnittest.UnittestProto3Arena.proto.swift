@@ -62,8 +62,8 @@ public extension Proto3ArenaUnittest {
 
   //Enum type declaration end 
 
-  // This proto includes every type of field in both singular and repeated
-  // forms.
+  /// This proto includes every type of field in both singular and repeated
+  /// forms.
   final public class TestAllTypes : GeneratedMessage {
 
     public static func == (lhs: Proto3ArenaUnittest.TestAllTypes, rhs: Proto3ArenaUnittest.TestAllTypes) -> Bool {
@@ -142,9 +142,9 @@ public extension Proto3ArenaUnittest {
           return fieldCheck
         }
 
-        // The field name "b" fails to compile in proto1 because it conflicts with
-        // a local variable named "b" in one of the generated methods.  Doh.
-        // This file needs to compile in proto1 to test backwards-compatibility.
+        /// The field name "b" fails to compile in proto1 because it conflicts with
+        /// a local variable named "b" in one of the generated methods.  Doh.
+        /// This file needs to compile in proto1 to test backwards-compatibility.
         public fileprivate(set) var bb:Int32 = Int32(0)
         public fileprivate(set) var hasBb:Bool = false
 
@@ -248,11 +248,9 @@ public extension Proto3ArenaUnittest {
           required override public init () {
              super.init()
           }
-          public var hasBb:Bool {
-               get {
-                    return builderResult.hasBb
-               }
-          }
+          /// The field name "b" fails to compile in proto1 because it conflicts with
+          /// a local variable named "b" in one of the generated methods.  Doh.
+          /// This file needs to compile in proto1 to test backwards-compatibility.
           public var bb:Int32 {
                get {
                     return builderResult.bb
@@ -260,6 +258,11 @@ public extension Proto3ArenaUnittest {
                set (value) {
                    builderResult.hasBb = true
                    builderResult.bb = value
+               }
+          }
+          public var hasBb:Bool {
+               get {
+                    return builderResult.hasBb
                }
           }
           @discardableResult
@@ -425,7 +428,7 @@ public extension Proto3ArenaUnittest {
         case bar = 2
         case baz = 3
 
-        // Intentionally negative.
+        /// Intentionally negative.
         case neg = -1
         public func toString() -> String {
           switch self {
@@ -461,7 +464,7 @@ public extension Proto3ArenaUnittest {
 
       //Enum type declaration end 
 
-    // Singular
+    /// Singular
     public fileprivate(set) var optionalInt32:Int32 = Int32(0)
     public fileprivate(set) var hasOptionalInt32:Bool = false
 
@@ -527,7 +530,7 @@ public extension Proto3ArenaUnittest {
     public fileprivate(set) var hasOptionalPublicImportMessage:Bool = false
     public fileprivate(set) var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage!
     public fileprivate(set) var hasOptionalLazyMessage:Bool = false
-    // Repeated
+    /// Repeated
     public fileprivate(set) var repeatedInt32:Array<Int32> = Array<Int32>()
     private var repeatedInt32MemoizedSerializedSize:Int32 = -1
     public fileprivate(set) var repeatedInt64:Array<Int64> = Array<Int64>()
@@ -1857,11 +1860,7 @@ public extension Proto3ArenaUnittest {
       required override public init () {
          super.init()
       }
-      public var hasOptionalInt32:Bool {
-           get {
-                return builderResult.hasOptionalInt32
-           }
-      }
+      /// Singular
       public var optionalInt32:Int32 {
            get {
                 return builderResult.optionalInt32
@@ -1869,6 +1868,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalInt32 = true
                builderResult.optionalInt32 = value
+           }
+      }
+      public var hasOptionalInt32:Bool {
+           get {
+                return builderResult.hasOptionalInt32
            }
       }
       @discardableResult
@@ -1882,11 +1886,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalInt32 = Int32(0)
            return self
       }
-      public var hasOptionalInt64:Bool {
-           get {
-                return builderResult.hasOptionalInt64
-           }
-      }
       public var optionalInt64:Int64 {
            get {
                 return builderResult.optionalInt64
@@ -1894,6 +1893,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalInt64 = true
                builderResult.optionalInt64 = value
+           }
+      }
+      public var hasOptionalInt64:Bool {
+           get {
+                return builderResult.hasOptionalInt64
            }
       }
       @discardableResult
@@ -1907,11 +1911,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalInt64 = Int64(0)
            return self
       }
-      public var hasOptionalUint32:Bool {
-           get {
-                return builderResult.hasOptionalUint32
-           }
-      }
       public var optionalUint32:UInt32 {
            get {
                 return builderResult.optionalUint32
@@ -1919,6 +1918,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalUint32 = true
                builderResult.optionalUint32 = value
+           }
+      }
+      public var hasOptionalUint32:Bool {
+           get {
+                return builderResult.hasOptionalUint32
            }
       }
       @discardableResult
@@ -1932,11 +1936,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalUint32 = UInt32(0)
            return self
       }
-      public var hasOptionalUint64:Bool {
-           get {
-                return builderResult.hasOptionalUint64
-           }
-      }
       public var optionalUint64:UInt64 {
            get {
                 return builderResult.optionalUint64
@@ -1944,6 +1943,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalUint64 = true
                builderResult.optionalUint64 = value
+           }
+      }
+      public var hasOptionalUint64:Bool {
+           get {
+                return builderResult.hasOptionalUint64
            }
       }
       @discardableResult
@@ -1957,11 +1961,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalUint64 = UInt64(0)
            return self
       }
-      public var hasOptionalSint32:Bool {
-           get {
-                return builderResult.hasOptionalSint32
-           }
-      }
       public var optionalSint32:Int32 {
            get {
                 return builderResult.optionalSint32
@@ -1969,6 +1968,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalSint32 = true
                builderResult.optionalSint32 = value
+           }
+      }
+      public var hasOptionalSint32:Bool {
+           get {
+                return builderResult.hasOptionalSint32
            }
       }
       @discardableResult
@@ -1982,11 +1986,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalSint32 = Int32(0)
            return self
       }
-      public var hasOptionalSint64:Bool {
-           get {
-                return builderResult.hasOptionalSint64
-           }
-      }
       public var optionalSint64:Int64 {
            get {
                 return builderResult.optionalSint64
@@ -1994,6 +1993,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalSint64 = true
                builderResult.optionalSint64 = value
+           }
+      }
+      public var hasOptionalSint64:Bool {
+           get {
+                return builderResult.hasOptionalSint64
            }
       }
       @discardableResult
@@ -2007,11 +2011,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalSint64 = Int64(0)
            return self
       }
-      public var hasOptionalFixed32:Bool {
-           get {
-                return builderResult.hasOptionalFixed32
-           }
-      }
       public var optionalFixed32:UInt32 {
            get {
                 return builderResult.optionalFixed32
@@ -2019,6 +2018,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalFixed32 = true
                builderResult.optionalFixed32 = value
+           }
+      }
+      public var hasOptionalFixed32:Bool {
+           get {
+                return builderResult.hasOptionalFixed32
            }
       }
       @discardableResult
@@ -2032,11 +2036,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalFixed32 = UInt32(0)
            return self
       }
-      public var hasOptionalFixed64:Bool {
-           get {
-                return builderResult.hasOptionalFixed64
-           }
-      }
       public var optionalFixed64:UInt64 {
            get {
                 return builderResult.optionalFixed64
@@ -2044,6 +2043,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalFixed64 = true
                builderResult.optionalFixed64 = value
+           }
+      }
+      public var hasOptionalFixed64:Bool {
+           get {
+                return builderResult.hasOptionalFixed64
            }
       }
       @discardableResult
@@ -2057,11 +2061,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalFixed64 = UInt64(0)
            return self
       }
-      public var hasOptionalSfixed32:Bool {
-           get {
-                return builderResult.hasOptionalSfixed32
-           }
-      }
       public var optionalSfixed32:Int32 {
            get {
                 return builderResult.optionalSfixed32
@@ -2069,6 +2068,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalSfixed32 = true
                builderResult.optionalSfixed32 = value
+           }
+      }
+      public var hasOptionalSfixed32:Bool {
+           get {
+                return builderResult.hasOptionalSfixed32
            }
       }
       @discardableResult
@@ -2082,11 +2086,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalSfixed32 = Int32(0)
            return self
       }
-      public var hasOptionalSfixed64:Bool {
-           get {
-                return builderResult.hasOptionalSfixed64
-           }
-      }
       public var optionalSfixed64:Int64 {
            get {
                 return builderResult.optionalSfixed64
@@ -2094,6 +2093,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalSfixed64 = true
                builderResult.optionalSfixed64 = value
+           }
+      }
+      public var hasOptionalSfixed64:Bool {
+           get {
+                return builderResult.hasOptionalSfixed64
            }
       }
       @discardableResult
@@ -2107,11 +2111,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalSfixed64 = Int64(0)
            return self
       }
-      public var hasOptionalFloat:Bool {
-           get {
-                return builderResult.hasOptionalFloat
-           }
-      }
       public var optionalFloat:Float {
            get {
                 return builderResult.optionalFloat
@@ -2119,6 +2118,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalFloat = true
                builderResult.optionalFloat = value
+           }
+      }
+      public var hasOptionalFloat:Bool {
+           get {
+                return builderResult.hasOptionalFloat
            }
       }
       @discardableResult
@@ -2132,11 +2136,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalFloat = Float(0)
            return self
       }
-      public var hasOptionalDouble:Bool {
-           get {
-                return builderResult.hasOptionalDouble
-           }
-      }
       public var optionalDouble:Double {
            get {
                 return builderResult.optionalDouble
@@ -2144,6 +2143,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalDouble = true
                builderResult.optionalDouble = value
+           }
+      }
+      public var hasOptionalDouble:Bool {
+           get {
+                return builderResult.hasOptionalDouble
            }
       }
       @discardableResult
@@ -2157,11 +2161,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalDouble = Double(0)
            return self
       }
-      public var hasOptionalBool:Bool {
-           get {
-                return builderResult.hasOptionalBool
-           }
-      }
       public var optionalBool:Bool {
            get {
                 return builderResult.optionalBool
@@ -2169,6 +2168,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalBool = true
                builderResult.optionalBool = value
+           }
+      }
+      public var hasOptionalBool:Bool {
+           get {
+                return builderResult.hasOptionalBool
            }
       }
       @discardableResult
@@ -2182,11 +2186,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalBool = false
            return self
       }
-      public var hasOptionalString:Bool {
-           get {
-                return builderResult.hasOptionalString
-           }
-      }
       public var optionalString:String {
            get {
                 return builderResult.optionalString
@@ -2194,6 +2193,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalString = true
                builderResult.optionalString = value
+           }
+      }
+      public var hasOptionalString:Bool {
+           get {
+                return builderResult.hasOptionalString
            }
       }
       @discardableResult
@@ -2207,11 +2211,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalString = ""
            return self
       }
-      public var hasOptionalBytes:Bool {
-           get {
-                return builderResult.hasOptionalBytes
-           }
-      }
       public var optionalBytes:Data {
            get {
                 return builderResult.optionalBytes
@@ -2219,6 +2218,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalBytes = true
                builderResult.optionalBytes = value
+           }
+      }
+      public var hasOptionalBytes:Bool {
+           get {
+                return builderResult.hasOptionalBytes
            }
       }
       @discardableResult
@@ -2232,11 +2236,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalBytes = Data()
            return self
       }
-      public var hasOptionalNestedMessage:Bool {
-           get {
-               return builderResult.hasOptionalNestedMessage
-           }
-      }
       public var optionalNestedMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage! {
            get {
                if optionalNestedMessageBuilder_ != nil {
@@ -2247,6 +2246,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalNestedMessage = true
                builderResult.optionalNestedMessage = value
+           }
+      }
+      public var hasOptionalNestedMessage:Bool {
+           get {
+               return builderResult.hasOptionalNestedMessage
            }
       }
       fileprivate var optionalNestedMessageBuilder_:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder! {
@@ -2286,11 +2290,6 @@ public extension Proto3ArenaUnittest {
         builderResult.optionalNestedMessage = nil
         return self
       }
-      public var hasOptionalForeignMessage:Bool {
-           get {
-               return builderResult.hasOptionalForeignMessage
-           }
-      }
       public var optionalForeignMessage:Proto3ArenaUnittest.ForeignMessage! {
            get {
                if optionalForeignMessageBuilder_ != nil {
@@ -2301,6 +2300,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalForeignMessage = true
                builderResult.optionalForeignMessage = value
+           }
+      }
+      public var hasOptionalForeignMessage:Bool {
+           get {
+               return builderResult.hasOptionalForeignMessage
            }
       }
       fileprivate var optionalForeignMessageBuilder_:Proto3ArenaUnittest.ForeignMessage.Builder! {
@@ -2340,11 +2344,6 @@ public extension Proto3ArenaUnittest {
         builderResult.optionalForeignMessage = nil
         return self
       }
-      public var hasOptionalImportMessage:Bool {
-           get {
-               return builderResult.hasOptionalImportMessage
-           }
-      }
       public var optionalImportMessage:ProtobufUnittestImport.ImportMessage! {
            get {
                if optionalImportMessageBuilder_ != nil {
@@ -2355,6 +2354,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalImportMessage = true
                builderResult.optionalImportMessage = value
+           }
+      }
+      public var hasOptionalImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalImportMessage
            }
       }
       fileprivate var optionalImportMessageBuilder_:ProtobufUnittestImport.ImportMessage.Builder! {
@@ -2394,11 +2398,6 @@ public extension Proto3ArenaUnittest {
         builderResult.optionalImportMessage = nil
         return self
       }
-        public var hasOptionalNestedEnum:Bool{
-            get {
-                return builderResult.hasOptionalNestedEnum
-            }
-        }
         public var optionalNestedEnum:Proto3ArenaUnittest.TestAllTypes.NestedEnum {
             get {
                 return builderResult.optionalNestedEnum
@@ -2406,6 +2405,11 @@ public extension Proto3ArenaUnittest {
             set (value) {
                 builderResult.hasOptionalNestedEnum = true
                 builderResult.optionalNestedEnum = value
+            }
+        }
+        public var hasOptionalNestedEnum:Bool{
+            get {
+                return builderResult.hasOptionalNestedEnum
             }
         }
       @discardableResult
@@ -2419,11 +2423,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalNestedEnum = .zero
            return self
         }
-        public var hasOptionalForeignEnum:Bool{
-            get {
-                return builderResult.hasOptionalForeignEnum
-            }
-        }
         public var optionalForeignEnum:Proto3ArenaUnittest.ForeignEnum {
             get {
                 return builderResult.optionalForeignEnum
@@ -2431,6 +2430,11 @@ public extension Proto3ArenaUnittest {
             set (value) {
                 builderResult.hasOptionalForeignEnum = true
                 builderResult.optionalForeignEnum = value
+            }
+        }
+        public var hasOptionalForeignEnum:Bool{
+            get {
+                return builderResult.hasOptionalForeignEnum
             }
         }
       @discardableResult
@@ -2444,11 +2448,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalForeignEnum = .foreignZero
            return self
         }
-      public var hasOptionalStringPiece:Bool {
-           get {
-                return builderResult.hasOptionalStringPiece
-           }
-      }
       public var optionalStringPiece:String {
            get {
                 return builderResult.optionalStringPiece
@@ -2456,6 +2455,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalStringPiece = true
                builderResult.optionalStringPiece = value
+           }
+      }
+      public var hasOptionalStringPiece:Bool {
+           get {
+                return builderResult.hasOptionalStringPiece
            }
       }
       @discardableResult
@@ -2469,11 +2473,6 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalStringPiece = ""
            return self
       }
-      public var hasOptionalCord:Bool {
-           get {
-                return builderResult.hasOptionalCord
-           }
-      }
       public var optionalCord:String {
            get {
                 return builderResult.optionalCord
@@ -2481,6 +2480,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalCord = true
                builderResult.optionalCord = value
+           }
+      }
+      public var hasOptionalCord:Bool {
+           get {
+                return builderResult.hasOptionalCord
            }
       }
       @discardableResult
@@ -2494,11 +2498,7 @@ public extension Proto3ArenaUnittest {
            builderResult.optionalCord = ""
            return self
       }
-      public var hasOptionalPublicImportMessage:Bool {
-           get {
-               return builderResult.hasOptionalPublicImportMessage
-           }
-      }
+      /// Defined in unittest_import_public.proto
       public var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage! {
            get {
                if optionalPublicImportMessageBuilder_ != nil {
@@ -2509,6 +2509,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalPublicImportMessage = true
                builderResult.optionalPublicImportMessage = value
+           }
+      }
+      public var hasOptionalPublicImportMessage:Bool {
+           get {
+               return builderResult.hasOptionalPublicImportMessage
            }
       }
       fileprivate var optionalPublicImportMessageBuilder_:ProtobufUnittestImport.PublicImportMessage.Builder! {
@@ -2548,11 +2553,6 @@ public extension Proto3ArenaUnittest {
         builderResult.optionalPublicImportMessage = nil
         return self
       }
-      public var hasOptionalLazyMessage:Bool {
-           get {
-               return builderResult.hasOptionalLazyMessage
-           }
-      }
       public var optionalLazyMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage! {
            get {
                if optionalLazyMessageBuilder_ != nil {
@@ -2563,6 +2563,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOptionalLazyMessage = true
                builderResult.optionalLazyMessage = value
+           }
+      }
+      public var hasOptionalLazyMessage:Bool {
+           get {
+               return builderResult.hasOptionalLazyMessage
            }
       }
       fileprivate var optionalLazyMessageBuilder_:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder! {
@@ -2602,6 +2607,7 @@ public extension Proto3ArenaUnittest {
         builderResult.optionalLazyMessage = nil
         return self
       }
+      /// Repeated
       public var repeatedInt32:Array<Int32> {
            get {
                return builderResult.repeatedInt32
@@ -3016,11 +3022,6 @@ public extension Proto3ArenaUnittest {
         builderResult.repeatedLazyMessage.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOneofUint32:Bool {
-           get {
-                return builderResult.hasOneofUint32
-           }
-      }
       public var oneofUint32:UInt32 {
            get {
                 return builderResult.oneofUint32
@@ -3028,6 +3029,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOneofUint32 = true
                builderResult.oneofUint32 = value
+           }
+      }
+      public var hasOneofUint32:Bool {
+           get {
+                return builderResult.hasOneofUint32
            }
       }
       @discardableResult
@@ -3041,11 +3047,6 @@ public extension Proto3ArenaUnittest {
            builderResult.oneofUint32 = UInt32(0)
            return self
       }
-      public var hasOneofNestedMessage:Bool {
-           get {
-               return builderResult.hasOneofNestedMessage
-           }
-      }
       public var oneofNestedMessage:Proto3ArenaUnittest.TestAllTypes.NestedMessage! {
            get {
                if oneofNestedMessageBuilder_ != nil {
@@ -3056,6 +3057,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOneofNestedMessage = true
                builderResult.oneofNestedMessage = value
+           }
+      }
+      public var hasOneofNestedMessage:Bool {
+           get {
+               return builderResult.hasOneofNestedMessage
            }
       }
       fileprivate var oneofNestedMessageBuilder_:Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder! {
@@ -3095,11 +3101,6 @@ public extension Proto3ArenaUnittest {
         builderResult.oneofNestedMessage = nil
         return self
       }
-      public var hasOneofString:Bool {
-           get {
-                return builderResult.hasOneofString
-           }
-      }
       public var oneofString:String {
            get {
                 return builderResult.oneofString
@@ -3107,6 +3108,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOneofString = true
                builderResult.oneofString = value
+           }
+      }
+      public var hasOneofString:Bool {
+           get {
+                return builderResult.hasOneofString
            }
       }
       @discardableResult
@@ -3120,11 +3126,6 @@ public extension Proto3ArenaUnittest {
            builderResult.oneofString = ""
            return self
       }
-      public var hasOneofBytes:Bool {
-           get {
-                return builderResult.hasOneofBytes
-           }
-      }
       public var oneofBytes:Data {
            get {
                 return builderResult.oneofBytes
@@ -3132,6 +3133,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasOneofBytes = true
                builderResult.oneofBytes = value
+           }
+      }
+      public var hasOneofBytes:Bool {
+           get {
+                return builderResult.hasOneofBytes
            }
       }
       @discardableResult
@@ -5085,7 +5091,7 @@ public extension Proto3ArenaUnittest {
 
   }
 
-  // Explicitly set packed to false
+  /// Explicitly set packed to false
   final public class TestUnpackedTypes : GeneratedMessage {
 
     public static func == (lhs: Proto3ArenaUnittest.TestUnpackedTypes, rhs: Proto3ArenaUnittest.TestUnpackedTypes) -> Bool {
@@ -6234,7 +6240,7 @@ public extension Proto3ArenaUnittest {
 
   }
 
-  // This proto includes a recusively nested message.
+  /// This proto includes a recusively nested message.
   final public class NestedTestAllTypes : GeneratedMessage {
 
     public static func == (lhs: Proto3ArenaUnittest.NestedTestAllTypes, rhs: Proto3ArenaUnittest.NestedTestAllTypes) -> Bool {
@@ -6383,11 +6389,6 @@ public extension Proto3ArenaUnittest {
       required override public init () {
          super.init()
       }
-      public var hasChild:Bool {
-           get {
-               return builderResult.hasChild
-           }
-      }
       public var child:Proto3ArenaUnittest.NestedTestAllTypes! {
            get {
                if childBuilder_ != nil {
@@ -6398,6 +6399,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasChild = true
                builderResult.child = value
+           }
+      }
+      public var hasChild:Bool {
+           get {
+               return builderResult.hasChild
            }
       }
       fileprivate var childBuilder_:Proto3ArenaUnittest.NestedTestAllTypes.Builder! {
@@ -6437,11 +6443,6 @@ public extension Proto3ArenaUnittest {
         builderResult.child = nil
         return self
       }
-      public var hasPayload:Bool {
-           get {
-               return builderResult.hasPayload
-           }
-      }
       public var payload:Proto3ArenaUnittest.TestAllTypes! {
            get {
                if payloadBuilder_ != nil {
@@ -6452,6 +6453,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasPayload = true
                builderResult.payload = value
+           }
+      }
+      public var hasPayload:Bool {
+           get {
+               return builderResult.hasPayload
            }
       }
       fileprivate var payloadBuilder_:Proto3ArenaUnittest.TestAllTypes.Builder! {
@@ -6587,8 +6593,8 @@ public extension Proto3ArenaUnittest {
 
   }
 
-  // Define these after TestAllTypes to make sure the compiler can handle
-  // that.
+  /// Define these after TestAllTypes to make sure the compiler can handle
+  /// that.
   final public class ForeignMessage : GeneratedMessage {
 
     public static func == (lhs: Proto3ArenaUnittest.ForeignMessage, rhs: Proto3ArenaUnittest.ForeignMessage) -> Bool {
@@ -6704,11 +6710,6 @@ public extension Proto3ArenaUnittest {
       required override public init () {
          super.init()
       }
-      public var hasC:Bool {
-           get {
-                return builderResult.hasC
-           }
-      }
       public var c:Int32 {
            get {
                 return builderResult.c
@@ -6716,6 +6717,11 @@ public extension Proto3ArenaUnittest {
            set (value) {
                builderResult.hasC = true
                builderResult.c = value
+           }
+      }
+      public var hasC:Bool {
+           get {
+                return builderResult.hasC
            }
       }
       @discardableResult
@@ -6806,7 +6812,7 @@ public extension Proto3ArenaUnittest {
 
   }
 
-  // TestEmptyMessage is used to test behavior of unknown fields.
+  /// TestEmptyMessage is used to test behavior of unknown fields.
   final public class TestEmptyMessage : GeneratedMessage {
 
     public static func == (lhs: Proto3ArenaUnittest.TestEmptyMessage, rhs: Proto3ArenaUnittest.TestEmptyMessage) -> Bool {

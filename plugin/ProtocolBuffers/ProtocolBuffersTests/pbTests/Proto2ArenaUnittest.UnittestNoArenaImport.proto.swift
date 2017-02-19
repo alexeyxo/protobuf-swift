@@ -136,11 +136,6 @@ public extension Proto2ArenaUnittest {
       required override public init () {
          super.init()
       }
-      public var hasD:Bool {
-           get {
-                return builderResult.hasD
-           }
-      }
       public var d:Int32 {
            get {
                 return builderResult.d
@@ -148,6 +143,11 @@ public extension Proto2ArenaUnittest {
            set (value) {
                builderResult.hasD = true
                builderResult.d = value
+           }
+      }
+      public var hasD:Bool {
+           get {
+                return builderResult.hasD
            }
       }
       @discardableResult

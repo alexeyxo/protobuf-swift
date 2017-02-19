@@ -160,11 +160,6 @@ final internal class PBUser : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasGroup:Bool {
-         get {
-             return builderResult.hasGroup
-         }
-    }
     internal var group:PBGroup! {
          get {
              if groupBuilder_ != nil {
@@ -175,6 +170,11 @@ final internal class PBUser : GeneratedMessage {
          set (value) {
              builderResult.hasGroup = true
              builderResult.group = value
+         }
+    }
+    internal var hasGroup:Bool {
+         get {
+             return builderResult.hasGroup
          }
     }
     fileprivate var groupBuilder_:PBGroup.Builder! {
@@ -214,11 +214,6 @@ final internal class PBUser : GeneratedMessage {
       builderResult.group = nil
       return self
     }
-    internal var hasGroupName:Bool {
-         get {
-              return builderResult.hasGroupName
-         }
-    }
     internal var groupName:String {
          get {
               return builderResult.groupName
@@ -226,6 +221,11 @@ final internal class PBUser : GeneratedMessage {
          set (value) {
              builderResult.hasGroupName = true
              builderResult.groupName = value
+         }
+    }
+    internal var hasGroupName:Bool {
+         get {
+              return builderResult.hasGroupName
          }
     }
     @discardableResult
@@ -451,11 +451,6 @@ final internal class PBGroup : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasOwner:Bool {
-         get {
-             return builderResult.hasOwner
-         }
-    }
     internal var owner:PBUser! {
          get {
              if ownerBuilder_ != nil {
@@ -466,6 +461,11 @@ final internal class PBGroup : GeneratedMessage {
          set (value) {
              builderResult.hasOwner = true
              builderResult.owner = value
+         }
+    }
+    internal var hasOwner:Bool {
+         get {
+             return builderResult.hasOwner
          }
     }
     fileprivate var ownerBuilder_:PBUser.Builder! {
@@ -1060,11 +1060,6 @@ final internal class PBPerfomance : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasInts:Bool {
-         get {
-              return builderResult.hasInts
-         }
-    }
     internal var ints:Int32 {
          get {
               return builderResult.ints
@@ -1072,6 +1067,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasInts = true
              builderResult.ints = value
+         }
+    }
+    internal var hasInts:Bool {
+         get {
+              return builderResult.hasInts
          }
     }
     @discardableResult
@@ -1085,11 +1085,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.ints = Int32(0)
          return self
     }
-    internal var hasInts64:Bool {
-         get {
-              return builderResult.hasInts64
-         }
-    }
     internal var ints64:Int64 {
          get {
               return builderResult.ints64
@@ -1097,6 +1092,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasInts64 = true
              builderResult.ints64 = value
+         }
+    }
+    internal var hasInts64:Bool {
+         get {
+              return builderResult.hasInts64
          }
     }
     @discardableResult
@@ -1110,11 +1110,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.ints64 = Int64(0)
          return self
     }
-    internal var hasDoubles:Bool {
-         get {
-              return builderResult.hasDoubles
-         }
-    }
     internal var doubles:Double {
          get {
               return builderResult.doubles
@@ -1122,6 +1117,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasDoubles = true
              builderResult.doubles = value
+         }
+    }
+    internal var hasDoubles:Bool {
+         get {
+              return builderResult.hasDoubles
          }
     }
     @discardableResult
@@ -1135,11 +1135,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.doubles = Double(0)
          return self
     }
-    internal var hasFloats:Bool {
-         get {
-              return builderResult.hasFloats
-         }
-    }
     internal var floats:Float {
          get {
               return builderResult.floats
@@ -1147,6 +1142,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasFloats = true
              builderResult.floats = value
+         }
+    }
+    internal var hasFloats:Bool {
+         get {
+              return builderResult.hasFloats
          }
     }
     @discardableResult
@@ -1160,11 +1160,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.floats = Float(0)
          return self
     }
-    internal var hasStr:Bool {
-         get {
-              return builderResult.hasStr
-         }
-    }
     internal var str:String {
          get {
               return builderResult.str
@@ -1172,6 +1167,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasStr = true
              builderResult.str = value
+         }
+    }
+    internal var hasStr:Bool {
+         get {
+              return builderResult.hasStr
          }
     }
     @discardableResult
@@ -1185,11 +1185,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.str = ""
          return self
     }
-    internal var hasBytes:Bool {
-         get {
-              return builderResult.hasBytes
-         }
-    }
     internal var bytes:Data {
          get {
               return builderResult.bytes
@@ -1197,6 +1192,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasBytes = true
              builderResult.bytes = value
+         }
+    }
+    internal var hasBytes:Bool {
+         get {
+              return builderResult.hasBytes
          }
     }
     @discardableResult
@@ -1210,11 +1210,6 @@ final internal class PBPerfomance : GeneratedMessage {
          builderResult.bytes = Data()
          return self
     }
-    internal var hasDescription:Bool {
-         get {
-              return builderResult.hasDescription
-         }
-    }
     internal var description_:String {
          get {
               return builderResult.description_
@@ -1222,6 +1217,11 @@ final internal class PBPerfomance : GeneratedMessage {
          set (value) {
              builderResult.hasDescription = true
              builderResult.description_ = value
+         }
+    }
+    internal var hasDescription:Bool {
+         get {
+              return builderResult.hasDescription
          }
     }
     @discardableResult
@@ -1512,11 +1512,6 @@ final internal class PBProtoPoint : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasLatitude:Bool {
-         get {
-              return builderResult.hasLatitude
-         }
-    }
     internal var latitude:Float {
          get {
               return builderResult.latitude
@@ -1524,6 +1519,11 @@ final internal class PBProtoPoint : GeneratedMessage {
          set (value) {
              builderResult.hasLatitude = true
              builderResult.latitude = value
+         }
+    }
+    internal var hasLatitude:Bool {
+         get {
+              return builderResult.hasLatitude
          }
     }
     @discardableResult
@@ -1537,11 +1537,6 @@ final internal class PBProtoPoint : GeneratedMessage {
          builderResult.latitude = Float(0)
          return self
     }
-    internal var hasLongitude:Bool {
-         get {
-              return builderResult.hasLongitude
-         }
-    }
     internal var longitude:Float {
          get {
               return builderResult.longitude
@@ -1549,6 +1544,11 @@ final internal class PBProtoPoint : GeneratedMessage {
          set (value) {
              builderResult.hasLongitude = true
              builderResult.longitude = value
+         }
+    }
+    internal var hasLongitude:Bool {
+         get {
+              return builderResult.hasLongitude
          }
     }
     @discardableResult
@@ -1815,11 +1815,6 @@ final internal class PBIceCreamCone : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasScoops:Bool {
-         get {
-              return builderResult.hasScoops
-         }
-    }
     internal var scoops:Int32 {
          get {
               return builderResult.scoops
@@ -1827,6 +1822,11 @@ final internal class PBIceCreamCone : GeneratedMessage {
          set (value) {
              builderResult.hasScoops = true
              builderResult.scoops = value
+         }
+    }
+    internal var hasScoops:Bool {
+         get {
+              return builderResult.hasScoops
          }
     }
     @discardableResult
@@ -1840,11 +1840,6 @@ final internal class PBIceCreamCone : GeneratedMessage {
          builderResult.scoops = Int32(0)
          return self
     }
-      internal var hasFlavor:Bool{
-          get {
-              return builderResult.hasFlavor
-          }
-      }
       internal var flavor:PBIceCreamCone.PBFlavor {
           get {
               return builderResult.flavor
@@ -1852,6 +1847,11 @@ final internal class PBIceCreamCone : GeneratedMessage {
           set (value) {
               builderResult.hasFlavor = true
               builderResult.flavor = value
+          }
+      }
+      internal var hasFlavor:Bool{
+          get {
+              return builderResult.hasFlavor
           }
       }
     @discardableResult
@@ -1956,7 +1956,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
 }
 
-//Subuilders
+///Subuilders
 final internal class PBFoo : GeneratedMessage {
 
   internal static func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
@@ -1969,7 +1969,7 @@ final internal class PBFoo : GeneratedMessage {
     return fieldCheck
   }
 
-  // some other fields.
+  /// some other fields.
   internal fileprivate(set) var val:Int32 = Int32(0)
   internal fileprivate(set) var hasVal:Bool = false
 
@@ -2073,11 +2073,7 @@ final internal class PBFoo : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasVal:Bool {
-         get {
-              return builderResult.hasVal
-         }
-    }
+    /// some other fields.
     internal var val:Int32 {
          get {
               return builderResult.val
@@ -2085,6 +2081,11 @@ final internal class PBFoo : GeneratedMessage {
          set (value) {
              builderResult.hasVal = true
              builderResult.val = value
+         }
+    }
+    internal var hasVal:Bool {
+         get {
+              return builderResult.hasVal
          }
     }
     @discardableResult
@@ -2297,11 +2298,7 @@ final internal class PBBar : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasFoo:Bool {
-         get {
-             return builderResult.hasFoo
-         }
-    }
+    /// some other fields.
     internal var foo:PBFoo! {
          get {
              if fooBuilder_ != nil {
@@ -2312,6 +2309,11 @@ final internal class PBBar : GeneratedMessage {
          set (value) {
              builderResult.hasFoo = true
              builderResult.foo = value
+         }
+    }
+    internal var hasFoo:Bool {
+         get {
+             return builderResult.hasFoo
          }
     }
     fileprivate var fooBuilder_:PBFoo.Builder! {
@@ -2554,11 +2556,7 @@ final internal class PBBaz : GeneratedMessage {
     required override internal init () {
        super.init()
     }
-    internal var hasBar:Bool {
-         get {
-             return builderResult.hasBar
-         }
-    }
+    /// some other fields.
     internal var bar:PBBar! {
          get {
              if barBuilder_ != nil {
@@ -2569,6 +2567,11 @@ final internal class PBBaz : GeneratedMessage {
          set (value) {
              builderResult.hasBar = true
              builderResult.bar = value
+         }
+    }
+    internal var hasBar:Bool {
+         get {
+             return builderResult.hasBar
          }
     }
     fileprivate var barBuilder_:PBBar.Builder! {

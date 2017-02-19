@@ -19,8 +19,8 @@ public extension Google.Protobuf {
     }
   }
 
-  // The protocol compiler can output a FileDescriptorSet containing the .proto
-  // files it parses.
+  /// The protocol compiler can output a FileDescriptorSet containing the .proto
+  /// files it parses.
   final public class FileDescriptorSet : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
@@ -254,7 +254,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a complete .proto file.
+  /// Describes a complete .proto file.
   final public class FileDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.FileDescriptorProto) -> Bool {
@@ -278,20 +278,20 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // file name, relative to root of source tree
+    /// file name, relative to root of source tree
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
-    // e.g. "foo", "foo.bar", etc.
+    /// e.g. "foo", "foo.bar", etc.
     public fileprivate(set) var package:String = ""
     public fileprivate(set) var hasPackage:Bool = false
 
-    // Names of files imported by this file.
+    /// Names of files imported by this file.
     public fileprivate(set) var dependency:Array<String> = Array<String>()
-    // Indexes of the public imported files in the dependency list above.
+    /// Indexes of the public imported files in the dependency list above.
     public fileprivate(set) var publicDependency:Array<Int32> = Array<Int32>()
-    // Indexes of the weak imported files in the dependency list.
-    // For Google-internal migration only. Do not use.
+    /// Indexes of the weak imported files in the dependency list.
+    /// For Google-internal migration only. Do not use.
     public fileprivate(set) var weakDependency:Array<Int32> = Array<Int32>()
     public fileprivate(set) var messageType:Array<Google.Protobuf.DescriptorProto>  = Array<Google.Protobuf.DescriptorProto>()
     public fileprivate(set) var enumType:Array<Google.Protobuf.EnumDescriptorProto>  = Array<Google.Protobuf.EnumDescriptorProto>()
@@ -301,8 +301,8 @@ public extension Google.Protobuf {
     public fileprivate(set) var hasOptions:Bool = false
     public fileprivate(set) var sourceCodeInfo:Google.Protobuf.SourceCodeInfo!
     public fileprivate(set) var hasSourceCodeInfo:Bool = false
-    // The syntax of the proto file.
-    // The supported values are "proto2" and "proto3".
+    /// The syntax of the proto file.
+    /// The supported values are "proto2" and "proto3".
     public fileprivate(set) var syntax:String = ""
     public fileprivate(set) var hasSyntax:Bool = false
 
@@ -701,11 +701,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
+      /// file name, relative to root of source tree
       public var name:String {
            get {
                 return builderResult.name
@@ -713,6 +709,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -726,11 +727,7 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasPackage:Bool {
-           get {
-                return builderResult.hasPackage
-           }
-      }
+      /// e.g. "foo", "foo.bar", etc.
       public var package:String {
            get {
                 return builderResult.package
@@ -738,6 +735,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasPackage = true
                builderResult.package = value
+           }
+      }
+      public var hasPackage:Bool {
+           get {
+                return builderResult.hasPackage
            }
       }
       @discardableResult
@@ -751,6 +753,7 @@ public extension Google.Protobuf {
            builderResult.package = ""
            return self
       }
+      /// Names of files imported by this file.
       public var dependency:Array<String> {
            get {
                return builderResult.dependency
@@ -769,6 +772,7 @@ public extension Google.Protobuf {
          builderResult.dependency.removeAll(keepingCapacity: false)
          return self
       }
+      /// Indexes of the public imported files in the dependency list above.
       public var publicDependency:Array<Int32> {
            get {
                return builderResult.publicDependency
@@ -787,6 +791,8 @@ public extension Google.Protobuf {
          builderResult.publicDependency.removeAll(keepingCapacity: false)
          return self
       }
+      /// Indexes of the weak imported files in the dependency list.
+      /// For Google-internal migration only. Do not use.
       public var weakDependency:Array<Int32> {
            get {
                return builderResult.weakDependency
@@ -805,6 +811,7 @@ public extension Google.Protobuf {
          builderResult.weakDependency.removeAll(keepingCapacity: false)
          return self
       }
+      /// All top-level definitions in this file.
       public var messageType:Array<Google.Protobuf.DescriptorProto> {
            get {
                return builderResult.messageType
@@ -877,11 +884,6 @@ public extension Google.Protobuf {
         builderResult.`extension`.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.FileOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -892,6 +894,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.FileOptions.Builder! {
@@ -931,11 +938,10 @@ public extension Google.Protobuf {
         builderResult.options = nil
         return self
       }
-      public var hasSourceCodeInfo:Bool {
-           get {
-               return builderResult.hasSourceCodeInfo
-           }
-      }
+      /// This field contains optional information about the original source code.
+      /// You may safely remove this entire field without harming runtime
+      /// functionality of the descriptors -- the information is needed only by
+      /// development tools.
       public var sourceCodeInfo:Google.Protobuf.SourceCodeInfo! {
            get {
                if sourceCodeInfoBuilder_ != nil {
@@ -946,6 +952,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSourceCodeInfo = true
                builderResult.sourceCodeInfo = value
+           }
+      }
+      public var hasSourceCodeInfo:Bool {
+           get {
+               return builderResult.hasSourceCodeInfo
            }
       }
       fileprivate var sourceCodeInfoBuilder_:Google.Protobuf.SourceCodeInfo.Builder! {
@@ -985,11 +996,8 @@ public extension Google.Protobuf {
         builderResult.sourceCodeInfo = nil
         return self
       }
-      public var hasSyntax:Bool {
-           get {
-                return builderResult.hasSyntax
-           }
-      }
+      /// The syntax of the proto file.
+      /// The supported values are "proto2" and "proto3".
       public var syntax:String {
            get {
                 return builderResult.syntax
@@ -997,6 +1005,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSyntax = true
                builderResult.syntax = value
+           }
+      }
+      public var hasSyntax:Bool {
+           get {
+                return builderResult.hasSyntax
            }
       }
       @discardableResult
@@ -1240,7 +1253,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a message type.
+  /// Describes a message type.
   final public class DescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
@@ -1400,11 +1413,6 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
-          public var hasStart:Bool {
-               get {
-                    return builderResult.hasStart
-               }
-          }
           public var start:Int32 {
                get {
                     return builderResult.start
@@ -1412,6 +1420,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasStart = true
                    builderResult.start = value
+               }
+          }
+          public var hasStart:Bool {
+               get {
+                    return builderResult.hasStart
                }
           }
           @discardableResult
@@ -1425,11 +1438,6 @@ public extension Google.Protobuf {
                builderResult.start = Int32(0)
                return self
           }
-          public var hasEnd:Bool {
-               get {
-                    return builderResult.hasEnd
-               }
-          }
           public var end:Int32 {
                get {
                     return builderResult.end
@@ -1437,6 +1445,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasEnd = true
                    builderResult.end = value
+               }
+          }
+          public var hasEnd:Bool {
+               get {
+                    return builderResult.hasEnd
                }
           }
           @discardableResult
@@ -1544,9 +1557,9 @@ public extension Google.Protobuf {
 
     //Nested type declaration start
 
-      // Range of reserved tag numbers. Reserved tag numbers may not be used by
-      // fields or extension ranges in the same message. Reserved ranges may
-      // not overlap.
+      /// Range of reserved tag numbers. Reserved tag numbers may not be used by
+      /// fields or extension ranges in the same message. Reserved ranges may
+      /// not overlap.
       final public class ReservedRange : GeneratedMessage {
 
         public static func == (lhs: Google.Protobuf.DescriptorProto.ReservedRange, rhs: Google.Protobuf.DescriptorProto.ReservedRange) -> Bool {
@@ -1560,11 +1573,11 @@ public extension Google.Protobuf {
           return fieldCheck
         }
 
-        // Inclusive.
+        /// Inclusive.
         public fileprivate(set) var start:Int32 = Int32(0)
         public fileprivate(set) var hasStart:Bool = false
 
-        // Exclusive.
+        /// Exclusive.
         public fileprivate(set) var end:Int32 = Int32(0)
         public fileprivate(set) var hasEnd:Bool = false
 
@@ -1683,11 +1696,7 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
-          public var hasStart:Bool {
-               get {
-                    return builderResult.hasStart
-               }
-          }
+          /// Inclusive.
           public var start:Int32 {
                get {
                     return builderResult.start
@@ -1695,6 +1704,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasStart = true
                    builderResult.start = value
+               }
+          }
+          public var hasStart:Bool {
+               get {
+                    return builderResult.hasStart
                }
           }
           @discardableResult
@@ -1708,11 +1722,7 @@ public extension Google.Protobuf {
                builderResult.start = Int32(0)
                return self
           }
-          public var hasEnd:Bool {
-               get {
-                    return builderResult.hasEnd
-               }
-          }
+          /// Exclusive.
           public var end:Int32 {
                get {
                     return builderResult.end
@@ -1720,6 +1730,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasEnd = true
                    builderResult.end = value
+               }
+          }
+          public var hasEnd:Bool {
+               get {
+                    return builderResult.hasEnd
                }
           }
           @discardableResult
@@ -1835,8 +1850,8 @@ public extension Google.Protobuf {
     public fileprivate(set) var options:Google.Protobuf.MessageOptions!
     public fileprivate(set) var hasOptions:Bool = false
     public fileprivate(set) var reservedRange:Array<Google.Protobuf.DescriptorProto.ReservedRange>  = Array<Google.Protobuf.DescriptorProto.ReservedRange>()
-    // Reserved field names, which may not be used by fields in the same message.
-    // A given name may only be reserved once.
+    /// Reserved field names, which may not be used by fields in the same message.
+    /// A given name may only be reserved once.
     public fileprivate(set) var reservedName:Array<String> = Array<String>()
     required public init() {
          super.init()
@@ -2210,11 +2225,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -2222,6 +2232,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -2343,11 +2358,6 @@ public extension Google.Protobuf {
         builderResult.oneofDecl.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.MessageOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -2358,6 +2368,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.MessageOptions.Builder! {
@@ -2415,6 +2430,8 @@ public extension Google.Protobuf {
         builderResult.reservedRange.removeAll(keepingCapacity: false)
         return self
       }
+      /// Reserved field names, which may not be used by fields in the same message.
+      /// A given name may only be reserved once.
       public var reservedName:Array<String> {
            get {
                return builderResult.reservedName
@@ -2655,7 +2672,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a field within a message.
+  /// Describes a field within a message.
   final public class FieldDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.FieldDescriptorProto) -> Bool {
@@ -2682,44 +2699,44 @@ public extension Google.Protobuf {
       //Enum type declaration start 
 
       public enum `Type`:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // 0 is reserved for errors.
-        // Order is weird for historical reasons.
+        /// 0 is reserved for errors.
+        /// Order is weird for historical reasons.
         case typeDouble = 1
         case typeFloat = 2
 
-        // Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
-        // negative values are likely.
+        /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
+        /// negative values are likely.
         case typeInt64 = 3
         case typeUint64 = 4
 
-        // Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
-        // negative values are likely.
+        /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
+        /// negative values are likely.
         case typeInt32 = 5
         case typeFixed64 = 6
         case typeFixed32 = 7
         case typeBool = 8
         case typeString = 9
 
-        // Tag-delimited aggregate.
-        // Group type is deprecated and not supported in proto3. However, Proto3
-        // implementations should still be able to parse the group wire format and
-        // treat group fields as unknown fields.
+        /// Tag-delimited aggregate.
+        /// Group type is deprecated and not supported in proto3. However, Proto3
+        /// implementations should still be able to parse the group wire format and
+        /// treat group fields as unknown fields.
         case typeGroup = 10
 
-        // Length-delimited aggregate.
+        /// Length-delimited aggregate.
         case typeMessage = 11
 
-        // New in version 2.
+        /// New in version 2.
         case typeBytes = 12
         case typeUint32 = 13
         case typeEnum = 14
         case typeSfixed32 = 15
         case typeSfixed64 = 16
 
-        // Uses ZigZag encoding.
+        /// Uses ZigZag encoding.
         case typeSint32 = 17
 
-        // Uses ZigZag encoding.
+        /// Uses ZigZag encoding.
         case typeSint64 = 18
         public func toString() -> String {
           switch self {
@@ -2799,7 +2816,7 @@ public extension Google.Protobuf {
       //Enum type declaration start 
 
       public enum Label:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // 0 is reserved for errors
+        /// 0 is reserved for errors
         case labelOptional = 1
         case labelRequired = 2
         case labelRepeated = 3
@@ -2841,36 +2858,36 @@ public extension Google.Protobuf {
     public fileprivate(set) var hasLabel:Bool = false
     public fileprivate(set) var type:Google.Protobuf.FieldDescriptorProto.`Type` = Google.Protobuf.FieldDescriptorProto.`Type`.typeDouble
     public fileprivate(set) var hasType:Bool = false
-    // For message and enum types, this is the name of the type.  If the name
-    // starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
-    // rules are used to find the type (i.e. first the nested types within this
-    // message are searched, then within the parent, on up to the root
-    // namespace).
+    /// For message and enum types, this is the name of the type.  If the name
+    /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
+    /// rules are used to find the type (i.e. first the nested types within this
+    /// message are searched, then within the parent, on up to the root
+    /// namespace).
     public fileprivate(set) var typeName:String = ""
     public fileprivate(set) var hasTypeName:Bool = false
 
-    // For extensions, this is the name of the type being extended.  It is
-    // resolved in the same manner as type_name.
+    /// For extensions, this is the name of the type being extended.  It is
+    /// resolved in the same manner as type_name.
     public fileprivate(set) var extendee:String = ""
     public fileprivate(set) var hasExtendee:Bool = false
 
-    // For numeric types, contains the original text representation of the value.
-    // For booleans, "true" or "false".
-    // For strings, contains the default text contents (not escaped in any way).
-    // For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
-    // TODO(kenton):  Base-64 encode?
+    /// For numeric types, contains the original text representation of the value.
+    /// For booleans, "true" or "false".
+    /// For strings, contains the default text contents (not escaped in any way).
+    /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
+    /// TODO(kenton):  Base-64 encode?
     public fileprivate(set) var defaultValue:String = ""
     public fileprivate(set) var hasDefaultValue:Bool = false
 
-    // If set, gives the index of a oneof in the containing type's oneof_decl
-    // list.  This field is a member of that oneof.
+    /// If set, gives the index of a oneof in the containing type's oneof_decl
+    /// list.  This field is a member of that oneof.
     public fileprivate(set) var oneofIndex:Int32 = Int32(0)
     public fileprivate(set) var hasOneofIndex:Bool = false
 
-    // JSON name of this field. The value is set by protocol compiler. If the
-    // user has set a "json_name" option on this field, that option's value
-    // will be used. Otherwise, it's deduced from the field's name by converting
-    // it to camelCase.
+    /// JSON name of this field. The value is set by protocol compiler. If the
+    /// user has set a "json_name" option on this field, that option's value
+    /// will be used. Otherwise, it's deduced from the field's name by converting
+    /// it to camelCase.
     public fileprivate(set) var jsonName:String = ""
     public fileprivate(set) var hasJsonName:Bool = false
 
@@ -3124,11 +3141,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -3136,6 +3148,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -3149,11 +3166,6 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasNumber:Bool {
-           get {
-                return builderResult.hasNumber
-           }
-      }
       public var number:Int32 {
            get {
                 return builderResult.number
@@ -3161,6 +3173,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNumber = true
                builderResult.number = value
+           }
+      }
+      public var hasNumber:Bool {
+           get {
+                return builderResult.hasNumber
            }
       }
       @discardableResult
@@ -3174,11 +3191,6 @@ public extension Google.Protobuf {
            builderResult.number = Int32(0)
            return self
       }
-        public var hasLabel:Bool{
-            get {
-                return builderResult.hasLabel
-            }
-        }
         public var label:Google.Protobuf.FieldDescriptorProto.Label {
             get {
                 return builderResult.label
@@ -3186,6 +3198,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasLabel = true
                 builderResult.label = value
+            }
+        }
+        public var hasLabel:Bool{
+            get {
+                return builderResult.hasLabel
             }
         }
       @discardableResult
@@ -3199,11 +3216,8 @@ public extension Google.Protobuf {
            builderResult.label = .labelOptional
            return self
         }
-        public var hasType:Bool{
-            get {
-                return builderResult.hasType
-            }
-        }
+      /// If type_name is set, this need not be set.  If both this and type_name
+      /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
         public var type:Google.Protobuf.FieldDescriptorProto.`Type` {
             get {
                 return builderResult.type
@@ -3211,6 +3225,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasType = true
                 builderResult.type = value
+            }
+        }
+        public var hasType:Bool{
+            get {
+                return builderResult.hasType
             }
         }
       @discardableResult
@@ -3224,11 +3243,11 @@ public extension Google.Protobuf {
            builderResult.type = .typeDouble
            return self
         }
-      public var hasTypeName:Bool {
-           get {
-                return builderResult.hasTypeName
-           }
-      }
+      /// For message and enum types, this is the name of the type.  If the name
+      /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
+      /// rules are used to find the type (i.e. first the nested types within this
+      /// message are searched, then within the parent, on up to the root
+      /// namespace).
       public var typeName:String {
            get {
                 return builderResult.typeName
@@ -3236,6 +3255,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasTypeName = true
                builderResult.typeName = value
+           }
+      }
+      public var hasTypeName:Bool {
+           get {
+                return builderResult.hasTypeName
            }
       }
       @discardableResult
@@ -3249,11 +3273,8 @@ public extension Google.Protobuf {
            builderResult.typeName = ""
            return self
       }
-      public var hasExtendee:Bool {
-           get {
-                return builderResult.hasExtendee
-           }
-      }
+      /// For extensions, this is the name of the type being extended.  It is
+      /// resolved in the same manner as type_name.
       public var extendee:String {
            get {
                 return builderResult.extendee
@@ -3261,6 +3282,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasExtendee = true
                builderResult.extendee = value
+           }
+      }
+      public var hasExtendee:Bool {
+           get {
+                return builderResult.hasExtendee
            }
       }
       @discardableResult
@@ -3274,11 +3300,11 @@ public extension Google.Protobuf {
            builderResult.extendee = ""
            return self
       }
-      public var hasDefaultValue:Bool {
-           get {
-                return builderResult.hasDefaultValue
-           }
-      }
+      /// For numeric types, contains the original text representation of the value.
+      /// For booleans, "true" or "false".
+      /// For strings, contains the default text contents (not escaped in any way).
+      /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
+      /// TODO(kenton):  Base-64 encode?
       public var defaultValue:String {
            get {
                 return builderResult.defaultValue
@@ -3286,6 +3312,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDefaultValue = true
                builderResult.defaultValue = value
+           }
+      }
+      public var hasDefaultValue:Bool {
+           get {
+                return builderResult.hasDefaultValue
            }
       }
       @discardableResult
@@ -3299,11 +3330,8 @@ public extension Google.Protobuf {
            builderResult.defaultValue = ""
            return self
       }
-      public var hasOneofIndex:Bool {
-           get {
-                return builderResult.hasOneofIndex
-           }
-      }
+      /// If set, gives the index of a oneof in the containing type's oneof_decl
+      /// list.  This field is a member of that oneof.
       public var oneofIndex:Int32 {
            get {
                 return builderResult.oneofIndex
@@ -3311,6 +3339,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOneofIndex = true
                builderResult.oneofIndex = value
+           }
+      }
+      public var hasOneofIndex:Bool {
+           get {
+                return builderResult.hasOneofIndex
            }
       }
       @discardableResult
@@ -3324,11 +3357,10 @@ public extension Google.Protobuf {
            builderResult.oneofIndex = Int32(0)
            return self
       }
-      public var hasJsonName:Bool {
-           get {
-                return builderResult.hasJsonName
-           }
-      }
+      /// JSON name of this field. The value is set by protocol compiler. If the
+      /// user has set a "json_name" option on this field, that option's value
+      /// will be used. Otherwise, it's deduced from the field's name by converting
+      /// it to camelCase.
       public var jsonName:String {
            get {
                 return builderResult.jsonName
@@ -3336,6 +3368,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJsonName = true
                builderResult.jsonName = value
+           }
+      }
+      public var hasJsonName:Bool {
+           get {
+                return builderResult.hasJsonName
            }
       }
       @discardableResult
@@ -3349,11 +3386,6 @@ public extension Google.Protobuf {
            builderResult.jsonName = ""
            return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.FieldOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -3364,6 +3396,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.FieldOptions.Builder! {
@@ -3579,7 +3616,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a oneof.
+  /// Describes a oneof.
   final public class OneofDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.OneofDescriptorProto) -> Bool {
@@ -3726,11 +3763,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -3738,6 +3770,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -3751,11 +3788,6 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.OneofOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -3766,6 +3798,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.OneofOptions.Builder! {
@@ -3895,7 +3932,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes an enum type.
+  /// Describes an enum type.
   final public class EnumDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.EnumDescriptorProto) -> Bool {
@@ -4078,11 +4115,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -4090,6 +4122,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -4121,11 +4158,6 @@ public extension Google.Protobuf {
         builderResult.value.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.EnumOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -4136,6 +4168,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.EnumOptions.Builder! {
@@ -4282,7 +4319,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a value within an enum.
+  /// Describes a value within an enum.
   final public class EnumValueDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Protobuf.EnumValueDescriptorProto) -> Bool {
@@ -4448,11 +4485,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -4460,6 +4492,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -4473,11 +4510,6 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasNumber:Bool {
-           get {
-                return builderResult.hasNumber
-           }
-      }
       public var number:Int32 {
            get {
                 return builderResult.number
@@ -4485,6 +4517,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNumber = true
                builderResult.number = value
+           }
+      }
+      public var hasNumber:Bool {
+           get {
+                return builderResult.hasNumber
            }
       }
       @discardableResult
@@ -4498,11 +4535,6 @@ public extension Google.Protobuf {
            builderResult.number = Int32(0)
            return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.EnumValueOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -4513,6 +4545,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.EnumValueOptions.Builder! {
@@ -4653,7 +4690,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a service.
+  /// Describes a service.
   final public class ServiceDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobuf.ServiceDescriptorProto) -> Bool {
@@ -4836,11 +4873,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -4848,6 +4880,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -4879,11 +4916,6 @@ public extension Google.Protobuf {
         builderResult.method.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.ServiceOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -4894,6 +4926,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.ServiceOptions.Builder! {
@@ -5040,7 +5077,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes a method of a service.
+  /// Describes a method of a service.
   final public class MethodDescriptorProto : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf.MethodDescriptorProto) -> Bool {
@@ -5061,8 +5098,8 @@ public extension Google.Protobuf {
     public fileprivate(set) var name:String = ""
     public fileprivate(set) var hasName:Bool = false
 
-    // Input and output type names.  These are resolved in the same way as
-    // FieldDescriptorProto.type_name, but must refer to a message type.
+    /// Input and output type names.  These are resolved in the same way as
+    /// FieldDescriptorProto.type_name, but must refer to a message type.
     public fileprivate(set) var inputType:String = ""
     public fileprivate(set) var hasInputType:Bool = false
 
@@ -5071,11 +5108,11 @@ public extension Google.Protobuf {
 
     public fileprivate(set) var options:Google.Protobuf.MethodOptions!
     public fileprivate(set) var hasOptions:Bool = false
-    // Identifies if client streams multiple client messages
+    /// Identifies if client streams multiple client messages
     public fileprivate(set) var clientStreaming:Bool = false
     public fileprivate(set) var hasClientStreaming:Bool = false
 
-    // Identifies if server streams multiple server messages
+    /// Identifies if server streams multiple server messages
     public fileprivate(set) var serverStreaming:Bool = false
     public fileprivate(set) var hasServerStreaming:Bool = false
 
@@ -5267,11 +5304,6 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasName:Bool {
-           get {
-                return builderResult.hasName
-           }
-      }
       public var name:String {
            get {
                 return builderResult.name
@@ -5279,6 +5311,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasName = true
                builderResult.name = value
+           }
+      }
+      public var hasName:Bool {
+           get {
+                return builderResult.hasName
            }
       }
       @discardableResult
@@ -5292,11 +5329,8 @@ public extension Google.Protobuf {
            builderResult.name = ""
            return self
       }
-      public var hasInputType:Bool {
-           get {
-                return builderResult.hasInputType
-           }
-      }
+      /// Input and output type names.  These are resolved in the same way as
+      /// FieldDescriptorProto.type_name, but must refer to a message type.
       public var inputType:String {
            get {
                 return builderResult.inputType
@@ -5304,6 +5338,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasInputType = true
                builderResult.inputType = value
+           }
+      }
+      public var hasInputType:Bool {
+           get {
+                return builderResult.hasInputType
            }
       }
       @discardableResult
@@ -5317,11 +5356,6 @@ public extension Google.Protobuf {
            builderResult.inputType = ""
            return self
       }
-      public var hasOutputType:Bool {
-           get {
-                return builderResult.hasOutputType
-           }
-      }
       public var outputType:String {
            get {
                 return builderResult.outputType
@@ -5329,6 +5363,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOutputType = true
                builderResult.outputType = value
+           }
+      }
+      public var hasOutputType:Bool {
+           get {
+                return builderResult.hasOutputType
            }
       }
       @discardableResult
@@ -5342,11 +5381,6 @@ public extension Google.Protobuf {
            builderResult.outputType = ""
            return self
       }
-      public var hasOptions:Bool {
-           get {
-               return builderResult.hasOptions
-           }
-      }
       public var options:Google.Protobuf.MethodOptions! {
            get {
                if optionsBuilder_ != nil {
@@ -5357,6 +5391,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasOptions = true
                builderResult.options = value
+           }
+      }
+      public var hasOptions:Bool {
+           get {
+               return builderResult.hasOptions
            }
       }
       fileprivate var optionsBuilder_:Google.Protobuf.MethodOptions.Builder! {
@@ -5396,11 +5435,7 @@ public extension Google.Protobuf {
         builderResult.options = nil
         return self
       }
-      public var hasClientStreaming:Bool {
-           get {
-                return builderResult.hasClientStreaming
-           }
-      }
+      /// Identifies if client streams multiple client messages
       public var clientStreaming:Bool {
            get {
                 return builderResult.clientStreaming
@@ -5408,6 +5443,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasClientStreaming = true
                builderResult.clientStreaming = value
+           }
+      }
+      public var hasClientStreaming:Bool {
+           get {
+                return builderResult.hasClientStreaming
            }
       }
       @discardableResult
@@ -5421,11 +5461,7 @@ public extension Google.Protobuf {
            builderResult.clientStreaming = false
            return self
       }
-      public var hasServerStreaming:Bool {
-           get {
-                return builderResult.hasServerStreaming
-           }
-      }
+      /// Identifies if server streams multiple server messages
       public var serverStreaming:Bool {
            get {
                 return builderResult.serverStreaming
@@ -5433,6 +5469,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasServerStreaming = true
                builderResult.serverStreaming = value
+           }
+      }
+      public var hasServerStreaming:Bool {
+           get {
+                return builderResult.hasServerStreaming
            }
       }
       @discardableResult
@@ -5604,15 +5645,15 @@ public extension Google.Protobuf {
 
       //Enum type declaration start 
 
-      // Generated classes can be optimized for speed or code size.
+      /// Generated classes can be optimized for speed or code size.
       public enum OptimizeMode:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // Generate complete code for parsing, serialization,
+        /// Generate complete code for parsing, serialization,
         case speed = 1
 
-        // etc.
+        /// etc.
         case codeSize = 2
 
-        // Generate code using MessageLite and the lite runtime.
+        /// Generate code using MessageLite and the lite runtime.
         case liteRuntime = 3
         public func toString() -> String {
           switch self {
@@ -5642,63 +5683,63 @@ public extension Google.Protobuf {
 
       //Enum type declaration end 
 
-    // Sets the Java package where classes generated from this .proto will be
-    // placed.  By default, the proto package is used, but this is often
-    // inappropriate because proto packages do not normally start with backwards
-    // domain names.
+    /// Sets the Java package where classes generated from this .proto will be
+    /// placed.  By default, the proto package is used, but this is often
+    /// inappropriate because proto packages do not normally start with backwards
+    /// domain names.
     public fileprivate(set) var javaPackage:String = ""
     public fileprivate(set) var hasJavaPackage:Bool = false
 
-    // If set, all the classes from the .proto file are wrapped in a single
-    // outer class with the given name.  This applies to both Proto1
-    // (equivalent to the old "--one_java_file" option) and Proto2 (where
-    // a .proto always translates to a single class, but you may want to
-    // explicitly choose the class name).
+    /// If set, all the classes from the .proto file are wrapped in a single
+    /// outer class with the given name.  This applies to both Proto1
+    /// (equivalent to the old "--one_java_file" option) and Proto2 (where
+    /// a .proto always translates to a single class, but you may want to
+    /// explicitly choose the class name).
     public fileprivate(set) var javaOuterClassname:String = ""
     public fileprivate(set) var hasJavaOuterClassname:Bool = false
 
-    // If set true, then the Java code generator will generate a separate .java
-    // file for each top-level message, enum, and service defined in the .proto
-    // file.  Thus, these types will *not* be nested inside the outer class
-    // named by java_outer_classname.  However, the outer class will still be
-    // generated to contain the file's getDescriptor() method as well as any
-    // top-level extensions defined in the file.
+    /// If set true, then the Java code generator will generate a separate .java
+    /// file for each top-level message, enum, and service defined in the .proto
+    /// file.  Thus, these types will *not* be nested inside the outer class
+    /// named by java_outer_classname.  However, the outer class will still be
+    /// generated to contain the file's getDescriptor() method as well as any
+    /// top-level extensions defined in the file.
     public fileprivate(set) var javaMultipleFiles:Bool = false
     public fileprivate(set) var hasJavaMultipleFiles:Bool = false
 
     @available(*, deprecated:0.1, message:"The field is marked as \"Deprecated\"")
-    // This option does nothing.
+    /// This option does nothing.
     public fileprivate(set) var javaGenerateEqualsAndHash:Bool = false
     public fileprivate(set) var hasJavaGenerateEqualsAndHash:Bool = false
 
-    // If set true, then the Java2 code generator will generate code that
-    // throws an exception whenever an attempt is made to assign a non-UTF-8
-    // byte sequence to a string field.
-    // Message reflection will do the same.
-    // However, an extension field still accepts non-UTF-8 byte sequences.
-    // This option has no effect on when used with the lite runtime.
+    /// If set true, then the Java2 code generator will generate code that
+    /// throws an exception whenever an attempt is made to assign a non-UTF-8
+    /// byte sequence to a string field.
+    /// Message reflection will do the same.
+    /// However, an extension field still accepts non-UTF-8 byte sequences.
+    /// This option has no effect on when used with the lite runtime.
     public fileprivate(set) var javaStringCheckUtf8:Bool = false
     public fileprivate(set) var hasJavaStringCheckUtf8:Bool = false
 
     public fileprivate(set) var optimizeFor:Google.Protobuf.FileOptions.OptimizeMode = Google.Protobuf.FileOptions.OptimizeMode.speed
     public fileprivate(set) var hasOptimizeFor:Bool = false
-    // Sets the Go package where structs generated from this .proto will be
-    // placed. If omitted, the Go package will be derived from the following:
-    //   - The basename of the package import path, if provided.
-    //   - Otherwise, the package statement in the .proto file, if present.
-    //   - Otherwise, the basename of the .proto file, without extension.
+    /// Sets the Go package where structs generated from this .proto will be
+    /// placed. If omitted, the Go package will be derived from the following:
+    ///   - The basename of the package import path, if provided.
+    ///   - Otherwise, the package statement in the .proto file, if present.
+    ///   - Otherwise, the basename of the .proto file, without extension.
     public fileprivate(set) var goPackage:String = ""
     public fileprivate(set) var hasGoPackage:Bool = false
 
-    // Should generic services be generated in each language?  "Generic" services
-    // are not specific to any particular RPC system.  They are generated by the
-    // main code generators in each language (without additional plugins).
-    // Generic services were the only kind of service generation supported by
-    // early versions of google.protobuf.
-    // Generic services are now considered deprecated in favor of using plugins
-    // that generate code specific to your particular RPC system.  Therefore,
-    // these default to false.  Old code which depends on generic services should
-    // explicitly set them to true.
+    /// Should generic services be generated in each language?  "Generic" services
+    /// are not specific to any particular RPC system.  They are generated by the
+    /// main code generators in each language (without additional plugins).
+    /// Generic services were the only kind of service generation supported by
+    /// early versions of google.protobuf.
+    /// Generic services are now considered deprecated in favor of using plugins
+    /// that generate code specific to your particular RPC system.  Therefore,
+    /// these default to false.  Old code which depends on generic services should
+    /// explicitly set them to true.
     public fileprivate(set) var ccGenericServices:Bool = false
     public fileprivate(set) var hasCcGenericServices:Bool = false
 
@@ -5708,31 +5749,31 @@ public extension Google.Protobuf {
     public fileprivate(set) var pyGenericServices:Bool = false
     public fileprivate(set) var hasPyGenericServices:Bool = false
 
-    // Is this file deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for everything in the file, or it will be completely ignored; in the very
-    // least, this is a formalization for deprecating files.
+    /// Is this file deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for everything in the file, or it will be completely ignored; in the very
+    /// least, this is a formalization for deprecating files.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
-    // Enables the use of arenas for the proto messages in this file. This applies
-    // only to generated classes for C++.
+    /// Enables the use of arenas for the proto messages in this file. This applies
+    /// only to generated classes for C++.
     public fileprivate(set) var ccEnableArenas:Bool = false
     public fileprivate(set) var hasCcEnableArenas:Bool = false
 
-    // Sets the objective c class prefix which is prepended to all objective c
-    // generated classes from this .proto. There is no default.
+    /// Sets the objective c class prefix which is prepended to all objective c
+    /// generated classes from this .proto. There is no default.
     public fileprivate(set) var objcClassPrefix:String = ""
     public fileprivate(set) var hasObjcClassPrefix:Bool = false
 
-    // Namespace for generated classes; defaults to the package.
+    /// Namespace for generated classes; defaults to the package.
     public fileprivate(set) var csharpNamespace:String = ""
     public fileprivate(set) var hasCsharpNamespace:Bool = false
 
-    // By default Swift generators will take the proto package and CamelCase it
-    // replacing '.' with underscore and use that to prefix the types/symbols
-    // defined. When this options is provided, they will use this value instead
-    // to prefix the types/symbols defined.
+    /// By default Swift generators will take the proto package and CamelCase it
+    /// replacing '.' with underscore and use that to prefix the types/symbols
+    /// defined. When this options is provided, they will use this value instead
+    /// to prefix the types/symbols defined.
     public fileprivate(set) var swiftPrefix:String = ""
     public fileprivate(set) var hasSwiftPrefix:Bool = false
 
@@ -6088,11 +6129,10 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasJavaPackage:Bool {
-           get {
-                return builderResult.hasJavaPackage
-           }
-      }
+      /// Sets the Java package where classes generated from this .proto will be
+      /// placed.  By default, the proto package is used, but this is often
+      /// inappropriate because proto packages do not normally start with backwards
+      /// domain names.
       public var javaPackage:String {
            get {
                 return builderResult.javaPackage
@@ -6100,6 +6140,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaPackage = true
                builderResult.javaPackage = value
+           }
+      }
+      public var hasJavaPackage:Bool {
+           get {
+                return builderResult.hasJavaPackage
            }
       }
       @discardableResult
@@ -6113,11 +6158,11 @@ public extension Google.Protobuf {
            builderResult.javaPackage = ""
            return self
       }
-      public var hasJavaOuterClassname:Bool {
-           get {
-                return builderResult.hasJavaOuterClassname
-           }
-      }
+      /// If set, all the classes from the .proto file are wrapped in a single
+      /// outer class with the given name.  This applies to both Proto1
+      /// (equivalent to the old "--one_java_file" option) and Proto2 (where
+      /// a .proto always translates to a single class, but you may want to
+      /// explicitly choose the class name).
       public var javaOuterClassname:String {
            get {
                 return builderResult.javaOuterClassname
@@ -6125,6 +6170,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaOuterClassname = true
                builderResult.javaOuterClassname = value
+           }
+      }
+      public var hasJavaOuterClassname:Bool {
+           get {
+                return builderResult.hasJavaOuterClassname
            }
       }
       @discardableResult
@@ -6138,11 +6188,12 @@ public extension Google.Protobuf {
            builderResult.javaOuterClassname = ""
            return self
       }
-      public var hasJavaMultipleFiles:Bool {
-           get {
-                return builderResult.hasJavaMultipleFiles
-           }
-      }
+      /// If set true, then the Java code generator will generate a separate .java
+      /// file for each top-level message, enum, and service defined in the .proto
+      /// file.  Thus, these types will *not* be nested inside the outer class
+      /// named by java_outer_classname.  However, the outer class will still be
+      /// generated to contain the file's getDescriptor() method as well as any
+      /// top-level extensions defined in the file.
       public var javaMultipleFiles:Bool {
            get {
                 return builderResult.javaMultipleFiles
@@ -6150,6 +6201,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaMultipleFiles = true
                builderResult.javaMultipleFiles = value
+           }
+      }
+      public var hasJavaMultipleFiles:Bool {
+           get {
+                return builderResult.hasJavaMultipleFiles
            }
       }
       @discardableResult
@@ -6163,11 +6219,7 @@ public extension Google.Protobuf {
            builderResult.javaMultipleFiles = false
            return self
       }
-      public var hasJavaGenerateEqualsAndHash:Bool {
-           get {
-                return builderResult.hasJavaGenerateEqualsAndHash
-           }
-      }
+      /// This option does nothing.
       public var javaGenerateEqualsAndHash:Bool {
            get {
                 return builderResult.javaGenerateEqualsAndHash
@@ -6175,6 +6227,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaGenerateEqualsAndHash = true
                builderResult.javaGenerateEqualsAndHash = value
+           }
+      }
+      public var hasJavaGenerateEqualsAndHash:Bool {
+           get {
+                return builderResult.hasJavaGenerateEqualsAndHash
            }
       }
       @discardableResult
@@ -6188,11 +6245,12 @@ public extension Google.Protobuf {
            builderResult.javaGenerateEqualsAndHash = false
            return self
       }
-      public var hasJavaStringCheckUtf8:Bool {
-           get {
-                return builderResult.hasJavaStringCheckUtf8
-           }
-      }
+      /// If set true, then the Java2 code generator will generate code that
+      /// throws an exception whenever an attempt is made to assign a non-UTF-8
+      /// byte sequence to a string field.
+      /// Message reflection will do the same.
+      /// However, an extension field still accepts non-UTF-8 byte sequences.
+      /// This option has no effect on when used with the lite runtime.
       public var javaStringCheckUtf8:Bool {
            get {
                 return builderResult.javaStringCheckUtf8
@@ -6200,6 +6258,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaStringCheckUtf8 = true
                builderResult.javaStringCheckUtf8 = value
+           }
+      }
+      public var hasJavaStringCheckUtf8:Bool {
+           get {
+                return builderResult.hasJavaStringCheckUtf8
            }
       }
       @discardableResult
@@ -6213,11 +6276,6 @@ public extension Google.Protobuf {
            builderResult.javaStringCheckUtf8 = false
            return self
       }
-        public var hasOptimizeFor:Bool{
-            get {
-                return builderResult.hasOptimizeFor
-            }
-        }
         public var optimizeFor:Google.Protobuf.FileOptions.OptimizeMode {
             get {
                 return builderResult.optimizeFor
@@ -6225,6 +6283,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasOptimizeFor = true
                 builderResult.optimizeFor = value
+            }
+        }
+        public var hasOptimizeFor:Bool{
+            get {
+                return builderResult.hasOptimizeFor
             }
         }
       @discardableResult
@@ -6238,11 +6301,11 @@ public extension Google.Protobuf {
            builderResult.optimizeFor = .speed
            return self
         }
-      public var hasGoPackage:Bool {
-           get {
-                return builderResult.hasGoPackage
-           }
-      }
+      /// Sets the Go package where structs generated from this .proto will be
+      /// placed. If omitted, the Go package will be derived from the following:
+      ///   - The basename of the package import path, if provided.
+      ///   - Otherwise, the package statement in the .proto file, if present.
+      ///   - Otherwise, the basename of the .proto file, without extension.
       public var goPackage:String {
            get {
                 return builderResult.goPackage
@@ -6250,6 +6313,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasGoPackage = true
                builderResult.goPackage = value
+           }
+      }
+      public var hasGoPackage:Bool {
+           get {
+                return builderResult.hasGoPackage
            }
       }
       @discardableResult
@@ -6263,11 +6331,15 @@ public extension Google.Protobuf {
            builderResult.goPackage = ""
            return self
       }
-      public var hasCcGenericServices:Bool {
-           get {
-                return builderResult.hasCcGenericServices
-           }
-      }
+      /// Should generic services be generated in each language?  "Generic" services
+      /// are not specific to any particular RPC system.  They are generated by the
+      /// main code generators in each language (without additional plugins).
+      /// Generic services were the only kind of service generation supported by
+      /// early versions of google.protobuf.
+      /// Generic services are now considered deprecated in favor of using plugins
+      /// that generate code specific to your particular RPC system.  Therefore,
+      /// these default to false.  Old code which depends on generic services should
+      /// explicitly set them to true.
       public var ccGenericServices:Bool {
            get {
                 return builderResult.ccGenericServices
@@ -6275,6 +6347,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasCcGenericServices = true
                builderResult.ccGenericServices = value
+           }
+      }
+      public var hasCcGenericServices:Bool {
+           get {
+                return builderResult.hasCcGenericServices
            }
       }
       @discardableResult
@@ -6288,11 +6365,6 @@ public extension Google.Protobuf {
            builderResult.ccGenericServices = false
            return self
       }
-      public var hasJavaGenericServices:Bool {
-           get {
-                return builderResult.hasJavaGenericServices
-           }
-      }
       public var javaGenericServices:Bool {
            get {
                 return builderResult.javaGenericServices
@@ -6300,6 +6372,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasJavaGenericServices = true
                builderResult.javaGenericServices = value
+           }
+      }
+      public var hasJavaGenericServices:Bool {
+           get {
+                return builderResult.hasJavaGenericServices
            }
       }
       @discardableResult
@@ -6313,11 +6390,6 @@ public extension Google.Protobuf {
            builderResult.javaGenericServices = false
            return self
       }
-      public var hasPyGenericServices:Bool {
-           get {
-                return builderResult.hasPyGenericServices
-           }
-      }
       public var pyGenericServices:Bool {
            get {
                 return builderResult.pyGenericServices
@@ -6325,6 +6397,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasPyGenericServices = true
                builderResult.pyGenericServices = value
+           }
+      }
+      public var hasPyGenericServices:Bool {
+           get {
+                return builderResult.hasPyGenericServices
            }
       }
       @discardableResult
@@ -6338,11 +6415,10 @@ public extension Google.Protobuf {
            builderResult.pyGenericServices = false
            return self
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this file deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for everything in the file, or it will be completely ignored; in the very
+      /// least, this is a formalization for deprecating files.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -6350,6 +6426,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -6363,11 +6444,8 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
-      public var hasCcEnableArenas:Bool {
-           get {
-                return builderResult.hasCcEnableArenas
-           }
-      }
+      /// Enables the use of arenas for the proto messages in this file. This applies
+      /// only to generated classes for C++.
       public var ccEnableArenas:Bool {
            get {
                 return builderResult.ccEnableArenas
@@ -6375,6 +6453,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasCcEnableArenas = true
                builderResult.ccEnableArenas = value
+           }
+      }
+      public var hasCcEnableArenas:Bool {
+           get {
+                return builderResult.hasCcEnableArenas
            }
       }
       @discardableResult
@@ -6388,11 +6471,8 @@ public extension Google.Protobuf {
            builderResult.ccEnableArenas = false
            return self
       }
-      public var hasObjcClassPrefix:Bool {
-           get {
-                return builderResult.hasObjcClassPrefix
-           }
-      }
+      /// Sets the objective c class prefix which is prepended to all objective c
+      /// generated classes from this .proto. There is no default.
       public var objcClassPrefix:String {
            get {
                 return builderResult.objcClassPrefix
@@ -6400,6 +6480,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasObjcClassPrefix = true
                builderResult.objcClassPrefix = value
+           }
+      }
+      public var hasObjcClassPrefix:Bool {
+           get {
+                return builderResult.hasObjcClassPrefix
            }
       }
       @discardableResult
@@ -6413,11 +6498,7 @@ public extension Google.Protobuf {
            builderResult.objcClassPrefix = ""
            return self
       }
-      public var hasCsharpNamespace:Bool {
-           get {
-                return builderResult.hasCsharpNamespace
-           }
-      }
+      /// Namespace for generated classes; defaults to the package.
       public var csharpNamespace:String {
            get {
                 return builderResult.csharpNamespace
@@ -6425,6 +6506,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasCsharpNamespace = true
                builderResult.csharpNamespace = value
+           }
+      }
+      public var hasCsharpNamespace:Bool {
+           get {
+                return builderResult.hasCsharpNamespace
            }
       }
       @discardableResult
@@ -6438,11 +6524,10 @@ public extension Google.Protobuf {
            builderResult.csharpNamespace = ""
            return self
       }
-      public var hasSwiftPrefix:Bool {
-           get {
-                return builderResult.hasSwiftPrefix
-           }
-      }
+      /// By default Swift generators will take the proto package and CamelCase it
+      /// replacing '.' with underscore and use that to prefix the types/symbols
+      /// defined. When this options is provided, they will use this value instead
+      /// to prefix the types/symbols defined.
       public var swiftPrefix:String {
            get {
                 return builderResult.swiftPrefix
@@ -6450,6 +6535,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasSwiftPrefix = true
                builderResult.swiftPrefix = value
+           }
+      }
+      public var hasSwiftPrefix:Bool {
+           get {
+                return builderResult.hasSwiftPrefix
            }
       }
       @discardableResult
@@ -6463,6 +6553,7 @@ public extension Google.Protobuf {
            builderResult.swiftPrefix = ""
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -6722,55 +6813,55 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Set true to use the old proto1 MessageSet wire format for extensions.
-    // This is provided for backwards-compatibility with the MessageSet wire
-    // format.  You should not use this for any other reason:  It's less
-    // efficient, has fewer features, and is more complicated.
-    // The message must be defined exactly as follows:
-    //   message Foo {
-    //     option message_set_wire_format = true;
-    //     extensions 4 to max;
-    //   }
-    // Note that the message cannot have any defined fields; MessageSets only
-    // have extensions.
-    // All extensions of your type must be singular messages; e.g. they cannot
-    // be int32s, enums, or repeated messages.
-    // Because this is an option, the above two restrictions are not enforced by
-    // the protocol compiler.
+    /// Set true to use the old proto1 MessageSet wire format for extensions.
+    /// This is provided for backwards-compatibility with the MessageSet wire
+    /// format.  You should not use this for any other reason:  It's less
+    /// efficient, has fewer features, and is more complicated.
+    /// The message must be defined exactly as follows:
+    ///   message Foo {
+    ///     option message_set_wire_format = true;
+    ///     extensions 4 to max;
+    ///   }
+    /// Note that the message cannot have any defined fields; MessageSets only
+    /// have extensions.
+    /// All extensions of your type must be singular messages; e.g. they cannot
+    /// be int32s, enums, or repeated messages.
+    /// Because this is an option, the above two restrictions are not enforced by
+    /// the protocol compiler.
     public fileprivate(set) var messageSetWireFormat:Bool = false
     public fileprivate(set) var hasMessageSetWireFormat:Bool = false
 
-    // Disables the generation of the standard "descriptor()" accessor, which can
-    // conflict with a field of the same name.  This is meant to make migration
-    // from proto1 easier; new code should avoid fields named "descriptor".
+    /// Disables the generation of the standard "descriptor()" accessor, which can
+    /// conflict with a field of the same name.  This is meant to make migration
+    /// from proto1 easier; new code should avoid fields named "descriptor".
     public fileprivate(set) var noStandardDescriptorAccessor:Bool = false
     public fileprivate(set) var hasNoStandardDescriptorAccessor:Bool = false
 
-    // Is this message deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the message, or it will be completely ignored; in the very least,
-    // this is a formalization for deprecating messages.
+    /// Is this message deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for the message, or it will be completely ignored; in the very least,
+    /// this is a formalization for deprecating messages.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
-    // Whether the message is an automatically generated map entry type for the
-    // maps field.
-    // For maps fields:
-    //     map<KeyType, ValueType> map_field = 1;
-    // The parsed descriptor looks like:
-    //     message MapFieldEntry {
-    //         option map_entry = true;
-    //         optional KeyType key = 1;
-    //         optional ValueType value = 2;
-    //     }
-    //     repeated MapFieldEntry map_field = 1;
-    // Implementations may choose not to generate the map_entry=true message, but
-    // use a native map in the target language to hold the keys and values.
-    // The reflection APIs in such implementions still need to work as
-    // if the field is a repeated message field.
-    // NOTE: Do not set the option in .proto files. Always use the maps syntax
-    // instead. The option should only be implicitly set by the proto compiler
-    // parser.
+    /// Whether the message is an automatically generated map entry type for the
+    /// maps field.
+    /// For maps fields:
+    ///     map<KeyType, ValueType> map_field = 1;
+    /// The parsed descriptor looks like:
+    ///     message MapFieldEntry {
+    ///         option map_entry = true;
+    ///         optional KeyType key = 1;
+    ///         optional ValueType value = 2;
+    ///     }
+    ///     repeated MapFieldEntry map_field = 1;
+    /// Implementations may choose not to generate the map_entry=true message, but
+    /// use a native map in the target language to hold the keys and values.
+    /// The reflection APIs in such implementions still need to work as
+    /// if the field is a repeated message field.
+    /// NOTE: Do not set the option in .proto files. Always use the maps syntax
+    /// instead. The option should only be implicitly set by the proto compiler
+    /// parser.
     public fileprivate(set) var mapEntry:Bool = false
     public fileprivate(set) var hasMapEntry:Bool = false
 
@@ -6961,11 +7052,21 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasMessageSetWireFormat:Bool {
-           get {
-                return builderResult.hasMessageSetWireFormat
-           }
-      }
+      /// Set true to use the old proto1 MessageSet wire format for extensions.
+      /// This is provided for backwards-compatibility with the MessageSet wire
+      /// format.  You should not use this for any other reason:  It's less
+      /// efficient, has fewer features, and is more complicated.
+      /// The message must be defined exactly as follows:
+      ///   message Foo {
+      ///     option message_set_wire_format = true;
+      ///     extensions 4 to max;
+      ///   }
+      /// Note that the message cannot have any defined fields; MessageSets only
+      /// have extensions.
+      /// All extensions of your type must be singular messages; e.g. they cannot
+      /// be int32s, enums, or repeated messages.
+      /// Because this is an option, the above two restrictions are not enforced by
+      /// the protocol compiler.
       public var messageSetWireFormat:Bool {
            get {
                 return builderResult.messageSetWireFormat
@@ -6973,6 +7074,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasMessageSetWireFormat = true
                builderResult.messageSetWireFormat = value
+           }
+      }
+      public var hasMessageSetWireFormat:Bool {
+           get {
+                return builderResult.hasMessageSetWireFormat
            }
       }
       @discardableResult
@@ -6986,11 +7092,9 @@ public extension Google.Protobuf {
            builderResult.messageSetWireFormat = false
            return self
       }
-      public var hasNoStandardDescriptorAccessor:Bool {
-           get {
-                return builderResult.hasNoStandardDescriptorAccessor
-           }
-      }
+      /// Disables the generation of the standard "descriptor()" accessor, which can
+      /// conflict with a field of the same name.  This is meant to make migration
+      /// from proto1 easier; new code should avoid fields named "descriptor".
       public var noStandardDescriptorAccessor:Bool {
            get {
                 return builderResult.noStandardDescriptorAccessor
@@ -6998,6 +7102,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNoStandardDescriptorAccessor = true
                builderResult.noStandardDescriptorAccessor = value
+           }
+      }
+      public var hasNoStandardDescriptorAccessor:Bool {
+           get {
+                return builderResult.hasNoStandardDescriptorAccessor
            }
       }
       @discardableResult
@@ -7011,11 +7120,10 @@ public extension Google.Protobuf {
            builderResult.noStandardDescriptorAccessor = false
            return self
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this message deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for the message, or it will be completely ignored; in the very least,
+      /// this is a formalization for deprecating messages.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -7023,6 +7131,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -7036,11 +7149,24 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
-      public var hasMapEntry:Bool {
-           get {
-                return builderResult.hasMapEntry
-           }
-      }
+      /// Whether the message is an automatically generated map entry type for the
+      /// maps field.
+      /// For maps fields:
+      ///     map<KeyType, ValueType> map_field = 1;
+      /// The parsed descriptor looks like:
+      ///     message MapFieldEntry {
+      ///         option map_entry = true;
+      ///         optional KeyType key = 1;
+      ///         optional ValueType value = 2;
+      ///     }
+      ///     repeated MapFieldEntry map_field = 1;
+      /// Implementations may choose not to generate the map_entry=true message, but
+      /// use a native map in the target language to hold the keys and values.
+      /// The reflection APIs in such implementions still need to work as
+      /// if the field is a repeated message field.
+      /// NOTE: Do not set the option in .proto files. Always use the maps syntax
+      /// instead. The option should only be implicitly set by the proto compiler
+      /// parser.
       public var mapEntry:Bool {
            get {
                 return builderResult.mapEntry
@@ -7048,6 +7174,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasMapEntry = true
                builderResult.mapEntry = value
+           }
+      }
+      public var hasMapEntry:Bool {
+           get {
+                return builderResult.hasMapEntry
            }
       }
       @discardableResult
@@ -7061,6 +7192,7 @@ public extension Google.Protobuf {
            builderResult.mapEntry = false
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -7223,7 +7355,7 @@ public extension Google.Protobuf {
       //Enum type declaration start 
 
       public enum Ctype:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // Default mode.
+        /// Default mode.
         case `String` = 0
         case cord = 1
         case stringPiece = 2
@@ -7260,13 +7392,13 @@ public extension Google.Protobuf {
       //Enum type declaration start 
 
       public enum Jstype:Int32, CustomDebugStringConvertible, CustomStringConvertible {
-        // Use the default type.
+        /// Use the default type.
         case jsNormal = 0
 
-        // Use JavaScript strings.
+        /// Use JavaScript strings.
         case jsString = 1
 
-        // Use JavaScript numbers.
+        /// Use JavaScript numbers.
         case jsNumber = 2
         public func toString() -> String {
           switch self {
@@ -7298,51 +7430,51 @@ public extension Google.Protobuf {
 
     public fileprivate(set) var ctype:Google.Protobuf.FieldOptions.Ctype = Google.Protobuf.FieldOptions.Ctype.`String`
     public fileprivate(set) var hasCtype:Bool = false
-    // The packed option can be enabled for repeated primitive fields to enable
-    // a more efficient representation on the wire. Rather than repeatedly
-    // writing the tag and type for each element, the entire array is encoded as
-    // a single length-delimited blob. In proto3, only explicit setting it to
-    // false will avoid using packed encoding.
+    /// The packed option can be enabled for repeated primitive fields to enable
+    /// a more efficient representation on the wire. Rather than repeatedly
+    /// writing the tag and type for each element, the entire array is encoded as
+    /// a single length-delimited blob. In proto3, only explicit setting it to
+    /// false will avoid using packed encoding.
     public fileprivate(set) var packed:Bool = false
     public fileprivate(set) var hasPacked:Bool = false
 
     public fileprivate(set) var jstype:Google.Protobuf.FieldOptions.Jstype = Google.Protobuf.FieldOptions.Jstype.jsNormal
     public fileprivate(set) var hasJstype:Bool = false
-    // Should this field be parsed lazily?  Lazy applies only to message-type
-    // fields.  It means that when the outer message is initially parsed, the
-    // inner message's contents will not be parsed but instead stored in encoded
-    // form.  The inner message will actually be parsed when it is first accessed.
-    // This is only a hint.  Implementations are free to choose whether to use
-    // eager or lazy parsing regardless of the value of this option.  However,
-    // setting this option true suggests that the protocol author believes that
-    // using lazy parsing on this field is worth the additional bookkeeping
-    // overhead typically needed to implement it.
-    // This option does not affect the public interface of any generated code;
-    // all method signatures remain the same.  Furthermore, thread-safety of the
-    // interface is not affected by this option; const methods remain safe to
-    // call from multiple threads concurrently, while non-const methods continue
-    // to require exclusive access.
-    // Note that implementations may choose not to check required fields within
-    // a lazy sub-message.  That is, calling IsInitialized() on the outer message
-    // may return true even if the inner message has missing required fields.
-    // This is necessary because otherwise the inner message would have to be
-    // parsed in order to perform the check, defeating the purpose of lazy
-    // parsing.  An implementation which chooses not to check required fields
-    // must be consistent about it.  That is, for any particular sub-message, the
-    // implementation must either *always* check its required fields, or *never*
-    // check its required fields, regardless of whether or not the message has
-    // been parsed.
+    /// Should this field be parsed lazily?  Lazy applies only to message-type
+    /// fields.  It means that when the outer message is initially parsed, the
+    /// inner message's contents will not be parsed but instead stored in encoded
+    /// form.  The inner message will actually be parsed when it is first accessed.
+    /// This is only a hint.  Implementations are free to choose whether to use
+    /// eager or lazy parsing regardless of the value of this option.  However,
+    /// setting this option true suggests that the protocol author believes that
+    /// using lazy parsing on this field is worth the additional bookkeeping
+    /// overhead typically needed to implement it.
+    /// This option does not affect the public interface of any generated code;
+    /// all method signatures remain the same.  Furthermore, thread-safety of the
+    /// interface is not affected by this option; const methods remain safe to
+    /// call from multiple threads concurrently, while non-const methods continue
+    /// to require exclusive access.
+    /// Note that implementations may choose not to check required fields within
+    /// a lazy sub-message.  That is, calling IsInitialized() on the outer message
+    /// may return true even if the inner message has missing required fields.
+    /// This is necessary because otherwise the inner message would have to be
+    /// parsed in order to perform the check, defeating the purpose of lazy
+    /// parsing.  An implementation which chooses not to check required fields
+    /// must be consistent about it.  That is, for any particular sub-message, the
+    /// implementation must either *always* check its required fields, or *never*
+    /// check its required fields, regardless of whether or not the message has
+    /// been parsed.
     public fileprivate(set) var `lazy`:Bool = false
     public fileprivate(set) var hasLazy:Bool = false
 
-    // Is this field deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for accessors, or it will be completely ignored; in the very least, this
-    // is a formalization for deprecating fields.
+    /// Is this field deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for accessors, or it will be completely ignored; in the very least, this
+    /// is a formalization for deprecating fields.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
-    // For Google-internal migration only. Do not use.
+    /// For Google-internal migration only. Do not use.
     public fileprivate(set) var `weak`:Bool = false
     public fileprivate(set) var hasWeak:Bool = false
 
@@ -7563,11 +7695,10 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-        public var hasCtype:Bool{
-            get {
-                return builderResult.hasCtype
-            }
-        }
+      /// The ctype option instructs the C++ code generator to use a different
+      /// representation of the field than it normally would.  See the specific
+      /// options below.  This option is not yet implemented in the open source
+      /// release -- sorry, we'll try to include it in a future version!
         public var ctype:Google.Protobuf.FieldOptions.Ctype {
             get {
                 return builderResult.ctype
@@ -7575,6 +7706,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasCtype = true
                 builderResult.ctype = value
+            }
+        }
+        public var hasCtype:Bool{
+            get {
+                return builderResult.hasCtype
             }
         }
       @discardableResult
@@ -7588,11 +7724,11 @@ public extension Google.Protobuf {
            builderResult.ctype = .`String`
            return self
         }
-      public var hasPacked:Bool {
-           get {
-                return builderResult.hasPacked
-           }
-      }
+      /// The packed option can be enabled for repeated primitive fields to enable
+      /// a more efficient representation on the wire. Rather than repeatedly
+      /// writing the tag and type for each element, the entire array is encoded as
+      /// a single length-delimited blob. In proto3, only explicit setting it to
+      /// false will avoid using packed encoding.
       public var packed:Bool {
            get {
                 return builderResult.packed
@@ -7600,6 +7736,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasPacked = true
                builderResult.packed = value
+           }
+      }
+      public var hasPacked:Bool {
+           get {
+                return builderResult.hasPacked
            }
       }
       @discardableResult
@@ -7613,11 +7754,15 @@ public extension Google.Protobuf {
            builderResult.packed = false
            return self
       }
-        public var hasJstype:Bool{
-            get {
-                return builderResult.hasJstype
-            }
-        }
+      /// The jstype option determines the JavaScript type used for values of the
+      /// field.  The option is permitted only for 64 bit integral and fixed types
+      /// (int64, uint64, sint64, fixed64, sfixed64).  By default these types are
+      /// represented as JavaScript strings.  This avoids loss of precision that can
+      /// happen when a large value is converted to a floating point JavaScript
+      /// numbers.  Specifying JS_NUMBER for the jstype causes the generated
+      /// JavaScript code to use the JavaScript "number" type instead of strings.
+      /// This option is an enum to permit additional types to be added,
+      /// e.g. goog.math.Integer.
         public var jstype:Google.Protobuf.FieldOptions.Jstype {
             get {
                 return builderResult.jstype
@@ -7625,6 +7770,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasJstype = true
                 builderResult.jstype = value
+            }
+        }
+        public var hasJstype:Bool{
+            get {
+                return builderResult.hasJstype
             }
         }
       @discardableResult
@@ -7638,11 +7788,30 @@ public extension Google.Protobuf {
            builderResult.jstype = .jsNormal
            return self
         }
-      public var hasLazy:Bool {
-           get {
-                return builderResult.hasLazy
-           }
-      }
+      /// Should this field be parsed lazily?  Lazy applies only to message-type
+      /// fields.  It means that when the outer message is initially parsed, the
+      /// inner message's contents will not be parsed but instead stored in encoded
+      /// form.  The inner message will actually be parsed when it is first accessed.
+      /// This is only a hint.  Implementations are free to choose whether to use
+      /// eager or lazy parsing regardless of the value of this option.  However,
+      /// setting this option true suggests that the protocol author believes that
+      /// using lazy parsing on this field is worth the additional bookkeeping
+      /// overhead typically needed to implement it.
+      /// This option does not affect the public interface of any generated code;
+      /// all method signatures remain the same.  Furthermore, thread-safety of the
+      /// interface is not affected by this option; const methods remain safe to
+      /// call from multiple threads concurrently, while non-const methods continue
+      /// to require exclusive access.
+      /// Note that implementations may choose not to check required fields within
+      /// a lazy sub-message.  That is, calling IsInitialized() on the outer message
+      /// may return true even if the inner message has missing required fields.
+      /// This is necessary because otherwise the inner message would have to be
+      /// parsed in order to perform the check, defeating the purpose of lazy
+      /// parsing.  An implementation which chooses not to check required fields
+      /// must be consistent about it.  That is, for any particular sub-message, the
+      /// implementation must either *always* check its required fields, or *never*
+      /// check its required fields, regardless of whether or not the message has
+      /// been parsed.
       public var `lazy`:Bool {
            get {
                 return builderResult.`lazy`
@@ -7650,6 +7819,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasLazy = true
                builderResult.`lazy` = value
+           }
+      }
+      public var hasLazy:Bool {
+           get {
+                return builderResult.hasLazy
            }
       }
       @discardableResult
@@ -7663,11 +7837,10 @@ public extension Google.Protobuf {
            builderResult.`lazy` = false
            return self
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this field deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for accessors, or it will be completely ignored; in the very least, this
+      /// is a formalization for deprecating fields.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -7675,6 +7848,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -7688,11 +7866,7 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
-      public var hasWeak:Bool {
-           get {
-                return builderResult.hasWeak
-           }
-      }
+      /// For Google-internal migration only. Do not use.
       public var `weak`:Bool {
            get {
                 return builderResult.`weak`
@@ -7700,6 +7874,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasWeak = true
                builderResult.`weak` = value
+           }
+      }
+      public var hasWeak:Bool {
+           get {
+                return builderResult.hasWeak
            }
       }
       @discardableResult
@@ -7713,6 +7892,7 @@ public extension Google.Protobuf {
            builderResult.`weak` = false
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -8019,6 +8199,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -8136,15 +8317,15 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Set this option to true to allow mapping different tag names to the same
-    // value.
+    /// Set this option to true to allow mapping different tag names to the same
+    /// value.
     public fileprivate(set) var allowAlias:Bool = false
     public fileprivate(set) var hasAllowAlias:Bool = false
 
-    // Is this enum deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the enum, or it will be completely ignored; in the very least, this
-    // is a formalization for deprecating enums.
+    /// Is this enum deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for the enum, or it will be completely ignored; in the very least, this
+    /// is a formalization for deprecating enums.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
@@ -8305,11 +8486,8 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasAllowAlias:Bool {
-           get {
-                return builderResult.hasAllowAlias
-           }
-      }
+      /// Set this option to true to allow mapping different tag names to the same
+      /// value.
       public var allowAlias:Bool {
            get {
                 return builderResult.allowAlias
@@ -8317,6 +8495,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasAllowAlias = true
                builderResult.allowAlias = value
+           }
+      }
+      public var hasAllowAlias:Bool {
+           get {
+                return builderResult.hasAllowAlias
            }
       }
       @discardableResult
@@ -8330,11 +8513,10 @@ public extension Google.Protobuf {
            builderResult.allowAlias = false
            return self
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this enum deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for the enum, or it will be completely ignored; in the very least, this
+      /// is a formalization for deprecating enums.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -8342,6 +8524,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -8355,6 +8542,7 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -8489,10 +8677,10 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Is this enum value deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the enum value, or it will be completely ignored; in the very least,
-    // this is a formalization for deprecating enum values.
+    /// Is this enum value deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for the enum value, or it will be completely ignored; in the very least,
+    /// this is a formalization for deprecating enum values.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
@@ -8638,11 +8826,10 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this enum value deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for the enum value, or it will be completely ignored; in the very least,
+      /// this is a formalization for deprecating enum values.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -8650,6 +8837,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -8663,6 +8855,7 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -8788,10 +8981,10 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // Is this service deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the service, or it will be completely ignored; in the very least,
-    // this is a formalization for deprecating services.
+    /// Is this service deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for the service, or it will be completely ignored; in the very least,
+    /// this is a formalization for deprecating services.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
@@ -8937,11 +9130,10 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this service deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for the service, or it will be completely ignored; in the very least,
+      /// this is a formalization for deprecating services.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -8949,6 +9141,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -8962,6 +9159,7 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -9092,16 +9290,16 @@ public extension Google.Protobuf {
 
       //Enum type declaration start 
 
-      // Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
-      // or neither? HTTP based RPC implementation may choose GET verb for safe
-      // methods, and PUT verb for idempotent methods instead of the default POST.
+      /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+      /// or neither? HTTP based RPC implementation may choose GET verb for safe
+      /// methods, and PUT verb for idempotent methods instead of the default POST.
       public enum IdempotencyLevel:Int32, CustomDebugStringConvertible, CustomStringConvertible {
         case idempotencyUnknown = 0
 
-        // implies idempotent
+        /// implies idempotent
         case noSideEffects = 1
 
-        // idempotent, but may have side effects
+        /// idempotent, but may have side effects
         case idempotent = 2
         public func toString() -> String {
           switch self {
@@ -9131,10 +9329,10 @@ public extension Google.Protobuf {
 
       //Enum type declaration end 
 
-    // Is this method deprecated?
-    // Depending on the target platform, this can emit Deprecated annotations
-    // for the method, or it will be completely ignored; in the very least,
-    // this is a formalization for deprecating methods.
+    /// Is this method deprecated?
+    /// Depending on the target platform, this can emit Deprecated annotations
+    /// for the method, or it will be completely ignored; in the very least,
+    /// this is a formalization for deprecating methods.
     public fileprivate(set) var deprecated:Bool = false
     public fileprivate(set) var hasDeprecated:Bool = false
 
@@ -9297,11 +9495,10 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasDeprecated:Bool {
-           get {
-                return builderResult.hasDeprecated
-           }
-      }
+      /// Is this method deprecated?
+      /// Depending on the target platform, this can emit Deprecated annotations
+      /// for the method, or it will be completely ignored; in the very least,
+      /// this is a formalization for deprecating methods.
       public var deprecated:Bool {
            get {
                 return builderResult.deprecated
@@ -9309,6 +9506,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDeprecated = true
                builderResult.deprecated = value
+           }
+      }
+      public var hasDeprecated:Bool {
+           get {
+                return builderResult.hasDeprecated
            }
       }
       @discardableResult
@@ -9322,11 +9524,6 @@ public extension Google.Protobuf {
            builderResult.deprecated = false
            return self
       }
-        public var hasIdempotencyLevel:Bool{
-            get {
-                return builderResult.hasIdempotencyLevel
-            }
-        }
         public var idempotencyLevel:Google.Protobuf.MethodOptions.IdempotencyLevel {
             get {
                 return builderResult.idempotencyLevel
@@ -9334,6 +9531,11 @@ public extension Google.Protobuf {
             set (value) {
                 builderResult.hasIdempotencyLevel = true
                 builderResult.idempotencyLevel = value
+            }
+        }
+        public var hasIdempotencyLevel:Bool{
+            get {
+                return builderResult.hasIdempotencyLevel
             }
         }
       @discardableResult
@@ -9347,6 +9549,7 @@ public extension Google.Protobuf {
            builderResult.idempotencyLevel = .idempotencyUnknown
            return self
         }
+      /// The parser stores options it doesn't recognize here. See above.
       public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
            get {
                return builderResult.uninterpretedOption
@@ -9472,12 +9675,12 @@ public extension Google.Protobuf {
 
   }
 
-  // A message representing a option the parser does not recognize. This only
-  // appears in options protos created by the compiler::Parser class.
-  // DescriptorPool resolves these when building Descriptor objects. Therefore,
-  // options protos in descriptor objects (e.g. returned by Descriptor::options(),
-  // or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
-  // in them.
+  /// A message representing a option the parser does not recognize. This only
+  /// appears in options protos created by the compiler::Parser class.
+  /// DescriptorPool resolves these when building Descriptor objects. Therefore,
+  /// options protos in descriptor objects (e.g. returned by Descriptor::options(),
+  /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
+  /// in them.
   final public class UninterpretedOption : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
@@ -9500,11 +9703,11 @@ public extension Google.Protobuf {
 
     //Nested type declaration start
 
-      // The name of the uninterpreted option.  Each string represents a segment in
-      // a dot-separated name.  is_extension is true iff a segment represents an
-      // extension (denoted with parentheses in options specs in .proto files).
-      // E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
-      // "foo.(bar.baz).qux".
+      /// The name of the uninterpreted option.  Each string represents a segment in
+      /// a dot-separated name.  is_extension is true iff a segment represents an
+      /// extension (denoted with parentheses in options specs in .proto files).
+      /// E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
+      /// "foo.(bar.baz).qux".
       final public class NamePart : GeneratedMessage {
 
         public static func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.Protobuf.UninterpretedOption.NamePart) -> Bool {
@@ -9645,11 +9848,6 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
-          public var hasNamePart:Bool {
-               get {
-                    return builderResult.hasNamePart
-               }
-          }
           public var namePart:String {
                get {
                     return builderResult.namePart
@@ -9657,6 +9855,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasNamePart = true
                    builderResult.namePart = value
+               }
+          }
+          public var hasNamePart:Bool {
+               get {
+                    return builderResult.hasNamePart
                }
           }
           @discardableResult
@@ -9670,11 +9873,6 @@ public extension Google.Protobuf {
                builderResult.namePart = ""
                return self
           }
-          public var hasIsExtension:Bool {
-               get {
-                    return builderResult.hasIsExtension
-               }
-          }
           public var isExtension:Bool {
                get {
                     return builderResult.isExtension
@@ -9682,6 +9880,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasIsExtension = true
                    builderResult.isExtension = value
+               }
+          }
+          public var hasIsExtension:Bool {
+               get {
+                    return builderResult.hasIsExtension
                }
           }
           @discardableResult
@@ -9782,8 +9985,8 @@ public extension Google.Protobuf {
     //Nested type declaration end
 
     public fileprivate(set) var name:Array<Google.Protobuf.UninterpretedOption.NamePart>  = Array<Google.Protobuf.UninterpretedOption.NamePart>()
-    // The value of the uninterpreted option, in whatever type the tokenizer
-    // identified it as during parsing. Exactly one of these should be set.
+    /// The value of the uninterpreted option, in whatever type the tokenizer
+    /// identified it as during parsing. Exactly one of these should be set.
     public fileprivate(set) var identifierValue:String = ""
     public fileprivate(set) var hasIdentifierValue:Bool = false
 
@@ -10029,11 +10232,8 @@ public extension Google.Protobuf {
         builderResult.name.removeAll(keepingCapacity: false)
         return self
       }
-      public var hasIdentifierValue:Bool {
-           get {
-                return builderResult.hasIdentifierValue
-           }
-      }
+      /// The value of the uninterpreted option, in whatever type the tokenizer
+      /// identified it as during parsing. Exactly one of these should be set.
       public var identifierValue:String {
            get {
                 return builderResult.identifierValue
@@ -10041,6 +10241,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasIdentifierValue = true
                builderResult.identifierValue = value
+           }
+      }
+      public var hasIdentifierValue:Bool {
+           get {
+                return builderResult.hasIdentifierValue
            }
       }
       @discardableResult
@@ -10054,11 +10259,6 @@ public extension Google.Protobuf {
            builderResult.identifierValue = ""
            return self
       }
-      public var hasPositiveIntValue:Bool {
-           get {
-                return builderResult.hasPositiveIntValue
-           }
-      }
       public var positiveIntValue:UInt64 {
            get {
                 return builderResult.positiveIntValue
@@ -10066,6 +10266,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasPositiveIntValue = true
                builderResult.positiveIntValue = value
+           }
+      }
+      public var hasPositiveIntValue:Bool {
+           get {
+                return builderResult.hasPositiveIntValue
            }
       }
       @discardableResult
@@ -10079,11 +10284,6 @@ public extension Google.Protobuf {
            builderResult.positiveIntValue = UInt64(0)
            return self
       }
-      public var hasNegativeIntValue:Bool {
-           get {
-                return builderResult.hasNegativeIntValue
-           }
-      }
       public var negativeIntValue:Int64 {
            get {
                 return builderResult.negativeIntValue
@@ -10091,6 +10291,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasNegativeIntValue = true
                builderResult.negativeIntValue = value
+           }
+      }
+      public var hasNegativeIntValue:Bool {
+           get {
+                return builderResult.hasNegativeIntValue
            }
       }
       @discardableResult
@@ -10104,11 +10309,6 @@ public extension Google.Protobuf {
            builderResult.negativeIntValue = Int64(0)
            return self
       }
-      public var hasDoubleValue:Bool {
-           get {
-                return builderResult.hasDoubleValue
-           }
-      }
       public var doubleValue:Double {
            get {
                 return builderResult.doubleValue
@@ -10116,6 +10316,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasDoubleValue = true
                builderResult.doubleValue = value
+           }
+      }
+      public var hasDoubleValue:Bool {
+           get {
+                return builderResult.hasDoubleValue
            }
       }
       @discardableResult
@@ -10129,11 +10334,6 @@ public extension Google.Protobuf {
            builderResult.doubleValue = Double(0)
            return self
       }
-      public var hasStringValue:Bool {
-           get {
-                return builderResult.hasStringValue
-           }
-      }
       public var stringValue:Data {
            get {
                 return builderResult.stringValue
@@ -10141,6 +10341,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasStringValue = true
                builderResult.stringValue = value
+           }
+      }
+      public var hasStringValue:Bool {
+           get {
+                return builderResult.hasStringValue
            }
       }
       @discardableResult
@@ -10154,11 +10359,6 @@ public extension Google.Protobuf {
            builderResult.stringValue = Data()
            return self
       }
-      public var hasAggregateValue:Bool {
-           get {
-                return builderResult.hasAggregateValue
-           }
-      }
       public var aggregateValue:String {
            get {
                 return builderResult.aggregateValue
@@ -10166,6 +10366,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasAggregateValue = true
                builderResult.aggregateValue = value
+           }
+      }
+      public var hasAggregateValue:Bool {
+           get {
+                return builderResult.hasAggregateValue
            }
       }
       @discardableResult
@@ -10322,8 +10527,8 @@ public extension Google.Protobuf {
 
   }
 
-  // Encapsulates information about the original source file from which a
-  // FileDescriptorProto was generated.
+  /// Encapsulates information about the original source file from which a
+  /// FileDescriptorProto was generated.
   final public class SourceCodeInfo : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
@@ -10356,72 +10561,72 @@ public extension Google.Protobuf {
           return fieldCheck
         }
 
-        // Identifies which part of the FileDescriptorProto was defined at this
-        // location.
-        // Each element is a field number or an index.  They form a path from
-        // the root FileDescriptorProto to the place where the definition.  For
-        // example, this path:
-        //   [ 4, 3, 2, 7, 1 ]
-        // refers to:
-        //   file.message_type(3)  // 4, 3
-        //       .field(7)         // 2, 7
-        //       .name()           // 1
-        // This is because FileDescriptorProto.message_type has field number 4:
-        //   repeated DescriptorProto message_type = 4;
-        // and DescriptorProto.field has field number 2:
-        //   repeated FieldDescriptorProto field = 2;
-        // and FieldDescriptorProto.name has field number 1:
-        //   optional string name = 1;
-        // Thus, the above path gives the location of a field name.  If we removed
-        // the last element:
-        //   [ 4, 3, 2, 7 ]
-        // this path refers to the whole field declaration (from the beginning
-        // of the label to the terminating semicolon).
+        /// Identifies which part of the FileDescriptorProto was defined at this
+        /// location.
+        /// Each element is a field number or an index.  They form a path from
+        /// the root FileDescriptorProto to the place where the definition.  For
+        /// example, this path:
+        ///   [ 4, 3, 2, 7, 1 ]
+        /// refers to:
+        ///   file.message_type(3)  // 4, 3
+        ///       .field(7)         // 2, 7
+        ///       .name()           // 1
+        /// This is because FileDescriptorProto.message_type has field number 4:
+        ///   repeated DescriptorProto message_type = 4;
+        /// and DescriptorProto.field has field number 2:
+        ///   repeated FieldDescriptorProto field = 2;
+        /// and FieldDescriptorProto.name has field number 1:
+        ///   optional string name = 1;
+        /// Thus, the above path gives the location of a field name.  If we removed
+        /// the last element:
+        ///   [ 4, 3, 2, 7 ]
+        /// this path refers to the whole field declaration (from the beginning
+        /// of the label to the terminating semicolon).
         public fileprivate(set) var path:Array<Int32> = Array<Int32>()
         private var pathMemoizedSerializedSize:Int32 = -1
-        // Always has exactly three or four elements: start line, start column,
-        // end line (optional, otherwise assumed same as start line), end column.
-        // These are packed into a single field for efficiency.  Note that line
-        // and column numbers are zero-based -- typically you will want to add
-        // 1 to each before displaying to a user.
+        /// Always has exactly three or four elements: start line, start column,
+        /// end line (optional, otherwise assumed same as start line), end column.
+        /// These are packed into a single field for efficiency.  Note that line
+        /// and column numbers are zero-based -- typically you will want to add
+        /// 1 to each before displaying to a user.
         public fileprivate(set) var span:Array<Int32> = Array<Int32>()
         private var spanMemoizedSerializedSize:Int32 = -1
-        // If this SourceCodeInfo represents a complete declaration, these are any
-        // comments appearing before and after the declaration which appear to be
-        // attached to the declaration.
-        // A series of line comments appearing on consecutive lines, with no other
-        // tokens appearing on those lines, will be treated as a single comment.
-        // leading_detached_comments will keep paragraphs of comments that appear
-        // before (but not connected to) the current element. Each paragraph,
-        // separated by empty lines, will be one comment element in the repeated
-        // field.
-        // Only the comment content is provided; comment markers (e.g. //) are
-        // stripped out.  For block comments, leading whitespace and an asterisk
-        // will be stripped from the beginning of each line other than the first.
-        // Newlines are included in the output.
-        // Examples:
-        //   optional int32 foo = 1;  // Comment attached to foo.
-        //   // Comment attached to bar.
-        //   optional int32 bar = 2;
-        //   optional string baz = 3;
-        //   // Comment attached to baz.
-        //   // Another line attached to baz.
-        //   // Comment attached to qux.
-        //   //
-        //   // Another line attached to qux.
-        //   optional double qux = 4;
-        //   // Detached comment for corge. This is not leading or trailing comments
-        //   // to qux or corge because there are blank lines separating it from
-        //   // both.
-        //   // Detached comment for corge paragraph 2.
-        //   optional string corge = 5;
-        //   /* Block comment attached
-        //    * to corge.  Leading asterisks
-        //    * will be removed. */
-        //   /* Block comment attached to
-        //    * grault. */
-        //   optional int32 grault = 6;
-        //   // ignored detached comments.
+        /// If this SourceCodeInfo represents a complete declaration, these are any
+        /// comments appearing before and after the declaration which appear to be
+        /// attached to the declaration.
+        /// A series of line comments appearing on consecutive lines, with no other
+        /// tokens appearing on those lines, will be treated as a single comment.
+        /// leading_detached_comments will keep paragraphs of comments that appear
+        /// before (but not connected to) the current element. Each paragraph,
+        /// separated by empty lines, will be one comment element in the repeated
+        /// field.
+        /// Only the comment content is provided; comment markers (e.g. //) are
+        /// stripped out.  For block comments, leading whitespace and an asterisk
+        /// will be stripped from the beginning of each line other than the first.
+        /// Newlines are included in the output.
+        /// Examples:
+        ///   optional int32 foo = 1;  // Comment attached to foo.
+        ///   // Comment attached to bar.
+        ///   optional int32 bar = 2;
+        ///   optional string baz = 3;
+        ///   // Comment attached to baz.
+        ///   // Another line attached to baz.
+        ///   // Comment attached to qux.
+        ///   //
+        ///   // Another line attached to qux.
+        ///   optional double qux = 4;
+        ///   // Detached comment for corge. This is not leading or trailing comments
+        ///   // to qux or corge because there are blank lines separating it from
+        ///   // both.
+        ///   // Detached comment for corge paragraph 2.
+        ///   optional string corge = 5;
+        ///   /* Block comment attached
+        ///    * to corge.  Leading asterisks
+        ///    * will be removed. */
+        ///   /* Block comment attached to
+        ///    * grault. */
+        ///   optional int32 grault = 6;
+        ///   // ignored detached comments.
         public fileprivate(set) var leadingComments:String = ""
         public fileprivate(set) var hasLeadingComments:Bool = false
 
@@ -10634,6 +10839,27 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
+          /// Identifies which part of the FileDescriptorProto was defined at this
+          /// location.
+          /// Each element is a field number or an index.  They form a path from
+          /// the root FileDescriptorProto to the place where the definition.  For
+          /// example, this path:
+          ///   [ 4, 3, 2, 7, 1 ]
+          /// refers to:
+          ///   file.message_type(3)  // 4, 3
+          ///       .field(7)         // 2, 7
+          ///       .name()           // 1
+          /// This is because FileDescriptorProto.message_type has field number 4:
+          ///   repeated DescriptorProto message_type = 4;
+          /// and DescriptorProto.field has field number 2:
+          ///   repeated FieldDescriptorProto field = 2;
+          /// and FieldDescriptorProto.name has field number 1:
+          ///   optional string name = 1;
+          /// Thus, the above path gives the location of a field name.  If we removed
+          /// the last element:
+          ///   [ 4, 3, 2, 7 ]
+          /// this path refers to the whole field declaration (from the beginning
+          /// of the label to the terminating semicolon).
           public var path:Array<Int32> {
                get {
                    return builderResult.path
@@ -10652,6 +10878,11 @@ public extension Google.Protobuf {
              builderResult.path.removeAll(keepingCapacity: false)
              return self
           }
+          /// Always has exactly three or four elements: start line, start column,
+          /// end line (optional, otherwise assumed same as start line), end column.
+          /// These are packed into a single field for efficiency.  Note that line
+          /// and column numbers are zero-based -- typically you will want to add
+          /// 1 to each before displaying to a user.
           public var span:Array<Int32> {
                get {
                    return builderResult.span
@@ -10670,11 +10901,42 @@ public extension Google.Protobuf {
              builderResult.span.removeAll(keepingCapacity: false)
              return self
           }
-          public var hasLeadingComments:Bool {
-               get {
-                    return builderResult.hasLeadingComments
-               }
-          }
+          /// If this SourceCodeInfo represents a complete declaration, these are any
+          /// comments appearing before and after the declaration which appear to be
+          /// attached to the declaration.
+          /// A series of line comments appearing on consecutive lines, with no other
+          /// tokens appearing on those lines, will be treated as a single comment.
+          /// leading_detached_comments will keep paragraphs of comments that appear
+          /// before (but not connected to) the current element. Each paragraph,
+          /// separated by empty lines, will be one comment element in the repeated
+          /// field.
+          /// Only the comment content is provided; comment markers (e.g. //) are
+          /// stripped out.  For block comments, leading whitespace and an asterisk
+          /// will be stripped from the beginning of each line other than the first.
+          /// Newlines are included in the output.
+          /// Examples:
+          ///   optional int32 foo = 1;  // Comment attached to foo.
+          ///   // Comment attached to bar.
+          ///   optional int32 bar = 2;
+          ///   optional string baz = 3;
+          ///   // Comment attached to baz.
+          ///   // Another line attached to baz.
+          ///   // Comment attached to qux.
+          ///   //
+          ///   // Another line attached to qux.
+          ///   optional double qux = 4;
+          ///   // Detached comment for corge. This is not leading or trailing comments
+          ///   // to qux or corge because there are blank lines separating it from
+          ///   // both.
+          ///   // Detached comment for corge paragraph 2.
+          ///   optional string corge = 5;
+          ///   /* Block comment attached
+          ///    * to corge.  Leading asterisks
+          ///    * will be removed. */
+          ///   /* Block comment attached to
+          ///    * grault. */
+          ///   optional int32 grault = 6;
+          ///   // ignored detached comments.
           public var leadingComments:String {
                get {
                     return builderResult.leadingComments
@@ -10682,6 +10944,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasLeadingComments = true
                    builderResult.leadingComments = value
+               }
+          }
+          public var hasLeadingComments:Bool {
+               get {
+                    return builderResult.hasLeadingComments
                }
           }
           @discardableResult
@@ -10695,11 +10962,6 @@ public extension Google.Protobuf {
                builderResult.leadingComments = ""
                return self
           }
-          public var hasTrailingComments:Bool {
-               get {
-                    return builderResult.hasTrailingComments
-               }
-          }
           public var trailingComments:String {
                get {
                     return builderResult.trailingComments
@@ -10707,6 +10969,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasTrailingComments = true
                    builderResult.trailingComments = value
+               }
+          }
+          public var hasTrailingComments:Bool {
+               get {
+                    return builderResult.hasTrailingComments
                }
           }
           @discardableResult
@@ -10983,6 +11250,47 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
+      /// A Location identifies a piece of source code in a .proto file which
+      /// corresponds to a particular definition.  This information is intended
+      /// to be useful to IDEs, code indexers, documentation generators, and similar
+      /// tools.
+      /// For example, say we have a file like:
+      ///   message Foo {
+      ///     optional string foo = 1;
+      ///   }
+      /// Let's look at just the field definition:
+      ///   optional string foo = 1;
+      ///   ^       ^^     ^^  ^  ^^^
+      ///   a       bc     de  f  ghi
+      /// We have the following locations:
+      ///   span   path               represents
+      ///   [a,i)  [ 4, 0, 2, 0 ]     The whole field definition.
+      ///   [a,b)  [ 4, 0, 2, 0, 4 ]  The label (optional).
+      ///   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
+      ///   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
+      ///   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
+      /// Notes:
+      /// - A location may refer to a repeated field itself (i.e. not to any
+      ///   particular index within it).  This is used whenever a set of elements are
+      ///   logically enclosed in a single code segment.  For example, an entire
+      ///   extend block (possibly containing multiple extension definitions) will
+      ///   have an outer location whose path refers to the "extensions" repeated
+      ///   field without an index.
+      /// - Multiple locations may have the same path.  This happens when a single
+      ///   logical declaration is spread out across multiple places.  The most
+      ///   obvious example is the "extend" block again -- there may be multiple
+      ///   extend blocks in the same scope, each of which will have the same path.
+      /// - A location's span is not always a subset of its parent's span.  For
+      ///   example, the "extendee" of an extension declaration appears at the
+      ///   beginning of the "extend" block and is shared by all extensions within
+      ///   the block.
+      /// - Just because a location's span is a subset of some other location's span
+      ///   does not mean that it is a descendent.  For example, a "group" defines
+      ///   both a type and a field in a single declaration.  Thus, the locations
+      ///   corresponding to the type and field and their components will overlap.
+      /// - Code which tries to interpret locations should probably be designed to
+      ///   ignore those that it doesn't understand, as more types of locations could
+      ///   be recorded in the future.
       public var location:Array<Google.Protobuf.SourceCodeInfo.Location> {
            get {
                return builderResult.location
@@ -11084,9 +11392,9 @@ public extension Google.Protobuf {
 
   }
 
-  // Describes the relationship between generated code and its original source
-  // file. A GeneratedCodeInfo message is associated with only one generated
-  // source file, but may contain references to different source .proto files.
+  /// Describes the relationship between generated code and its original source
+  /// file. A GeneratedCodeInfo message is associated with only one generated
+  /// source file, but may contain references to different source .proto files.
   final public class GeneratedCodeInfo : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.GeneratedCodeInfo, rhs: Google.Protobuf.GeneratedCodeInfo) -> Bool {
@@ -11118,22 +11426,22 @@ public extension Google.Protobuf {
           return fieldCheck
         }
 
-        // Identifies the element in the original source .proto file. This field
-        // is formatted the same as SourceCodeInfo.Location.path.
+        /// Identifies the element in the original source .proto file. This field
+        /// is formatted the same as SourceCodeInfo.Location.path.
         public fileprivate(set) var path:Array<Int32> = Array<Int32>()
         private var pathMemoizedSerializedSize:Int32 = -1
-        // Identifies the filesystem path to the original source .proto.
+        /// Identifies the filesystem path to the original source .proto.
         public fileprivate(set) var sourceFile:String = ""
         public fileprivate(set) var hasSourceFile:Bool = false
 
-        // Identifies the starting offset in bytes in the generated code
-        // that relates to the identified object.
+        /// Identifies the starting offset in bytes in the generated code
+        /// that relates to the identified object.
         public fileprivate(set) var begin:Int32 = Int32(0)
         public fileprivate(set) var hasBegin:Bool = false
 
-        // Identifies the ending offset in bytes in the generated code that
-        // relates to the identified offset. The end offset should be one past
-        // the last relevant byte (so the length of the text = end - begin).
+        /// Identifies the ending offset in bytes in the generated code that
+        /// relates to the identified offset. The end offset should be one past
+        /// the last relevant byte (so the length of the text = end - begin).
         public fileprivate(set) var end:Int32 = Int32(0)
         public fileprivate(set) var hasEnd:Bool = false
 
@@ -11299,6 +11607,8 @@ public extension Google.Protobuf {
           required override public init () {
              super.init()
           }
+          /// Identifies the element in the original source .proto file. This field
+          /// is formatted the same as SourceCodeInfo.Location.path.
           public var path:Array<Int32> {
                get {
                    return builderResult.path
@@ -11317,11 +11627,7 @@ public extension Google.Protobuf {
              builderResult.path.removeAll(keepingCapacity: false)
              return self
           }
-          public var hasSourceFile:Bool {
-               get {
-                    return builderResult.hasSourceFile
-               }
-          }
+          /// Identifies the filesystem path to the original source .proto.
           public var sourceFile:String {
                get {
                     return builderResult.sourceFile
@@ -11329,6 +11635,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasSourceFile = true
                    builderResult.sourceFile = value
+               }
+          }
+          public var hasSourceFile:Bool {
+               get {
+                    return builderResult.hasSourceFile
                }
           }
           @discardableResult
@@ -11342,11 +11653,8 @@ public extension Google.Protobuf {
                builderResult.sourceFile = ""
                return self
           }
-          public var hasBegin:Bool {
-               get {
-                    return builderResult.hasBegin
-               }
-          }
+          /// Identifies the starting offset in bytes in the generated code
+          /// that relates to the identified object.
           public var begin:Int32 {
                get {
                     return builderResult.begin
@@ -11354,6 +11662,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasBegin = true
                    builderResult.begin = value
+               }
+          }
+          public var hasBegin:Bool {
+               get {
+                    return builderResult.hasBegin
                }
           }
           @discardableResult
@@ -11367,11 +11680,9 @@ public extension Google.Protobuf {
                builderResult.begin = Int32(0)
                return self
           }
-          public var hasEnd:Bool {
-               get {
-                    return builderResult.hasEnd
-               }
-          }
+          /// Identifies the ending offset in bytes in the generated code that
+          /// relates to the identified offset. The end offset should be one past
+          /// the last relevant byte (so the length of the text = end - begin).
           public var end:Int32 {
                get {
                     return builderResult.end
@@ -11379,6 +11690,11 @@ public extension Google.Protobuf {
                set (value) {
                    builderResult.hasEnd = true
                    builderResult.end = value
+               }
+          }
+          public var hasEnd:Bool {
+               get {
+                    return builderResult.hasEnd
                }
           }
           @discardableResult
@@ -11619,6 +11935,8 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
+      /// An Annotation connects some span of text in generated code to an element
+      /// of its generating .proto file.
       public var annotation:Array<Google.Protobuf.GeneratedCodeInfo.Annotation> {
            get {
                return builderResult.annotation

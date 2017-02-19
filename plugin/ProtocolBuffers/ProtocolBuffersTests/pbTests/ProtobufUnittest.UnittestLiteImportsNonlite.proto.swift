@@ -144,11 +144,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasMessage:Bool {
-           get {
-               return builderResult.hasMessage
-           }
-      }
       public var message:ProtobufUnittest.TestAllTypes! {
            get {
                if messageBuilder_ != nil {
@@ -159,6 +154,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasMessage = true
                builderResult.message = value
+           }
+      }
+      public var hasMessage:Bool {
+           get {
+               return builderResult.hasMessage
            }
       }
       fileprivate var messageBuilder_:ProtobufUnittest.TestAllTypes.Builder! {

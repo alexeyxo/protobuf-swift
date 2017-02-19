@@ -20,7 +20,7 @@ public extension Google.Protobuf {
     }
   }
 
-  // Wrapper message for double.
+  /// Wrapper message for double.
   final public class DoubleValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.DoubleValue, rhs: Google.Protobuf.DoubleValue) -> Bool {
@@ -33,7 +33,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The double value.
+    /// The double value.
     public fileprivate(set) var value:Double = Double(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -137,11 +137,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The double value.
       public var value:Double {
            get {
                 return builderResult.value
@@ -149,6 +145,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -239,7 +240,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for float.
+  /// Wrapper message for float.
   final public class FloatValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.FloatValue, rhs: Google.Protobuf.FloatValue) -> Bool {
@@ -252,7 +253,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The float value.
+    /// The float value.
     public fileprivate(set) var value:Float = Float(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -356,11 +357,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The float value.
       public var value:Float {
            get {
                 return builderResult.value
@@ -368,6 +365,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -458,7 +460,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for int64.
+  /// Wrapper message for int64.
   final public class Int64Value : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Int64Value, rhs: Google.Protobuf.Int64Value) -> Bool {
@@ -471,7 +473,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The int64 value.
+    /// The int64 value.
     public fileprivate(set) var value:Int64 = Int64(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -575,11 +577,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The int64 value.
       public var value:Int64 {
            get {
                 return builderResult.value
@@ -587,6 +585,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -677,7 +680,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for uint64.
+  /// Wrapper message for uint64.
   final public class Uint64Value : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Uint64Value, rhs: Google.Protobuf.Uint64Value) -> Bool {
@@ -690,7 +693,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The uint64 value.
+    /// The uint64 value.
     public fileprivate(set) var value:UInt64 = UInt64(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -794,11 +797,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The uint64 value.
       public var value:UInt64 {
            get {
                 return builderResult.value
@@ -806,6 +805,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -896,7 +900,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for int32.
+  /// Wrapper message for int32.
   final public class Int32Value : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Int32Value, rhs: Google.Protobuf.Int32Value) -> Bool {
@@ -909,7 +913,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The int32 value.
+    /// The int32 value.
     public fileprivate(set) var value:Int32 = Int32(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -1013,11 +1017,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The int32 value.
       public var value:Int32 {
            get {
                 return builderResult.value
@@ -1025,6 +1025,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -1115,7 +1120,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for uint32.
+  /// Wrapper message for uint32.
   final public class Uint32Value : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.Uint32Value, rhs: Google.Protobuf.Uint32Value) -> Bool {
@@ -1128,7 +1133,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The uint32 value.
+    /// The uint32 value.
     public fileprivate(set) var value:UInt32 = UInt32(0)
     public fileprivate(set) var hasValue:Bool = false
 
@@ -1232,11 +1237,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The uint32 value.
       public var value:UInt32 {
            get {
                 return builderResult.value
@@ -1244,6 +1245,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -1334,7 +1340,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for bool.
+  /// Wrapper message for bool.
   final public class BoolValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.BoolValue, rhs: Google.Protobuf.BoolValue) -> Bool {
@@ -1347,7 +1353,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The bool value.
+    /// The bool value.
     public fileprivate(set) var value:Bool = false
     public fileprivate(set) var hasValue:Bool = false
 
@@ -1451,11 +1457,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The bool value.
       public var value:Bool {
            get {
                 return builderResult.value
@@ -1463,6 +1465,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -1551,7 +1558,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for string.
+  /// Wrapper message for string.
   final public class StringValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.StringValue, rhs: Google.Protobuf.StringValue) -> Bool {
@@ -1564,7 +1571,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The string value.
+    /// The string value.
     public fileprivate(set) var value:String = ""
     public fileprivate(set) var hasValue:Bool = false
 
@@ -1668,11 +1675,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The string value.
       public var value:String {
            get {
                 return builderResult.value
@@ -1680,6 +1683,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult
@@ -1768,7 +1776,7 @@ public extension Google.Protobuf {
 
   }
 
-  // Wrapper message for bytes.
+  /// Wrapper message for bytes.
   final public class BytesValue : GeneratedMessage {
 
     public static func == (lhs: Google.Protobuf.BytesValue, rhs: Google.Protobuf.BytesValue) -> Bool {
@@ -1781,7 +1789,7 @@ public extension Google.Protobuf {
       return fieldCheck
     }
 
-    // The bytes value.
+    /// The bytes value.
     public fileprivate(set) var value:Data = Data()
     public fileprivate(set) var hasValue:Bool = false
 
@@ -1885,11 +1893,7 @@ public extension Google.Protobuf {
       required override public init () {
          super.init()
       }
-      public var hasValue:Bool {
-           get {
-                return builderResult.hasValue
-           }
-      }
+      /// The bytes value.
       public var value:Data {
            get {
                 return builderResult.value
@@ -1897,6 +1901,11 @@ public extension Google.Protobuf {
            set (value) {
                builderResult.hasValue = true
                builderResult.value = value
+           }
+      }
+      public var hasValue:Bool {
+           get {
+                return builderResult.hasValue
            }
       }
       @discardableResult

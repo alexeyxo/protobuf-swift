@@ -153,11 +153,6 @@ final public class UnitTestStruct : GeneratedMessage {
     required override public init () {
        super.init()
     }
-    public var hasTestStr:Bool {
-         get {
-              return builderResult.hasTestStr
-         }
-    }
     public var testStr:String {
          get {
               return builderResult.testStr
@@ -165,6 +160,11 @@ final public class UnitTestStruct : GeneratedMessage {
          set (value) {
              builderResult.hasTestStr = true
              builderResult.testStr = value
+         }
+    }
+    public var hasTestStr:Bool {
+         get {
+              return builderResult.hasTestStr
          }
     }
     @discardableResult
@@ -178,11 +178,6 @@ final public class UnitTestStruct : GeneratedMessage {
          builderResult.testStr = ""
          return self
     }
-    public var hasTestInt:Bool {
-         get {
-              return builderResult.hasTestInt
-         }
-    }
     public var testInt:Int32 {
          get {
               return builderResult.testInt
@@ -190,6 +185,11 @@ final public class UnitTestStruct : GeneratedMessage {
          set (value) {
              builderResult.hasTestInt = true
              builderResult.testInt = value
+         }
+    }
+    public var hasTestInt:Bool {
+         get {
+              return builderResult.hasTestInt
          }
     }
     @discardableResult

@@ -136,11 +136,6 @@ public extension ProtobufUnittestImport {
       required override public init () {
          super.init()
       }
-      public var hasE:Bool {
-           get {
-                return builderResult.hasE
-           }
-      }
       public var e:Int32 {
            get {
                 return builderResult.e
@@ -148,6 +143,11 @@ public extension ProtobufUnittestImport {
            set (value) {
                builderResult.hasE = true
                builderResult.e = value
+           }
+      }
+      public var hasE:Bool {
+           get {
+                return builderResult.hasE
            }
       }
       @discardableResult

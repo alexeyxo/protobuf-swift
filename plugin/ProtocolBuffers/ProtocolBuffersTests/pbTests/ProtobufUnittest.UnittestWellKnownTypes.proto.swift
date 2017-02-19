@@ -31,7 +31,7 @@ public extension ProtobufUnittest {
     }
   }
 
-  // Test that we can include all well-known types.
+  /// Test that we can include all well-known types.
   final public class TestWellKnownTypes : GeneratedMessage {
 
     public static func == (lhs: ProtobufUnittest.TestWellKnownTypes, rhs: ProtobufUnittest.TestWellKnownTypes) -> Bool {
@@ -388,11 +388,6 @@ public extension ProtobufUnittest {
       required override public init () {
          super.init()
       }
-      public var hasAnyField:Bool {
-           get {
-               return builderResult.hasAnyField
-           }
-      }
       public var anyField:Google.Protobuf.`Any`! {
            get {
                if anyFieldBuilder_ != nil {
@@ -403,6 +398,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasAnyField = true
                builderResult.anyField = value
+           }
+      }
+      public var hasAnyField:Bool {
+           get {
+               return builderResult.hasAnyField
            }
       }
       fileprivate var anyFieldBuilder_:Google.Protobuf.`Any`.Builder! {
@@ -442,11 +442,6 @@ public extension ProtobufUnittest {
         builderResult.anyField = nil
         return self
       }
-      public var hasApiField:Bool {
-           get {
-               return builderResult.hasApiField
-           }
-      }
       public var apiField:Google.Protobuf.Api! {
            get {
                if apiFieldBuilder_ != nil {
@@ -457,6 +452,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasApiField = true
                builderResult.apiField = value
+           }
+      }
+      public var hasApiField:Bool {
+           get {
+               return builderResult.hasApiField
            }
       }
       fileprivate var apiFieldBuilder_:Google.Protobuf.Api.Builder! {
@@ -496,11 +496,6 @@ public extension ProtobufUnittest {
         builderResult.apiField = nil
         return self
       }
-      public var hasDurationField:Bool {
-           get {
-               return builderResult.hasDurationField
-           }
-      }
       public var durationField:Google.Protobuf.Duration! {
            get {
                if durationFieldBuilder_ != nil {
@@ -511,6 +506,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasDurationField = true
                builderResult.durationField = value
+           }
+      }
+      public var hasDurationField:Bool {
+           get {
+               return builderResult.hasDurationField
            }
       }
       fileprivate var durationFieldBuilder_:Google.Protobuf.Duration.Builder! {
@@ -550,11 +550,6 @@ public extension ProtobufUnittest {
         builderResult.durationField = nil
         return self
       }
-      public var hasEmptyField:Bool {
-           get {
-               return builderResult.hasEmptyField
-           }
-      }
       public var emptyField:Google.Protobuf.Empty! {
            get {
                if emptyFieldBuilder_ != nil {
@@ -565,6 +560,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasEmptyField = true
                builderResult.emptyField = value
+           }
+      }
+      public var hasEmptyField:Bool {
+           get {
+               return builderResult.hasEmptyField
            }
       }
       fileprivate var emptyFieldBuilder_:Google.Protobuf.Empty.Builder! {
@@ -604,11 +604,6 @@ public extension ProtobufUnittest {
         builderResult.emptyField = nil
         return self
       }
-      public var hasFieldMaskField:Bool {
-           get {
-               return builderResult.hasFieldMaskField
-           }
-      }
       public var fieldMaskField:Google.Protobuf.FieldMask! {
            get {
                if fieldMaskFieldBuilder_ != nil {
@@ -619,6 +614,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasFieldMaskField = true
                builderResult.fieldMaskField = value
+           }
+      }
+      public var hasFieldMaskField:Bool {
+           get {
+               return builderResult.hasFieldMaskField
            }
       }
       fileprivate var fieldMaskFieldBuilder_:Google.Protobuf.FieldMask.Builder! {
@@ -658,11 +658,6 @@ public extension ProtobufUnittest {
         builderResult.fieldMaskField = nil
         return self
       }
-      public var hasSourceContextField:Bool {
-           get {
-               return builderResult.hasSourceContextField
-           }
-      }
       public var sourceContextField:Google.Protobuf.SourceContext! {
            get {
                if sourceContextFieldBuilder_ != nil {
@@ -673,6 +668,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasSourceContextField = true
                builderResult.sourceContextField = value
+           }
+      }
+      public var hasSourceContextField:Bool {
+           get {
+               return builderResult.hasSourceContextField
            }
       }
       fileprivate var sourceContextFieldBuilder_:Google.Protobuf.SourceContext.Builder! {
@@ -712,11 +712,6 @@ public extension ProtobufUnittest {
         builderResult.sourceContextField = nil
         return self
       }
-      public var hasStructField:Bool {
-           get {
-               return builderResult.hasStructField
-           }
-      }
       public var structField:Google.Protobuf.Struct! {
            get {
                if structFieldBuilder_ != nil {
@@ -727,6 +722,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasStructField = true
                builderResult.structField = value
+           }
+      }
+      public var hasStructField:Bool {
+           get {
+               return builderResult.hasStructField
            }
       }
       fileprivate var structFieldBuilder_:Google.Protobuf.Struct.Builder! {
@@ -766,11 +766,6 @@ public extension ProtobufUnittest {
         builderResult.structField = nil
         return self
       }
-      public var hasTimestampField:Bool {
-           get {
-               return builderResult.hasTimestampField
-           }
-      }
       public var timestampField:Google.Protobuf.Timestamp! {
            get {
                if timestampFieldBuilder_ != nil {
@@ -781,6 +776,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasTimestampField = true
                builderResult.timestampField = value
+           }
+      }
+      public var hasTimestampField:Bool {
+           get {
+               return builderResult.hasTimestampField
            }
       }
       fileprivate var timestampFieldBuilder_:Google.Protobuf.Timestamp.Builder! {
@@ -820,11 +820,6 @@ public extension ProtobufUnittest {
         builderResult.timestampField = nil
         return self
       }
-      public var hasTypeField:Bool {
-           get {
-               return builderResult.hasTypeField
-           }
-      }
       public var typeField:Google.Protobuf.`Type`! {
            get {
                if typeFieldBuilder_ != nil {
@@ -835,6 +830,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasTypeField = true
                builderResult.typeField = value
+           }
+      }
+      public var hasTypeField:Bool {
+           get {
+               return builderResult.hasTypeField
            }
       }
       fileprivate var typeFieldBuilder_:Google.Protobuf.`Type`.Builder! {
@@ -874,11 +874,6 @@ public extension ProtobufUnittest {
         builderResult.typeField = nil
         return self
       }
-      public var hasInt32Field:Bool {
-           get {
-               return builderResult.hasInt32Field
-           }
-      }
       public var int32Field:Google.Protobuf.Int32Value! {
            get {
                if int32FieldBuilder_ != nil {
@@ -889,6 +884,11 @@ public extension ProtobufUnittest {
            set (value) {
                builderResult.hasInt32Field = true
                builderResult.int32Field = value
+           }
+      }
+      public var hasInt32Field:Bool {
+           get {
+               return builderResult.hasInt32Field
            }
       }
       fileprivate var int32FieldBuilder_:Google.Protobuf.Int32Value.Builder! {
