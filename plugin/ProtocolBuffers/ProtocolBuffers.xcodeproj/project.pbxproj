@@ -107,8 +107,6 @@
 		3F9301401A0964ED00F7A20B /* golden_packed_fields_message in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */; };
 		3F9301411A0964ED00F7A20B /* text_format_unittest_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */; };
 		3F9301421A0964ED00F7A20B /* text_format_unittest_extensions_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */; };
-		3FBDB45B1E599D160033D757 /* Test.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDB45A1E599D160033D757 /* Test.proto.swift */; };
-		3FBDB45C1E599D160033D757 /* Test.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDB45A1E599D160033D757 /* Test.proto.swift */; };
 		3FC236AE1A18E3120006EC7D /* UnknowFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */; };
 		3FC5190E1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
 		3FC5190F1B1C7EB100436FA6 /* ThreadingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */; };
@@ -267,7 +265,6 @@
 		3F93013C1A0964ED00F7A20B /* golden_packed_fields_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_packed_fields_message; sourceTree = "<group>"; };
 		3F93013D1A0964ED00F7A20B /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
 		3F93013E1A0964ED00F7A20B /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
-		3FBDB45A1E599D160033D757 /* Test.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.proto.swift; sourceTree = "<group>"; };
 		3FC236AC1A18E2F70006EC7D /* UnknowFieldsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UnknowFieldsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		3FC5190D1B1C7EB100436FA6 /* ThreadingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreadingTest.swift; path = pbTests/ThreadingTest.swift; sourceTree = "<group>"; };
 		3FC519321B1E11F000436FA6 /* Performance.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Performance.proto.swift; sourceTree = "<group>"; };
@@ -375,7 +372,6 @@
 		3F2B1CD719E2A6EC001A505E /* pbTests */ = {
 			isa = PBXGroup;
 			children = (
-				3FBDB45A1E599D160033D757 /* Test.proto.swift */,
 				3FCFED1B1D7B0089006CF502 /* UnittestErrorType.proto.swift */,
 				3FE641EF1B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImport.proto.swift */,
 				3FE641F01B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImportLite.proto.swift */,
@@ -832,7 +828,6 @@
 				3F4106491A1A677A00742090 /* SmallBlockInputStream.swift in Sources */,
 				3F41064A1A1A677A00742090 /* ProtocolBuffersTests.swift in Sources */,
 				3F41064B1A1A677A00742090 /* TestUtilities.swift in Sources */,
-				3FBDB45C1E599D160033D757 /* Test.proto.swift in Sources */,
 				3F41064D1A1A677A00742090 /* GeneratedMessageTests.swift in Sources */,
 				3FE6421B1B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImport.proto.swift in Sources */,
 				3FE641FB1B53AE4000BDAE9A /* Baz.Foo.proto.swift in Sources */,
@@ -911,7 +906,6 @@
 				3F813FF41A1030000008F493 /* SizeTest.swift in Sources */,
 				3F8556D119C71C05003802F2 /* CodedInputStreamTests.swift in Sources */,
 				3F8556A919C71BCF003802F2 /* ProtocolBuffersTests.swift in Sources */,
-				3FBDB45B1E599D160033D757 /* Test.proto.swift in Sources */,
 				3F8556D319C71C05003802F2 /* SmallBlockInputStream.swift in Sources */,
 				3FE6421A1B53AE4000BDAE9A /* ProtobufUnittestImport.UnittestImport.proto.swift in Sources */,
 				3FE641FA1B53AE4000BDAE9A /* Baz.Foo.proto.swift in Sources */,
