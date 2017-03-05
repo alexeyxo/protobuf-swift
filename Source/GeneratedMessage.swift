@@ -25,6 +25,7 @@ public protocol GeneratedMessageProtocol: ProtocolBuffersMessage
     static func parseFrom(inputStream:InputStream, extensionRegistry:ExtensionRegistry) throws -> Self
     static func parseFrom(codedInputStream:CodedInputStream) throws -> Self
     static func parseFrom(codedInputStream:CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Self
+    subscript(key: String) -> Any? { get }
 }
 
 open class GeneratedMessage:AbstractProtocolBuffersMessage

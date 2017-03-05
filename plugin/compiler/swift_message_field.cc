@@ -30,7 +30,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         void SetMessageVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
-
+            
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["name"] = name;
@@ -79,13 +79,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     MessageFieldGenerator::~MessageFieldGenerator() {
     }
     
-
+    
     void MessageFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-       
+        
     }
     
     
     void MessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        if (descriptor_->options().deprecated()) {
+             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
@@ -110,13 +113,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "      }\n"
                            "}\n");
             
-      
+            
         }
         else {
             printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:$type$!\n");
             printer->Print(variables_, "$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
         }
         
+    }
+    
+    void MessageFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     void MessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
@@ -247,7 +254,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "  output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
-
+    
     
     void MessageFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -264,7 +271,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "}\n");
     }
-
+    
     
     void MessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -306,18 +313,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-           printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$type$>  = Array<$type$>()\n");
+        if (descriptor_->options().deprecated()) {
+            printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
+        printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$type$>  = Array<$type$>()\n");
+    }
+    
+    void RepeatedMessageFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     
     void RepeatedMessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-
-    }
         
+    }
+    
     
     void RepeatedMessageFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-     
+        
     }
     
     

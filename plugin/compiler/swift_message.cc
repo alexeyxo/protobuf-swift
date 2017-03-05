@@ -279,9 +279,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
-            if (descriptor_->field(i)->options().deprecated()) {
-                printer->Print("@available(*, deprecated:0.1, message:\"The field is marked as \\\"Deprecated\\\"\")\n");
-            }
             field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
         }
         
@@ -309,8 +306,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateIsInitializedSource(printer);
         GenerateMessageSerializationMethodsSource(printer);
-        
-//        GenerateParseFromMethodsSource(printer);
     
         printer->Print(variables_,
                        "$acontrol$ class func getBuilder() -> $classNameReturnedType$.Builder {\n"
@@ -522,7 +517,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
     }
     
-    
 
     void MessageGenerator::GenerateMessageIsEqualSource(io::Printer* printer) {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
@@ -659,14 +653,37 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
+        
       
         printer->Outdent();
-       
+        
+        GenerateSubscript(printer);
+        
         printer->Print(
                       "}\n");
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             MessageGenerator(descriptor_->nested_type(i)).GenerateParseFromMethodsSource(printer);
         }
+    }
+    
+    void MessageGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Indent();
+        printer->Print(variables_,"$acontrol$ subscript(key: String) -> Any? {\n");
+        printer->Indent();
+        if (descriptor_->field_count() > 0) {
+            printer->Print("switch key {\n");
+            for (int i = 0; i < descriptor_->field_count(); i++) {
+                field_generators_.get(descriptor_->field(i)).GenerateSubscript(printer);
+            }
+            printer->Print("default: return nil\n");
+            printer->Print("}\n");
+        } else {
+            printer->Print("return nil\n");
+        }
+        
+        printer->Outdent();
+        printer->Print("}\n");
+        printer->Outdent();
     }
     
     
@@ -745,9 +762,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);
-//        if (file->syntax() == FileDescriptor::SYNTAX_PROTO3) {
-            GenerateMessageBuilderJSONSource(printer);
-//        }
+        GenerateMessageBuilderJSONSource(printer);
         printer->Outdent();
         
         

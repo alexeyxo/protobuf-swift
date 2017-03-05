@@ -69,7 +69,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 default : return false;
             }
         }
-    
+        
         
         // For encodings with fixed sizes, returns that size in bytes.  Otherwise
         // returns -1.
@@ -151,7 +151,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             }
             (* variables)["acontrol"] = GetAccessControlTypeForFields(descriptor->containing_type()->file());
             (* variables)["acontrolFunc"] = GetAccessControlType(descriptor->containing_type()->file());
-
+            
         }
     }  // namespace
     
@@ -177,9 +177,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             string comments = BuildCommentsString(location);
             printer->Print(comments.c_str());
         }
-
+        if (descriptor_->options().deprecated()) {
+            printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         if (isOneOfField(descriptor_)) {
-   
+            
             printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$storage_type$!{\n"
                            "     get {\n"
                            "          return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
@@ -204,6 +206,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$storage_type$ = $default$\n");
             printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n\n");
         }
+    }
+    
+    
+    void PrimitiveFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     
@@ -290,10 +297,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void PrimitiveFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
-            printer->Print(variables_,
-                           "if has$capitalized_name$ {\n"
-                           "  jsonMap[\"$json_name$\"] = $to_json_value$\n"
-                           "}\n");
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "  jsonMap[\"$json_name$\"] = $to_json_value$\n"
+                       "}\n");
     }
     
     void PrimitiveFieldGenerator::GenerateJSONDecodeCodeSource(io::Printer* printer) const {
@@ -320,10 +327,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void PrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-            printer->Print(variables_,
-                           "if has$capitalized_name$ {\n"
-                           "   hashCode = (hashCode &* 31) &+ $name_reserved$.hashValue\n"
-                           "}\n");
+        printer->Print(variables_,
+                       "if has$capitalized_name$ {\n"
+                       "   hashCode = (hashCode &* 31) &+ $name_reserved$.hashValue\n"
+                       "}\n");
     }
     
     RepeatedPrimitiveFieldGenerator::RepeatedPrimitiveFieldGenerator(const FieldDescriptor* descriptor)
@@ -348,11 +355,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             string comments = BuildCommentsString(location);
             printer->Print(comments.c_str());
         }
-
+        if (descriptor_->options().deprecated()) {
+            printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$storage_type$> = Array<$storage_type$>()\n");
         if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,"private var $name$MemoizedSerializedSize:Int32 = -1\n");
         }
+    }
+    
+    void RepeatedPrimitiveFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;
@@ -360,7 +373,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedPrimitiveFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-  
+        
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
@@ -462,7 +475,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,"serialize_size += dataSize$capitalized_name$\n");
         
-         if (isPackedTypeProto3(descriptor_)) {
+        if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
                            "if !$name_reserved$.isEmpty {\n"
                            "  serialize_size += $tag_size$\n"
@@ -533,10 +546,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedPrimitiveFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
-            printer->Print(variables_,
-                           "for oneValue$capitalized_name$ in $name_reserved$ {\n"
-                           "    hashCode = (hashCode &* 31) &+ oneValue$capitalized_name$.hashValue\n"
-                           "}\n");
+        printer->Print(variables_,
+                       "for oneValue$capitalized_name$ in $name_reserved$ {\n"
+                       "    hashCode = (hashCode &* 31) &+ oneValue$capitalized_name$.hashValue\n"
+                       "}\n");
         
     }
 }  // namespace swift

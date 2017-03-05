@@ -91,6 +91,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        if (descriptor_->options().deprecated()) {
+             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         if (isOneOfField(descriptor_)) {
             
             printer->Print(variables_,
@@ -124,7 +127,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }
     
-    
+    void EnumFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+            printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
+    }
     
     
     void EnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
@@ -262,10 +267,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedEnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
+        if (descriptor_->options().deprecated()) {
+            printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         printer->Print(variables_,
                        "private var $name$MemoizedSerializedSize:Int32 = 0\n");
         printer->Print(variables_,
                        "$acontrol$fileprivate(set) var $name_reserved$:Array<$type$> = Array<$type$>()\n");
+    }
+    
+    void RepeatedEnumFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {

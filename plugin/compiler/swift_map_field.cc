@@ -89,9 +89,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             comments = BuildCommentsString(location);
             printer->Print(comments.c_str());
         }
-        
+        if (descriptor_->options().deprecated()) {
+             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");
         printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
+    }
+    
+    void MapFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}

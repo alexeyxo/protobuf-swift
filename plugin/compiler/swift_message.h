@@ -49,6 +49,7 @@ namespace google {
                     void DetermineDependencies(set<string>* dependencies);
                     void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
                     void GenerateParseFromMethodsSource(io::Printer* printer);
+                    void GenerateSubscript(io::Printer* printer) const;
                 private:
                     
                     void GenerateMessageSerializationMethodsSource(io::Printer* printer);
@@ -85,6 +86,7 @@ namespace google {
                     void GenerateCommonBuilderMethodsSource(io::Printer* printer);
                     void GenerateBuilderParsingMethodsSource(io::Printer* printer);
                     void GenerateIsInitializedSource(io::Printer* printer);
+                    
                     
                     const Descriptor* descriptor_;
                     FieldGeneratorMap field_generators_;
