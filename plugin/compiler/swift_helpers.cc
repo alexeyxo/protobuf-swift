@@ -626,23 +626,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     string GetCapitalizedType(const FieldDescriptor* field) {
         switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "Int32"   ;
-            case FieldDescriptor::TYPE_UINT32  : return "UInt32"  ;
-            case FieldDescriptor::TYPE_SINT32  : return "SInt32"  ;
+            case FieldDescriptor::TYPE_INT32   : return "Int32"     ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32"    ;
+            case FieldDescriptor::TYPE_SINT32  : return "SInt32"    ;
             case FieldDescriptor::TYPE_FIXED32 : return "Fixed32" ;
             case FieldDescriptor::TYPE_SFIXED32: return "SFixed32";
-            case FieldDescriptor::TYPE_INT64   : return "Int64"   ;
-            case FieldDescriptor::TYPE_UINT64  : return "UInt64"  ;
-            case FieldDescriptor::TYPE_SINT64  : return "SInt64"  ;
+            case FieldDescriptor::TYPE_INT64   : return "Int64"     ;
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64"    ;
+            case FieldDescriptor::TYPE_SINT64  : return "SInt64"    ;
             case FieldDescriptor::TYPE_FIXED64 : return "Fixed64" ;
             case FieldDescriptor::TYPE_SFIXED64: return "SFixed64";
-            case FieldDescriptor::TYPE_FLOAT   : return "Float"   ;
-            case FieldDescriptor::TYPE_DOUBLE  : return "Double"  ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
-            case FieldDescriptor::TYPE_STRING  : return "String"  ;
-            case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
-            case FieldDescriptor::TYPE_ENUM    : return "Enum"    ;
-            case FieldDescriptor::TYPE_GROUP   : return "Group"   ;
+            case FieldDescriptor::TYPE_FLOAT   : return "Float"     ;
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double"    ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"      ;
+            case FieldDescriptor::TYPE_STRING  : return "String"    ;
+            case FieldDescriptor::TYPE_BYTES   : return "Data"      ;
+            case FieldDescriptor::TYPE_ENUM    : return "Enum"      ;
+            case FieldDescriptor::TYPE_GROUP   : return "Group"     ;
             case FieldDescriptor::TYPE_MESSAGE : return "Message" ;
         }
         
@@ -662,7 +662,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
             case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
             case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"      ;
             case FieldDescriptor::TYPE_STRING  : return "String";
             
             default                            : return NULL;
@@ -685,7 +685,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
             case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
             case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
             case FieldDescriptor::TYPE_STRING  : return "String";
             case FieldDescriptor::TYPE_BYTES   : return "Data";
             case FieldDescriptor::TYPE_GROUP   :

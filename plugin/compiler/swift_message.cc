@@ -233,11 +233,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //Nested Types
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             printer->Print("\n\n//Nested type declaration start\n\n");
-            XCodeStandartIndent(printer);
             MessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
-            XCodeStandartOutdent(printer);
             printer->Print("//Nested type declaration end\n\n");
-            
         }
         
         ///
@@ -299,8 +296,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             field_generators_.get(descriptor_->field(i)).GenerateInitializationSource(printer);
         }
         
-        
-        printer->Print("     super.init()\n"
+        printer->Print("    super.init()\n"
                        "}\n");
         
         
@@ -309,22 +305,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
         printer->Print(variables_,
                        "$acontrol$ class func getBuilder() -> $classNameReturnedType$.Builder {\n"
-                       "  return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$.Builder\n"
+                       "    return $classNameReturnedType$.classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
                        "$acontrol$ func getBuilder() -> $classNameReturnedType$.Builder {\n"
-                       "  return classBuilder() as! $classNameReturnedType$.Builder\n"
+                       "    return classBuilder() as! $classNameReturnedType$.Builder\n"
                        "}\n"
                        "override $acontrol$ class func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
-                       "  return $classNameReturnedType$.Builder()\n"
+                       "    return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "override $acontrol$ func classBuilder() -> ProtocolBuffersMessageBuilder {\n"
-                       "  return $classNameReturnedType$.Builder()\n"
+                       "    return $classNameReturnedType$.Builder()\n"
                        "}\n"
                        "$acontrol$ func toBuilder() throws -> $classNameReturnedType$.Builder {\n"
-                       "  return try $classNameReturnedType$.builderWithPrototype(prototype:self)\n"
+                       "    return try $classNameReturnedType$.builderWithPrototype(prototype:self)\n"
                        "}\n"
                        "$acontrol$ class func builderWithPrototype(prototype:$classNameReturnedType$) throws -> $classNameReturnedType$.Builder {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(other:prototype)\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(other:prototype)\n"
                        "}\n");
 
         //JSON
@@ -336,7 +332,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print("\n\n//Meta information declaration start\n\n");
         
-        printer->Print(variables_,"override $acontrol$ class func className() -> String {\n"
+        printer->Print(variables_,
+                       "override $acontrol$ class func className() -> String {\n"
                        "    return \"$classNameReturnedType$\"\n"
                        "}\n"
                        "override $acontrol$ func className() -> String {\n"
@@ -463,7 +460,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         XCodeStandartIndent(printer);
         
         printer->Print("guard isInitialized() else {\n"
-                       "  throw ProtocolBuffersError.invalidProtocolBuffer(\"Uninitialized Message\")\n"
+                       "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Uninitialized Message\")\n"
                        "}\n\n");
         
         if (descriptor_->field_count() == 0) {
@@ -479,15 +476,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     
         XCodeStandartOutdent(printer);
-        printer->Print("  return jsonMap\n"
+        printer->Print(
+                       "    return jsonMap\n"
                        "}\n");
         
         printer->Print(variables_,"override class $acontrol$ func decode(jsonMap:Dictionary<String,Any>) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsonMap).build()\n"
+                       "    return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsonMap).build()\n"
                        "}\n");
         
         printer->Print(variables_,"override class $acontrol$ func fromJSON(data:Data) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder.fromJSONToBuilder(data:data).build()\n"
+                       "    return try $classNameReturnedType$.Builder.fromJSONToBuilder(data:data).build()\n"
                        "}\n");
     }
     
@@ -508,12 +506,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
-                       "  let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))\n"
-                       "  guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
-                       "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
-                       "  }\n"
-                       "  return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsDataCast)\n"
+        printer->Print(variables_,
+                       "override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
+                       "    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))\n"
+                       "    guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
+                       "      throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
+                       "    }\n"
+                       "    return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsDataCast)\n"
                        "}\n");
     }
     
@@ -534,7 +533,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print("if lhs === rhs {\n"
-                       "  return true\n"
+                       "    return true\n"
                        "}\n"
                        );
         
@@ -621,32 +620,32 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         XCodeStandartIndent(printer);
         printer->Print(variables_,
                        "$acontrol$ class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<$classNameReturnedType$> {\n"
-                       "  var mergedArray = Array<$classNameReturnedType$>()\n"
-                       "  while let value = try parseDelimitedFrom(inputStream: inputStream) {\n"
-                       "    mergedArray.append(value)\n"
-                       "  }\n"
-                       "  return mergedArray\n"
+                       "    var mergedArray = Array<$classNameReturnedType$>()\n"
+                       "    while let value = try parseDelimitedFrom(inputStream: inputStream) {\n"
+                       "      mergedArray.append(value)\n"
+                       "    }\n"
+                       "    return mergedArray\n"
                        "}\n"
                        "$acontrol$ class func parseDelimitedFrom(inputStream: InputStream) throws -> $classNameReturnedType$? {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(data: Data) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:$fileName$.default.extensionRegistry).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:$fileName$.default.extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(inputStream: InputStream) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(inputStream: inputStream).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(inputStream: inputStream).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream).build()\n"
                        "}\n"
                        "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
-                       "  return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
+                       "    return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
         
       
@@ -793,7 +792,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    return builderResult\n"
                        "}\n\n"
                        "required override $acontrol$ init () {\n"
-                       "   super.init()\n"
+                       "    super.init()\n"
                        "}\n");
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
@@ -816,33 +815,33 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "override $acontrol$ var internalGetResult:ExtendableMessage {\n"
-                           "     get {\n"
-                           "         return builderResult\n"
-                           "     }\n"
+                           "    get {\n"
+                           "        return builderResult\n"
+                           "    }\n"
                            "}\n");
         } else {
             printer->Print(variables_,
                            "override $acontrol$ var internalGetResult:GeneratedMessage {\n"
-                           "     get {\n"
+                           "    get {\n"
                            "        return builderResult\n"
-                           "     }\n"
+                           "    }\n"
                            "}\n");
         }
         
         printer->Print(variables_,
                        "@discardableResult\n"
                        "override $acontrol$ func clear() -> $classNameReturnedType$.Builder {\n"
-                       "  builderResult = $classNameReturnedType$()\n"
-                       "  return self\n"
+                       "    builderResult = $classNameReturnedType$()\n"
+                       "    return self\n"
                        "}\n"
                        "override $acontrol$ func clone() throws -> $classNameReturnedType$.Builder {\n"
-                       "  return try $classNameReturnedType$.builderWithPrototype(prototype:builderResult)\n"
+                       "    return try $classNameReturnedType$.builderWithPrototype(prototype:builderResult)\n"
                        "}\n");
         
         printer->Print(variables_,
                        "override $acontrol$ func build() throws -> $classNameReturnedType$ {\n"
-                       "     try checkInitialized()\n"
-                       "     return buildPartial()\n"
+                       "    try checkInitialized()\n"
+                       "    return buildPartial()\n"
                        "}\n"
                        "$acontrol$ func buildPartial() -> $classNameReturnedType$ {\n");
         
@@ -853,8 +852,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         printer->Print(variables_,
-                       "  let returnMe:$classNameReturnedType$ = builderResult\n"
-                       "  return returnMe\n"
+                       "    let returnMe:$classNameReturnedType$ = builderResult\n"
+                       "    return returnMe\n"
                        "}\n");
         
         printer->Print(variables_,
@@ -864,7 +863,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         XCodeStandartIndent(printer);
         printer->Print(variables_,
                        "if other == $classNameReturnedType$() {\n"
-                       " return self\n"
+                       "    return self\n"
                        "}\n");
         
         
@@ -892,7 +891,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream) throws -> $classNameReturnedType$.Builder {\n"
-                       "     return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
+                       "    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())\n"
                        "}\n"
                        "@discardableResult\n"
                        "override $acontrol$ func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$.Builder {\n");
@@ -934,10 +933,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("\n");
         }
         printer->Print("default:\n"
-                       "  if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {\n"
-                       "     unknownFields = try unknownFieldsBuilder.build()\n"
-                       "     return self\n"
-                       "  }\n"
+                       "    if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {\n"
+                       "        unknownFields = try unknownFieldsBuilder.build()\n"
+                       "        return self\n"
+                       "    }\n"
                        "}\n");
         
         
@@ -959,7 +958,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             if (field->is_required()) {
                 printer->Print("if !has$capitalized_name$ {\n"
-                               "  return false\n"
+                               "    return false\n"
                                "}\n",
                                "capitalized_name", UnderscoresToCapitalizedCamelCase(field));
             }
@@ -980,28 +979,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     case FieldDescriptor::LABEL_REQUIRED:
                         printer->Print(vars,
                                        "if !$name_reserved$.isInitialized() {\n"
-                                       "  return false\n"
+                                       "    return false\n"
                                        "}\n");
                         break;
                     case FieldDescriptor::LABEL_OPTIONAL:
                         printer->Print(vars,
                                        "if has$capitalized_name$ {\n"
-                                       " if !$name_reserved$.isInitialized() {\n"
-                                       "   return false\n"
-                                       " }\n"
+                                       "    if !$name_reserved$.isInitialized() {\n"
+                                       "        return false\n"
+                                       "    }\n"
                                        "}\n");
                         break;
                     case FieldDescriptor::LABEL_REPEATED:
                         printer->Print(vars,
                                        "var isInit$capitalized_name$:Bool = true\n"
                                        "for oneElement$capitalized_name$ in $name_reserved$ {\n"
-                                       "  if !oneElement$capitalized_name$.isInitialized() {\n"
-                                       "    isInit$capitalized_name$ = false\n"
-                                       "    break \n"
-                                       "  }\n"
+                                       "    if !oneElement$capitalized_name$.isInitialized() {\n"
+                                       "        isInit$capitalized_name$ = false\n"
+                                       "        break \n"
+                                       "    }\n"
                                        "}\n"
                                        "if !isInit$capitalized_name$ {\n"
-                                       "  return isInit$capitalized_name$\n"
+                                       "    return isInit$capitalized_name$\n"
                                        "}\n"
                                        );
                         break;
@@ -1012,13 +1011,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
                            "if !extensionsAreInitialized() {\n"
-                           "  return false\n"
+                           "    return false\n"
                            "}\n");
         }
         
         XCodeStandartOutdent(printer);
         printer->Print(
-                       " return true\n"
+                       "    return true\n"
                        "}\n");
     }
 }  // namespace swift
