@@ -269,5 +269,25 @@ extension ThreadingMessages: GeneratedMessageProtocol {
     }
   }
 }
+extension ThreadingMessages.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "testString": return self.testString
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "testString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.testString = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

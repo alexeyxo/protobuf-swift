@@ -1468,5 +1468,115 @@ extension UserProfile.Exception: GeneratedMessageProtocol {
     }
   }
 }
+extension UserProfile.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "firstName": return self.firstName
+      case "lastName": return self.lastName
+      case "avatarUrl": return self.avatarUrl
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "firstName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.firstName = newSubscriptValue
+      case "lastName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.lastName = newSubscriptValue
+      case "avatarUrl":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.avatarUrl = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension UserProfile.Request.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "userId": return self.userId
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "userId":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.userId = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension UserProfile.Response.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "profile": return self.profile
+      case "error": return self.error
+      case "exception": return self.exception
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "profile":
+        guard let newSubscriptValue = newSubscriptValue as? UserProfile else {
+          return
+        }
+        self.profile = newSubscriptValue
+      case "error":
+        guard let newSubscriptValue = newSubscriptValue as? ServiceError else {
+          return
+        }
+        self.error = newSubscriptValue
+      case "exception":
+        guard let newSubscriptValue = newSubscriptValue as? UserProfile.Exception else {
+          return
+        }
+        self.exception = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension UserProfile.Exception.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "errorCode": return self.errorCode
+      case "errorDescription": return self.errorDescription
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "errorCode":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.errorCode = newSubscriptValue
+      case "errorDescription":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.errorDescription = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

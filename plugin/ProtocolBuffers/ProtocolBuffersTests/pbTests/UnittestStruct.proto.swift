@@ -326,5 +326,31 @@ extension UnitTestStruct: GeneratedMessageProtocol {
     }
   }
 }
+extension UnitTestStruct.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "testStr": return self.testStr
+      case "testInt": return self.testInt
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "testStr":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.testStr = newSubscriptValue
+      case "testInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.testInt = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

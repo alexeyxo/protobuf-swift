@@ -2626,6 +2626,26 @@ extension SwiftProtobufUnittest.MapMessageValue: GeneratedMessageProtocol {
     }
   }
 }
+extension SwiftProtobufUnittest.MapMessageValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "valueInMapMessage": return self.valueInMapMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "valueInMapMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.valueInMapMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension SwiftProtobufUnittest.MessageContainsMap: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<SwiftProtobufUnittest.MessageContainsMap> {
     var mergedArray = Array<SwiftProtobufUnittest.MessageContainsMap>()
@@ -2886,6 +2906,212 @@ extension SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry: GeneratedM
     case "key": return self.key
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "mapInt32Int32": return self.mapInt32Int32
+      case "mapInt64Int64": return self.mapInt64Int64
+      case "mapStringString": return self.mapStringString
+      case "mapStringBytes": return self.mapStringBytes
+      case "mapStringMessage": return self.mapStringMessage
+      case "mapInt32Enum": return self.mapInt32Enum
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "mapInt32Int32":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<Int32,Int32> else {
+          return
+        }
+        self.mapInt32Int32 = newSubscriptValue
+      case "mapInt64Int64":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<Int64,Int64> else {
+          return
+        }
+        self.mapInt64Int64 = newSubscriptValue
+      case "mapStringString":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<String,String> else {
+          return
+        }
+        self.mapStringString = newSubscriptValue
+      case "mapStringBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<String,Data> else {
+          return
+        }
+        self.mapStringBytes = newSubscriptValue
+      case "mapStringMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<String,SwiftProtobufUnittest.MapMessageValue> else {
+          return
+        }
+        self.mapStringMessage = newSubscriptValue
+      case "mapInt32Enum":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<Int32,SwiftProtobufUnittest.MessageContainsMap.EnumMapValue> else {
+          return
+        }
+        self.mapInt32Enum = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? SwiftProtobufUnittest.MapMessageValue else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? SwiftProtobufUnittest.MessageContainsMap.EnumMapValue else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }

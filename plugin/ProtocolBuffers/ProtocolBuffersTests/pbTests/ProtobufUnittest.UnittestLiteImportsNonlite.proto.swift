@@ -316,5 +316,25 @@ extension ProtobufUnittest.TestLiteImportsNonlite: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestLiteImportsNonlite.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "message": return self.message
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "message":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.message = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

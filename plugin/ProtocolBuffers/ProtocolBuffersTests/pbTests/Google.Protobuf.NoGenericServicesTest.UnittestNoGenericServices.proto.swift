@@ -323,5 +323,25 @@ extension Google.Protobuf.NoGenericServicesTest.TestMessage: GeneratedMessagePro
     }
   }
 }
+extension Google.Protobuf.NoGenericServicesTest.TestMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

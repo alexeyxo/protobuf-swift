@@ -273,5 +273,25 @@ extension Bar.Foo: GeneratedMessageProtocol {
     }
   }
 }
+extension Bar.Foo.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "hello": return self.hello
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "hello":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.hello = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

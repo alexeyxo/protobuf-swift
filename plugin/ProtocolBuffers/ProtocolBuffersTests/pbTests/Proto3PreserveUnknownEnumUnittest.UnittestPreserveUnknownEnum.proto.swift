@@ -1418,6 +1418,56 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessage: GeneratedMessageProtocol 
     }
   }
 }
+extension Proto3PreserveUnknownEnumUnittest.MyMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "e": return self.e
+      case "repeatedE": return self.repeatedE
+      case "repeatedPackedE": return self.repeatedPackedE
+      case "repeatedPackedUnexpectedE": return self.repeatedPackedUnexpectedE
+      case "oneofE1": return self.oneofE1
+      case "oneofE2": return self.oneofE2
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "e":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnum else {
+          return
+        }
+        self.e = newSubscriptValue
+      case "repeatedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnum> else {
+          return
+        }
+        self.repeatedE = newSubscriptValue
+      case "repeatedPackedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnum> else {
+          return
+        }
+        self.repeatedPackedE = newSubscriptValue
+      case "repeatedPackedUnexpectedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> else {
+          return
+        }
+        self.repeatedPackedUnexpectedE = newSubscriptValue
+      case "oneofE1":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnum else {
+          return
+        }
+        self.oneofE1 = newSubscriptValue
+      case "oneofE2":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnum else {
+          return
+        }
+        self.oneofE2 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra> {
     var mergedArray = Array<Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra>()
@@ -1456,6 +1506,56 @@ extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra: GeneratedMessage
     case "oneofE1": return self.oneofE1
     case "oneofE2": return self.oneofE2
     default: return nil
+    }
+  }
+}
+extension Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "e": return self.e
+      case "repeatedE": return self.repeatedE
+      case "repeatedPackedE": return self.repeatedPackedE
+      case "repeatedPackedUnexpectedE": return self.repeatedPackedUnexpectedE
+      case "oneofE1": return self.oneofE1
+      case "oneofE2": return self.oneofE2
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "e":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra else {
+          return
+        }
+        self.e = newSubscriptValue
+      case "repeatedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> else {
+          return
+        }
+        self.repeatedE = newSubscriptValue
+      case "repeatedPackedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> else {
+          return
+        }
+        self.repeatedPackedE = newSubscriptValue
+      case "repeatedPackedUnexpectedE":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra> else {
+          return
+        }
+        self.repeatedPackedUnexpectedE = newSubscriptValue
+      case "oneofE1":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra else {
+          return
+        }
+        self.oneofE1 = newSubscriptValue
+      case "oneofE2":
+        guard let newSubscriptValue = newSubscriptValue as? Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra else {
+          return
+        }
+        self.oneofE2 = newSubscriptValue
+      default: return
+      }
     }
   }
 }

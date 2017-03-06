@@ -560,6 +560,26 @@ extension Proto2ArenaUnittest.NestedMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension Proto2ArenaUnittest.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "d": return self.d
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "d":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.d = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Proto2ArenaUnittest.ArenaMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Proto2ArenaUnittest.ArenaMessage> {
     var mergedArray = Array<Proto2ArenaUnittest.ArenaMessage>()
@@ -594,6 +614,32 @@ extension Proto2ArenaUnittest.ArenaMessage: GeneratedMessageProtocol {
     case "repeatedNestedMessage": return self.repeatedNestedMessage
     case "repeatedImportNoArenaMessage": return self.repeatedImportNoArenaMessage
     default: return nil
+    }
+  }
+}
+extension Proto2ArenaUnittest.ArenaMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "repeatedNestedMessage": return self.repeatedNestedMessage
+      case "repeatedImportNoArenaMessage": return self.repeatedImportNoArenaMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "repeatedNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto2ArenaUnittest.NestedMessage> else {
+          return
+        }
+        self.repeatedNestedMessage = newSubscriptValue
+      case "repeatedImportNoArenaMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Proto2ArenaUnittest.ImportNoArenaNestedMessage> else {
+          return
+        }
+        self.repeatedImportNoArenaMessage = newSubscriptValue
+      default: return
+      }
     }
   }
 }

@@ -2031,6 +2031,26 @@ extension Google.Protobuf.DoubleValue: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.DoubleValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.FloatValue: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FloatValue> {
     var mergedArray = Array<Google.Protobuf.FloatValue>()
@@ -2064,6 +2084,26 @@ extension Google.Protobuf.FloatValue: GeneratedMessageProtocol {
     switch key {
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.FloatValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2103,6 +2143,26 @@ extension Google.Protobuf.Int64Value: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Int64Value.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Uint64Value: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Uint64Value> {
     var mergedArray = Array<Google.Protobuf.Uint64Value>()
@@ -2136,6 +2196,26 @@ extension Google.Protobuf.Uint64Value: GeneratedMessageProtocol {
     switch key {
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.Uint64Value.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2175,6 +2255,26 @@ extension Google.Protobuf.Int32Value: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Int32Value.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Uint32Value: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Uint32Value> {
     var mergedArray = Array<Google.Protobuf.Uint32Value>()
@@ -2208,6 +2308,26 @@ extension Google.Protobuf.Uint32Value: GeneratedMessageProtocol {
     switch key {
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.Uint32Value.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2247,6 +2367,26 @@ extension Google.Protobuf.BoolValue: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.BoolValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.StringValue: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.StringValue> {
     var mergedArray = Array<Google.Protobuf.StringValue>()
@@ -2283,6 +2423,26 @@ extension Google.Protobuf.StringValue: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.StringValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.BytesValue: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.BytesValue> {
     var mergedArray = Array<Google.Protobuf.BytesValue>()
@@ -2316,6 +2476,26 @@ extension Google.Protobuf.BytesValue: GeneratedMessageProtocol {
     switch key {
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.BytesValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }

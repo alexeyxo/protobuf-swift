@@ -32416,6 +32416,530 @@ extension ProtobufUnittest.TestAllTypes.RepeatedGroup: GeneratedMessageProtocol 
     }
   }
 }
+extension ProtobufUnittest.TestAllTypes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "optionalInt32": return self.optionalInt32
+      case "optionalInt64": return self.optionalInt64
+      case "optionalUint32": return self.optionalUint32
+      case "optionalUint64": return self.optionalUint64
+      case "optionalSint32": return self.optionalSint32
+      case "optionalSint64": return self.optionalSint64
+      case "optionalFixed32": return self.optionalFixed32
+      case "optionalFixed64": return self.optionalFixed64
+      case "optionalSfixed32": return self.optionalSfixed32
+      case "optionalSfixed64": return self.optionalSfixed64
+      case "optionalFloat": return self.optionalFloat
+      case "optionalDouble": return self.optionalDouble
+      case "optionalBool": return self.optionalBool
+      case "optionalString": return self.optionalString
+      case "optionalBytes": return self.optionalBytes
+      case "optionalGroup": return self.optionalGroup
+      case "optionalNestedMessage": return self.optionalNestedMessage
+      case "optionalForeignMessage": return self.optionalForeignMessage
+      case "optionalImportMessage": return self.optionalImportMessage
+      case "optionalNestedEnum": return self.optionalNestedEnum
+      case "optionalForeignEnum": return self.optionalForeignEnum
+      case "optionalImportEnum": return self.optionalImportEnum
+      case "optionalStringPiece": return self.optionalStringPiece
+      case "optionalCord": return self.optionalCord
+      case "optionalPublicImportMessage": return self.optionalPublicImportMessage
+      case "optionalLazyMessage": return self.optionalLazyMessage
+      case "repeatedInt32": return self.repeatedInt32
+      case "repeatedInt64": return self.repeatedInt64
+      case "repeatedUint32": return self.repeatedUint32
+      case "repeatedUint64": return self.repeatedUint64
+      case "repeatedSint32": return self.repeatedSint32
+      case "repeatedSint64": return self.repeatedSint64
+      case "repeatedFixed32": return self.repeatedFixed32
+      case "repeatedFixed64": return self.repeatedFixed64
+      case "repeatedSfixed32": return self.repeatedSfixed32
+      case "repeatedSfixed64": return self.repeatedSfixed64
+      case "repeatedFloat": return self.repeatedFloat
+      case "repeatedDouble": return self.repeatedDouble
+      case "repeatedBool": return self.repeatedBool
+      case "repeatedString": return self.repeatedString
+      case "repeatedBytes": return self.repeatedBytes
+      case "repeatedGroup": return self.repeatedGroup
+      case "repeatedNestedMessage": return self.repeatedNestedMessage
+      case "repeatedForeignMessage": return self.repeatedForeignMessage
+      case "repeatedImportMessage": return self.repeatedImportMessage
+      case "repeatedNestedEnum": return self.repeatedNestedEnum
+      case "repeatedForeignEnum": return self.repeatedForeignEnum
+      case "repeatedImportEnum": return self.repeatedImportEnum
+      case "repeatedStringPiece": return self.repeatedStringPiece
+      case "repeatedCord": return self.repeatedCord
+      case "repeatedLazyMessage": return self.repeatedLazyMessage
+      case "defaultInt32": return self.defaultInt32
+      case "defaultInt64": return self.defaultInt64
+      case "defaultUint32": return self.defaultUint32
+      case "defaultUint64": return self.defaultUint64
+      case "defaultSint32": return self.defaultSint32
+      case "defaultSint64": return self.defaultSint64
+      case "defaultFixed32": return self.defaultFixed32
+      case "defaultFixed64": return self.defaultFixed64
+      case "defaultSfixed32": return self.defaultSfixed32
+      case "defaultSfixed64": return self.defaultSfixed64
+      case "defaultFloat": return self.defaultFloat
+      case "defaultDouble": return self.defaultDouble
+      case "defaultBool": return self.defaultBool
+      case "defaultString": return self.defaultString
+      case "defaultBytes": return self.defaultBytes
+      case "defaultNestedEnum": return self.defaultNestedEnum
+      case "defaultForeignEnum": return self.defaultForeignEnum
+      case "defaultImportEnum": return self.defaultImportEnum
+      case "defaultStringPiece": return self.defaultStringPiece
+      case "defaultCord": return self.defaultCord
+      case "oneofUint32": return self.oneofUint32
+      case "oneofNestedMessage": return self.oneofNestedMessage
+      case "oneofString": return self.oneofString
+      case "oneofBytes": return self.oneofBytes
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "optionalInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.optionalInt32 = newSubscriptValue
+      case "optionalInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.optionalInt64 = newSubscriptValue
+      case "optionalUint32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.optionalUint32 = newSubscriptValue
+      case "optionalUint64":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.optionalUint64 = newSubscriptValue
+      case "optionalSint32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.optionalSint32 = newSubscriptValue
+      case "optionalSint64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.optionalSint64 = newSubscriptValue
+      case "optionalFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.optionalFixed32 = newSubscriptValue
+      case "optionalFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.optionalFixed64 = newSubscriptValue
+      case "optionalSfixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.optionalSfixed32 = newSubscriptValue
+      case "optionalSfixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.optionalSfixed64 = newSubscriptValue
+      case "optionalFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.optionalFloat = newSubscriptValue
+      case "optionalDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.optionalDouble = newSubscriptValue
+      case "optionalBool":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.optionalBool = newSubscriptValue
+      case "optionalString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.optionalString = newSubscriptValue
+      case "optionalBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.optionalBytes = newSubscriptValue
+      case "optionalGroup":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.OptionalGroup else {
+          return
+        }
+        self.optionalGroup = newSubscriptValue
+      case "optionalNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedMessage else {
+          return
+        }
+        self.optionalNestedMessage = newSubscriptValue
+      case "optionalForeignMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignMessage else {
+          return
+        }
+        self.optionalForeignMessage = newSubscriptValue
+      case "optionalImportMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittestImport.ImportMessage else {
+          return
+        }
+        self.optionalImportMessage = newSubscriptValue
+      case "optionalNestedEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedEnum else {
+          return
+        }
+        self.optionalNestedEnum = newSubscriptValue
+      case "optionalForeignEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignEnum else {
+          return
+        }
+        self.optionalForeignEnum = newSubscriptValue
+      case "optionalImportEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittestImport.ImportEnum else {
+          return
+        }
+        self.optionalImportEnum = newSubscriptValue
+      case "optionalStringPiece":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.optionalStringPiece = newSubscriptValue
+      case "optionalCord":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.optionalCord = newSubscriptValue
+      case "optionalPublicImportMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittestImport.PublicImportMessage else {
+          return
+        }
+        self.optionalPublicImportMessage = newSubscriptValue
+      case "optionalLazyMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedMessage else {
+          return
+        }
+        self.optionalLazyMessage = newSubscriptValue
+      case "repeatedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.repeatedInt32 = newSubscriptValue
+      case "repeatedInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.repeatedInt64 = newSubscriptValue
+      case "repeatedUint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.repeatedUint32 = newSubscriptValue
+      case "repeatedUint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.repeatedUint64 = newSubscriptValue
+      case "repeatedSint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.repeatedSint32 = newSubscriptValue
+      case "repeatedSint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.repeatedSint64 = newSubscriptValue
+      case "repeatedFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.repeatedFixed32 = newSubscriptValue
+      case "repeatedFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.repeatedFixed64 = newSubscriptValue
+      case "repeatedSfixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.repeatedSfixed32 = newSubscriptValue
+      case "repeatedSfixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.repeatedSfixed64 = newSubscriptValue
+      case "repeatedFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Float> else {
+          return
+        }
+        self.repeatedFloat = newSubscriptValue
+      case "repeatedDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Double> else {
+          return
+        }
+        self.repeatedDouble = newSubscriptValue
+      case "repeatedBool":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Bool> else {
+          return
+        }
+        self.repeatedBool = newSubscriptValue
+      case "repeatedString":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedString = newSubscriptValue
+      case "repeatedBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Data> else {
+          return
+        }
+        self.repeatedBytes = newSubscriptValue
+      case "repeatedGroup":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes.RepeatedGroup> else {
+          return
+        }
+        self.repeatedGroup = newSubscriptValue
+      case "repeatedNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes.NestedMessage> else {
+          return
+        }
+        self.repeatedNestedMessage = newSubscriptValue
+      case "repeatedForeignMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignMessage> else {
+          return
+        }
+        self.repeatedForeignMessage = newSubscriptValue
+      case "repeatedImportMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittestImport.ImportMessage> else {
+          return
+        }
+        self.repeatedImportMessage = newSubscriptValue
+      case "repeatedNestedEnum":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes.NestedEnum> else {
+          return
+        }
+        self.repeatedNestedEnum = newSubscriptValue
+      case "repeatedForeignEnum":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignEnum> else {
+          return
+        }
+        self.repeatedForeignEnum = newSubscriptValue
+      case "repeatedImportEnum":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittestImport.ImportEnum> else {
+          return
+        }
+        self.repeatedImportEnum = newSubscriptValue
+      case "repeatedStringPiece":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedStringPiece = newSubscriptValue
+      case "repeatedCord":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedCord = newSubscriptValue
+      case "repeatedLazyMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes.NestedMessage> else {
+          return
+        }
+        self.repeatedLazyMessage = newSubscriptValue
+      case "defaultInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.defaultInt32 = newSubscriptValue
+      case "defaultInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.defaultInt64 = newSubscriptValue
+      case "defaultUint32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.defaultUint32 = newSubscriptValue
+      case "defaultUint64":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.defaultUint64 = newSubscriptValue
+      case "defaultSint32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.defaultSint32 = newSubscriptValue
+      case "defaultSint64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.defaultSint64 = newSubscriptValue
+      case "defaultFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.defaultFixed32 = newSubscriptValue
+      case "defaultFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.defaultFixed64 = newSubscriptValue
+      case "defaultSfixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.defaultSfixed32 = newSubscriptValue
+      case "defaultSfixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.defaultSfixed64 = newSubscriptValue
+      case "defaultFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.defaultFloat = newSubscriptValue
+      case "defaultDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.defaultDouble = newSubscriptValue
+      case "defaultBool":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.defaultBool = newSubscriptValue
+      case "defaultString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.defaultString = newSubscriptValue
+      case "defaultBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.defaultBytes = newSubscriptValue
+      case "defaultNestedEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedEnum else {
+          return
+        }
+        self.defaultNestedEnum = newSubscriptValue
+      case "defaultForeignEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignEnum else {
+          return
+        }
+        self.defaultForeignEnum = newSubscriptValue
+      case "defaultImportEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittestImport.ImportEnum else {
+          return
+        }
+        self.defaultImportEnum = newSubscriptValue
+      case "defaultStringPiece":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.defaultStringPiece = newSubscriptValue
+      case "defaultCord":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.defaultCord = newSubscriptValue
+      case "oneofUint32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.oneofUint32 = newSubscriptValue
+      case "oneofNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedMessage else {
+          return
+        }
+        self.oneofNestedMessage = newSubscriptValue
+      case "oneofString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.oneofString = newSubscriptValue
+      case "oneofBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.oneofBytes = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestAllTypes.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "bb": return self.bb
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "bb":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.bb = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestAllTypes.OptionalGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.NestedTestAllTypes: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.NestedTestAllTypes> {
     var mergedArray = Array<ProtobufUnittest.NestedTestAllTypes>()
@@ -32451,6 +32975,38 @@ extension ProtobufUnittest.NestedTestAllTypes: GeneratedMessageProtocol {
     case "payload": return self.payload
     case "repeatedChild": return self.repeatedChild
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.NestedTestAllTypes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "child": return self.child
+      case "payload": return self.payload
+      case "repeatedChild": return self.repeatedChild
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "child":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.NestedTestAllTypes else {
+          return
+        }
+        self.child = newSubscriptValue
+      case "payload":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.payload = newSubscriptValue
+      case "repeatedChild":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.NestedTestAllTypes> else {
+          return
+        }
+        self.repeatedChild = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -32490,6 +33046,26 @@ extension ProtobufUnittest.TestDeprecatedFields: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestDeprecatedFields.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "deprecatedInt32": return self.deprecatedInt32
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "deprecatedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.deprecatedInt32 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.ForeignMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.ForeignMessage> {
     var mergedArray = Array<ProtobufUnittest.ForeignMessage>()
@@ -32526,6 +33102,26 @@ extension ProtobufUnittest.ForeignMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.ForeignMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "c": return self.c
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "c":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.c = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestReservedFields: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestReservedFields> {
     var mergedArray = Array<ProtobufUnittest.TestReservedFields>()
@@ -32557,6 +33153,12 @@ extension ProtobufUnittest.TestReservedFields: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.TestReservedFields.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.TestAllExtensions: GeneratedMessageProtocol {
@@ -32592,6 +33194,12 @@ extension ProtobufUnittest.TestAllExtensions: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.TestAllExtensions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.OptionalGroupExtension: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.OptionalGroupExtension> {
     var mergedArray = Array<ProtobufUnittest.OptionalGroupExtension>()
@@ -32625,6 +33233,26 @@ extension ProtobufUnittest.OptionalGroupExtension: GeneratedMessageProtocol {
     switch key {
     case "a": return self.a
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.OptionalGroupExtension.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -32664,6 +33292,26 @@ extension ProtobufUnittest.RepeatedGroupExtension: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.RepeatedGroupExtension.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestNestedExtension: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestNestedExtension> {
     var mergedArray = Array<ProtobufUnittest.TestNestedExtension>()
@@ -32695,6 +33343,12 @@ extension ProtobufUnittest.TestNestedExtension: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.TestNestedExtension.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.TestRequired: GeneratedMessageProtocol {
@@ -32765,6 +33419,218 @@ extension ProtobufUnittest.TestRequired: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestRequired.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "dummy2": return self.dummy2
+      case "b": return self.b
+      case "dummy4": return self.dummy4
+      case "dummy5": return self.dummy5
+      case "dummy6": return self.dummy6
+      case "dummy7": return self.dummy7
+      case "dummy8": return self.dummy8
+      case "dummy9": return self.dummy9
+      case "dummy10": return self.dummy10
+      case "dummy11": return self.dummy11
+      case "dummy12": return self.dummy12
+      case "dummy13": return self.dummy13
+      case "dummy14": return self.dummy14
+      case "dummy15": return self.dummy15
+      case "dummy16": return self.dummy16
+      case "dummy17": return self.dummy17
+      case "dummy18": return self.dummy18
+      case "dummy19": return self.dummy19
+      case "dummy20": return self.dummy20
+      case "dummy21": return self.dummy21
+      case "dummy22": return self.dummy22
+      case "dummy23": return self.dummy23
+      case "dummy24": return self.dummy24
+      case "dummy25": return self.dummy25
+      case "dummy26": return self.dummy26
+      case "dummy27": return self.dummy27
+      case "dummy28": return self.dummy28
+      case "dummy29": return self.dummy29
+      case "dummy30": return self.dummy30
+      case "dummy31": return self.dummy31
+      case "dummy32": return self.dummy32
+      case "c": return self.c
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "dummy2":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy2 = newSubscriptValue
+      case "b":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.b = newSubscriptValue
+      case "dummy4":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy4 = newSubscriptValue
+      case "dummy5":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy5 = newSubscriptValue
+      case "dummy6":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy6 = newSubscriptValue
+      case "dummy7":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy7 = newSubscriptValue
+      case "dummy8":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy8 = newSubscriptValue
+      case "dummy9":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy9 = newSubscriptValue
+      case "dummy10":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy10 = newSubscriptValue
+      case "dummy11":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy11 = newSubscriptValue
+      case "dummy12":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy12 = newSubscriptValue
+      case "dummy13":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy13 = newSubscriptValue
+      case "dummy14":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy14 = newSubscriptValue
+      case "dummy15":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy15 = newSubscriptValue
+      case "dummy16":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy16 = newSubscriptValue
+      case "dummy17":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy17 = newSubscriptValue
+      case "dummy18":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy18 = newSubscriptValue
+      case "dummy19":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy19 = newSubscriptValue
+      case "dummy20":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy20 = newSubscriptValue
+      case "dummy21":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy21 = newSubscriptValue
+      case "dummy22":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy22 = newSubscriptValue
+      case "dummy23":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy23 = newSubscriptValue
+      case "dummy24":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy24 = newSubscriptValue
+      case "dummy25":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy25 = newSubscriptValue
+      case "dummy26":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy26 = newSubscriptValue
+      case "dummy27":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy27 = newSubscriptValue
+      case "dummy28":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy28 = newSubscriptValue
+      case "dummy29":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy29 = newSubscriptValue
+      case "dummy30":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy30 = newSubscriptValue
+      case "dummy31":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy31 = newSubscriptValue
+      case "dummy32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy32 = newSubscriptValue
+      case "c":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.c = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestRequiredForeign: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredForeign> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredForeign>()
@@ -32800,6 +33666,38 @@ extension ProtobufUnittest.TestRequiredForeign: GeneratedMessageProtocol {
     case "repeatedMessage": return self.repeatedMessage
     case "dummy": return self.dummy
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestRequiredForeign.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "optionalMessage": return self.optionalMessage
+      case "repeatedMessage": return self.repeatedMessage
+      case "dummy": return self.dummy
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "optionalMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestRequired else {
+          return
+        }
+        self.optionalMessage = newSubscriptValue
+      case "repeatedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestRequired> else {
+          return
+        }
+        self.repeatedMessage = newSubscriptValue
+      case "dummy":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dummy = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -32839,6 +33737,26 @@ extension ProtobufUnittest.TestForeignNested: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestForeignNested.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "foreignNested": return self.foreignNested
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "foreignNested":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes.NestedMessage else {
+          return
+        }
+        self.foreignNested = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestEmptyMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestEmptyMessage> {
     var mergedArray = Array<ProtobufUnittest.TestEmptyMessage>()
@@ -32870,6 +33788,12 @@ extension ProtobufUnittest.TestEmptyMessage: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.TestEmptyMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.TestEmptyMessageWithExtensions: GeneratedMessageProtocol {
@@ -32905,6 +33829,12 @@ extension ProtobufUnittest.TestEmptyMessageWithExtensions: GeneratedMessageProto
     return nil
   }
 }
+extension ProtobufUnittest.TestEmptyMessageWithExtensions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.TestMultipleExtensionRanges: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMultipleExtensionRanges> {
     var mergedArray = Array<ProtobufUnittest.TestMultipleExtensionRanges>()
@@ -32936,6 +33866,12 @@ extension ProtobufUnittest.TestMultipleExtensionRanges: GeneratedMessageProtocol
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.TestMultipleExtensionRanges.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.TestReallyLargeTagNumber: GeneratedMessageProtocol {
@@ -32972,6 +33908,32 @@ extension ProtobufUnittest.TestReallyLargeTagNumber: GeneratedMessageProtocol {
     case "a": return self.a
     case "bb": return self.bb
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestReallyLargeTagNumber.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "bb": return self.bb
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "bb":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.bb = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33012,6 +33974,32 @@ extension ProtobufUnittest.TestRecursiveMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestRecursiveMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "i": return self.i
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestRecursiveMessage else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "i":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.i = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestMutualRecursionA: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMutualRecursionA> {
     var mergedArray = Array<ProtobufUnittest.TestMutualRecursionA>()
@@ -33045,6 +34033,26 @@ extension ProtobufUnittest.TestMutualRecursionA: GeneratedMessageProtocol {
     switch key {
     case "bb": return self.bb
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestMutualRecursionA.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "bb": return self.bb
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "bb":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestMutualRecursionB else {
+          return
+        }
+        self.bb = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33082,6 +34090,32 @@ extension ProtobufUnittest.TestMutualRecursionB: GeneratedMessageProtocol {
     case "a": return self.a
     case "optionalInt32": return self.optionalInt32
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestMutualRecursionB.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "optionalInt32": return self.optionalInt32
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestMutualRecursionA else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "optionalInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.optionalInt32 = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33195,6 +34229,78 @@ extension ProtobufUnittest.TestDupFieldNumber.Bar: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestDupFieldNumber.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "foo": return self.foo
+      case "bar": return self.bar
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "foo":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestDupFieldNumber.Foo else {
+          return
+        }
+        self.foo = newSubscriptValue
+      case "bar":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestDupFieldNumber.Bar else {
+          return
+        }
+        self.bar = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestDupFieldNumber.Foo.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestDupFieldNumber.Bar.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestEagerMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestEagerMessage> {
     var mergedArray = Array<ProtobufUnittest.TestEagerMessage>()
@@ -33231,6 +34337,26 @@ extension ProtobufUnittest.TestEagerMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestEagerMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "subMessage": return self.subMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "subMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.subMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestLazyMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestLazyMessage> {
     var mergedArray = Array<ProtobufUnittest.TestLazyMessage>()
@@ -33264,6 +34390,26 @@ extension ProtobufUnittest.TestLazyMessage: GeneratedMessageProtocol {
     switch key {
     case "subMessage": return self.subMessage
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestLazyMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "subMessage": return self.subMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "subMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.subMessage = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33340,6 +34486,52 @@ extension ProtobufUnittest.TestNestedMessageHasBits.NestedMessage: GeneratedMess
     }
   }
 }
+extension ProtobufUnittest.TestNestedMessageHasBits.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "optionalNestedMessage": return self.optionalNestedMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "optionalNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestNestedMessageHasBits.NestedMessage else {
+          return
+        }
+        self.optionalNestedMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestNestedMessageHasBits.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "nestedmessageRepeatedInt32": return self.nestedmessageRepeatedInt32
+      case "nestedmessageRepeatedForeignmessage": return self.nestedmessageRepeatedForeignmessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "nestedmessageRepeatedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.nestedmessageRepeatedInt32 = newSubscriptValue
+      case "nestedmessageRepeatedForeignmessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignMessage> else {
+          return
+        }
+        self.nestedmessageRepeatedForeignmessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestCamelCaseFieldNames: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestCamelCaseFieldNames> {
     var mergedArray = Array<ProtobufUnittest.TestCamelCaseFieldNames>()
@@ -33384,6 +34576,92 @@ extension ProtobufUnittest.TestCamelCaseFieldNames: GeneratedMessageProtocol {
     case "repeatedStringPieceField": return self.repeatedStringPieceField
     case "repeatedCordField": return self.repeatedCordField
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestCamelCaseFieldNames.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "primitiveField": return self.primitiveField
+      case "stringField": return self.stringField
+      case "enumField": return self.enumField
+      case "messageField": return self.messageField
+      case "stringPieceField": return self.stringPieceField
+      case "cordField": return self.cordField
+      case "repeatedPrimitiveField": return self.repeatedPrimitiveField
+      case "repeatedStringField": return self.repeatedStringField
+      case "repeatedEnumField": return self.repeatedEnumField
+      case "repeatedMessageField": return self.repeatedMessageField
+      case "repeatedStringPieceField": return self.repeatedStringPieceField
+      case "repeatedCordField": return self.repeatedCordField
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "primitiveField":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.primitiveField = newSubscriptValue
+      case "stringField":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringField = newSubscriptValue
+      case "enumField":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignEnum else {
+          return
+        }
+        self.enumField = newSubscriptValue
+      case "messageField":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignMessage else {
+          return
+        }
+        self.messageField = newSubscriptValue
+      case "stringPieceField":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringPieceField = newSubscriptValue
+      case "cordField":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.cordField = newSubscriptValue
+      case "repeatedPrimitiveField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.repeatedPrimitiveField = newSubscriptValue
+      case "repeatedStringField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedStringField = newSubscriptValue
+      case "repeatedEnumField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignEnum> else {
+          return
+        }
+        self.repeatedEnumField = newSubscriptValue
+      case "repeatedMessageField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignMessage> else {
+          return
+        }
+        self.repeatedMessageField = newSubscriptValue
+      case "repeatedStringPieceField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedStringPieceField = newSubscriptValue
+      case "repeatedCordField":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedCordField = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33463,6 +34741,70 @@ extension ProtobufUnittest.TestFieldOrderings.NestedMessage: GeneratedMessagePro
     }
   }
 }
+extension ProtobufUnittest.TestFieldOrderings.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "myString": return self.myString
+      case "myInt": return self.myInt
+      case "myFloat": return self.myFloat
+      case "optionalNestedMessage": return self.optionalNestedMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "myString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.myString = newSubscriptValue
+      case "myInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.myInt = newSubscriptValue
+      case "myFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.myFloat = newSubscriptValue
+      case "optionalNestedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestFieldOrderings.NestedMessage else {
+          return
+        }
+        self.optionalNestedMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "oo": return self.oo
+      case "bb": return self.bb
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "oo":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.oo = newSubscriptValue
+      case "bb":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.bb = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestExtremeDefaultValues: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestExtremeDefaultValues> {
     var mergedArray = Array<ProtobufUnittest.TestExtremeDefaultValues>()
@@ -33525,6 +34867,182 @@ extension ProtobufUnittest.TestExtremeDefaultValues: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestExtremeDefaultValues.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "escapedBytes": return self.escapedBytes
+      case "largeUint32": return self.largeUint32
+      case "largeUint64": return self.largeUint64
+      case "smallInt32": return self.smallInt32
+      case "smallInt64": return self.smallInt64
+      case "reallySmallInt32": return self.reallySmallInt32
+      case "reallySmallInt64": return self.reallySmallInt64
+      case "utf8String": return self.utf8String
+      case "zeroFloat": return self.zeroFloat
+      case "oneFloat": return self.oneFloat
+      case "smallFloat": return self.smallFloat
+      case "negativeOneFloat": return self.negativeOneFloat
+      case "negativeFloat": return self.negativeFloat
+      case "largeFloat": return self.largeFloat
+      case "smallNegativeFloat": return self.smallNegativeFloat
+      case "infDouble": return self.infDouble
+      case "negInfDouble": return self.negInfDouble
+      case "nanDouble": return self.nanDouble
+      case "infFloat": return self.infFloat
+      case "negInfFloat": return self.negInfFloat
+      case "nanFloat": return self.nanFloat
+      case "cppTrigraph": return self.cppTrigraph
+      case "stringWithZero": return self.stringWithZero
+      case "bytesWithZero": return self.bytesWithZero
+      case "stringPieceWithZero": return self.stringPieceWithZero
+      case "cordWithZero": return self.cordWithZero
+      case "replacementString": return self.replacementString
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "escapedBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.escapedBytes = newSubscriptValue
+      case "largeUint32":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.largeUint32 = newSubscriptValue
+      case "largeUint64":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.largeUint64 = newSubscriptValue
+      case "smallInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.smallInt32 = newSubscriptValue
+      case "smallInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.smallInt64 = newSubscriptValue
+      case "reallySmallInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.reallySmallInt32 = newSubscriptValue
+      case "reallySmallInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.reallySmallInt64 = newSubscriptValue
+      case "utf8String":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.utf8String = newSubscriptValue
+      case "zeroFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.zeroFloat = newSubscriptValue
+      case "oneFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.oneFloat = newSubscriptValue
+      case "smallFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.smallFloat = newSubscriptValue
+      case "negativeOneFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.negativeOneFloat = newSubscriptValue
+      case "negativeFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.negativeFloat = newSubscriptValue
+      case "largeFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.largeFloat = newSubscriptValue
+      case "smallNegativeFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.smallNegativeFloat = newSubscriptValue
+      case "infDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.infDouble = newSubscriptValue
+      case "negInfDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.negInfDouble = newSubscriptValue
+      case "nanDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.nanDouble = newSubscriptValue
+      case "infFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.infFloat = newSubscriptValue
+      case "negInfFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.negInfFloat = newSubscriptValue
+      case "nanFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.nanFloat = newSubscriptValue
+      case "cppTrigraph":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.cppTrigraph = newSubscriptValue
+      case "stringWithZero":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringWithZero = newSubscriptValue
+      case "bytesWithZero":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.bytesWithZero = newSubscriptValue
+      case "stringPieceWithZero":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringPieceWithZero = newSubscriptValue
+      case "cordWithZero":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.cordWithZero = newSubscriptValue
+      case "replacementString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.replacementString = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.SparseEnumMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.SparseEnumMessage> {
     var mergedArray = Array<ProtobufUnittest.SparseEnumMessage>()
@@ -33558,6 +35076,26 @@ extension ProtobufUnittest.SparseEnumMessage: GeneratedMessageProtocol {
     switch key {
     case "sparseEnum": return self.sparseEnum
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.SparseEnumMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "sparseEnum": return self.sparseEnum
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "sparseEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestSparseEnum else {
+          return
+        }
+        self.sparseEnum = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33597,6 +35135,26 @@ extension ProtobufUnittest.OneString: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.OneString.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.MoreString: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.MoreString> {
     var mergedArray = Array<ProtobufUnittest.MoreString>()
@@ -33630,6 +35188,26 @@ extension ProtobufUnittest.MoreString: GeneratedMessageProtocol {
     switch key {
     case "data": return self.data
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.MoreString.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33669,6 +35247,26 @@ extension ProtobufUnittest.OneBytes: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.OneBytes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.MoreBytes: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.MoreBytes> {
     var mergedArray = Array<ProtobufUnittest.MoreBytes>()
@@ -33702,6 +35300,26 @@ extension ProtobufUnittest.MoreBytes: GeneratedMessageProtocol {
     switch key {
     case "data": return self.data
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.MoreBytes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Data> else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33741,6 +35359,26 @@ extension ProtobufUnittest.Int32Message: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.Int32Message.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.Uint32Message: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Uint32Message> {
     var mergedArray = Array<ProtobufUnittest.Uint32Message>()
@@ -33774,6 +35412,26 @@ extension ProtobufUnittest.Uint32Message: GeneratedMessageProtocol {
     switch key {
     case "data": return self.data
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.Uint32Message.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33813,6 +35471,26 @@ extension ProtobufUnittest.Int64Message: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.Int64Message.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.Uint64Message: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.Uint64Message> {
     var mergedArray = Array<ProtobufUnittest.Uint64Message>()
@@ -33849,6 +35527,26 @@ extension ProtobufUnittest.Uint64Message: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.Uint64Message.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.BoolMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BoolMessage> {
     var mergedArray = Array<ProtobufUnittest.BoolMessage>()
@@ -33882,6 +35580,26 @@ extension ProtobufUnittest.BoolMessage: GeneratedMessageProtocol {
     switch key {
     case "data": return self.data
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.BoolMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "data": return self.data
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "data":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.data = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -33961,6 +35679,70 @@ extension ProtobufUnittest.TestOneof.FooGroup: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestOneof.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fooInt": return self.fooInt
+      case "fooString": return self.fooString
+      case "fooMessage": return self.fooMessage
+      case "fooGroup": return self.fooGroup
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fooInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.fooInt = newSubscriptValue
+      case "fooString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooString = newSubscriptValue
+      case "fooMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.fooMessage = newSubscriptValue
+      case "fooGroup":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof.FooGroup else {
+          return
+        }
+        self.fooGroup = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestOneof.FooGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "b": return self.b
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "b":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.b = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestOneofBackwardsCompatible: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOneofBackwardsCompatible> {
     var mergedArray = Array<ProtobufUnittest.TestOneofBackwardsCompatible>()
@@ -34034,6 +35816,70 @@ extension ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup: GeneratedMessa
     case "a": return self.a
     case "b": return self.b
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestOneofBackwardsCompatible.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fooInt": return self.fooInt
+      case "fooString": return self.fooString
+      case "fooMessage": return self.fooMessage
+      case "fooGroup": return self.fooGroup
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fooInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.fooInt = newSubscriptValue
+      case "fooString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooString = newSubscriptValue
+      case "fooMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.fooMessage = newSubscriptValue
+      case "fooGroup":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup else {
+          return
+        }
+        self.fooGroup = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "b": return self.b
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "b":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.b = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -34163,6 +36009,174 @@ extension ProtobufUnittest.TestOneof2.NestedMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestOneof2.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fooInt": return self.fooInt
+      case "fooString": return self.fooString
+      case "fooCord": return self.fooCord
+      case "fooStringPiece": return self.fooStringPiece
+      case "fooBytes": return self.fooBytes
+      case "fooEnum": return self.fooEnum
+      case "fooMessage": return self.fooMessage
+      case "fooGroup": return self.fooGroup
+      case "fooLazyMessage": return self.fooLazyMessage
+      case "barInt": return self.barInt
+      case "barString": return self.barString
+      case "barCord": return self.barCord
+      case "barStringPiece": return self.barStringPiece
+      case "barBytes": return self.barBytes
+      case "barEnum": return self.barEnum
+      case "bazInt": return self.bazInt
+      case "bazString": return self.bazString
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fooInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.fooInt = newSubscriptValue
+      case "fooString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooString = newSubscriptValue
+      case "fooCord":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooCord = newSubscriptValue
+      case "fooStringPiece":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooStringPiece = newSubscriptValue
+      case "fooBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.fooBytes = newSubscriptValue
+      case "fooEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof2.NestedEnum else {
+          return
+        }
+        self.fooEnum = newSubscriptValue
+      case "fooMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof2.NestedMessage else {
+          return
+        }
+        self.fooMessage = newSubscriptValue
+      case "fooGroup":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof2.FooGroup else {
+          return
+        }
+        self.fooGroup = newSubscriptValue
+      case "fooLazyMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof2.NestedMessage else {
+          return
+        }
+        self.fooLazyMessage = newSubscriptValue
+      case "barInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.barInt = newSubscriptValue
+      case "barString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.barString = newSubscriptValue
+      case "barCord":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.barCord = newSubscriptValue
+      case "barStringPiece":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.barStringPiece = newSubscriptValue
+      case "barBytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.barBytes = newSubscriptValue
+      case "barEnum":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOneof2.NestedEnum else {
+          return
+        }
+        self.barEnum = newSubscriptValue
+      case "bazInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.bazInt = newSubscriptValue
+      case "bazString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.bazString = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestOneof2.FooGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      case "b": return self.b
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.a = newSubscriptValue
+      case "b":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.b = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestOneof2.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "quxInt": return self.quxInt
+      case "corgeInt": return self.corgeInt
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "quxInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.quxInt = newSubscriptValue
+      case "corgeInt":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.corgeInt = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestRequiredOneof: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOneof> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredOneof>()
@@ -34237,6 +36251,58 @@ extension ProtobufUnittest.TestRequiredOneof.NestedMessage: GeneratedMessageProt
     }
   }
 }
+extension ProtobufUnittest.TestRequiredOneof.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fooInt": return self.fooInt
+      case "fooString": return self.fooString
+      case "fooMessage": return self.fooMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fooInt":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.fooInt = newSubscriptValue
+      case "fooString":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fooString = newSubscriptValue
+      case "fooMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestRequiredOneof.NestedMessage else {
+          return
+        }
+        self.fooMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "requiredDouble": return self.requiredDouble
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "requiredDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.requiredDouble = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestPackedTypes: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestPackedTypes> {
     var mergedArray = Array<ProtobufUnittest.TestPackedTypes>()
@@ -34283,6 +36349,104 @@ extension ProtobufUnittest.TestPackedTypes: GeneratedMessageProtocol {
     case "packedBool": return self.packedBool
     case "packedEnum": return self.packedEnum
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestPackedTypes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "packedInt32": return self.packedInt32
+      case "packedInt64": return self.packedInt64
+      case "packedUint32": return self.packedUint32
+      case "packedUint64": return self.packedUint64
+      case "packedSint32": return self.packedSint32
+      case "packedSint64": return self.packedSint64
+      case "packedFixed32": return self.packedFixed32
+      case "packedFixed64": return self.packedFixed64
+      case "packedSfixed32": return self.packedSfixed32
+      case "packedSfixed64": return self.packedSfixed64
+      case "packedFloat": return self.packedFloat
+      case "packedDouble": return self.packedDouble
+      case "packedBool": return self.packedBool
+      case "packedEnum": return self.packedEnum
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "packedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.packedInt32 = newSubscriptValue
+      case "packedInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.packedInt64 = newSubscriptValue
+      case "packedUint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.packedUint32 = newSubscriptValue
+      case "packedUint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.packedUint64 = newSubscriptValue
+      case "packedSint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.packedSint32 = newSubscriptValue
+      case "packedSint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.packedSint64 = newSubscriptValue
+      case "packedFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.packedFixed32 = newSubscriptValue
+      case "packedFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.packedFixed64 = newSubscriptValue
+      case "packedSfixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.packedSfixed32 = newSubscriptValue
+      case "packedSfixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.packedSfixed64 = newSubscriptValue
+      case "packedFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Float> else {
+          return
+        }
+        self.packedFloat = newSubscriptValue
+      case "packedDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Double> else {
+          return
+        }
+        self.packedDouble = newSubscriptValue
+      case "packedBool":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Bool> else {
+          return
+        }
+        self.packedBool = newSubscriptValue
+      case "packedEnum":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignEnum> else {
+          return
+        }
+        self.packedEnum = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -34335,6 +36499,104 @@ extension ProtobufUnittest.TestUnpackedTypes: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestUnpackedTypes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "unpackedInt32": return self.unpackedInt32
+      case "unpackedInt64": return self.unpackedInt64
+      case "unpackedUint32": return self.unpackedUint32
+      case "unpackedUint64": return self.unpackedUint64
+      case "unpackedSint32": return self.unpackedSint32
+      case "unpackedSint64": return self.unpackedSint64
+      case "unpackedFixed32": return self.unpackedFixed32
+      case "unpackedFixed64": return self.unpackedFixed64
+      case "unpackedSfixed32": return self.unpackedSfixed32
+      case "unpackedSfixed64": return self.unpackedSfixed64
+      case "unpackedFloat": return self.unpackedFloat
+      case "unpackedDouble": return self.unpackedDouble
+      case "unpackedBool": return self.unpackedBool
+      case "unpackedEnum": return self.unpackedEnum
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "unpackedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.unpackedInt32 = newSubscriptValue
+      case "unpackedInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.unpackedInt64 = newSubscriptValue
+      case "unpackedUint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.unpackedUint32 = newSubscriptValue
+      case "unpackedUint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.unpackedUint64 = newSubscriptValue
+      case "unpackedSint32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.unpackedSint32 = newSubscriptValue
+      case "unpackedSint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.unpackedSint64 = newSubscriptValue
+      case "unpackedFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.unpackedFixed32 = newSubscriptValue
+      case "unpackedFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.unpackedFixed64 = newSubscriptValue
+      case "unpackedSfixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.unpackedSfixed32 = newSubscriptValue
+      case "unpackedSfixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.unpackedSfixed64 = newSubscriptValue
+      case "unpackedFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Float> else {
+          return
+        }
+        self.unpackedFloat = newSubscriptValue
+      case "unpackedDouble":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Double> else {
+          return
+        }
+        self.unpackedDouble = newSubscriptValue
+      case "unpackedBool":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Bool> else {
+          return
+        }
+        self.unpackedBool = newSubscriptValue
+      case "unpackedEnum":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ForeignEnum> else {
+          return
+        }
+        self.unpackedEnum = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestPackedExtensions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestPackedExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestPackedExtensions>()
@@ -34368,6 +36630,12 @@ extension ProtobufUnittest.TestPackedExtensions: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.TestPackedExtensions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.TestUnpackedExtensions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestUnpackedExtensions> {
     var mergedArray = Array<ProtobufUnittest.TestUnpackedExtensions>()
@@ -34399,6 +36667,12 @@ extension ProtobufUnittest.TestUnpackedExtensions: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.TestUnpackedExtensions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.TestDynamicExtensions: GeneratedMessageProtocol {
@@ -34479,6 +36753,82 @@ extension ProtobufUnittest.TestDynamicExtensions.DynamicMessageType: GeneratedMe
     }
   }
 }
+extension ProtobufUnittest.TestDynamicExtensions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "scalarExtension": return self.scalarExtension
+      case "enumExtension": return self.enumExtension
+      case "dynamicEnumExtension": return self.dynamicEnumExtension
+      case "messageExtension": return self.messageExtension
+      case "dynamicMessageExtension": return self.dynamicMessageExtension
+      case "repeatedExtension": return self.repeatedExtension
+      case "packedExtension": return self.packedExtension
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "scalarExtension":
+        guard let newSubscriptValue = newSubscriptValue as? UInt32 else {
+          return
+        }
+        self.scalarExtension = newSubscriptValue
+      case "enumExtension":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignEnum else {
+          return
+        }
+        self.enumExtension = newSubscriptValue
+      case "dynamicEnumExtension":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestDynamicExtensions.DynamicEnumType else {
+          return
+        }
+        self.dynamicEnumExtension = newSubscriptValue
+      case "messageExtension":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignMessage else {
+          return
+        }
+        self.messageExtension = newSubscriptValue
+      case "dynamicMessageExtension":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestDynamicExtensions.DynamicMessageType else {
+          return
+        }
+        self.dynamicMessageExtension = newSubscriptValue
+      case "repeatedExtension":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.repeatedExtension = newSubscriptValue
+      case "packedExtension":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.packedExtension = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "dynamicField": return self.dynamicField
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "dynamicField":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.dynamicField = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRepeatedScalarDifferentTagSizes> {
     var mergedArray = Array<ProtobufUnittest.TestRepeatedScalarDifferentTagSizes>()
@@ -34517,6 +36867,56 @@ extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes: GeneratedMessage
     case "repeatedFloat": return self.repeatedFloat
     case "repeatedUint64": return self.repeatedUint64
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestRepeatedScalarDifferentTagSizes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "repeatedFixed32": return self.repeatedFixed32
+      case "repeatedInt32": return self.repeatedInt32
+      case "repeatedFixed64": return self.repeatedFixed64
+      case "repeatedInt64": return self.repeatedInt64
+      case "repeatedFloat": return self.repeatedFloat
+      case "repeatedUint64": return self.repeatedUint64
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "repeatedFixed32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt32> else {
+          return
+        }
+        self.repeatedFixed32 = newSubscriptValue
+      case "repeatedInt32":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.repeatedInt32 = newSubscriptValue
+      case "repeatedFixed64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.repeatedFixed64 = newSubscriptValue
+      case "repeatedInt64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int64> else {
+          return
+        }
+        self.repeatedInt64 = newSubscriptValue
+      case "repeatedFloat":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Float> else {
+          return
+        }
+        self.repeatedFloat = newSubscriptValue
+      case "repeatedUint64":
+        guard let newSubscriptValue = newSubscriptValue as? Array<UInt64> else {
+          return
+        }
+        self.repeatedUint64 = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -34746,6 +37146,186 @@ extension ProtobufUnittest.TestParsingMerge.RepeatedGroup: GeneratedMessageProto
     }
   }
 }
+extension ProtobufUnittest.TestParsingMerge.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "requiredAllTypes": return self.requiredAllTypes
+      case "optionalAllTypes": return self.optionalAllTypes
+      case "repeatedAllTypes": return self.repeatedAllTypes
+      case "optionalGroup": return self.optionalGroup
+      case "repeatedGroup": return self.repeatedGroup
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "requiredAllTypes":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.requiredAllTypes = newSubscriptValue
+      case "optionalAllTypes":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.optionalAllTypes = newSubscriptValue
+      case "repeatedAllTypes":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.repeatedAllTypes = newSubscriptValue
+      case "optionalGroup":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestParsingMerge.OptionalGroup else {
+          return
+        }
+        self.optionalGroup = newSubscriptValue
+      case "repeatedGroup":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestParsingMerge.RepeatedGroup> else {
+          return
+        }
+        self.repeatedGroup = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "field1": return self.field1
+      case "field2": return self.field2
+      case "field3": return self.field3
+      case "group1": return self.group1
+      case "group2": return self.group2
+      case "ext1": return self.ext1
+      case "ext2": return self.ext2
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "field1":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.field1 = newSubscriptValue
+      case "field2":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.field2 = newSubscriptValue
+      case "field3":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.field3 = newSubscriptValue
+      case "group1":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1> else {
+          return
+        }
+        self.group1 = newSubscriptValue
+      case "group2":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2> else {
+          return
+        }
+        self.group2 = newSubscriptValue
+      case "ext1":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.ext1 = newSubscriptValue
+      case "ext2":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestAllTypes> else {
+          return
+        }
+        self.ext2 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group1.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "field1": return self.field1
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "field1":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.field1 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestParsingMerge.RepeatedFieldsGenerator.Group2.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "field1": return self.field1
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "field1":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.field1 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestParsingMerge.OptionalGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "optionalGroupAllTypes": return self.optionalGroupAllTypes
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "optionalGroupAllTypes":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.optionalGroupAllTypes = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.TestParsingMerge.RepeatedGroup.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "repeatedGroupAllTypes": return self.repeatedGroupAllTypes
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "repeatedGroupAllTypes":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestAllTypes else {
+          return
+        }
+        self.repeatedGroupAllTypes = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestCommentInjectionMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestCommentInjectionMessage> {
     var mergedArray = Array<ProtobufUnittest.TestCommentInjectionMessage>()
@@ -34782,6 +37362,26 @@ extension ProtobufUnittest.TestCommentInjectionMessage: GeneratedMessageProtocol
     }
   }
 }
+extension ProtobufUnittest.TestCommentInjectionMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "a": return self.a
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "a":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.a = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.FooRequest: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooRequest> {
     var mergedArray = Array<ProtobufUnittest.FooRequest>()
@@ -34813,6 +37413,12 @@ extension ProtobufUnittest.FooRequest: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.FooRequest.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.FooResponse: GeneratedMessageProtocol {
@@ -34848,6 +37454,12 @@ extension ProtobufUnittest.FooResponse: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.FooResponse.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.FooClientMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.FooClientMessage> {
     var mergedArray = Array<ProtobufUnittest.FooClientMessage>()
@@ -34879,6 +37491,12 @@ extension ProtobufUnittest.FooClientMessage: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.FooClientMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.FooServerMessage: GeneratedMessageProtocol {
@@ -34914,6 +37532,12 @@ extension ProtobufUnittest.FooServerMessage: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.FooServerMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.BarRequest: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BarRequest> {
     var mergedArray = Array<ProtobufUnittest.BarRequest>()
@@ -34947,6 +37571,12 @@ extension ProtobufUnittest.BarRequest: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.BarRequest.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.BarResponse: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.BarResponse> {
     var mergedArray = Array<ProtobufUnittest.BarResponse>()
@@ -34978,6 +37608,12 @@ extension ProtobufUnittest.BarResponse: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.BarResponse.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 

@@ -1672,6 +1672,52 @@ extension Google.Protobuf.Struct.FieldsEntry: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Struct.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fields": return self.fields
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fields":
+        guard let newSubscriptValue = newSubscriptValue as? Dictionary<String,Google.Protobuf.Value> else {
+          return
+        }
+        self.fields = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.Struct.FieldsEntry.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "key": return self.key
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "key":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.key = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Value else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Value: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Value> {
     var mergedArray = Array<Google.Protobuf.Value>()
@@ -1713,6 +1759,56 @@ extension Google.Protobuf.Value: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Value.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "nullValue": return self.nullValue
+      case "numberValue": return self.numberValue
+      case "stringValue": return self.stringValue
+      case "boolValue": return self.boolValue
+      case "structValue": return self.structValue
+      case "listValue": return self.listValue
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "nullValue":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.NullValue else {
+          return
+        }
+        self.nullValue = newSubscriptValue
+      case "numberValue":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.numberValue = newSubscriptValue
+      case "stringValue":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringValue = newSubscriptValue
+      case "boolValue":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.boolValue = newSubscriptValue
+      case "structValue":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Struct else {
+          return
+        }
+        self.structValue = newSubscriptValue
+      case "listValue":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.ListValue else {
+          return
+        }
+        self.listValue = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.ListValue: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.ListValue> {
     var mergedArray = Array<Google.Protobuf.ListValue>()
@@ -1746,6 +1842,26 @@ extension Google.Protobuf.ListValue: GeneratedMessageProtocol {
     switch key {
     case "values": return self.values
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.ListValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "values": return self.values
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "values":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Value> else {
+          return
+        }
+        self.values = newSubscriptValue
+      default: return
+      }
     }
   }
 }

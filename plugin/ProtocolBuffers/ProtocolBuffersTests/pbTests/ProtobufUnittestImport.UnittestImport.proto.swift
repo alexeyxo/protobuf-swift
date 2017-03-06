@@ -312,5 +312,25 @@ extension ProtobufUnittestImport.ImportMessage: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittestImport.ImportMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "d": return self.d
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "d":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.d = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

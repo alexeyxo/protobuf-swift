@@ -1190,5 +1190,79 @@ extension ProtobufUnittest.TestWellKnownTypes: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestWellKnownTypes.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "anyField": return self.anyField
+      case "apiField": return self.apiField
+      case "durationField": return self.durationField
+      case "emptyField": return self.emptyField
+      case "fieldMaskField": return self.fieldMaskField
+      case "sourceContextField": return self.sourceContextField
+      case "structField": return self.structField
+      case "timestampField": return self.timestampField
+      case "typeField": return self.typeField
+      case "int32Field": return self.int32Field
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "anyField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.`Any` else {
+          return
+        }
+        self.anyField = newSubscriptValue
+      case "apiField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Api else {
+          return
+        }
+        self.apiField = newSubscriptValue
+      case "durationField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Duration else {
+          return
+        }
+        self.durationField = newSubscriptValue
+      case "emptyField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Empty else {
+          return
+        }
+        self.emptyField = newSubscriptValue
+      case "fieldMaskField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldMask else {
+          return
+        }
+        self.fieldMaskField = newSubscriptValue
+      case "sourceContextField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.SourceContext else {
+          return
+        }
+        self.sourceContextField = newSubscriptValue
+      case "structField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Struct else {
+          return
+        }
+        self.structField = newSubscriptValue
+      case "timestampField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Timestamp else {
+          return
+        }
+        self.timestampField = newSubscriptValue
+      case "typeField":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.`Type` else {
+          return
+        }
+        self.typeField = newSubscriptValue
+      case "int32Field":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Int32Value else {
+          return
+        }
+        self.int32Field = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

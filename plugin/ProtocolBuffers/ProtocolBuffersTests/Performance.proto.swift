@@ -2729,6 +2729,32 @@ extension PBUser: GeneratedMessageProtocol {
     }
   }
 }
+extension PBUser.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "group": return self.group
+      case "groupName": return self.groupName
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "group":
+        guard let newSubscriptValue = newSubscriptValue as? PBGroup else {
+          return
+        }
+        self.group = newSubscriptValue
+      case "groupName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.groupName = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension PBGroup: GeneratedMessageProtocol {
   internal class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<PBGroup> {
     var mergedArray = Array<PBGroup>()
@@ -2765,6 +2791,26 @@ extension PBGroup: GeneratedMessageProtocol {
     }
   }
 }
+extension PBGroup.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "owner": return self.owner
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "owner":
+        guard let newSubscriptValue = newSubscriptValue as? PBUser else {
+          return
+        }
+        self.owner = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension PBPerfomanceBatch: GeneratedMessageProtocol {
   internal class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<PBPerfomanceBatch> {
     var mergedArray = Array<PBPerfomanceBatch>()
@@ -2798,6 +2844,26 @@ extension PBPerfomanceBatch: GeneratedMessageProtocol {
     switch key {
     case "batch": return self.batch
     default: return nil
+    }
+  }
+}
+extension PBPerfomanceBatch.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "batch": return self.batch
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "batch":
+        guard let newSubscriptValue = newSubscriptValue as? Array<PBPerfomance> else {
+          return
+        }
+        self.batch = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2843,6 +2909,62 @@ extension PBPerfomance: GeneratedMessageProtocol {
     }
   }
 }
+extension PBPerfomance.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "ints": return self.ints
+      case "ints64": return self.ints64
+      case "doubles": return self.doubles
+      case "floats": return self.floats
+      case "str": return self.str
+      case "bytes": return self.bytes
+      case "description_": return self.description_
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "ints":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.ints = newSubscriptValue
+      case "ints64":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.ints64 = newSubscriptValue
+      case "doubles":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.doubles = newSubscriptValue
+      case "floats":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.floats = newSubscriptValue
+      case "str":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.str = newSubscriptValue
+      case "bytes":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.bytes = newSubscriptValue
+      case "description_":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.description_ = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension PBProtoPoint: GeneratedMessageProtocol {
   internal class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<PBProtoPoint> {
     var mergedArray = Array<PBProtoPoint>()
@@ -2877,6 +2999,32 @@ extension PBProtoPoint: GeneratedMessageProtocol {
     case "latitude": return self.latitude
     case "longitude": return self.longitude
     default: return nil
+    }
+  }
+}
+extension PBProtoPoint.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "latitude": return self.latitude
+      case "longitude": return self.longitude
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "latitude":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.latitude = newSubscriptValue
+      case "longitude":
+        guard let newSubscriptValue = newSubscriptValue as? Float else {
+          return
+        }
+        self.longitude = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2917,6 +3065,32 @@ extension PBIceCreamCone: GeneratedMessageProtocol {
     }
   }
 }
+extension PBIceCreamCone.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "scoops": return self.scoops
+      case "flavor": return self.flavor
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "scoops":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.scoops = newSubscriptValue
+      case "flavor":
+        guard let newSubscriptValue = newSubscriptValue as? PBIceCreamCone.PBFlavor else {
+          return
+        }
+        self.flavor = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension PBFoo: GeneratedMessageProtocol {
   internal class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<PBFoo> {
     var mergedArray = Array<PBFoo>()
@@ -2950,6 +3124,26 @@ extension PBFoo: GeneratedMessageProtocol {
     switch key {
     case "val": return self.val
     default: return nil
+    }
+  }
+}
+extension PBFoo.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "val": return self.val
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "val":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.val = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2989,6 +3183,26 @@ extension PBBar: GeneratedMessageProtocol {
     }
   }
 }
+extension PBBar.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "foo": return self.foo
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "foo":
+        guard let newSubscriptValue = newSubscriptValue as? PBFoo else {
+          return
+        }
+        self.foo = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension PBBaz: GeneratedMessageProtocol {
   internal class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<PBBaz> {
     var mergedArray = Array<PBBaz>()
@@ -3022,6 +3236,26 @@ extension PBBaz: GeneratedMessageProtocol {
     switch key {
     case "bar": return self.bar
     default: return nil
+    }
+  }
+}
+extension PBBaz.Builder: GeneratedMessageBuilderProtocol {
+  internal subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "bar": return self.bar
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "bar":
+        guard let newSubscriptValue = newSubscriptValue as? PBBar else {
+          return
+        }
+        self.bar = newSubscriptValue
+      default: return
+      }
     }
   }
 }

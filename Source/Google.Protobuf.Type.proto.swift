@@ -2456,6 +2456,50 @@ extension Google.Protobuf.`Type`: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.`Type`.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "fields": return self.fields
+      case "oneofs": return self.oneofs
+      case "options": return self.options
+      case "sourceContext": return self.sourceContext
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "fields":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Field> else {
+          return
+        }
+        self.fields = newSubscriptValue
+      case "oneofs":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.oneofs = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "sourceContext":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.SourceContext else {
+          return
+        }
+        self.sourceContext = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Field: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Field> {
     var mergedArray = Array<Google.Protobuf.Field>()
@@ -2499,6 +2543,68 @@ extension Google.Protobuf.Field: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Field.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "kind": return self.kind
+      case "cardinality": return self.cardinality
+      case "number": return self.number
+      case "name": return self.name
+      case "typeUrl": return self.typeUrl
+      case "oneofIndex": return self.oneofIndex
+      case "packed": return self.packed
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "kind":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Field.Kind else {
+          return
+        }
+        self.kind = newSubscriptValue
+      case "cardinality":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.Field.Cardinality else {
+          return
+        }
+        self.cardinality = newSubscriptValue
+      case "number":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.number = newSubscriptValue
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "typeUrl":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.typeUrl = newSubscriptValue
+      case "oneofIndex":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.oneofIndex = newSubscriptValue
+      case "packed":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.packed = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Enum: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Enum> {
     var mergedArray = Array<Google.Protobuf.Enum>()
@@ -2535,6 +2641,44 @@ extension Google.Protobuf.Enum: GeneratedMessageProtocol {
     case "options": return self.options
     case "sourceContext": return self.sourceContext
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.Enum.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "enumvalue": return self.enumvalue
+      case "options": return self.options
+      case "sourceContext": return self.sourceContext
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "enumvalue":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.EnumValue> else {
+          return
+        }
+        self.enumvalue = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "sourceContext":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.SourceContext else {
+          return
+        }
+        self.sourceContext = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -2576,6 +2720,38 @@ extension Google.Protobuf.EnumValue: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.EnumValue.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "number": return self.number
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "number":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.number = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Option: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Option> {
     var mergedArray = Array<Google.Protobuf.Option>()
@@ -2610,6 +2786,32 @@ extension Google.Protobuf.Option: GeneratedMessageProtocol {
     case "name": return self.name
     case "value": return self.value
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.Option.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.`Any` else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
     }
   }
 }

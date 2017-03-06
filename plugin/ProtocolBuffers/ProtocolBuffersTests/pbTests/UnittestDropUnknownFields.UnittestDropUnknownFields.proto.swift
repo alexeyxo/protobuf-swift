@@ -738,6 +738,32 @@ extension UnittestDropUnknownFields.Foo: GeneratedMessageProtocol {
     }
   }
 }
+extension UnittestDropUnknownFields.Foo.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "int32Value": return self.int32Value
+      case "enumValue": return self.enumValue
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "int32Value":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.int32Value = newSubscriptValue
+      case "enumValue":
+        guard let newSubscriptValue = newSubscriptValue as? UnittestDropUnknownFields.Foo.NestedEnum else {
+          return
+        }
+        self.enumValue = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension UnittestDropUnknownFields.FooWithExtraFields: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<UnittestDropUnknownFields.FooWithExtraFields> {
     var mergedArray = Array<UnittestDropUnknownFields.FooWithExtraFields>()
@@ -773,6 +799,38 @@ extension UnittestDropUnknownFields.FooWithExtraFields: GeneratedMessageProtocol
     case "enumValue": return self.enumValue
     case "extraInt32Value": return self.extraInt32Value
     default: return nil
+    }
+  }
+}
+extension UnittestDropUnknownFields.FooWithExtraFields.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "int32Value": return self.int32Value
+      case "enumValue": return self.enumValue
+      case "extraInt32Value": return self.extraInt32Value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "int32Value":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.int32Value = newSubscriptValue
+      case "enumValue":
+        guard let newSubscriptValue = newSubscriptValue as? UnittestDropUnknownFields.FooWithExtraFields.NestedEnum else {
+          return
+        }
+        self.enumValue = newSubscriptValue
+      case "extraInt32Value":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.extraInt32Value = newSubscriptValue
+      default: return
+      }
     }
   }
 }

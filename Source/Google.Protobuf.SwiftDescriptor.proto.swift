@@ -933,6 +933,44 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.SwiftFileOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "classPrefix": return self.classPrefix
+      case "entitiesAccessControl": return self.entitiesAccessControl
+      case "compileForFramework": return self.compileForFramework
+      case "generateStruct": return self.generateStruct
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "classPrefix":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.classPrefix = newSubscriptValue
+      case "entitiesAccessControl":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.AccessControl else {
+          return
+        }
+        self.entitiesAccessControl = newSubscriptValue
+      case "compileForFramework":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.compileForFramework = newSubscriptValue
+      case "generateStruct":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.generateStruct = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftMessageOptions> {
     var mergedArray = Array<Google.Protobuf.SwiftMessageOptions>()
@@ -969,6 +1007,26 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.SwiftMessageOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "generateErrorType": return self.generateErrorType
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "generateErrorType":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.generateErrorType = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftEnumOptions> {
     var mergedArray = Array<Google.Protobuf.SwiftEnumOptions>()
@@ -1002,6 +1060,26 @@ extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
     switch key {
     case "generateErrorType": return self.generateErrorType
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.SwiftEnumOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "generateErrorType": return self.generateErrorType
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "generateErrorType":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.generateErrorType = newSubscriptValue
+      default: return
+      }
     }
   }
 }

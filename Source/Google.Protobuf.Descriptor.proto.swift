@@ -12075,6 +12075,26 @@ extension Google.Protobuf.FileDescriptorSet: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.FileDescriptorSet.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "file": return self.file
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "file":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.FileDescriptorProto> else {
+          return
+        }
+        self.file = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.FileDescriptorProto: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FileDescriptorProto> {
     var mergedArray = Array<Google.Protobuf.FileDescriptorProto>()
@@ -12119,6 +12139,92 @@ extension Google.Protobuf.FileDescriptorProto: GeneratedMessageProtocol {
     case "sourceCodeInfo": return self.sourceCodeInfo
     case "syntax": return self.syntax
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.FileDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "package": return self.package
+      case "dependency": return self.dependency
+      case "publicDependency": return self.publicDependency
+      case "weakDependency": return self.weakDependency
+      case "messageType": return self.messageType
+      case "enumType": return self.enumType
+      case "service": return self.service
+      case "`extension`": return self.`extension`
+      case "options": return self.options
+      case "sourceCodeInfo": return self.sourceCodeInfo
+      case "syntax": return self.syntax
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "package":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.package = newSubscriptValue
+      case "dependency":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.dependency = newSubscriptValue
+      case "publicDependency":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.publicDependency = newSubscriptValue
+      case "weakDependency":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.weakDependency = newSubscriptValue
+      case "messageType":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.DescriptorProto> else {
+          return
+        }
+        self.messageType = newSubscriptValue
+      case "enumType":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.EnumDescriptorProto> else {
+          return
+        }
+        self.enumType = newSubscriptValue
+      case "service":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.ServiceDescriptorProto> else {
+          return
+        }
+        self.service = newSubscriptValue
+      case "`extension`":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.FieldDescriptorProto> else {
+          return
+        }
+        self.`extension` = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FileOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "sourceCodeInfo":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.SourceCodeInfo else {
+          return
+        }
+        self.sourceCodeInfo = newSubscriptValue
+      case "syntax":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.syntax = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12241,6 +12347,132 @@ extension Google.Protobuf.DescriptorProto.ReservedRange: GeneratedMessageProtoco
     }
   }
 }
+extension Google.Protobuf.DescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "field": return self.field
+      case "`extension`": return self.`extension`
+      case "nestedType": return self.nestedType
+      case "enumType": return self.enumType
+      case "extensionRange": return self.extensionRange
+      case "oneofDecl": return self.oneofDecl
+      case "options": return self.options
+      case "reservedRange": return self.reservedRange
+      case "reservedName": return self.reservedName
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "field":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.FieldDescriptorProto> else {
+          return
+        }
+        self.field = newSubscriptValue
+      case "`extension`":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.FieldDescriptorProto> else {
+          return
+        }
+        self.`extension` = newSubscriptValue
+      case "nestedType":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.DescriptorProto> else {
+          return
+        }
+        self.nestedType = newSubscriptValue
+      case "enumType":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.EnumDescriptorProto> else {
+          return
+        }
+        self.enumType = newSubscriptValue
+      case "extensionRange":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.DescriptorProto.ExtensionRange> else {
+          return
+        }
+        self.extensionRange = newSubscriptValue
+      case "oneofDecl":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.OneofDescriptorProto> else {
+          return
+        }
+        self.oneofDecl = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.MessageOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "reservedRange":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.DescriptorProto.ReservedRange> else {
+          return
+        }
+        self.reservedRange = newSubscriptValue
+      case "reservedName":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.reservedName = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.DescriptorProto.ExtensionRange.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "start": return self.start
+      case "end": return self.end
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "start":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.start = newSubscriptValue
+      case "end":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.end = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.DescriptorProto.ReservedRange.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "start": return self.start
+      case "end": return self.end
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "start":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.start = newSubscriptValue
+      case "end":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.end = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.FieldDescriptorProto: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.FieldDescriptorProto> {
     var mergedArray = Array<Google.Protobuf.FieldDescriptorProto>()
@@ -12286,6 +12518,80 @@ extension Google.Protobuf.FieldDescriptorProto: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.FieldDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "number": return self.number
+      case "label": return self.label
+      case "type": return self.type
+      case "typeName": return self.typeName
+      case "extendee": return self.extendee
+      case "defaultValue": return self.defaultValue
+      case "oneofIndex": return self.oneofIndex
+      case "jsonName": return self.jsonName
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "number":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.number = newSubscriptValue
+      case "label":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldDescriptorProto.Label else {
+          return
+        }
+        self.label = newSubscriptValue
+      case "type":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldDescriptorProto.`Type` else {
+          return
+        }
+        self.type = newSubscriptValue
+      case "typeName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.typeName = newSubscriptValue
+      case "extendee":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.extendee = newSubscriptValue
+      case "defaultValue":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.defaultValue = newSubscriptValue
+      case "oneofIndex":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.oneofIndex = newSubscriptValue
+      case "jsonName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.jsonName = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.OneofDescriptorProto: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.OneofDescriptorProto> {
     var mergedArray = Array<Google.Protobuf.OneofDescriptorProto>()
@@ -12320,6 +12626,32 @@ extension Google.Protobuf.OneofDescriptorProto: GeneratedMessageProtocol {
     case "name": return self.name
     case "options": return self.options
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.OneofDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.OneofOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12361,6 +12693,38 @@ extension Google.Protobuf.EnumDescriptorProto: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.EnumDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "value": return self.value
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.EnumValueDescriptorProto> else {
+          return
+        }
+        self.value = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.EnumOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.EnumValueDescriptorProto: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.EnumValueDescriptorProto> {
     var mergedArray = Array<Google.Protobuf.EnumValueDescriptorProto>()
@@ -12396,6 +12760,38 @@ extension Google.Protobuf.EnumValueDescriptorProto: GeneratedMessageProtocol {
     case "number": return self.number
     case "options": return self.options
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.EnumValueDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "number": return self.number
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "number":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.number = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.EnumValueOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12437,6 +12833,38 @@ extension Google.Protobuf.ServiceDescriptorProto: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.ServiceDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "method": return self.method
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "method":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.MethodDescriptorProto> else {
+          return
+        }
+        self.method = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.ServiceOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.MethodDescriptorProto: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.MethodDescriptorProto> {
     var mergedArray = Array<Google.Protobuf.MethodDescriptorProto>()
@@ -12475,6 +12903,56 @@ extension Google.Protobuf.MethodDescriptorProto: GeneratedMessageProtocol {
     case "clientStreaming": return self.clientStreaming
     case "serverStreaming": return self.serverStreaming
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.MethodDescriptorProto.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "inputType": return self.inputType
+      case "outputType": return self.outputType
+      case "options": return self.options
+      case "clientStreaming": return self.clientStreaming
+      case "serverStreaming": return self.serverStreaming
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "inputType":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.inputType = newSubscriptValue
+      case "outputType":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.outputType = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.MethodOptions else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "clientStreaming":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.clientStreaming = newSubscriptValue
+      case "serverStreaming":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.serverStreaming = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12529,6 +13007,116 @@ extension Google.Protobuf.FileOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.FileOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "javaPackage": return self.javaPackage
+      case "javaOuterClassname": return self.javaOuterClassname
+      case "javaMultipleFiles": return self.javaMultipleFiles
+      case "javaGenerateEqualsAndHash": return self.javaGenerateEqualsAndHash
+      case "javaStringCheckUtf8": return self.javaStringCheckUtf8
+      case "optimizeFor": return self.optimizeFor
+      case "goPackage": return self.goPackage
+      case "ccGenericServices": return self.ccGenericServices
+      case "javaGenericServices": return self.javaGenericServices
+      case "pyGenericServices": return self.pyGenericServices
+      case "deprecated": return self.deprecated
+      case "ccEnableArenas": return self.ccEnableArenas
+      case "objcClassPrefix": return self.objcClassPrefix
+      case "csharpNamespace": return self.csharpNamespace
+      case "swiftPrefix": return self.swiftPrefix
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "javaPackage":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.javaPackage = newSubscriptValue
+      case "javaOuterClassname":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.javaOuterClassname = newSubscriptValue
+      case "javaMultipleFiles":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.javaMultipleFiles = newSubscriptValue
+      case "javaGenerateEqualsAndHash":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.javaGenerateEqualsAndHash = newSubscriptValue
+      case "javaStringCheckUtf8":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.javaStringCheckUtf8 = newSubscriptValue
+      case "optimizeFor":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FileOptions.OptimizeMode else {
+          return
+        }
+        self.optimizeFor = newSubscriptValue
+      case "goPackage":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.goPackage = newSubscriptValue
+      case "ccGenericServices":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.ccGenericServices = newSubscriptValue
+      case "javaGenericServices":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.javaGenericServices = newSubscriptValue
+      case "pyGenericServices":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.pyGenericServices = newSubscriptValue
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "ccEnableArenas":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.ccEnableArenas = newSubscriptValue
+      case "objcClassPrefix":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.objcClassPrefix = newSubscriptValue
+      case "csharpNamespace":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.csharpNamespace = newSubscriptValue
+      case "swiftPrefix":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.swiftPrefix = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.MessageOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.MessageOptions> {
     var mergedArray = Array<Google.Protobuf.MessageOptions>()
@@ -12566,6 +13154,50 @@ extension Google.Protobuf.MessageOptions: GeneratedMessageProtocol {
     case "mapEntry": return self.mapEntry
     case "uninterpretedOption": return self.uninterpretedOption
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.MessageOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "messageSetWireFormat": return self.messageSetWireFormat
+      case "noStandardDescriptorAccessor": return self.noStandardDescriptorAccessor
+      case "deprecated": return self.deprecated
+      case "mapEntry": return self.mapEntry
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "messageSetWireFormat":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.messageSetWireFormat = newSubscriptValue
+      case "noStandardDescriptorAccessor":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.noStandardDescriptorAccessor = newSubscriptValue
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "mapEntry":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.mapEntry = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12611,6 +13243,62 @@ extension Google.Protobuf.FieldOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.FieldOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "ctype": return self.ctype
+      case "packed": return self.packed
+      case "jstype": return self.jstype
+      case "`lazy`": return self.`lazy`
+      case "deprecated": return self.deprecated
+      case "`weak`": return self.`weak`
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "ctype":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldOptions.Ctype else {
+          return
+        }
+        self.ctype = newSubscriptValue
+      case "packed":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.packed = newSubscriptValue
+      case "jstype":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldOptions.Jstype else {
+          return
+        }
+        self.jstype = newSubscriptValue
+      case "`lazy`":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.`lazy` = newSubscriptValue
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "`weak`":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.`weak` = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.OneofOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.OneofOptions> {
     var mergedArray = Array<Google.Protobuf.OneofOptions>()
@@ -12644,6 +13332,26 @@ extension Google.Protobuf.OneofOptions: GeneratedMessageProtocol {
     switch key {
     case "uninterpretedOption": return self.uninterpretedOption
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.OneofOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12685,6 +13393,38 @@ extension Google.Protobuf.EnumOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.EnumOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "allowAlias": return self.allowAlias
+      case "deprecated": return self.deprecated
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "allowAlias":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.allowAlias = newSubscriptValue
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.EnumValueOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.EnumValueOptions> {
     var mergedArray = Array<Google.Protobuf.EnumValueOptions>()
@@ -12719,6 +13459,32 @@ extension Google.Protobuf.EnumValueOptions: GeneratedMessageProtocol {
     case "deprecated": return self.deprecated
     case "uninterpretedOption": return self.uninterpretedOption
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.EnumValueOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "deprecated": return self.deprecated
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12759,6 +13525,32 @@ extension Google.Protobuf.ServiceOptions: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.ServiceOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "deprecated": return self.deprecated
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.MethodOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.MethodOptions> {
     var mergedArray = Array<Google.Protobuf.MethodOptions>()
@@ -12794,6 +13586,38 @@ extension Google.Protobuf.MethodOptions: GeneratedMessageProtocol {
     case "idempotencyLevel": return self.idempotencyLevel
     case "uninterpretedOption": return self.uninterpretedOption
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.MethodOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "deprecated": return self.deprecated
+      case "idempotencyLevel": return self.idempotencyLevel
+      case "uninterpretedOption": return self.uninterpretedOption
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "deprecated":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.deprecated = newSubscriptValue
+      case "idempotencyLevel":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.MethodOptions.IdempotencyLevel else {
+          return
+        }
+        self.idempotencyLevel = newSubscriptValue
+      case "uninterpretedOption":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+          return
+        }
+        self.uninterpretedOption = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -12876,6 +13700,88 @@ extension Google.Protobuf.UninterpretedOption.NamePart: GeneratedMessageProtocol
     }
   }
 }
+extension Google.Protobuf.UninterpretedOption.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "identifierValue": return self.identifierValue
+      case "positiveIntValue": return self.positiveIntValue
+      case "negativeIntValue": return self.negativeIntValue
+      case "doubleValue": return self.doubleValue
+      case "stringValue": return self.stringValue
+      case "aggregateValue": return self.aggregateValue
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption.NamePart> else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "identifierValue":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.identifierValue = newSubscriptValue
+      case "positiveIntValue":
+        guard let newSubscriptValue = newSubscriptValue as? UInt64 else {
+          return
+        }
+        self.positiveIntValue = newSubscriptValue
+      case "negativeIntValue":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.negativeIntValue = newSubscriptValue
+      case "doubleValue":
+        guard let newSubscriptValue = newSubscriptValue as? Double else {
+          return
+        }
+        self.doubleValue = newSubscriptValue
+      case "stringValue":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.stringValue = newSubscriptValue
+      case "aggregateValue":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.aggregateValue = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.UninterpretedOption.NamePart.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "namePart": return self.namePart
+      case "isExtension": return self.isExtension
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "namePart":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.namePart = newSubscriptValue
+      case "isExtension":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.isExtension = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.SourceCodeInfo: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SourceCodeInfo> {
     var mergedArray = Array<Google.Protobuf.SourceCodeInfo>()
@@ -12952,6 +13858,70 @@ extension Google.Protobuf.SourceCodeInfo.Location: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.SourceCodeInfo.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "location": return self.location
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "location":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.SourceCodeInfo.Location> else {
+          return
+        }
+        self.location = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.SourceCodeInfo.Location.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "path": return self.path
+      case "span": return self.span
+      case "leadingComments": return self.leadingComments
+      case "trailingComments": return self.trailingComments
+      case "leadingDetachedComments": return self.leadingDetachedComments
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "path":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.path = newSubscriptValue
+      case "span":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.span = newSubscriptValue
+      case "leadingComments":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.leadingComments = newSubscriptValue
+      case "trailingComments":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.trailingComments = newSubscriptValue
+      case "leadingDetachedComments":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.leadingDetachedComments = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.GeneratedCodeInfo: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.GeneratedCodeInfo> {
     var mergedArray = Array<Google.Protobuf.GeneratedCodeInfo>()
@@ -13024,6 +13994,64 @@ extension Google.Protobuf.GeneratedCodeInfo.Annotation: GeneratedMessageProtocol
     case "begin": return self.begin
     case "end": return self.end
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.GeneratedCodeInfo.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "annotation": return self.annotation
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "annotation":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.GeneratedCodeInfo.Annotation> else {
+          return
+        }
+        self.annotation = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension Google.Protobuf.GeneratedCodeInfo.Annotation.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "path": return self.path
+      case "sourceFile": return self.sourceFile
+      case "begin": return self.begin
+      case "end": return self.end
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "path":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.path = newSubscriptValue
+      case "sourceFile":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.sourceFile = newSubscriptValue
+      case "begin":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.begin = newSubscriptValue
+      case "end":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.end = newSubscriptValue
+      default: return
+      }
     }
   }
 }

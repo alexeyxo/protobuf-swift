@@ -1068,6 +1068,44 @@ extension ProtobufUnittest.TestOptimizedForSize: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestOptimizedForSize.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "i": return self.i
+      case "msg": return self.msg
+      case "integerField": return self.integerField
+      case "stringField": return self.stringField
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "i":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.i = newSubscriptValue
+      case "msg":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ForeignMessage else {
+          return
+        }
+        self.msg = newSubscriptValue
+      case "integerField":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.integerField = newSubscriptValue
+      case "stringField":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.stringField = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestRequiredOptimizedForSize: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestRequiredOptimizedForSize> {
     var mergedArray = Array<ProtobufUnittest.TestRequiredOptimizedForSize>()
@@ -1104,6 +1142,26 @@ extension ProtobufUnittest.TestRequiredOptimizedForSize: GeneratedMessageProtoco
     }
   }
 }
+extension ProtobufUnittest.TestRequiredOptimizedForSize.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "x": return self.x
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "x":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.x = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestOptionalOptimizedForSize: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestOptionalOptimizedForSize> {
     var mergedArray = Array<ProtobufUnittest.TestOptionalOptimizedForSize>()
@@ -1137,6 +1195,26 @@ extension ProtobufUnittest.TestOptionalOptimizedForSize: GeneratedMessageProtoco
     switch key {
     case "o": return self.o
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestOptionalOptimizedForSize.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "o": return self.o
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "o":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestRequiredOptimizedForSize else {
+          return
+        }
+        self.o = newSubscriptValue
+      default: return
+      }
     }
   }
 }

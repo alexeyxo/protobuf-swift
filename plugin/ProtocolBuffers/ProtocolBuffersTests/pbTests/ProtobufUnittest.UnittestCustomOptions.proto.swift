@@ -6276,6 +6276,26 @@ extension ProtobufUnittest.TestMessageWithCustomOptions: GeneratedMessageProtoco
     }
   }
 }
+extension ProtobufUnittest.TestMessageWithCustomOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "field1": return self.field1
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "field1":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.field1 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.CustomOptionFooRequest: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.CustomOptionFooRequest> {
     var mergedArray = Array<ProtobufUnittest.CustomOptionFooRequest>()
@@ -6307,6 +6327,12 @@ extension ProtobufUnittest.CustomOptionFooRequest: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.CustomOptionFooRequest.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.CustomOptionFooResponse: GeneratedMessageProtocol {
@@ -6342,6 +6368,12 @@ extension ProtobufUnittest.CustomOptionFooResponse: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.CustomOptionFooResponse.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.CustomOptionFooClientMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.CustomOptionFooClientMessage> {
     var mergedArray = Array<ProtobufUnittest.CustomOptionFooClientMessage>()
@@ -6373,6 +6405,12 @@ extension ProtobufUnittest.CustomOptionFooClientMessage: GeneratedMessageProtoco
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.CustomOptionFooClientMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.CustomOptionFooServerMessage: GeneratedMessageProtocol {
@@ -6408,6 +6446,12 @@ extension ProtobufUnittest.CustomOptionFooServerMessage: GeneratedMessageProtoco
     return nil
   }
 }
+extension ProtobufUnittest.CustomOptionFooServerMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.DummyMessageContainingEnum: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.DummyMessageContainingEnum> {
     var mergedArray = Array<ProtobufUnittest.DummyMessageContainingEnum>()
@@ -6439,6 +6483,12 @@ extension ProtobufUnittest.DummyMessageContainingEnum: GeneratedMessageProtocol 
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.DummyMessageContainingEnum.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.DummyMessageInvalidAsOptionType: GeneratedMessageProtocol {
@@ -6474,6 +6524,12 @@ extension ProtobufUnittest.DummyMessageInvalidAsOptionType: GeneratedMessageProt
     return nil
   }
 }
+extension ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.CustomOptionMinIntegerValues: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.CustomOptionMinIntegerValues> {
     var mergedArray = Array<ProtobufUnittest.CustomOptionMinIntegerValues>()
@@ -6505,6 +6561,12 @@ extension ProtobufUnittest.CustomOptionMinIntegerValues: GeneratedMessageProtoco
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.CustomOptionMinIntegerValues.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.CustomOptionMaxIntegerValues: GeneratedMessageProtocol {
@@ -6540,6 +6602,12 @@ extension ProtobufUnittest.CustomOptionMaxIntegerValues: GeneratedMessageProtoco
     return nil
   }
 }
+extension ProtobufUnittest.CustomOptionMaxIntegerValues.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.CustomOptionOtherValues: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.CustomOptionOtherValues> {
     var mergedArray = Array<ProtobufUnittest.CustomOptionOtherValues>()
@@ -6571,6 +6639,12 @@ extension ProtobufUnittest.CustomOptionOtherValues: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.CustomOptionOtherValues.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.SettingRealsFromPositiveInts: GeneratedMessageProtocol {
@@ -6606,6 +6680,12 @@ extension ProtobufUnittest.SettingRealsFromPositiveInts: GeneratedMessageProtoco
     return nil
   }
 }
+extension ProtobufUnittest.SettingRealsFromPositiveInts.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.SettingRealsFromNegativeInts: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.SettingRealsFromNegativeInts> {
     var mergedArray = Array<ProtobufUnittest.SettingRealsFromNegativeInts>()
@@ -6637,6 +6717,12 @@ extension ProtobufUnittest.SettingRealsFromNegativeInts: GeneratedMessageProtoco
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.SettingRealsFromNegativeInts.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.ComplexOptionType1: GeneratedMessageProtocol {
@@ -6675,6 +6761,44 @@ extension ProtobufUnittest.ComplexOptionType1: GeneratedMessageProtocol {
     case "foo3": return self.foo3
     case "foo4": return self.foo4
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.ComplexOptionType1.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "foo": return self.foo
+      case "foo2": return self.foo2
+      case "foo3": return self.foo3
+      case "foo4": return self.foo4
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "foo":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.foo = newSubscriptValue
+      case "foo2":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.foo2 = newSubscriptValue
+      case "foo3":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.foo3 = newSubscriptValue
+      case "foo4":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Int32> else {
+          return
+        }
+        self.foo4 = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -6753,6 +6877,64 @@ extension ProtobufUnittest.ComplexOptionType2.ComplexOptionType4: GeneratedMessa
     }
   }
 }
+extension ProtobufUnittest.ComplexOptionType2.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "bar": return self.bar
+      case "baz": return self.baz
+      case "fred": return self.fred
+      case "barney": return self.barney
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "bar":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ComplexOptionType1 else {
+          return
+        }
+        self.bar = newSubscriptValue
+      case "baz":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.baz = newSubscriptValue
+      case "fred":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ComplexOptionType2.ComplexOptionType4 else {
+          return
+        }
+        self.fred = newSubscriptValue
+      case "barney":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.ComplexOptionType2.ComplexOptionType4> else {
+          return
+        }
+        self.barney = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "waldo": return self.waldo
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "waldo":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.waldo = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.ComplexOptionType3: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.ComplexOptionType3> {
     var mergedArray = Array<ProtobufUnittest.ComplexOptionType3>()
@@ -6826,6 +7008,52 @@ extension ProtobufUnittest.ComplexOptionType3.ComplexOptionType5: GeneratedMessa
     }
   }
 }
+extension ProtobufUnittest.ComplexOptionType3.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "qux": return self.qux
+      case "complexOptionType5": return self.complexOptionType5
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "qux":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.qux = newSubscriptValue
+      case "complexOptionType5":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.ComplexOptionType3.ComplexOptionType5 else {
+          return
+        }
+        self.complexOptionType5 = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "plugh": return self.plugh
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "plugh":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.plugh = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.ComplexOpt6: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.ComplexOpt6> {
     var mergedArray = Array<ProtobufUnittest.ComplexOpt6>()
@@ -6862,6 +7090,26 @@ extension ProtobufUnittest.ComplexOpt6: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.ComplexOpt6.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "xyzzy": return self.xyzzy
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "xyzzy":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.xyzzy = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.VariousComplexOptions: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.VariousComplexOptions> {
     var mergedArray = Array<ProtobufUnittest.VariousComplexOptions>()
@@ -6893,6 +7141,12 @@ extension ProtobufUnittest.VariousComplexOptions: GeneratedMessageProtocol {
   }
   public subscript(key: String) -> Any? {
     return nil
+  }
+}
+extension ProtobufUnittest.VariousComplexOptions.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
   }
 }
 extension ProtobufUnittest.AggregateMessageSet: GeneratedMessageProtocol {
@@ -6928,6 +7182,12 @@ extension ProtobufUnittest.AggregateMessageSet: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.AggregateMessageSet.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.AggregateMessageSetElement: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.AggregateMessageSetElement> {
     var mergedArray = Array<ProtobufUnittest.AggregateMessageSetElement>()
@@ -6961,6 +7221,26 @@ extension ProtobufUnittest.AggregateMessageSetElement: GeneratedMessageProtocol 
     switch key {
     case "s": return self.s
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.AggregateMessageSetElement.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "s": return self.s
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "s":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.s = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -7004,6 +7284,50 @@ extension ProtobufUnittest.Aggregate: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.Aggregate.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "i": return self.i
+      case "s": return self.s
+      case "sub": return self.sub
+      case "file": return self.file
+      case "mset": return self.mset
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "i":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.i = newSubscriptValue
+      case "s":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.s = newSubscriptValue
+      case "sub":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.Aggregate else {
+          return
+        }
+        self.sub = newSubscriptValue
+      case "file":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FileOptions else {
+          return
+        }
+        self.file = newSubscriptValue
+      case "mset":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.AggregateMessageSet else {
+          return
+        }
+        self.mset = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.AggregateMessage: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.AggregateMessage> {
     var mergedArray = Array<ProtobufUnittest.AggregateMessage>()
@@ -7037,6 +7361,26 @@ extension ProtobufUnittest.AggregateMessage: GeneratedMessageProtocol {
     switch key {
     case "fieldname": return self.fieldname
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.AggregateMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fieldname": return self.fieldname
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fieldname":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.fieldname = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -7106,6 +7450,32 @@ extension ProtobufUnittest.NestedOptionType.NestedMessage: GeneratedMessageProto
     switch key {
     case "nestedField": return self.nestedField
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.NestedOptionType.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
+extension ProtobufUnittest.NestedOptionType.NestedMessage.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "nestedField": return self.nestedField
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "nestedField":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.nestedField = newSubscriptValue
+      default: return
+      }
     }
   }
 }

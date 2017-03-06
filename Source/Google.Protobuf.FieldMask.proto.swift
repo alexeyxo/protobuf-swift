@@ -375,5 +375,25 @@ extension Google.Protobuf.FieldMask: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.FieldMask.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "paths": return self.paths
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "paths":
+        guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+          return
+        }
+        self.paths = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

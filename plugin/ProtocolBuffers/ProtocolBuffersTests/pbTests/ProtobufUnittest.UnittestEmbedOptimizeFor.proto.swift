@@ -395,5 +395,31 @@ extension ProtobufUnittest.TestEmbedOptimizedForSize: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestEmbedOptimizedForSize.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "optionalMessage": return self.optionalMessage
+      case "repeatedMessage": return self.repeatedMessage
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "optionalMessage":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestOptimizedForSize else {
+          return
+        }
+        self.optionalMessage = newSubscriptValue
+      case "repeatedMessage":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.TestOptimizedForSize> else {
+          return
+        }
+        self.repeatedMessage = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

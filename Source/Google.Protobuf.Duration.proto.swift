@@ -378,5 +378,31 @@ extension Google.Protobuf.Duration: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Duration.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "seconds": return self.seconds
+      case "nanos": return self.nanos
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "seconds":
+        guard let newSubscriptValue = newSubscriptValue as? Int64 else {
+          return
+        }
+        self.seconds = newSubscriptValue
+      case "nanos":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.nanos = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

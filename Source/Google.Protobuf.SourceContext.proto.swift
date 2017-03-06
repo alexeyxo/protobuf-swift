@@ -278,5 +278,25 @@ extension Google.Protobuf.SourceContext: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.SourceContext.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "fileName": return self.fileName
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "fileName":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.fileName = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

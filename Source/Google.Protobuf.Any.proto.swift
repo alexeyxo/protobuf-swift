@@ -394,5 +394,31 @@ extension Google.Protobuf.`Any`: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.`Any`.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "typeUrl": return self.typeUrl
+      case "value": return self.value
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "typeUrl":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.typeUrl = newSubscriptValue
+      case "value":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.value = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

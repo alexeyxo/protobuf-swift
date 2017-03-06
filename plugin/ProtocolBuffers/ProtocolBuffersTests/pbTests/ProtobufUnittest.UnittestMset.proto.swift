@@ -1459,6 +1459,12 @@ extension ProtobufUnittest.TestMessageSet: GeneratedMessageProtocol {
     return nil
   }
 }
+extension ProtobufUnittest.TestMessageSet.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 extension ProtobufUnittest.TestMessageSetContainer: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMessageSetContainer> {
     var mergedArray = Array<ProtobufUnittest.TestMessageSetContainer>()
@@ -1492,6 +1498,26 @@ extension ProtobufUnittest.TestMessageSetContainer: GeneratedMessageProtocol {
     switch key {
     case "messageSet": return self.messageSet
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestMessageSetContainer.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "messageSet": return self.messageSet
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "messageSet":
+        guard let newSubscriptValue = newSubscriptValue as? ProtobufUnittest.TestMessageSet else {
+          return
+        }
+        self.messageSet = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -1531,6 +1557,26 @@ extension ProtobufUnittest.TestMessageSetExtension1: GeneratedMessageProtocol {
     }
   }
 }
+extension ProtobufUnittest.TestMessageSetExtension1.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "i": return self.i
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "i":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.i = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension ProtobufUnittest.TestMessageSetExtension2: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<ProtobufUnittest.TestMessageSetExtension2> {
     var mergedArray = Array<ProtobufUnittest.TestMessageSetExtension2>()
@@ -1564,6 +1610,26 @@ extension ProtobufUnittest.TestMessageSetExtension2: GeneratedMessageProtocol {
     switch key {
     case "str": return self.str
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.TestMessageSetExtension2.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "str": return self.str
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "str":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.str = newSubscriptValue
+      default: return
+      }
     }
   }
 }
@@ -1637,6 +1703,52 @@ extension ProtobufUnittest.RawMessageSet.Item: GeneratedMessageProtocol {
     case "typeId": return self.typeId
     case "message": return self.message
     default: return nil
+    }
+  }
+}
+extension ProtobufUnittest.RawMessageSet.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "item": return self.item
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "item":
+        guard let newSubscriptValue = newSubscriptValue as? Array<ProtobufUnittest.RawMessageSet.Item> else {
+          return
+        }
+        self.item = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
+extension ProtobufUnittest.RawMessageSet.Item.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "typeId": return self.typeId
+      case "message": return self.message
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "typeId":
+        guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+          return
+        }
+        self.typeId = newSubscriptValue
+      case "message":
+        guard let newSubscriptValue = newSubscriptValue as? Data else {
+          return
+        }
+        self.message = newSubscriptValue
+      default: return
+      }
     }
   }
 }

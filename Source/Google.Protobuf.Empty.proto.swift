@@ -222,5 +222,11 @@ extension Google.Protobuf.Empty: GeneratedMessageProtocol {
     return nil
   }
 }
+extension Google.Protobuf.Empty.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { return nil }
+    set { }
+  }
+}
 
 // @@protoc_insertion_point(global_scope)

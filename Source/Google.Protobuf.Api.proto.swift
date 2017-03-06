@@ -1095,6 +1095,50 @@ extension Google.Protobuf.Api: GeneratedMessageProtocol {
     }
   }
 }
+extension Google.Protobuf.Api.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "methods": return self.methods
+      case "options": return self.options
+      case "version": return self.version
+      case "sourceContext": return self.sourceContext
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "methods":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Method> else {
+          return
+        }
+        self.methods = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      case "version":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.version = newSubscriptValue
+      case "sourceContext":
+        guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.SourceContext else {
+          return
+        }
+        self.sourceContext = newSubscriptValue
+      default: return
+      }
+    }
+  }
+}
 extension Google.Protobuf.Method: GeneratedMessageProtocol {
   public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.Method> {
     var mergedArray = Array<Google.Protobuf.Method>()
@@ -1133,6 +1177,56 @@ extension Google.Protobuf.Method: GeneratedMessageProtocol {
     case "responseStreaming": return self.responseStreaming
     case "options": return self.options
     default: return nil
+    }
+  }
+}
+extension Google.Protobuf.Method.Builder: GeneratedMessageBuilderProtocol {
+  public subscript(key: String) -> Any? {
+    get { 
+      switch key {
+      case "name": return self.name
+      case "requestTypeUrl": return self.requestTypeUrl
+      case "requestStreaming": return self.requestStreaming
+      case "responseTypeUrl": return self.responseTypeUrl
+      case "responseStreaming": return self.responseStreaming
+      case "options": return self.options
+      default: return nil
+      }
+    }
+    set (newSubscriptValue) { 
+      switch key {
+      case "name":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.name = newSubscriptValue
+      case "requestTypeUrl":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.requestTypeUrl = newSubscriptValue
+      case "requestStreaming":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.requestStreaming = newSubscriptValue
+      case "responseTypeUrl":
+        guard let newSubscriptValue = newSubscriptValue as? String else {
+          return
+        }
+        self.responseTypeUrl = newSubscriptValue
+      case "responseStreaming":
+        guard let newSubscriptValue = newSubscriptValue as? Bool else {
+          return
+        }
+        self.responseStreaming = newSubscriptValue
+      case "options":
+        guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.Option> else {
+          return
+        }
+        self.options = newSubscriptValue
+      default: return
+      }
     }
   }
 }
