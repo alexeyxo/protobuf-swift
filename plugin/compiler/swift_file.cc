@@ -47,12 +47,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         FileGenerator file_generator(file_);
 
         vector<string> tokens = FullNameSplit(file_);
-        
-        
-        //for (int i = 0; i < file_->message_type_count(); i++) {
-          //  MessageGenerator(file_->message_type(i)).GenerateMessageIsEqualSource(printer);
-        //}
-        
+   
         //fields
         for (int i = 0; i < file_->extension_count(); i++) {
             ExtensionGenerator(ExtensionFileClassName(file_), file_->extension(i)).GenerateFieldsGetterSource(printer, FileClassName(file_));
@@ -70,7 +65,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             printer->Print("$acontrol$ extension $package$ {\n",
                            "acontrol", GetAccessControlType(file_),
                            "package", PackageExtensionName(tokens));
-            printer->Indent();
+            XCodeStandartIndent(printer);
         }
         
         
@@ -78,7 +73,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
                        "classname", classname_,
                        "acontrol", GetAccessControlType(file_));
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("$acontrol$ static let `default` = $classname$()\n",
                        "classname", classname_,
                        "acontrol", GetAccessControlType(file_));
@@ -92,14 +87,13 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             MessageGenerator(file_->message_type(i)).GenerateStaticVariablesSource(printer);
         }
         
-        //TODO
         printer->Print("$acontrol$ var extensionRegistry:ExtensionRegistry\n",
                        "acontrol", GetAccessControlType(file_));
         printer->Print(
                        "\n"
                        "init() {\n");
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         
         
         for (int i = 0; i < file_->extension_count(); i++) {
@@ -118,14 +112,14 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
                            "dependency", FileClassName(file_->dependency(i)));
         }
         
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
         
         
         printer->Print("$acontrol$ func registerAllExtensions(registry: ExtensionRegistry) {\n",
                        "acontrol", GetAccessControlType(file_));
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         for (int i = 0; i < file_->extension_count(); i++) {
             ExtensionGenerator(classname_, file_->extension(i)).GenerateRegistrationSource(printer);
         }
@@ -133,14 +127,14 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         for (int i = 0; i < file_->message_type_count(); i++) {
             MessageGenerator(file_->message_type(i)).GenerateExtensionRegistrationSource(printer);
         }
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
         
         for (int i = 0; i < file_->extension_count(); i++) {
             ExtensionGenerator(classname_, file_->extension(i)).GenerateMembersSourceExtensions(printer,classname_);
         }
         
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
         
         ///
@@ -155,7 +149,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         }
         
         if (tokens.size() > 0) {
-            printer->Outdent();
+            XCodeStandartOutdent(printer);
             printer->Print("}\n");
         }
         
@@ -164,9 +158,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
             MessageGenerator(file_->message_type(i)).GenerateBuilderExtensions(printer);
         }
 
-        printer->Print(
-                       "\n"
-                       "// @@protoc_insertion_point(global_scope)\n");
+        printer->Print("\n""// @@protoc_insertion_point(global_scope)\n");
     }
     
     

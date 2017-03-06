@@ -134,14 +134,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         
     }
     
@@ -255,7 +255,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "   hashCode = (hashCode &* 31) &+ Int($name_reserved$.rawValue)\n"
+                       "   hashCode = (hashCode &* 31) &+ $name_reserved$.hashValue\n"
                        "}\n");
     }
     
@@ -295,14 +295,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     void RepeatedEnumFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? Array<$type$> else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
     }
     
     void RepeatedEnumFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
@@ -475,7 +475,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedEnumFieldGenerator::GenerateHashCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "for oneValueOf$name$ in $name_reserved$ {\n"
-                       "    hashCode = (hashCode &* 31) &+ Int(oneValueOf$name$.rawValue)\n"
+                       "    hashCode = (hashCode &* 31) &+ oneValueOf$name$.hashValue\n"
                        "}\n");
     }
 }  // namespace swift

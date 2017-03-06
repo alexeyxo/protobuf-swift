@@ -63,23 +63,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         if (HasOptionForGenerateErrors(descriptor_)) {
-            printer->Print("$acontrol$ enum $classname$:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible {\n",
+            printer->Print("$acontrol$ enum $classname$:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible, Hashable {\n",
                            "classname",ClassName(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
-            printer->Indent();
+            XCodeStandartIndent(printer);
             printer->Print("$acontrol$ typealias RawValue = Int32\n\n", "acontrol", GetAccessControlType(descriptor_->file()));
-            printer->Outdent();
+            XCodeStandartOutdent(printer);
             
             
         } else {
-            printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible {\n",
+            printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {\n",
                            "classname",ClassName(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
             
         }
 
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         GenerateCaseFields(printer);
         
         if (HasOptionForGenerateErrors(descriptor_)) {
@@ -124,7 +124,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         GenerateDescription(printer);
-        printer->Outdent();
+        GenerateHash(printer);
+        XCodeStandartOutdent(printer);
         printer->Print(
                        "}\n"
                        "\n");
@@ -158,16 +159,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void EnumGenerator::GenerateMethodThrow(io::Printer* printer) {
         
         printer->Print("$acontrol$ func throwException() throws {\n","acontrol", GetAccessControlType(descriptor_->file()));
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("throw self\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
     }
     
     void EnumGenerator::GenerateInit(io::Printer* printer) {
         
         printer->Print("$acontrol$ init?(rawValue: RawValue) {\n","acontrol", GetAccessControlType(descriptor_->file()));
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("switch rawValue {\n");
         for (int i = 0; i < canonical_values_.size(); i++) {
             printer->Print("case $value$: self = .$name$\n",
@@ -177,14 +178,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         printer->Print("default: return nil\n");
         printer->Print("}\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
     }
     
     void EnumGenerator::GenerateRawRepresentable(io::Printer* printer) {
         
         printer->Print("$acontrol$ var rawValue: RawValue {\n","acontrol", GetAccessControlType(descriptor_->file()));
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("switch self {\n");
         for (int i = 0; i < canonical_values_.size(); i++) {
             printer->Print("case .$name$: return $value$\n",
@@ -193,7 +194,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
         }
         printer->Print("}\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
     }
     
@@ -206,7 +207,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "acontrol", GetAccessControlType(descriptor_->file()));
         
         printer->Print("private func getDescription() -> String { \n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("switch self {\n");
         for (int i = 0; i < canonical_values_.size(); i++) {
             printer->Print("case .$name$: return \".$name$\"\n",
@@ -214,9 +215,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            );
         }
         printer->Print("}\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
         
+    }
+    
+    void EnumGenerator::GenerateHash(io::Printer* printer) {
+        printer->Print("$acontrol$ var hashValue:Int {\n","acontrol", GetAccessControlType(descriptor_->file()));
+        XCodeStandartIndent(printer);
+        printer->Print("return self.rawValue.hashValue\n");
+        XCodeStandartOutdent(printer);
+        printer->Print("}\n");
+        
+        printer->Print("$acontrol$ static func ==(lhs:$className$, rhs:$className$) -> Bool {\n",
+                       "acontrol", GetAccessControlType(descriptor_->file()),
+                       "className", ClassName(descriptor_));
+        XCodeStandartIndent(printer);
+        printer->Print("return lhs.hashValue == rhs.hashValue\n");
+        XCodeStandartOutdent(printer);
+        printer->Print("}\n");
     }
 }  // namespace swift
 }  // namespace compiler

@@ -21,13 +21,16 @@
 #include <string>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/descriptor.pb.h>
+#include <google/protobuf/io/printer.h>
+
+#define SWIFT_PROTOBUF_VERSION "3.0.13"
 
 namespace google {
     namespace protobuf {
         namespace compiler {
             namespace swift {
-                
-             
+                void XCodeStandartIndent(io::Printer* printer);
+                void XCodeStandartOutdent(io::Printer* printer);
                 // Converts the field's name to camel-case, e.g. "foo_bar_baz" becomes
                 // "fooBarBaz" or "FooBarBaz", respectively.
                 string UnderscoresToCamelCase(const FieldDescriptor* field);

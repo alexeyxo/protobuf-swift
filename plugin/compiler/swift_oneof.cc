@@ -81,7 +81,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "acontrol", acControl);
         
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("case OneOf$classname$NotSet\n\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
         
@@ -97,13 +97,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
                       "acontrol", acControl);
         
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
             
             const FieldDescriptor* fieldType = descriptor_->field(i);
-            printer->Indent();
+            XCodeStandartIndent(printer);
             if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
@@ -166,7 +166,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "fieldType",PrimitiveTypeName(fieldType),
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
-            printer->Outdent();
+            XCodeStandartOutdent(printer);
             
         }
         

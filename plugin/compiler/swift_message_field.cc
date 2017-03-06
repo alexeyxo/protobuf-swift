@@ -128,14 +128,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
     }
     
     void MessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
@@ -337,14 +337,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedMessageFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? Array<$type$> else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
     }
     
     

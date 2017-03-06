@@ -22,6 +22,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/stubs/strutil.h>
 
+
 #include "google/protobuf/swift-descriptor.pb.h"
 
 
@@ -97,6 +98,15 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             result += *i;
         }
         return result;
+    }
+    
+    void XCodeStandartIndent(io::Printer* printer) {
+        printer->Indent();
+        printer->Indent();
+    }
+    void XCodeStandartOutdent(io::Printer* printer) {
+        printer->Outdent();
+        printer->Outdent();
     }
 
     bool isCompileForFramework(const FileDescriptor* file) {

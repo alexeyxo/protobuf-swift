@@ -215,14 +215,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void PrimitiveFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
     }
     
     void PrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
@@ -380,14 +380,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedPrimitiveFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? Array<$storage_type$> else {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print(variables_,"return\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print(variables_,"}\n");
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;
@@ -460,7 +460,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedPrimitiveFieldGenerator::GenerateSerializationCodeSource(io::Printer* printer) const {
         
         printer->Print(variables_,"if !$name_reserved$.isEmpty {\n");
-        printer->Indent();
+        XCodeStandartIndent(printer);
         
         if (isPackedTypeProto3(descriptor_)) {
             printer->Print(variables_,
@@ -475,7 +475,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "  try codedOutputStream.write$capitalized_type$(fieldNumber: $number$, value:oneValue$name_reserved$)\n"
                            "}\n");
         }
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         printer->Print("}\n");
     }
     
