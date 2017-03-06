@@ -50,6 +50,9 @@ namespace google {
                     void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
                     void GenerateParseFromMethodsSource(io::Printer* printer);
                     void GenerateSubscript(io::Printer* printer) const;
+                    void GenerateSetSubscript(io::Printer* printer) const;
+                    
+                    void GenerateBuilderExtensions(io::Printer* printer);
                 private:
                     
                     void GenerateMessageSerializationMethodsSource(io::Printer* printer);
@@ -86,6 +89,8 @@ namespace google {
                     void GenerateCommonBuilderMethodsSource(io::Printer* printer);
                     void GenerateBuilderParsingMethodsSource(io::Printer* printer);
                     void GenerateIsInitializedSource(io::Printer* printer);
+                    
+                    
                     
                     
                     const Descriptor* descriptor_;

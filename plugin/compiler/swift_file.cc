@@ -161,6 +161,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
         
         for (int i = 0; i < file_->message_type_count(); i++) {
             MessageGenerator(file_->message_type(i)).GenerateParseFromMethodsSource(printer);
+            MessageGenerator(file_->message_type(i)).GenerateBuilderExtensions(printer);
         }
 
         printer->Print(

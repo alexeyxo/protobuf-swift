@@ -213,7 +213,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
-    
+    void PrimitiveFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\":\n");
+        printer->Indent();
+        printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
+        printer->Indent();
+        printer->Print(variables_,"return\n");
+        printer->Outdent();
+        printer->Print(variables_,"}\n");
+        printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
+        printer->Outdent();
+    }
     
     void PrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
     }
@@ -366,6 +376,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void RepeatedPrimitiveFieldGenerator::GenerateSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
+    }
+    
+    void RepeatedPrimitiveFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\":\n");
+        printer->Indent();
+        printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? Array<$storage_type$> else {\n");
+        printer->Indent();
+        printer->Print(variables_,"return\n");
+        printer->Outdent();
+        printer->Print(variables_,"}\n");
+        printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
+        printer->Outdent();
     }
     
     void RepeatedPrimitiveFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {;

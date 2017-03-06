@@ -659,11 +659,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         GenerateSubscript(printer);
         
-        printer->Print(
-                      "}\n");
+        printer->Print("}\n");
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             MessageGenerator(descriptor_->nested_type(i)).GenerateParseFromMethodsSource(printer);
         }
+    }
+    void MessageGenerator::GenerateBuilderExtensions(io::Printer* printer) {
+        printer->Print(variables_,"extension $classNameReturnedType$.Builder: GeneratedMessageBuilderProtocol {\n");
+        printer->Indent();
+        
+        GenerateSetSubscript(printer);
+        
+        printer->Outdent();
+        printer->Print("}\n");
+        for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+            MessageGenerator(descriptor_->nested_type(i)).GenerateBuilderExtensions(printer);
+        }
+        
     }
     
     void MessageGenerator::GenerateSubscript(io::Printer* printer) const {
@@ -686,6 +698,38 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Outdent();
     }
     
+    void MessageGenerator::GenerateSetSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"$acontrol$ subscript(key: String) -> Any? {\n");
+        printer->Indent();
+        if (descriptor_->field_count() > 0) {
+            printer->Print("get { \n");
+            printer->Indent();
+            printer->Print("switch key {\n");
+            for (int i = 0; i < descriptor_->field_count(); i++) {
+                field_generators_.get(descriptor_->field(i)).GenerateSubscript(printer);
+            }
+            printer->Print("default: return nil\n");
+            printer->Print("}\n");
+            printer->Outdent();
+            printer->Print("}\n");
+            printer->Print("set (newSubscriptValue) { \n");
+            printer->Indent();
+            printer->Print("switch key {\n");
+            for (int i = 0; i < descriptor_->field_count(); i++) {
+                field_generators_.get(descriptor_->field(i)).GenerateSetSubscript(printer);
+            }
+            printer->Print("default: return\n");
+            printer->Print("}\n");
+            printer->Outdent();
+            printer->Print("}\n");
+        } else {
+            printer->Print("get { return nil }\n");
+            printer->Print("set { }\n");
+        }
+        printer->Outdent();
+        printer->Print("}\n");
+    }
+
     
     void MessageGenerator::GenerateSerializeOneFieldSource(io::Printer* printer, const FieldDescriptor* field) {
         field_generators_.get(field).GenerateSerializationCodeSource(printer);
@@ -763,12 +807,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);
         GenerateMessageBuilderJSONSource(printer);
+        
         printer->Outdent();
-        
-        
-        
         printer->Print("}\n\n");
+        
     }
+    
+   
     
     
     void MessageGenerator::GenerateCommonBuilderMethodsSource(io::Printer* printer) {

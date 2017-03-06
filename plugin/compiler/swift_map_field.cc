@@ -100,6 +100,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
     
+    void MapFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\":\n");
+        printer->Indent();
+        printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
+        printer->Indent();
+        printer->Print(variables_,"return\n");
+        printer->Outdent();
+        printer->Print(variables_,"}\n");
+        printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
+        printer->Outdent();
+    }
+    
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateMembersSource(io::Printer* printer) const {}
