@@ -1,4 +1,4 @@
-#Protocol Buffers for Swift
+# Protocol Buffers for Swift
 
 [![Build Status](https://travis-ci.org/alexeyxo/protobuf-swift.svg?branch=master)](https://travis-ci.org/alexeyxo/protobuf-swift) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat-square)](https://github.com/Carthage/Carthage) [![Version](http://img.shields.io/cocoapods/v/ProtocolBuffers-Swift.svg?style=flat-square)](http://cocoapods.org/?q=ProtocolBuffers-Swift) [![Platform](https://img.shields.io/badge/platform-ios%7Cmacos%7Ctvos%7Cwatchos%7Clinux-brightgreen.svg?style=flat-square)](http://cocoapods.org/?q=ProtocolBuffers)
 
@@ -6,9 +6,9 @@ An implementation of Protocol Buffers in Swift.
 
 Protocol Buffers are a way of encoding structured data in an efficient yet extensible format. This project is based on an implementation of Protocol Buffers from Google. See the [Google protobuf project](https://developers.google.com/protocol-buffers/docs/overview) for more information.
 
-####Required Protocol Buffers 3.0
+#### Required Protocol Buffers 3.0
 
-##How To Install Protobuf Compiler on Linux(Ubuntu 14.04)
+## How To Install Protobuf Compiler on Linux(Ubuntu 14.04)
 
 1.`wget https://github.com/google/protobuf/archive/v3.2.0.tar.gz`
 
@@ -28,13 +28,13 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 9.`./script/build.sh && swift build`
  
-##How To Install Protobuf Compiler from Homebrew
+## How To Install Protobuf Compiler from Homebrew
 
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 2.`brew install protobuf-swift`
 
-##How To Install Protobuf Compiler
+## How To Install Protobuf Compiler
 
 1.`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
@@ -50,7 +50,7 @@ Protocol Buffers are a way of encoding structured data in an efficient yet exten
 
 Add `./src/ProtocolBuffers/ProtocolBuffers.xcodeproj` in your project.
 
-##Cocoapods
+## Cocoapods
 
 Podfile:
 
@@ -59,7 +59,7 @@ use_frameworks!
 pod 'ProtocolBuffers-Swift'
 ```
 
-##<img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
+## <img src="https://cloud.githubusercontent.com/assets/432536/5252404/443d64f4-7952-11e4-9d26-fc5cc664cb61.png" width="22" height="22"> Installation via [Carthage](https://github.com/Carthage/Carthage)
 
 Cartfile:
 
@@ -67,13 +67,13 @@ Cartfile:
 github "alexeyxo/protobuf-swift"
 ```
 
-##Compile ".proto" files.
+## Compile ".proto" files.
 
 ```sh
 protoc  person.proto --swift_out="./"
 ```
 
-##Serializing
+## Serializing
 
 ```protobuf
 syntax = "proto2";
@@ -95,7 +95,7 @@ print(person)
 person.data() //return NSData
 ```
 
-##Chaining
+## Chaining
 
 ```protobuf
 syntax = "proto2";
@@ -121,7 +121,7 @@ originalBuilder.setInts(Int32(32))
 let original = originalBuilder.build()
 ```
 
-##Sub Builders
+## Sub Builders
 
 ```protobuf
 syntax = "proto2";
@@ -147,7 +147,7 @@ builder.getBarBuilder().getFooBuilder().setVal(10)
 baz = builder.build()
 ```
 
-##Maps(ProtocolBuffers 3.0)
+## Maps(ProtocolBuffers 3.0)
 ```protobuf
 syntax = "proto3";
 message MapMessageValue
@@ -187,7 +187,7 @@ final internal class MessageContainsMap : GeneratedMessage, GeneratedMessageProt
 }
 ```
 
-##JSON(proto3)
+## JSON(proto3)
 ```swift
 let personBuilder = Person.builder()
 personBuilder.id = 123
@@ -199,13 +199,13 @@ let jsonDictionaryObject:Dictionary<String,AnyObject> = person.encode()
 let personFromJson = Person.fromJSON(jsonData) //Person
 ```
 
-##Deserializing
+## Deserializing
 
 ```swift
 var person = Person.parseFromData(bytes) // from NSData
 ```
 
-##Using Oneof
+## Using Oneof
 
 ```protobuf
 syntax = "proto3";
@@ -229,7 +229,7 @@ sm.id = 123
 println(ss.build()) //->  id: 123
 ```
 
-##Nested Types
+## Nested Types
 
 ```protobuf
 syntax = "proto3";
@@ -252,7 +252,7 @@ searchRespons.result += [builderResult.build()]
 println(searchRespons.build())
 ```
 
-##Packages
+## Packages
 
 ```protobuf
 syntax = "proto2";
@@ -279,7 +279,7 @@ public extension FooBar {
 }
 ```
 
-##Custom Options
+## Custom Options
 
 ```protobuf
 import "google/protobuf/descriptor.proto";
@@ -336,7 +336,7 @@ import 'google/protobuf/swift-descriptor.proto';
 
 in your `.proto` files.
 
-###Class prefix
+### Class prefix
 
 This option needs to generate class names with prefix.
 
@@ -359,7 +359,7 @@ Generated class has a name:
 final internal class ProtoNameWithPrefix : GeneratedMessage
 ```
 
-###Access control
+### Access control
 
 ```protobuf
 option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
@@ -382,13 +382,13 @@ Generated class and all fields are marked a `public`:
 final public class MessageWithCustomOption : GeneratedMessage
 ```
 
-###Generate enum/message conforming to "Error" protocol
+### Generate enum/message conforming to "Error" protocol
 
 ```protobuf
 option (.google.protobuf.swift_enum_options).generate_error_type = true;
 ```
 
-####Example
+#### Example
 
 ```protobuf
 
@@ -500,7 +500,7 @@ do {
   
 ```
 
-###Compile for framework
+### Compile for framework
 
 ```protobuf
 option (.google.protobuf.swift_file_options).compile_for_framework = false;
@@ -508,15 +508,15 @@ option (.google.protobuf.swift_file_options).compile_for_framework = false;
 
 This option deletes the string `import ProtocolBuffers` of the generated files.
 
-####If you will need some other options, write me. I will add them.
+#### If you will need some other options, write me. I will add them.
 
 
 
 
-##Utilities (ProtocolBuffers 3.0)
+## Utilities (ProtocolBuffers 3.0)
 
 Added well-known type protos (any.proto, empty.proto, timestamp.proto, duration.proto, etc.). Users can import and use these protos just like regular proto files. Addtional runtime support will be added for them in future releases (in the form of utility helper functions, or having them replaced by language specific types in generated code).
-####Any
+#### Any
 ```protobuf
 message Any {
   // A URL/resource name whose content describes the type of the
@@ -553,7 +553,7 @@ message Any {
 Google.Protobuf.Any()
 ```
 
-####API
+#### API
 ```protobuf
 message Api {
   // The fully qualified name of this api, including package name
@@ -622,7 +622,7 @@ message Method {
 Google.Protobuf.Api()
 ```
 
-####Duration
+#### Duration
 ```protobuf
 message Duration {
   // Signed seconds of the span of time. Must be from -315,576,000,000
@@ -641,7 +641,7 @@ message Duration {
 ```swift
 Google.Protobuf.Duration()
 ```
-####Empty
+#### Empty
 
 ```protobuf
 message Empty {
@@ -652,7 +652,7 @@ message Empty {
 Google.Protobuf.Empty()
 ```
 
-####Field Mask
+#### Field Mask
 
 ```protobuf
 message FieldMask {
@@ -664,7 +664,7 @@ message FieldMask {
 ```swift
 Google.Protobuf.FieldMask()
 ```
-####Source context
+#### Source context
 
 ```protobuf
 message SourceContext {
@@ -678,7 +678,7 @@ message SourceContext {
 Google.Protobuf.SourceContext()
 ```
 
-####Struct
+#### Struct
 
 ```protobuf
 message Struct {
@@ -730,7 +730,7 @@ enum NullValue {
 Google.Protobuf.Struct()
 ```
 
-####Timestamp
+#### Timestamp
 ```protobuf
 message Timestamp {
   // Represents seconds of UTC time since Unix epoch
@@ -749,7 +749,7 @@ message Timestamp {
 Google.Protobuf.Timestamp()
 ```
 
-####Type
+#### Type
 ```protobuf
 message Type {
   // The fully qualified message name.
@@ -911,7 +911,7 @@ Google.Protobuf.Type()
 ...
 ```
 
-####Wrappers
+#### Wrappers
 
 ```protobuf
 // Wrapper message for double.
