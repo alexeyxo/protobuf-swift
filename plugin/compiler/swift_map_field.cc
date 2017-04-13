@@ -83,40 +83,70 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MapFieldGenerator::GenerateVariablesSource(io::Printer* printer) const
     {
-        printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
+        if (descriptor_->options().deprecated()) {
+             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
+        }
         printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");
+        printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n");
+    }
+    
+    void MapFieldGenerator::GenerateSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
+    }
+    
+    void MapFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
+        printer->Print(variables_,"case \"$name_reserved$\":\n");
+        XCodeStandartIndent(printer);
+        printer->Print(variables_,"guard let newSubscriptValue = newSubscriptValue as? $type$ else {\n");
+        XCodeStandartIndent(printer);
+        printer->Print(variables_,"return\n");
+        XCodeStandartOutdent(printer);
+        printer->Print(variables_,"}\n");
+        printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
+        XCodeStandartOutdent(printer);
     }
     
     void MapFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateMembersSource(io::Printer* printer) const {}
     void MapFieldGenerator::GenerateBuilderMembersSource(io::Printer* printer) const {
-        
+        SourceLocation location;
+        if (descriptor_->GetSourceLocation(&location)) {
+            string comments;
+            comments = BuildCommentsString(location);
+            printer->Print(comments.c_str());
+        }
         printer->Print(variables_,
                        "$acontrol$var has$capitalized_name$:Bool {\n"
-                       "     get {\n"
-                       "          return builderResult.has$capitalized_name$\n"
-                       "     }\n"
+                       "    get {\n"
+                       "        return builderResult.has$capitalized_name$\n"
+                       "    }\n"
                        "}\n"
                        "$acontrol$var $name_reserved$:$type$ {\n"
-                       "     get {\n"
-                       "          return builderResult.$name_reserved$\n"
-                       "     }\n"
-                       "     set (value) {\n"
-                       "         builderResult.has$capitalized_name$ = true\n"
-                       "         builderResult.$name_reserved$ = value\n"
-                       "     }\n"
+                       "    get {\n"
+                       "        return builderResult.$name_reserved$\n"
+                       "    }\n"
+                       "    set (value) {\n"
+                       "        builderResult.has$capitalized_name$ = true\n"
+                       "        builderResult.$name_reserved$ = value\n"
+                       "    }\n"
                        "}\n"
                        "@discardableResult\n"
                        "$acontrol$func set$capitalized_name$(_ value:$type$) -> $containing_class$.Builder {\n"
-                       "  self.$name_reserved$ = value\n"
-                       "  return self\n"
+                       "    self.$name_reserved$ = value\n"
+                       "    return self\n"
                        "}\n"
                        "@discardableResult\n"
                        "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder{\n"
-                       "     builderResult.has$capitalized_name$ = false\n"
-                       "     builderResult.$name_reserved$ = $default$\n"
-                       "     return self\n"
+                       "    builderResult.has$capitalized_name$ = false\n"
+                       "    builderResult.$name_reserved$ = $default$\n"
+                       "    return self\n"
                        "}\n");
         
     }
@@ -125,7 +155,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if other.has$capitalized_name$ {\n"
-                       "     $name_reserved$ = other.$name_reserved$\n"
+                       "    $name_reserved$ = other.$name_reserved$\n"
                        "}\n");
     }
     
@@ -148,17 +178,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if has$capitalized_name$ {\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
                        "        let valueOf$capitalized_name$ = try! $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        try codedOutputStream.writeMessage(fieldNumber: $number$, value:valueOf$capitalized_name$)\n"
-                       "    }\n"
+                       "          try codedOutputStream.writeMessage(fieldNumber: $number$, value:valueOf$capitalized_name$)\n"
+                       "      }\n"
                        "}\n");
     }
     
     void MapFieldGenerator::GenerateSerializedSizeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
-                       "        let valueOf$capitalized_name$ = try! $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
-                       "        serialize_size += valueOf$capitalized_name$.computeMessageSize(fieldNumber: $number$)\n"
+                       "      for (key$capitalized_name$, value$capitalized_name$) in $name_reserved$ {\n"
+                       "          let valueOf$capitalized_name$ = try! $backward_class$.Builder().setKey(key$capitalized_name$).setValue(value$capitalized_name$).build()\n"
+                       "    serialize_size += valueOf$capitalized_name$.computeMessageSize(fieldNumber: $number$)\n"
                        "    }\n"
                        "}\n");
     }
@@ -166,7 +196,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MapFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "  output += \"\\(indent) $name$: \\($name_reserved$) \\n\"\n"
+                       "    output += \"\\(indent) $name$: \\($name_reserved$) \\n\"\n"
                        "}\n");
     }
     
@@ -186,7 +216,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Dictionary<String, $json_casting_type_value$> {\n"
                        "    var map$capitalized_name$ = Dictionary<$keyType$, $valueType$>()\n"
                        "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n"
-                       "        let keyFrom$capitalized_name$ = $from_json_key_value$\n"
+                       "        guard let keyFrom$capitalized_name$ = $keyType$(key$capitalized_name$) else {\n"
+                       "            throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
+                       "        }\n"
                        "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n"
                        "    }\n"
                        "    resultDecodedBuilder.$name_reserved$ = map$capitalized_name$\n"

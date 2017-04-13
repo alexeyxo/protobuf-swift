@@ -67,6 +67,7 @@ public protocol ProtocolBuffersMessageBuilder {
     
     static func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Self
     static func fromJSONToBuilder(data:Data) throws -> Self
+    
 }
 
 public func == (lhs: AbstractProtocolBuffersMessage, rhs: AbstractProtocolBuffersMessage) -> Bool {

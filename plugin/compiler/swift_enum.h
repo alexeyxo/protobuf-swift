@@ -48,6 +48,7 @@ namespace google {
                     void GenerateRawRepresentable(io::Printer* printer);
                     void GenerateInit(io::Printer* printer);
                     void GenerateMethodThrow(io::Printer* printer);
+                    void GenerateHash(io::Printer* printer);
                     vector<const EnumValueDescriptor*> canonical_values_;
                     
                     struct Alias {
