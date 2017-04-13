@@ -48,9 +48,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
             case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
             case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"    ;
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"      ;
             case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "Data"  ;
+            case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
             default                            : return NULL;
         }
         
@@ -81,29 +81,27 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "acontrol", acControl);
         
         
-        printer->Indent();
+        XCodeStandartIndent(printer);
         printer->Print("case OneOf$classname$NotSet\n\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
         
         printer->Print("$acontrol$ func checkOneOfIsSet() -> Bool {\n"
-                       "     switch self {\n"
-                       "     case .OneOf$classname$NotSet:\n"
-                       "          return false\n"
-                       "     default:\n"
-                       "          return true\n"
-                       "     }\n"
+                       "    switch self {\n"
+                       "    case .OneOf$classname$NotSet: return false\n"
+                       "    default: return true\n"
+                       "    }\n"
                        "}\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
                        "name",UnderscoresToCapitalizedCamelCase(descriptor_->name()),
                       "acontrol", acControl);
         
-        printer->Outdent();
+        XCodeStandartOutdent(printer);
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
             
             const FieldDescriptor* fieldType = descriptor_->field(i);
-            printer->Indent();
+            XCodeStandartIndent(printer);
             if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
@@ -115,12 +113,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
-                               "     switch value {\n"
-                               "     case .$name$(let enumValue):\n"
-                               "          return enumValue\n"
-                               "     default:\n"
-                               "          return nil\n"
-                               "     }\n"
+                               "    switch value {\n"
+                               "    case .$name$(let enumValue):\n"
+                               "        return enumValue\n"
+                               "        default: return nil\n"
+                               "    }\n"
                                "}\n",
                                "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "fieldType",classNames,
@@ -136,12 +133,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
-                               "     switch value {\n"
-                               "     case .$name$(let enumValue):\n"
-                               "          return enumValue\n"
-                               "     default:\n"
-                               "          return nil\n"
-                               "     }\n"
+                               "    switch value {\n"
+                               "    case .$name$(let enumValue): return enumValue\n"
+                               "    default: return nil\n"
+                               "    }\n"
                                "}\n",
                                "name",SafeName(UnderscoresToCapitalizedCamelCase(enumDesc->name())),
                                "fieldType",type,
@@ -155,18 +150,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
                 printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
-                               "     switch value {\n"
-                               "     case .$name$(let enumValue):\n"
-                               "          return enumValue\n"
-                               "     default:\n"
-                               "          return nil\n"
-                               "     }\n"
+                               "    switch value {\n"
+                               "    case .$name$(let enumValue): return enumValue\n"
+                               "    default: return nil\n"
+                               "    }\n"
                                "}\n",
                                "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType->name())),
                                "fieldType",PrimitiveTypeName(fieldType),
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
-            printer->Outdent();
+            XCodeStandartOutdent(printer);
             
         }
         
