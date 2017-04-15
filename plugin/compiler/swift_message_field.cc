@@ -250,7 +250,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "    return $name$Builder_\n"
                            "}\n"
                            "@discardableResult\n"
-                           "$acontrol$override func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
+                           "$acontrol$func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
                            "    self.$name_reserved$ = value\n"
                            "    return self\n"
                            "}\n"
