@@ -34,7 +34,7 @@ public extension SwiftProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var valueInMapMessage:Int32 = Int32(0)
+        public fileprivate(set) var valueInMapMessage:Int32! = nil
         public fileprivate(set) var hasValueInMapMessage:Bool = false
 
         required public init() {
@@ -159,7 +159,7 @@ public extension SwiftProtobufUnittest {
             @discardableResult
             public func clearValueInMapMessage() -> SwiftProtobufUnittest.MapMessageValue.Builder{
                 builderResult.hasValueInMapMessage = false
-                builderResult.valueInMapMessage = Int32(0)
+                builderResult.valueInMapMessage = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -273,10 +273,10 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:Int32 = Int32(0)
+            public fileprivate(set) var key:Int32! = nil
             public fileprivate(set) var hasKey:Bool = false
 
-            public fileprivate(set) var value:Int32 = Int32(0)
+            public fileprivate(set) var value:Int32! = nil
             public fileprivate(set) var hasValue:Bool = false
 
             required public init() {
@@ -416,7 +416,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = Int32(0)
+                    builderResult.key = nil
                     return self
                 }
                 public var value:Int32 {
@@ -441,7 +441,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder{
                     builderResult.hasValue = false
-                    builderResult.value = Int32(0)
+                    builderResult.value = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -551,10 +551,10 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:Int64 = Int64(0)
+            public fileprivate(set) var key:Int64! = nil
             public fileprivate(set) var hasKey:Bool = false
 
-            public fileprivate(set) var value:Int64 = Int64(0)
+            public fileprivate(set) var value:Int64! = nil
             public fileprivate(set) var hasValue:Bool = false
 
             required public init() {
@@ -694,7 +694,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = Int64(0)
+                    builderResult.key = nil
                     return self
                 }
                 public var value:Int64 {
@@ -719,7 +719,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder{
                     builderResult.hasValue = false
-                    builderResult.value = Int64(0)
+                    builderResult.value = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -829,10 +829,10 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:String = ""
+            public fileprivate(set) var key:String! = nil
             public fileprivate(set) var hasKey:Bool = false
 
-            public fileprivate(set) var value:String = ""
+            public fileprivate(set) var value:String! = nil
             public fileprivate(set) var hasValue:Bool = false
 
             required public init() {
@@ -972,7 +972,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = ""
+                    builderResult.key = nil
                     return self
                 }
                 public var value:String {
@@ -997,7 +997,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder{
                     builderResult.hasValue = false
-                    builderResult.value = ""
+                    builderResult.value = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1103,10 +1103,10 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:String = ""
+            public fileprivate(set) var key:String! = nil
             public fileprivate(set) var hasKey:Bool = false
 
-            public fileprivate(set) var value:Data = Data()
+            public fileprivate(set) var value:Data! = nil
             public fileprivate(set) var hasValue:Bool = false
 
             required public init() {
@@ -1246,7 +1246,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = ""
+                    builderResult.key = nil
                     return self
                 }
                 public var value:Data {
@@ -1271,7 +1271,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearValue() -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder{
                     builderResult.hasValue = false
-                    builderResult.value = Data()
+                    builderResult.value = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1377,7 +1377,7 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:String = ""
+            public fileprivate(set) var key:String! = nil
             public fileprivate(set) var hasKey:Bool = false
 
             public fileprivate(set) var value:SwiftProtobufUnittest.MapMessageValue!
@@ -1527,7 +1527,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = ""
+                    builderResult.key = nil
                     return self
                 }
                 public var value:SwiftProtobufUnittest.MapMessageValue! {
@@ -1693,7 +1693,7 @@ public extension SwiftProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var key:Int32 = Int32(0)
+            public fileprivate(set) var key:Int32! = nil
             public fileprivate(set) var hasKey:Bool = false
 
             public fileprivate(set) var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue = SwiftProtobufUnittest.MessageContainsMap.EnumMapValue.firstValueEnum
@@ -1835,7 +1835,7 @@ public extension SwiftProtobufUnittest {
                 @discardableResult
                 public func clearKey() -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder{
                     builderResult.hasKey = false
-                    builderResult.key = Int32(0)
+                    builderResult.key = nil
                     return self
                 }
                     public var value:SwiftProtobufUnittest.MessageContainsMap.EnumMapValue {

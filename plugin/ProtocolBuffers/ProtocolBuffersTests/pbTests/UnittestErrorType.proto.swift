@@ -109,7 +109,7 @@ final public class UserProfile : GeneratedMessage {
             return fieldCheck
         }
 
-        public fileprivate(set) var userId:String = ""
+        public fileprivate(set) var userId:String! = nil
         public fileprivate(set) var hasUserId:Bool = false
 
         required public init() {
@@ -237,7 +237,7 @@ final public class UserProfile : GeneratedMessage {
             @discardableResult
             public func clearUserId() -> UserProfile.Request.Builder{
                 builderResult.hasUserId = false
-                builderResult.userId = ""
+                builderResult.userId = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -754,10 +754,10 @@ final public class UserProfile : GeneratedMessage {
             return fieldCheck
         }
 
-        public fileprivate(set) var errorCode:Int32 = Int32(0)
+        public fileprivate(set) var errorCode:Int32! = nil
         public fileprivate(set) var hasErrorCode:Bool = false
 
-        public fileprivate(set) var errorDescription:String = ""
+        public fileprivate(set) var errorDescription:String! = nil
         public fileprivate(set) var hasErrorDescription:Bool = false
 
         required public init() {
@@ -903,7 +903,7 @@ final public class UserProfile : GeneratedMessage {
             @discardableResult
             public func clearErrorCode() -> UserProfile.Exception.Builder{
                 builderResult.hasErrorCode = false
-                builderResult.errorCode = Int32(0)
+                builderResult.errorCode = nil
                 return self
             }
             public var errorDescription:String {
@@ -928,7 +928,7 @@ final public class UserProfile : GeneratedMessage {
             @discardableResult
             public func clearErrorDescription() -> UserProfile.Exception.Builder{
                 builderResult.hasErrorDescription = false
-                builderResult.errorDescription = ""
+                builderResult.errorDescription = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -1019,13 +1019,13 @@ final public class UserProfile : GeneratedMessage {
 
     //Nested type declaration end
 
-    public fileprivate(set) var firstName:String = ""
+    public fileprivate(set) var firstName:String! = nil
     public fileprivate(set) var hasFirstName:Bool = false
 
-    public fileprivate(set) var lastName:String = ""
+    public fileprivate(set) var lastName:String! = nil
     public fileprivate(set) var hasLastName:Bool = false
 
-    public fileprivate(set) var avatarUrl:String = ""
+    public fileprivate(set) var avatarUrl:String! = nil
     public fileprivate(set) var hasAvatarUrl:Bool = false
 
     required public init() {
@@ -1180,7 +1180,7 @@ final public class UserProfile : GeneratedMessage {
         @discardableResult
         public func clearFirstName() -> UserProfile.Builder{
             builderResult.hasFirstName = false
-            builderResult.firstName = ""
+            builderResult.firstName = nil
             return self
         }
         public var lastName:String {
@@ -1205,7 +1205,7 @@ final public class UserProfile : GeneratedMessage {
         @discardableResult
         public func clearLastName() -> UserProfile.Builder{
             builderResult.hasLastName = false
-            builderResult.lastName = ""
+            builderResult.lastName = nil
             return self
         }
         public var avatarUrl:String {
@@ -1230,7 +1230,7 @@ final public class UserProfile : GeneratedMessage {
         @discardableResult
         public func clearAvatarUrl() -> UserProfile.Builder{
             builderResult.hasAvatarUrl = false
-            builderResult.avatarUrl = ""
+            builderResult.avatarUrl = nil
             return self
         }
         override public var internalGetResult:GeneratedMessage {

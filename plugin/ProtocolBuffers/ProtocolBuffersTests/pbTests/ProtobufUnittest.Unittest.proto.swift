@@ -689,21 +689,21 @@ public extension ProtobufUnittest {
         public var extensionRegistry:ExtensionRegistry
 
         init() {
-            UnittestRootoptionalInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 2, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 3, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 4, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 6, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 7, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 8, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 9, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 10, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 11, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 12, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 13, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 14, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 15, defaultValue:Data(), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 2, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 3, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalUint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 4, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalSint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 5, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalSint64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 6, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalFixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 7, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalFixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 8, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalSfixed32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 9, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalSfixed64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed64, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 10, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalFloatExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFloat, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 11, defaultValue:nil, messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalDoubleExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeDouble, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 12, defaultValue:nil, messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBool, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 13, defaultValue:nil, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 14, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 15, defaultValue:nil, messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalGroupExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeGroup, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 16, defaultValue:ProtobufUnittest.OptionalGroupExtension(), messageOrGroupClass:ProtobufUnittest.OptionalGroupExtension.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 18, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalForeignMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 19, defaultValue:ProtobufUnittest.ForeignMessage(), messageOrGroupClass:ProtobufUnittest.ForeignMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -711,8 +711,8 @@ public extension ProtobufUnittest {
             UnittestRootoptionalNestedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 21, defaultValue:ProtobufUnittest.TestAllTypes.NestedEnum.foo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalForeignEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 22, defaultValue:ProtobufUnittest.ForeignEnum.foreignFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 23, defaultValue:ProtobufUnittestImport.ImportEnum.importFoo.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 24, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoptionalCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 25, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 24, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoptionalCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 25, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalPublicImportMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 26, defaultValue:ProtobufUnittestImport.PublicImportMessage(), messageOrGroupClass:ProtobufUnittestImport.PublicImportMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoptionalLazyMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 27, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootrepeatedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 31, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
@@ -760,12 +760,12 @@ public extension ProtobufUnittest {
             UnittestRootdefaultImportEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 83, defaultValue:ProtobufUnittestImport.ImportEnum.importBar.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootdefaultStringPieceExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 84, defaultValue:"abc", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootdefaultCordExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 85, defaultValue:"123", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoneofUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 111, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoneofUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 111, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootoneofNestedMessageExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 112, defaultValue:ProtobufUnittest.TestAllTypes.NestedMessage(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.NestedMessage.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoneofStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 113, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 114, defaultValue:Data(), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootmyExtensionStringStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 50, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestRootmyExtensionIntStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 5, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoneofStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 113, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootoneofBytesExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 114, defaultValue:nil, messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootmyExtensionStringStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 50, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestRootmyExtensionIntStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestFieldOrderings.self, fieldNumber: 5, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootpackedInt32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 90, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
             UnittestRootpackedInt64ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt64, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 91, defaultValue:Array<Int64>(), messageOrGroupClass:Int64.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
             UnittestRootpackedUint32ExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:ProtobufUnittest.TestPackedExtensions.self, fieldNumber: 92, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:true, isMessageSetWireFormat:false)
@@ -795,7 +795,7 @@ public extension ProtobufUnittest {
             UnittestRootunpackedBoolExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBool, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 102, defaultValue:Array<Bool>(), messageOrGroupClass:Bool.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
             UnittestRootunpackedEnumExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:ProtobufUnittest.TestUnpackedExtensions.self, fieldNumber: 103, defaultValue:Array<Int32>(), messageOrGroupClass:Int32.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
             TestNestedExtensiontestStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1002, defaultValue:"test", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            TestNestedExtensionnestedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1003, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            TestNestedExtensionnestedStringExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1003, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             TestRequiredsingleStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestRequired(), messageOrGroupClass:ProtobufUnittest.TestRequired.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             TestRequiredmultiStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestAllExtensions.self, fieldNumber: 1001, defaultValue:Array<GeneratedMessage>(), messageOrGroupClass:ProtobufUnittest.TestRequired.self, isRepeated:true, isPacked:false, isMessageSetWireFormat:false)
             TestParsingMergeoptionalExtStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestParsingMerge.self, fieldNumber: 1000, defaultValue:ProtobufUnittest.TestAllTypes(), messageOrGroupClass:ProtobufUnittest.TestAllTypes.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -1485,7 +1485,7 @@ public extension ProtobufUnittest {
             /// The field name "b" fails to compile in proto1 because it conflicts with
             /// a local variable named "b" in one of the generated methods.  Doh.
             /// This file needs to compile in proto1 to test backwards-compatibility.
-            public fileprivate(set) var bb:Int32 = Int32(0)
+            public fileprivate(set) var bb:Int32! = nil
             public fileprivate(set) var hasBb:Bool = false
 
             required public init() {
@@ -1613,7 +1613,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearBb() -> ProtobufUnittest.TestAllTypes.NestedMessage.Builder{
                     builderResult.hasBb = false
-                    builderResult.bb = Int32(0)
+                    builderResult.bb = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1711,7 +1711,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -1836,7 +1836,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestAllTypes.OptionalGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1934,7 +1934,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -2059,7 +2059,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestAllTypes.RepeatedGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -2245,49 +2245,49 @@ public extension ProtobufUnittest {
             //Enum type declaration end 
 
         /// Singular
-        public fileprivate(set) var optionalInt32:Int32 = Int32(0)
+        public fileprivate(set) var optionalInt32:Int32! = nil
         public fileprivate(set) var hasOptionalInt32:Bool = false
 
-        public fileprivate(set) var optionalInt64:Int64 = Int64(0)
+        public fileprivate(set) var optionalInt64:Int64! = nil
         public fileprivate(set) var hasOptionalInt64:Bool = false
 
-        public fileprivate(set) var optionalUint32:UInt32 = UInt32(0)
+        public fileprivate(set) var optionalUint32:UInt32! = nil
         public fileprivate(set) var hasOptionalUint32:Bool = false
 
-        public fileprivate(set) var optionalUint64:UInt64 = UInt64(0)
+        public fileprivate(set) var optionalUint64:UInt64! = nil
         public fileprivate(set) var hasOptionalUint64:Bool = false
 
-        public fileprivate(set) var optionalSint32:Int32 = Int32(0)
+        public fileprivate(set) var optionalSint32:Int32! = nil
         public fileprivate(set) var hasOptionalSint32:Bool = false
 
-        public fileprivate(set) var optionalSint64:Int64 = Int64(0)
+        public fileprivate(set) var optionalSint64:Int64! = nil
         public fileprivate(set) var hasOptionalSint64:Bool = false
 
-        public fileprivate(set) var optionalFixed32:UInt32 = UInt32(0)
+        public fileprivate(set) var optionalFixed32:UInt32! = nil
         public fileprivate(set) var hasOptionalFixed32:Bool = false
 
-        public fileprivate(set) var optionalFixed64:UInt64 = UInt64(0)
+        public fileprivate(set) var optionalFixed64:UInt64! = nil
         public fileprivate(set) var hasOptionalFixed64:Bool = false
 
-        public fileprivate(set) var optionalSfixed32:Int32 = Int32(0)
+        public fileprivate(set) var optionalSfixed32:Int32! = nil
         public fileprivate(set) var hasOptionalSfixed32:Bool = false
 
-        public fileprivate(set) var optionalSfixed64:Int64 = Int64(0)
+        public fileprivate(set) var optionalSfixed64:Int64! = nil
         public fileprivate(set) var hasOptionalSfixed64:Bool = false
 
-        public fileprivate(set) var optionalFloat:Float = Float(0)
+        public fileprivate(set) var optionalFloat:Float! = nil
         public fileprivate(set) var hasOptionalFloat:Bool = false
 
-        public fileprivate(set) var optionalDouble:Double = Double(0)
+        public fileprivate(set) var optionalDouble:Double! = nil
         public fileprivate(set) var hasOptionalDouble:Bool = false
 
-        public fileprivate(set) var optionalBool:Bool = false
+        public fileprivate(set) var optionalBool:Bool! = nil
         public fileprivate(set) var hasOptionalBool:Bool = false
 
-        public fileprivate(set) var optionalString:String = ""
+        public fileprivate(set) var optionalString:String! = nil
         public fileprivate(set) var hasOptionalString:Bool = false
 
-        public fileprivate(set) var optionalBytes:Data = Data()
+        public fileprivate(set) var optionalBytes:Data! = nil
         public fileprivate(set) var hasOptionalBytes:Bool = false
 
         public fileprivate(set) var optionalGroup:ProtobufUnittest.TestAllTypes.OptionalGroup!
@@ -2304,10 +2304,10 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasOptionalForeignEnum:Bool = false
         public fileprivate(set) var optionalImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importFoo
         public fileprivate(set) var hasOptionalImportEnum:Bool = false
-        public fileprivate(set) var optionalStringPiece:String = ""
+        public fileprivate(set) var optionalStringPiece:String! = nil
         public fileprivate(set) var hasOptionalStringPiece:Bool = false
 
-        public fileprivate(set) var optionalCord:String = ""
+        public fileprivate(set) var optionalCord:String! = nil
         public fileprivate(set) var hasOptionalCord:Bool = false
 
         public fileprivate(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
@@ -2344,49 +2344,49 @@ public extension ProtobufUnittest {
         public fileprivate(set) var repeatedCord:Array<String> = Array<String>()
         public fileprivate(set) var repeatedLazyMessage:Array<ProtobufUnittest.TestAllTypes.NestedMessage>  = Array<ProtobufUnittest.TestAllTypes.NestedMessage>()
         /// Singular with defaults
-        public fileprivate(set) var defaultInt32:Int32 = Int32(41)
+        public fileprivate(set) var defaultInt32:Int32! = Int32(41)
         public fileprivate(set) var hasDefaultInt32:Bool = false
 
-        public fileprivate(set) var defaultInt64:Int64 = Int64(42)
+        public fileprivate(set) var defaultInt64:Int64! = Int64(42)
         public fileprivate(set) var hasDefaultInt64:Bool = false
 
-        public fileprivate(set) var defaultUint32:UInt32 = UInt32(43)
+        public fileprivate(set) var defaultUint32:UInt32! = UInt32(43)
         public fileprivate(set) var hasDefaultUint32:Bool = false
 
-        public fileprivate(set) var defaultUint64:UInt64 = UInt64(44)
+        public fileprivate(set) var defaultUint64:UInt64! = UInt64(44)
         public fileprivate(set) var hasDefaultUint64:Bool = false
 
-        public fileprivate(set) var defaultSint32:Int32 = Int32(-45)
+        public fileprivate(set) var defaultSint32:Int32! = Int32(-45)
         public fileprivate(set) var hasDefaultSint32:Bool = false
 
-        public fileprivate(set) var defaultSint64:Int64 = Int64(46)
+        public fileprivate(set) var defaultSint64:Int64! = Int64(46)
         public fileprivate(set) var hasDefaultSint64:Bool = false
 
-        public fileprivate(set) var defaultFixed32:UInt32 = UInt32(47)
+        public fileprivate(set) var defaultFixed32:UInt32! = UInt32(47)
         public fileprivate(set) var hasDefaultFixed32:Bool = false
 
-        public fileprivate(set) var defaultFixed64:UInt64 = UInt64(48)
+        public fileprivate(set) var defaultFixed64:UInt64! = UInt64(48)
         public fileprivate(set) var hasDefaultFixed64:Bool = false
 
-        public fileprivate(set) var defaultSfixed32:Int32 = Int32(49)
+        public fileprivate(set) var defaultSfixed32:Int32! = Int32(49)
         public fileprivate(set) var hasDefaultSfixed32:Bool = false
 
-        public fileprivate(set) var defaultSfixed64:Int64 = Int64(-50)
+        public fileprivate(set) var defaultSfixed64:Int64! = Int64(-50)
         public fileprivate(set) var hasDefaultSfixed64:Bool = false
 
-        public fileprivate(set) var defaultFloat:Float = Float(51.5)
+        public fileprivate(set) var defaultFloat:Float! = Float(51.5)
         public fileprivate(set) var hasDefaultFloat:Bool = false
 
-        public fileprivate(set) var defaultDouble:Double = Double(52000)
+        public fileprivate(set) var defaultDouble:Double! = Double(52000)
         public fileprivate(set) var hasDefaultDouble:Bool = false
 
-        public fileprivate(set) var defaultBool:Bool = true
+        public fileprivate(set) var defaultBool:Bool! = true
         public fileprivate(set) var hasDefaultBool:Bool = false
 
-        public fileprivate(set) var defaultString:String = "hello"
+        public fileprivate(set) var defaultString:String! = "hello"
         public fileprivate(set) var hasDefaultString:Bool = false
 
-        public fileprivate(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
+        public fileprivate(set) var defaultBytes:Data! = Data(bytes:([UInt8]() + "world".utf8), count:5)
         public fileprivate(set) var hasDefaultBytes:Bool = false
 
         public fileprivate(set) var defaultNestedEnum:ProtobufUnittest.TestAllTypes.NestedEnum = ProtobufUnittest.TestAllTypes.NestedEnum.bar
@@ -2395,10 +2395,10 @@ public extension ProtobufUnittest {
         public fileprivate(set) var hasDefaultForeignEnum:Bool = false
         public fileprivate(set) var defaultImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importBar
         public fileprivate(set) var hasDefaultImportEnum:Bool = false
-        public fileprivate(set) var defaultStringPiece:String = "abc"
+        public fileprivate(set) var defaultStringPiece:String! = "abc"
         public fileprivate(set) var hasDefaultStringPiece:Bool = false
 
-        public fileprivate(set) var defaultCord:String = "123"
+        public fileprivate(set) var defaultCord:String! = "123"
         public fileprivate(set) var hasDefaultCord:Bool = false
 
         public fileprivate(set) var oneofUint32:UInt32!{
@@ -4007,7 +4007,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalInt32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalInt32 = false
-                builderResult.optionalInt32 = Int32(0)
+                builderResult.optionalInt32 = nil
                 return self
             }
             public var optionalInt64:Int64 {
@@ -4032,7 +4032,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalInt64() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalInt64 = false
-                builderResult.optionalInt64 = Int64(0)
+                builderResult.optionalInt64 = nil
                 return self
             }
             public var optionalUint32:UInt32 {
@@ -4057,7 +4057,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalUint32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalUint32 = false
-                builderResult.optionalUint32 = UInt32(0)
+                builderResult.optionalUint32 = nil
                 return self
             }
             public var optionalUint64:UInt64 {
@@ -4082,7 +4082,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalUint64() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalUint64 = false
-                builderResult.optionalUint64 = UInt64(0)
+                builderResult.optionalUint64 = nil
                 return self
             }
             public var optionalSint32:Int32 {
@@ -4107,7 +4107,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalSint32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalSint32 = false
-                builderResult.optionalSint32 = Int32(0)
+                builderResult.optionalSint32 = nil
                 return self
             }
             public var optionalSint64:Int64 {
@@ -4132,7 +4132,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalSint64() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalSint64 = false
-                builderResult.optionalSint64 = Int64(0)
+                builderResult.optionalSint64 = nil
                 return self
             }
             public var optionalFixed32:UInt32 {
@@ -4157,7 +4157,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalFixed32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalFixed32 = false
-                builderResult.optionalFixed32 = UInt32(0)
+                builderResult.optionalFixed32 = nil
                 return self
             }
             public var optionalFixed64:UInt64 {
@@ -4182,7 +4182,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalFixed64() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalFixed64 = false
-                builderResult.optionalFixed64 = UInt64(0)
+                builderResult.optionalFixed64 = nil
                 return self
             }
             public var optionalSfixed32:Int32 {
@@ -4207,7 +4207,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalSfixed32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalSfixed32 = false
-                builderResult.optionalSfixed32 = Int32(0)
+                builderResult.optionalSfixed32 = nil
                 return self
             }
             public var optionalSfixed64:Int64 {
@@ -4232,7 +4232,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalSfixed64() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalSfixed64 = false
-                builderResult.optionalSfixed64 = Int64(0)
+                builderResult.optionalSfixed64 = nil
                 return self
             }
             public var optionalFloat:Float {
@@ -4257,7 +4257,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalFloat() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalFloat = false
-                builderResult.optionalFloat = Float(0)
+                builderResult.optionalFloat = nil
                 return self
             }
             public var optionalDouble:Double {
@@ -4282,7 +4282,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalDouble() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalDouble = false
-                builderResult.optionalDouble = Double(0)
+                builderResult.optionalDouble = nil
                 return self
             }
             public var optionalBool:Bool {
@@ -4307,7 +4307,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalBool() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalBool = false
-                builderResult.optionalBool = false
+                builderResult.optionalBool = nil
                 return self
             }
             public var optionalString:String {
@@ -4332,7 +4332,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalString() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalString = false
-                builderResult.optionalString = ""
+                builderResult.optionalString = nil
                 return self
             }
             public var optionalBytes:Data {
@@ -4357,7 +4357,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalBytes() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalBytes = false
-                builderResult.optionalBytes = Data()
+                builderResult.optionalBytes = nil
                 return self
             }
             public var optionalGroup:ProtobufUnittest.TestAllTypes.OptionalGroup! {
@@ -4673,7 +4673,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalStringPiece() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalStringPiece = false
-                builderResult.optionalStringPiece = ""
+                builderResult.optionalStringPiece = nil
                 return self
             }
             public var optionalCord:String {
@@ -4698,7 +4698,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalCord() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOptionalCord = false
-                builderResult.optionalCord = ""
+                builderResult.optionalCord = nil
                 return self
             }
             /// Defined in unittest_import_public.proto
@@ -5784,7 +5784,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOneofUint32() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOneofUint32 = false
-                builderResult.oneofUint32 = UInt32(0)
+                builderResult.oneofUint32 = nil
                 return self
             }
             public var oneofNestedMessage:ProtobufUnittest.TestAllTypes.NestedMessage! {
@@ -5863,7 +5863,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOneofString() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOneofString = false
-                builderResult.oneofString = ""
+                builderResult.oneofString = nil
                 return self
             }
             public var oneofBytes:Data {
@@ -5888,7 +5888,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOneofBytes() -> ProtobufUnittest.TestAllTypes.Builder{
                 builderResult.hasOneofBytes = false
-                builderResult.oneofBytes = Data()
+                builderResult.oneofBytes = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -7319,7 +7319,7 @@ public extension ProtobufUnittest {
         }
 
         @available(*, deprecated:0.1, message:"deprecatedInt32 is marked as \"Deprecated\"")
-        public fileprivate(set) var deprecatedInt32:Int32 = Int32(0)
+        public fileprivate(set) var deprecatedInt32:Int32! = nil
         public fileprivate(set) var hasDeprecatedInt32:Bool = false
 
         required public init() {
@@ -7444,7 +7444,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDeprecatedInt32() -> ProtobufUnittest.TestDeprecatedFields.Builder{
                 builderResult.hasDeprecatedInt32 = false
-                builderResult.deprecatedInt32 = Int32(0)
+                builderResult.deprecatedInt32 = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -7538,7 +7538,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var c:Int32 = Int32(0)
+        public fileprivate(set) var c:Int32! = nil
         public fileprivate(set) var hasC:Bool = false
 
         required public init() {
@@ -7663,7 +7663,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearC() -> ProtobufUnittest.ForeignMessage.Builder{
                 builderResult.hasC = false
-                builderResult.c = Int32(0)
+                builderResult.c = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -8088,7 +8088,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
@@ -8213,7 +8213,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearA() -> ProtobufUnittest.OptionalGroupExtension.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -8305,7 +8305,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
@@ -8430,7 +8430,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearA() -> ProtobufUnittest.RepeatedGroupExtension.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -8727,105 +8727,105 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
-        public fileprivate(set) var dummy2:Int32 = Int32(0)
+        public fileprivate(set) var dummy2:Int32! = nil
         public fileprivate(set) var hasDummy2:Bool = false
 
-        public fileprivate(set) var b:Int32 = Int32(0)
+        public fileprivate(set) var b:Int32! = nil
         public fileprivate(set) var hasB:Bool = false
 
         /// Pad the field count to 32 so that we can test that IsInitialized()
         /// properly checks multiple elements of has_bits_.
-        public fileprivate(set) var dummy4:Int32 = Int32(0)
+        public fileprivate(set) var dummy4:Int32! = nil
         public fileprivate(set) var hasDummy4:Bool = false
 
-        public fileprivate(set) var dummy5:Int32 = Int32(0)
+        public fileprivate(set) var dummy5:Int32! = nil
         public fileprivate(set) var hasDummy5:Bool = false
 
-        public fileprivate(set) var dummy6:Int32 = Int32(0)
+        public fileprivate(set) var dummy6:Int32! = nil
         public fileprivate(set) var hasDummy6:Bool = false
 
-        public fileprivate(set) var dummy7:Int32 = Int32(0)
+        public fileprivate(set) var dummy7:Int32! = nil
         public fileprivate(set) var hasDummy7:Bool = false
 
-        public fileprivate(set) var dummy8:Int32 = Int32(0)
+        public fileprivate(set) var dummy8:Int32! = nil
         public fileprivate(set) var hasDummy8:Bool = false
 
-        public fileprivate(set) var dummy9:Int32 = Int32(0)
+        public fileprivate(set) var dummy9:Int32! = nil
         public fileprivate(set) var hasDummy9:Bool = false
 
-        public fileprivate(set) var dummy10:Int32 = Int32(0)
+        public fileprivate(set) var dummy10:Int32! = nil
         public fileprivate(set) var hasDummy10:Bool = false
 
-        public fileprivate(set) var dummy11:Int32 = Int32(0)
+        public fileprivate(set) var dummy11:Int32! = nil
         public fileprivate(set) var hasDummy11:Bool = false
 
-        public fileprivate(set) var dummy12:Int32 = Int32(0)
+        public fileprivate(set) var dummy12:Int32! = nil
         public fileprivate(set) var hasDummy12:Bool = false
 
-        public fileprivate(set) var dummy13:Int32 = Int32(0)
+        public fileprivate(set) var dummy13:Int32! = nil
         public fileprivate(set) var hasDummy13:Bool = false
 
-        public fileprivate(set) var dummy14:Int32 = Int32(0)
+        public fileprivate(set) var dummy14:Int32! = nil
         public fileprivate(set) var hasDummy14:Bool = false
 
-        public fileprivate(set) var dummy15:Int32 = Int32(0)
+        public fileprivate(set) var dummy15:Int32! = nil
         public fileprivate(set) var hasDummy15:Bool = false
 
-        public fileprivate(set) var dummy16:Int32 = Int32(0)
+        public fileprivate(set) var dummy16:Int32! = nil
         public fileprivate(set) var hasDummy16:Bool = false
 
-        public fileprivate(set) var dummy17:Int32 = Int32(0)
+        public fileprivate(set) var dummy17:Int32! = nil
         public fileprivate(set) var hasDummy17:Bool = false
 
-        public fileprivate(set) var dummy18:Int32 = Int32(0)
+        public fileprivate(set) var dummy18:Int32! = nil
         public fileprivate(set) var hasDummy18:Bool = false
 
-        public fileprivate(set) var dummy19:Int32 = Int32(0)
+        public fileprivate(set) var dummy19:Int32! = nil
         public fileprivate(set) var hasDummy19:Bool = false
 
-        public fileprivate(set) var dummy20:Int32 = Int32(0)
+        public fileprivate(set) var dummy20:Int32! = nil
         public fileprivate(set) var hasDummy20:Bool = false
 
-        public fileprivate(set) var dummy21:Int32 = Int32(0)
+        public fileprivate(set) var dummy21:Int32! = nil
         public fileprivate(set) var hasDummy21:Bool = false
 
-        public fileprivate(set) var dummy22:Int32 = Int32(0)
+        public fileprivate(set) var dummy22:Int32! = nil
         public fileprivate(set) var hasDummy22:Bool = false
 
-        public fileprivate(set) var dummy23:Int32 = Int32(0)
+        public fileprivate(set) var dummy23:Int32! = nil
         public fileprivate(set) var hasDummy23:Bool = false
 
-        public fileprivate(set) var dummy24:Int32 = Int32(0)
+        public fileprivate(set) var dummy24:Int32! = nil
         public fileprivate(set) var hasDummy24:Bool = false
 
-        public fileprivate(set) var dummy25:Int32 = Int32(0)
+        public fileprivate(set) var dummy25:Int32! = nil
         public fileprivate(set) var hasDummy25:Bool = false
 
-        public fileprivate(set) var dummy26:Int32 = Int32(0)
+        public fileprivate(set) var dummy26:Int32! = nil
         public fileprivate(set) var hasDummy26:Bool = false
 
-        public fileprivate(set) var dummy27:Int32 = Int32(0)
+        public fileprivate(set) var dummy27:Int32! = nil
         public fileprivate(set) var hasDummy27:Bool = false
 
-        public fileprivate(set) var dummy28:Int32 = Int32(0)
+        public fileprivate(set) var dummy28:Int32! = nil
         public fileprivate(set) var hasDummy28:Bool = false
 
-        public fileprivate(set) var dummy29:Int32 = Int32(0)
+        public fileprivate(set) var dummy29:Int32! = nil
         public fileprivate(set) var hasDummy29:Bool = false
 
-        public fileprivate(set) var dummy30:Int32 = Int32(0)
+        public fileprivate(set) var dummy30:Int32! = nil
         public fileprivate(set) var hasDummy30:Bool = false
 
-        public fileprivate(set) var dummy31:Int32 = Int32(0)
+        public fileprivate(set) var dummy31:Int32! = nil
         public fileprivate(set) var hasDummy31:Bool = false
 
-        public fileprivate(set) var dummy32:Int32 = Int32(0)
+        public fileprivate(set) var dummy32:Int32! = nil
         public fileprivate(set) var hasDummy32:Bool = false
 
-        public fileprivate(set) var c:Int32 = Int32(0)
+        public fileprivate(set) var c:Int32! = nil
         public fileprivate(set) var hasC:Bool = false
 
         public class func single() -> ConcreateExtensionField {
@@ -9445,7 +9445,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearA() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             public var dummy2:Int32 {
@@ -9470,7 +9470,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy2() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy2 = false
-                builderResult.dummy2 = Int32(0)
+                builderResult.dummy2 = nil
                 return self
             }
             public var b:Int32 {
@@ -9495,7 +9495,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearB() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasB = false
-                builderResult.b = Int32(0)
+                builderResult.b = nil
                 return self
             }
             /// Pad the field count to 32 so that we can test that IsInitialized()
@@ -9522,7 +9522,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy4() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy4 = false
-                builderResult.dummy4 = Int32(0)
+                builderResult.dummy4 = nil
                 return self
             }
             public var dummy5:Int32 {
@@ -9547,7 +9547,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy5() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy5 = false
-                builderResult.dummy5 = Int32(0)
+                builderResult.dummy5 = nil
                 return self
             }
             public var dummy6:Int32 {
@@ -9572,7 +9572,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy6() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy6 = false
-                builderResult.dummy6 = Int32(0)
+                builderResult.dummy6 = nil
                 return self
             }
             public var dummy7:Int32 {
@@ -9597,7 +9597,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy7() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy7 = false
-                builderResult.dummy7 = Int32(0)
+                builderResult.dummy7 = nil
                 return self
             }
             public var dummy8:Int32 {
@@ -9622,7 +9622,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy8() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy8 = false
-                builderResult.dummy8 = Int32(0)
+                builderResult.dummy8 = nil
                 return self
             }
             public var dummy9:Int32 {
@@ -9647,7 +9647,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy9() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy9 = false
-                builderResult.dummy9 = Int32(0)
+                builderResult.dummy9 = nil
                 return self
             }
             public var dummy10:Int32 {
@@ -9672,7 +9672,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy10() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy10 = false
-                builderResult.dummy10 = Int32(0)
+                builderResult.dummy10 = nil
                 return self
             }
             public var dummy11:Int32 {
@@ -9697,7 +9697,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy11() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy11 = false
-                builderResult.dummy11 = Int32(0)
+                builderResult.dummy11 = nil
                 return self
             }
             public var dummy12:Int32 {
@@ -9722,7 +9722,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy12() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy12 = false
-                builderResult.dummy12 = Int32(0)
+                builderResult.dummy12 = nil
                 return self
             }
             public var dummy13:Int32 {
@@ -9747,7 +9747,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy13() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy13 = false
-                builderResult.dummy13 = Int32(0)
+                builderResult.dummy13 = nil
                 return self
             }
             public var dummy14:Int32 {
@@ -9772,7 +9772,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy14() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy14 = false
-                builderResult.dummy14 = Int32(0)
+                builderResult.dummy14 = nil
                 return self
             }
             public var dummy15:Int32 {
@@ -9797,7 +9797,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy15() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy15 = false
-                builderResult.dummy15 = Int32(0)
+                builderResult.dummy15 = nil
                 return self
             }
             public var dummy16:Int32 {
@@ -9822,7 +9822,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy16() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy16 = false
-                builderResult.dummy16 = Int32(0)
+                builderResult.dummy16 = nil
                 return self
             }
             public var dummy17:Int32 {
@@ -9847,7 +9847,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy17() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy17 = false
-                builderResult.dummy17 = Int32(0)
+                builderResult.dummy17 = nil
                 return self
             }
             public var dummy18:Int32 {
@@ -9872,7 +9872,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy18() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy18 = false
-                builderResult.dummy18 = Int32(0)
+                builderResult.dummy18 = nil
                 return self
             }
             public var dummy19:Int32 {
@@ -9897,7 +9897,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy19() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy19 = false
-                builderResult.dummy19 = Int32(0)
+                builderResult.dummy19 = nil
                 return self
             }
             public var dummy20:Int32 {
@@ -9922,7 +9922,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy20() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy20 = false
-                builderResult.dummy20 = Int32(0)
+                builderResult.dummy20 = nil
                 return self
             }
             public var dummy21:Int32 {
@@ -9947,7 +9947,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy21() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy21 = false
-                builderResult.dummy21 = Int32(0)
+                builderResult.dummy21 = nil
                 return self
             }
             public var dummy22:Int32 {
@@ -9972,7 +9972,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy22() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy22 = false
-                builderResult.dummy22 = Int32(0)
+                builderResult.dummy22 = nil
                 return self
             }
             public var dummy23:Int32 {
@@ -9997,7 +9997,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy23() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy23 = false
-                builderResult.dummy23 = Int32(0)
+                builderResult.dummy23 = nil
                 return self
             }
             public var dummy24:Int32 {
@@ -10022,7 +10022,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy24() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy24 = false
-                builderResult.dummy24 = Int32(0)
+                builderResult.dummy24 = nil
                 return self
             }
             public var dummy25:Int32 {
@@ -10047,7 +10047,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy25() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy25 = false
-                builderResult.dummy25 = Int32(0)
+                builderResult.dummy25 = nil
                 return self
             }
             public var dummy26:Int32 {
@@ -10072,7 +10072,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy26() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy26 = false
-                builderResult.dummy26 = Int32(0)
+                builderResult.dummy26 = nil
                 return self
             }
             public var dummy27:Int32 {
@@ -10097,7 +10097,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy27() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy27 = false
-                builderResult.dummy27 = Int32(0)
+                builderResult.dummy27 = nil
                 return self
             }
             public var dummy28:Int32 {
@@ -10122,7 +10122,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy28() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy28 = false
-                builderResult.dummy28 = Int32(0)
+                builderResult.dummy28 = nil
                 return self
             }
             public var dummy29:Int32 {
@@ -10147,7 +10147,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy29() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy29 = false
-                builderResult.dummy29 = Int32(0)
+                builderResult.dummy29 = nil
                 return self
             }
             public var dummy30:Int32 {
@@ -10172,7 +10172,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy30() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy30 = false
-                builderResult.dummy30 = Int32(0)
+                builderResult.dummy30 = nil
                 return self
             }
             public var dummy31:Int32 {
@@ -10197,7 +10197,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy31() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy31 = false
-                builderResult.dummy31 = Int32(0)
+                builderResult.dummy31 = nil
                 return self
             }
             public var dummy32:Int32 {
@@ -10222,7 +10222,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy32() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasDummy32 = false
-                builderResult.dummy32 = Int32(0)
+                builderResult.dummy32 = nil
                 return self
             }
             public var c:Int32 {
@@ -10247,7 +10247,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearC() -> ProtobufUnittest.TestRequired.Builder{
                 builderResult.hasC = false
-                builderResult.c = Int32(0)
+                builderResult.c = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -10696,7 +10696,7 @@ public extension ProtobufUnittest {
         public fileprivate(set) var optionalMessage:ProtobufUnittest.TestRequired!
         public fileprivate(set) var hasOptionalMessage:Bool = false
         public fileprivate(set) var repeatedMessage:Array<ProtobufUnittest.TestRequired>  = Array<ProtobufUnittest.TestRequired>()
-        public fileprivate(set) var dummy:Int32 = Int32(0)
+        public fileprivate(set) var dummy:Int32! = nil
         public fileprivate(set) var hasDummy:Bool = false
 
         required public init() {
@@ -10955,7 +10955,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearDummy() -> ProtobufUnittest.TestRequiredForeign.Builder{
                 builderResult.hasDummy = false
-                builderResult.dummy = Int32(0)
+                builderResult.dummy = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -11856,10 +11856,10 @@ public extension ProtobufUnittest {
 
         /// The largest possible tag number is 2^28 - 1, since the wire format uses
         /// three bits to communicate wire type.
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
-        public fileprivate(set) var bb:Int32 = Int32(0)
+        public fileprivate(set) var bb:Int32! = nil
         public fileprivate(set) var hasBb:Bool = false
 
         required public init() {
@@ -12001,7 +12001,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearA() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             public var bb:Int32 {
@@ -12026,7 +12026,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearBb() -> ProtobufUnittest.TestReallyLargeTagNumber.Builder{
                 builderResult.hasBb = false
-                builderResult.bb = Int32(0)
+                builderResult.bb = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -12132,7 +12132,7 @@ public extension ProtobufUnittest {
 
         public fileprivate(set) var a:ProtobufUnittest.TestRecursiveMessage!
         public fileprivate(set) var hasA:Bool = false
-        public fileprivate(set) var i:Int32 = Int32(0)
+        public fileprivate(set) var i:Int32! = nil
         public fileprivate(set) var hasI:Bool = false
 
         required public init() {
@@ -12334,7 +12334,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearI() -> ProtobufUnittest.TestRecursiveMessage.Builder{
                 builderResult.hasI = false
-                builderResult.i = Int32(0)
+                builderResult.i = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -12702,7 +12702,7 @@ public extension ProtobufUnittest {
 
         public fileprivate(set) var a:ProtobufUnittest.TestMutualRecursionA!
         public fileprivate(set) var hasA:Bool = false
-        public fileprivate(set) var optionalInt32:Int32 = Int32(0)
+        public fileprivate(set) var optionalInt32:Int32! = nil
         public fileprivate(set) var hasOptionalInt32:Bool = false
 
         required public init() {
@@ -12904,7 +12904,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearOptionalInt32() -> ProtobufUnittest.TestMutualRecursionB.Builder{
                 builderResult.hasOptionalInt32 = false
-                builderResult.optionalInt32 = Int32(0)
+                builderResult.optionalInt32 = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -13033,7 +13033,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -13158,7 +13158,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestDupFieldNumber.Foo.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -13256,7 +13256,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -13381,7 +13381,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestDupFieldNumber.Bar.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -13464,7 +13464,7 @@ public extension ProtobufUnittest {
         //Nested type declaration end
 
         /// NO_PROTO1
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
         public fileprivate(set) var foo:ProtobufUnittest.TestDupFieldNumber.Foo!
@@ -13640,7 +13640,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearA() -> ProtobufUnittest.TestDupFieldNumber.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             public var foo:ProtobufUnittest.TestDupFieldNumber.Foo! {
@@ -14944,20 +14944,20 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var primitiveField:Int32 = Int32(0)
+        public fileprivate(set) var primitiveField:Int32! = nil
         public fileprivate(set) var hasPrimitiveField:Bool = false
 
-        public fileprivate(set) var stringField:String = ""
+        public fileprivate(set) var stringField:String! = nil
         public fileprivate(set) var hasStringField:Bool = false
 
         public fileprivate(set) var enumField:ProtobufUnittest.ForeignEnum = ProtobufUnittest.ForeignEnum.foreignFoo
         public fileprivate(set) var hasEnumField:Bool = false
         public fileprivate(set) var messageField:ProtobufUnittest.ForeignMessage!
         public fileprivate(set) var hasMessageField:Bool = false
-        public fileprivate(set) var stringPieceField:String = ""
+        public fileprivate(set) var stringPieceField:String! = nil
         public fileprivate(set) var hasStringPieceField:Bool = false
 
-        public fileprivate(set) var cordField:String = ""
+        public fileprivate(set) var cordField:String! = nil
         public fileprivate(set) var hasCordField:Bool = false
 
         public fileprivate(set) var repeatedPrimitiveField:Array<Int32> = Array<Int32>()
@@ -15324,7 +15324,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearPrimitiveField() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder{
                 builderResult.hasPrimitiveField = false
-                builderResult.primitiveField = Int32(0)
+                builderResult.primitiveField = nil
                 return self
             }
             public var stringField:String {
@@ -15349,7 +15349,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearStringField() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder{
                 builderResult.hasStringField = false
-                builderResult.stringField = ""
+                builderResult.stringField = nil
                 return self
             }
                 public var enumField:ProtobufUnittest.ForeignEnum {
@@ -15453,7 +15453,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearStringPieceField() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder{
                 builderResult.hasStringPieceField = false
-                builderResult.stringPieceField = ""
+                builderResult.stringPieceField = nil
                 return self
             }
             public var cordField:String {
@@ -15478,7 +15478,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearCordField() -> ProtobufUnittest.TestCamelCaseFieldNames.Builder{
                 builderResult.hasCordField = false
-                builderResult.cordField = ""
+                builderResult.cordField = nil
                 return self
             }
             public var repeatedPrimitiveField:Array<Int32> {
@@ -15846,13 +15846,13 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var oo:Int64 = Int64(0)
+            public fileprivate(set) var oo:Int64! = nil
             public fileprivate(set) var hasOo:Bool = false
 
             /// The field name "b" fails to compile in proto1 because it conflicts with
             /// a local variable named "b" in one of the generated methods.  Doh.
             /// This file needs to compile in proto1 to test backwards-compatibility.
-            public fileprivate(set) var bb:Int32 = Int32(0)
+            public fileprivate(set) var bb:Int32! = nil
             public fileprivate(set) var hasBb:Bool = false
 
             required public init() {
@@ -15992,7 +15992,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearOo() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder{
                     builderResult.hasOo = false
-                    builderResult.oo = Int64(0)
+                    builderResult.oo = nil
                     return self
                 }
                 /// The field name "b" fails to compile in proto1 because it conflicts with
@@ -16020,7 +16020,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearBb() -> ProtobufUnittest.TestFieldOrderings.NestedMessage.Builder{
                     builderResult.hasBb = false
-                    builderResult.bb = Int32(0)
+                    builderResult.bb = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -16113,13 +16113,13 @@ public extension ProtobufUnittest {
 
         //Nested type declaration end
 
-        public fileprivate(set) var myString:String = ""
+        public fileprivate(set) var myString:String! = nil
         public fileprivate(set) var hasMyString:Bool = false
 
-        public fileprivate(set) var myInt:Int64 = Int64(0)
+        public fileprivate(set) var myInt:Int64! = nil
         public fileprivate(set) var hasMyInt:Bool = false
 
-        public fileprivate(set) var myFloat:Float = Float(0)
+        public fileprivate(set) var myFloat:Float! = nil
         public fileprivate(set) var hasMyFloat:Bool = false
 
         public fileprivate(set) var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage!
@@ -16309,7 +16309,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearMyString() -> ProtobufUnittest.TestFieldOrderings.Builder{
                 builderResult.hasMyString = false
-                builderResult.myString = ""
+                builderResult.myString = nil
                 return self
             }
             public var myInt:Int64 {
@@ -16334,7 +16334,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearMyInt() -> ProtobufUnittest.TestFieldOrderings.Builder{
                 builderResult.hasMyInt = false
-                builderResult.myInt = Int64(0)
+                builderResult.myInt = nil
                 return self
             }
             public var myFloat:Float {
@@ -16359,7 +16359,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearMyFloat() -> ProtobufUnittest.TestFieldOrderings.Builder{
                 builderResult.hasMyFloat = false
-                builderResult.myFloat = Float(0)
+                builderResult.myFloat = nil
                 return self
             }
             public var optionalNestedMessage:ProtobufUnittest.TestFieldOrderings.NestedMessage! {
@@ -16567,73 +16567,73 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var escapedBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
+        public fileprivate(set) var escapedBytes:Data! = Data(bytes:([UInt8]() + "world".utf8), count:5)
         public fileprivate(set) var hasEscapedBytes:Bool = false
 
-        public fileprivate(set) var largeUint32:UInt32 = UInt32(255)
+        public fileprivate(set) var largeUint32:UInt32! = UInt32(255)
         public fileprivate(set) var hasLargeUint32:Bool = false
 
-        public fileprivate(set) var largeUint64:UInt64 = UInt64(255)
+        public fileprivate(set) var largeUint64:UInt64! = UInt64(255)
         public fileprivate(set) var hasLargeUint64:Bool = false
 
-        public fileprivate(set) var smallInt32:Int32 = Int32(-127)
+        public fileprivate(set) var smallInt32:Int32! = Int32(-127)
         public fileprivate(set) var hasSmallInt32:Bool = false
 
-        public fileprivate(set) var smallInt64:Int64 = Int64(-127)
+        public fileprivate(set) var smallInt64:Int64! = Int64(-127)
         public fileprivate(set) var hasSmallInt64:Bool = false
 
-        public fileprivate(set) var reallySmallInt32:Int32 = Int32(-128)
+        public fileprivate(set) var reallySmallInt32:Int32! = Int32(-128)
         public fileprivate(set) var hasReallySmallInt32:Bool = false
 
-        public fileprivate(set) var reallySmallInt64:Int64 = Int64(-128)
+        public fileprivate(set) var reallySmallInt64:Int64! = Int64(-128)
         public fileprivate(set) var hasReallySmallInt64:Bool = false
 
         /// The default value here is UTF-8 for "\u1234".  (We could also just type
         /// the UTF-8 text directly into this text file rather than escape it, but
         /// lots of people use editors that would be confused by this.)
-        public fileprivate(set) var utf8String:String = "hello"
+        public fileprivate(set) var utf8String:String! = "hello"
         public fileprivate(set) var hasUtf8String:Bool = false
 
         /// Tests for single-precision floating-point values.
-        public fileprivate(set) var zeroFloat:Float = Float(0)
+        public fileprivate(set) var zeroFloat:Float! = Float(0)
         public fileprivate(set) var hasZeroFloat:Bool = false
 
-        public fileprivate(set) var oneFloat:Float = Float(1)
+        public fileprivate(set) var oneFloat:Float! = Float(1)
         public fileprivate(set) var hasOneFloat:Bool = false
 
-        public fileprivate(set) var smallFloat:Float = Float(1.5)
+        public fileprivate(set) var smallFloat:Float! = Float(1.5)
         public fileprivate(set) var hasSmallFloat:Bool = false
 
-        public fileprivate(set) var negativeOneFloat:Float = Float(-1)
+        public fileprivate(set) var negativeOneFloat:Float! = Float(-1)
         public fileprivate(set) var hasNegativeOneFloat:Bool = false
 
-        public fileprivate(set) var negativeFloat:Float = Float(-1.5)
+        public fileprivate(set) var negativeFloat:Float! = Float(-1.5)
         public fileprivate(set) var hasNegativeFloat:Bool = false
 
         /// Using exponents
-        public fileprivate(set) var largeFloat:Float = Float(2e+08)
+        public fileprivate(set) var largeFloat:Float! = Float(2e+08)
         public fileprivate(set) var hasLargeFloat:Bool = false
 
-        public fileprivate(set) var smallNegativeFloat:Float = Float(-8e-28)
+        public fileprivate(set) var smallNegativeFloat:Float! = Float(-8e-28)
         public fileprivate(set) var hasSmallNegativeFloat:Bool = false
 
         /// Text for nonfinite floating-point values.
-        public fileprivate(set) var infDouble:Double = Double(HUGE)
+        public fileprivate(set) var infDouble:Double! = Double(HUGE)
         public fileprivate(set) var hasInfDouble:Bool = false
 
-        public fileprivate(set) var negInfDouble:Double = Double(-HUGE)
+        public fileprivate(set) var negInfDouble:Double! = Double(-HUGE)
         public fileprivate(set) var hasNegInfDouble:Bool = false
 
-        public fileprivate(set) var nanDouble:Double = 0.0
+        public fileprivate(set) var nanDouble:Double! = 0.0
         public fileprivate(set) var hasNanDouble:Bool = false
 
-        public fileprivate(set) var infFloat:Float = HUGE
+        public fileprivate(set) var infFloat:Float! = HUGE
         public fileprivate(set) var hasInfFloat:Bool = false
 
-        public fileprivate(set) var negInfFloat:Float = -HUGE
+        public fileprivate(set) var negInfFloat:Float! = -HUGE
         public fileprivate(set) var hasNegInfFloat:Bool = false
 
-        public fileprivate(set) var nanFloat:Float = 0.0
+        public fileprivate(set) var nanFloat:Float! = 0.0
         public fileprivate(set) var hasNanFloat:Bool = false
 
         /// Tests for C++ trigraphs.
@@ -16641,23 +16641,23 @@ public extension ProtobufUnittest {
         /// escaped for other languages.
         /// Note that in .proto file, "\?" is a valid way to escape ? in string
         /// literals.
-        public fileprivate(set) var cppTrigraph:String = "asdfasdf"
+        public fileprivate(set) var cppTrigraph:String! = "asdfasdf"
         public fileprivate(set) var hasCppTrigraph:Bool = false
 
         /// String defaults containing the character '\000'
-        public fileprivate(set) var stringWithZero:String = "hel\000lo"
+        public fileprivate(set) var stringWithZero:String! = "hel\000lo"
         public fileprivate(set) var hasStringWithZero:Bool = false
 
-        public fileprivate(set) var bytesWithZero:Data = Data(bytes:([UInt8]() + "wor\000ld".utf8), count:6)
+        public fileprivate(set) var bytesWithZero:Data! = Data(bytes:([UInt8]() + "wor\000ld".utf8), count:6)
         public fileprivate(set) var hasBytesWithZero:Bool = false
 
-        public fileprivate(set) var stringPieceWithZero:String = "ab\000c"
+        public fileprivate(set) var stringPieceWithZero:String! = "ab\000c"
         public fileprivate(set) var hasStringPieceWithZero:Bool = false
 
-        public fileprivate(set) var cordWithZero:String = "12\0003"
+        public fileprivate(set) var cordWithZero:String! = "12\0003"
         public fileprivate(set) var hasCordWithZero:Bool = false
 
-        public fileprivate(set) var replacementString:String = "${unknown}"
+        public fileprivate(set) var replacementString:String! = "${unknown}"
         public fileprivate(set) var hasReplacementString:Bool = false
 
         required public init() {
@@ -18416,7 +18416,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:String = ""
+        public fileprivate(set) var data:String! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -18541,7 +18541,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.OneString.Builder{
                 builderResult.hasData = false
-                builderResult.data = ""
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -18852,7 +18852,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:Data = Data()
+        public fileprivate(set) var data:Data! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -18977,7 +18977,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.OneBytes.Builder{
                 builderResult.hasData = false
-                builderResult.data = Data()
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -19289,7 +19289,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:Int32 = Int32(0)
+        public fileprivate(set) var data:Int32! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -19414,7 +19414,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.Int32Message.Builder{
                 builderResult.hasData = false
-                builderResult.data = Int32(0)
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -19506,7 +19506,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:UInt32 = UInt32(0)
+        public fileprivate(set) var data:UInt32! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -19631,7 +19631,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.Uint32Message.Builder{
                 builderResult.hasData = false
-                builderResult.data = UInt32(0)
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -19723,7 +19723,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:Int64 = Int64(0)
+        public fileprivate(set) var data:Int64! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -19848,7 +19848,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.Int64Message.Builder{
                 builderResult.hasData = false
-                builderResult.data = Int64(0)
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -19940,7 +19940,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:UInt64 = UInt64(0)
+        public fileprivate(set) var data:UInt64! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -20065,7 +20065,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.Uint64Message.Builder{
                 builderResult.hasData = false
-                builderResult.data = UInt64(0)
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -20157,7 +20157,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var data:Bool = false
+        public fileprivate(set) var data:Bool! = nil
         public fileprivate(set) var hasData:Bool = false
 
         required public init() {
@@ -20282,7 +20282,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearData() -> ProtobufUnittest.BoolMessage.Builder{
                 builderResult.hasData = false
-                builderResult.data = false
+                builderResult.data = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -20393,10 +20393,10 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
-            public fileprivate(set) var b:String = ""
+            public fileprivate(set) var b:String! = nil
             public fileprivate(set) var hasB:Bool = false
 
             required public init() {
@@ -20536,7 +20536,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestOneof.FooGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 public var b:String {
@@ -20561,7 +20561,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearB() -> ProtobufUnittest.TestOneof.FooGroup.Builder{
                     builderResult.hasB = false
-                    builderResult.b = ""
+                    builderResult.b = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -20962,7 +20962,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooInt() -> ProtobufUnittest.TestOneof.Builder{
                 builderResult.hasFooInt = false
-                builderResult.fooInt = Int32(0)
+                builderResult.fooInt = nil
                 return self
             }
             public var fooString:String {
@@ -20987,7 +20987,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooString() -> ProtobufUnittest.TestOneof.Builder{
                 builderResult.hasFooString = false
-                builderResult.fooString = ""
+                builderResult.fooString = nil
                 return self
             }
             public var fooMessage:ProtobufUnittest.TestAllTypes! {
@@ -21246,10 +21246,10 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
-            public fileprivate(set) var b:String = ""
+            public fileprivate(set) var b:String! = nil
             public fileprivate(set) var hasB:Bool = false
 
             required public init() {
@@ -21389,7 +21389,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 public var b:String {
@@ -21414,7 +21414,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearB() -> ProtobufUnittest.TestOneofBackwardsCompatible.FooGroup.Builder{
                     builderResult.hasB = false
-                    builderResult.b = ""
+                    builderResult.b = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -21505,10 +21505,10 @@ public extension ProtobufUnittest {
 
         //Nested type declaration end
 
-        public fileprivate(set) var fooInt:Int32 = Int32(0)
+        public fileprivate(set) var fooInt:Int32! = nil
         public fileprivate(set) var hasFooInt:Bool = false
 
-        public fileprivate(set) var fooString:String = ""
+        public fileprivate(set) var fooString:String! = nil
         public fileprivate(set) var hasFooString:Bool = false
 
         public fileprivate(set) var fooMessage:ProtobufUnittest.TestAllTypes!
@@ -21698,7 +21698,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooInt() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder{
                 builderResult.hasFooInt = false
-                builderResult.fooInt = Int32(0)
+                builderResult.fooInt = nil
                 return self
             }
             public var fooString:String {
@@ -21723,7 +21723,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooString() -> ProtobufUnittest.TestOneofBackwardsCompatible.Builder{
                 builderResult.hasFooString = false
-                builderResult.fooString = ""
+                builderResult.fooString = nil
                 return self
             }
             public var fooMessage:ProtobufUnittest.TestAllTypes! {
@@ -21995,10 +21995,10 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
-            public fileprivate(set) var b:String = ""
+            public fileprivate(set) var b:String! = nil
             public fileprivate(set) var hasB:Bool = false
 
             required public init() {
@@ -22138,7 +22138,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearA() -> ProtobufUnittest.TestOneof2.FooGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 public var b:String {
@@ -22163,7 +22163,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearB() -> ProtobufUnittest.TestOneof2.FooGroup.Builder{
                     builderResult.hasB = false
-                    builderResult.b = ""
+                    builderResult.b = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -22271,7 +22271,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var quxInt:Int64 = Int64(0)
+            public fileprivate(set) var quxInt:Int64! = nil
             public fileprivate(set) var hasQuxInt:Bool = false
 
             public fileprivate(set) var corgeInt:Array<Int32> = Array<Int32>()
@@ -22423,7 +22423,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearQuxInt() -> ProtobufUnittest.TestOneof2.NestedMessage.Builder{
                     builderResult.hasQuxInt = false
-                    builderResult.quxInt = Int64(0)
+                    builderResult.quxInt = nil
                     return self
                 }
                 public var corgeInt:Array<Int32> {
@@ -23013,10 +23013,10 @@ public extension ProtobufUnittest {
             set(newValue) {
             }
         }
-        public fileprivate(set) var bazInt:Int32 = Int32(0)
+        public fileprivate(set) var bazInt:Int32! = nil
         public fileprivate(set) var hasBazInt:Bool = false
 
-        public fileprivate(set) var bazString:String = "BAZ"
+        public fileprivate(set) var bazString:String! = "BAZ"
         public fileprivate(set) var hasBazString:Bool = false
 
         required public init() {
@@ -23405,7 +23405,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooInt() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasFooInt = false
-                builderResult.fooInt = Int32(0)
+                builderResult.fooInt = nil
                 return self
             }
             public var fooString:String {
@@ -23430,7 +23430,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooString() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasFooString = false
-                builderResult.fooString = ""
+                builderResult.fooString = nil
                 return self
             }
             public var fooCord:String {
@@ -23455,7 +23455,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooCord() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasFooCord = false
-                builderResult.fooCord = ""
+                builderResult.fooCord = nil
                 return self
             }
             public var fooStringPiece:String {
@@ -23480,7 +23480,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooStringPiece() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasFooStringPiece = false
-                builderResult.fooStringPiece = ""
+                builderResult.fooStringPiece = nil
                 return self
             }
             public var fooBytes:Data {
@@ -23505,7 +23505,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooBytes() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasFooBytes = false
-                builderResult.fooBytes = Data()
+                builderResult.fooBytes = nil
                 return self
             }
                 public var fooEnum:ProtobufUnittest.TestOneof2.NestedEnum {
@@ -23867,7 +23867,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearBazInt() -> ProtobufUnittest.TestOneof2.Builder{
                 builderResult.hasBazInt = false
-                builderResult.bazInt = Int32(0)
+                builderResult.bazInt = nil
                 return self
             }
             public var bazString:String {
@@ -24178,7 +24178,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var requiredDouble:Double = Double(0)
+            public fileprivate(set) var requiredDouble:Double! = nil
             public fileprivate(set) var hasRequiredDouble:Bool = false
 
             required public init() {
@@ -24306,7 +24306,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearRequiredDouble() -> ProtobufUnittest.TestRequiredOneof.NestedMessage.Builder{
                     builderResult.hasRequiredDouble = false
-                    builderResult.requiredDouble = Double(0)
+                    builderResult.requiredDouble = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -24653,7 +24653,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooInt() -> ProtobufUnittest.TestRequiredOneof.Builder{
                 builderResult.hasFooInt = false
-                builderResult.fooInt = Int32(0)
+                builderResult.fooInt = nil
                 return self
             }
             public var fooString:String {
@@ -24678,7 +24678,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFooString() -> ProtobufUnittest.TestRequiredOneof.Builder{
                 builderResult.hasFooString = false
-                builderResult.fooString = ""
+                builderResult.fooString = nil
                 return self
             }
             public var fooMessage:ProtobufUnittest.TestRequiredOneof.NestedMessage! {
@@ -27344,7 +27344,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var dynamicField:Int32 = Int32(0)
+            public fileprivate(set) var dynamicField:Int32! = nil
             public fileprivate(set) var hasDynamicField:Bool = false
 
             required public init() {
@@ -27469,7 +27469,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearDynamicField() -> ProtobufUnittest.TestDynamicExtensions.DynamicMessageType.Builder{
                     builderResult.hasDynamicField = false
-                    builderResult.dynamicField = Int32(0)
+                    builderResult.dynamicField = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -27593,7 +27593,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration end 
 
-        public fileprivate(set) var scalarExtension:UInt32 = UInt32(0)
+        public fileprivate(set) var scalarExtension:UInt32! = nil
         public fileprivate(set) var hasScalarExtension:Bool = false
 
         public fileprivate(set) var enumExtension:ProtobufUnittest.ForeignEnum = ProtobufUnittest.ForeignEnum.foreignFoo
@@ -27863,7 +27863,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearScalarExtension() -> ProtobufUnittest.TestDynamicExtensions.Builder{
                 builderResult.hasScalarExtension = false
-                builderResult.scalarExtension = UInt32(0)
+                builderResult.scalarExtension = nil
                 return self
             }
                 public var enumExtension:ProtobufUnittest.ForeignEnum {
@@ -31002,7 +31002,7 @@ public extension ProtobufUnittest {
         }
 
         /// */ <- This should not close the generated doc comment
-        public fileprivate(set) var a:String = "*/ <- Neither should this."
+        public fileprivate(set) var a:String! = "*/ <- Neither should this."
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {

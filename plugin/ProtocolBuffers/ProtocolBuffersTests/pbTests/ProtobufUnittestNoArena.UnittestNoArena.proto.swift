@@ -174,7 +174,7 @@ public extension ProtobufUnittestNoArena {
             /// The field name "b" fails to compile in proto1 because it conflicts with
             /// a local variable named "b" in one of the generated methods.  Doh.
             /// This file needs to compile in proto1 to test backwards-compatibility.
-            public fileprivate(set) var bb:Int32 = Int32(0)
+            public fileprivate(set) var bb:Int32! = nil
             public fileprivate(set) var hasBb:Bool = false
 
             required public init() {
@@ -302,7 +302,7 @@ public extension ProtobufUnittestNoArena {
                 @discardableResult
                 public func clearBb() -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder{
                     builderResult.hasBb = false
-                    builderResult.bb = Int32(0)
+                    builderResult.bb = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -400,7 +400,7 @@ public extension ProtobufUnittestNoArena {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -525,7 +525,7 @@ public extension ProtobufUnittestNoArena {
                 @discardableResult
                 public func clearA() -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -623,7 +623,7 @@ public extension ProtobufUnittestNoArena {
                 return fieldCheck
             }
 
-            public fileprivate(set) var a:Int32 = Int32(0)
+            public fileprivate(set) var a:Int32! = nil
             public fileprivate(set) var hasA:Bool = false
 
             required public init() {
@@ -748,7 +748,7 @@ public extension ProtobufUnittestNoArena {
                 @discardableResult
                 public func clearA() -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder{
                     builderResult.hasA = false
-                    builderResult.a = Int32(0)
+                    builderResult.a = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -943,49 +943,49 @@ public extension ProtobufUnittestNoArena {
             //Enum type declaration end 
 
         /// Singular
-        public fileprivate(set) var optionalInt32:Int32 = Int32(0)
+        public fileprivate(set) var optionalInt32:Int32! = nil
         public fileprivate(set) var hasOptionalInt32:Bool = false
 
-        public fileprivate(set) var optionalInt64:Int64 = Int64(0)
+        public fileprivate(set) var optionalInt64:Int64! = nil
         public fileprivate(set) var hasOptionalInt64:Bool = false
 
-        public fileprivate(set) var optionalUint32:UInt32 = UInt32(0)
+        public fileprivate(set) var optionalUint32:UInt32! = nil
         public fileprivate(set) var hasOptionalUint32:Bool = false
 
-        public fileprivate(set) var optionalUint64:UInt64 = UInt64(0)
+        public fileprivate(set) var optionalUint64:UInt64! = nil
         public fileprivate(set) var hasOptionalUint64:Bool = false
 
-        public fileprivate(set) var optionalSint32:Int32 = Int32(0)
+        public fileprivate(set) var optionalSint32:Int32! = nil
         public fileprivate(set) var hasOptionalSint32:Bool = false
 
-        public fileprivate(set) var optionalSint64:Int64 = Int64(0)
+        public fileprivate(set) var optionalSint64:Int64! = nil
         public fileprivate(set) var hasOptionalSint64:Bool = false
 
-        public fileprivate(set) var optionalFixed32:UInt32 = UInt32(0)
+        public fileprivate(set) var optionalFixed32:UInt32! = nil
         public fileprivate(set) var hasOptionalFixed32:Bool = false
 
-        public fileprivate(set) var optionalFixed64:UInt64 = UInt64(0)
+        public fileprivate(set) var optionalFixed64:UInt64! = nil
         public fileprivate(set) var hasOptionalFixed64:Bool = false
 
-        public fileprivate(set) var optionalSfixed32:Int32 = Int32(0)
+        public fileprivate(set) var optionalSfixed32:Int32! = nil
         public fileprivate(set) var hasOptionalSfixed32:Bool = false
 
-        public fileprivate(set) var optionalSfixed64:Int64 = Int64(0)
+        public fileprivate(set) var optionalSfixed64:Int64! = nil
         public fileprivate(set) var hasOptionalSfixed64:Bool = false
 
-        public fileprivate(set) var optionalFloat:Float = Float(0)
+        public fileprivate(set) var optionalFloat:Float! = nil
         public fileprivate(set) var hasOptionalFloat:Bool = false
 
-        public fileprivate(set) var optionalDouble:Double = Double(0)
+        public fileprivate(set) var optionalDouble:Double! = nil
         public fileprivate(set) var hasOptionalDouble:Bool = false
 
-        public fileprivate(set) var optionalBool:Bool = false
+        public fileprivate(set) var optionalBool:Bool! = nil
         public fileprivate(set) var hasOptionalBool:Bool = false
 
-        public fileprivate(set) var optionalString:String = ""
+        public fileprivate(set) var optionalString:String! = nil
         public fileprivate(set) var hasOptionalString:Bool = false
 
-        public fileprivate(set) var optionalBytes:Data = Data()
+        public fileprivate(set) var optionalBytes:Data! = nil
         public fileprivate(set) var hasOptionalBytes:Bool = false
 
         public fileprivate(set) var optionalGroup:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup!
@@ -1002,10 +1002,10 @@ public extension ProtobufUnittestNoArena {
         public fileprivate(set) var hasOptionalForeignEnum:Bool = false
         public fileprivate(set) var optionalImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importFoo
         public fileprivate(set) var hasOptionalImportEnum:Bool = false
-        public fileprivate(set) var optionalStringPiece:String = ""
+        public fileprivate(set) var optionalStringPiece:String! = nil
         public fileprivate(set) var hasOptionalStringPiece:Bool = false
 
-        public fileprivate(set) var optionalCord:String = ""
+        public fileprivate(set) var optionalCord:String! = nil
         public fileprivate(set) var hasOptionalCord:Bool = false
 
         public fileprivate(set) var optionalPublicImportMessage:ProtobufUnittestImport.PublicImportMessage!
@@ -1042,49 +1042,49 @@ public extension ProtobufUnittestNoArena {
         public fileprivate(set) var repeatedCord:Array<String> = Array<String>()
         public fileprivate(set) var repeatedLazyMessage:Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>  = Array<ProtobufUnittestNoArena.TestAllTypes.NestedMessage>()
         /// Singular with defaults
-        public fileprivate(set) var defaultInt32:Int32 = Int32(41)
+        public fileprivate(set) var defaultInt32:Int32! = Int32(41)
         public fileprivate(set) var hasDefaultInt32:Bool = false
 
-        public fileprivate(set) var defaultInt64:Int64 = Int64(42)
+        public fileprivate(set) var defaultInt64:Int64! = Int64(42)
         public fileprivate(set) var hasDefaultInt64:Bool = false
 
-        public fileprivate(set) var defaultUint32:UInt32 = UInt32(43)
+        public fileprivate(set) var defaultUint32:UInt32! = UInt32(43)
         public fileprivate(set) var hasDefaultUint32:Bool = false
 
-        public fileprivate(set) var defaultUint64:UInt64 = UInt64(44)
+        public fileprivate(set) var defaultUint64:UInt64! = UInt64(44)
         public fileprivate(set) var hasDefaultUint64:Bool = false
 
-        public fileprivate(set) var defaultSint32:Int32 = Int32(-45)
+        public fileprivate(set) var defaultSint32:Int32! = Int32(-45)
         public fileprivate(set) var hasDefaultSint32:Bool = false
 
-        public fileprivate(set) var defaultSint64:Int64 = Int64(46)
+        public fileprivate(set) var defaultSint64:Int64! = Int64(46)
         public fileprivate(set) var hasDefaultSint64:Bool = false
 
-        public fileprivate(set) var defaultFixed32:UInt32 = UInt32(47)
+        public fileprivate(set) var defaultFixed32:UInt32! = UInt32(47)
         public fileprivate(set) var hasDefaultFixed32:Bool = false
 
-        public fileprivate(set) var defaultFixed64:UInt64 = UInt64(48)
+        public fileprivate(set) var defaultFixed64:UInt64! = UInt64(48)
         public fileprivate(set) var hasDefaultFixed64:Bool = false
 
-        public fileprivate(set) var defaultSfixed32:Int32 = Int32(49)
+        public fileprivate(set) var defaultSfixed32:Int32! = Int32(49)
         public fileprivate(set) var hasDefaultSfixed32:Bool = false
 
-        public fileprivate(set) var defaultSfixed64:Int64 = Int64(-50)
+        public fileprivate(set) var defaultSfixed64:Int64! = Int64(-50)
         public fileprivate(set) var hasDefaultSfixed64:Bool = false
 
-        public fileprivate(set) var defaultFloat:Float = Float(51.5)
+        public fileprivate(set) var defaultFloat:Float! = Float(51.5)
         public fileprivate(set) var hasDefaultFloat:Bool = false
 
-        public fileprivate(set) var defaultDouble:Double = Double(52000)
+        public fileprivate(set) var defaultDouble:Double! = Double(52000)
         public fileprivate(set) var hasDefaultDouble:Bool = false
 
-        public fileprivate(set) var defaultBool:Bool = true
+        public fileprivate(set) var defaultBool:Bool! = true
         public fileprivate(set) var hasDefaultBool:Bool = false
 
-        public fileprivate(set) var defaultString:String = "hello"
+        public fileprivate(set) var defaultString:String! = "hello"
         public fileprivate(set) var hasDefaultString:Bool = false
 
-        public fileprivate(set) var defaultBytes:Data = Data(bytes:([UInt8]() + "world".utf8), count:5)
+        public fileprivate(set) var defaultBytes:Data! = Data(bytes:([UInt8]() + "world".utf8), count:5)
         public fileprivate(set) var hasDefaultBytes:Bool = false
 
         public fileprivate(set) var defaultNestedEnum:ProtobufUnittestNoArena.TestAllTypes.NestedEnum = ProtobufUnittestNoArena.TestAllTypes.NestedEnum.bar
@@ -1093,10 +1093,10 @@ public extension ProtobufUnittestNoArena {
         public fileprivate(set) var hasDefaultForeignEnum:Bool = false
         public fileprivate(set) var defaultImportEnum:ProtobufUnittestImport.ImportEnum = ProtobufUnittestImport.ImportEnum.importBar
         public fileprivate(set) var hasDefaultImportEnum:Bool = false
-        public fileprivate(set) var defaultStringPiece:String = "abc"
+        public fileprivate(set) var defaultStringPiece:String! = "abc"
         public fileprivate(set) var hasDefaultStringPiece:Bool = false
 
-        public fileprivate(set) var defaultCord:String = "123"
+        public fileprivate(set) var defaultCord:String! = "123"
         public fileprivate(set) var hasDefaultCord:Bool = false
 
         public fileprivate(set) var oneofUint32:UInt32!{
@@ -2746,7 +2746,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalInt32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalInt32 = false
-                builderResult.optionalInt32 = Int32(0)
+                builderResult.optionalInt32 = nil
                 return self
             }
             public var optionalInt64:Int64 {
@@ -2771,7 +2771,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalInt64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalInt64 = false
-                builderResult.optionalInt64 = Int64(0)
+                builderResult.optionalInt64 = nil
                 return self
             }
             public var optionalUint32:UInt32 {
@@ -2796,7 +2796,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalUint32 = false
-                builderResult.optionalUint32 = UInt32(0)
+                builderResult.optionalUint32 = nil
                 return self
             }
             public var optionalUint64:UInt64 {
@@ -2821,7 +2821,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalUint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalUint64 = false
-                builderResult.optionalUint64 = UInt64(0)
+                builderResult.optionalUint64 = nil
                 return self
             }
             public var optionalSint32:Int32 {
@@ -2846,7 +2846,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalSint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalSint32 = false
-                builderResult.optionalSint32 = Int32(0)
+                builderResult.optionalSint32 = nil
                 return self
             }
             public var optionalSint64:Int64 {
@@ -2871,7 +2871,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalSint64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalSint64 = false
-                builderResult.optionalSint64 = Int64(0)
+                builderResult.optionalSint64 = nil
                 return self
             }
             public var optionalFixed32:UInt32 {
@@ -2896,7 +2896,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalFixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalFixed32 = false
-                builderResult.optionalFixed32 = UInt32(0)
+                builderResult.optionalFixed32 = nil
                 return self
             }
             public var optionalFixed64:UInt64 {
@@ -2921,7 +2921,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalFixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalFixed64 = false
-                builderResult.optionalFixed64 = UInt64(0)
+                builderResult.optionalFixed64 = nil
                 return self
             }
             public var optionalSfixed32:Int32 {
@@ -2946,7 +2946,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalSfixed32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalSfixed32 = false
-                builderResult.optionalSfixed32 = Int32(0)
+                builderResult.optionalSfixed32 = nil
                 return self
             }
             public var optionalSfixed64:Int64 {
@@ -2971,7 +2971,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalSfixed64() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalSfixed64 = false
-                builderResult.optionalSfixed64 = Int64(0)
+                builderResult.optionalSfixed64 = nil
                 return self
             }
             public var optionalFloat:Float {
@@ -2996,7 +2996,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalFloat() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalFloat = false
-                builderResult.optionalFloat = Float(0)
+                builderResult.optionalFloat = nil
                 return self
             }
             public var optionalDouble:Double {
@@ -3021,7 +3021,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalDouble() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalDouble = false
-                builderResult.optionalDouble = Double(0)
+                builderResult.optionalDouble = nil
                 return self
             }
             public var optionalBool:Bool {
@@ -3046,7 +3046,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalBool() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalBool = false
-                builderResult.optionalBool = false
+                builderResult.optionalBool = nil
                 return self
             }
             public var optionalString:String {
@@ -3071,7 +3071,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalString = false
-                builderResult.optionalString = ""
+                builderResult.optionalString = nil
                 return self
             }
             public var optionalBytes:Data {
@@ -3096,7 +3096,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalBytes = false
-                builderResult.optionalBytes = Data()
+                builderResult.optionalBytes = nil
                 return self
             }
             public var optionalGroup:ProtobufUnittestNoArena.TestAllTypes.OptionalGroup! {
@@ -3412,7 +3412,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalStringPiece() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalStringPiece = false
-                builderResult.optionalStringPiece = ""
+                builderResult.optionalStringPiece = nil
                 return self
             }
             public var optionalCord:String {
@@ -3437,7 +3437,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOptionalCord() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOptionalCord = false
-                builderResult.optionalCord = ""
+                builderResult.optionalCord = nil
                 return self
             }
             /// Defined in unittest_import_public.proto
@@ -4523,7 +4523,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOneofUint32() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOneofUint32 = false
-                builderResult.oneofUint32 = UInt32(0)
+                builderResult.oneofUint32 = nil
                 return self
             }
             public var oneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
@@ -4602,7 +4602,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOneofString() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOneofString = false
-                builderResult.oneofString = ""
+                builderResult.oneofString = nil
                 return self
             }
             public var oneofBytes:Data {
@@ -4627,7 +4627,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearOneofBytes() -> ProtobufUnittestNoArena.TestAllTypes.Builder{
                 builderResult.hasOneofBytes = false
-                builderResult.oneofBytes = Data()
+                builderResult.oneofBytes = nil
                 return self
             }
             public var lazyOneofNestedMessage:ProtobufUnittestNoArena.TestAllTypes.NestedMessage! {
@@ -5714,7 +5714,7 @@ public extension ProtobufUnittestNoArena {
             return fieldCheck
         }
 
-        public fileprivate(set) var c:Int32 = Int32(0)
+        public fileprivate(set) var c:Int32! = nil
         public fileprivate(set) var hasC:Bool = false
 
         required public init() {
@@ -5839,7 +5839,7 @@ public extension ProtobufUnittestNoArena {
             @discardableResult
             public func clearC() -> ProtobufUnittestNoArena.ForeignMessage.Builder{
                 builderResult.hasC = false
-                builderResult.c = Int32(0)
+                builderResult.c = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

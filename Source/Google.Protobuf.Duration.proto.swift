@@ -68,7 +68,7 @@ public extension Google.Protobuf {
 
         /// Signed seconds of the span of time. Must be from -315,576,000,000
         /// to +315,576,000,000 inclusive.
-        public fileprivate(set) var seconds:Int64 = Int64(0)
+        public fileprivate(set) var seconds:Int64! = nil
         public fileprivate(set) var hasSeconds:Bool = false
 
         /// Signed fractions of a second at nanosecond resolution of the span
@@ -77,7 +77,7 @@ public extension Google.Protobuf {
         /// of one second or more, a non-zero value for the `nanos` field must be
         /// of the same sign as the `seconds` field. Must be from -999,999,999
         /// to +999,999,999 inclusive.
-        public fileprivate(set) var nanos:Int32 = Int32(0)
+        public fileprivate(set) var nanos:Int32! = nil
         public fileprivate(set) var hasNanos:Bool = false
 
         required public init() {
@@ -219,7 +219,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearSeconds() -> Google.Protobuf.Duration.Builder{
                 builderResult.hasSeconds = false
-                builderResult.seconds = Int64(0)
+                builderResult.seconds = nil
                 return self
             }
             /// Signed fractions of a second at nanosecond resolution of the span
@@ -250,7 +250,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNanos() -> Google.Protobuf.Duration.Builder{
                 builderResult.hasNanos = false
-                builderResult.nanos = Int32(0)
+                builderResult.nanos = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

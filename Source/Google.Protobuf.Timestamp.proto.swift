@@ -76,14 +76,14 @@ public extension Google.Protobuf {
         /// Represents seconds of UTC time since Unix epoch
         /// 1970-01-01T00:00:00Z. Must be from from 0001-01-01T00:00:00Z to
         /// 9999-12-31T23:59:59Z inclusive.
-        public fileprivate(set) var seconds:Int64 = Int64(0)
+        public fileprivate(set) var seconds:Int64! = nil
         public fileprivate(set) var hasSeconds:Bool = false
 
         /// Non-negative fractions of a second at nanosecond resolution. Negative
         /// second values with fractions must still have non-negative nanos values
         /// that count forward in time. Must be from 0 to 999,999,999
         /// inclusive.
-        public fileprivate(set) var nanos:Int32 = Int32(0)
+        public fileprivate(set) var nanos:Int32! = nil
         public fileprivate(set) var hasNanos:Bool = false
 
         required public init() {
@@ -226,7 +226,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearSeconds() -> Google.Protobuf.Timestamp.Builder{
                 builderResult.hasSeconds = false
-                builderResult.seconds = Int64(0)
+                builderResult.seconds = nil
                 return self
             }
             /// Non-negative fractions of a second at nanosecond resolution. Negative
@@ -255,7 +255,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNanos() -> Google.Protobuf.Timestamp.Builder{
                 builderResult.hasNanos = false
-                builderResult.nanos = Int32(0)
+                builderResult.nanos = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

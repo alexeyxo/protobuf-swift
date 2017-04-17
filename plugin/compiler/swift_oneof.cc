@@ -32,32 +32,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     : descriptor_(descriptor) {
     }
     
-    const char* PrimitiveTypeName(const FieldDescriptor* field) {
-        switch (field->type()) {
-            case FieldDescriptor::TYPE_INT32   : return "Int32" ;
-            case FieldDescriptor::TYPE_UINT32  : return "UInt32";
-            case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
-            case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
-            case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
-                
-            case FieldDescriptor::TYPE_INT64   : return "Int64" ;
-            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
-            case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
-            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
-            case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-                
-            case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
-            case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
-            case FieldDescriptor::TYPE_BOOL    : return "Bool"      ;
-            case FieldDescriptor::TYPE_STRING  : return "String";
-            case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
-            default                            : return NULL;
-        }
-        
-        GOOGLE_LOG(FATAL) << "Can't get here.";
-        return NULL;
-    }
-    
     
     OneofGenerator::~OneofGenerator() {
     }
@@ -102,7 +76,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             const FieldDescriptor* fieldType = descriptor_->field(i);
             XCodeStandartIndent(printer);
-            if (GetSwiftType(fieldType) == SWIFTTYPE_MESSAGE) {
+            if (GetSwiftType(fieldType) == SWIFT_TYPE_MESSAGE) {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
                 printer->Print("case $name$($type$)\n\n",
@@ -123,7 +97,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                "fieldType",classNames,
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
-            else if (GetSwiftType(fieldType) == SWIFTTYPE_ENUM)
+            else if (GetSwiftType(fieldType) == SWIFT_TYPE_ENUM)
             {
                 const FieldDescriptor* enumDesc = descriptor_->field(i);
                 string type = ClassNameReturedType(enumDesc->enum_type());

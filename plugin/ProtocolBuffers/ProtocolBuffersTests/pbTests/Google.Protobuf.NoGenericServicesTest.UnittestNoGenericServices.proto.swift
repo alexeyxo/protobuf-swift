@@ -21,7 +21,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
         public var extensionRegistry:ExtensionRegistry
 
         init() {
-            UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.NoGenericServicesTest.TestMessage.self, fieldNumber: 1000, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestNoGenericServicesRoottestExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.NoGenericServicesTest.TestMessage.self, fieldNumber: 1000, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             extensionRegistry = ExtensionRegistry()
             registerAllExtensions(registry: extensionRegistry)
         }
@@ -80,7 +80,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
             return fieldCheck
         }
 
-        public fileprivate(set) var a:Int32 = Int32(0)
+        public fileprivate(set) var a:Int32! = nil
         public fileprivate(set) var hasA:Bool = false
 
         required public init() {
@@ -212,7 +212,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
             @discardableResult
             public func clearA() -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder{
                 builderResult.hasA = false
-                builderResult.a = Int32(0)
+                builderResult.a = nil
                 return self
             }
             override public var internalGetResult:ExtendableMessage {

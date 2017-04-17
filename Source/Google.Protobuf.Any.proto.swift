@@ -80,11 +80,11 @@ public extension Google.Protobuf {
         /// namespace should use `type.googleapis.com/full.type.name` (without
         /// schema and path). A type service will eventually become available which
         /// serves those URLs (projected Q2/15).
-        public fileprivate(set) var typeUrl:String = ""
+        public fileprivate(set) var typeUrl:String! = nil
         public fileprivate(set) var hasTypeUrl:Bool = false
 
         /// Must be valid serialized data of the above specified type.
-        public fileprivate(set) var value:Data = Data()
+        public fileprivate(set) var value:Data! = nil
         public fileprivate(set) var hasValue:Bool = false
 
         required public init() {
@@ -244,7 +244,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearTypeUrl() -> Google.Protobuf.`Any`.Builder{
                 builderResult.hasTypeUrl = false
-                builderResult.typeUrl = ""
+                builderResult.typeUrl = nil
                 return self
             }
             /// Must be valid serialized data of the above specified type.
@@ -270,7 +270,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearValue() -> Google.Protobuf.`Any`.Builder{
                 builderResult.hasValue = false
-                builderResult.value = Data()
+                builderResult.value = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

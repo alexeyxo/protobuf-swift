@@ -49,7 +49,7 @@ final public class ConcreateExtensionField:ExtensionField,Equatable {
     public var fieldNumber:Int32
     public var extendedClass:AnyClassType
     public var messageOrGroupClass:Any.Type
-    var defaultValue:Any
+    var defaultValue:Any?
     var isRepeated:Bool = false
     var isPacked:Bool
     var isMessageSetWireFormat:Bool
@@ -66,7 +66,7 @@ final public class ConcreateExtensionField:ExtensionField,Equatable {
     public init(type:ExtensionType,
         extendedClass:AnyClassType,
         fieldNumber:Int32,
-       defaultValue:Any,
+       defaultValue:Any?,
 messageOrGroupClass:Any.Type,
          isRepeated:Bool,
            isPacked:Bool,

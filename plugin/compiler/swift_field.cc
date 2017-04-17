@@ -52,20 +52,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     FieldGenerator* FieldGeneratorMap::MakeGenerator(const FieldDescriptor* field) {
         if (field->is_repeated()) {
             switch (GetSwiftType(field)) {
-                case SWIFTTYPE_MESSAGE:
+                case SWIFT_TYPE_MESSAGE:
                     return new RepeatedMessageFieldGenerator(field);
-                case SWIFTTYPE_MAP:
+                case SWIFT_TYPE_MAP:
                     return new MapFieldGenerator(field);
-                case SWIFTTYPE_ENUM:
+                case SWIFT_TYPE_ENUM:
                     return new RepeatedEnumFieldGenerator(field);
                 default:
                     return new RepeatedPrimitiveFieldGenerator(field);
             }
         } else {
             switch (GetSwiftType(field)) {
-                case SWIFTTYPE_MESSAGE:
+                case SWIFT_TYPE_MESSAGE:
                     return new MessageFieldGenerator(field);
-                case SWIFTTYPE_ENUM:
+                case SWIFT_TYPE_ENUM:
                     return new EnumFieldGenerator(field);
                 default:
                     return new PrimitiveFieldGenerator(field);

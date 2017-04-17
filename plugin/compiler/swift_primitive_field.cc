@@ -36,33 +36,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        const char* PrimitiveTypeName(const FieldDescriptor* field) {
-            switch (field->type()) {
-                case FieldDescriptor::TYPE_INT32   : return "Int32" ;
-                case FieldDescriptor::TYPE_UINT32  : return "UInt32";
-                case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
-                case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
-                case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
-                    
-                case FieldDescriptor::TYPE_INT64   : return "Int64" ;
-                case FieldDescriptor::TYPE_UINT64  : return "UInt64";
-                case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
-                case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
-                case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
-                    
-                case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
-                case FieldDescriptor::TYPE_DOUBLE  : return "Double" ;
-                case FieldDescriptor::TYPE_BOOL    : return "Bool"      ;
-                case FieldDescriptor::TYPE_STRING  : return "String";
-                case FieldDescriptor::TYPE_BYTES   : return "Data"    ;
-                default                            : return NULL;
-            }
-            
-            GOOGLE_LOG(FATAL) << "Can't get here.";
-            return NULL;
-        }
-        
-        
         bool isNeedUseBase64(const FieldDescriptor* field) {
             switch (field->type()) {
                 case FieldDescriptor::TYPE_BYTES   : return true;
@@ -205,7 +178,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         else
         {
-            printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$storage_type$ = $default$\n");
+            printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$storage_type$! = $default$\n");
             printer->Print(variables_,"$acontrol$fileprivate(set) var has$capitalized_name$:Bool = false\n\n");
         }
     }

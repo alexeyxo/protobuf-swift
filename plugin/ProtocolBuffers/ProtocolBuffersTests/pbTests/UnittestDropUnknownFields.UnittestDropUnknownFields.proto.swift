@@ -77,7 +77,7 @@ public extension UnittestDropUnknownFields {
 
             //Enum type declaration end 
 
-        public fileprivate(set) var int32Value:Int32 = Int32(0)
+        public fileprivate(set) var int32Value:Int32! = nil
         public fileprivate(set) var hasInt32Value:Bool = false
 
         public fileprivate(set) var enumValue:UnittestDropUnknownFields.Foo.NestedEnum = UnittestDropUnknownFields.Foo.NestedEnum.foo
@@ -219,7 +219,7 @@ public extension UnittestDropUnknownFields {
             @discardableResult
             public func clearInt32Value() -> UnittestDropUnknownFields.Foo.Builder{
                 builderResult.hasInt32Value = false
-                builderResult.int32Value = Int32(0)
+                builderResult.int32Value = nil
                 return self
             }
                 public var enumValue:UnittestDropUnknownFields.Foo.NestedEnum {
@@ -398,12 +398,12 @@ public extension UnittestDropUnknownFields {
 
             //Enum type declaration end 
 
-        public fileprivate(set) var int32Value:Int32 = Int32(0)
+        public fileprivate(set) var int32Value:Int32! = nil
         public fileprivate(set) var hasInt32Value:Bool = false
 
         public fileprivate(set) var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum = UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.foo
         public fileprivate(set) var hasEnumValue:Bool = false
-        public fileprivate(set) var extraInt32Value:Int32 = Int32(0)
+        public fileprivate(set) var extraInt32Value:Int32! = nil
         public fileprivate(set) var hasExtraInt32Value:Bool = false
 
         required public init() {
@@ -558,7 +558,7 @@ public extension UnittestDropUnknownFields {
             @discardableResult
             public func clearInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
                 builderResult.hasInt32Value = false
-                builderResult.int32Value = Int32(0)
+                builderResult.int32Value = nil
                 return self
             }
                 public var enumValue:UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
@@ -608,7 +608,7 @@ public extension UnittestDropUnknownFields {
             @discardableResult
             public func clearExtraInt32Value() -> UnittestDropUnknownFields.FooWithExtraFields.Builder{
                 builderResult.hasExtraInt32Value = false
-                builderResult.extraInt32Value = Int32(0)
+                builderResult.extraInt32Value = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

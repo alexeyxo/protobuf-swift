@@ -28,18 +28,37 @@ message SwiftFileOptions {
   optional AccessControl entities_access_control = 2 [default = PublicEntities];
   optional bool compile_for_framework = 3 [default = true];
   optional bool generate_struct = 4 [default = false];
+  optional bool generate_realm_objects = 5 [default = false];
+  optional bool generate_react = 6 [default = false];
 }
 
 message SwiftMessageOptions {
   optional bool generate_error_type = 1 [default = false];
+  optional bool generate_realm_object = 2 [default = false];
+  optional bool generate_react = 5 [default = false];
+}
+
+enum RealmOverrideRepeated {
+  OVERRIDE = 0;
+  APPEND = 1;
+}
+message SwiftFieldOptions {
+  optional bool realm_indexed_propertie = 1 [default = false];
+  optional bool realm_primary_key = 2 [default = false];
+  optional RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
 }
 
 message SwiftEnumOptions {
   optional bool generate_error_type = 1 [default = false];
+  optional bool generate_react = 2 [default = false];
 }
 
 extend google.protobuf.FileOptions {
   optional SwiftFileOptions swift_file_options = 5092014;
+}
+
+extend google.protobuf.FieldOptions {
+  optional SwiftFieldOptions swift_field_options = 5092015;
 }
 
 extend google.protobuf.MessageOptions {

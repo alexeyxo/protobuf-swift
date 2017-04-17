@@ -48,7 +48,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
         switch (swift_type) {
-            case SWIFTTYPE_MESSAGE:
+            case SWIFT_TYPE_MESSAGE:
                 vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
@@ -81,7 +81,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
         switch (swift_type) {
-            case SWIFTTYPE_MESSAGE:
+            case SWIFT_TYPE_MESSAGE:
                 vars["type"] = ClassName(descriptor_->message_type());
                 break;
             default:
@@ -133,7 +133,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         SwiftType swift_type = GetSwiftType(descriptor_);
         string singular_type;
         switch (swift_type) {
-            case SWIFTTYPE_MESSAGE:
+            case SWIFT_TYPE_MESSAGE:
                 vars["type"] = ClassNameReturedType(descriptor_->message_type());
                 break;
             default:
@@ -198,22 +198,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 break;
         }
         
-        if(descriptor_->is_repeated())
-        {
+        if(descriptor_->is_repeated()) {
             SwiftType swift_type = GetSwiftType(descriptor_);
-            if (swift_type == SWIFTTYPE_MESSAGE)
-            {
+            if (swift_type == SWIFT_TYPE_MESSAGE) {
                 vars["default"] = string("Array<GeneratedMessage>()");
             }
-            else
-            {
+            else {
                 vars["default"] = string("Array<") + vars["type"] + string(">()");
             }
             
         }
-        
-        else if (descriptor_->type() == FieldDescriptor::TYPE_ENUM)
-        {
+        else if (descriptor_->type() == FieldDescriptor::TYPE_ENUM) {
             vars["default"] =  ClassNameReturedType(descriptor_->enum_type()) + "." + EnumValueName(descriptor_->default_value_enum()) + ".rawValue";
         }
         else

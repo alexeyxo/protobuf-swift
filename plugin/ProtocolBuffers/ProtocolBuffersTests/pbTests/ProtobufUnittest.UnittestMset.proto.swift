@@ -484,7 +484,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var i:Int32 = Int32(0)
+        public fileprivate(set) var i:Int32! = nil
         public fileprivate(set) var hasI:Bool = false
 
         public class func messageSetExtension() -> ConcreateExtensionField {
@@ -612,7 +612,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearI() -> ProtobufUnittest.TestMessageSetExtension1.Builder{
                 builderResult.hasI = false
-                builderResult.i = Int32(0)
+                builderResult.i = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -704,7 +704,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var str:String = ""
+        public fileprivate(set) var str:String! = nil
         public fileprivate(set) var hasStr:Bool = false
 
         public class func messageSetExtension() -> ConcreateExtensionField {
@@ -832,7 +832,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearStr() -> ProtobufUnittest.TestMessageSetExtension2.Builder{
                 builderResult.hasStr = false
-                builderResult.str = ""
+                builderResult.str = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -940,10 +940,10 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var typeId:Int32 = Int32(0)
+            public fileprivate(set) var typeId:Int32! = nil
             public fileprivate(set) var hasTypeId:Bool = false
 
-            public fileprivate(set) var message:Data = Data()
+            public fileprivate(set) var message:Data! = nil
             public fileprivate(set) var hasMessage:Bool = false
 
             required public init() {
@@ -1089,7 +1089,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearTypeId() -> ProtobufUnittest.RawMessageSet.Item.Builder{
                     builderResult.hasTypeId = false
-                    builderResult.typeId = Int32(0)
+                    builderResult.typeId = nil
                     return self
                 }
                 public var message:Data {
@@ -1114,7 +1114,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearMessage() -> ProtobufUnittest.RawMessageSet.Item.Builder{
                     builderResult.hasMessage = false
-                    builderResult.message = Data()
+                    builderResult.message = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
