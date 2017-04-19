@@ -37,7 +37,7 @@ public extension Google.Protobuf {
 
         /// The path-qualified name of the .proto file that contained the associated
         /// protobuf element.  For example: `"google/protobuf/source.proto"`.
-        public fileprivate(set) var fileName:String = ""
+        public fileprivate(set) var fileName:String! = nil
         public fileprivate(set) var hasFileName:Bool = false
 
         required public init() {
@@ -164,7 +164,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearFileName() -> Google.Protobuf.SourceContext.Builder{
                 builderResult.hasFileName = false
-                builderResult.fileName = ""
+                builderResult.fileName = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

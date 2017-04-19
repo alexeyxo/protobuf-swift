@@ -77,7 +77,7 @@ public extension ProtobufUnittestImport {
             return fieldCheck
         }
 
-        public fileprivate(set) var d:Int32 = Int32(0)
+        public fileprivate(set) var d:Int32! = nil
         public fileprivate(set) var hasD:Bool = false
 
         required public init() {
@@ -202,7 +202,7 @@ public extension ProtobufUnittestImport {
             @discardableResult
             public func clearD() -> ProtobufUnittestImport.ImportMessageLite.Builder{
                 builderResult.hasD = false
-                builderResult.d = Int32(0)
+                builderResult.d = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

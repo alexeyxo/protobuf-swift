@@ -280,11 +280,11 @@ public extension Google.Protobuf {
         }
 
         /// file name, relative to root of source tree
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         /// e.g. "foo", "foo.bar", etc.
-        public fileprivate(set) var package:String = ""
+        public fileprivate(set) var package:String! = nil
         public fileprivate(set) var hasPackage:Bool = false
 
         /// Names of files imported by this file.
@@ -304,7 +304,7 @@ public extension Google.Protobuf {
         public fileprivate(set) var hasSourceCodeInfo:Bool = false
         /// The syntax of the proto file.
         /// The supported values are "proto2" and "proto3".
-        public fileprivate(set) var syntax:String = ""
+        public fileprivate(set) var syntax:String! = nil
         public fileprivate(set) var hasSyntax:Bool = false
 
         required public init() {
@@ -725,7 +725,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.FileDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// e.g. "foo", "foo.bar", etc.
@@ -751,7 +751,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearPackage() -> Google.Protobuf.FileDescriptorProto.Builder{
                 builderResult.hasPackage = false
-                builderResult.package = ""
+                builderResult.package = nil
                 return self
             }
             /// Names of files imported by this file.
@@ -1021,7 +1021,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearSyntax() -> Google.Protobuf.FileDescriptorProto.Builder{
                 builderResult.hasSyntax = false
-                builderResult.syntax = ""
+                builderResult.syntax = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -1293,10 +1293,10 @@ public extension Google.Protobuf {
                 return fieldCheck
             }
 
-            public fileprivate(set) var start:Int32 = Int32(0)
+            public fileprivate(set) var start:Int32! = nil
             public fileprivate(set) var hasStart:Bool = false
 
-            public fileprivate(set) var end:Int32 = Int32(0)
+            public fileprivate(set) var end:Int32! = nil
             public fileprivate(set) var hasEnd:Bool = false
 
             required public init() {
@@ -1436,7 +1436,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearStart() -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder{
                     builderResult.hasStart = false
-                    builderResult.start = Int32(0)
+                    builderResult.start = nil
                     return self
                 }
                 public var end:Int32 {
@@ -1461,7 +1461,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearEnd() -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder{
                     builderResult.hasEnd = false
-                    builderResult.end = Int32(0)
+                    builderResult.end = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1575,11 +1575,11 @@ public extension Google.Protobuf {
             }
 
             /// Inclusive.
-            public fileprivate(set) var start:Int32 = Int32(0)
+            public fileprivate(set) var start:Int32! = nil
             public fileprivate(set) var hasStart:Bool = false
 
             /// Exclusive.
-            public fileprivate(set) var end:Int32 = Int32(0)
+            public fileprivate(set) var end:Int32! = nil
             public fileprivate(set) var hasEnd:Bool = false
 
             required public init() {
@@ -1720,7 +1720,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearStart() -> Google.Protobuf.DescriptorProto.ReservedRange.Builder{
                     builderResult.hasStart = false
-                    builderResult.start = Int32(0)
+                    builderResult.start = nil
                     return self
                 }
                 /// Exclusive.
@@ -1746,7 +1746,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearEnd() -> Google.Protobuf.DescriptorProto.ReservedRange.Builder{
                     builderResult.hasEnd = false
-                    builderResult.end = Int32(0)
+                    builderResult.end = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -1839,7 +1839,7 @@ public extension Google.Protobuf {
 
         //Nested type declaration end
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var field:Array<Google.Protobuf.FieldDescriptorProto>  = Array<Google.Protobuf.FieldDescriptorProto>()
@@ -2248,7 +2248,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.DescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var field:Array<Google.Protobuf.FieldDescriptorProto> {
@@ -2861,10 +2861,10 @@ public extension Google.Protobuf {
 
             //Enum type declaration end 
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
-        public fileprivate(set) var number:Int32 = Int32(0)
+        public fileprivate(set) var number:Int32! = nil
         public fileprivate(set) var hasNumber:Bool = false
 
         public fileprivate(set) var label:Google.Protobuf.FieldDescriptorProto.Label = Google.Protobuf.FieldDescriptorProto.Label.labelOptional
@@ -2876,12 +2876,12 @@ public extension Google.Protobuf {
         /// rules are used to find the type (i.e. first the nested types within this
         /// message are searched, then within the parent, on up to the root
         /// namespace).
-        public fileprivate(set) var typeName:String = ""
+        public fileprivate(set) var typeName:String! = nil
         public fileprivate(set) var hasTypeName:Bool = false
 
         /// For extensions, this is the name of the type being extended.  It is
         /// resolved in the same manner as type_name.
-        public fileprivate(set) var extendee:String = ""
+        public fileprivate(set) var extendee:String! = nil
         public fileprivate(set) var hasExtendee:Bool = false
 
         /// For numeric types, contains the original text representation of the value.
@@ -2889,19 +2889,19 @@ public extension Google.Protobuf {
         /// For strings, contains the default text contents (not escaped in any way).
         /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
         /// TODO(kenton):  Base-64 encode?
-        public fileprivate(set) var defaultValue:String = ""
+        public fileprivate(set) var defaultValue:String! = nil
         public fileprivate(set) var hasDefaultValue:Bool = false
 
         /// If set, gives the index of a oneof in the containing type's oneof_decl
         /// list.  This field is a member of that oneof.
-        public fileprivate(set) var oneofIndex:Int32 = Int32(0)
+        public fileprivate(set) var oneofIndex:Int32! = nil
         public fileprivate(set) var hasOneofIndex:Bool = false
 
         /// JSON name of this field. The value is set by protocol compiler. If the
         /// user has set a "json_name" option on this field, that option's value
         /// will be used. Otherwise, it's deduced from the field's name by converting
         /// it to camelCase.
-        public fileprivate(set) var jsonName:String = ""
+        public fileprivate(set) var jsonName:String! = nil
         public fileprivate(set) var hasJsonName:Bool = false
 
         public fileprivate(set) var options:Google.Protobuf.FieldOptions!
@@ -3176,7 +3176,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var number:Int32 {
@@ -3201,7 +3201,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNumber() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasNumber = false
-                builderResult.number = Int32(0)
+                builderResult.number = nil
                 return self
             }
                 public var label:Google.Protobuf.FieldDescriptorProto.Label {
@@ -3283,7 +3283,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearTypeName() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasTypeName = false
-                builderResult.typeName = ""
+                builderResult.typeName = nil
                 return self
             }
             /// For extensions, this is the name of the type being extended.  It is
@@ -3310,7 +3310,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearExtendee() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasExtendee = false
-                builderResult.extendee = ""
+                builderResult.extendee = nil
                 return self
             }
             /// For numeric types, contains the original text representation of the value.
@@ -3340,7 +3340,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearDefaultValue() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasDefaultValue = false
-                builderResult.defaultValue = ""
+                builderResult.defaultValue = nil
                 return self
             }
             /// If set, gives the index of a oneof in the containing type's oneof_decl
@@ -3367,7 +3367,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearOneofIndex() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasOneofIndex = false
-                builderResult.oneofIndex = Int32(0)
+                builderResult.oneofIndex = nil
                 return self
             }
             /// JSON name of this field. The value is set by protocol compiler. If the
@@ -3396,7 +3396,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearJsonName() -> Google.Protobuf.FieldDescriptorProto.Builder{
                 builderResult.hasJsonName = false
-                builderResult.jsonName = ""
+                builderResult.jsonName = nil
                 return self
             }
             public var options:Google.Protobuf.FieldOptions! {
@@ -3643,7 +3643,7 @@ public extension Google.Protobuf {
             return fieldCheck
         }
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var options:Google.Protobuf.OneofOptions!
@@ -3798,7 +3798,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.OneofDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var options:Google.Protobuf.OneofOptions! {
@@ -3960,7 +3960,7 @@ public extension Google.Protobuf {
             return fieldCheck
         }
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
@@ -4150,7 +4150,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.EnumDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var value:Array<Google.Protobuf.EnumValueDescriptorProto> {
@@ -4347,10 +4347,10 @@ public extension Google.Protobuf {
             return fieldCheck
         }
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
-        public fileprivate(set) var number:Int32 = Int32(0)
+        public fileprivate(set) var number:Int32! = nil
         public fileprivate(set) var hasNumber:Bool = false
 
         public fileprivate(set) var options:Google.Protobuf.EnumValueOptions!
@@ -4520,7 +4520,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.EnumValueDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var number:Int32 {
@@ -4545,7 +4545,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNumber() -> Google.Protobuf.EnumValueDescriptorProto.Builder{
                 builderResult.hasNumber = false
-                builderResult.number = Int32(0)
+                builderResult.number = nil
                 return self
             }
             public var options:Google.Protobuf.EnumValueOptions! {
@@ -4718,7 +4718,7 @@ public extension Google.Protobuf {
             return fieldCheck
         }
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var method:Array<Google.Protobuf.MethodDescriptorProto>  = Array<Google.Protobuf.MethodDescriptorProto>()
@@ -4908,7 +4908,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.ServiceDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             public var method:Array<Google.Protobuf.MethodDescriptorProto> {
@@ -5108,25 +5108,25 @@ public extension Google.Protobuf {
             return fieldCheck
         }
 
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         /// Input and output type names.  These are resolved in the same way as
         /// FieldDescriptorProto.type_name, but must refer to a message type.
-        public fileprivate(set) var inputType:String = ""
+        public fileprivate(set) var inputType:String! = nil
         public fileprivate(set) var hasInputType:Bool = false
 
-        public fileprivate(set) var outputType:String = ""
+        public fileprivate(set) var outputType:String! = nil
         public fileprivate(set) var hasOutputType:Bool = false
 
         public fileprivate(set) var options:Google.Protobuf.MethodOptions!
         public fileprivate(set) var hasOptions:Bool = false
         /// Identifies if client streams multiple client messages
-        public fileprivate(set) var clientStreaming:Bool = false
+        public fileprivate(set) var clientStreaming:Bool! = false
         public fileprivate(set) var hasClientStreaming:Bool = false
 
         /// Identifies if server streams multiple server messages
-        public fileprivate(set) var serverStreaming:Bool = false
+        public fileprivate(set) var serverStreaming:Bool! = false
         public fileprivate(set) var hasServerStreaming:Bool = false
 
         required public init() {
@@ -5339,7 +5339,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.MethodDescriptorProto.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// Input and output type names.  These are resolved in the same way as
@@ -5366,7 +5366,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearInputType() -> Google.Protobuf.MethodDescriptorProto.Builder{
                 builderResult.hasInputType = false
-                builderResult.inputType = ""
+                builderResult.inputType = nil
                 return self
             }
             public var outputType:String {
@@ -5391,7 +5391,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearOutputType() -> Google.Protobuf.MethodDescriptorProto.Builder{
                 builderResult.hasOutputType = false
-                builderResult.outputType = ""
+                builderResult.outputType = nil
                 return self
             }
             public var options:Google.Protobuf.MethodOptions! {
@@ -5706,7 +5706,7 @@ public extension Google.Protobuf {
         /// placed.  By default, the proto package is used, but this is often
         /// inappropriate because proto packages do not normally start with backwards
         /// domain names.
-        public fileprivate(set) var javaPackage:String = ""
+        public fileprivate(set) var javaPackage:String! = nil
         public fileprivate(set) var hasJavaPackage:Bool = false
 
         /// If set, all the classes from the .proto file are wrapped in a single
@@ -5714,7 +5714,7 @@ public extension Google.Protobuf {
         /// (equivalent to the old "--one_java_file" option) and Proto2 (where
         /// a .proto always translates to a single class, but you may want to
         /// explicitly choose the class name).
-        public fileprivate(set) var javaOuterClassname:String = ""
+        public fileprivate(set) var javaOuterClassname:String! = nil
         public fileprivate(set) var hasJavaOuterClassname:Bool = false
 
         /// If set true, then the Java code generator will generate a separate .java
@@ -5723,12 +5723,12 @@ public extension Google.Protobuf {
         /// named by java_outer_classname.  However, the outer class will still be
         /// generated to contain the file's getDescriptor() method as well as any
         /// top-level extensions defined in the file.
-        public fileprivate(set) var javaMultipleFiles:Bool = false
+        public fileprivate(set) var javaMultipleFiles:Bool! = false
         public fileprivate(set) var hasJavaMultipleFiles:Bool = false
 
         /// This option does nothing.
         @available(*, deprecated:0.1, message:"javaGenerateEqualsAndHash is marked as \"Deprecated\"")
-        public fileprivate(set) var javaGenerateEqualsAndHash:Bool = false
+        public fileprivate(set) var javaGenerateEqualsAndHash:Bool! = nil
         public fileprivate(set) var hasJavaGenerateEqualsAndHash:Bool = false
 
         /// If set true, then the Java2 code generator will generate code that
@@ -5737,7 +5737,7 @@ public extension Google.Protobuf {
         /// Message reflection will do the same.
         /// However, an extension field still accepts non-UTF-8 byte sequences.
         /// This option has no effect on when used with the lite runtime.
-        public fileprivate(set) var javaStringCheckUtf8:Bool = false
+        public fileprivate(set) var javaStringCheckUtf8:Bool! = false
         public fileprivate(set) var hasJavaStringCheckUtf8:Bool = false
 
         public fileprivate(set) var optimizeFor:Google.Protobuf.FileOptions.OptimizeMode = Google.Protobuf.FileOptions.OptimizeMode.speed
@@ -5747,7 +5747,7 @@ public extension Google.Protobuf {
         ///   - The basename of the package import path, if provided.
         ///   - Otherwise, the package statement in the .proto file, if present.
         ///   - Otherwise, the basename of the .proto file, without extension.
-        public fileprivate(set) var goPackage:String = ""
+        public fileprivate(set) var goPackage:String! = nil
         public fileprivate(set) var hasGoPackage:Bool = false
 
         /// Should generic services be generated in each language?  "Generic" services
@@ -5759,41 +5759,41 @@ public extension Google.Protobuf {
         /// that generate code specific to your particular RPC system.  Therefore,
         /// these default to false.  Old code which depends on generic services should
         /// explicitly set them to true.
-        public fileprivate(set) var ccGenericServices:Bool = false
+        public fileprivate(set) var ccGenericServices:Bool! = false
         public fileprivate(set) var hasCcGenericServices:Bool = false
 
-        public fileprivate(set) var javaGenericServices:Bool = false
+        public fileprivate(set) var javaGenericServices:Bool! = false
         public fileprivate(set) var hasJavaGenericServices:Bool = false
 
-        public fileprivate(set) var pyGenericServices:Bool = false
+        public fileprivate(set) var pyGenericServices:Bool! = false
         public fileprivate(set) var hasPyGenericServices:Bool = false
 
         /// Is this file deprecated?
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for everything in the file, or it will be completely ignored; in the very
         /// least, this is a formalization for deprecating files.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         /// Enables the use of arenas for the proto messages in this file. This applies
         /// only to generated classes for C++.
-        public fileprivate(set) var ccEnableArenas:Bool = false
+        public fileprivate(set) var ccEnableArenas:Bool! = false
         public fileprivate(set) var hasCcEnableArenas:Bool = false
 
         /// Sets the objective c class prefix which is prepended to all objective c
         /// generated classes from this .proto. There is no default.
-        public fileprivate(set) var objcClassPrefix:String = ""
+        public fileprivate(set) var objcClassPrefix:String! = nil
         public fileprivate(set) var hasObjcClassPrefix:Bool = false
 
         /// Namespace for generated classes; defaults to the package.
-        public fileprivate(set) var csharpNamespace:String = ""
+        public fileprivate(set) var csharpNamespace:String! = nil
         public fileprivate(set) var hasCsharpNamespace:Bool = false
 
         /// By default Swift generators will take the proto package and CamelCase it
         /// replacing '.' with underscore and use that to prefix the types/symbols
         /// defined. When this options is provided, they will use this value instead
         /// to prefix the types/symbols defined.
-        public fileprivate(set) var swiftPrefix:String = ""
+        public fileprivate(set) var swiftPrefix:String! = nil
         public fileprivate(set) var hasSwiftPrefix:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -6174,7 +6174,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearJavaPackage() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasJavaPackage = false
-                builderResult.javaPackage = ""
+                builderResult.javaPackage = nil
                 return self
             }
             /// If set, all the classes from the .proto file are wrapped in a single
@@ -6204,7 +6204,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearJavaOuterClassname() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasJavaOuterClassname = false
-                builderResult.javaOuterClassname = ""
+                builderResult.javaOuterClassname = nil
                 return self
             }
             /// If set true, then the Java code generator will generate a separate .java
@@ -6261,7 +6261,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearJavaGenerateEqualsAndHash() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasJavaGenerateEqualsAndHash = false
-                builderResult.javaGenerateEqualsAndHash = false
+                builderResult.javaGenerateEqualsAndHash = nil
                 return self
             }
             /// If set true, then the Java2 code generator will generate code that
@@ -6347,7 +6347,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearGoPackage() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasGoPackage = false
-                builderResult.goPackage = ""
+                builderResult.goPackage = nil
                 return self
             }
             /// Should generic services be generated in each language?  "Generic" services
@@ -6514,7 +6514,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearObjcClassPrefix() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasObjcClassPrefix = false
-                builderResult.objcClassPrefix = ""
+                builderResult.objcClassPrefix = nil
                 return self
             }
             /// Namespace for generated classes; defaults to the package.
@@ -6540,7 +6540,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearCsharpNamespace() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasCsharpNamespace = false
-                builderResult.csharpNamespace = ""
+                builderResult.csharpNamespace = nil
                 return self
             }
             /// By default Swift generators will take the proto package and CamelCase it
@@ -6569,7 +6569,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearSwiftPrefix() -> Google.Protobuf.FileOptions.Builder{
                 builderResult.hasSwiftPrefix = false
-                builderResult.swiftPrefix = ""
+                builderResult.swiftPrefix = nil
                 return self
             }
             /// The parser stores options it doesn't recognize here. See above.
@@ -6847,20 +6847,20 @@ public extension Google.Protobuf {
         /// be int32s, enums, or repeated messages.
         /// Because this is an option, the above two restrictions are not enforced by
         /// the protocol compiler.
-        public fileprivate(set) var messageSetWireFormat:Bool = false
+        public fileprivate(set) var messageSetWireFormat:Bool! = false
         public fileprivate(set) var hasMessageSetWireFormat:Bool = false
 
         /// Disables the generation of the standard "descriptor()" accessor, which can
         /// conflict with a field of the same name.  This is meant to make migration
         /// from proto1 easier; new code should avoid fields named "descriptor".
-        public fileprivate(set) var noStandardDescriptorAccessor:Bool = false
+        public fileprivate(set) var noStandardDescriptorAccessor:Bool! = false
         public fileprivate(set) var hasNoStandardDescriptorAccessor:Bool = false
 
         /// Is this message deprecated?
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for the message, or it will be completely ignored; in the very least,
         /// this is a formalization for deprecating messages.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         /// Whether the message is an automatically generated map entry type for the
@@ -6881,7 +6881,7 @@ public extension Google.Protobuf {
         /// NOTE: Do not set the option in .proto files. Always use the maps syntax
         /// instead. The option should only be implicitly set by the proto compiler
         /// parser.
-        public fileprivate(set) var mapEntry:Bool = false
+        public fileprivate(set) var mapEntry:Bool! = nil
         public fileprivate(set) var hasMapEntry:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -7208,7 +7208,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearMapEntry() -> Google.Protobuf.MessageOptions.Builder{
                 builderResult.hasMapEntry = false
-                builderResult.mapEntry = false
+                builderResult.mapEntry = nil
                 return self
             }
             /// The parser stores options it doesn't recognize here. See above.
@@ -7466,7 +7466,7 @@ public extension Google.Protobuf {
         /// writing the tag and type for each element, the entire array is encoded as
         /// a single length-delimited blob. In proto3, only explicit setting it to
         /// false will avoid using packed encoding.
-        public fileprivate(set) var packed:Bool = false
+        public fileprivate(set) var packed:Bool! = nil
         public fileprivate(set) var hasPacked:Bool = false
 
         public fileprivate(set) var jstype:Google.Protobuf.FieldOptions.Jstype = Google.Protobuf.FieldOptions.Jstype.jsNormal
@@ -7495,18 +7495,18 @@ public extension Google.Protobuf {
         /// implementation must either *always* check its required fields, or *never*
         /// check its required fields, regardless of whether or not the message has
         /// been parsed.
-        public fileprivate(set) var `lazy`:Bool = false
+        public fileprivate(set) var `lazy`:Bool! = false
         public fileprivate(set) var hasLazy:Bool = false
 
         /// Is this field deprecated?
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for accessors, or it will be completely ignored; in the very least, this
         /// is a formalization for deprecating fields.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         /// For Google-internal migration only. Do not use.
-        public fileprivate(set) var `weak`:Bool = false
+        public fileprivate(set) var `weak`:Bool! = false
         public fileprivate(set) var hasWeak:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -7782,7 +7782,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearPacked() -> Google.Protobuf.FieldOptions.Builder{
                 builderResult.hasPacked = false
-                builderResult.packed = false
+                builderResult.packed = nil
                 return self
             }
             /// The jstype option determines the JavaScript type used for values of the
@@ -8350,14 +8350,14 @@ public extension Google.Protobuf {
 
         /// Set this option to true to allow mapping different tag names to the same
         /// value.
-        public fileprivate(set) var allowAlias:Bool = false
+        public fileprivate(set) var allowAlias:Bool! = nil
         public fileprivate(set) var hasAllowAlias:Bool = false
 
         /// Is this enum deprecated?
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for the enum, or it will be completely ignored; in the very least, this
         /// is a formalization for deprecating enums.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -8541,7 +8541,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearAllowAlias() -> Google.Protobuf.EnumOptions.Builder{
                 builderResult.hasAllowAlias = false
-                builderResult.allowAlias = false
+                builderResult.allowAlias = nil
                 return self
             }
             /// Is this enum deprecated?
@@ -8712,7 +8712,7 @@ public extension Google.Protobuf {
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for the enum value, or it will be completely ignored; in the very least,
         /// this is a formalization for deprecating enum values.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -9016,7 +9016,7 @@ public extension Google.Protobuf {
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for the service, or it will be completely ignored; in the very least,
         /// this is a formalization for deprecating services.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
@@ -9370,7 +9370,7 @@ public extension Google.Protobuf {
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for the method, or it will be completely ignored; in the very least,
         /// this is a formalization for deprecating methods.
-        public fileprivate(set) var deprecated:Bool = false
+        public fileprivate(set) var deprecated:Bool! = false
         public fileprivate(set) var hasDeprecated:Bool = false
 
         public fileprivate(set) var idempotencyLevel:Google.Protobuf.MethodOptions.IdempotencyLevel = Google.Protobuf.MethodOptions.IdempotencyLevel.idempotencyUnknown
@@ -9758,10 +9758,10 @@ public extension Google.Protobuf {
                 return fieldCheck
             }
 
-            public fileprivate(set) var namePart:String = ""
+            public fileprivate(set) var namePart:String! = nil
             public fileprivate(set) var hasNamePart:Bool = false
 
-            public fileprivate(set) var isExtension:Bool = false
+            public fileprivate(set) var isExtension:Bool! = nil
             public fileprivate(set) var hasIsExtension:Bool = false
 
             required public init() {
@@ -9907,7 +9907,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearNamePart() -> Google.Protobuf.UninterpretedOption.NamePart.Builder{
                     builderResult.hasNamePart = false
-                    builderResult.namePart = ""
+                    builderResult.namePart = nil
                     return self
                 }
                 public var isExtension:Bool {
@@ -9932,7 +9932,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearIsExtension() -> Google.Protobuf.UninterpretedOption.NamePart.Builder{
                     builderResult.hasIsExtension = false
-                    builderResult.isExtension = false
+                    builderResult.isExtension = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -10024,22 +10024,22 @@ public extension Google.Protobuf {
         public fileprivate(set) var name:Array<Google.Protobuf.UninterpretedOption.NamePart>  = Array<Google.Protobuf.UninterpretedOption.NamePart>()
         /// The value of the uninterpreted option, in whatever type the tokenizer
         /// identified it as during parsing. Exactly one of these should be set.
-        public fileprivate(set) var identifierValue:String = ""
+        public fileprivate(set) var identifierValue:String! = nil
         public fileprivate(set) var hasIdentifierValue:Bool = false
 
-        public fileprivate(set) var positiveIntValue:UInt64 = UInt64(0)
+        public fileprivate(set) var positiveIntValue:UInt64! = nil
         public fileprivate(set) var hasPositiveIntValue:Bool = false
 
-        public fileprivate(set) var negativeIntValue:Int64 = Int64(0)
+        public fileprivate(set) var negativeIntValue:Int64! = nil
         public fileprivate(set) var hasNegativeIntValue:Bool = false
 
-        public fileprivate(set) var doubleValue:Double = Double(0)
+        public fileprivate(set) var doubleValue:Double! = nil
         public fileprivate(set) var hasDoubleValue:Bool = false
 
-        public fileprivate(set) var stringValue:Data = Data()
+        public fileprivate(set) var stringValue:Data! = nil
         public fileprivate(set) var hasStringValue:Bool = false
 
-        public fileprivate(set) var aggregateValue:String = ""
+        public fileprivate(set) var aggregateValue:String! = nil
         public fileprivate(set) var hasAggregateValue:Bool = false
 
         required public init() {
@@ -10293,7 +10293,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearIdentifierValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasIdentifierValue = false
-                builderResult.identifierValue = ""
+                builderResult.identifierValue = nil
                 return self
             }
             public var positiveIntValue:UInt64 {
@@ -10318,7 +10318,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearPositiveIntValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasPositiveIntValue = false
-                builderResult.positiveIntValue = UInt64(0)
+                builderResult.positiveIntValue = nil
                 return self
             }
             public var negativeIntValue:Int64 {
@@ -10343,7 +10343,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNegativeIntValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasNegativeIntValue = false
-                builderResult.negativeIntValue = Int64(0)
+                builderResult.negativeIntValue = nil
                 return self
             }
             public var doubleValue:Double {
@@ -10368,7 +10368,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearDoubleValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasDoubleValue = false
-                builderResult.doubleValue = Double(0)
+                builderResult.doubleValue = nil
                 return self
             }
             public var stringValue:Data {
@@ -10393,7 +10393,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearStringValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasStringValue = false
-                builderResult.stringValue = Data()
+                builderResult.stringValue = nil
                 return self
             }
             public var aggregateValue:String {
@@ -10418,7 +10418,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearAggregateValue() -> Google.Protobuf.UninterpretedOption.Builder{
                 builderResult.hasAggregateValue = false
-                builderResult.aggregateValue = ""
+                builderResult.aggregateValue = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -10664,10 +10664,10 @@ public extension Google.Protobuf {
             ///    * grault. */
             ///   optional int32 grault = 6;
             ///   // ignored detached comments.
-            public fileprivate(set) var leadingComments:String = ""
+            public fileprivate(set) var leadingComments:String! = nil
             public fileprivate(set) var hasLeadingComments:Bool = false
 
-            public fileprivate(set) var trailingComments:String = ""
+            public fileprivate(set) var trailingComments:String! = nil
             public fileprivate(set) var hasTrailingComments:Bool = false
 
             public fileprivate(set) var leadingDetachedComments:Array<String> = Array<String>()
@@ -10996,7 +10996,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearLeadingComments() -> Google.Protobuf.SourceCodeInfo.Location.Builder{
                     builderResult.hasLeadingComments = false
-                    builderResult.leadingComments = ""
+                    builderResult.leadingComments = nil
                     return self
                 }
                 public var trailingComments:String {
@@ -11021,7 +11021,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearTrailingComments() -> Google.Protobuf.SourceCodeInfo.Location.Builder{
                     builderResult.hasTrailingComments = false
-                    builderResult.trailingComments = ""
+                    builderResult.trailingComments = nil
                     return self
                 }
                 public var leadingDetachedComments:Array<String> {
@@ -11468,18 +11468,18 @@ public extension Google.Protobuf {
             public fileprivate(set) var path:Array<Int32> = Array<Int32>()
             private var pathMemoizedSerializedSize:Int32 = -1
             /// Identifies the filesystem path to the original source .proto.
-            public fileprivate(set) var sourceFile:String = ""
+            public fileprivate(set) var sourceFile:String! = nil
             public fileprivate(set) var hasSourceFile:Bool = false
 
             /// Identifies the starting offset in bytes in the generated code
             /// that relates to the identified object.
-            public fileprivate(set) var begin:Int32 = Int32(0)
+            public fileprivate(set) var begin:Int32! = nil
             public fileprivate(set) var hasBegin:Bool = false
 
             /// Identifies the ending offset in bytes in the generated code that
             /// relates to the identified offset. The end offset should be one past
             /// the last relevant byte (so the length of the text = end - begin).
-            public fileprivate(set) var end:Int32 = Int32(0)
+            public fileprivate(set) var end:Int32! = nil
             public fileprivate(set) var hasEnd:Bool = false
 
             required public init() {
@@ -11687,7 +11687,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearSourceFile() -> Google.Protobuf.GeneratedCodeInfo.Annotation.Builder{
                     builderResult.hasSourceFile = false
-                    builderResult.sourceFile = ""
+                    builderResult.sourceFile = nil
                     return self
                 }
                 /// Identifies the starting offset in bytes in the generated code
@@ -11714,7 +11714,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearBegin() -> Google.Protobuf.GeneratedCodeInfo.Annotation.Builder{
                     builderResult.hasBegin = false
-                    builderResult.begin = Int32(0)
+                    builderResult.begin = nil
                     return self
                 }
                 /// Identifies the ending offset in bytes in the generated code that
@@ -11742,7 +11742,7 @@ public extension Google.Protobuf {
                 @discardableResult
                 public func clearEnd() -> Google.Protobuf.GeneratedCodeInfo.Annotation.Builder{
                     builderResult.hasEnd = false
-                    builderResult.end = Int32(0)
+                    builderResult.end = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {

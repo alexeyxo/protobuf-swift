@@ -33,10 +33,10 @@ final public class UnitTestStruct : GeneratedMessage {
         return fieldCheck
     }
 
-    public fileprivate(set) var testStr:String = ""
+    public fileprivate(set) var testStr:String! = nil
     public fileprivate(set) var hasTestStr:Bool = false
 
-    public fileprivate(set) var testInt:Int32 = Int32(0)
+    public fileprivate(set) var testInt:Int32! = nil
     public fileprivate(set) var hasTestInt:Bool = false
 
     required public init() {
@@ -176,7 +176,7 @@ final public class UnitTestStruct : GeneratedMessage {
         @discardableResult
         public func clearTestStr() -> UnitTestStruct.Builder{
             builderResult.hasTestStr = false
-            builderResult.testStr = ""
+            builderResult.testStr = nil
             return self
         }
         public var testInt:Int32 {
@@ -201,7 +201,7 @@ final public class UnitTestStruct : GeneratedMessage {
         @discardableResult
         public func clearTestInt() -> UnitTestStruct.Builder{
             builderResult.hasTestInt = false
-            builderResult.testInt = Int32(0)
+            builderResult.testInt = nil
             return self
         }
         override public var internalGetResult:GeneratedMessage {

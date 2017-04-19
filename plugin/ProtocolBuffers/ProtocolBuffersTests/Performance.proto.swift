@@ -35,7 +35,7 @@ final internal class PBUser : GeneratedMessage {
 
     internal fileprivate(set) var group:PBGroup!
     internal fileprivate(set) var hasGroup:Bool = false
-    internal fileprivate(set) var groupName:String = ""
+    internal fileprivate(set) var groupName:String! = nil
     internal fileprivate(set) var hasGroupName:Bool = false
 
     required internal init() {
@@ -237,7 +237,7 @@ final internal class PBUser : GeneratedMessage {
         @discardableResult
         internal func clearGroupName() -> PBUser.Builder{
             builderResult.hasGroupName = false
-            builderResult.groupName = ""
+            builderResult.groupName = nil
             return self
         }
         override internal var internalGetResult:GeneratedMessage {
@@ -838,25 +838,25 @@ final internal class PBPerfomance : GeneratedMessage {
         return fieldCheck
     }
 
-    internal fileprivate(set) var ints:Int32 = Int32(0)
+    internal fileprivate(set) var ints:Int32! = nil
     internal fileprivate(set) var hasInts:Bool = false
 
-    internal fileprivate(set) var ints64:Int64 = Int64(0)
+    internal fileprivate(set) var ints64:Int64! = nil
     internal fileprivate(set) var hasInts64:Bool = false
 
-    internal fileprivate(set) var doubles:Double = Double(0)
+    internal fileprivate(set) var doubles:Double! = nil
     internal fileprivate(set) var hasDoubles:Bool = false
 
-    internal fileprivate(set) var floats:Float = Float(0)
+    internal fileprivate(set) var floats:Float! = nil
     internal fileprivate(set) var hasFloats:Bool = false
 
-    internal fileprivate(set) var str:String = ""
+    internal fileprivate(set) var str:String! = nil
     internal fileprivate(set) var hasStr:Bool = false
 
-    internal fileprivate(set) var bytes:Data = Data()
+    internal fileprivate(set) var bytes:Data! = nil
     internal fileprivate(set) var hasBytes:Bool = false
 
-    internal fileprivate(set) var description_:String = ""
+    internal fileprivate(set) var description_:String! = nil
     internal fileprivate(set) var hasDescription:Bool = false
 
     required internal init() {
@@ -1083,7 +1083,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearInts() -> PBPerfomance.Builder{
             builderResult.hasInts = false
-            builderResult.ints = Int32(0)
+            builderResult.ints = nil
             return self
         }
         internal var ints64:Int64 {
@@ -1108,7 +1108,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearInts64() -> PBPerfomance.Builder{
             builderResult.hasInts64 = false
-            builderResult.ints64 = Int64(0)
+            builderResult.ints64 = nil
             return self
         }
         internal var doubles:Double {
@@ -1133,7 +1133,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearDoubles() -> PBPerfomance.Builder{
             builderResult.hasDoubles = false
-            builderResult.doubles = Double(0)
+            builderResult.doubles = nil
             return self
         }
         internal var floats:Float {
@@ -1158,7 +1158,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearFloats() -> PBPerfomance.Builder{
             builderResult.hasFloats = false
-            builderResult.floats = Float(0)
+            builderResult.floats = nil
             return self
         }
         internal var str:String {
@@ -1183,7 +1183,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearStr() -> PBPerfomance.Builder{
             builderResult.hasStr = false
-            builderResult.str = ""
+            builderResult.str = nil
             return self
         }
         internal var bytes:Data {
@@ -1208,7 +1208,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearBytes() -> PBPerfomance.Builder{
             builderResult.hasBytes = false
-            builderResult.bytes = Data()
+            builderResult.bytes = nil
             return self
         }
         internal var description_:String {
@@ -1233,7 +1233,7 @@ final internal class PBPerfomance : GeneratedMessage {
         @discardableResult
         internal func clearDescription() -> PBPerfomance.Builder{
             builderResult.hasDescription = false
-            builderResult.description_ = ""
+            builderResult.description_ = nil
             return self
         }
         override internal var internalGetResult:GeneratedMessage {
@@ -1386,10 +1386,10 @@ final internal class PBProtoPoint : GeneratedMessage {
         return fieldCheck
     }
 
-    internal fileprivate(set) var latitude:Float = Float(0)
+    internal fileprivate(set) var latitude:Float! = nil
     internal fileprivate(set) var hasLatitude:Bool = false
 
-    internal fileprivate(set) var longitude:Float = Float(0)
+    internal fileprivate(set) var longitude:Float! = nil
     internal fileprivate(set) var hasLongitude:Bool = false
 
     required internal init() {
@@ -1535,7 +1535,7 @@ final internal class PBProtoPoint : GeneratedMessage {
         @discardableResult
         internal func clearLatitude() -> PBProtoPoint.Builder{
             builderResult.hasLatitude = false
-            builderResult.latitude = Float(0)
+            builderResult.latitude = nil
             return self
         }
         internal var longitude:Float {
@@ -1560,7 +1560,7 @@ final internal class PBProtoPoint : GeneratedMessage {
         @discardableResult
         internal func clearLongitude() -> PBProtoPoint.Builder{
             builderResult.hasLongitude = false
-            builderResult.longitude = Float(0)
+            builderResult.longitude = nil
             return self
         }
         override internal var internalGetResult:GeneratedMessage {
@@ -1702,7 +1702,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
         //Enum type declaration end 
 
-    internal fileprivate(set) var scoops:Int32 = Int32(0)
+    internal fileprivate(set) var scoops:Int32! = nil
     internal fileprivate(set) var hasScoops:Bool = false
 
     internal fileprivate(set) var flavor:PBIceCreamCone.PBFlavor = PBIceCreamCone.PBFlavor.chocolate
@@ -1844,7 +1844,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
         @discardableResult
         internal func clearScoops() -> PBIceCreamCone.Builder{
             builderResult.hasScoops = false
-            builderResult.scoops = Int32(0)
+            builderResult.scoops = nil
             return self
         }
             internal var flavor:PBIceCreamCone.PBFlavor {
@@ -1977,7 +1977,7 @@ final internal class PBFoo : GeneratedMessage {
     }
 
     /// some other fields.
-    internal fileprivate(set) var val:Int32 = Int32(0)
+    internal fileprivate(set) var val:Int32! = nil
     internal fileprivate(set) var hasVal:Bool = false
 
     required internal init() {
@@ -2103,7 +2103,7 @@ final internal class PBFoo : GeneratedMessage {
         @discardableResult
         internal func clearVal() -> PBFoo.Builder{
             builderResult.hasVal = false
-            builderResult.val = Int32(0)
+            builderResult.val = nil
             return self
         }
         override internal var internalGetResult:GeneratedMessage {

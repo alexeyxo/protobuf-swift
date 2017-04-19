@@ -34,7 +34,7 @@ public extension ProtobufUnittestImport {
             return fieldCheck
         }
 
-        public fileprivate(set) var e:Int32 = Int32(0)
+        public fileprivate(set) var e:Int32! = nil
         public fileprivate(set) var hasE:Bool = false
 
         required public init() {
@@ -159,7 +159,7 @@ public extension ProtobufUnittestImport {
             @discardableResult
             public func clearE() -> ProtobufUnittestImport.PublicImportMessageLite.Builder{
                 builderResult.hasE = false
-                builderResult.e = Int32(0)
+                builderResult.e = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

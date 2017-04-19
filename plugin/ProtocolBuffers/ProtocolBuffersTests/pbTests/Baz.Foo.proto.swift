@@ -34,7 +34,7 @@ public extension Baz {
             return fieldCheck
         }
 
-        public fileprivate(set) var hello:String = ""
+        public fileprivate(set) var hello:String! = nil
         public fileprivate(set) var hasHello:Bool = false
 
         required public init() {
@@ -159,7 +159,7 @@ public extension Baz {
             @discardableResult
             public func clearHello() -> Baz.Foo.Builder{
                 builderResult.hasHello = false
-                builderResult.hello = ""
+                builderResult.hello = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

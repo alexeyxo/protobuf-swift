@@ -254,6 +254,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     bool IsBootstrapFile(const FileDescriptor* file) {
         return file->name() == "google/protobuf/descriptor.proto";
     }
+    
+    bool IsDescriptorFile(const FileDescriptor* file) {
+        return file->name() == "google/protobuf/descriptor.proto" || file->name() == "google/protobuf/swift-descriptor.proto";
+    }
 
     bool IsBootstrapPackage(const string& package) {
         if (package == "Google" || package == "Protobuf" || package == "Google.Protobuf")
@@ -368,6 +372,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     {
         const string& delimiters = ".";
         string str = file->package();
+        return Split(str, delimiters, true);
+    }
+    
+    vector<string> Split(const string strs, const string delimiter, bool camelCase) {
+        const string& delimiters = delimiter;
+        string str = strs;
         
         string prefix = "";//FileClassPrefix(file);  //Class prefix
         
@@ -375,10 +385,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         string::size_type lastPos = str.find_first_not_of(delimiters, 0);
         string::size_type pos     = str.find_first_of(delimiters, lastPos);
-
-        while (string::npos != pos || string::npos != lastPos)
-        {
-            tokens.push_back(prefix + UnderscoresToCapitalizedCamelCase(str.substr(lastPos, pos - lastPos)));
+        
+        while (string::npos != pos || string::npos != lastPos) {
+            if (camelCase) {
+                tokens.push_back(prefix + UnderscoresToCapitalizedCamelCase(str.substr(lastPos, pos - lastPos)));
+            } else {
+                tokens.push_back(prefix + UnderscoresToCamelCase(str.substr(lastPos, pos - lastPos)));
+            }
             lastPos = str.find_first_not_of(delimiters, pos);
             pos = str.find_first_of(delimiters, lastPos);
         }
@@ -469,6 +482,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return SafeName(name + SafeName(className));
     }
     
+    
     string PackageName(const Descriptor* descriptor)
     {
         string name = "";
@@ -544,60 +558,87 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_SINT32:
             case FieldDescriptor::TYPE_FIXED32:
             case FieldDescriptor::TYPE_SFIXED32:
-                return SWIFTTYPE_INT;
+                return SWIFT_TYPE_INT;
 
             case FieldDescriptor::TYPE_INT64:
             case FieldDescriptor::TYPE_UINT64:
             case FieldDescriptor::TYPE_SINT64:
             case FieldDescriptor::TYPE_FIXED64:
             case FieldDescriptor::TYPE_SFIXED64:
-                return SWIFTTYPE_LONG;
+                return SWIFT_TYPE_LONG;
 
             case FieldDescriptor::TYPE_FLOAT:
-                return SWIFTTYPE_FLOAT;
+                return SWIFT_TYPE_FLOAT;
 
             case FieldDescriptor::TYPE_DOUBLE:
-                return SWIFTTYPE_DOUBLE;
+                return SWIFT_TYPE_DOUBLE;
 
             case FieldDescriptor::TYPE_BOOL:
-                return SWIFTTYPE_BOOLEAN;
+                return SWIFT_TYPE_BOOLEAN;
 
             case FieldDescriptor::TYPE_STRING:
-                return SWIFTTYPE_STRING;
+                return SWIFT_TYPE_STRING;
 
             case FieldDescriptor::TYPE_BYTES:
-                return SWIFTTYPE_DATA;
+                return SWIFT_TYPE_DATA;
 
             case FieldDescriptor::TYPE_ENUM:
-                return SWIFTTYPE_ENUM;
+                return SWIFT_TYPE_ENUM;
 
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: {
                 if (field->is_map()) {
-                    return SWIFTTYPE_MAP;
+                    return SWIFT_TYPE_MAP;
                 }
-                return SWIFTTYPE_MESSAGE;
+                return SWIFT_TYPE_MESSAGE;
             }
             
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
-        return SWIFTTYPE_INT;
+        return SWIFT_TYPE_INT;
     }
 
+    string PrimitiveTypeName(const FieldDescriptor* field) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int32" ;
+            case FieldDescriptor::TYPE_UINT32  : return "UInt32";
+            case FieldDescriptor::TYPE_SINT32  : return "Int32" ;
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt32";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int32" ;
+                
+            case FieldDescriptor::TYPE_INT64   : return "Int64" ;
+            case FieldDescriptor::TYPE_UINT64  : return "UInt64";
+            case FieldDescriptor::TYPE_SINT64  : return "Int64" ;
+            case FieldDescriptor::TYPE_FIXED64 : return "UInt64";
+            case FieldDescriptor::TYPE_SFIXED64: return "Int64" ;
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "Float" ;
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double";
+            case FieldDescriptor::TYPE_BOOL    : return "Bool"  ;
+            case FieldDescriptor::TYPE_STRING  : return "String";
+            case FieldDescriptor::TYPE_BYTES   : return "Data"  ;
+            default                            : return NULL;
+        }
+        
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+   
 
     const char* BoxedPrimitiveTypeName(SwiftType type) {
         switch (type) {
-            case SWIFTTYPE_INT    : return "Int32";
-            case SWIFTTYPE_LONG   : return "Int64";
-            case SWIFTTYPE_FLOAT  : return "Float";
-            case SWIFTTYPE_DOUBLE : return "Double";
-            case SWIFTTYPE_BOOLEAN: return "Bool";
-            case SWIFTTYPE_STRING : return "String";
-            case SWIFTTYPE_DATA   : return "Data";
-            case SWIFTTYPE_ENUM   : return "Int32";
-            case SWIFTTYPE_MESSAGE: return NULL;
-            case SWIFTTYPE_MAP: return NULL;
+            case SWIFT_TYPE_INT    : return "Int32";
+            case SWIFT_TYPE_LONG   : return "Int64";
+            case SWIFT_TYPE_FLOAT  : return "Float";
+            case SWIFT_TYPE_DOUBLE : return "Double";
+            case SWIFT_TYPE_BOOLEAN: return "Bool";
+            case SWIFT_TYPE_STRING : return "String";
+            case SWIFT_TYPE_DATA   : return "Data";
+            case SWIFT_TYPE_ENUM   : return "Int32";
+            case SWIFT_TYPE_MESSAGE: return NULL;
+            case SWIFT_TYPE_MAP: return NULL;
         }
 
         GOOGLE_LOG(FATAL) << "Can't get here.";
@@ -607,12 +648,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     bool IsPrimitiveType(SwiftType type) {
         switch (type) {
-            case SWIFTTYPE_INT    :
-            case SWIFTTYPE_LONG   :
-            case SWIFTTYPE_FLOAT  :
-            case SWIFTTYPE_DOUBLE :
-            case SWIFTTYPE_BOOLEAN:
-            case SWIFTTYPE_ENUM   :
+            case SWIFT_TYPE_INT    :
+            case SWIFT_TYPE_LONG   :
+            case SWIFT_TYPE_FLOAT  :
+            case SWIFT_TYPE_DOUBLE :
+            case SWIFT_TYPE_BOOLEAN:
+            case SWIFT_TYPE_ENUM   :
                 return true;
 
             default:
@@ -855,6 +896,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
     string DefaultValue(const FieldDescriptor* field) {
 
+        if (!field->has_default_value() && field->cpp_type() != FieldDescriptor::CPPTYPE_MESSAGE) {
+            return "nil";
+        }
+        
         switch (field->cpp_type()) {
             case FieldDescriptor::CPPTYPE_INT32:  return "Int32(" + SimpleItoa(field->default_value_int32()) +")";
             case FieldDescriptor::CPPTYPE_UINT32: return "UInt32(" + SimpleItoa(field->default_value_uint32()) + ")";

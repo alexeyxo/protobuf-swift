@@ -41,7 +41,7 @@ public extension Google.Protobuf {
         }
 
         /// The fully qualified message name.
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var fields:Array<Google.Protobuf.Field>  = Array<Google.Protobuf.Field>()
@@ -271,7 +271,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.`Type`.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// The list of fields.
@@ -742,24 +742,24 @@ public extension Google.Protobuf {
         public fileprivate(set) var cardinality:Google.Protobuf.Field.Cardinality = Google.Protobuf.Field.Cardinality.cardinalityUnknown
         public fileprivate(set) var hasCardinality:Bool = false
         /// The proto field number.
-        public fileprivate(set) var number:Int32 = Int32(0)
+        public fileprivate(set) var number:Int32! = nil
         public fileprivate(set) var hasNumber:Bool = false
 
         /// The field name.
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         /// The type URL (without the scheme) when the type is MESSAGE or ENUM,
         /// such as `type.googleapis.com/google.protobuf.Empty`.
-        public fileprivate(set) var typeUrl:String = ""
+        public fileprivate(set) var typeUrl:String! = nil
         public fileprivate(set) var hasTypeUrl:Bool = false
 
         /// Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
-        public fileprivate(set) var oneofIndex:Int32 = Int32(0)
+        public fileprivate(set) var oneofIndex:Int32! = nil
         public fileprivate(set) var hasOneofIndex:Bool = false
 
         /// Whether to use alternative packed wire representation.
-        public fileprivate(set) var packed:Bool = false
+        public fileprivate(set) var packed:Bool! = nil
         public fileprivate(set) var hasPacked:Bool = false
 
         public fileprivate(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
@@ -1052,7 +1052,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNumber() -> Google.Protobuf.Field.Builder{
                 builderResult.hasNumber = false
-                builderResult.number = Int32(0)
+                builderResult.number = nil
                 return self
             }
             /// The field name.
@@ -1078,7 +1078,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.Field.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// The type URL (without the scheme) when the type is MESSAGE or ENUM,
@@ -1105,7 +1105,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearTypeUrl() -> Google.Protobuf.Field.Builder{
                 builderResult.hasTypeUrl = false
-                builderResult.typeUrl = ""
+                builderResult.typeUrl = nil
                 return self
             }
             /// Index in Type.oneofs. Starts at 1. Zero means no oneof mapping.
@@ -1131,7 +1131,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearOneofIndex() -> Google.Protobuf.Field.Builder{
                 builderResult.hasOneofIndex = false
-                builderResult.oneofIndex = Int32(0)
+                builderResult.oneofIndex = nil
                 return self
             }
             /// Whether to use alternative packed wire representation.
@@ -1157,7 +1157,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearPacked() -> Google.Protobuf.Field.Builder{
                 builderResult.hasPacked = false
-                builderResult.packed = false
+                builderResult.packed = nil
                 return self
             }
             /// The proto options.
@@ -1356,7 +1356,7 @@ public extension Google.Protobuf {
         }
 
         /// Enum type name.
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var enumvalue:Array<Google.Protobuf.EnumValue>  = Array<Google.Protobuf.EnumValue>()
@@ -1557,7 +1557,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.Enum.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// Enum value definitions.
@@ -1793,11 +1793,11 @@ public extension Google.Protobuf {
         }
 
         /// Enum value name.
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         /// Enum value number.
-        public fileprivate(set) var number:Int32 = Int32(0)
+        public fileprivate(set) var number:Int32! = nil
         public fileprivate(set) var hasNumber:Bool = false
 
         public fileprivate(set) var options:Array<Google.Protobuf.Option>  = Array<Google.Protobuf.Option>()
@@ -1963,7 +1963,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.EnumValue.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// Enum value number.
@@ -1989,7 +1989,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearNumber() -> Google.Protobuf.EnumValue.Builder{
                 builderResult.hasNumber = false
-                builderResult.number = Int32(0)
+                builderResult.number = nil
                 return self
             }
             /// Proto options for the enum value.
@@ -2129,7 +2129,7 @@ public extension Google.Protobuf {
         }
 
         /// Proto option name.
-        public fileprivate(set) var name:String = ""
+        public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
 
         public fileprivate(set) var value:Google.Protobuf.`Any`!
@@ -2280,7 +2280,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearName() -> Google.Protobuf.Option.Builder{
                 builderResult.hasName = false
-                builderResult.name = ""
+                builderResult.name = nil
                 return self
             }
             /// Proto option value.

@@ -1715,19 +1715,19 @@ class  TestUtilities {
         
         if let val = message.getExtension(extensions:ProtobufUnittest.UnittestRoot.optionalGroupExtension()) as? ProtobufUnittest.OptionalGroupExtension
         {
-            XCTAssertTrue(val.a == 0, "")
+            XCTAssertTrue(val.a == nil, "")
         }
         if let val = message.getExtension(extensions:ProtobufUnittest.UnittestRoot.optionalNestedMessageExtension()) as? ProtobufUnittest.TestAllTypes.NestedMessage
         {
-            XCTAssertTrue(val.bb == 0, "")
+            XCTAssertTrue(val.bb == nil, "")
         }
         if let val = message.getExtension(extensions:ProtobufUnittest.UnittestRoot.optionalForeignMessageExtension()) as? ProtobufUnittest.ForeignMessage
         {
-            XCTAssertTrue(val.c == 0, "")
+            XCTAssertTrue(val.c == nil, "")
         }
         if let val = message.getExtension(extensions:ProtobufUnittest.UnittestRoot.optionalImportMessageExtension()) as? ProtobufUnittestImport.ImportMessage
         {
-            XCTAssertTrue(val.d == 0, "")
+            XCTAssertTrue(val.d == nil, "")
         }
         
         // Enums without defaults are set to the first value in the enum.

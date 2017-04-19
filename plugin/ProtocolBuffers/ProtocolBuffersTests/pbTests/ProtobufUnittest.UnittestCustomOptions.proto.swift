@@ -281,34 +281,34 @@ public extension ProtobufUnittest {
         public var extensionRegistry:ExtensionRegistry
 
         init() {
-            UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7736974, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootmessageOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7739036, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootfieldOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:Google.Protobuf.FieldOptions.self, fieldNumber: 7740936, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootfileOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7736974, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootmessageOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7739036, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootfieldOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:Google.Protobuf.FieldOptions.self, fieldNumber: 7740936, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootfieldOpt2Static = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.FieldOptions.self, fieldNumber: 7753913, defaultValue:Int32(42), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 7753576, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 1560678, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 7887650, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootenumOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 7753576, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootenumValueOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.EnumValueOptions.self, fieldNumber: 1560678, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootserviceOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:Google.Protobuf.ServiceOptions.self, fieldNumber: 7887650, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootmethodOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:Google.Protobuf.MethodOptions.self, fieldNumber: 7890860, defaultValue:ProtobufUnittest.MethodOpt1.methodopt1Val1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBool, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7706090, defaultValue:false, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705709, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705542, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootuint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7704880, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootuint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7702367, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootsint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7701568, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootsint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700863, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700307, defaultValue:UInt32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700194, defaultValue:UInt64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootsfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7698645, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootsfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7685475, defaultValue:Int64(0), messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootfloatOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFloat, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7675390, defaultValue:Float(0), messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeDouble, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673293, defaultValue:Double(0), messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673285, defaultValue:"", messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673238, defaultValue:Data(), messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootboolOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBool, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7706090, defaultValue:nil, messageOrGroupClass:Bool.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705709, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7705542, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootuint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7704880, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootuint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeUInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7702367, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootsint32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7701568, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootsint64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSInt64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700863, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700307, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFixed64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7700194, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootsfixed32OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed32, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7698645, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootsfixed64OptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeSFixed64, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7685475, defaultValue:nil, messageOrGroupClass:Int64.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootfloatOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeFloat, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7675390, defaultValue:nil, messageOrGroupClass:Float.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootdoubleOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeDouble, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673293, defaultValue:nil, messageOrGroupClass:Double.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootstringOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeString, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673285, defaultValue:nil, messageOrGroupClass:String.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootbytesOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeBytes, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673238, defaultValue:nil, messageOrGroupClass:Data.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootenumOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeEnum, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7673233, defaultValue:ProtobufUnittest.DummyMessageContainingEnum.TestEnumType.testOptionEnumType1.rawValue, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootmessageTypeOptStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7665967, defaultValue:ProtobufUnittest.DummyMessageInvalidAsOptionType(), messageOrGroupClass:ProtobufUnittest.DummyMessageInvalidAsOptionType.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootquuxStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663707, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootcorgeStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.ComplexOptionType1.self, fieldNumber: 7663442, defaultValue:ProtobufUnittest.ComplexOptionType3(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType3.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            UnittestCustomOptionsRootgraultStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType2.self, fieldNumber: 7650927, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            UnittestCustomOptionsRootgraultStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.ComplexOptionType2.self, fieldNumber: 7650927, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootgarplyStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.ComplexOptionType2.self, fieldNumber: 7649992, defaultValue:ProtobufUnittest.ComplexOptionType1(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootcomplexOpt1Static = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7646756, defaultValue:ProtobufUnittest.ComplexOptionType1(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType1.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             UnittestCustomOptionsRootcomplexOpt2Static = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7636949, defaultValue:ProtobufUnittest.ComplexOptionType2(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
@@ -324,7 +324,7 @@ public extension ProtobufUnittest {
             ComplexOptionType2ComplexOptionType4complexOpt4Static = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 7633546, defaultValue:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4(), messageOrGroupClass:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             AggregateMessageSetElementmessageSetExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.AggregateMessageSet.self, fieldNumber: 15447542, defaultValue:ProtobufUnittest.AggregateMessageSetElement(), messageOrGroupClass:ProtobufUnittest.AggregateMessageSetElement.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:true)
             AggregatenestedStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 15476903, defaultValue:ProtobufUnittest.Aggregate(), messageOrGroupClass:ProtobufUnittest.Aggregate.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
-            NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7912573, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            NestedOptionTypenestedExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 7912573, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             extensionRegistry = ExtensionRegistry()
             registerAllExtensions(registry: extensionRegistry)
             Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
@@ -621,7 +621,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration end 
 
-        public fileprivate(set) var field1:String = ""
+        public fileprivate(set) var field1:String! = nil
         public fileprivate(set) var hasField1:Bool = false
 
         required public init() {
@@ -746,7 +746,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearField1() -> ProtobufUnittest.TestMessageWithCustomOptions.Builder{
                 builderResult.hasField1 = false
-                builderResult.field1 = ""
+                builderResult.field1 = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -2662,13 +2662,13 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var foo:Int32 = Int32(0)
+        public fileprivate(set) var foo:Int32! = nil
         public fileprivate(set) var hasFoo:Bool = false
 
-        public fileprivate(set) var foo2:Int32 = Int32(0)
+        public fileprivate(set) var foo2:Int32! = nil
         public fileprivate(set) var hasFoo2:Bool = false
 
-        public fileprivate(set) var foo3:Int32 = Int32(0)
+        public fileprivate(set) var foo3:Int32! = nil
         public fileprivate(set) var hasFoo3:Bool = false
 
         public fileprivate(set) var foo4:Array<Int32> = Array<Int32>()
@@ -2857,7 +2857,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFoo() -> ProtobufUnittest.ComplexOptionType1.Builder{
                 builderResult.hasFoo = false
-                builderResult.foo = Int32(0)
+                builderResult.foo = nil
                 return self
             }
             public var foo2:Int32 {
@@ -2882,7 +2882,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFoo2() -> ProtobufUnittest.ComplexOptionType1.Builder{
                 builderResult.hasFoo2 = false
-                builderResult.foo2 = Int32(0)
+                builderResult.foo2 = nil
                 return self
             }
             public var foo3:Int32 {
@@ -2907,7 +2907,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFoo3() -> ProtobufUnittest.ComplexOptionType1.Builder{
                 builderResult.hasFoo3 = false
-                builderResult.foo3 = Int32(0)
+                builderResult.foo3 = nil
                 return self
             }
             public var foo4:Array<Int32> {
@@ -3073,7 +3073,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var waldo:Int32 = Int32(0)
+            public fileprivate(set) var waldo:Int32! = nil
             public fileprivate(set) var hasWaldo:Bool = false
 
             public class func complexOpt4() -> ConcreateExtensionField {
@@ -3201,7 +3201,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearWaldo() -> ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder{
                     builderResult.hasWaldo = false
-                    builderResult.waldo = Int32(0)
+                    builderResult.waldo = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -3285,7 +3285,7 @@ public extension ProtobufUnittest {
 
         public fileprivate(set) var bar:ProtobufUnittest.ComplexOptionType1!
         public fileprivate(set) var hasBar:Bool = false
-        public fileprivate(set) var baz:Int32 = Int32(0)
+        public fileprivate(set) var baz:Int32! = nil
         public fileprivate(set) var hasBaz:Bool = false
 
         public fileprivate(set) var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4!
@@ -3549,7 +3549,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearBaz() -> ProtobufUnittest.ComplexOptionType2.Builder{
                 builderResult.hasBaz = false
-                builderResult.baz = Int32(0)
+                builderResult.baz = nil
                 return self
             }
             public var fred:ProtobufUnittest.ComplexOptionType2.ComplexOptionType4! {
@@ -3778,7 +3778,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var plugh:Int32 = Int32(0)
+            public fileprivate(set) var plugh:Int32! = nil
             public fileprivate(set) var hasPlugh:Bool = false
 
             required public init() {
@@ -3903,7 +3903,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearPlugh() -> ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder{
                     builderResult.hasPlugh = false
-                    builderResult.plugh = Int32(0)
+                    builderResult.plugh = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {
@@ -3985,7 +3985,7 @@ public extension ProtobufUnittest {
 
         //Nested type declaration end
 
-        public fileprivate(set) var qux:Int32 = Int32(0)
+        public fileprivate(set) var qux:Int32! = nil
         public fileprivate(set) var hasQux:Bool = false
 
         public fileprivate(set) var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5!
@@ -4135,7 +4135,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearQux() -> ProtobufUnittest.ComplexOptionType3.Builder{
                 builderResult.hasQux = false
-                builderResult.qux = Int32(0)
+                builderResult.qux = nil
                 return self
             }
             public var complexOptionType5:ProtobufUnittest.ComplexOptionType3.ComplexOptionType5! {
@@ -4296,7 +4296,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var xyzzy:Int32 = Int32(0)
+        public fileprivate(set) var xyzzy:Int32! = nil
         public fileprivate(set) var hasXyzzy:Bool = false
 
         required public init() {
@@ -4421,7 +4421,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearXyzzy() -> ProtobufUnittest.ComplexOpt6.Builder{
                 builderResult.hasXyzzy = false
-                builderResult.xyzzy = Int32(0)
+                builderResult.xyzzy = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -4847,7 +4847,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var s:String = ""
+        public fileprivate(set) var s:String! = nil
         public fileprivate(set) var hasS:Bool = false
 
         public class func messageSetExtension() -> ConcreateExtensionField {
@@ -4975,7 +4975,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearS() -> ProtobufUnittest.AggregateMessageSetElement.Builder{
                 builderResult.hasS = false
-                builderResult.s = ""
+                builderResult.s = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -5070,10 +5070,10 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var i:Int32 = Int32(0)
+        public fileprivate(set) var i:Int32! = nil
         public fileprivate(set) var hasI:Bool = false
 
-        public fileprivate(set) var s:String = ""
+        public fileprivate(set) var s:String! = nil
         public fileprivate(set) var hasS:Bool = false
 
         public fileprivate(set) var sub:ProtobufUnittest.Aggregate!
@@ -5306,7 +5306,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearI() -> ProtobufUnittest.Aggregate.Builder{
                 builderResult.hasI = false
-                builderResult.i = Int32(0)
+                builderResult.i = nil
                 return self
             }
             public var s:String {
@@ -5331,7 +5331,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearS() -> ProtobufUnittest.Aggregate.Builder{
                 builderResult.hasS = false
-                builderResult.s = ""
+                builderResult.s = nil
                 return self
             }
             /// A nested object
@@ -5642,7 +5642,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var fieldname:Int32 = Int32(0)
+        public fileprivate(set) var fieldname:Int32! = nil
         public fileprivate(set) var hasFieldname:Bool = false
 
         required public init() {
@@ -5767,7 +5767,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearFieldname() -> ProtobufUnittest.AggregateMessage.Builder{
                 builderResult.hasFieldname = false
-                builderResult.fieldname = Int32(0)
+                builderResult.fieldname = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {
@@ -5875,7 +5875,7 @@ public extension ProtobufUnittest {
                 return fieldCheck
             }
 
-            public fileprivate(set) var nestedField:Int32 = Int32(0)
+            public fileprivate(set) var nestedField:Int32! = nil
             public fileprivate(set) var hasNestedField:Bool = false
 
             required public init() {
@@ -6000,7 +6000,7 @@ public extension ProtobufUnittest {
                 @discardableResult
                 public func clearNestedField() -> ProtobufUnittest.NestedOptionType.NestedMessage.Builder{
                     builderResult.hasNestedField = false
-                    builderResult.nestedField = Int32(0)
+                    builderResult.nestedField = nil
                     return self
                 }
                 override public var internalGetResult:GeneratedMessage {

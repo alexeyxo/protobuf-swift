@@ -31,6 +31,7 @@ namespace google {
             namespace swift {
                 void XCodeStandartIndent(io::Printer* printer);
                 void XCodeStandartOutdent(io::Printer* printer);
+                bool AllAscii(const string& text);
                 // Converts the field's name to camel-case, e.g. "foo_bar_baz" becomes
                 // "fooBarBaz" or "FooBarBaz", respectively.
                 string UnderscoresToCamelCase(const FieldDescriptor* field);
@@ -45,6 +46,7 @@ namespace google {
                 // capitalization is not modified, but non-alphanumeric characters are
                 // removed and the following legal character is capitalized.
                 string FilenameToCamelCase(const string& filename);
+                string FileClassPrefix(const FileDescriptor* file);
                 
                 // Strips ".proto" or ".protodevel" from the end of a filename.
                 string StripProto(const string& filename);
@@ -53,6 +55,7 @@ namespace google {
                 // to it.
                 
                 bool isPackedTypeProto3(const FieldDescriptor* field);
+                string ClassNameWorker(const Descriptor* descriptor);
                 
                 //Packages
                 vector<string> FullNameSplit(const FileDescriptor* file);
@@ -65,6 +68,7 @@ namespace google {
                 
                 bool IsBootstrapFile(const FileDescriptor* file);
                 bool IsBootstrapPackage(const string& package);
+                bool IsDescriptorFile(const FileDescriptor* file);
                 
                 bool isCompileForFramework(const FileDescriptor* file);
                 
@@ -91,6 +95,8 @@ namespace google {
                 // descriptor.
                 //
                 
+                string PrimitiveTypeName(const FieldDescriptor* field);
+                
                 // Enums class name and returned type
                 string ClassName(const EnumDescriptor* descriptor);
                 string ClassNameReturedType(const EnumDescriptor* descriptor);
@@ -103,15 +109,13 @@ namespace google {
                 string ClassNameReturedType(const Descriptor* descriptor);
                 //
                 
+                
                 //Maps
                 string GetCapitalizedType(const FieldDescriptor* field);
                 string MapKeyName(const FieldDescriptor* field);
                 string MapValueName(const FieldDescriptor* field);
                 //
                 
-//                string ClassNameEnum(const EnumDescriptor* descriptor);
-                
-//                string ClassName(const EnumDescriptor* descriptor);
                 string ClassName(const ServiceDescriptor* descriptor);
                 string ClassNameExtensions(const Descriptor* descriptor);
                 string ClassNameOneof(const OneofDescriptor* descriptor);
@@ -120,20 +124,19 @@ namespace google {
                 string SafeName(const string& name);
                 
                 enum SwiftType {
-                    SWIFTTYPE_INT,
-                    SWIFTTYPE_LONG,
-                    SWIFTTYPE_FLOAT,
-                    SWIFTTYPE_DOUBLE,
-                    SWIFTTYPE_BOOLEAN,
-                    SWIFTTYPE_STRING,
-                    SWIFTTYPE_DATA,
-                    SWIFTTYPE_ENUM,
-                    SWIFTTYPE_MESSAGE,
-                    SWIFTTYPE_MAP
+                    SWIFT_TYPE_INT,
+                    SWIFT_TYPE_LONG,
+                    SWIFT_TYPE_FLOAT,
+                    SWIFT_TYPE_DOUBLE,
+                    SWIFT_TYPE_BOOLEAN,
+                    SWIFT_TYPE_STRING,
+                    SWIFT_TYPE_DATA,
+                    SWIFT_TYPE_ENUM,
+                    SWIFT_TYPE_MESSAGE,
+                    SWIFT_TYPE_MAP
                 };
                 
                 SwiftType GetSwiftType(const FieldDescriptor *field);
-                
                 
                 const char* BoxedPrimitiveTypeName(SwiftType type);
                 
@@ -145,7 +148,7 @@ namespace google {
                 bool ReturnsReferenceType(const FieldDescriptor* field);
                 
                 string DefaultValue(const FieldDescriptor* field);
-
+                
                 string BuildCommentsString(const SourceLocation& location);
                 
                 //const char* GetArrayValueType(const FieldDescriptor* field);
@@ -169,6 +172,8 @@ namespace google {
                 inline bool HasDescriptorMethods(const FileDescriptor *file) {
                     return file->options().optimize_for() != FileOptions::LITE_RUNTIME;
                 }
+                
+                vector<string> Split(const string strs, const string delimiter, bool camelCase);
                 
                 //JSON
                 string JSONCastingValue(const FieldDescriptor* field);

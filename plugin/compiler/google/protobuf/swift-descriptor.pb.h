@@ -105,6 +105,9 @@ extern SourceCodeInfo_LocationDefaultTypeInternal _SourceCodeInfo_Location_defau
 class SwiftEnumOptions;
 class SwiftEnumOptionsDefaultTypeInternal;
 extern SwiftEnumOptionsDefaultTypeInternal _SwiftEnumOptions_default_instance_;
+class SwiftFieldOptions;
+class SwiftFieldOptionsDefaultTypeInternal;
+extern SwiftFieldOptionsDefaultTypeInternal _SwiftFieldOptions_default_instance_;
 class SwiftFileOptions;
 class SwiftFileOptionsDefaultTypeInternal;
 extern SwiftFileOptionsDefaultTypeInternal _SwiftFileOptions_default_instance_;
@@ -152,6 +155,25 @@ inline bool AccessControl_Parse(
     const ::std::string& name, AccessControl* value) {
   return ::google::protobuf::internal::ParseNamedEnum<AccessControl>(
     AccessControl_descriptor(), name, value);
+}
+enum RealmOverrideRepeated {
+  OVERRIDE = 0,
+  APPEND = 1
+};
+bool RealmOverrideRepeated_IsValid(int value);
+const RealmOverrideRepeated RealmOverrideRepeated_MIN = OVERRIDE;
+const RealmOverrideRepeated RealmOverrideRepeated_MAX = APPEND;
+const int RealmOverrideRepeated_ARRAYSIZE = RealmOverrideRepeated_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* RealmOverrideRepeated_descriptor();
+inline const ::std::string& RealmOverrideRepeated_Name(RealmOverrideRepeated value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    RealmOverrideRepeated_descriptor(), value);
+}
+inline bool RealmOverrideRepeated_Parse(
+    const ::std::string& name, RealmOverrideRepeated* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<RealmOverrideRepeated>(
+    RealmOverrideRepeated_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -252,6 +274,20 @@ class SwiftFileOptions : public ::google::protobuf::Message /* @@protoc_insertio
   bool generate_struct() const;
   void set_generate_struct(bool value);
 
+  // optional bool generate_realm_objects = 5 [default = false];
+  bool has_generate_realm_objects() const;
+  void clear_generate_realm_objects();
+  static const int kGenerateRealmObjectsFieldNumber = 5;
+  bool generate_realm_objects() const;
+  void set_generate_realm_objects(bool value);
+
+  // optional bool generate_react = 6 [default = false];
+  bool has_generate_react() const;
+  void clear_generate_react();
+  static const int kGenerateReactFieldNumber = 6;
+  bool generate_react() const;
+  void set_generate_react(bool value);
+
   // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
   bool has_entities_access_control() const;
   void clear_entities_access_control();
@@ -276,12 +312,18 @@ class SwiftFileOptions : public ::google::protobuf::Message /* @@protoc_insertio
   void clear_has_compile_for_framework();
   void set_has_generate_struct();
   void clear_has_generate_struct();
+  void set_has_generate_realm_objects();
+  void clear_has_generate_realm_objects();
+  void set_has_generate_react();
+  void clear_has_generate_react();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::internal::ArenaStringPtr class_prefix_;
   bool generate_struct_;
+  bool generate_realm_objects_;
+  bool generate_react_;
   int entities_access_control_;
   bool compile_for_framework_;
   friend struct  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::TableStruct;
@@ -370,15 +412,150 @@ class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_inser
   bool generate_error_type() const;
   void set_generate_error_type(bool value);
 
+  // optional bool generate_realm_object = 2 [default = false];
+  bool has_generate_realm_object() const;
+  void clear_generate_realm_object();
+  static const int kGenerateRealmObjectFieldNumber = 2;
+  bool generate_realm_object() const;
+  void set_generate_realm_object(bool value);
+
+  // optional bool generate_react = 5 [default = false];
+  bool has_generate_react() const;
+  void clear_generate_react();
+  static const int kGenerateReactFieldNumber = 5;
+  bool generate_react() const;
+  void set_generate_react(bool value);
+
   // @@protoc_insertion_point(class_scope:google.protobuf.SwiftMessageOptions)
  private:
   void set_has_generate_error_type();
   void clear_has_generate_error_type();
+  void set_has_generate_realm_object();
+  void clear_has_generate_realm_object();
+  void set_has_generate_react();
+  void clear_has_generate_react();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   bool generate_error_type_;
+  bool generate_realm_object_;
+  bool generate_react_;
+  friend struct  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class SwiftFieldOptions : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.SwiftFieldOptions) */ {
+ public:
+  SwiftFieldOptions();
+  virtual ~SwiftFieldOptions();
+
+  SwiftFieldOptions(const SwiftFieldOptions& from);
+
+  inline SwiftFieldOptions& operator=(const SwiftFieldOptions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SwiftFieldOptions& default_instance();
+
+  static inline const SwiftFieldOptions* internal_default_instance() {
+    return reinterpret_cast<const SwiftFieldOptions*>(
+               &_SwiftFieldOptions_default_instance_);
+  }
+
+  void Swap(SwiftFieldOptions* other);
+
+  // implements Message ----------------------------------------------
+
+  inline SwiftFieldOptions* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SwiftFieldOptions* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SwiftFieldOptions& from);
+  void MergeFrom(const SwiftFieldOptions& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output)
+      const PROTOBUF_FINAL {
+    return InternalSerializeWithCachedSizesToArray(
+        ::google::protobuf::io::CodedOutputStream::IsDefaultSerializationDeterministic(), output);
+  }
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SwiftFieldOptions* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool realm_indexed_propertie = 1 [default = false];
+  bool has_realm_indexed_propertie() const;
+  void clear_realm_indexed_propertie();
+  static const int kRealmIndexedPropertieFieldNumber = 1;
+  bool realm_indexed_propertie() const;
+  void set_realm_indexed_propertie(bool value);
+
+  // optional bool realm_primary_key = 2 [default = false];
+  bool has_realm_primary_key() const;
+  void clear_realm_primary_key();
+  static const int kRealmPrimaryKeyFieldNumber = 2;
+  bool realm_primary_key() const;
+  void set_realm_primary_key(bool value);
+
+  // optional .google.protobuf.RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
+  bool has_realm_override_propertie() const;
+  void clear_realm_override_propertie();
+  static const int kRealmOverridePropertieFieldNumber = 3;
+  ::google::protobuf::RealmOverrideRepeated realm_override_propertie() const;
+  void set_realm_override_propertie(::google::protobuf::RealmOverrideRepeated value);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.SwiftFieldOptions)
+ private:
+  void set_has_realm_indexed_propertie();
+  void clear_has_realm_indexed_propertie();
+  void set_has_realm_primary_key();
+  void clear_has_realm_primary_key();
+  void set_has_realm_override_propertie();
+  void clear_has_realm_override_propertie();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  bool realm_indexed_propertie_;
+  bool realm_primary_key_;
+  int realm_override_propertie_;
   friend struct  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::TableStruct;
 };
 // -------------------------------------------------------------------
@@ -465,15 +642,25 @@ class SwiftEnumOptions : public ::google::protobuf::Message /* @@protoc_insertio
   bool generate_error_type() const;
   void set_generate_error_type(bool value);
 
+  // optional bool generate_react = 2 [default = false];
+  bool has_generate_react() const;
+  void clear_generate_react();
+  static const int kGenerateReactFieldNumber = 2;
+  bool generate_react() const;
+  void set_generate_react(bool value);
+
   // @@protoc_insertion_point(class_scope:google.protobuf.SwiftEnumOptions)
  private:
   void set_has_generate_error_type();
   void clear_has_generate_error_type();
+  void set_has_generate_react();
+  void clear_has_generate_react();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   bool generate_error_type_;
+  bool generate_react_;
   friend struct  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::TableStruct;
 };
 // ===================================================================
@@ -482,6 +669,10 @@ static const int kSwiftFileOptionsFieldNumber = 5092014;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options;
+static const int kSwiftFieldOptionsFieldNumber = 5092015;
+extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
+    ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFieldOptions >, 11, false >
+  swift_field_options;
 static const int kSwiftMessageOptionsFieldNumber = 5092016;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftMessageOptions >, 11, false >
@@ -560,13 +751,13 @@ inline void SwiftFileOptions::set_allocated_class_prefix(::std::string* class_pr
 
 // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
 inline bool SwiftFileOptions::has_entities_access_control() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void SwiftFileOptions::set_has_entities_access_control() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void SwiftFileOptions::clear_has_entities_access_control() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void SwiftFileOptions::clear_entities_access_control() {
   entities_access_control_ = 1;
@@ -585,13 +776,13 @@ inline void SwiftFileOptions::set_entities_access_control(::google::protobuf::Ac
 
 // optional bool compile_for_framework = 3 [default = true];
 inline bool SwiftFileOptions::has_compile_for_framework() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void SwiftFileOptions::set_has_compile_for_framework() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void SwiftFileOptions::clear_has_compile_for_framework() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void SwiftFileOptions::clear_compile_for_framework() {
   compile_for_framework_ = true;
@@ -631,6 +822,54 @@ inline void SwiftFileOptions::set_generate_struct(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_struct)
 }
 
+// optional bool generate_realm_objects = 5 [default = false];
+inline bool SwiftFileOptions::has_generate_realm_objects() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SwiftFileOptions::set_has_generate_realm_objects() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SwiftFileOptions::clear_has_generate_realm_objects() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SwiftFileOptions::clear_generate_realm_objects() {
+  generate_realm_objects_ = false;
+  clear_has_generate_realm_objects();
+}
+inline bool SwiftFileOptions::generate_realm_objects() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFileOptions.generate_realm_objects)
+  return generate_realm_objects_;
+}
+inline void SwiftFileOptions::set_generate_realm_objects(bool value) {
+  set_has_generate_realm_objects();
+  generate_realm_objects_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_realm_objects)
+}
+
+// optional bool generate_react = 6 [default = false];
+inline bool SwiftFileOptions::has_generate_react() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SwiftFileOptions::set_has_generate_react() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SwiftFileOptions::clear_has_generate_react() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SwiftFileOptions::clear_generate_react() {
+  generate_react_ = false;
+  clear_has_generate_react();
+}
+inline bool SwiftFileOptions::generate_react() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFileOptions.generate_react)
+  return generate_react_;
+}
+inline void SwiftFileOptions::set_generate_react(bool value) {
+  set_has_generate_react();
+  generate_react_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFileOptions.generate_react)
+}
+
 // -------------------------------------------------------------------
 
 // SwiftMessageOptions
@@ -657,6 +896,131 @@ inline void SwiftMessageOptions::set_generate_error_type(bool value) {
   set_has_generate_error_type();
   generate_error_type_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_error_type)
+}
+
+// optional bool generate_realm_object = 2 [default = false];
+inline bool SwiftMessageOptions::has_generate_realm_object() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SwiftMessageOptions::set_has_generate_realm_object() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SwiftMessageOptions::clear_has_generate_realm_object() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SwiftMessageOptions::clear_generate_realm_object() {
+  generate_realm_object_ = false;
+  clear_has_generate_realm_object();
+}
+inline bool SwiftMessageOptions::generate_realm_object() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.generate_realm_object)
+  return generate_realm_object_;
+}
+inline void SwiftMessageOptions::set_generate_realm_object(bool value) {
+  set_has_generate_realm_object();
+  generate_realm_object_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_realm_object)
+}
+
+// optional bool generate_react = 5 [default = false];
+inline bool SwiftMessageOptions::has_generate_react() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SwiftMessageOptions::set_has_generate_react() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SwiftMessageOptions::clear_has_generate_react() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SwiftMessageOptions::clear_generate_react() {
+  generate_react_ = false;
+  clear_has_generate_react();
+}
+inline bool SwiftMessageOptions::generate_react() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.generate_react)
+  return generate_react_;
+}
+inline void SwiftMessageOptions::set_generate_react(bool value) {
+  set_has_generate_react();
+  generate_react_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_react)
+}
+
+// -------------------------------------------------------------------
+
+// SwiftFieldOptions
+
+// optional bool realm_indexed_propertie = 1 [default = false];
+inline bool SwiftFieldOptions::has_realm_indexed_propertie() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SwiftFieldOptions::set_has_realm_indexed_propertie() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SwiftFieldOptions::clear_has_realm_indexed_propertie() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SwiftFieldOptions::clear_realm_indexed_propertie() {
+  realm_indexed_propertie_ = false;
+  clear_has_realm_indexed_propertie();
+}
+inline bool SwiftFieldOptions::realm_indexed_propertie() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFieldOptions.realm_indexed_propertie)
+  return realm_indexed_propertie_;
+}
+inline void SwiftFieldOptions::set_realm_indexed_propertie(bool value) {
+  set_has_realm_indexed_propertie();
+  realm_indexed_propertie_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFieldOptions.realm_indexed_propertie)
+}
+
+// optional bool realm_primary_key = 2 [default = false];
+inline bool SwiftFieldOptions::has_realm_primary_key() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SwiftFieldOptions::set_has_realm_primary_key() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SwiftFieldOptions::clear_has_realm_primary_key() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SwiftFieldOptions::clear_realm_primary_key() {
+  realm_primary_key_ = false;
+  clear_has_realm_primary_key();
+}
+inline bool SwiftFieldOptions::realm_primary_key() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFieldOptions.realm_primary_key)
+  return realm_primary_key_;
+}
+inline void SwiftFieldOptions::set_realm_primary_key(bool value) {
+  set_has_realm_primary_key();
+  realm_primary_key_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFieldOptions.realm_primary_key)
+}
+
+// optional .google.protobuf.RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
+inline bool SwiftFieldOptions::has_realm_override_propertie() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SwiftFieldOptions::set_has_realm_override_propertie() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SwiftFieldOptions::clear_has_realm_override_propertie() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SwiftFieldOptions::clear_realm_override_propertie() {
+  realm_override_propertie_ = 0;
+  clear_has_realm_override_propertie();
+}
+inline ::google::protobuf::RealmOverrideRepeated SwiftFieldOptions::realm_override_propertie() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftFieldOptions.realm_override_propertie)
+  return static_cast< ::google::protobuf::RealmOverrideRepeated >(realm_override_propertie_);
+}
+inline void SwiftFieldOptions::set_realm_override_propertie(::google::protobuf::RealmOverrideRepeated value) {
+  assert(::google::protobuf::RealmOverrideRepeated_IsValid(value));
+  set_has_realm_override_propertie();
+  realm_override_propertie_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftFieldOptions.realm_override_propertie)
 }
 
 // -------------------------------------------------------------------
@@ -687,7 +1051,33 @@ inline void SwiftEnumOptions::set_generate_error_type(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftEnumOptions.generate_error_type)
 }
 
+// optional bool generate_react = 2 [default = false];
+inline bool SwiftEnumOptions::has_generate_react() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SwiftEnumOptions::set_has_generate_react() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SwiftEnumOptions::clear_has_generate_react() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SwiftEnumOptions::clear_generate_react() {
+  generate_react_ = false;
+  clear_has_generate_react();
+}
+inline bool SwiftEnumOptions::generate_react() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftEnumOptions.generate_react)
+  return generate_react_;
+}
+inline void SwiftEnumOptions::set_generate_react(bool value) {
+  set_has_generate_react();
+  generate_react_ = value;
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftEnumOptions.generate_react)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -707,6 +1097,11 @@ template <> struct is_proto_enum< ::google::protobuf::AccessControl> : ::google:
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::google::protobuf::AccessControl>() {
   return ::google::protobuf::AccessControl_descriptor();
+}
+template <> struct is_proto_enum< ::google::protobuf::RealmOverrideRepeated> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::google::protobuf::RealmOverrideRepeated>() {
+  return ::google::protobuf::RealmOverrideRepeated_descriptor();
 }
 
 }  // namespace protobuf

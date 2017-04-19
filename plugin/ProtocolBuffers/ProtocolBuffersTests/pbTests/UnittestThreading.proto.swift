@@ -31,7 +31,7 @@ final public class ThreadingMessages : GeneratedMessage {
         return fieldCheck
     }
 
-    public fileprivate(set) var testString:String = ""
+    public fileprivate(set) var testString:String! = nil
     public fileprivate(set) var hasTestString:Bool = false
 
     required public init() {
@@ -156,7 +156,7 @@ final public class ThreadingMessages : GeneratedMessage {
         @discardableResult
         public func clearTestString() -> ThreadingMessages.Builder{
             builderResult.hasTestString = false
-            builderResult.testString = ""
+            builderResult.testString = nil
             return self
         }
         override public var internalGetResult:GeneratedMessage {

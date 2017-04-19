@@ -27,7 +27,7 @@ public extension ProtobufUnittest {
         public var extensionRegistry:ExtensionRegistry
 
         init() {
-            TestOptimizedForSizetestExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1234, defaultValue:Int32(0), messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            TestOptimizedForSizetestExtensionStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeInt32, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1234, defaultValue:nil, messageOrGroupClass:Int32.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             TestOptimizedForSizetestExtension2Static = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:ProtobufUnittest.TestOptimizedForSize.self, fieldNumber: 1235, defaultValue:ProtobufUnittest.TestRequiredOptimizedForSize(), messageOrGroupClass:ProtobufUnittest.TestRequiredOptimizedForSize.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             extensionRegistry = ExtensionRegistry()
             registerAllExtensions(registry: extensionRegistry)
@@ -92,7 +92,7 @@ public extension ProtobufUnittest {
             let copyObjectFoo = storageFoo
             return copyObjectFoo
         }
-        public fileprivate(set) var i:Int32 = Int32(0)
+        public fileprivate(set) var i:Int32! = nil
         public fileprivate(set) var hasI:Bool = false
 
         public fileprivate(set) var msg:ProtobufUnittest.ForeignMessage!
@@ -321,7 +321,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearI() -> ProtobufUnittest.TestOptimizedForSize.Builder{
                 builderResult.hasI = false
-                builderResult.i = Int32(0)
+                builderResult.i = nil
                 return self
             }
             public var msg:ProtobufUnittest.ForeignMessage! {
@@ -400,7 +400,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearIntegerField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
                 builderResult.hasIntegerField = false
-                builderResult.integerField = Int32(0)
+                builderResult.integerField = nil
                 return self
             }
             public var stringField:String {
@@ -425,7 +425,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearStringField() -> ProtobufUnittest.TestOptimizedForSize.Builder{
                 builderResult.hasStringField = false
-                builderResult.stringField = ""
+                builderResult.stringField = nil
                 return self
             }
             override public var internalGetResult:ExtendableMessage {
@@ -553,7 +553,7 @@ public extension ProtobufUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var x:Int32 = Int32(0)
+        public fileprivate(set) var x:Int32! = nil
         public fileprivate(set) var hasX:Bool = false
 
         required public init() {
@@ -681,7 +681,7 @@ public extension ProtobufUnittest {
             @discardableResult
             public func clearX() -> ProtobufUnittest.TestRequiredOptimizedForSize.Builder{
                 builderResult.hasX = false
-                builderResult.x = Int32(0)
+                builderResult.x = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

@@ -35,7 +35,7 @@ public extension Proto2ArenaUnittest {
             return fieldCheck
         }
 
-        public fileprivate(set) var d:Int32 = Int32(0)
+        public fileprivate(set) var d:Int32! = nil
         public fileprivate(set) var hasD:Bool = false
 
         required public init() {
@@ -160,7 +160,7 @@ public extension Proto2ArenaUnittest {
             @discardableResult
             public func clearD() -> Proto2ArenaUnittest.NestedMessage.Builder{
                 builderResult.hasD = false
-                builderResult.d = Int32(0)
+                builderResult.d = nil
                 return self
             }
             override public var internalGetResult:GeneratedMessage {

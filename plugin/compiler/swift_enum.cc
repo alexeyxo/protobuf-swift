@@ -32,8 +32,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     : descriptor_(descriptor) {
         for (int i = 0; i < descriptor_->value_count(); i++) {
             const EnumValueDescriptor* value = descriptor_->value(i);
-            const EnumValueDescriptor* canonical_value =
-            descriptor_->FindValueByNumber(value->number());
+            const EnumValueDescriptor* canonical_value = descriptor_->FindValueByNumber(value->number());
             
             if (value == canonical_value) {
                 canonical_values_.push_back(value);

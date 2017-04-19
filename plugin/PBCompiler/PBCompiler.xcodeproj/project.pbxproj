@@ -22,6 +22,17 @@
 		3F6112801D85AB9500DE3C9D /* swift_message_field.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F6112691D85AB9500DE3C9D /* swift_message_field.cc */; };
 		3F6112811D85AB9500DE3C9D /* swift_oneof.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F61126B1D85AB9500DE3C9D /* swift_oneof.cc */; };
 		3F6112821D85AB9500DE3C9D /* swift_primitive_field.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F61126D1D85AB9500DE3C9D /* swift_primitive_field.cc */; };
+		3F70C87A1E9CEF7500C57091 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C86F1E9CEF7500C57091 /* main.cc */; };
+		3F70C87C1E9CEF7500C57091 /* swift_file.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8711E9CEF7500C57091 /* swift_file.cc */; };
+		3F70C87E1E9CEF7500C57091 /* swift_generator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8741E9CEF7500C57091 /* swift_generator.cc */; };
+		3F70C8801E9CEF7500C57091 /* swift_react.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8781E9CEF7500C57091 /* swift_react.cc */; };
+		3F70C8831E9CF3ED00C57091 /* swift_helpers_realm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8821E9CF3ED00C57091 /* swift_helpers_realm.cc */; };
+		3F70C8871E9CF44A00C57091 /* swift_helpers_react.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8851E9CF44A00C57091 /* swift_helpers_react.cc */; };
+		3F70C88A1E9E783B00C57091 /* swift_react_enums.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F70C8881E9E783B00C57091 /* swift_react_enums.cc */; };
+		3F99B78C1E953CB20030784C /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7661E953CB20030784C /* main.cc */; };
+		3F99B7951E953CB20030784C /* swift_file.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7741E953CB20030784C /* swift_file.cc */; };
+		3F99B7971E953CB20030784C /* swift_generator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7771E953CB20030784C /* swift_generator.cc */; };
+		3F99B79C1E953CB20030784C /* swift_realm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7801E953CB20030784C /* swift_realm.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -119,6 +130,26 @@
 		3F61126E1D85AB9500DE3C9D /* swift_primitive_field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_primitive_field.h; sourceTree = "<group>"; };
 		3F6112711D85AB9500DE3C9D /* foo.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = foo.proto; sourceTree = "<group>"; };
 		3F6112731D85AB9500DE3C9D /* foo.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = foo.proto; sourceTree = "<group>"; };
+		3F70C86F1E9CEF7500C57091 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
+		3F70C8711E9CEF7500C57091 /* swift_file.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_file.cc; sourceTree = "<group>"; };
+		3F70C8721E9CEF7500C57091 /* swift_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_file.h; sourceTree = "<group>"; };
+		3F70C8741E9CEF7500C57091 /* swift_generator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_generator.cc; sourceTree = "<group>"; };
+		3F70C8751E9CEF7500C57091 /* swift_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_generator.h; sourceTree = "<group>"; };
+		3F70C8771E9CEF7500C57091 /* swift_react.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_react.h; sourceTree = "<group>"; };
+		3F70C8781E9CEF7500C57091 /* swift_react.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_react.cc; sourceTree = "<group>"; };
+		3F70C8821E9CF3ED00C57091 /* swift_helpers_realm.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_helpers_realm.cc; sourceTree = "<group>"; };
+		3F70C8841E9CF43F00C57091 /* swift_helpers_realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_helpers_realm.h; sourceTree = "<group>"; };
+		3F70C8851E9CF44A00C57091 /* swift_helpers_react.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_helpers_react.cc; sourceTree = "<group>"; };
+		3F70C8861E9CF44A00C57091 /* swift_helpers_react.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_helpers_react.h; sourceTree = "<group>"; };
+		3F70C8881E9E783B00C57091 /* swift_react_enums.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_react_enums.cc; sourceTree = "<group>"; };
+		3F70C8891E9E783B00C57091 /* swift_react_enums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_react_enums.h; sourceTree = "<group>"; };
+		3F99B7661E953CB20030784C /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
+		3F99B7741E953CB20030784C /* swift_file.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_file.cc; sourceTree = "<group>"; };
+		3F99B7751E953CB20030784C /* swift_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_file.h; sourceTree = "<group>"; };
+		3F99B7771E953CB20030784C /* swift_generator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_generator.cc; sourceTree = "<group>"; };
+		3F99B7781E953CB20030784C /* swift_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_generator.h; sourceTree = "<group>"; };
+		3F99B7801E953CB20030784C /* swift_realm.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_realm.cc; sourceTree = "<group>"; };
+		3F99B7811E953CB20030784C /* swift_realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_realm.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				3F61121C1D85AB9500DE3C9D /* compiler */,
-				3F61117B1D85A7E000DE3C9D /* PBCompiler */,
 				3F61117A1D85A7E000DE3C9D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,16 +179,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3F61117B1D85A7E000DE3C9D /* PBCompiler */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PBCompiler;
-			sourceTree = "<group>";
-		};
 		3F61121C1D85AB9500DE3C9D /* compiler */ = {
 			isa = PBXGroup;
 			children = (
+				3F70C85D1E9CEF7500C57091 /* react_native */,
+				3F99B7551E953CB20030784C /* realm */,
 				3F61121D1D85AB9500DE3C9D /* google */,
 				3F6112541D85AB9500DE3C9D /* main.cc */,
 				3F6112551D85AB9500DE3C9D /* Makefile.am */,
@@ -293,6 +318,40 @@
 			path = baz;
 			sourceTree = "<group>";
 		};
+		3F70C85D1E9CEF7500C57091 /* react_native */ = {
+			isa = PBXGroup;
+			children = (
+				3F70C8881E9E783B00C57091 /* swift_react_enums.cc */,
+				3F70C8891E9E783B00C57091 /* swift_react_enums.h */,
+				3F70C8851E9CF44A00C57091 /* swift_helpers_react.cc */,
+				3F70C8861E9CF44A00C57091 /* swift_helpers_react.h */,
+				3F70C86F1E9CEF7500C57091 /* main.cc */,
+				3F70C8711E9CEF7500C57091 /* swift_file.cc */,
+				3F70C8721E9CEF7500C57091 /* swift_file.h */,
+				3F70C8741E9CEF7500C57091 /* swift_generator.cc */,
+				3F70C8751E9CEF7500C57091 /* swift_generator.h */,
+				3F70C8771E9CEF7500C57091 /* swift_react.h */,
+				3F70C8781E9CEF7500C57091 /* swift_react.cc */,
+			);
+			path = react_native;
+			sourceTree = "<group>";
+		};
+		3F99B7551E953CB20030784C /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				3F70C8841E9CF43F00C57091 /* swift_helpers_realm.h */,
+				3F70C8821E9CF3ED00C57091 /* swift_helpers_realm.cc */,
+				3F99B7661E953CB20030784C /* main.cc */,
+				3F99B7741E953CB20030784C /* swift_file.cc */,
+				3F99B7751E953CB20030784C /* swift_file.h */,
+				3F99B7771E953CB20030784C /* swift_generator.cc */,
+				3F99B7781E953CB20030784C /* swift_generator.h */,
+				3F99B7801E953CB20030784C /* swift_realm.cc */,
+				3F99B7811E953CB20030784C /* swift_realm.h */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,10 +409,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F99B78C1E953CB20030784C /* main.cc in Sources */,
+				3F70C8801E9CEF7500C57091 /* swift_react.cc in Sources */,
 				3F6112761D85AB9500DE3C9D /* main.cc in Sources */,
 				3F6112741D85AB9500DE3C9D /* descriptor.pb.cc in Sources */,
 				3F6112771D85AB9500DE3C9D /* swift_enum.cc in Sources */,
+				3F70C87A1E9CEF7500C57091 /* main.cc in Sources */,
+				3F70C87C1E9CEF7500C57091 /* swift_file.cc in Sources */,
+				3F99B7951E953CB20030784C /* swift_file.cc in Sources */,
+				3F70C87E1E9CEF7500C57091 /* swift_generator.cc in Sources */,
+				3F70C8871E9CF44A00C57091 /* swift_helpers_react.cc in Sources */,
+				3F70C8831E9CF3ED00C57091 /* swift_helpers_realm.cc in Sources */,
 				3F61127E1D85AB9500DE3C9D /* swift_map_field.cc in Sources */,
+				3F99B7971E953CB20030784C /* swift_generator.cc in Sources */,
+				3F99B79C1E953CB20030784C /* swift_realm.cc in Sources */,
 				3F6112821D85AB9500DE3C9D /* swift_primitive_field.cc in Sources */,
 				3F6112801D85AB9500DE3C9D /* swift_message_field.cc in Sources */,
 				3F61127A1D85AB9500DE3C9D /* swift_field.cc in Sources */,
@@ -364,6 +433,7 @@
 				3F61127B1D85AB9500DE3C9D /* swift_file.cc in Sources */,
 				3F6112751D85AB9500DE3C9D /* swift-descriptor.pb.cc in Sources */,
 				3F6112781D85AB9500DE3C9D /* swift_enum_field.cc in Sources */,
+				3F70C88A1E9E783B00C57091 /* swift_react_enums.cc in Sources */,
 				3F61127C1D85AB9500DE3C9D /* swift_generator.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

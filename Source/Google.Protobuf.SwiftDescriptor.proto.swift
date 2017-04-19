@@ -12,6 +12,11 @@ public var SwiftDescriptorRootswiftFileOptions:ConcreateExtensionField {
         return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
     }
 }
+public var SwiftDescriptorRootswiftFieldOptions:ConcreateExtensionField {
+    get {
+        return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFieldOptionsStatic
+    }
+}
 public var SwiftDescriptorRootswiftMessageOptions:ConcreateExtensionField {
     get {
         return Google.Protobuf.SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
@@ -26,12 +31,14 @@ public extension Google.Protobuf {
     public struct SwiftDescriptorRoot {
         public static let `default` = SwiftDescriptorRoot()
         var SwiftDescriptorRootswiftFileOptionsStatic:ConcreateExtensionField
+        var SwiftDescriptorRootswiftFieldOptionsStatic:ConcreateExtensionField
         var SwiftDescriptorRootswiftMessageOptionsStatic:ConcreateExtensionField
         var SwiftDescriptorRootswiftEnumOptionsStatic:ConcreateExtensionField
         public var extensionRegistry:ExtensionRegistry
 
         init() {
             SwiftDescriptorRootswiftFileOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FileOptions.self, fieldNumber: 5092014, defaultValue:Google.Protobuf.SwiftFileOptions(), messageOrGroupClass:Google.Protobuf.SwiftFileOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
+            SwiftDescriptorRootswiftFieldOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.FieldOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftFieldOptions(), messageOrGroupClass:Google.Protobuf.SwiftFieldOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             SwiftDescriptorRootswiftMessageOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.MessageOptions.self, fieldNumber: 5092016, defaultValue:Google.Protobuf.SwiftMessageOptions(), messageOrGroupClass:Google.Protobuf.SwiftMessageOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             SwiftDescriptorRootswiftEnumOptionsStatic = ConcreateExtensionField(type:ExtensionType.extensionTypeMessage, extendedClass:Google.Protobuf.EnumOptions.self, fieldNumber: 5092015, defaultValue:Google.Protobuf.SwiftEnumOptions(), messageOrGroupClass:Google.Protobuf.SwiftEnumOptions.self, isRepeated:false, isPacked:false, isMessageSetWireFormat:false)
             extensionRegistry = ExtensionRegistry()
@@ -40,11 +47,15 @@ public extension Google.Protobuf {
         }
         public func registerAllExtensions(registry: ExtensionRegistry) {
             registry.addExtension(extensions: SwiftDescriptorRootswiftFileOptionsStatic)
+            registry.addExtension(extensions: SwiftDescriptorRootswiftFieldOptionsStatic)
             registry.addExtension(extensions: SwiftDescriptorRootswiftMessageOptionsStatic)
             registry.addExtension(extensions: SwiftDescriptorRootswiftEnumOptionsStatic)
         }
         public static func swiftFileOptions() -> ConcreateExtensionField {
                return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFileOptionsStatic
+        }
+        public static func swiftFieldOptions() -> ConcreateExtensionField {
+               return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftFieldOptionsStatic
         }
         public static func swiftMessageOptions() -> ConcreateExtensionField {
                return SwiftDescriptorRoot.default.SwiftDescriptorRootswiftMessageOptionsStatic
@@ -92,6 +103,44 @@ public extension Google.Protobuf {
 
     //Enum type declaration end 
 
+
+
+    //Enum type declaration start 
+
+    public enum RealmOverrideRepeated:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+        case `override` = 0
+        case append = 1
+        public func toString() -> String {
+            switch self {
+            case .`override`: return "OVERRIDE"
+            case .append: return "APPEND"
+            }
+        }
+        public static func fromString(str:String) throws -> Google.Protobuf.RealmOverrideRepeated {
+            switch str {
+            case "OVERRIDE":    return .`override`
+            case "APPEND":    return .append
+            default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
+            }
+        }
+        public var debugDescription:String { return getDescription() }
+        public var description:String { return getDescription() }
+        private func getDescription() -> String { 
+            switch self {
+            case .`override`: return ".`override`"
+            case .append: return ".append"
+            }
+        }
+        public var hashValue:Int {
+            return self.rawValue.hashValue
+        }
+        public static func ==(lhs:RealmOverrideRepeated, rhs:RealmOverrideRepeated) -> Bool {
+            return lhs.hashValue == rhs.hashValue
+        }
+    }
+
+    //Enum type declaration end 
+
     final public class SwiftFileOptions : GeneratedMessage {
 
         public static func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
@@ -103,20 +152,28 @@ public extension Google.Protobuf {
             fieldCheck = fieldCheck && (lhs.hasEntitiesAccessControl == rhs.hasEntitiesAccessControl) && (!lhs.hasEntitiesAccessControl || lhs.entitiesAccessControl == rhs.entitiesAccessControl)
             fieldCheck = fieldCheck && (lhs.hasCompileForFramework == rhs.hasCompileForFramework) && (!lhs.hasCompileForFramework || lhs.compileForFramework == rhs.compileForFramework)
             fieldCheck = fieldCheck && (lhs.hasGenerateStruct == rhs.hasGenerateStruct) && (!lhs.hasGenerateStruct || lhs.generateStruct == rhs.generateStruct)
+            fieldCheck = fieldCheck && (lhs.hasGenerateRealmObjects == rhs.hasGenerateRealmObjects) && (!lhs.hasGenerateRealmObjects || lhs.generateRealmObjects == rhs.generateRealmObjects)
+            fieldCheck = fieldCheck && (lhs.hasGenerateReact == rhs.hasGenerateReact) && (!lhs.hasGenerateReact || lhs.generateReact == rhs.generateReact)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
             return fieldCheck
         }
 
-        public fileprivate(set) var classPrefix:String = ""
+        public fileprivate(set) var classPrefix:String! = nil
         public fileprivate(set) var hasClassPrefix:Bool = false
 
         public fileprivate(set) var entitiesAccessControl:Google.Protobuf.AccessControl = Google.Protobuf.AccessControl.publicEntities
         public fileprivate(set) var hasEntitiesAccessControl:Bool = false
-        public fileprivate(set) var compileForFramework:Bool = true
+        public fileprivate(set) var compileForFramework:Bool! = true
         public fileprivate(set) var hasCompileForFramework:Bool = false
 
-        public fileprivate(set) var generateStruct:Bool = false
+        public fileprivate(set) var generateStruct:Bool! = false
         public fileprivate(set) var hasGenerateStruct:Bool = false
+
+        public fileprivate(set) var generateRealmObjects:Bool! = false
+        public fileprivate(set) var hasGenerateRealmObjects:Bool = false
+
+        public fileprivate(set) var generateReact:Bool! = false
+        public fileprivate(set) var hasGenerateReact:Bool = false
 
         required public init() {
             super.init()
@@ -136,6 +193,12 @@ public extension Google.Protobuf {
             }
             if hasGenerateStruct {
                 try codedOutputStream.writeBool(fieldNumber: 4, value:generateStruct)
+            }
+            if hasGenerateRealmObjects {
+                try codedOutputStream.writeBool(fieldNumber: 5, value:generateRealmObjects)
+            }
+            if hasGenerateReact {
+                try codedOutputStream.writeBool(fieldNumber: 6, value:generateReact)
             }
             try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
@@ -157,6 +220,12 @@ public extension Google.Protobuf {
             }
             if hasGenerateStruct {
                 serialize_size += generateStruct.computeBoolSize(fieldNumber: 4)
+            }
+            if hasGenerateRealmObjects {
+                serialize_size += generateRealmObjects.computeBoolSize(fieldNumber: 5)
+            }
+            if hasGenerateReact {
+                serialize_size += generateReact.computeBoolSize(fieldNumber: 6)
             }
             serialize_size += unknownFields.serializedSize()
             memoizedSerializedSize = serialize_size
@@ -198,6 +267,12 @@ public extension Google.Protobuf {
             if hasGenerateStruct {
                 jsonMap["generateStruct"] = generateStruct
             }
+            if hasGenerateRealmObjects {
+                jsonMap["generateRealmObjects"] = generateRealmObjects
+            }
+            if hasGenerateReact {
+                jsonMap["generateReact"] = generateReact
+            }
             return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftFileOptions {
@@ -220,6 +295,12 @@ public extension Google.Protobuf {
             if hasGenerateStruct {
                 output += "\(indent) generateStruct: \(generateStruct) \n"
             }
+            if hasGenerateRealmObjects {
+                output += "\(indent) generateRealmObjects: \(generateRealmObjects) \n"
+            }
+            if hasGenerateReact {
+                output += "\(indent) generateReact: \(generateReact) \n"
+            }
             output += unknownFields.getDescription(indent: indent)
             return output
         }
@@ -237,6 +318,12 @@ public extension Google.Protobuf {
                 }
                 if hasGenerateStruct {
                     hashCode = (hashCode &* 31) &+ generateStruct.hashValue
+                }
+                if hasGenerateRealmObjects {
+                    hashCode = (hashCode &* 31) &+ generateRealmObjects.hashValue
+                }
+                if hasGenerateReact {
+                    hashCode = (hashCode &* 31) &+ generateReact.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -285,7 +372,7 @@ public extension Google.Protobuf {
             @discardableResult
             public func clearClassPrefix() -> Google.Protobuf.SwiftFileOptions.Builder{
                 builderResult.hasClassPrefix = false
-                builderResult.classPrefix = ""
+                builderResult.classPrefix = nil
                 return self
             }
                 public var entitiesAccessControl:Google.Protobuf.AccessControl {
@@ -363,6 +450,56 @@ public extension Google.Protobuf {
                 builderResult.generateStruct = false
                 return self
             }
+            public var generateRealmObjects:Bool {
+                get {
+                    return builderResult.generateRealmObjects
+                }
+                set (value) {
+                    builderResult.hasGenerateRealmObjects = true
+                    builderResult.generateRealmObjects = value
+                }
+            }
+            public var hasGenerateRealmObjects:Bool {
+                get {
+                    return builderResult.hasGenerateRealmObjects
+                }
+            }
+            @discardableResult
+            public func setGenerateRealmObjects(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
+                self.generateRealmObjects = value
+                return self
+            }
+            @discardableResult
+            public func clearGenerateRealmObjects() -> Google.Protobuf.SwiftFileOptions.Builder{
+                builderResult.hasGenerateRealmObjects = false
+                builderResult.generateRealmObjects = false
+                return self
+            }
+            public var generateReact:Bool {
+                get {
+                    return builderResult.generateReact
+                }
+                set (value) {
+                    builderResult.hasGenerateReact = true
+                    builderResult.generateReact = value
+                }
+            }
+            public var hasGenerateReact:Bool {
+                get {
+                    return builderResult.hasGenerateReact
+                }
+            }
+            @discardableResult
+            public func setGenerateReact(_ value:Bool) -> Google.Protobuf.SwiftFileOptions.Builder {
+                self.generateReact = value
+                return self
+            }
+            @discardableResult
+            public func clearGenerateReact() -> Google.Protobuf.SwiftFileOptions.Builder{
+                builderResult.hasGenerateReact = false
+                builderResult.generateReact = false
+                return self
+            }
             override public var internalGetResult:GeneratedMessage {
                 get {
                     return builderResult
@@ -401,6 +538,12 @@ public extension Google.Protobuf {
                 if other.hasGenerateStruct {
                     generateStruct = other.generateStruct
                 }
+                if other.hasGenerateRealmObjects {
+                    generateRealmObjects = other.generateRealmObjects
+                }
+                if other.hasGenerateReact {
+                    generateReact = other.generateReact
+                }
                 try merge(unknownField: other.unknownFields)
                 return self
             }
@@ -435,6 +578,12 @@ public extension Google.Protobuf {
                     case 32:
                         generateStruct = try codedInputStream.readBool()
 
+                    case 40:
+                        generateRealmObjects = try codedInputStream.readBool()
+
+                    case 48:
+                        generateReact = try codedInputStream.readBool()
+
                     default:
                         if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                             unknownFields = try unknownFieldsBuilder.build()
@@ -457,6 +606,12 @@ public extension Google.Protobuf {
                 if let jsonValueGenerateStruct = jsonMap["generateStruct"] as? Bool {
                     resultDecodedBuilder.generateStruct = jsonValueGenerateStruct
                 }
+                if let jsonValueGenerateRealmObjects = jsonMap["generateRealmObjects"] as? Bool {
+                    resultDecodedBuilder.generateRealmObjects = jsonValueGenerateRealmObjects
+                }
+                if let jsonValueGenerateReact = jsonMap["generateReact"] as? Bool {
+                    resultDecodedBuilder.generateReact = jsonValueGenerateReact
+                }
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SwiftFileOptions.Builder {
@@ -478,12 +633,20 @@ public extension Google.Protobuf {
             }
             var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
             fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+            fieldCheck = fieldCheck && (lhs.hasGenerateRealmObject == rhs.hasGenerateRealmObject) && (!lhs.hasGenerateRealmObject || lhs.generateRealmObject == rhs.generateRealmObject)
+            fieldCheck = fieldCheck && (lhs.hasGenerateReact == rhs.hasGenerateReact) && (!lhs.hasGenerateReact || lhs.generateReact == rhs.generateReact)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
             return fieldCheck
         }
 
-        public fileprivate(set) var generateErrorType:Bool = false
+        public fileprivate(set) var generateErrorType:Bool! = false
         public fileprivate(set) var hasGenerateErrorType:Bool = false
+
+        public fileprivate(set) var generateRealmObject:Bool! = false
+        public fileprivate(set) var hasGenerateRealmObject:Bool = false
+
+        public fileprivate(set) var generateReact:Bool! = false
+        public fileprivate(set) var hasGenerateReact:Bool = false
 
         required public init() {
             super.init()
@@ -494,6 +657,12 @@ public extension Google.Protobuf {
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
             if hasGenerateErrorType {
                 try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
+            }
+            if hasGenerateRealmObject {
+                try codedOutputStream.writeBool(fieldNumber: 2, value:generateRealmObject)
+            }
+            if hasGenerateReact {
+                try codedOutputStream.writeBool(fieldNumber: 5, value:generateReact)
             }
             try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
@@ -506,6 +675,12 @@ public extension Google.Protobuf {
             serialize_size = 0
             if hasGenerateErrorType {
                 serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+            }
+            if hasGenerateRealmObject {
+                serialize_size += generateRealmObject.computeBoolSize(fieldNumber: 2)
+            }
+            if hasGenerateReact {
+                serialize_size += generateReact.computeBoolSize(fieldNumber: 5)
             }
             serialize_size += unknownFields.serializedSize()
             memoizedSerializedSize = serialize_size
@@ -538,6 +713,12 @@ public extension Google.Protobuf {
             if hasGenerateErrorType {
                 jsonMap["generateErrorType"] = generateErrorType
             }
+            if hasGenerateRealmObject {
+                jsonMap["generateRealmObject"] = generateRealmObject
+            }
+            if hasGenerateReact {
+                jsonMap["generateReact"] = generateReact
+            }
             return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions {
@@ -551,6 +732,12 @@ public extension Google.Protobuf {
             if hasGenerateErrorType {
                 output += "\(indent) generateErrorType: \(generateErrorType) \n"
             }
+            if hasGenerateRealmObject {
+                output += "\(indent) generateRealmObject: \(generateRealmObject) \n"
+            }
+            if hasGenerateReact {
+                output += "\(indent) generateReact: \(generateReact) \n"
+            }
             output += unknownFields.getDescription(indent: indent)
             return output
         }
@@ -559,6 +746,12 @@ public extension Google.Protobuf {
                 var hashCode:Int = 7
                 if hasGenerateErrorType {
                     hashCode = (hashCode &* 31) &+ generateErrorType.hashValue
+                }
+                if hasGenerateRealmObject {
+                    hashCode = (hashCode &* 31) &+ generateRealmObject.hashValue
+                }
+                if hasGenerateReact {
+                    hashCode = (hashCode &* 31) &+ generateReact.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -610,6 +803,56 @@ public extension Google.Protobuf {
                 builderResult.generateErrorType = false
                 return self
             }
+            public var generateRealmObject:Bool {
+                get {
+                    return builderResult.generateRealmObject
+                }
+                set (value) {
+                    builderResult.hasGenerateRealmObject = true
+                    builderResult.generateRealmObject = value
+                }
+            }
+            public var hasGenerateRealmObject:Bool {
+                get {
+                    return builderResult.hasGenerateRealmObject
+                }
+            }
+            @discardableResult
+            public func setGenerateRealmObject(_ value:Bool) -> Google.Protobuf.SwiftMessageOptions.Builder {
+                self.generateRealmObject = value
+                return self
+            }
+            @discardableResult
+            public func clearGenerateRealmObject() -> Google.Protobuf.SwiftMessageOptions.Builder{
+                builderResult.hasGenerateRealmObject = false
+                builderResult.generateRealmObject = false
+                return self
+            }
+            public var generateReact:Bool {
+                get {
+                    return builderResult.generateReact
+                }
+                set (value) {
+                    builderResult.hasGenerateReact = true
+                    builderResult.generateReact = value
+                }
+            }
+            public var hasGenerateReact:Bool {
+                get {
+                    return builderResult.hasGenerateReact
+                }
+            }
+            @discardableResult
+            public func setGenerateReact(_ value:Bool) -> Google.Protobuf.SwiftMessageOptions.Builder {
+                self.generateReact = value
+                return self
+            }
+            @discardableResult
+            public func clearGenerateReact() -> Google.Protobuf.SwiftMessageOptions.Builder{
+                builderResult.hasGenerateReact = false
+                builderResult.generateReact = false
+                return self
+            }
             override public var internalGetResult:GeneratedMessage {
                 get {
                     return builderResult
@@ -639,6 +882,12 @@ public extension Google.Protobuf {
                 if other.hasGenerateErrorType {
                     generateErrorType = other.generateErrorType
                 }
+                if other.hasGenerateRealmObject {
+                    generateRealmObject = other.generateRealmObject
+                }
+                if other.hasGenerateReact {
+                    generateReact = other.generateReact
+                }
                 try merge(unknownField: other.unknownFields)
                 return self
             }
@@ -659,6 +908,12 @@ public extension Google.Protobuf {
                     case 8:
                         generateErrorType = try codedInputStream.readBool()
 
+                    case 16:
+                        generateRealmObject = try codedInputStream.readBool()
+
+                    case 40:
+                        generateReact = try codedInputStream.readBool()
+
                     default:
                         if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                             unknownFields = try unknownFieldsBuilder.build()
@@ -671,6 +926,12 @@ public extension Google.Protobuf {
                 let resultDecodedBuilder = Google.Protobuf.SwiftMessageOptions.Builder()
                 if let jsonValueGenerateErrorType = jsonMap["generateErrorType"] as? Bool {
                     resultDecodedBuilder.generateErrorType = jsonValueGenerateErrorType
+                }
+                if let jsonValueGenerateRealmObject = jsonMap["generateRealmObject"] as? Bool {
+                    resultDecodedBuilder.generateRealmObject = jsonValueGenerateRealmObject
+                }
+                if let jsonValueGenerateReact = jsonMap["generateReact"] as? Bool {
+                    resultDecodedBuilder.generateReact = jsonValueGenerateReact
                 }
                 return resultDecodedBuilder
             }
@@ -685,6 +946,331 @@ public extension Google.Protobuf {
 
     }
 
+    final public class SwiftFieldOptions : GeneratedMessage {
+
+        public static func == (lhs: Google.Protobuf.SwiftFieldOptions, rhs: Google.Protobuf.SwiftFieldOptions) -> Bool {
+            if lhs === rhs {
+                return true
+            }
+            var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+            fieldCheck = fieldCheck && (lhs.hasRealmIndexedPropertie == rhs.hasRealmIndexedPropertie) && (!lhs.hasRealmIndexedPropertie || lhs.realmIndexedPropertie == rhs.realmIndexedPropertie)
+            fieldCheck = fieldCheck && (lhs.hasRealmPrimaryKey == rhs.hasRealmPrimaryKey) && (!lhs.hasRealmPrimaryKey || lhs.realmPrimaryKey == rhs.realmPrimaryKey)
+            fieldCheck = fieldCheck && (lhs.hasRealmOverridePropertie == rhs.hasRealmOverridePropertie) && (!lhs.hasRealmOverridePropertie || lhs.realmOverridePropertie == rhs.realmOverridePropertie)
+            fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+            return fieldCheck
+        }
+
+        public fileprivate(set) var realmIndexedPropertie:Bool! = false
+        public fileprivate(set) var hasRealmIndexedPropertie:Bool = false
+
+        public fileprivate(set) var realmPrimaryKey:Bool! = false
+        public fileprivate(set) var hasRealmPrimaryKey:Bool = false
+
+        public fileprivate(set) var realmOverridePropertie:Google.Protobuf.RealmOverrideRepeated = Google.Protobuf.RealmOverrideRepeated.`override`
+        public fileprivate(set) var hasRealmOverridePropertie:Bool = false
+        required public init() {
+            super.init()
+        }
+        override public func isInitialized() -> Bool {
+            return true
+        }
+        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+            if hasRealmIndexedPropertie {
+                try codedOutputStream.writeBool(fieldNumber: 1, value:realmIndexedPropertie)
+            }
+            if hasRealmPrimaryKey {
+                try codedOutputStream.writeBool(fieldNumber: 2, value:realmPrimaryKey)
+            }
+            if hasRealmOverridePropertie {
+                try codedOutputStream.writeEnum(fieldNumber: 3, value:realmOverridePropertie.rawValue)
+            }
+            try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        }
+        override public func serializedSize() -> Int32 {
+            var serialize_size:Int32 = memoizedSerializedSize
+            if serialize_size != -1 {
+             return serialize_size
+            }
+
+            serialize_size = 0
+            if hasRealmIndexedPropertie {
+                serialize_size += realmIndexedPropertie.computeBoolSize(fieldNumber: 1)
+            }
+            if hasRealmPrimaryKey {
+                serialize_size += realmPrimaryKey.computeBoolSize(fieldNumber: 2)
+            }
+            if (hasRealmOverridePropertie) {
+                serialize_size += realmOverridePropertie.rawValue.computeEnumSize(fieldNumber: 3)
+            }
+            serialize_size += unknownFields.serializedSize()
+            memoizedSerializedSize = serialize_size
+            return serialize_size
+        }
+        public class func getBuilder() -> Google.Protobuf.SwiftFieldOptions.Builder {
+            return Google.Protobuf.SwiftFieldOptions.classBuilder() as! Google.Protobuf.SwiftFieldOptions.Builder
+        }
+        public func getBuilder() -> Google.Protobuf.SwiftFieldOptions.Builder {
+            return classBuilder() as! Google.Protobuf.SwiftFieldOptions.Builder
+        }
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.SwiftFieldOptions.Builder()
+        }
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.SwiftFieldOptions.Builder()
+        }
+        public func toBuilder() throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+            return try Google.Protobuf.SwiftFieldOptions.builderWithPrototype(prototype:self)
+        }
+        public class func builderWithPrototype(prototype:Google.Protobuf.SwiftFieldOptions) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+            return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(other:prototype)
+        }
+        override public func encode() throws -> Dictionary<String,Any> {
+            guard isInitialized() else {
+                throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
+            }
+
+            var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
+            if hasRealmIndexedPropertie {
+                jsonMap["realmIndexedPropertie"] = realmIndexedPropertie
+            }
+            if hasRealmPrimaryKey {
+                jsonMap["realmPrimaryKey"] = realmPrimaryKey
+            }
+            if hasRealmOverridePropertie {
+                jsonMap["realmOverridePropertie"] = realmOverridePropertie.toString()
+            }
+            return jsonMap
+        }
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftFieldOptions {
+            return try Google.Protobuf.SwiftFieldOptions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+        }
+        override class public func fromJSON(data:Data) throws -> Google.Protobuf.SwiftFieldOptions {
+            return try Google.Protobuf.SwiftFieldOptions.Builder.fromJSONToBuilder(data:data).build()
+        }
+        override public func getDescription(indent:String) throws -> String {
+            var output = ""
+            if hasRealmIndexedPropertie {
+                output += "\(indent) realmIndexedPropertie: \(realmIndexedPropertie) \n"
+            }
+            if hasRealmPrimaryKey {
+                output += "\(indent) realmPrimaryKey: \(realmPrimaryKey) \n"
+            }
+            if (hasRealmOverridePropertie) {
+                output += "\(indent) realmOverridePropertie: \(realmOverridePropertie.description)\n"
+            }
+            output += unknownFields.getDescription(indent: indent)
+            return output
+        }
+        override public var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasRealmIndexedPropertie {
+                    hashCode = (hashCode &* 31) &+ realmIndexedPropertie.hashValue
+                }
+                if hasRealmPrimaryKey {
+                    hashCode = (hashCode &* 31) &+ realmPrimaryKey.hashValue
+                }
+                if hasRealmOverridePropertie {
+                     hashCode = (hashCode &* 31) &+ realmOverridePropertie.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override public class func className() -> String {
+            return "Google.Protobuf.SwiftFieldOptions"
+        }
+        override public func className() -> String {
+            return "Google.Protobuf.SwiftFieldOptions"
+        }
+        //Meta information declaration end
+
+        final public class Builder : GeneratedMessageBuilder {
+            fileprivate var builderResult:Google.Protobuf.SwiftFieldOptions = Google.Protobuf.SwiftFieldOptions()
+            public func getMessage() -> Google.Protobuf.SwiftFieldOptions {
+                return builderResult
+            }
+
+            required override public init () {
+                super.init()
+            }
+            public var realmIndexedPropertie:Bool {
+                get {
+                    return builderResult.realmIndexedPropertie
+                }
+                set (value) {
+                    builderResult.hasRealmIndexedPropertie = true
+                    builderResult.realmIndexedPropertie = value
+                }
+            }
+            public var hasRealmIndexedPropertie:Bool {
+                get {
+                    return builderResult.hasRealmIndexedPropertie
+                }
+            }
+            @discardableResult
+            public func setRealmIndexedPropertie(_ value:Bool) -> Google.Protobuf.SwiftFieldOptions.Builder {
+                self.realmIndexedPropertie = value
+                return self
+            }
+            @discardableResult
+            public func clearRealmIndexedPropertie() -> Google.Protobuf.SwiftFieldOptions.Builder{
+                builderResult.hasRealmIndexedPropertie = false
+                builderResult.realmIndexedPropertie = false
+                return self
+            }
+            public var realmPrimaryKey:Bool {
+                get {
+                    return builderResult.realmPrimaryKey
+                }
+                set (value) {
+                    builderResult.hasRealmPrimaryKey = true
+                    builderResult.realmPrimaryKey = value
+                }
+            }
+            public var hasRealmPrimaryKey:Bool {
+                get {
+                    return builderResult.hasRealmPrimaryKey
+                }
+            }
+            @discardableResult
+            public func setRealmPrimaryKey(_ value:Bool) -> Google.Protobuf.SwiftFieldOptions.Builder {
+                self.realmPrimaryKey = value
+                return self
+            }
+            @discardableResult
+            public func clearRealmPrimaryKey() -> Google.Protobuf.SwiftFieldOptions.Builder{
+                builderResult.hasRealmPrimaryKey = false
+                builderResult.realmPrimaryKey = false
+                return self
+            }
+                public var realmOverridePropertie:Google.Protobuf.RealmOverrideRepeated {
+                    get {
+                        return builderResult.realmOverridePropertie
+                    }
+                    set (value) {
+                        builderResult.hasRealmOverridePropertie = true
+                        builderResult.realmOverridePropertie = value
+                    }
+                }
+                public var hasRealmOverridePropertie:Bool{
+                    get {
+                        return builderResult.hasRealmOverridePropertie
+                    }
+                }
+            @discardableResult
+                public func setRealmOverridePropertie(_ value:Google.Protobuf.RealmOverrideRepeated) -> Google.Protobuf.SwiftFieldOptions.Builder {
+                  self.realmOverridePropertie = value
+                  return self
+                }
+            @discardableResult
+                public func clearRealmOverridePropertie() -> Google.Protobuf.SwiftFieldOptions.Builder {
+                   builderResult.hasRealmOverridePropertie = false
+                   builderResult.realmOverridePropertie = .`override`
+                   return self
+                }
+            override public var internalGetResult:GeneratedMessage {
+                get {
+                    return builderResult
+                }
+            }
+            @discardableResult
+            override public func clear() -> Google.Protobuf.SwiftFieldOptions.Builder {
+                builderResult = Google.Protobuf.SwiftFieldOptions()
+                return self
+            }
+            override public func clone() throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                return try Google.Protobuf.SwiftFieldOptions.builderWithPrototype(prototype:builderResult)
+            }
+            override public func build() throws -> Google.Protobuf.SwiftFieldOptions {
+                try checkInitialized()
+                return buildPartial()
+            }
+            public func buildPartial() -> Google.Protobuf.SwiftFieldOptions {
+                let returnMe:Google.Protobuf.SwiftFieldOptions = builderResult
+                return returnMe
+            }
+            @discardableResult
+            public func mergeFrom(other:Google.Protobuf.SwiftFieldOptions) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                if other == Google.Protobuf.SwiftFieldOptions() {
+                    return self
+                }
+                if other.hasRealmIndexedPropertie {
+                    realmIndexedPropertie = other.realmIndexedPropertie
+                }
+                if other.hasRealmPrimaryKey {
+                    realmPrimaryKey = other.realmPrimaryKey
+                }
+                if other.hasRealmOverridePropertie {
+                    realmOverridePropertie = other.realmOverridePropertie
+                }
+                try merge(unknownField: other.unknownFields)
+                return self
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
+                while (true) {
+                    let protobufTag = try codedInputStream.readTag()
+                    switch protobufTag {
+                    case 0: 
+                        self.unknownFields = try unknownFieldsBuilder.build()
+                        return self
+
+                    case 8:
+                        realmIndexedPropertie = try codedInputStream.readBool()
+
+                    case 16:
+                        realmPrimaryKey = try codedInputStream.readBool()
+
+                    case 24:
+                        let valueIntrealmOverridePropertie = try codedInputStream.readEnum()
+                        if let enumsrealmOverridePropertie = Google.Protobuf.RealmOverrideRepeated(rawValue:valueIntrealmOverridePropertie){
+                            realmOverridePropertie = enumsrealmOverridePropertie
+                        } else {
+                            try unknownFieldsBuilder.mergeVarintField(fieldNumber: 3, value:Int64(valueIntrealmOverridePropertie))
+                        }
+
+                    default:
+                        if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                            unknownFields = try unknownFieldsBuilder.build()
+                            return self
+                        }
+                    }
+                }
+            }
+            class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                let resultDecodedBuilder = Google.Protobuf.SwiftFieldOptions.Builder()
+                if let jsonValueRealmIndexedPropertie = jsonMap["realmIndexedPropertie"] as? Bool {
+                    resultDecodedBuilder.realmIndexedPropertie = jsonValueRealmIndexedPropertie
+                }
+                if let jsonValueRealmPrimaryKey = jsonMap["realmPrimaryKey"] as? Bool {
+                    resultDecodedBuilder.realmPrimaryKey = jsonValueRealmPrimaryKey
+                }
+                if let jsonValueRealmOverridePropertie = jsonMap["realmOverridePropertie"] as? String {
+                    resultDecodedBuilder.realmOverridePropertie = try Google.Protobuf.RealmOverrideRepeated.fromString(str: jsonValueRealmOverridePropertie)
+                }
+                return resultDecodedBuilder
+            }
+            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.SwiftFieldOptions.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
+                  throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
+                return try Google.Protobuf.SwiftFieldOptions.Builder.decodeToBuilder(jsonMap:jsDataCast)
+            }
+        }
+
+    }
+
     final public class SwiftEnumOptions : GeneratedMessage {
 
         public static func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
@@ -693,12 +1279,16 @@ public extension Google.Protobuf {
             }
             var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
             fieldCheck = fieldCheck && (lhs.hasGenerateErrorType == rhs.hasGenerateErrorType) && (!lhs.hasGenerateErrorType || lhs.generateErrorType == rhs.generateErrorType)
+            fieldCheck = fieldCheck && (lhs.hasGenerateReact == rhs.hasGenerateReact) && (!lhs.hasGenerateReact || lhs.generateReact == rhs.generateReact)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
             return fieldCheck
         }
 
-        public fileprivate(set) var generateErrorType:Bool = false
+        public fileprivate(set) var generateErrorType:Bool! = false
         public fileprivate(set) var hasGenerateErrorType:Bool = false
+
+        public fileprivate(set) var generateReact:Bool! = false
+        public fileprivate(set) var hasGenerateReact:Bool = false
 
         required public init() {
             super.init()
@@ -709,6 +1299,9 @@ public extension Google.Protobuf {
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
             if hasGenerateErrorType {
                 try codedOutputStream.writeBool(fieldNumber: 1, value:generateErrorType)
+            }
+            if hasGenerateReact {
+                try codedOutputStream.writeBool(fieldNumber: 2, value:generateReact)
             }
             try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
@@ -721,6 +1314,9 @@ public extension Google.Protobuf {
             serialize_size = 0
             if hasGenerateErrorType {
                 serialize_size += generateErrorType.computeBoolSize(fieldNumber: 1)
+            }
+            if hasGenerateReact {
+                serialize_size += generateReact.computeBoolSize(fieldNumber: 2)
             }
             serialize_size += unknownFields.serializedSize()
             memoizedSerializedSize = serialize_size
@@ -753,6 +1349,9 @@ public extension Google.Protobuf {
             if hasGenerateErrorType {
                 jsonMap["generateErrorType"] = generateErrorType
             }
+            if hasGenerateReact {
+                jsonMap["generateReact"] = generateReact
+            }
             return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftEnumOptions {
@@ -766,6 +1365,9 @@ public extension Google.Protobuf {
             if hasGenerateErrorType {
                 output += "\(indent) generateErrorType: \(generateErrorType) \n"
             }
+            if hasGenerateReact {
+                output += "\(indent) generateReact: \(generateReact) \n"
+            }
             output += unknownFields.getDescription(indent: indent)
             return output
         }
@@ -774,6 +1376,9 @@ public extension Google.Protobuf {
                 var hashCode:Int = 7
                 if hasGenerateErrorType {
                     hashCode = (hashCode &* 31) &+ generateErrorType.hashValue
+                }
+                if hasGenerateReact {
+                    hashCode = (hashCode &* 31) &+ generateReact.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -825,6 +1430,31 @@ public extension Google.Protobuf {
                 builderResult.generateErrorType = false
                 return self
             }
+            public var generateReact:Bool {
+                get {
+                    return builderResult.generateReact
+                }
+                set (value) {
+                    builderResult.hasGenerateReact = true
+                    builderResult.generateReact = value
+                }
+            }
+            public var hasGenerateReact:Bool {
+                get {
+                    return builderResult.hasGenerateReact
+                }
+            }
+            @discardableResult
+            public func setGenerateReact(_ value:Bool) -> Google.Protobuf.SwiftEnumOptions.Builder {
+                self.generateReact = value
+                return self
+            }
+            @discardableResult
+            public func clearGenerateReact() -> Google.Protobuf.SwiftEnumOptions.Builder{
+                builderResult.hasGenerateReact = false
+                builderResult.generateReact = false
+                return self
+            }
             override public var internalGetResult:GeneratedMessage {
                 get {
                     return builderResult
@@ -854,6 +1484,9 @@ public extension Google.Protobuf {
                 if other.hasGenerateErrorType {
                     generateErrorType = other.generateErrorType
                 }
+                if other.hasGenerateReact {
+                    generateReact = other.generateReact
+                }
                 try merge(unknownField: other.unknownFields)
                 return self
             }
@@ -874,6 +1507,9 @@ public extension Google.Protobuf {
                     case 8:
                         generateErrorType = try codedInputStream.readBool()
 
+                    case 16:
+                        generateReact = try codedInputStream.readBool()
+
                     default:
                         if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                             unknownFields = try unknownFieldsBuilder.build()
@@ -886,6 +1522,9 @@ public extension Google.Protobuf {
                 let resultDecodedBuilder = Google.Protobuf.SwiftEnumOptions.Builder()
                 if let jsonValueGenerateErrorType = jsonMap["generateErrorType"] as? Bool {
                     resultDecodedBuilder.generateErrorType = jsonValueGenerateErrorType
+                }
+                if let jsonValueGenerateReact = jsonMap["generateReact"] as? Bool {
+                    resultDecodedBuilder.generateReact = jsonValueGenerateReact
                 }
                 return resultDecodedBuilder
             }
@@ -936,6 +1575,8 @@ extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
         case "entitiesAccessControl": return self.entitiesAccessControl
         case "compileForFramework": return self.compileForFramework
         case "generateStruct": return self.generateStruct
+        case "generateRealmObjects": return self.generateRealmObjects
+        case "generateReact": return self.generateReact
         default: return nil
         }
     }
@@ -948,6 +1589,8 @@ extension Google.Protobuf.SwiftFileOptions.Builder: GeneratedMessageBuilderProto
             case "entitiesAccessControl": return self.entitiesAccessControl
             case "compileForFramework": return self.compileForFramework
             case "generateStruct": return self.generateStruct
+            case "generateRealmObjects": return self.generateRealmObjects
+            case "generateReact": return self.generateReact
             default: return nil
             }
         }
@@ -973,6 +1616,16 @@ extension Google.Protobuf.SwiftFileOptions.Builder: GeneratedMessageBuilderProto
                     return
                 }
                 self.generateStruct = newSubscriptValue
+            case "generateRealmObjects":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.generateRealmObjects = newSubscriptValue
+            case "generateReact":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.generateReact = newSubscriptValue
             default: return
             }
         }
@@ -1010,6 +1663,8 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
     public subscript(key: String) -> Any? {
         switch key {
         case "generateErrorType": return self.generateErrorType
+        case "generateRealmObject": return self.generateRealmObject
+        case "generateReact": return self.generateReact
         default: return nil
         }
     }
@@ -1019,6 +1674,8 @@ extension Google.Protobuf.SwiftMessageOptions.Builder: GeneratedMessageBuilderPr
         get { 
             switch key {
             case "generateErrorType": return self.generateErrorType
+            case "generateRealmObject": return self.generateRealmObject
+            case "generateReact": return self.generateReact
             default: return nil
             }
         }
@@ -1029,6 +1686,86 @@ extension Google.Protobuf.SwiftMessageOptions.Builder: GeneratedMessageBuilderPr
                     return
                 }
                 self.generateErrorType = newSubscriptValue
+            case "generateRealmObject":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.generateRealmObject = newSubscriptValue
+            case "generateReact":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.generateReact = newSubscriptValue
+            default: return
+            }
+        }
+    }
+}
+extension Google.Protobuf.SwiftFieldOptions: GeneratedMessageProtocol {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftFieldOptions> {
+        var mergedArray = Array<Google.Protobuf.SwiftFieldOptions>()
+        while let value = try parseDelimitedFrom(inputStream: inputStream) {
+          mergedArray.append(value)
+        }
+        return mergedArray
+    }
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFieldOptions? {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+    }
+    public class func parseFrom(data: Data) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
+    }
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(inputStream: inputStream).build()
+    }
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.SwiftFieldOptions {
+        return try Google.Protobuf.SwiftFieldOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public subscript(key: String) -> Any? {
+        switch key {
+        case "realmIndexedPropertie": return self.realmIndexedPropertie
+        case "realmPrimaryKey": return self.realmPrimaryKey
+        case "realmOverridePropertie": return self.realmOverridePropertie
+        default: return nil
+        }
+    }
+}
+extension Google.Protobuf.SwiftFieldOptions.Builder: GeneratedMessageBuilderProtocol {
+    public subscript(key: String) -> Any? {
+        get { 
+            switch key {
+            case "realmIndexedPropertie": return self.realmIndexedPropertie
+            case "realmPrimaryKey": return self.realmPrimaryKey
+            case "realmOverridePropertie": return self.realmOverridePropertie
+            default: return nil
+            }
+        }
+        set (newSubscriptValue) { 
+            switch key {
+            case "realmIndexedPropertie":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.realmIndexedPropertie = newSubscriptValue
+            case "realmPrimaryKey":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.realmPrimaryKey = newSubscriptValue
+            case "realmOverridePropertie":
+                guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.RealmOverrideRepeated else {
+                    return
+                }
+                self.realmOverridePropertie = newSubscriptValue
             default: return
             }
         }
@@ -1066,6 +1803,7 @@ extension Google.Protobuf.SwiftEnumOptions: GeneratedMessageProtocol {
     public subscript(key: String) -> Any? {
         switch key {
         case "generateErrorType": return self.generateErrorType
+        case "generateReact": return self.generateReact
         default: return nil
         }
     }
@@ -1075,6 +1813,7 @@ extension Google.Protobuf.SwiftEnumOptions.Builder: GeneratedMessageBuilderProto
         get { 
             switch key {
             case "generateErrorType": return self.generateErrorType
+            case "generateReact": return self.generateReact
             default: return nil
             }
         }
@@ -1085,6 +1824,11 @@ extension Google.Protobuf.SwiftEnumOptions.Builder: GeneratedMessageBuilderProto
                     return
                 }
                 self.generateErrorType = newSubscriptValue
+            case "generateReact":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.generateReact = newSubscriptValue
             default: return
             }
         }
