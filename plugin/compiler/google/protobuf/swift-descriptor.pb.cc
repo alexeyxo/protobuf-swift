@@ -38,11 +38,29 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
 
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTableField
+    const TableStruct::entries[] = {
+  {0, 0, 0, ::google::protobuf::internal::kInvalidMask, 0, 0},
+};
+
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
+    const TableStruct::aux[] = {
+  ::google::protobuf::internal::AuxillaryParseTableField(),
+};
+PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
+    TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+};
+
 const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, class_prefix_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, entities_access_control_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, compile_for_framework_),
@@ -59,6 +77,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_error_type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_realm_object_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_react_),
@@ -69,6 +88,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, realm_indexed_propertie_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, realm_primary_key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, realm_override_propertie_),
@@ -79,6 +99,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, generate_error_type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftEnumOptions, generate_react_),
   0,
@@ -86,10 +107,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
-  { 0, 10, sizeof(SwiftFileOptions)},
-  { 16, 23, sizeof(SwiftMessageOptions)},
-  { 26, 33, sizeof(SwiftFieldOptions)},
-  { 36, 42, sizeof(SwiftEnumOptions)},
+  { 0, 11, sizeof(SwiftFileOptions)},
+  { 17, 25, sizeof(SwiftMessageOptions)},
+  { 28, 36, sizeof(SwiftFieldOptions)},
+  { 39, 46, sizeof(SwiftEnumOptions)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -310,7 +331,7 @@ void SwiftFileOptions::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* SwiftFileOptions::descriptor() {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[0].descriptor;
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const SwiftFileOptions& SwiftFileOptions::default_instance() {
@@ -354,7 +375,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional string class_prefix = 1;
       case 1: {
-        if (tag == 10u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_class_prefix()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -369,7 +391,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
 
       // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
       case 2: {
-        if (tag == 16u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -387,7 +410,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
 
       // optional bool compile_for_framework = 3 [default = true];
       case 3: {
-        if (tag == 24u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
           set_has_compile_for_framework();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -400,7 +424,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
 
       // optional bool generate_struct = 4 [default = false];
       case 4: {
-        if (tag == 32u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u)) {
           set_has_generate_struct();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -413,7 +438,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
 
       // optional bool generate_realm_objects = 5 [default = false];
       case 5: {
-        if (tag == 40u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
           set_has_generate_realm_objects();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -426,7 +452,8 @@ bool SwiftFileOptions::MergePartialFromCodedStream(
 
       // optional bool generate_react = 6 [default = false];
       case 6: {
-        if (tag == 48u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(48u)) {
           set_has_generate_react();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -462,8 +489,12 @@ failure:
 void SwiftFileOptions::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftFileOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional string class_prefix = 1;
-  if (has_class_prefix()) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->class_prefix().data(), this->class_prefix().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
@@ -473,28 +504,28 @@ void SwiftFileOptions::SerializeWithCachedSizes(
   }
 
   // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
-  if (has_entities_access_control()) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->entities_access_control(), output);
   }
 
   // optional bool compile_for_framework = 3 [default = true];
-  if (has_compile_for_framework()) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->compile_for_framework(), output);
   }
 
   // optional bool generate_struct = 4 [default = false];
-  if (has_generate_struct()) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->generate_struct(), output);
   }
 
   // optional bool generate_realm_objects = 5 [default = false];
-  if (has_generate_realm_objects()) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->generate_realm_objects(), output);
   }
 
   // optional bool generate_react = 6 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(6, this->generate_react(), output);
   }
 
@@ -507,10 +538,13 @@ void SwiftFileOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftFileOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftFileOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional string class_prefix = 1;
-  if (has_class_prefix()) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->class_prefix().data(), this->class_prefix().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
@@ -521,28 +555,28 @@ void SwiftFileOptions::SerializeWithCachedSizes(
   }
 
   // optional .google.protobuf.AccessControl entities_access_control = 2 [default = PublicEntities];
-  if (has_entities_access_control()) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->entities_access_control(), target);
   }
 
   // optional bool compile_for_framework = 3 [default = true];
-  if (has_compile_for_framework()) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->compile_for_framework(), target);
   }
 
   // optional bool generate_struct = 4 [default = false];
-  if (has_generate_struct()) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->generate_struct(), target);
   }
 
   // optional bool generate_realm_objects = 5 [default = false];
-  if (has_generate_realm_objects()) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->generate_realm_objects(), target);
   }
 
   // optional bool generate_react = 6 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(6, this->generate_react(), target);
   }
 
@@ -624,26 +658,31 @@ void SwiftFileOptions::MergeFrom(const SwiftFileOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftFileOptions)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._has_bits_[0 / 32] & 63u) {
-    if (from.has_class_prefix()) {
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 63u) {
+    if (cached_has_bits & 0x00000001u) {
       set_has_class_prefix();
       class_prefix_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.class_prefix_);
     }
-    if (from.has_generate_struct()) {
-      set_generate_struct(from.generate_struct());
+    if (cached_has_bits & 0x00000002u) {
+      generate_struct_ = from.generate_struct_;
     }
-    if (from.has_generate_realm_objects()) {
-      set_generate_realm_objects(from.generate_realm_objects());
+    if (cached_has_bits & 0x00000004u) {
+      generate_realm_objects_ = from.generate_realm_objects_;
     }
-    if (from.has_generate_react()) {
-      set_generate_react(from.generate_react());
+    if (cached_has_bits & 0x00000008u) {
+      generate_react_ = from.generate_react_;
     }
-    if (from.has_entities_access_control()) {
-      set_entities_access_control(from.entities_access_control());
+    if (cached_has_bits & 0x00000010u) {
+      entities_access_control_ = from.entities_access_control_;
     }
-    if (from.has_compile_for_framework()) {
-      set_compile_for_framework(from.compile_for_framework());
+    if (cached_has_bits & 0x00000020u) {
+      compile_for_framework_ = from.compile_for_framework_;
     }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -683,7 +722,7 @@ void SwiftFileOptions::InternalSwap(SwiftFileOptions* other) {
 
 ::google::protobuf::Metadata SwiftFileOptions::GetMetadata() const {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[0];
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -716,11 +755,12 @@ void SwiftFileOptions::set_class_prefix(const ::std::string& value) {
 void SwiftFileOptions::set_class_prefix(::std::string&& value) {
   set_has_class_prefix();
   class_prefix_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), std::move(value));
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
   // @@protoc_insertion_point(field_set_rvalue:google.protobuf.SwiftFileOptions.class_prefix)
 }
 #endif
 void SwiftFileOptions::set_class_prefix(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
   set_has_class_prefix();
   class_prefix_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:google.protobuf.SwiftFileOptions.class_prefix)
@@ -923,7 +963,7 @@ void SwiftMessageOptions::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* SwiftMessageOptions::descriptor() {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[1].descriptor;
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const SwiftMessageOptions& SwiftMessageOptions::default_instance() {
@@ -961,7 +1001,8 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional bool generate_error_type = 1 [default = false];
       case 1: {
-        if (tag == 8u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
           set_has_generate_error_type();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -974,7 +1015,8 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
 
       // optional bool generate_realm_object = 2 [default = false];
       case 2: {
-        if (tag == 16u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
           set_has_generate_realm_object();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -987,7 +1029,8 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
 
       // optional bool generate_react = 5 [default = false];
       case 5: {
-        if (tag == 40u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
           set_has_generate_react();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1023,18 +1066,22 @@ failure:
 void SwiftMessageOptions::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftMessageOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->generate_error_type(), output);
   }
 
   // optional bool generate_realm_object = 2 [default = false];
-  if (has_generate_realm_object()) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->generate_realm_object(), output);
   }
 
   // optional bool generate_react = 5 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->generate_react(), output);
   }
 
@@ -1047,20 +1094,23 @@ void SwiftMessageOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftMessageOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftMessageOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->generate_error_type(), target);
   }
 
   // optional bool generate_realm_object = 2 [default = false];
-  if (has_generate_realm_object()) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->generate_realm_object(), target);
   }
 
   // optional bool generate_react = 5 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->generate_react(), target);
   }
 
@@ -1124,16 +1174,21 @@ void SwiftMessageOptions::MergeFrom(const SwiftMessageOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftMessageOptions)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._has_bits_[0 / 32] & 7u) {
-    if (from.has_generate_error_type()) {
-      set_generate_error_type(from.generate_error_type());
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      generate_error_type_ = from.generate_error_type_;
     }
-    if (from.has_generate_realm_object()) {
-      set_generate_realm_object(from.generate_realm_object());
+    if (cached_has_bits & 0x00000002u) {
+      generate_realm_object_ = from.generate_realm_object_;
     }
-    if (from.has_generate_react()) {
-      set_generate_react(from.generate_react());
+    if (cached_has_bits & 0x00000004u) {
+      generate_react_ = from.generate_react_;
     }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -1170,7 +1225,7 @@ void SwiftMessageOptions::InternalSwap(SwiftMessageOptions* other) {
 
 ::google::protobuf::Metadata SwiftMessageOptions::GetMetadata() const {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[1];
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1299,7 +1354,7 @@ void SwiftFieldOptions::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* SwiftFieldOptions::descriptor() {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[2].descriptor;
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const SwiftFieldOptions& SwiftFieldOptions::default_instance() {
@@ -1337,7 +1392,8 @@ bool SwiftFieldOptions::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional bool realm_indexed_propertie = 1 [default = false];
       case 1: {
-        if (tag == 8u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
           set_has_realm_indexed_propertie();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1350,7 +1406,8 @@ bool SwiftFieldOptions::MergePartialFromCodedStream(
 
       // optional bool realm_primary_key = 2 [default = false];
       case 2: {
-        if (tag == 16u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
           set_has_realm_primary_key();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1363,7 +1420,8 @@ bool SwiftFieldOptions::MergePartialFromCodedStream(
 
       // optional .google.protobuf.RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
       case 3: {
-        if (tag == 24u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -1404,18 +1462,22 @@ failure:
 void SwiftFieldOptions::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftFieldOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool realm_indexed_propertie = 1 [default = false];
-  if (has_realm_indexed_propertie()) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->realm_indexed_propertie(), output);
   }
 
   // optional bool realm_primary_key = 2 [default = false];
-  if (has_realm_primary_key()) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->realm_primary_key(), output);
   }
 
   // optional .google.protobuf.RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
-  if (has_realm_override_propertie()) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->realm_override_propertie(), output);
   }
@@ -1429,20 +1491,23 @@ void SwiftFieldOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftFieldOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftFieldOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool realm_indexed_propertie = 1 [default = false];
-  if (has_realm_indexed_propertie()) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->realm_indexed_propertie(), target);
   }
 
   // optional bool realm_primary_key = 2 [default = false];
-  if (has_realm_primary_key()) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->realm_primary_key(), target);
   }
 
   // optional .google.protobuf.RealmOverrideRepeated realm_override_propertie = 3 [default = OVERRIDE];
-  if (has_realm_override_propertie()) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->realm_override_propertie(), target);
   }
@@ -1508,16 +1573,21 @@ void SwiftFieldOptions::MergeFrom(const SwiftFieldOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftFieldOptions)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._has_bits_[0 / 32] & 7u) {
-    if (from.has_realm_indexed_propertie()) {
-      set_realm_indexed_propertie(from.realm_indexed_propertie());
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      realm_indexed_propertie_ = from.realm_indexed_propertie_;
     }
-    if (from.has_realm_primary_key()) {
-      set_realm_primary_key(from.realm_primary_key());
+    if (cached_has_bits & 0x00000002u) {
+      realm_primary_key_ = from.realm_primary_key_;
     }
-    if (from.has_realm_override_propertie()) {
-      set_realm_override_propertie(from.realm_override_propertie());
+    if (cached_has_bits & 0x00000004u) {
+      realm_override_propertie_ = from.realm_override_propertie_;
     }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -1554,7 +1624,7 @@ void SwiftFieldOptions::InternalSwap(SwiftFieldOptions* other) {
 
 ::google::protobuf::Metadata SwiftFieldOptions::GetMetadata() const {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[2];
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -1683,7 +1753,7 @@ void SwiftEnumOptions::SetCachedSize(int size) const {
 }
 const ::google::protobuf::Descriptor* SwiftEnumOptions::descriptor() {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[3].descriptor;
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
 const SwiftEnumOptions& SwiftEnumOptions::default_instance() {
@@ -1721,7 +1791,8 @@ bool SwiftEnumOptions::MergePartialFromCodedStream(
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // optional bool generate_error_type = 1 [default = false];
       case 1: {
-        if (tag == 8u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
           set_has_generate_error_type();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1734,7 +1805,8 @@ bool SwiftEnumOptions::MergePartialFromCodedStream(
 
       // optional bool generate_react = 2 [default = false];
       case 2: {
-        if (tag == 16u) {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
           set_has_generate_react();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -1770,13 +1842,17 @@ failure:
 void SwiftEnumOptions::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:google.protobuf.SwiftEnumOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->generate_error_type(), output);
   }
 
   // optional bool generate_react = 2 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->generate_react(), output);
   }
 
@@ -1789,15 +1865,18 @@ void SwiftEnumOptions::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* SwiftEnumOptions::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic;  // Unused
   // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.SwiftEnumOptions)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (has_generate_error_type()) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->generate_error_type(), target);
   }
 
   // optional bool generate_react = 2 [default = false];
-  if (has_generate_react()) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->generate_react(), target);
   }
 
@@ -1856,13 +1935,18 @@ void SwiftEnumOptions::MergeFrom(const SwiftEnumOptions& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.SwiftEnumOptions)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._has_bits_[0 / 32] & 3u) {
-    if (from.has_generate_error_type()) {
-      set_generate_error_type(from.generate_error_type());
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      generate_error_type_ = from.generate_error_type_;
     }
-    if (from.has_generate_react()) {
-      set_generate_react(from.generate_react());
+    if (cached_has_bits & 0x00000002u) {
+      generate_react_ = from.generate_react_;
     }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -1898,7 +1982,7 @@ void SwiftEnumOptions::InternalSwap(SwiftEnumOptions* other) {
 
 ::google::protobuf::Metadata SwiftEnumOptions::GetMetadata() const {
   protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[3];
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
