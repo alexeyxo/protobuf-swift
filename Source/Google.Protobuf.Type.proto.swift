@@ -549,7 +549,7 @@ public extension Google.Protobuf {
             //Enum type declaration start 
 
             /// Kind represents a basic field type.
-            public enum Kind:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum Kind:Int32, GeneratedEnum {
                 /// Field type unknown.
                 case typeUnknown = 0
 
@@ -625,7 +625,7 @@ public extension Google.Protobuf {
                     case .typeSint64: return "TYPE_SINT64"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.Field.Kind {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.Field.Kind {
                     switch str {
                     case "TYPE_UNKNOWN":    return .typeUnknown
                     case "TYPE_DOUBLE":    return .typeDouble
@@ -688,7 +688,7 @@ public extension Google.Protobuf {
 
             /// Cardinality represents whether a field is optional, required, or
             /// repeated.
-            public enum Cardinality:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum Cardinality:Int32, GeneratedEnum {
                 /// The field cardinality is unknown. Typically an error condition.
                 case cardinalityUnknown = 0
 
@@ -708,7 +708,7 @@ public extension Google.Protobuf {
                     case .cardinalityRepeated: return "CARDINALITY_REPEATED"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.Field.Cardinality {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.Field.Cardinality {
                     switch str {
                     case "CARDINALITY_UNKNOWN":    return .cardinalityUnknown
                     case "CARDINALITY_OPTIONAL":    return .cardinalityOptional
@@ -1293,10 +1293,10 @@ public extension Google.Protobuf {
             class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Field.Builder {
                 let resultDecodedBuilder = Google.Protobuf.Field.Builder()
                 if let jsonValueKind = jsonMap["kind"] as? String {
-                    resultDecodedBuilder.kind = try Google.Protobuf.Field.Kind.fromString(str: jsonValueKind)
+                    resultDecodedBuilder.kind = try Google.Protobuf.Field.Kind.fromString(jsonValueKind)
                 }
                 if let jsonValueCardinality = jsonMap["cardinality"] as? String {
-                    resultDecodedBuilder.cardinality = try Google.Protobuf.Field.Cardinality.fromString(str: jsonValueCardinality)
+                    resultDecodedBuilder.cardinality = try Google.Protobuf.Field.Cardinality.fromString(jsonValueCardinality)
                 }
                 if let jsonValueNumber = jsonMap["number"] as? Int {
                     resultDecodedBuilder.number = Int32(jsonValueNumber)

@@ -1668,7 +1668,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
         //Enum type declaration start 
 
-        internal enum PBFlavor:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+        internal enum PBFlavor:Int32, GeneratedEnum {
             case chocolate = 1
             case vanilla = 2
             internal func toString() -> String {
@@ -1677,7 +1677,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
                 case .vanilla: return "VANILLA"
                 }
             }
-            internal static func fromString(str:String) throws -> PBIceCreamCone.PBFlavor {
+            internal static func fromString(_ str:String) throws -> PBIceCreamCone.PBFlavor {
                 switch str {
                 case "CHOCOLATE":    return .chocolate
                 case "VANILLA":    return .vanilla
@@ -1948,7 +1948,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
                 resultDecodedBuilder.scoops = Int32(jsonValueScoops)!
             }
             if let jsonValueFlavor = jsonMap["flavor"] as? String {
-                resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(str: jsonValueFlavor)
+                resultDecodedBuilder.flavor = try PBIceCreamCone.PBFlavor.fromString(jsonValueFlavor)
             }
             return resultDecodedBuilder
         }

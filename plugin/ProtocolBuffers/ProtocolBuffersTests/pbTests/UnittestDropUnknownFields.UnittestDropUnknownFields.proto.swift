@@ -39,7 +39,7 @@ public extension UnittestDropUnknownFields {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 0
                 case bar = 1
                 case baz = 2
@@ -50,7 +50,7 @@ public extension UnittestDropUnknownFields {
                     case .baz: return "BAZ"
                     }
                 }
-                public static func fromString(str:String) throws -> UnittestDropUnknownFields.Foo.NestedEnum {
+                public static func fromString(_ str:String) throws -> UnittestDropUnknownFields.Foo.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -323,7 +323,7 @@ public extension UnittestDropUnknownFields {
                     resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)!
                 }
                 if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
-                    resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(str: jsonValueEnumValue)
+                    resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.Foo.NestedEnum.fromString(jsonValueEnumValue)
                 }
                 return resultDecodedBuilder
             }
@@ -356,7 +356,7 @@ public extension UnittestDropUnknownFields {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 0
                 case bar = 1
                 case baz = 2
@@ -369,7 +369,7 @@ public extension UnittestDropUnknownFields {
                     case .qux: return "QUX"
                     }
                 }
-                public static func fromString(str:String) throws -> UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
+                public static func fromString(_ str:String) throws -> UnittestDropUnknownFields.FooWithExtraFields.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -693,7 +693,7 @@ public extension UnittestDropUnknownFields {
                     resultDecodedBuilder.int32Value = Int32(jsonValueInt32Value)!
                 }
                 if let jsonValueEnumValue = jsonMap["enumValue"] as? String {
-                    resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.fromString(str: jsonValueEnumValue)
+                    resultDecodedBuilder.enumValue = try UnittestDropUnknownFields.FooWithExtraFields.NestedEnum.fromString(jsonValueEnumValue)
                 }
                 if let jsonValueExtraInt32Value = jsonMap["extraInt32Value"] as? Int {
                     resultDecodedBuilder.extraInt32Value = Int32(jsonValueExtraInt32Value)

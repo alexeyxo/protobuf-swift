@@ -27,7 +27,7 @@ public extension Google.Protobuf {
 
     /// `NullValue` is a singleton enumeration to represent the null
     /// value for the `Value` type union.
-    public enum NullValue:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum NullValue:Int32, GeneratedEnum {
         /// Null value.
         case `NullValue` = 0
         public func toString() -> String {
@@ -35,7 +35,7 @@ public extension Google.Protobuf {
             case .`NullValue`: return "NULL_VALUE"
             }
         }
-        public static func fromString(str:String) throws -> Google.Protobuf.NullValue {
+        public static func fromString(_ str:String) throws -> Google.Protobuf.NullValue {
             switch str {
             case "NULL_VALUE":    return .`NullValue`
             default: throw ProtocolBuffersError.invalidProtocolBuffer("Conversion String to Enum has failed.")
@@ -1334,7 +1334,7 @@ public extension Google.Protobuf {
             class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Value.Builder {
                 let resultDecodedBuilder = Google.Protobuf.Value.Builder()
                 if let jsonValueNullValue = jsonMap["nullValue"] as? String {
-                    resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(str: jsonValueNullValue)
+                    resultDecodedBuilder.nullValue = try Google.Protobuf.NullValue.fromString(jsonValueNullValue)
                 }
                 if let jsonValueNumberValue = jsonMap["numberValue"] as? Double {
                     resultDecodedBuilder.numberValue = Double(jsonValueNumberValue)

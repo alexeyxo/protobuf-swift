@@ -1238,7 +1238,7 @@ public extension ProtobufUnittest {
 
     //Enum type declaration start 
 
-    public enum ForeignEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum ForeignEnum:Int32, GeneratedEnum {
         case foreignFoo = 4
         case foreignBar = 5
         case foreignBaz = 6
@@ -1249,7 +1249,7 @@ public extension ProtobufUnittest {
             case .foreignBaz: return "FOREIGN_BAZ"
             }
         }
-        public static func fromString(str:String) throws -> ProtobufUnittest.ForeignEnum {
+        public static func fromString(_ str:String) throws -> ProtobufUnittest.ForeignEnum {
             switch str {
             case "FOREIGN_FOO":    return .foreignFoo
             case "FOREIGN_BAR":    return .foreignBar
@@ -1281,7 +1281,7 @@ public extension ProtobufUnittest {
     //Enum type declaration start 
 
     /// Test an enum that has multiple values with the same number.
-    public enum TestEnumWithDupValue:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum TestEnumWithDupValue:Int32, GeneratedEnum {
         case foo1 = 1
         case bar1 = 2
         case baz = 3
@@ -1292,7 +1292,7 @@ public extension ProtobufUnittest {
             case .baz: return "BAZ"
             }
         }
-        public static func fromString(str:String) throws -> ProtobufUnittest.TestEnumWithDupValue {
+        public static func fromString(_ str:String) throws -> ProtobufUnittest.TestEnumWithDupValue {
             switch str {
             case "FOO1":    return .foo1
             case "BAR1":    return .bar1
@@ -1324,7 +1324,7 @@ public extension ProtobufUnittest {
     //Enum type declaration start 
 
     /// Test an enum with large, unordered values.
-    public enum TestSparseEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum TestSparseEnum:Int32, GeneratedEnum {
         case sparseA = 123
         case sparseB = 62374
         case sparseC = 12589234
@@ -1343,7 +1343,7 @@ public extension ProtobufUnittest {
             case .sparseG: return "SPARSE_G"
             }
         }
-        public static func fromString(str:String) throws -> ProtobufUnittest.TestSparseEnum {
+        public static func fromString(_ str:String) throws -> ProtobufUnittest.TestSparseEnum {
             switch str {
             case "SPARSE_A":    return .sparseA
             case "SPARSE_B":    return .sparseB
@@ -2200,7 +2200,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 1
                 case bar = 2
                 case baz = 3
@@ -2215,7 +2215,7 @@ public extension ProtobufUnittest {
                     case .neg: return "NEG"
                     }
                 }
-                public static func fromString(str:String) throws -> ProtobufUnittest.TestAllTypes.NestedEnum {
+                public static func fromString(_ str:String) throws -> ProtobufUnittest.TestAllTypes.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -6570,13 +6570,13 @@ public extension ProtobufUnittest {
 
                 }
                 if let jsonValueOptionalNestedEnum = jsonMap["optionalNestedEnum"] as? String {
-                    resultDecodedBuilder.optionalNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(str: jsonValueOptionalNestedEnum)
+                    resultDecodedBuilder.optionalNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(jsonValueOptionalNestedEnum)
                 }
                 if let jsonValueOptionalForeignEnum = jsonMap["optionalForeignEnum"] as? String {
-                    resultDecodedBuilder.optionalForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueOptionalForeignEnum)
+                    resultDecodedBuilder.optionalForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(jsonValueOptionalForeignEnum)
                 }
                 if let jsonValueOptionalImportEnum = jsonMap["optionalImportEnum"] as? String {
-                    resultDecodedBuilder.optionalImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(str: jsonValueOptionalImportEnum)
+                    resultDecodedBuilder.optionalImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(jsonValueOptionalImportEnum)
                 }
                 if let jsonValueOptionalStringPiece = jsonMap["optionalStringPiece"] as? String {
                     resultDecodedBuilder.optionalStringPiece = jsonValueOptionalStringPiece
@@ -6736,7 +6736,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedNestedEnum = jsonMap["repeatedNestedEnum"] as? Array<String> {
                     var jsonArrayRepeatedNestedEnum:Array<ProtobufUnittest.TestAllTypes.NestedEnum> = []
                     for oneValueRepeatedNestedEnum in jsonValueRepeatedNestedEnum {
-                        let enumFromStringRepeatedNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(str: oneValueRepeatedNestedEnum)
+                        let enumFromStringRepeatedNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(oneValueRepeatedNestedEnum)
                         jsonArrayRepeatedNestedEnum.append(enumFromStringRepeatedNestedEnum)
                     }
                     resultDecodedBuilder.repeatedNestedEnum = jsonArrayRepeatedNestedEnum
@@ -6744,7 +6744,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedForeignEnum = jsonMap["repeatedForeignEnum"] as? Array<String> {
                     var jsonArrayRepeatedForeignEnum:Array<ProtobufUnittest.ForeignEnum> = []
                     for oneValueRepeatedForeignEnum in jsonValueRepeatedForeignEnum {
-                        let enumFromStringRepeatedForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(str: oneValueRepeatedForeignEnum)
+                        let enumFromStringRepeatedForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(oneValueRepeatedForeignEnum)
                         jsonArrayRepeatedForeignEnum.append(enumFromStringRepeatedForeignEnum)
                     }
                     resultDecodedBuilder.repeatedForeignEnum = jsonArrayRepeatedForeignEnum
@@ -6752,7 +6752,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedImportEnum = jsonMap["repeatedImportEnum"] as? Array<String> {
                     var jsonArrayRepeatedImportEnum:Array<ProtobufUnittestImport.ImportEnum> = []
                     for oneValueRepeatedImportEnum in jsonValueRepeatedImportEnum {
-                        let enumFromStringRepeatedImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(str: oneValueRepeatedImportEnum)
+                        let enumFromStringRepeatedImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(oneValueRepeatedImportEnum)
                         jsonArrayRepeatedImportEnum.append(enumFromStringRepeatedImportEnum)
                     }
                     resultDecodedBuilder.repeatedImportEnum = jsonArrayRepeatedImportEnum
@@ -6850,13 +6850,13 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.defaultBytes = Data(base64Encoded:jsonValueDefaultBytes, options: Data.Base64DecodingOptions(rawValue:0))!
                 }
                 if let jsonValueDefaultNestedEnum = jsonMap["defaultNestedEnum"] as? String {
-                    resultDecodedBuilder.defaultNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(str: jsonValueDefaultNestedEnum)
+                    resultDecodedBuilder.defaultNestedEnum = try ProtobufUnittest.TestAllTypes.NestedEnum.fromString(jsonValueDefaultNestedEnum)
                 }
                 if let jsonValueDefaultForeignEnum = jsonMap["defaultForeignEnum"] as? String {
-                    resultDecodedBuilder.defaultForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueDefaultForeignEnum)
+                    resultDecodedBuilder.defaultForeignEnum = try ProtobufUnittest.ForeignEnum.fromString(jsonValueDefaultForeignEnum)
                 }
                 if let jsonValueDefaultImportEnum = jsonMap["defaultImportEnum"] as? String {
-                    resultDecodedBuilder.defaultImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(str: jsonValueDefaultImportEnum)
+                    resultDecodedBuilder.defaultImportEnum = try ProtobufUnittestImport.ImportEnum.fromString(jsonValueDefaultImportEnum)
                 }
                 if let jsonValueDefaultStringPiece = jsonMap["defaultStringPiece"] as? String {
                     resultDecodedBuilder.defaultStringPiece = jsonValueDefaultStringPiece
@@ -15740,7 +15740,7 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.stringField = jsonValueStringField
                 }
                 if let jsonValueEnumField = jsonMap["EnumField"] as? String {
-                    resultDecodedBuilder.enumField = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueEnumField)
+                    resultDecodedBuilder.enumField = try ProtobufUnittest.ForeignEnum.fromString(jsonValueEnumField)
                 }
                 if let jsonValueMessageField = jsonMap["MessageField"] as? Dictionary<String,Any> {
                     resultDecodedBuilder.messageField = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMessageField).build()
@@ -15769,7 +15769,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedEnumField = jsonMap["RepeatedEnumField"] as? Array<String> {
                     var jsonArrayRepeatedEnumField:Array<ProtobufUnittest.ForeignEnum> = []
                     for oneValueRepeatedEnumField in jsonValueRepeatedEnumField {
-                        let enumFromStringRepeatedEnumField = try ProtobufUnittest.ForeignEnum.fromString(str: oneValueRepeatedEnumField)
+                        let enumFromStringRepeatedEnumField = try ProtobufUnittest.ForeignEnum.fromString(oneValueRepeatedEnumField)
                         jsonArrayRepeatedEnumField.append(enumFromStringRepeatedEnumField)
                     }
                     resultDecodedBuilder.repeatedEnumField = jsonArrayRepeatedEnumField
@@ -18388,7 +18388,7 @@ public extension ProtobufUnittest {
             class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittest.SparseEnumMessage.Builder {
                 let resultDecodedBuilder = ProtobufUnittest.SparseEnumMessage.Builder()
                 if let jsonValueSparseEnum = jsonMap["sparseEnum"] as? String {
-                    resultDecodedBuilder.sparseEnum = try ProtobufUnittest.TestSparseEnum.fromString(str: jsonValueSparseEnum)
+                    resultDecodedBuilder.sparseEnum = try ProtobufUnittest.TestSparseEnum.fromString(jsonValueSparseEnum)
                 }
                 return resultDecodedBuilder
             }
@@ -22705,7 +22705,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 1
                 case bar = 2
                 case baz = 3
@@ -22716,7 +22716,7 @@ public extension ProtobufUnittest {
                     case .baz: return "BAZ"
                     }
                 }
-                public static func fromString(str:String) throws -> ProtobufUnittest.TestOneof2.NestedEnum {
+                public static func fromString(_ str:String) throws -> ProtobufUnittest.TestOneof2.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -24093,7 +24093,7 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.fooBytes = Data(base64Encoded:jsonValueFooBytes, options: Data.Base64DecodingOptions(rawValue:0))!
                 }
                 if let jsonValueFooEnum = jsonMap["fooEnum"] as? String {
-                    resultDecodedBuilder.fooEnum = try ProtobufUnittest.TestOneof2.NestedEnum.fromString(str: jsonValueFooEnum)
+                    resultDecodedBuilder.fooEnum = try ProtobufUnittest.TestOneof2.NestedEnum.fromString(jsonValueFooEnum)
                 }
                 if let jsonValueFooMessage = jsonMap["fooMessage"] as? Dictionary<String,Any> {
                     resultDecodedBuilder.fooMessage = try ProtobufUnittest.TestOneof2.NestedMessage.Builder.decodeToBuilder(jsonMap:jsonValueFooMessage).build()
@@ -24125,7 +24125,7 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.barBytes = Data(base64Encoded:jsonValueBarBytes, options: Data.Base64DecodingOptions(rawValue:0))!
                 }
                 if let jsonValueBarEnum = jsonMap["barEnum"] as? String {
-                    resultDecodedBuilder.barEnum = try ProtobufUnittest.TestOneof2.NestedEnum.fromString(str: jsonValueBarEnum)
+                    resultDecodedBuilder.barEnum = try ProtobufUnittest.TestOneof2.NestedEnum.fromString(jsonValueBarEnum)
                 }
                 if let jsonValueBazInt = jsonMap["bazInt"] as? Int {
                     resultDecodedBuilder.bazInt = Int32(jsonValueBazInt)
@@ -25966,7 +25966,7 @@ public extension ProtobufUnittest {
                 if let jsonValuePackedEnum = jsonMap["packedEnum"] as? Array<String> {
                     var jsonArrayPackedEnum:Array<ProtobufUnittest.ForeignEnum> = []
                     for oneValuePackedEnum in jsonValuePackedEnum {
-                        let enumFromStringPackedEnum = try ProtobufUnittest.ForeignEnum.fromString(str: oneValuePackedEnum)
+                        let enumFromStringPackedEnum = try ProtobufUnittest.ForeignEnum.fromString(oneValuePackedEnum)
                         jsonArrayPackedEnum.append(enumFromStringPackedEnum)
                     }
                     resultDecodedBuilder.packedEnum = jsonArrayPackedEnum
@@ -26947,7 +26947,7 @@ public extension ProtobufUnittest {
                 if let jsonValueUnpackedEnum = jsonMap["unpackedEnum"] as? Array<String> {
                     var jsonArrayUnpackedEnum:Array<ProtobufUnittest.ForeignEnum> = []
                     for oneValueUnpackedEnum in jsonValueUnpackedEnum {
-                        let enumFromStringUnpackedEnum = try ProtobufUnittest.ForeignEnum.fromString(str: oneValueUnpackedEnum)
+                        let enumFromStringUnpackedEnum = try ProtobufUnittest.ForeignEnum.fromString(oneValueUnpackedEnum)
                         jsonArrayUnpackedEnum.append(enumFromStringUnpackedEnum)
                     }
                     resultDecodedBuilder.unpackedEnum = jsonArrayUnpackedEnum
@@ -27555,7 +27555,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration start 
 
-            public enum DynamicEnumType:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum DynamicEnumType:Int32, GeneratedEnum {
                 case dynamicFoo = 2200
                 case dynamicBar = 2201
                 case dynamicBaz = 2202
@@ -27566,7 +27566,7 @@ public extension ProtobufUnittest {
                     case .dynamicBaz: return "DYNAMIC_BAZ"
                     }
                 }
-                public static func fromString(str:String) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicEnumType {
+                public static func fromString(_ str:String) throws -> ProtobufUnittest.TestDynamicExtensions.DynamicEnumType {
                     switch str {
                     case "DYNAMIC_FOO":    return .dynamicFoo
                     case "DYNAMIC_BAR":    return .dynamicBar
@@ -28186,10 +28186,10 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.scalarExtension = UInt32(jsonValueScalarExtension)!
                 }
                 if let jsonValueEnumExtension = jsonMap["enumExtension"] as? String {
-                    resultDecodedBuilder.enumExtension = try ProtobufUnittest.ForeignEnum.fromString(str: jsonValueEnumExtension)
+                    resultDecodedBuilder.enumExtension = try ProtobufUnittest.ForeignEnum.fromString(jsonValueEnumExtension)
                 }
                 if let jsonValueDynamicEnumExtension = jsonMap["dynamicEnumExtension"] as? String {
-                    resultDecodedBuilder.dynamicEnumExtension = try ProtobufUnittest.TestDynamicExtensions.DynamicEnumType.fromString(str: jsonValueDynamicEnumExtension)
+                    resultDecodedBuilder.dynamicEnumExtension = try ProtobufUnittest.TestDynamicExtensions.DynamicEnumType.fromString(jsonValueDynamicEnumExtension)
                 }
                 if let jsonValueMessageExtension = jsonMap["messageExtension"] as? Dictionary<String,Any> {
                     resultDecodedBuilder.messageExtension = try ProtobufUnittest.ForeignMessage.Builder.decodeToBuilder(jsonMap:jsonValueMessageExtension).build()

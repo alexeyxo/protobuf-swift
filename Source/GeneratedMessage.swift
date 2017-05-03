@@ -27,6 +27,11 @@ public protocol GeneratedMessageProtocol: ProtocolBuffersMessage {
     subscript(key: String) -> Any? { get }
 }
 
+public protocol GeneratedEnum:RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    func toString() -> String
+    static func fromString(_ str:String) throws -> Self
+}
+
 public protocol GeneratedMessageBuilderProtocol: ProtocolBuffersMessageBuilder {
     subscript(key: String) -> Any? { get  set }
 }

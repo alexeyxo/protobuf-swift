@@ -2699,7 +2699,7 @@ public extension Google.Protobuf {
 
             //Enum type declaration start 
 
-            public enum `Type`:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum `Type`:Int32, GeneratedEnum {
                 /// 0 is reserved for errors.
                 /// Order is weird for historical reasons.
                 case typeDouble = 1
@@ -2761,7 +2761,7 @@ public extension Google.Protobuf {
                     case .typeSint64: return "TYPE_SINT64"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.FieldDescriptorProto.`Type` {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldDescriptorProto.`Type` {
                     switch str {
                     case "TYPE_DOUBLE":    return .typeDouble
                     case "TYPE_FLOAT":    return .typeFloat
@@ -2822,7 +2822,7 @@ public extension Google.Protobuf {
 
             //Enum type declaration start 
 
-            public enum Label:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum Label:Int32, GeneratedEnum {
                 /// 0 is reserved for errors
                 case labelOptional = 1
                 case labelRequired = 2
@@ -2834,7 +2834,7 @@ public extension Google.Protobuf {
                     case .labelRepeated: return "LABEL_REPEATED"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.FieldDescriptorProto.Label {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldDescriptorProto.Label {
                     switch str {
                     case "LABEL_OPTIONAL":    return .labelOptional
                     case "LABEL_REQUIRED":    return .labelRequired
@@ -3590,10 +3590,10 @@ public extension Google.Protobuf {
                     resultDecodedBuilder.number = Int32(jsonValueNumber)!
                 }
                 if let jsonValueLabel = jsonMap["label"] as? String {
-                    resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(str: jsonValueLabel)
+                    resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(jsonValueLabel)
                 }
                 if let jsonValueType = jsonMap["type"] as? String {
-                    resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.`Type`.fromString(str: jsonValueType)
+                    resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.`Type`.fromString(jsonValueType)
                 }
                 if let jsonValueTypeName = jsonMap["typeName"] as? String {
                     resultDecodedBuilder.typeName = jsonValueTypeName
@@ -5660,7 +5660,7 @@ public extension Google.Protobuf {
             //Enum type declaration start 
 
             /// Generated classes can be optimized for speed or code size.
-            public enum OptimizeMode:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum OptimizeMode:Int32, GeneratedEnum {
                 /// Generate complete code for parsing, serialization,
                 case speed = 1
 
@@ -5676,7 +5676,7 @@ public extension Google.Protobuf {
                     case .liteRuntime: return "LITE_RUNTIME"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.FileOptions.OptimizeMode {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FileOptions.OptimizeMode {
                     switch str {
                     case "SPEED":    return .speed
                     case "CODE_SIZE":    return .codeSize
@@ -6818,7 +6818,7 @@ public extension Google.Protobuf {
                     resultDecodedBuilder.javaStringCheckUtf8 = jsonValueJavaStringCheckUtf8
                 }
                 if let jsonValueOptimizeFor = jsonMap["optimizeFor"] as? String {
-                    resultDecodedBuilder.optimizeFor = try Google.Protobuf.FileOptions.OptimizeMode.fromString(str: jsonValueOptimizeFor)
+                    resultDecodedBuilder.optimizeFor = try Google.Protobuf.FileOptions.OptimizeMode.fromString(jsonValueOptimizeFor)
                 }
                 if let jsonValueGoPackage = jsonMap["goPackage"] as? String {
                     resultDecodedBuilder.goPackage = jsonValueGoPackage
@@ -7430,7 +7430,7 @@ public extension Google.Protobuf {
 
             //Enum type declaration start 
 
-            public enum Ctype:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum Ctype:Int32, GeneratedEnum {
                 /// Default mode.
                 case `String` = 0
                 case cord = 1
@@ -7442,7 +7442,7 @@ public extension Google.Protobuf {
                     case .stringPiece: return "STRING_PIECE"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.FieldOptions.Ctype {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldOptions.Ctype {
                     switch str {
                     case "STRING":    return .`String`
                     case "CORD":    return .cord
@@ -7473,7 +7473,7 @@ public extension Google.Protobuf {
 
             //Enum type declaration start 
 
-            public enum Jstype:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum Jstype:Int32, GeneratedEnum {
                 /// Use the default type.
                 case jsNormal = 0
 
@@ -7489,7 +7489,7 @@ public extension Google.Protobuf {
                     case .jsNumber: return "JS_NUMBER"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.FieldOptions.Jstype {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldOptions.Jstype {
                     switch str {
                     case "JS_NORMAL":    return .jsNormal
                     case "JS_STRING":    return .jsString
@@ -8108,13 +8108,13 @@ public extension Google.Protobuf {
             class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.FieldOptions.Builder {
                 let resultDecodedBuilder = Google.Protobuf.FieldOptions.Builder()
                 if let jsonValueCtype = jsonMap["ctype"] as? String {
-                    resultDecodedBuilder.ctype = try Google.Protobuf.FieldOptions.Ctype.fromString(str: jsonValueCtype)
+                    resultDecodedBuilder.ctype = try Google.Protobuf.FieldOptions.Ctype.fromString(jsonValueCtype)
                 }
                 if let jsonValuePacked = jsonMap["packed"] as? Bool {
                     resultDecodedBuilder.packed = jsonValuePacked
                 }
                 if let jsonValueJstype = jsonMap["jstype"] as? String {
-                    resultDecodedBuilder.jstype = try Google.Protobuf.FieldOptions.Jstype.fromString(str: jsonValueJstype)
+                    resultDecodedBuilder.jstype = try Google.Protobuf.FieldOptions.Jstype.fromString(jsonValueJstype)
                 }
                 if let jsonValueLazy = jsonMap["lazy"] as? Bool {
                     resultDecodedBuilder.`lazy` = jsonValueLazy
@@ -9381,7 +9381,7 @@ public extension Google.Protobuf {
             /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
             /// or neither? HTTP based RPC implementation may choose GET verb for safe
             /// methods, and PUT verb for idempotent methods instead of the default POST.
-            public enum IdempotencyLevel:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum IdempotencyLevel:Int32, GeneratedEnum {
                 case idempotencyUnknown = 0
 
                 /// implies idempotent
@@ -9396,7 +9396,7 @@ public extension Google.Protobuf {
                     case .idempotent: return "IDEMPOTENT"
                     }
                 }
-                public static func fromString(str:String) throws -> Google.Protobuf.MethodOptions.IdempotencyLevel {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.MethodOptions.IdempotencyLevel {
                     switch str {
                     case "IDEMPOTENCY_UNKNOWN":    return .idempotencyUnknown
                     case "NO_SIDE_EFFECTS":    return .noSideEffects
@@ -9745,7 +9745,7 @@ public extension Google.Protobuf {
                     resultDecodedBuilder.deprecated = jsonValueDeprecated
                 }
                 if let jsonValueIdempotencyLevel = jsonMap["idempotencyLevel"] as? String {
-                    resultDecodedBuilder.idempotencyLevel = try Google.Protobuf.MethodOptions.IdempotencyLevel.fromString(str: jsonValueIdempotencyLevel)
+                    resultDecodedBuilder.idempotencyLevel = try Google.Protobuf.MethodOptions.IdempotencyLevel.fromString(jsonValueIdempotencyLevel)
                 }
                 if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
                     var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []

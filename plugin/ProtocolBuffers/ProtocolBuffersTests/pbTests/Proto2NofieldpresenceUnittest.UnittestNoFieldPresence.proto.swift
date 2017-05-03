@@ -27,7 +27,7 @@ public extension Proto2NofieldpresenceUnittest {
 
     //Enum type declaration start 
 
-    public enum ForeignEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum ForeignEnum:Int32, GeneratedEnum {
         case foreignFoo = 0
         case foreignBar = 1
         case foreignBaz = 2
@@ -38,7 +38,7 @@ public extension Proto2NofieldpresenceUnittest {
             case .foreignBaz: return "FOREIGN_BAZ"
             }
         }
-        public static func fromString(str:String) throws -> Proto2NofieldpresenceUnittest.ForeignEnum {
+        public static func fromString(_ str:String) throws -> Proto2NofieldpresenceUnittest.ForeignEnum {
             switch str {
             case "FOREIGN_FOO":    return .foreignFoo
             case "FOREIGN_BAR":    return .foreignBar
@@ -409,7 +409,7 @@ public extension Proto2NofieldpresenceUnittest {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 0
                 case bar = 1
                 case baz = 2
@@ -420,7 +420,7 @@ public extension Proto2NofieldpresenceUnittest {
                     case .baz: return "BAZ"
                     }
                 }
-                public static func fromString(str:String) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum {
+                public static func fromString(_ str:String) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -3629,10 +3629,10 @@ public extension Proto2NofieldpresenceUnittest {
 
                 }
                 if let jsonValueOptionalNestedEnum = jsonMap["optionalNestedEnum"] as? String {
-                    resultDecodedBuilder.optionalNestedEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(str: jsonValueOptionalNestedEnum)
+                    resultDecodedBuilder.optionalNestedEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(jsonValueOptionalNestedEnum)
                 }
                 if let jsonValueOptionalForeignEnum = jsonMap["optionalForeignEnum"] as? String {
-                    resultDecodedBuilder.optionalForeignEnum = try Proto2NofieldpresenceUnittest.ForeignEnum.fromString(str: jsonValueOptionalForeignEnum)
+                    resultDecodedBuilder.optionalForeignEnum = try Proto2NofieldpresenceUnittest.ForeignEnum.fromString(jsonValueOptionalForeignEnum)
                 }
                 if let jsonValueOptionalStringPiece = jsonMap["optionalStringPiece"] as? String {
                     resultDecodedBuilder.optionalStringPiece = jsonValueOptionalStringPiece
@@ -3779,7 +3779,7 @@ public extension Proto2NofieldpresenceUnittest {
                 if let jsonValueRepeatedNestedEnum = jsonMap["repeatedNestedEnum"] as? Array<String> {
                     var jsonArrayRepeatedNestedEnum:Array<Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum> = []
                     for oneValueRepeatedNestedEnum in jsonValueRepeatedNestedEnum {
-                        let enumFromStringRepeatedNestedEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(str: oneValueRepeatedNestedEnum)
+                        let enumFromStringRepeatedNestedEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(oneValueRepeatedNestedEnum)
                         jsonArrayRepeatedNestedEnum.append(enumFromStringRepeatedNestedEnum)
                     }
                     resultDecodedBuilder.repeatedNestedEnum = jsonArrayRepeatedNestedEnum
@@ -3787,7 +3787,7 @@ public extension Proto2NofieldpresenceUnittest {
                 if let jsonValueRepeatedForeignEnum = jsonMap["repeatedForeignEnum"] as? Array<String> {
                     var jsonArrayRepeatedForeignEnum:Array<Proto2NofieldpresenceUnittest.ForeignEnum> = []
                     for oneValueRepeatedForeignEnum in jsonValueRepeatedForeignEnum {
-                        let enumFromStringRepeatedForeignEnum = try Proto2NofieldpresenceUnittest.ForeignEnum.fromString(str: oneValueRepeatedForeignEnum)
+                        let enumFromStringRepeatedForeignEnum = try Proto2NofieldpresenceUnittest.ForeignEnum.fromString(oneValueRepeatedForeignEnum)
                         jsonArrayRepeatedForeignEnum.append(enumFromStringRepeatedForeignEnum)
                     }
                     resultDecodedBuilder.repeatedForeignEnum = jsonArrayRepeatedForeignEnum
@@ -3828,7 +3828,7 @@ public extension Proto2NofieldpresenceUnittest {
                     resultDecodedBuilder.oneofString = jsonValueOneofString
                 }
                 if let jsonValueOneofEnum = jsonMap["oneofEnum"] as? String {
-                    resultDecodedBuilder.oneofEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(str: jsonValueOneofEnum)
+                    resultDecodedBuilder.oneofEnum = try Proto2NofieldpresenceUnittest.TestAllTypes.NestedEnum.fromString(jsonValueOneofEnum)
                 }
                 return resultDecodedBuilder
             }

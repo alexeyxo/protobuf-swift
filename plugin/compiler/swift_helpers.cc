@@ -1064,7 +1064,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_BOOL    : return value;
             case FieldDescriptor::TYPE_STRING  : return value;
             case FieldDescriptor::TYPE_BYTES   : return "Data(base64Encoded:" + value  +", options: Data.Base64DecodingOptions(rawValue:0))!";
-            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(str: " + value + ")";
+            case FieldDescriptor::TYPE_ENUM: return "try " + ClassNameReturedType(field->enum_type()) + ".fromString(" + value + ")";
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: return "try " + ClassNameReturedType(field->message_type()) +  ".Builder.decodeToBuilder(jsonMap:" + value + ").build()\n";
         }

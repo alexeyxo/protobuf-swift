@@ -1034,7 +1034,7 @@ public extension ProtobufUnittest {
 
     //Enum type declaration start 
 
-    public enum ForeignEnumLite:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum ForeignEnumLite:Int32, GeneratedEnum {
         case foreignLiteFoo = 4
         case foreignLiteBar = 5
         case foreignLiteBaz = 6
@@ -1045,7 +1045,7 @@ public extension ProtobufUnittest {
             case .foreignLiteBaz: return "FOREIGN_LITE_BAZ"
             }
         }
-        public static func fromString(str:String) throws -> ProtobufUnittest.ForeignEnumLite {
+        public static func fromString(_ str:String) throws -> ProtobufUnittest.ForeignEnumLite {
             switch str {
             case "FOREIGN_LITE_FOO":    return .foreignLiteFoo
             case "FOREIGN_LITE_BAR":    return .foreignLiteBar
@@ -1887,7 +1887,7 @@ public extension ProtobufUnittest {
 
             //Enum type declaration start 
 
-            public enum NestedEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+            public enum NestedEnum:Int32, GeneratedEnum {
                 case foo = 1
                 case bar = 2
                 case baz = 3
@@ -1898,7 +1898,7 @@ public extension ProtobufUnittest {
                     case .baz: return "BAZ"
                     }
                 }
-                public static func fromString(str:String) throws -> ProtobufUnittest.TestAllTypesLite.NestedEnum {
+                public static func fromString(_ str:String) throws -> ProtobufUnittest.TestAllTypesLite.NestedEnum {
                     switch str {
                     case "FOO":    return .foo
                     case "BAR":    return .bar
@@ -6251,13 +6251,13 @@ public extension ProtobufUnittest {
 
                 }
                 if let jsonValueOptionalNestedEnum = jsonMap["optionalNestedEnum"] as? String {
-                    resultDecodedBuilder.optionalNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(str: jsonValueOptionalNestedEnum)
+                    resultDecodedBuilder.optionalNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(jsonValueOptionalNestedEnum)
                 }
                 if let jsonValueOptionalForeignEnum = jsonMap["optionalForeignEnum"] as? String {
-                    resultDecodedBuilder.optionalForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(str: jsonValueOptionalForeignEnum)
+                    resultDecodedBuilder.optionalForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(jsonValueOptionalForeignEnum)
                 }
                 if let jsonValueOptionalImportEnum = jsonMap["optionalImportEnum"] as? String {
-                    resultDecodedBuilder.optionalImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(str: jsonValueOptionalImportEnum)
+                    resultDecodedBuilder.optionalImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(jsonValueOptionalImportEnum)
                 }
                 if let jsonValueOptionalStringPiece = jsonMap["optionalStringPiece"] as? String {
                     resultDecodedBuilder.optionalStringPiece = jsonValueOptionalStringPiece
@@ -6417,7 +6417,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedNestedEnum = jsonMap["repeatedNestedEnum"] as? Array<String> {
                     var jsonArrayRepeatedNestedEnum:Array<ProtobufUnittest.TestAllTypesLite.NestedEnum> = []
                     for oneValueRepeatedNestedEnum in jsonValueRepeatedNestedEnum {
-                        let enumFromStringRepeatedNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(str: oneValueRepeatedNestedEnum)
+                        let enumFromStringRepeatedNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(oneValueRepeatedNestedEnum)
                         jsonArrayRepeatedNestedEnum.append(enumFromStringRepeatedNestedEnum)
                     }
                     resultDecodedBuilder.repeatedNestedEnum = jsonArrayRepeatedNestedEnum
@@ -6425,7 +6425,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedForeignEnum = jsonMap["repeatedForeignEnum"] as? Array<String> {
                     var jsonArrayRepeatedForeignEnum:Array<ProtobufUnittest.ForeignEnumLite> = []
                     for oneValueRepeatedForeignEnum in jsonValueRepeatedForeignEnum {
-                        let enumFromStringRepeatedForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(str: oneValueRepeatedForeignEnum)
+                        let enumFromStringRepeatedForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(oneValueRepeatedForeignEnum)
                         jsonArrayRepeatedForeignEnum.append(enumFromStringRepeatedForeignEnum)
                     }
                     resultDecodedBuilder.repeatedForeignEnum = jsonArrayRepeatedForeignEnum
@@ -6433,7 +6433,7 @@ public extension ProtobufUnittest {
                 if let jsonValueRepeatedImportEnum = jsonMap["repeatedImportEnum"] as? Array<String> {
                     var jsonArrayRepeatedImportEnum:Array<ProtobufUnittestImport.ImportEnumLite> = []
                     for oneValueRepeatedImportEnum in jsonValueRepeatedImportEnum {
-                        let enumFromStringRepeatedImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(str: oneValueRepeatedImportEnum)
+                        let enumFromStringRepeatedImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(oneValueRepeatedImportEnum)
                         jsonArrayRepeatedImportEnum.append(enumFromStringRepeatedImportEnum)
                     }
                     resultDecodedBuilder.repeatedImportEnum = jsonArrayRepeatedImportEnum
@@ -6531,13 +6531,13 @@ public extension ProtobufUnittest {
                     resultDecodedBuilder.defaultBytes = Data(base64Encoded:jsonValueDefaultBytes, options: Data.Base64DecodingOptions(rawValue:0))!
                 }
                 if let jsonValueDefaultNestedEnum = jsonMap["defaultNestedEnum"] as? String {
-                    resultDecodedBuilder.defaultNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(str: jsonValueDefaultNestedEnum)
+                    resultDecodedBuilder.defaultNestedEnum = try ProtobufUnittest.TestAllTypesLite.NestedEnum.fromString(jsonValueDefaultNestedEnum)
                 }
                 if let jsonValueDefaultForeignEnum = jsonMap["defaultForeignEnum"] as? String {
-                    resultDecodedBuilder.defaultForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(str: jsonValueDefaultForeignEnum)
+                    resultDecodedBuilder.defaultForeignEnum = try ProtobufUnittest.ForeignEnumLite.fromString(jsonValueDefaultForeignEnum)
                 }
                 if let jsonValueDefaultImportEnum = jsonMap["defaultImportEnum"] as? String {
-                    resultDecodedBuilder.defaultImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(str: jsonValueDefaultImportEnum)
+                    resultDecodedBuilder.defaultImportEnum = try ProtobufUnittestImport.ImportEnumLite.fromString(jsonValueDefaultImportEnum)
                 }
                 if let jsonValueDefaultStringPiece = jsonMap["defaultStringPiece"] as? String {
                     resultDecodedBuilder.defaultStringPiece = jsonValueDefaultStringPiece
@@ -7920,7 +7920,7 @@ public extension ProtobufUnittest {
                 if let jsonValuePackedEnum = jsonMap["packedEnum"] as? Array<String> {
                     var jsonArrayPackedEnum:Array<ProtobufUnittest.ForeignEnumLite> = []
                     for oneValuePackedEnum in jsonValuePackedEnum {
-                        let enumFromStringPackedEnum = try ProtobufUnittest.ForeignEnumLite.fromString(str: oneValuePackedEnum)
+                        let enumFromStringPackedEnum = try ProtobufUnittest.ForeignEnumLite.fromString(oneValuePackedEnum)
                         jsonArrayPackedEnum.append(enumFromStringPackedEnum)
                     }
                     resultDecodedBuilder.packedEnum = jsonArrayPackedEnum

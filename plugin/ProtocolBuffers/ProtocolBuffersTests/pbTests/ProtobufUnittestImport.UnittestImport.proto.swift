@@ -27,7 +27,7 @@ public extension ProtobufUnittestImport {
 
     //Enum type declaration start 
 
-    public enum ImportEnum:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+    public enum ImportEnum:Int32, GeneratedEnum {
         case importFoo = 7
         case importBar = 8
         case importBaz = 9
@@ -38,7 +38,7 @@ public extension ProtobufUnittestImport {
             case .importBaz: return "IMPORT_BAZ"
             }
         }
-        public static func fromString(str:String) throws -> ProtobufUnittestImport.ImportEnum {
+        public static func fromString(_ str:String) throws -> ProtobufUnittestImport.ImportEnum {
             switch str {
             case "IMPORT_FOO":    return .importFoo
             case "IMPORT_BAR":    return .importBar
