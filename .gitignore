@@ -47,3 +47,5 @@ DerivedData
 .idea/
 
 compile
+/plugin/compiler/protoc-gen-swift_realm
+/plugin/compiler/protoc-gen-swift_react
