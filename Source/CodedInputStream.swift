@@ -34,7 +34,9 @@ public class CodedInputStream {
     fileprivate var recursionLimit:Int = 0
     fileprivate var sizeLimit:Int = 0
     public init (data:Data) {
-        buffer = [UInt8](data)
+        buffer = data.withUnsafeBytes {
+            [UInt8](UnsafeBufferPointer(start: $0, count: data.count))
+        }
         bufferSize = buffer.count
         currentLimit = Int.max
         recursionLimit = DEFAULT_RECURSION_LIMIT
