@@ -186,11 +186,21 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             const FieldDescriptor* field = descriptor_->field(i);
             switch (GetSwiftType(field)) {
                 case SWIFT_TYPE_MESSAGE:
+                    if (!field->is_repeated()) {
+                        printer->Print("if proto.$name$ != nil {\n",
+                                       "name",UnderscoresToCamelCase(field));
+                        XCodeStandartIndent(printer);
+                    }
                     
                     printer->Print("rmModel.$name$ = $rmType$.map(proto.$name$)\n",
                                    "name", UnderscoresToCamelCase(field),
                                    "rmType", ClassNameRealm(field->message_type())
                                    );
+                    
+                    if (!field->is_repeated()) {
+                        XCodeStandartOutdent(printer);
+                        printer->Print("}\n");
+                    }
                     break;
                 case SWIFT_TYPE_ENUM:
                     if (field->is_repeated()) {
@@ -204,12 +214,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     if (field->is_repeated()) {
                         continue;
                     }
-                    
+                    printer->Print("if proto.$name$ != nil {\n",
+                                   "name",
+                                   UnderscoresToCamelCase(field));
+                    XCodeStandartIndent(printer);
                     string castType = PrimitiveTypeCastingRealm(field);
                     printer->Print("rmModel.$name$$castType$\n",
                                        "castType", castType,
                                        "name", UnderscoresToCamelCase(field)
                                        );
+                    XCodeStandartOutdent(printer);
+                    printer->Print("}\n");
                     
             }
         }

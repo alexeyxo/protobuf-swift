@@ -62,7 +62,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
 
         if (HasOptionForGenerateErrors(descriptor_)) {
-            printer->Print("$acontrol$ enum $classname$:Error, RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible, Hashable {\n",
+            printer->Print("$acontrol$ enum $classname$:Error, GeneratedEnum {\n",
                            "classname",ClassName(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
             XCodeStandartIndent(printer);
@@ -71,7 +71,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             
         } else {
-            printer->Print("$acontrol$ enum $classname$:Int32, CustomDebugStringConvertible, CustomStringConvertible, Hashable {\n",
+            printer->Print("$acontrol$ enum $classname$:Int32, GeneratedEnum {\n",
                            "classname",ClassName(descriptor_),
                            "acontrol", GetAccessControlType(descriptor_->file()));
             
@@ -106,7 +106,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("}\n");
         
         
-        printer->Print("$acontrol$ static func fromString(str:String) throws -> $className$ {\n"
+        printer->Print("$acontrol$ static func fromString(_ str:String) throws -> $className$ {\n"
                        "    switch str {\n",
                        "acontrol", GetAccessControlType(descriptor_->file()),
                        "className", ClassNameReturedType(descriptor_));
@@ -114,7 +114,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print("    case \"$name$\":", "name", canonical_values_[i]->name());
             printer->Print("    return .$canonical$\n","canonical",EnumValueName(canonical_values_[i]));
         }
-        printer->Print("    default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Conversion String to Enum has failed.\")\n");
+        printer->Print("    default: throw ProtocolBuffersError.invalidProtocolBuffer(\"Conversion failed.\")\n");
         printer->Print("    }\n");
         printer->Print("}\n");
         
