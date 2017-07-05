@@ -72,6 +72,7 @@ public extension Proto3ArenaUnittest {
     /// This proto includes every type of field in both singular and repeated
     /// forms.
     final public class TestAllTypes : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.TestAllTypes.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.TestAllTypes, rhs: Proto3ArenaUnittest.TestAllTypes) -> Bool {
             if lhs === rhs {
@@ -138,6 +139,7 @@ public extension Proto3ArenaUnittest {
         //Nested type declaration start
 
         final public class NestedMessage : GeneratedMessage {
+            public typealias BuilderType = Proto3ArenaUnittest.TestAllTypes.NestedMessage.Builder
 
             public static func == (lhs: Proto3ArenaUnittest.TestAllTypes.NestedMessage, rhs: Proto3ArenaUnittest.TestAllTypes.NestedMessage) -> Bool {
                 if lhs === rhs {
@@ -3948,6 +3950,7 @@ public extension Proto3ArenaUnittest {
     }
 
     final public class TestPackedTypes : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.TestPackedTypes.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.TestPackedTypes, rhs: Proto3ArenaUnittest.TestPackedTypes) -> Bool {
             if lhs === rhs {
@@ -5097,6 +5100,7 @@ public extension Proto3ArenaUnittest {
 
     /// Explicitly set packed to false
     final public class TestUnpackedTypes : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.TestUnpackedTypes.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.TestUnpackedTypes, rhs: Proto3ArenaUnittest.TestUnpackedTypes) -> Bool {
             if lhs === rhs {
@@ -6246,6 +6250,7 @@ public extension Proto3ArenaUnittest {
 
     /// This proto includes a recusively nested message.
     final public class NestedTestAllTypes : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.NestedTestAllTypes.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.NestedTestAllTypes, rhs: Proto3ArenaUnittest.NestedTestAllTypes) -> Bool {
             if lhs === rhs {
@@ -6600,6 +6605,7 @@ public extension Proto3ArenaUnittest {
     /// Define these after TestAllTypes to make sure the compiler can handle
     /// that.
     final public class ForeignMessage : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.ForeignMessage.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.ForeignMessage, rhs: Proto3ArenaUnittest.ForeignMessage) -> Bool {
             if lhs === rhs {
@@ -6818,6 +6824,7 @@ public extension Proto3ArenaUnittest {
 
     /// TestEmptyMessage is used to test behavior of unknown fields.
     final public class TestEmptyMessage : GeneratedMessage {
+        public typealias BuilderType = Proto3ArenaUnittest.TestEmptyMessage.Builder
 
         public static func == (lhs: Proto3ArenaUnittest.TestEmptyMessage, rhs: Proto3ArenaUnittest.TestEmptyMessage) -> Bool {
             if lhs === rhs {

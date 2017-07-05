@@ -80,6 +80,7 @@ public enum ServiceError:Error, GeneratedEnum {
 //Enum type declaration end 
 
 final public class UserProfile : GeneratedMessage {
+    public typealias BuilderType = UserProfile.Builder
 
     public static func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
         if lhs === rhs {
@@ -98,6 +99,7 @@ final public class UserProfile : GeneratedMessage {
     //Nested type declaration start
 
     final public class Request : GeneratedMessage {
+        public typealias BuilderType = UserProfile.Request.Builder
 
         public static func == (lhs: UserProfile.Request, rhs: UserProfile.Request) -> Bool {
             if lhs === rhs {
@@ -322,6 +324,7 @@ final public class UserProfile : GeneratedMessage {
     //Nested type declaration start
 
     final public class Response : GeneratedMessage {
+        public typealias BuilderType = UserProfile.Response.Builder
 
         public static func == (lhs: UserProfile.Response, rhs: UserProfile.Response) -> Bool {
             if lhs === rhs {
@@ -742,6 +745,7 @@ final public class UserProfile : GeneratedMessage {
     //Nested type declaration start
 
     final public class Exception : GeneratedMessage, Error {
+        public typealias BuilderType = UserProfile.Exception.Builder
 
         public static func == (lhs: UserProfile.Exception, rhs: UserProfile.Exception) -> Bool {
             if lhs === rhs {

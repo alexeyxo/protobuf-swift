@@ -20,6 +20,7 @@ public struct UnittestThreadingRoot {
 }
 
 final public class ThreadingMessages : GeneratedMessage {
+    public typealias BuilderType = ThreadingMessages.Builder
 
     public static func == (lhs: ThreadingMessages, rhs: ThreadingMessages) -> Bool {
         if lhs === rhs {

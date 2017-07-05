@@ -28,6 +28,7 @@ public extension Google.Protobuf {
     ///       rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
     ///     }
     final public class Empty : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Empty.Builder
 
         public static func == (lhs: Google.Protobuf.Empty, rhs: Google.Protobuf.Empty) -> Bool {
             if lhs === rhs {

@@ -25,6 +25,7 @@ public extension Google.Protobuf {
 
     /// Api is a light-weight descriptor for a protocol buffer service.
     final public class Api : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Api.Builder
 
         public static func == (lhs: Google.Protobuf.Api, rhs: Google.Protobuf.Api) -> Bool {
             if lhs === rhs {
@@ -557,6 +558,7 @@ public extension Google.Protobuf {
 
     /// Method represents a method of an api.
     final public class Method : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Method.Builder
 
         public static func == (lhs: Google.Protobuf.Method, rhs: Google.Protobuf.Method) -> Bool {
             if lhs === rhs {

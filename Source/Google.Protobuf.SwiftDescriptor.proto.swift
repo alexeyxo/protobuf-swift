@@ -142,6 +142,7 @@ public extension Google.Protobuf {
     //Enum type declaration end 
 
     final public class SwiftFileOptions : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SwiftFileOptions.Builder
 
         public static func == (lhs: Google.Protobuf.SwiftFileOptions, rhs: Google.Protobuf.SwiftFileOptions) -> Bool {
             if lhs === rhs {
@@ -626,6 +627,7 @@ public extension Google.Protobuf {
     }
 
     final public class SwiftMessageOptions : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SwiftMessageOptions.Builder
 
         public static func == (lhs: Google.Protobuf.SwiftMessageOptions, rhs: Google.Protobuf.SwiftMessageOptions) -> Bool {
             if lhs === rhs {
@@ -947,6 +949,7 @@ public extension Google.Protobuf {
     }
 
     final public class SwiftFieldOptions : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SwiftFieldOptions.Builder
 
         public static func == (lhs: Google.Protobuf.SwiftFieldOptions, rhs: Google.Protobuf.SwiftFieldOptions) -> Bool {
             if lhs === rhs {
@@ -1272,6 +1275,7 @@ public extension Google.Protobuf {
     }
 
     final public class SwiftEnumOptions : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SwiftEnumOptions.Builder
 
         public static func == (lhs: Google.Protobuf.SwiftEnumOptions, rhs: Google.Protobuf.SwiftEnumOptions) -> Bool {
             if lhs === rhs {

@@ -23,6 +23,7 @@ public extension UnittestDropUnknownFields {
     }
 
     final public class Foo : GeneratedMessage {
+        public typealias BuilderType = UnittestDropUnknownFields.Foo.Builder
 
         public static func == (lhs: UnittestDropUnknownFields.Foo, rhs: UnittestDropUnknownFields.Foo) -> Bool {
             if lhs === rhs {
@@ -339,6 +340,7 @@ public extension UnittestDropUnknownFields {
     }
 
     final public class FooWithExtraFields : GeneratedMessage {
+        public typealias BuilderType = UnittestDropUnknownFields.FooWithExtraFields.Builder
 
         public static func == (lhs: UnittestDropUnknownFields.FooWithExtraFields, rhs: UnittestDropUnknownFields.FooWithExtraFields) -> Bool {
             if lhs === rhs {

@@ -34,6 +34,7 @@ public extension ProtobufUnittest {
 
     /// Test that we can include all well-known types.
     final public class TestWellKnownTypes : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestWellKnownTypes.Builder
 
         public static func == (lhs: ProtobufUnittest.TestWellKnownTypes, rhs: ProtobufUnittest.TestWellKnownTypes) -> Bool {
             if lhs === rhs {

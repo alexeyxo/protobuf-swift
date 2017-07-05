@@ -226,7 +226,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            );
         }
         XCodeStandartIndent(printer);
-        
+        printer->Print(variables_,"$acontrol$ typealias BuilderType = $classNameReturnedType$.Builder\n");
         printer->Print("\n");
         GenerateMessageIsEqualSource(printer);
         

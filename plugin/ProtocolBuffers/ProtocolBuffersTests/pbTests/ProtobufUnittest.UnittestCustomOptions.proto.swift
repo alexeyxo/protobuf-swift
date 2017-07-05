@@ -572,6 +572,7 @@ public extension ProtobufUnittest {
     /// A test message with custom options at all possible locations (and also some
     /// regular options, to make sure they interact nicely).
     final public class TestMessageWithCustomOptions : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestMessageWithCustomOptions.Builder
 
         public static func == (lhs: ProtobufUnittest.TestMessageWithCustomOptions, rhs: ProtobufUnittest.TestMessageWithCustomOptions) -> Bool {
             if lhs === rhs {
@@ -827,6 +828,7 @@ public extension ProtobufUnittest {
     /// A test RPC service with custom options at all possible locations (and also
     /// some regular options, to make sure they interact nicely).
     final public class CustomOptionFooRequest : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionFooRequest.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionFooRequest, rhs: ProtobufUnittest.CustomOptionFooRequest) -> Bool {
             if lhs === rhs {
@@ -989,6 +991,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionFooResponse : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionFooResponse.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionFooResponse, rhs: ProtobufUnittest.CustomOptionFooResponse) -> Bool {
             if lhs === rhs {
@@ -1151,6 +1154,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionFooClientMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionFooClientMessage.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionFooClientMessage, rhs: ProtobufUnittest.CustomOptionFooClientMessage) -> Bool {
             if lhs === rhs {
@@ -1313,6 +1317,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionFooServerMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionFooServerMessage.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionFooServerMessage, rhs: ProtobufUnittest.CustomOptionFooServerMessage) -> Bool {
             if lhs === rhs {
@@ -1475,6 +1480,7 @@ public extension ProtobufUnittest {
     }
 
     final public class DummyMessageContainingEnum : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.DummyMessageContainingEnum.Builder
 
         public static func == (lhs: ProtobufUnittest.DummyMessageContainingEnum, rhs: ProtobufUnittest.DummyMessageContainingEnum) -> Bool {
             if lhs === rhs {
@@ -1675,6 +1681,7 @@ public extension ProtobufUnittest {
     }
 
     final public class DummyMessageInvalidAsOptionType : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.DummyMessageInvalidAsOptionType.Builder
 
         public static func == (lhs: ProtobufUnittest.DummyMessageInvalidAsOptionType, rhs: ProtobufUnittest.DummyMessageInvalidAsOptionType) -> Bool {
             if lhs === rhs {
@@ -1837,6 +1844,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionMinIntegerValues : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionMinIntegerValues.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionMinIntegerValues, rhs: ProtobufUnittest.CustomOptionMinIntegerValues) -> Bool {
             if lhs === rhs {
@@ -1999,6 +2007,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionMaxIntegerValues : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionMaxIntegerValues.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionMaxIntegerValues, rhs: ProtobufUnittest.CustomOptionMaxIntegerValues) -> Bool {
             if lhs === rhs {
@@ -2161,6 +2170,7 @@ public extension ProtobufUnittest {
     }
 
     final public class CustomOptionOtherValues : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.CustomOptionOtherValues.Builder
 
         public static func == (lhs: ProtobufUnittest.CustomOptionOtherValues, rhs: ProtobufUnittest.CustomOptionOtherValues) -> Bool {
             if lhs === rhs {
@@ -2323,6 +2333,7 @@ public extension ProtobufUnittest {
     }
 
     final public class SettingRealsFromPositiveInts : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.SettingRealsFromPositiveInts.Builder
 
         public static func == (lhs: ProtobufUnittest.SettingRealsFromPositiveInts, rhs: ProtobufUnittest.SettingRealsFromPositiveInts) -> Bool {
             if lhs === rhs {
@@ -2485,6 +2496,7 @@ public extension ProtobufUnittest {
     }
 
     final public class SettingRealsFromNegativeInts : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.SettingRealsFromNegativeInts.Builder
 
         public static func == (lhs: ProtobufUnittest.SettingRealsFromNegativeInts, rhs: ProtobufUnittest.SettingRealsFromNegativeInts) -> Bool {
             if lhs === rhs {
@@ -2647,6 +2659,7 @@ public extension ProtobufUnittest {
     }
 
     final public class ComplexOptionType1 : ExtendableMessage {
+        public typealias BuilderType = ProtobufUnittest.ComplexOptionType1.Builder
 
         public static func == (lhs: ProtobufUnittest.ComplexOptionType1, rhs: ProtobufUnittest.ComplexOptionType1) -> Bool {
             if lhs === rhs {
@@ -3042,6 +3055,7 @@ public extension ProtobufUnittest {
     }
 
     final public class ComplexOptionType2 : ExtendableMessage {
+        public typealias BuilderType = ProtobufUnittest.ComplexOptionType2.Builder
 
         public static func == (lhs: ProtobufUnittest.ComplexOptionType2, rhs: ProtobufUnittest.ComplexOptionType2) -> Bool {
             if lhs === rhs {
@@ -3062,6 +3076,7 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
         final public class ComplexOptionType4 : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittest.ComplexOptionType2.ComplexOptionType4.Builder
 
             public static func == (lhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4, rhs: ProtobufUnittest.ComplexOptionType2.ComplexOptionType4) -> Bool {
                 if lhs === rhs {
@@ -3750,6 +3765,7 @@ public extension ProtobufUnittest {
     }
 
     final public class ComplexOptionType3 : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.ComplexOptionType3.Builder
 
         public static func == (lhs: ProtobufUnittest.ComplexOptionType3, rhs: ProtobufUnittest.ComplexOptionType3) -> Bool {
             if lhs === rhs {
@@ -3767,6 +3783,7 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
         final public class ComplexOptionType5 : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittest.ComplexOptionType3.ComplexOptionType5.Builder
 
             public static func == (lhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5, rhs: ProtobufUnittest.ComplexOptionType3.ComplexOptionType5) -> Bool {
                 if lhs === rhs {
@@ -4285,6 +4302,7 @@ public extension ProtobufUnittest {
     }
 
     final public class ComplexOpt6 : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.ComplexOpt6.Builder
 
         public static func == (lhs: ProtobufUnittest.ComplexOpt6, rhs: ProtobufUnittest.ComplexOpt6) -> Bool {
             if lhs === rhs {
@@ -4503,6 +4521,7 @@ public extension ProtobufUnittest {
 
     /// Note that we try various different ways of naming the same extension.
     final public class VariousComplexOptions : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.VariousComplexOptions.Builder
 
         public static func == (lhs: ProtobufUnittest.VariousComplexOptions, rhs: ProtobufUnittest.VariousComplexOptions) -> Bool {
             if lhs === rhs {
@@ -4665,6 +4684,7 @@ public extension ProtobufUnittest {
     }
 
     final public class AggregateMessageSet : ExtendableMessage {
+        public typealias BuilderType = ProtobufUnittest.AggregateMessageSet.Builder
 
         public static func == (lhs: ProtobufUnittest.AggregateMessageSet, rhs: ProtobufUnittest.AggregateMessageSet) -> Bool {
             if lhs === rhs {
@@ -4836,6 +4856,7 @@ public extension ProtobufUnittest {
     }
 
     final public class AggregateMessageSetElement : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.AggregateMessageSetElement.Builder
 
         public static func == (lhs: ProtobufUnittest.AggregateMessageSetElement, rhs: ProtobufUnittest.AggregateMessageSetElement) -> Bool {
             if lhs === rhs {
@@ -5055,6 +5076,7 @@ public extension ProtobufUnittest {
 
     /// A helper type used to test aggregate option parsing
     final public class Aggregate : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.Aggregate.Builder
 
         public static func == (lhs: ProtobufUnittest.Aggregate, rhs: ProtobufUnittest.Aggregate) -> Bool {
             if lhs === rhs {
@@ -5631,6 +5653,7 @@ public extension ProtobufUnittest {
     }
 
     final public class AggregateMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.AggregateMessage.Builder
 
         public static func == (lhs: ProtobufUnittest.AggregateMessage, rhs: ProtobufUnittest.AggregateMessage) -> Bool {
             if lhs === rhs {
@@ -5849,6 +5872,7 @@ public extension ProtobufUnittest {
 
     /// Test custom options for nested type.
     final public class NestedOptionType : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.NestedOptionType.Builder
 
         public static func == (lhs: ProtobufUnittest.NestedOptionType, rhs: ProtobufUnittest.NestedOptionType) -> Bool {
             if lhs === rhs {
@@ -5864,6 +5888,7 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
         final public class NestedMessage : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittest.NestedOptionType.NestedMessage.Builder
 
             public static func == (lhs: ProtobufUnittest.NestedOptionType.NestedMessage, rhs: ProtobufUnittest.NestedOptionType.NestedMessage) -> Bool {
                 if lhs === rhs {

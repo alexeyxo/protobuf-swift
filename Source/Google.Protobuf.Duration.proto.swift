@@ -54,6 +54,7 @@ public extension Google.Protobuf {
     ///       end.nanos -= 1000000000;
     ///     }
     final public class Duration : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Duration.Builder
 
         public static func == (lhs: Google.Protobuf.Duration, rhs: Google.Protobuf.Duration) -> Bool {
             if lhs === rhs {

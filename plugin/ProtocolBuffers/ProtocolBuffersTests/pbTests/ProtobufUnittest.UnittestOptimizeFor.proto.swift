@@ -40,6 +40,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestOptimizedForSize : ExtendableMessage {
+        public typealias BuilderType = ProtobufUnittest.TestOptimizedForSize.Builder
 
         public static func == (lhs: ProtobufUnittest.TestOptimizedForSize, rhs: ProtobufUnittest.TestOptimizedForSize) -> Bool {
             if lhs === rhs {
@@ -542,6 +543,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestRequiredOptimizedForSize : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestRequiredOptimizedForSize.Builder
 
         public static func == (lhs: ProtobufUnittest.TestRequiredOptimizedForSize, rhs: ProtobufUnittest.TestRequiredOptimizedForSize) -> Bool {
             if lhs === rhs {
@@ -762,6 +764,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestOptionalOptimizedForSize : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestOptionalOptimizedForSize.Builder
 
         public static func == (lhs: ProtobufUnittest.TestOptionalOptimizedForSize, rhs: ProtobufUnittest.TestOptionalOptimizedForSize) -> Bool {
             if lhs === rhs {

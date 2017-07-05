@@ -23,6 +23,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for double.
     final public class DoubleValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.DoubleValue.Builder
 
         public static func == (lhs: Google.Protobuf.DoubleValue, rhs: Google.Protobuf.DoubleValue) -> Bool {
             if lhs === rhs {
@@ -243,6 +244,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for float.
     final public class FloatValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.FloatValue.Builder
 
         public static func == (lhs: Google.Protobuf.FloatValue, rhs: Google.Protobuf.FloatValue) -> Bool {
             if lhs === rhs {
@@ -463,6 +465,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for int64.
     final public class Int64Value : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Int64Value.Builder
 
         public static func == (lhs: Google.Protobuf.Int64Value, rhs: Google.Protobuf.Int64Value) -> Bool {
             if lhs === rhs {
@@ -683,6 +686,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for uint64.
     final public class Uint64Value : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Uint64Value.Builder
 
         public static func == (lhs: Google.Protobuf.Uint64Value, rhs: Google.Protobuf.Uint64Value) -> Bool {
             if lhs === rhs {
@@ -903,6 +907,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for int32.
     final public class Int32Value : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Int32Value.Builder
 
         public static func == (lhs: Google.Protobuf.Int32Value, rhs: Google.Protobuf.Int32Value) -> Bool {
             if lhs === rhs {
@@ -1123,6 +1128,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for uint32.
     final public class Uint32Value : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Uint32Value.Builder
 
         public static func == (lhs: Google.Protobuf.Uint32Value, rhs: Google.Protobuf.Uint32Value) -> Bool {
             if lhs === rhs {
@@ -1343,6 +1349,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for bool.
     final public class BoolValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.BoolValue.Builder
 
         public static func == (lhs: Google.Protobuf.BoolValue, rhs: Google.Protobuf.BoolValue) -> Bool {
             if lhs === rhs {
@@ -1561,6 +1568,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for string.
     final public class StringValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.StringValue.Builder
 
         public static func == (lhs: Google.Protobuf.StringValue, rhs: Google.Protobuf.StringValue) -> Bool {
             if lhs === rhs {
@@ -1779,6 +1787,7 @@ public extension Google.Protobuf {
 
     /// Wrapper message for bytes.
     final public class BytesValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.BytesValue.Builder
 
         public static func == (lhs: Google.Protobuf.BytesValue, rhs: Google.Protobuf.BytesValue) -> Bool {
             if lhs === rhs {

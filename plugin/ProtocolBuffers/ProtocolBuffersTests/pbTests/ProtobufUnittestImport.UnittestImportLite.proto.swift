@@ -66,6 +66,7 @@ public extension ProtobufUnittestImport {
     //Enum type declaration end 
 
     final public class ImportMessageLite : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittestImport.ImportMessageLite.Builder
 
         public static func == (lhs: ProtobufUnittestImport.ImportMessageLite, rhs: ProtobufUnittestImport.ImportMessageLite) -> Bool {
             if lhs === rhs {

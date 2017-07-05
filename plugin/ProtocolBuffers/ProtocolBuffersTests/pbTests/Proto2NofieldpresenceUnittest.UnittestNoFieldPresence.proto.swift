@@ -68,6 +68,7 @@ public extension Proto2NofieldpresenceUnittest {
     /// This proto includes every type of field in both singular and repeated
     /// forms.
     final public class TestAllTypes : GeneratedMessage {
+        public typealias BuilderType = Proto2NofieldpresenceUnittest.TestAllTypes.Builder
 
         public static func == (lhs: Proto2NofieldpresenceUnittest.TestAllTypes, rhs: Proto2NofieldpresenceUnittest.TestAllTypes) -> Bool {
             if lhs === rhs {
@@ -133,6 +134,7 @@ public extension Proto2NofieldpresenceUnittest {
         //Nested type declaration start
 
         final public class NestedMessage : GeneratedMessage {
+            public typealias BuilderType = Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder
 
             public static func == (lhs: Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage, rhs: Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage) -> Bool {
                 if lhs === rhs {
@@ -3844,6 +3846,7 @@ public extension Proto2NofieldpresenceUnittest {
     }
 
     final public class TestProto2Required : GeneratedMessage {
+        public typealias BuilderType = Proto2NofieldpresenceUnittest.TestProto2Required.Builder
 
         public static func == (lhs: Proto2NofieldpresenceUnittest.TestProto2Required, rhs: Proto2NofieldpresenceUnittest.TestProto2Required) -> Bool {
             if lhs === rhs {
@@ -4108,6 +4111,7 @@ public extension Proto2NofieldpresenceUnittest {
     /// Define these after TestAllTypes to make sure the compiler can handle
     /// that.
     final public class ForeignMessage : GeneratedMessage {
+        public typealias BuilderType = Proto2NofieldpresenceUnittest.ForeignMessage.Builder
 
         public static func == (lhs: Proto2NofieldpresenceUnittest.ForeignMessage, rhs: Proto2NofieldpresenceUnittest.ForeignMessage) -> Bool {
             if lhs === rhs {

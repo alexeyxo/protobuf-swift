@@ -21,6 +21,7 @@ public struct UnittestStructRoot {
 }
 
 final public class UnitTestStruct : GeneratedMessage {
+    public typealias BuilderType = UnitTestStruct.Builder
 
     public static func == (lhs: UnitTestStruct, rhs: UnitTestStruct) -> Bool {
         if lhs === rhs {

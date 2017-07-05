@@ -40,6 +40,7 @@ public extension ProtobufUnittest {
 
     /// A message with message_set_wire_format.
     final public class TestMessageSet : ExtendableMessage {
+        public typealias BuilderType = ProtobufUnittest.TestMessageSet.Builder
 
         public static func == (lhs: ProtobufUnittest.TestMessageSet, rhs: ProtobufUnittest.TestMessageSet) -> Bool {
             if lhs === rhs {
@@ -211,6 +212,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestMessageSetContainer : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestMessageSetContainer.Builder
 
         public static func == (lhs: ProtobufUnittest.TestMessageSetContainer, rhs: ProtobufUnittest.TestMessageSetContainer) -> Bool {
             if lhs === rhs {
@@ -473,6 +475,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestMessageSetExtension1 : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestMessageSetExtension1.Builder
 
         public static func == (lhs: ProtobufUnittest.TestMessageSetExtension1, rhs: ProtobufUnittest.TestMessageSetExtension1) -> Bool {
             if lhs === rhs {
@@ -693,6 +696,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestMessageSetExtension2 : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestMessageSetExtension2.Builder
 
         public static func == (lhs: ProtobufUnittest.TestMessageSetExtension2, rhs: ProtobufUnittest.TestMessageSetExtension2) -> Bool {
             if lhs === rhs {
@@ -912,6 +916,7 @@ public extension ProtobufUnittest {
 
     /// MessageSet wire format is equivalent to this.
     final public class RawMessageSet : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.RawMessageSet.Builder
 
         public static func == (lhs: ProtobufUnittest.RawMessageSet, rhs: ProtobufUnittest.RawMessageSet) -> Bool {
             if lhs === rhs {
@@ -928,6 +933,7 @@ public extension ProtobufUnittest {
         //Nested type declaration start
 
         final public class Item : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittest.RawMessageSet.Item.Builder
 
             public static func == (lhs: ProtobufUnittest.RawMessageSet.Item, rhs: ProtobufUnittest.RawMessageSet.Item) -> Bool {
                 if lhs === rhs {

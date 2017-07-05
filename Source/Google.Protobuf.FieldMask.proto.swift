@@ -117,6 +117,7 @@ public extension Google.Protobuf {
     ///       mask: "user.displayName,photo"
     ///     }
     final public class FieldMask : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.FieldMask.Builder
 
         public static func == (lhs: Google.Protobuf.FieldMask, rhs: Google.Protobuf.FieldMask) -> Bool {
             if lhs === rhs {

@@ -24,6 +24,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestLiteImportsNonlite : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestLiteImportsNonlite.Builder
 
         public static func == (lhs: ProtobufUnittest.TestLiteImportsNonlite, rhs: ProtobufUnittest.TestLiteImportsNonlite) -> Bool {
             if lhs === rhs {

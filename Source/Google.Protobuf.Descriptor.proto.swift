@@ -23,6 +23,7 @@ public extension Google.Protobuf {
     /// The protocol compiler can output a FileDescriptorSet containing the .proto
     /// files it parses.
     final public class FileDescriptorSet : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.FileDescriptorSet.Builder
 
         public static func == (lhs: Google.Protobuf.FileDescriptorSet, rhs: Google.Protobuf.FileDescriptorSet) -> Bool {
             if lhs === rhs {
@@ -257,6 +258,7 @@ public extension Google.Protobuf {
 
     /// Describes a complete .proto file.
     final public class FileDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.FileDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.FileDescriptorProto, rhs: Google.Protobuf.FileDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -1256,6 +1258,7 @@ public extension Google.Protobuf {
 
     /// Describes a message type.
     final public class DescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.DescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.DescriptorProto, rhs: Google.Protobuf.DescriptorProto) -> Bool {
             if lhs === rhs {
@@ -1281,6 +1284,7 @@ public extension Google.Protobuf {
         //Nested type declaration start
 
         final public class ExtensionRange : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.DescriptorProto.ExtensionRange.Builder
 
             public static func == (lhs: Google.Protobuf.DescriptorProto.ExtensionRange, rhs: Google.Protobuf.DescriptorProto.ExtensionRange) -> Bool {
                 if lhs === rhs {
@@ -1562,6 +1566,7 @@ public extension Google.Protobuf {
         /// fields or extension ranges in the same message. Reserved ranges may
         /// not overlap.
         final public class ReservedRange : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.DescriptorProto.ReservedRange.Builder
 
             public static func == (lhs: Google.Protobuf.DescriptorProto.ReservedRange, rhs: Google.Protobuf.DescriptorProto.ReservedRange) -> Bool {
                 if lhs === rhs {
@@ -2675,6 +2680,7 @@ public extension Google.Protobuf {
 
     /// Describes a field within a message.
     final public class FieldDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.FieldDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.FieldDescriptorProto, rhs: Google.Protobuf.FieldDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -3631,6 +3637,7 @@ public extension Google.Protobuf {
 
     /// Describes a oneof.
     final public class OneofDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.OneofDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.OneofDescriptorProto, rhs: Google.Protobuf.OneofDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -3947,6 +3954,7 @@ public extension Google.Protobuf {
 
     /// Describes an enum type.
     final public class EnumDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.EnumDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.EnumDescriptorProto, rhs: Google.Protobuf.EnumDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -4334,6 +4342,7 @@ public extension Google.Protobuf {
 
     /// Describes a value within an enum.
     final public class EnumValueDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.EnumValueDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.EnumValueDescriptorProto, rhs: Google.Protobuf.EnumValueDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -4705,6 +4714,7 @@ public extension Google.Protobuf {
 
     /// Describes a service.
     final public class ServiceDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.ServiceDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.ServiceDescriptorProto, rhs: Google.Protobuf.ServiceDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -5092,6 +5102,7 @@ public extension Google.Protobuf {
 
     /// Describes a method of a service.
     final public class MethodDescriptorProto : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.MethodDescriptorProto.Builder
 
         public static func == (lhs: Google.Protobuf.MethodDescriptorProto, rhs: Google.Protobuf.MethodDescriptorProto) -> Bool {
             if lhs === rhs {
@@ -5627,6 +5638,7 @@ public extension Google.Protobuf {
     }
 
     final public class FileOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.FileOptions.Builder
 
         public static func == (lhs: Google.Protobuf.FileOptions, rhs: Google.Protobuf.FileOptions) -> Bool {
             if lhs === rhs {
@@ -6873,6 +6885,7 @@ public extension Google.Protobuf {
     }
 
     final public class MessageOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.MessageOptions.Builder
 
         public static func == (lhs: Google.Protobuf.MessageOptions, rhs: Google.Protobuf.MessageOptions) -> Bool {
             if lhs === rhs {
@@ -7408,6 +7421,7 @@ public extension Google.Protobuf {
     }
 
     final public class FieldOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.FieldOptions.Builder
 
         public static func == (lhs: Google.Protobuf.FieldOptions, rhs: Google.Protobuf.FieldOptions) -> Bool {
             if lhs === rhs {
@@ -8148,6 +8162,7 @@ public extension Google.Protobuf {
     }
 
     final public class OneofOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.OneofOptions.Builder
 
         public static func == (lhs: Google.Protobuf.OneofOptions, rhs: Google.Protobuf.OneofOptions) -> Bool {
             if lhs === rhs {
@@ -8391,6 +8406,7 @@ public extension Google.Protobuf {
     }
 
     final public class EnumOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.EnumOptions.Builder
 
         public static func == (lhs: Google.Protobuf.EnumOptions, rhs: Google.Protobuf.EnumOptions) -> Bool {
             if lhs === rhs {
@@ -8752,6 +8768,7 @@ public extension Google.Protobuf {
     }
 
     final public class EnumValueOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.EnumValueOptions.Builder
 
         public static func == (lhs: Google.Protobuf.EnumValueOptions, rhs: Google.Protobuf.EnumValueOptions) -> Bool {
             if lhs === rhs {
@@ -9056,6 +9073,7 @@ public extension Google.Protobuf {
     }
 
     final public class ServiceOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.ServiceOptions.Builder
 
         public static func == (lhs: Google.Protobuf.ServiceOptions, rhs: Google.Protobuf.ServiceOptions) -> Bool {
             if lhs === rhs {
@@ -9360,6 +9378,7 @@ public extension Google.Protobuf {
     }
 
     final public class MethodOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.MethodOptions.Builder
 
         public static func == (lhs: Google.Protobuf.MethodOptions, rhs: Google.Protobuf.MethodOptions) -> Bool {
             if lhs === rhs {
@@ -9776,6 +9795,7 @@ public extension Google.Protobuf {
     /// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
     /// in them.
     final public class UninterpretedOption : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.UninterpretedOption.Builder
 
         public static func == (lhs: Google.Protobuf.UninterpretedOption, rhs: Google.Protobuf.UninterpretedOption) -> Bool {
             if lhs === rhs {
@@ -9803,6 +9823,7 @@ public extension Google.Protobuf {
         /// E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
         /// "foo.(bar.baz).qux".
         final public class NamePart : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.UninterpretedOption.NamePart.Builder
 
             public static func == (lhs: Google.Protobuf.UninterpretedOption.NamePart, rhs: Google.Protobuf.UninterpretedOption.NamePart) -> Bool {
                 if lhs === rhs {
@@ -10624,6 +10645,7 @@ public extension Google.Protobuf {
     /// Encapsulates information about the original source file from which a
     /// FileDescriptorProto was generated.
     final public class SourceCodeInfo : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SourceCodeInfo.Builder
 
         public static func == (lhs: Google.Protobuf.SourceCodeInfo, rhs: Google.Protobuf.SourceCodeInfo) -> Bool {
             if lhs === rhs {
@@ -10640,6 +10662,7 @@ public extension Google.Protobuf {
         //Nested type declaration start
 
         final public class Location : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.SourceCodeInfo.Location.Builder
 
             public static func == (lhs: Google.Protobuf.SourceCodeInfo.Location, rhs: Google.Protobuf.SourceCodeInfo.Location) -> Bool {
                 if lhs === rhs {
@@ -11490,6 +11513,7 @@ public extension Google.Protobuf {
     /// file. A GeneratedCodeInfo message is associated with only one generated
     /// source file, but may contain references to different source .proto files.
     final public class GeneratedCodeInfo : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.GeneratedCodeInfo.Builder
 
         public static func == (lhs: Google.Protobuf.GeneratedCodeInfo, rhs: Google.Protobuf.GeneratedCodeInfo) -> Bool {
             if lhs === rhs {
@@ -11506,6 +11530,7 @@ public extension Google.Protobuf {
         //Nested type declaration start
 
         final public class Annotation : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.GeneratedCodeInfo.Annotation.Builder
 
             public static func == (lhs: Google.Protobuf.GeneratedCodeInfo.Annotation, rhs: Google.Protobuf.GeneratedCodeInfo.Annotation) -> Bool {
                 if lhs === rhs {

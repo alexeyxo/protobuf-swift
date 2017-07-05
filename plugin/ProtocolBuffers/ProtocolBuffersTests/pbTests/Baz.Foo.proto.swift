@@ -23,6 +23,7 @@ public extension Baz {
     }
 
     final public class Foo : GeneratedMessage {
+        public typealias BuilderType = Baz.Foo.Builder
 
         public static func == (lhs: Baz.Foo, rhs: Baz.Foo) -> Bool {
             if lhs === rhs {

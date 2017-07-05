@@ -48,6 +48,7 @@ public extension Google.Protobuf {
     ///       "value": "1.212s"
     ///     }
     final public class `Any` : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.`Any`.Builder
 
         public static func == (lhs: Google.Protobuf.`Any`, rhs: Google.Protobuf.`Any`) -> Bool {
             if lhs === rhs {

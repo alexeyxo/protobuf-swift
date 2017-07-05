@@ -24,6 +24,7 @@ public extension ProtobufUnittest {
     }
 
     final public class TestEmbedOptimizedForSize : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittest.TestEmbedOptimizedForSize.Builder
 
         public static func == (lhs: ProtobufUnittest.TestEmbedOptimizedForSize, rhs: ProtobufUnittest.TestEmbedOptimizedForSize) -> Bool {
             if lhs === rhs {

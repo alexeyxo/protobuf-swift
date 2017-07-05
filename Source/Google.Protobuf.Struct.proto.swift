@@ -65,6 +65,7 @@ public extension Google.Protobuf {
     /// object. The details of that representation are described together
     /// with the proto support for the language.
     final public class Struct : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Struct.Builder
 
         public static func == (lhs: Google.Protobuf.Struct, rhs: Google.Protobuf.Struct) -> Bool {
             if lhs === rhs {
@@ -81,6 +82,7 @@ public extension Google.Protobuf {
         //Nested type declaration start
 
         final public class FieldsEntry : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.Struct.FieldsEntry.Builder
 
             public static func == (lhs: Google.Protobuf.Struct.FieldsEntry, rhs: Google.Protobuf.Struct.FieldsEntry) -> Bool {
                 if lhs === rhs {
@@ -626,6 +628,7 @@ public extension Google.Protobuf {
     /// list of values. A producer of value is expected to set one of that
     /// variants, absence of any variant indicates an error.
     final public class Value : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Value.Builder
 
         public static func == (lhs: Google.Protobuf.Value, rhs: Google.Protobuf.Value) -> Bool {
             if lhs === rhs {
@@ -1370,6 +1373,7 @@ public extension Google.Protobuf {
 
     /// `ListValue` is a wrapper around a repeated field of values.
     final public class ListValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.ListValue.Builder
 
         public static func == (lhs: Google.Protobuf.ListValue, rhs: Google.Protobuf.ListValue) -> Bool {
             if lhs === rhs {

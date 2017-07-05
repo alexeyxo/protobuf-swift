@@ -111,6 +111,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
     //Enum type declaration end 
 
     final public class MyMessage : GeneratedMessage {
+        public typealias BuilderType = Proto3PreserveUnknownEnumUnittest.MyMessage.Builder
 
         public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessage, rhs: Proto3PreserveUnknownEnumUnittest.MyMessage) -> Bool {
             if lhs === rhs {
@@ -745,6 +746,7 @@ public extension Proto3PreserveUnknownEnumUnittest {
     }
 
     final public class MyMessagePlusExtra : GeneratedMessage {
+        public typealias BuilderType = Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder
 
         public static func == (lhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra, rhs: Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra) -> Bool {
             if lhs === rhs {

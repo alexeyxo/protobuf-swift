@@ -61,6 +61,7 @@ public extension Google.Protobuf {
     ///     nanos = now.microsecond * 1000
     ///     timestamp = Timestamp(seconds=seconds, nanos=nanos)
     final public class Timestamp : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Timestamp.Builder
 
         public static func == (lhs: Google.Protobuf.Timestamp, rhs: Google.Protobuf.Timestamp) -> Bool {
             if lhs === rhs {

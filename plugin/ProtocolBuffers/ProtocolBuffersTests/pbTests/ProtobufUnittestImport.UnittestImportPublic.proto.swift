@@ -23,6 +23,7 @@ public extension ProtobufUnittestImport {
     }
 
     final public class PublicImportMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittestImport.PublicImportMessage.Builder
 
         public static func == (lhs: ProtobufUnittestImport.PublicImportMessage, rhs: ProtobufUnittestImport.PublicImportMessage) -> Bool {
             if lhs === rhs {

@@ -21,6 +21,7 @@ internal struct PerformanceRoot {
 }
 
 final internal class PBUser : GeneratedMessage {
+    internal typealias BuilderType = PBUser.Builder
 
     internal static func == (lhs: PBUser, rhs: PBUser) -> Bool {
         if lhs === rhs {
@@ -331,6 +332,7 @@ final internal class PBUser : GeneratedMessage {
 }
 
 final internal class PBGroup : GeneratedMessage {
+    internal typealias BuilderType = PBGroup.Builder
 
     internal static func == (lhs: PBGroup, rhs: PBGroup) -> Bool {
         if lhs === rhs {
@@ -588,6 +590,7 @@ final internal class PBGroup : GeneratedMessage {
 }
 
 final internal class PBPerfomanceBatch : GeneratedMessage {
+    internal typealias BuilderType = PBPerfomanceBatch.Builder
 
     internal static func == (lhs: PBPerfomanceBatch, rhs: PBPerfomanceBatch) -> Bool {
         if lhs === rhs {
@@ -821,6 +824,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
 }
 
 final internal class PBPerfomance : GeneratedMessage {
+    internal typealias BuilderType = PBPerfomance.Builder
 
     internal static func == (lhs: PBPerfomance, rhs: PBPerfomance) -> Bool {
         if lhs === rhs {
@@ -1374,6 +1378,7 @@ final internal class PBPerfomance : GeneratedMessage {
 }
 
 final internal class PBProtoPoint : GeneratedMessage {
+    internal typealias BuilderType = PBProtoPoint.Builder
 
     internal static func == (lhs: PBProtoPoint, rhs: PBProtoPoint) -> Bool {
         if lhs === rhs {
@@ -1652,6 +1657,7 @@ final internal class PBProtoPoint : GeneratedMessage {
 }
 
 final internal class PBIceCreamCone : GeneratedMessage {
+    internal typealias BuilderType = PBIceCreamCone.Builder
 
     internal static func == (lhs: PBIceCreamCone, rhs: PBIceCreamCone) -> Bool {
         if lhs === rhs {
@@ -1965,6 +1971,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
 
 ///Subuilders
 final internal class PBFoo : GeneratedMessage {
+    internal typealias BuilderType = PBFoo.Builder
 
     internal static func == (lhs: PBFoo, rhs: PBFoo) -> Bool {
         if lhs === rhs {
@@ -2184,6 +2191,7 @@ final internal class PBFoo : GeneratedMessage {
 }
 
 final internal class PBBar : GeneratedMessage {
+    internal typealias BuilderType = PBBar.Builder
 
     internal static func == (lhs: PBBar, rhs: PBBar) -> Bool {
         if lhs === rhs {
@@ -2442,6 +2450,7 @@ final internal class PBBar : GeneratedMessage {
 }
 
 final internal class PBBaz : GeneratedMessage {
+    internal typealias BuilderType = PBBaz.Builder
 
     internal static func == (lhs: PBBaz, rhs: PBBaz) -> Bool {
         if lhs === rhs {

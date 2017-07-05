@@ -23,6 +23,7 @@ public extension Bar {
     }
 
     final public class Foo : GeneratedMessage {
+        public typealias BuilderType = Bar.Foo.Builder
 
         public static func == (lhs: Bar.Foo, rhs: Bar.Foo) -> Bool {
             if lhs === rhs {

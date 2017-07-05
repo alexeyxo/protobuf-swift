@@ -68,6 +68,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
     //Enum type declaration end 
 
     final public class TestMessage : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.NoGenericServicesTest.TestMessage.Builder
 
         public static func == (lhs: Google.Protobuf.NoGenericServicesTest.TestMessage, rhs: Google.Protobuf.NoGenericServicesTest.TestMessage) -> Bool {
             if lhs === rhs {

@@ -23,6 +23,7 @@ public extension SwiftProtobufUnittest {
     }
 
     final public class MapMessageValue : GeneratedMessage {
+        public typealias BuilderType = SwiftProtobufUnittest.MapMessageValue.Builder
 
         public static func == (lhs: SwiftProtobufUnittest.MapMessageValue, rhs: SwiftProtobufUnittest.MapMessageValue) -> Bool {
             if lhs === rhs {
@@ -240,6 +241,7 @@ public extension SwiftProtobufUnittest {
     }
 
     final public class MessageContainsMap : GeneratedMessage {
+        public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.Builder
 
         public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap, rhs: SwiftProtobufUnittest.MessageContainsMap) -> Bool {
             if lhs === rhs {
@@ -261,6 +263,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapInt32Int32Entry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry) -> Bool {
                 if lhs === rhs {
@@ -539,6 +542,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapInt64Int64Entry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry) -> Bool {
                 if lhs === rhs {
@@ -817,6 +821,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapStringStringEntry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry) -> Bool {
                 if lhs === rhs {
@@ -1091,6 +1096,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapStringBytesEntry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry) -> Bool {
                 if lhs === rhs {
@@ -1365,6 +1371,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapStringMessageEntry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry) -> Bool {
                 if lhs === rhs {
@@ -1681,6 +1688,7 @@ public extension SwiftProtobufUnittest {
         //Nested type declaration start
 
         final public class MapInt32EnumEntry : GeneratedMessage {
+            public typealias BuilderType = SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder
 
             public static func == (lhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry, rhs: SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry) -> Bool {
                 if lhs === rhs {

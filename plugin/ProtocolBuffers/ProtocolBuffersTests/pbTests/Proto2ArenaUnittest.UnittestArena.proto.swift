@@ -24,6 +24,7 @@ public extension Proto2ArenaUnittest {
     }
 
     final public class NestedMessage : GeneratedMessage {
+        public typealias BuilderType = Proto2ArenaUnittest.NestedMessage.Builder
 
         public static func == (lhs: Proto2ArenaUnittest.NestedMessage, rhs: Proto2ArenaUnittest.NestedMessage) -> Bool {
             if lhs === rhs {
@@ -241,6 +242,7 @@ public extension Proto2ArenaUnittest {
     }
 
     final public class ArenaMessage : GeneratedMessage {
+        public typealias BuilderType = Proto2ArenaUnittest.ArenaMessage.Builder
 
         public static func == (lhs: Proto2ArenaUnittest.ArenaMessage, rhs: Proto2ArenaUnittest.ArenaMessage) -> Bool {
             if lhs === rhs {

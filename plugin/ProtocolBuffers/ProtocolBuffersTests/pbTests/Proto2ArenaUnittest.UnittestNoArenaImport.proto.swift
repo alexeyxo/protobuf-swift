@@ -23,6 +23,7 @@ public extension Proto2ArenaUnittest {
     }
 
     final public class ImportNoArenaNestedMessage : GeneratedMessage {
+        public typealias BuilderType = Proto2ArenaUnittest.ImportNoArenaNestedMessage.Builder
 
         public static func == (lhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage, rhs: Proto2ArenaUnittest.ImportNoArenaNestedMessage) -> Bool {
             if lhs === rhs {

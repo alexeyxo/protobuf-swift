@@ -25,6 +25,7 @@ public extension Google.Protobuf {
 
     /// A light-weight descriptor for a proto message type.
     final public class `Type` : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.`Type`.Builder
 
         public static func == (lhs: Google.Protobuf.`Type`, rhs: Google.Protobuf.`Type`) -> Bool {
             if lhs === rhs {
@@ -526,6 +527,7 @@ public extension Google.Protobuf {
 
     /// Field represents a single field of a message type.
     final public class Field : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Field.Builder
 
         public static func == (lhs: Google.Protobuf.Field, rhs: Google.Protobuf.Field) -> Bool {
             if lhs === rhs {
@@ -1341,6 +1343,7 @@ public extension Google.Protobuf {
 
     /// Enum type definition.
     final public class Enum : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Enum.Builder
 
         public static func == (lhs: Google.Protobuf.Enum, rhs: Google.Protobuf.Enum) -> Bool {
             if lhs === rhs {
@@ -1779,6 +1782,7 @@ public extension Google.Protobuf {
 
     /// Enum value definition.
     final public class EnumValue : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.EnumValue.Builder
 
         public static func == (lhs: Google.Protobuf.EnumValue, rhs: Google.Protobuf.EnumValue) -> Bool {
             if lhs === rhs {
@@ -2116,6 +2120,7 @@ public extension Google.Protobuf {
 
     /// Proto option attached to messages/fields/enums etc.
     final public class Option : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.Option.Builder
 
         public static func == (lhs: Google.Protobuf.Option, rhs: Google.Protobuf.Option) -> Bool {
             if lhs === rhs {

@@ -69,6 +69,7 @@ public extension ProtobufUnittestNoArena {
     /// This proto includes every type of field in both singular and repeated
     /// forms.
     final public class TestAllTypes : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittestNoArena.TestAllTypes.Builder
 
         public static func == (lhs: ProtobufUnittestNoArena.TestAllTypes, rhs: ProtobufUnittestNoArena.TestAllTypes) -> Bool {
             if lhs === rhs {
@@ -160,6 +161,7 @@ public extension ProtobufUnittestNoArena {
         //Nested type declaration start
 
         final public class NestedMessage : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder
 
             public static func == (lhs: ProtobufUnittestNoArena.TestAllTypes.NestedMessage, rhs: ProtobufUnittestNoArena.TestAllTypes.NestedMessage) -> Bool {
                 if lhs === rhs {
@@ -389,6 +391,7 @@ public extension ProtobufUnittestNoArena {
         //Nested type declaration start
 
         final public class OptionalGroup : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder
 
             public static func == (lhs: ProtobufUnittestNoArena.TestAllTypes.OptionalGroup, rhs: ProtobufUnittestNoArena.TestAllTypes.OptionalGroup) -> Bool {
                 if lhs === rhs {
@@ -612,6 +615,7 @@ public extension ProtobufUnittestNoArena {
         //Nested type declaration start
 
         final public class RepeatedGroup : GeneratedMessage {
+            public typealias BuilderType = ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder
 
             public static func == (lhs: ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup, rhs: ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup) -> Bool {
                 if lhs === rhs {
@@ -5703,6 +5707,7 @@ public extension ProtobufUnittestNoArena {
     /// Define these after TestAllTypes to make sure the compiler can handle
     /// that.
     final public class ForeignMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittestNoArena.ForeignMessage.Builder
 
         public static func == (lhs: ProtobufUnittestNoArena.ForeignMessage, rhs: ProtobufUnittestNoArena.ForeignMessage) -> Bool {
             if lhs === rhs {
@@ -5920,6 +5925,7 @@ public extension ProtobufUnittestNoArena {
     }
 
     final public class TestNoArenaMessage : GeneratedMessage {
+        public typealias BuilderType = ProtobufUnittestNoArena.TestNoArenaMessage.Builder
 
         public static func == (lhs: ProtobufUnittestNoArena.TestNoArenaMessage, rhs: ProtobufUnittestNoArena.TestNoArenaMessage) -> Bool {
             if lhs === rhs {

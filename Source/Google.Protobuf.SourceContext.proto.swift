@@ -24,6 +24,7 @@ public extension Google.Protobuf {
     /// `SourceContext` represents information about the source of a
     /// protobuf element, like the file in which it is defined.
     final public class SourceContext : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.SourceContext.Builder
 
         public static func == (lhs: Google.Protobuf.SourceContext, rhs: Google.Protobuf.SourceContext) -> Bool {
             if lhs === rhs {
