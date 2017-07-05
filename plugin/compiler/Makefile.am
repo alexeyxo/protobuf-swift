@@ -1,6 +1,6 @@
 MAINTAINERCLEANFILES = \
 	Makefile.in
-bin_PROGRAMS = protoc-gen-swift protoc-gen-swift_realm protoc-gen-swift_react
+bin_PROGRAMS = protoc-gen-swift 
 protoc_gen_swift_LDFLAGS = -lprotobuf -lprotoc
 protoc_gen_swift_SOURCES = 	\
 	main.cc					\
