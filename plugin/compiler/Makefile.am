@@ -1,6 +1,6 @@
 MAINTAINERCLEANFILES = \
 	Makefile.in
-bin_PROGRAMS = protoc-gen-swift 
+bin_PROGRAMS = protoc-gen-swift protoc-gen-swift_realm protoc-gen-swift_react
 protoc_gen_swift_LDFLAGS = -lprotobuf -lprotoc
 protoc_gen_swift_SOURCES = 	\
 	main.cc					\
@@ -17,3 +17,26 @@ protoc_gen_swift_SOURCES = 	\
 	swift_field.cc			\
 	swift_message.cc	\
   google/protobuf/swift-descriptor.pb.cc
+
+protoc_gen_swift_realm_LDFLAGS = -lprotobuf -lprotoc
+protoc_gen_swift_realm_SOURCES = 	\
+	realm/main.cc					\
+	realm/swift_file.cc			\
+	realm/swift_generator.cc		\
+	realm/swift_realm.cc	\
+	swift_helpers.cc			\
+	realm/swift_helpers_realm.cc			\
+  google/protobuf/swift-descriptor.pb.cc
+
+protoc_gen_swift_react_LDFLAGS = -lprotobuf -lprotoc
+protoc_gen_swift_react_SOURCES = 	\
+	react_native/main.cc					\
+	react_native/swift_file.cc			\
+	react_native/swift_generator.cc		\
+	react_native/swift_react.cc	\
+	swift_helpers.cc			\
+	react_native/swift_helpers_react.cc			\
+	react_native/swift_react_enums.cc			\
+  google/protobuf/swift-descriptor.pb.cc
+
+
