@@ -79,7 +79,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             RealmGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
         }
         GeneratePBToRealmExtension(printer);
-        GenerateRealmRepresenterExtension(printer);
+        
     }
     
     void RealmGenerator::GeneratePrimitiveTypes(io::Printer* printer) {
@@ -91,7 +91,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 switch (GetSwiftType(field)) {
                     case SWIFT_TYPE_MESSAGE:
-                        printer->Print("var $name$:List<$type$>?\n",
+                        printer->Print("let $name$:List<$type$> = List<$type$>()\n",
                                        "name", UnderscoresToCamelCase(field),
                                        "type", ClassNameRealmReturned(field->message_type())
                                        );
@@ -175,7 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }
     void RealmGenerator::GeneratePBToRealmExtension(io::Printer* printer) {
-        printer->Print(variables_,"extension $classNameRealm$:PBToRealm {\n");
+        printer->Print(variables_,"extension $classNameRealm$:ProtoRealm {\n");
         XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ typealias PBType = $classNameReturnedType$\n");
         printer->Print(variables_,"$acontrol$ typealias RMObject = $classNameRealm$\n");
@@ -190,12 +190,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                         printer->Print("if proto.$name$ != nil {\n",
                                        "name",UnderscoresToCamelCase(field));
                         XCodeStandartIndent(printer);
+                        printer->Print("rmModel.$name$ = $rmType$.map(proto.$name$)\n",
+                                       "name", UnderscoresToCamelCase(field),
+                                       "rmType", ClassNameRealm(field->message_type())
+                                       );
+                    } else {
+                        printer->Print("rmModel.$name$.append(objectsIn:$rmType$.map(proto.$name$))\n",
+                                       "name", UnderscoresToCamelCase(field),
+                                       "rmType", ClassNameRealm(field->message_type())
+                                       );
                     }
-                    
-                    printer->Print("rmModel.$name$ = $rmType$.map(proto.$name$)\n",
-                                   "name", UnderscoresToCamelCase(field),
-                                   "rmType", ClassNameRealm(field->message_type())
-                                   );
                     
                     if (!field->is_repeated()) {
                         XCodeStandartOutdent(printer);
@@ -231,30 +235,29 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("return rmModel\n");
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
-        printer->Print(variables_,"$acontrol$ static func map(_ proto: [$classNameReturnedType$]) -> List<$classNameRealmReturned$>? {\n");
-        XCodeStandartIndent(printer);
-        printer->Print(variables_,"let maps = proto.map { pb -> $classNameRealmReturned$ in\n");
-        XCodeStandartIndent(printer);
-        printer->Print(variables_,"let res = $classNameRealmReturned$.map(pb)\n");
-        printer->Print("return res\n");
-        XCodeStandartOutdent(printer);
-        printer->Print("}\n");
-        printer->Print(variables_,"let list = List<$classNameRealmReturned$>()\n");
-        printer->Print("maps.forEach { element in\n");
-        XCodeStandartIndent(printer);
-        printer->Print("list.append(element)\n");
-        XCodeStandartOutdent(printer);
-        printer->Print("}\n");
-        printer->Print("return list\n");
-        XCodeStandartOutdent(printer);
-        printer->Print("}\n");
+//        printer->Print(variables_,"$acontrol$ static func map(_ proto: [$classNameReturnedType$]) -> List<$classNameRealmReturned$>? {\n");
+//        XCodeStandartIndent(printer);
+//        printer->Print(variables_,"let maps = proto.map { pb -> $classNameRealmReturned$ in\n");
+//        XCodeStandartIndent(printer);
+//        printer->Print(variables_,"let res = $classNameRealmReturned$.map(pb)\n");
+//        printer->Print("return res\n");
+//        XCodeStandartOutdent(printer);
+//        printer->Print("}\n");
+//        printer->Print(variables_,"let list = List<$classNameRealmReturned$>()\n");
+//        printer->Print("maps.forEach { element in\n");
+//        XCodeStandartIndent(printer);
+//        printer->Print("list.append(element)\n");
+//        XCodeStandartOutdent(printer);
+//        printer->Print("}\n");
+//        printer->Print("return list\n");
+//        XCodeStandartOutdent(printer);
+//        printer->Print("}\n");
+        GenerateRealmRepresenterExtension(printer);
         XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
     }
     
     void RealmGenerator::GenerateRealmRepresenterExtension(io::Printer* printer) {
-        printer->Print(variables_,"extension $classNameRealm$:RealmObjectRepresenter {\n");
-        XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ func represent() -> [String:Any] {\n");
         XCodeStandartIndent(printer);
         printer->Print("var res = [String:Any]()\n");
@@ -264,11 +267,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             if (field->is_repeated()) {
                 switch (GetSwiftType(field)) {
                     case SWIFT_TYPE_MESSAGE:
-                        printer->Print("if let $name$Scope = self.$name$ {\n",
+                        printer->Print("if self.$name$.count > 0 {\n",
                                        "name", UnderscoresToCamelCase(field));
                         XCodeStandartIndent(printer);
                         printer->Print("var sequince = [Dictionary<String,Any>]()\n");
-                        printer->Print("$name$Scope.forEach { element in \n",
+                        printer->Print("$name$.forEach { element in \n",
                                        "name", UnderscoresToCamelCase(field));
                         XCodeStandartIndent(printer);
                         printer->Print("sequince.append(element.represent())\n");
@@ -325,8 +328,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("return res\n");
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
-        XCodeStandartOutdent(printer);
-        printer->Print("}\n\n");
     }
     
     

@@ -661,6 +661,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateBuilderExtensions(io::Printer* printer) {
         printer->Print(variables_,"extension $classNameReturnedType$.Builder: GeneratedMessageBuilderProtocol {\n");
         XCodeStandartIndent(printer);
+        printer->Print(variables_,"$acontrol$ typealias GeneratedMessageType = $classNameReturnedType$\n");
         
         GenerateSetSubscript(printer);
         

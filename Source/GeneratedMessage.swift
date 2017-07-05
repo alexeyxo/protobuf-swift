@@ -33,6 +33,7 @@ public protocol GeneratedEnum:RawRepresentable, CustomDebugStringConvertible, Cu
 }
 
 public protocol GeneratedMessageBuilderProtocol: ProtocolBuffersMessageBuilder {
+    associatedtype GeneratedMessageType:GeneratedMessageProtocol
     subscript(key: String) -> Any? { get  set }
 }
 
