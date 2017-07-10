@@ -5740,7 +5740,6 @@ public extension Google.Protobuf {
         public fileprivate(set) var hasJavaMultipleFiles:Bool = false
 
         /// This option does nothing.
-        @available(*, deprecated:0.1, message:"javaGenerateEqualsAndHash is marked as \"Deprecated\"")
         public fileprivate(set) var javaGenerateEqualsAndHash:Bool! = nil
         public fileprivate(set) var hasJavaGenerateEqualsAndHash:Bool = false
 

@@ -91,7 +91,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void EnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-        if (descriptor_->options().deprecated()) {
+        if (descriptor_->options().deprecated() && !IsDescriptorFile(descriptor_->file())) {
              printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
         }
         if (isOneOfField(descriptor_)) {
@@ -281,7 +281,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void RepeatedEnumFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-        if (descriptor_->options().deprecated()) {
+        if (descriptor_->options().deprecated() && !IsDescriptorFile(descriptor_->file())) {
             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
         }
         printer->Print(variables_,
