@@ -4,8 +4,6 @@
 /// Syntax "Proto2"
 
 import Foundation
-import ProtocolBuffers
-
 
 public extension Google.Protobuf{ public struct Compiler { }}
 
@@ -18,6 +16,7 @@ public extension Google.Protobuf.Compiler {
             extensionRegistry = ExtensionRegistry()
             registerAllExtensions(registry: extensionRegistry)
             Google.Protobuf.DescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
+            Google.Protobuf.SwiftDescriptorRoot.default.registerAllExtensions(registry: extensionRegistry)
         }
         public func registerAllExtensions(registry: ExtensionRegistry) {
         }

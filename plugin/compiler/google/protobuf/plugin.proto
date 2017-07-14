@@ -51,7 +51,11 @@ option java_outer_classname = "PluginProtos";
 
 option go_package = "github.com/golang/protobuf/protoc-gen-go/plugin;plugin_go";
 
+
 import "google/protobuf/descriptor.proto";
+import "google/protobuf/swift-descriptor.proto";
+option (.google.protobuf.swift_file_options).compile_for_framework = false;
+option (.google.protobuf.swift_file_options).entities_access_control = PublicEntities;
 
 // The version number of protocol compiler.
 message Version {

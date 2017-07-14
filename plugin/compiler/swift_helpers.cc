@@ -110,7 +110,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     bool isCompileForFramework(const FileDescriptor* file) {
-        if (IsBootstrapFile(file)) {
+        if (IsBootstrapFile(file) ) {
             return false;
         }
         else if (file->options().HasExtension(swift_file_options)) {
