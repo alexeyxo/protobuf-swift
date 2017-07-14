@@ -97,7 +97,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameRealm(const Descriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkerRealm(descriptor->containing_type());
             name += "";
         }
         string className = FileClassPrefix(descriptor->file());
@@ -124,6 +124,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         string className = FileClassPrefix(descriptor->file());
         className += UnderscoresToCapitalizedCamelCase(descriptor->name());
         return SafeName(name + SafeName(className));
+    }
+    
+    string ClassNameWorkerRealm(const Descriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkerRealm(descriptor->containing_type());
+            name += "";
+        }
+        name += FileClassPrefix(descriptor->file());
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name);
     }
     
     bool NeedGenerateRealmFileClass(const FileDescriptor* file) {

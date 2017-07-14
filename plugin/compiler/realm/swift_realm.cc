@@ -37,7 +37,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         void SetMapVariables(const Descriptor* descriptor, map<string, string>* variables) {
             (*variables)["acontrol"] = GetAccessControlType(descriptor->file());
-            (*variables)["className"] =  ClassName(descriptor);
             (*variables)["errorType"] = HasOptionForGenerateErrors(descriptor) ? ", Error" : "";
             (*variables)["classNameReturnedType"] = ClassNameReturedType(descriptor);
             (*variables)["classNameRealmReturned"] = ClassNameRealmReturned(descriptor);
@@ -235,23 +234,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print("return rmModel\n");
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
-//        printer->Print(variables_,"$acontrol$ static func map(_ proto: [$classNameReturnedType$]) -> List<$classNameRealmReturned$>? {\n");
-//        XCodeStandartIndent(printer);
-//        printer->Print(variables_,"let maps = proto.map { pb -> $classNameRealmReturned$ in\n");
-//        XCodeStandartIndent(printer);
-//        printer->Print(variables_,"let res = $classNameRealmReturned$.map(pb)\n");
-//        printer->Print("return res\n");
-//        XCodeStandartOutdent(printer);
-//        printer->Print("}\n");
-//        printer->Print(variables_,"let list = List<$classNameRealmReturned$>()\n");
-//        printer->Print("maps.forEach { element in\n");
-//        XCodeStandartIndent(printer);
-//        printer->Print("list.append(element)\n");
-//        XCodeStandartOutdent(printer);
-//        printer->Print("}\n");
-//        printer->Print("return list\n");
-//        XCodeStandartOutdent(printer);
-//        printer->Print("}\n");
         GenerateRealmRepresenterExtension(printer);
         XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
