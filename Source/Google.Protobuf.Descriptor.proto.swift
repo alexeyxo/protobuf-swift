@@ -2705,7 +2705,7 @@ public extension Google.Protobuf {
 
             //Enum type declaration start 
 
-            public enum `Type`:Int32, GeneratedEnum {
+            public enum ProtoType:Int32, GeneratedEnum {
                 /// 0 is reserved for errors.
                 /// Order is weird for historical reasons.
                 case typeDouble = 1
@@ -2767,7 +2767,7 @@ public extension Google.Protobuf {
                     case .typeSint64: return "TYPE_SINT64"
                     }
                 }
-                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldDescriptorProto.`Type` {
+                public static func fromString(_ str:String) throws -> Google.Protobuf.FieldDescriptorProto.ProtoType {
                     switch str {
                     case "TYPE_DOUBLE":    return .typeDouble
                     case "TYPE_FLOAT":    return .typeFloat
@@ -2817,7 +2817,7 @@ public extension Google.Protobuf {
                 public var hashValue:Int {
                     return self.rawValue.hashValue
                 }
-                public static func ==(lhs:`Type`, rhs:`Type`) -> Bool {
+                public static func ==(lhs:ProtoType, rhs:ProtoType) -> Bool {
                     return lhs.hashValue == rhs.hashValue
                 }
             }
@@ -2875,7 +2875,7 @@ public extension Google.Protobuf {
 
         public fileprivate(set) var label:Google.Protobuf.FieldDescriptorProto.Label = Google.Protobuf.FieldDescriptorProto.Label.labelOptional
         public fileprivate(set) var hasLabel:Bool = false
-        public fileprivate(set) var type:Google.Protobuf.FieldDescriptorProto.`Type` = Google.Protobuf.FieldDescriptorProto.`Type`.typeDouble
+        public fileprivate(set) var type:Google.Protobuf.FieldDescriptorProto.ProtoType = Google.Protobuf.FieldDescriptorProto.ProtoType.typeDouble
         public fileprivate(set) var hasType:Bool = false
         /// For message and enum types, this is the name of the type.  If the name
         /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
@@ -3237,7 +3237,7 @@ public extension Google.Protobuf {
                 }
             /// If type_name is set, this need not be set.  If both this and type_name
             /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
-                public var type:Google.Protobuf.FieldDescriptorProto.`Type` {
+                public var type:Google.Protobuf.FieldDescriptorProto.ProtoType {
                     get {
                         return builderResult.type
                     }
@@ -3252,7 +3252,7 @@ public extension Google.Protobuf {
                     }
                 }
             @discardableResult
-                public func setType(_ value:Google.Protobuf.FieldDescriptorProto.`Type`) -> Google.Protobuf.FieldDescriptorProto.Builder {
+                public func setType(_ value:Google.Protobuf.FieldDescriptorProto.ProtoType) -> Google.Protobuf.FieldDescriptorProto.Builder {
                   self.type = value
                   return self
                 }
@@ -3551,7 +3551,7 @@ public extension Google.Protobuf {
 
                     case 40:
                         let valueInttype = try codedInputStream.readEnum()
-                        if let enumstype = Google.Protobuf.FieldDescriptorProto.`Type`(rawValue:valueInttype){
+                        if let enumstype = Google.Protobuf.FieldDescriptorProto.ProtoType(rawValue:valueInttype){
                             type = enumstype
                         } else {
                             try unknownFieldsBuilder.mergeVarintField(fieldNumber: 5, value:Int64(valueInttype))
@@ -3599,7 +3599,7 @@ public extension Google.Protobuf {
                     resultDecodedBuilder.label = try Google.Protobuf.FieldDescriptorProto.Label.fromString(jsonValueLabel)
                 }
                 if let jsonValueType = jsonMap["type"] as? String {
-                    resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.`Type`.fromString(jsonValueType)
+                    resultDecodedBuilder.type = try Google.Protobuf.FieldDescriptorProto.ProtoType.fromString(jsonValueType)
                 }
                 if let jsonValueTypeName = jsonMap["typeName"] as? String {
                     resultDecodedBuilder.typeName = jsonValueTypeName
@@ -12677,7 +12677,7 @@ extension Google.Protobuf.FieldDescriptorProto.Builder: GeneratedMessageBuilderP
                 }
                 self.label = newSubscriptValue
             case "type":
-                guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldDescriptorProto.`Type` else {
+                guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.FieldDescriptorProto.ProtoType else {
                     return
                 }
                 self.type = newSubscriptValue
