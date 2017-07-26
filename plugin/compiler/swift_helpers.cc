@@ -874,14 +874,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     string SafeName(const string& name) {
+    
         string result = name;
-        if (result == "description" || result == "debugDescription" || result ==  "hashValue")
-        {
-            return  result + "_";
+        if (result == "description" || result == "debugDescription" || result ==  "hashValue") {
+            return  result += "_";
+        }
+        if (result == "Type") {
+            return "ProtoType";
         }
         if (kKeywords.count(result) > 0) {
             result = "`" + result + "`";
         }
+        
         return result;
     }
 

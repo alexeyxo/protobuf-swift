@@ -23,7 +23,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/io/printer.h>
 
-#define SWIFT_PROTOBUF_VERSION "3.0.21"
+#define SWIFT_PROTOBUF_VERSION "3.0.22"
 
 namespace google {
     namespace protobuf {
