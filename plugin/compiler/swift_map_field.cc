@@ -215,11 +215,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "if let jsonValue$capitalized_name$ = jsonMap[\"$json_name$\"] as? Dictionary<String, $json_casting_type_value$> {\n"
                        "    var map$capitalized_name$ = Dictionary<$keyType$, $valueType$>()\n"
-                       "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n"
-                       "        guard let keyFrom$capitalized_name$ = $keyType$(key$capitalized_name$) else {\n"
-                       "            throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
-                       "        }\n"
-                       "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n"
+                       "    for (key$capitalized_name$, value$capitalized_name$) in jsonValue$capitalized_name$ {\n");
+        if (variables_.at("keyType") != "String") {
+            printer->Print(variables_,
+                           "        guard let keyFrom$capitalized_name$ = $keyType$(key$capitalized_name$) else {\n"
+                           "            throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
+                           "        }\n"
+                           "        map$capitalized_name$[keyFrom$capitalized_name$] = $from_json_value$\n");
+        } else {
+            printer->Print(variables_,
+                           "        map$capitalized_name$[key$capitalized_name$] = $from_json_value$\n");
+        }
+        printer->Print(variables_,
                        "    }\n"
                        "    resultDecodedBuilder.$name_reserved$ = map$capitalized_name$\n"
                        "}\n");
