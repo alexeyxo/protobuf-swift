@@ -104,6 +104,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         className += UnderscoresToCapitalizedCamelCase(descriptor->name());
         return SafeName(name + SafeName(className));
     }
+    string ClassNameRealm(const EnumDescriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkerRealm(descriptor->containing_type());
+            name += "";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
     string ClassNameRealm(const FieldDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
@@ -116,6 +126,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     string ClassNameRealmReturned(const Descriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorker(descriptor->containing_type());
+            name += ".";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
+    
+    string ClassNameRealmReturned(const EnumDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
             name += ClassNameWorker(descriptor->containing_type());
@@ -153,6 +174,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     bool NeedGenerateRealmClass(const Descriptor* message) {
         if (message->options().HasExtension(swift_message_options)) {
             SwiftMessageOptions options = message->options().GetExtension(swift_message_options);
+            return options.generate_realm_object();
+        }
+        return false;
+    }
+    
+    bool NeedGenerateRealmClass(const EnumDescriptor* message) {
+        if (message->options().HasExtension(swift_enum_options)) {
+            SwiftEnumOptions options = message->options().GetExtension(swift_enum_options);
             return options.generate_realm_object();
         }
         return false;
