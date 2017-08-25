@@ -199,7 +199,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }
     void RealmMessageGenerator::GeneratePBToRealmExtension(io::Printer* printer) {
-        printer->Print(variables_,"extension $classNameRealm$:ProtoMessageRealm {\n");
+        printer->Print(variables_,"extension $classNameRealm$:ProtoRealm {\n");
         XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ typealias PBType = $classNameReturnedType$\n");
         printer->Print(variables_,"$acontrol$ typealias RMObject = $classNameRealm$\n");
@@ -231,14 +231,25 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     }
                     break;
                 case SWIFT_TYPE_ENUM:
-                    if (field->is_repeated()) {
-                        continue;
+                    if (!field->is_repeated()) {
+//                        printer->Print("if proto.$name$ != nil {\n",
+//                                       "name",UnderscoresToCamelCase(field));
+//                        XCodeStandartIndent(printer);
+                        printer->Print("rmModel.$name$ = $rmType$.map(proto.$name$)\n",
+                                       "name", UnderscoresToCamelCase(field),
+                                       "rmType", ClassNameRealm(field->enum_type())
+                                       );
                     } else {
-                        printer->Print("rmModel.$name$ = $className$.map(proto.$name$)\n",
-                                       "className", ClassNameRealm(field->enum_type()),
-                                       "name", UnderscoresToCamelCase(field)
+                        printer->Print("rmModel.$name$.append(objectsIn:$rmType$.map(proto.$name$))\n",
+                                       "name", UnderscoresToCamelCase(field),
+                                       "rmType", ClassNameRealm(field->enum_type())
                                        );
                     }
+//                    if (!field->is_repeated()) {
+//                        XCodeStandartOutdent(printer);
+//                        printer->Print("}\n");
+//                    }
+                    break;
                     break;
                 default:
                     if (field->is_repeated()) {

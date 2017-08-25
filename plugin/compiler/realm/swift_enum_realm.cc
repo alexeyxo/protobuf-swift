@@ -79,7 +79,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         GeneratePBToRealmExtension(printer);
     }
     void RealmEnumGenerator::GeneratePBToRealmExtension(io::Printer* printer) {
-        printer->Print(variables_,"extension $classNameRealm$:ProtoEnumRealm {\n");
+        printer->Print(variables_,"extension $classNameRealm$:ProtoRealm {\n");
         XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ typealias PBType = $classNameReturnedType$\n");
         printer->Print(variables_,"$acontrol$ typealias RMObject = $classNameRealm$\n");
@@ -98,71 +98,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RealmEnumGenerator::GenerateRealmRepresenterExtension(io::Printer* printer) {
         printer->Print(variables_,"$acontrol$ func represent() -> String {\n");
         XCodeStandartIndent(printer);
-//        printer->Print("var res = [String:Any]()\n");
-//        for (int i = 0; i < descriptor_->field_count(); i++) {
-//            
-//            const FieldDescriptor* field = descriptor_->field(i);
-//            if (field->is_repeated()) {
-//                switch (GetSwiftType(field)) {
-//                    case SWIFT_TYPE_MESSAGE:
-//                        printer->Print("if self.$name$.count > 0 {\n",
-//                                       "name", UnderscoresToCamelCase(field));
-//                        XCodeStandartIndent(printer);
-//                        printer->Print("var sequince = [Dictionary<String,Any>]()\n");
-//                        printer->Print("$name$.forEach { element in \n",
-//                                       "name", UnderscoresToCamelCase(field));
-//                        XCodeStandartIndent(printer);
-//                        printer->Print("sequince.append(element.represent())\n");
-//                        XCodeStandartOutdent(printer);
-//                        printer->Print("}\n");
-//                        printer->Print("res[\"$name$\"] = sequince\n",
-//                                       "name", UnderscoresToCamelCase(field)
-//                                       );
-//                        XCodeStandartOutdent(printer);
-//                        printer->Print("}\n");
-//                        break;
-//                    default:
-//                        if (field->is_repeated()) {
-//                            continue;
-//                        }
-//                }
-//            } else {
-//                switch (GetSwiftType(field)) {
-//                    case SWIFT_TYPE_MESSAGE:
-//                        printer->Print("if let $name$Scope = self.$name$ {\n",
-//                                       "name", UnderscoresToCamelCase(field));
-//                        XCodeStandartIndent(printer);
-//                        printer->Print("res[\"$name$\"] = $name$Scope.represent()\n",
-//                                       "name", UnderscoresToCamelCase(field)
-//                                       );
-//                        XCodeStandartOutdent(printer);
-//                        printer->Print("}\n");
-//                        break;
-//                    case SWIFT_TYPE_ENUM:
-//                        printer->Print("res[\"$name$\"] = self.$name$\n",
-//                                       "name", UnderscoresToCamelCase(field)
-//                                       );
-//                        break;
-//                    default:
-//                        if (field->is_optional()) {
-//                            printer->Print("if let $name$Scope = self.$name$$castType$ {\n",
-//                                           "name", UnderscoresToCamelCase(field),
-//                                           "castType", PrimitiveTypeCastingRealmRepresent(field));
-//                            XCodeStandartIndent(printer);
-//                            printer->Print("res[\"$name$\"] = $name$Scope\n",
-//                                           "name", UnderscoresToCamelCase(field)
-//                                           );
-//                            XCodeStandartOutdent(printer);
-//                            printer->Print("}\n");
-//                        } else {
-//                            printer->Print("res[\"$name$\"] = self.$name$\n",
-//                                           "name", UnderscoresToCamelCase(field)
-//                                           );
-//                            break;
-//                        }
-//                }
-//            }
-//        }
         printer->Print("return self.rawValue\n");
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
