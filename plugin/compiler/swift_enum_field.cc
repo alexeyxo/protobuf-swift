@@ -30,7 +30,7 @@
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
-        void SetEnumVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetEnumVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             
             const EnumValueDescriptor* default_value;
             default_value = descriptor->default_value_enum();

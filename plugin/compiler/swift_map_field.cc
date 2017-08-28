@@ -36,7 +36,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        void SetMapVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             
             
             std::string name = UnderscoresToCamelCase(descriptor);

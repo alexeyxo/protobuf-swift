@@ -29,7 +29,7 @@
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
-        void SetMessageVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetMessageVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);

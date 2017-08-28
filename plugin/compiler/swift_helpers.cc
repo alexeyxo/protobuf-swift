@@ -28,6 +28,8 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
+    
     namespace {
         const string& FieldName(const FieldDescriptor* field) {
             if (field->type() == FieldDescriptor::TYPE_GROUP) {

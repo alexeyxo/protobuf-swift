@@ -37,7 +37,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void ExtensionGenerator::GenerateFieldsGetterSource(io::Printer* printer, string rootclassname) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         ////
         vars["containing_type"] = classname_;
@@ -74,7 +74,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void ExtensionGenerator::GenerateFieldsSource(io::Printer* printer) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         
@@ -96,7 +96,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void ExtensionGenerator::GenerateMembersSourceExtensions(io::Printer* printer, string fileClass) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         vars["rootclass_type"] = fileClass;
@@ -108,7 +108,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void ExtensionGenerator::GenerateMembersSource(io::Printer* printer) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         vars["acontrol"] = GetAccessControlType(descriptor_->file());
@@ -119,7 +119,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void ExtensionGenerator::GenerateInitializationSource(io::Printer* printer) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["name"] = UnderscoresToCamelCase(descriptor_);
         vars["containing_type"] = classname_;
         vars["extended_type"] = ClassNameReturedType(descriptor_->containing_type());

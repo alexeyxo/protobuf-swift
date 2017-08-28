@@ -74,7 +74,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             return -1;
         }
         
-        void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetPrimitiveVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());

@@ -53,7 +53,7 @@ namespace google {
                     
                 private:
                     const FieldDescriptor* descriptor_;
-                    map<string, string> variables_;
+                    std::map<string, string> variables_;
                     
                     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MapFieldGenerator);
                 };
