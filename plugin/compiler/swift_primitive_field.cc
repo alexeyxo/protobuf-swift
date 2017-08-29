@@ -89,7 +89,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["json_name"] = descriptor->json_name();
             (*variables)["to_json_value"] = SafeName(ToJSONValue(descriptor, name));
             (*variables)["to_json_value_repeated_storage_type"] = ToJSONValueRepeatedStorageType(descriptor);
-            (*variables)["to_json_value_repeated"] = ToJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["to_json_value_repeated"] = ToJSONValueRepeated(descriptor, "oneValue" + capname);
             (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);
             (*variables)["from_json_value_repeated"] = FromJSONValue(descriptor, "oneValue" + capname);
             (*variables)["json_casting_type"] = JSONCastingValue(descriptor);

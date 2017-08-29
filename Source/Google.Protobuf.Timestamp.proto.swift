@@ -144,7 +144,7 @@ public extension Google.Protobuf {
 
             var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
             if hasSeconds {
-                jsonMap["seconds"] = "\(seconds)"
+                jsonMap["seconds"] = "\(seconds!)"
             }
             if hasNanos {
                 jsonMap["nanos"] = Int(nanos)

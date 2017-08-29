@@ -1793,31 +1793,31 @@ public extension ProtobufUnittestNoArena {
                 jsonMap["optionalInt32"] = Int(optionalInt32)
             }
             if hasOptionalInt64 {
-                jsonMap["optionalInt64"] = "\(optionalInt64)"
+                jsonMap["optionalInt64"] = "\(optionalInt64!)"
             }
             if hasOptionalUint32 {
                 jsonMap["optionalUint32"] = UInt(optionalUint32)
             }
             if hasOptionalUint64 {
-                jsonMap["optionalUint64"] = "\(optionalUint64)"
+                jsonMap["optionalUint64"] = "\(optionalUint64!)"
             }
             if hasOptionalSint32 {
                 jsonMap["optionalSint32"] = Int(optionalSint32)
             }
             if hasOptionalSint64 {
-                jsonMap["optionalSint64"] = "\(optionalSint64)"
+                jsonMap["optionalSint64"] = "\(optionalSint64!)"
             }
             if hasOptionalFixed32 {
                 jsonMap["optionalFixed32"] = UInt(optionalFixed32)
             }
             if hasOptionalFixed64 {
-                jsonMap["optionalFixed64"] = "\(optionalFixed64)"
+                jsonMap["optionalFixed64"] = "\(optionalFixed64!)"
             }
             if hasOptionalSfixed32 {
                 jsonMap["optionalSfixed32"] = Int(optionalSfixed32)
             }
             if hasOptionalSfixed64 {
-                jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
+                jsonMap["optionalSfixed64"] = "\(optionalSfixed64!)"
             }
             if hasOptionalFloat {
                 jsonMap["optionalFloat"] = Float(optionalFloat)
@@ -2051,31 +2051,31 @@ public extension ProtobufUnittestNoArena {
                 jsonMap["defaultInt32"] = Int(defaultInt32)
             }
             if hasDefaultInt64 {
-                jsonMap["defaultInt64"] = "\(defaultInt64)"
+                jsonMap["defaultInt64"] = "\(defaultInt64!)"
             }
             if hasDefaultUint32 {
                 jsonMap["defaultUint32"] = UInt(defaultUint32)
             }
             if hasDefaultUint64 {
-                jsonMap["defaultUint64"] = "\(defaultUint64)"
+                jsonMap["defaultUint64"] = "\(defaultUint64!)"
             }
             if hasDefaultSint32 {
                 jsonMap["defaultSint32"] = Int(defaultSint32)
             }
             if hasDefaultSint64 {
-                jsonMap["defaultSint64"] = "\(defaultSint64)"
+                jsonMap["defaultSint64"] = "\(defaultSint64!)"
             }
             if hasDefaultFixed32 {
                 jsonMap["defaultFixed32"] = UInt(defaultFixed32)
             }
             if hasDefaultFixed64 {
-                jsonMap["defaultFixed64"] = "\(defaultFixed64)"
+                jsonMap["defaultFixed64"] = "\(defaultFixed64!)"
             }
             if hasDefaultSfixed32 {
                 jsonMap["defaultSfixed32"] = Int(defaultSfixed32)
             }
             if hasDefaultSfixed64 {
-                jsonMap["defaultSfixed64"] = "\(defaultSfixed64)"
+                jsonMap["defaultSfixed64"] = "\(defaultSfixed64!)"
             }
             if hasDefaultFloat {
                 jsonMap["defaultFloat"] = Float(defaultFloat)

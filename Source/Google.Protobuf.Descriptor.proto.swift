@@ -10227,10 +10227,10 @@ public extension Google.Protobuf {
                 jsonMap["identifierValue"] = identifierValue
             }
             if hasPositiveIntValue {
-                jsonMap["positiveIntValue"] = "\(positiveIntValue)"
+                jsonMap["positiveIntValue"] = "\(positiveIntValue!)"
             }
             if hasNegativeIntValue {
-                jsonMap["negativeIntValue"] = "\(negativeIntValue)"
+                jsonMap["negativeIntValue"] = "\(negativeIntValue!)"
             }
             if hasDoubleValue {
                 jsonMap["doubleValue"] = Double(doubleValue)

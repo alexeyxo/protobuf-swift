@@ -618,10 +618,10 @@ public extension SwiftProtobufUnittest {
 
                 var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
                 if hasKey {
-                    jsonMap["key"] = "\(key)"
+                    jsonMap["key"] = "\(key!)"
                 }
                 if hasValue {
-                    jsonMap["value"] = "\(value)"
+                    jsonMap["value"] = "\(value!)"
                 }
                 return jsonMap
             }

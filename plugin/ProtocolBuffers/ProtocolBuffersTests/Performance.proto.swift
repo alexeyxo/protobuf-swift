@@ -965,7 +965,7 @@ final internal class PBPerfomance : GeneratedMessage {
             jsonMap["ints"] = Int(ints)
         }
         if hasInts64 {
-            jsonMap["ints64"] = "\(ints64)"
+            jsonMap["ints64"] = "\(ints64!)"
         }
         if hasDoubles {
             jsonMap["doubles"] = Double(doubles)

@@ -532,7 +532,7 @@ public extension Google.Protobuf {
 
             var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
             if hasValue {
-                jsonMap["value"] = "\(value)"
+                jsonMap["value"] = "\(value!)"
             }
             return jsonMap
         }
@@ -753,7 +753,7 @@ public extension Google.Protobuf {
 
             var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
             if hasValue {
-                jsonMap["value"] = "\(value)"
+                jsonMap["value"] = "\(value!)"
             }
             return jsonMap
         }

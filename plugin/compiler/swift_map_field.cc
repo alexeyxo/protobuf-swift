@@ -63,7 +63,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             //JSON
             (*variables)["json_name"] = descriptor->json_name();
 //            (*variables)["to_json_value_key"] = ToJSONValue(key_descriptor, name);
-            (*variables)["to_json_value_value"] = ToJSONValue(value_descriptor, "value" + capname);
+            (*variables)["to_json_value_value"] = ToJSONValueRepeated(value_descriptor, "value" + capname);
             (*variables)["from_json_value"] = FromJSONValue(value_descriptor, "value" + capname);
             (*variables)["from_json_key_value"] = FromJSONMapKeyValue(key_descriptor, "key" + capname);
             (*variables)["json_casting_type_value"] = JSONCastingValue(value_descriptor);

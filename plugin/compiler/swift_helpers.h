@@ -182,6 +182,8 @@ namespace google {
                 string FromJSONValueAdditional(const FieldDescriptor* field, string value);
                 string FromJSONMapKeyValue(const FieldDescriptor* field, string value);
                 string ToJSONValue(const FieldDescriptor* field, string value);
+                string ToJSONValueRepeated(const FieldDescriptor* field, string value);
+                
                 string ToJSONValueRepeatedStorageType(const FieldDescriptor* field);
                 
             }  // namespace swift

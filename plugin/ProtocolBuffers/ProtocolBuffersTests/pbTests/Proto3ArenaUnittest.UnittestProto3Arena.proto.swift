@@ -1184,31 +1184,31 @@ public extension Proto3ArenaUnittest {
                 jsonMap["optionalInt32"] = Int(optionalInt32)
             }
             if hasOptionalInt64 {
-                jsonMap["optionalInt64"] = "\(optionalInt64)"
+                jsonMap["optionalInt64"] = "\(optionalInt64!)"
             }
             if hasOptionalUint32 {
                 jsonMap["optionalUint32"] = UInt(optionalUint32)
             }
             if hasOptionalUint64 {
-                jsonMap["optionalUint64"] = "\(optionalUint64)"
+                jsonMap["optionalUint64"] = "\(optionalUint64!)"
             }
             if hasOptionalSint32 {
                 jsonMap["optionalSint32"] = Int(optionalSint32)
             }
             if hasOptionalSint64 {
-                jsonMap["optionalSint64"] = "\(optionalSint64)"
+                jsonMap["optionalSint64"] = "\(optionalSint64!)"
             }
             if hasOptionalFixed32 {
                 jsonMap["optionalFixed32"] = UInt(optionalFixed32)
             }
             if hasOptionalFixed64 {
-                jsonMap["optionalFixed64"] = "\(optionalFixed64)"
+                jsonMap["optionalFixed64"] = "\(optionalFixed64!)"
             }
             if hasOptionalSfixed32 {
                 jsonMap["optionalSfixed32"] = Int(optionalSfixed32)
             }
             if hasOptionalSfixed64 {
-                jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
+                jsonMap["optionalSfixed64"] = "\(optionalSfixed64!)"
             }
             if hasOptionalFloat {
                 jsonMap["optionalFloat"] = Float(optionalFloat)

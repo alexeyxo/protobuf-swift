@@ -3069,31 +3069,31 @@ public extension ProtobufUnittest {
                 jsonMap["optionalInt32"] = Int(optionalInt32)
             }
             if hasOptionalInt64 {
-                jsonMap["optionalInt64"] = "\(optionalInt64)"
+                jsonMap["optionalInt64"] = "\(optionalInt64!)"
             }
             if hasOptionalUint32 {
                 jsonMap["optionalUint32"] = UInt(optionalUint32)
             }
             if hasOptionalUint64 {
-                jsonMap["optionalUint64"] = "\(optionalUint64)"
+                jsonMap["optionalUint64"] = "\(optionalUint64!)"
             }
             if hasOptionalSint32 {
                 jsonMap["optionalSint32"] = Int(optionalSint32)
             }
             if hasOptionalSint64 {
-                jsonMap["optionalSint64"] = "\(optionalSint64)"
+                jsonMap["optionalSint64"] = "\(optionalSint64!)"
             }
             if hasOptionalFixed32 {
                 jsonMap["optionalFixed32"] = UInt(optionalFixed32)
             }
             if hasOptionalFixed64 {
-                jsonMap["optionalFixed64"] = "\(optionalFixed64)"
+                jsonMap["optionalFixed64"] = "\(optionalFixed64!)"
             }
             if hasOptionalSfixed32 {
                 jsonMap["optionalSfixed32"] = Int(optionalSfixed32)
             }
             if hasOptionalSfixed64 {
-                jsonMap["optionalSfixed64"] = "\(optionalSfixed64)"
+                jsonMap["optionalSfixed64"] = "\(optionalSfixed64!)"
             }
             if hasOptionalFloat {
                 jsonMap["optionalFloat"] = Float(optionalFloat)
@@ -3327,31 +3327,31 @@ public extension ProtobufUnittest {
                 jsonMap["defaultInt32"] = Int(defaultInt32)
             }
             if hasDefaultInt64 {
-                jsonMap["defaultInt64"] = "\(defaultInt64)"
+                jsonMap["defaultInt64"] = "\(defaultInt64!)"
             }
             if hasDefaultUint32 {
                 jsonMap["defaultUint32"] = UInt(defaultUint32)
             }
             if hasDefaultUint64 {
-                jsonMap["defaultUint64"] = "\(defaultUint64)"
+                jsonMap["defaultUint64"] = "\(defaultUint64!)"
             }
             if hasDefaultSint32 {
                 jsonMap["defaultSint32"] = Int(defaultSint32)
             }
             if hasDefaultSint64 {
-                jsonMap["defaultSint64"] = "\(defaultSint64)"
+                jsonMap["defaultSint64"] = "\(defaultSint64!)"
             }
             if hasDefaultFixed32 {
                 jsonMap["defaultFixed32"] = UInt(defaultFixed32)
             }
             if hasDefaultFixed64 {
-                jsonMap["defaultFixed64"] = "\(defaultFixed64)"
+                jsonMap["defaultFixed64"] = "\(defaultFixed64!)"
             }
             if hasDefaultSfixed32 {
                 jsonMap["defaultSfixed32"] = Int(defaultSfixed32)
             }
             if hasDefaultSfixed64 {
-                jsonMap["defaultSfixed64"] = "\(defaultSfixed64)"
+                jsonMap["defaultSfixed64"] = "\(defaultSfixed64!)"
             }
             if hasDefaultFloat {
                 jsonMap["defaultFloat"] = Float(defaultFloat)
@@ -15944,7 +15944,7 @@ public extension ProtobufUnittest {
 
                 var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
                 if hasOo {
-                    jsonMap["oo"] = "\(oo)"
+                    jsonMap["oo"] = "\(oo!)"
                 }
                 if hasBb {
                     jsonMap["bb"] = Int(bb)
@@ -16236,7 +16236,7 @@ public extension ProtobufUnittest {
                 jsonMap["myString"] = myString
             }
             if hasMyInt {
-                jsonMap["myInt"] = "\(myInt)"
+                jsonMap["myInt"] = "\(myInt!)"
             }
             if hasMyFloat {
                 jsonMap["myFloat"] = Float(myFloat)
@@ -16906,19 +16906,19 @@ public extension ProtobufUnittest {
                 jsonMap["largeUint32"] = UInt(largeUint32)
             }
             if hasLargeUint64 {
-                jsonMap["largeUint64"] = "\(largeUint64)"
+                jsonMap["largeUint64"] = "\(largeUint64!)"
             }
             if hasSmallInt32 {
                 jsonMap["smallInt32"] = Int(smallInt32)
             }
             if hasSmallInt64 {
-                jsonMap["smallInt64"] = "\(smallInt64)"
+                jsonMap["smallInt64"] = "\(smallInt64!)"
             }
             if hasReallySmallInt32 {
                 jsonMap["reallySmallInt32"] = Int(reallySmallInt32)
             }
             if hasReallySmallInt64 {
-                jsonMap["reallySmallInt64"] = "\(reallySmallInt64)"
+                jsonMap["reallySmallInt64"] = "\(reallySmallInt64!)"
             }
             if hasUtf8String {
                 jsonMap["utf8String"] = utf8String
@@ -19818,7 +19818,7 @@ public extension ProtobufUnittest {
 
             var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
             if hasData {
-                jsonMap["data"] = "\(data)"
+                jsonMap["data"] = "\(data!)"
             }
             return jsonMap
         }
@@ -20036,7 +20036,7 @@ public extension ProtobufUnittest {
 
             var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
             if hasData {
-                jsonMap["data"] = "\(data)"
+                jsonMap["data"] = "\(data!)"
             }
             return jsonMap
         }
@@ -22387,7 +22387,7 @@ public extension ProtobufUnittest {
 
                 var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
                 if hasQuxInt {
-                    jsonMap["quxInt"] = "\(quxInt)"
+                    jsonMap["quxInt"] = "\(quxInt!)"
                 }
                 if !corgeInt.isEmpty {
                     var jsonArrayCorgeInt:Array<Int> = []
