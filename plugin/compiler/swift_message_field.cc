@@ -79,9 +79,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     MessageFieldGenerator::~MessageFieldGenerator() {
     }
     
-    
+
     void MessageFieldGenerator::GenerateExtensionSource(io::Printer* printer) const {
-        
+
     }
     
     
@@ -113,7 +113,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "    }\n"
                            "}\n");
             
-            
+
         }
         else {
             printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:$type$!\n");
@@ -125,7 +125,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageFieldGenerator::GenerateSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
-    
+
     void MessageFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
         XCodeStandartIndent(printer);
@@ -137,7 +137,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
         XCodeStandartOutdent(printer);
     }
-    
+
     void MessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
     }
     
@@ -148,62 +148,131 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             comments = BuildCommentsString(location);
             printer->Print(comments.c_str());
         }
-        printer->Print(variables_,
-                       "$acontrol$var $name_reserved$:$type$! {\n"
-                       "    get {\n"
-                       "        if $name$Builder_ != nil {\n"
-                       "            builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
-                       "        }\n"
-                       "        return builderResult.$name_reserved$\n"
-                       "    }\n"
-                       "    set (value) {\n"
-                       "        builderResult.has$capitalized_name$ = true\n"
-                       "        builderResult.$name_reserved$ = value\n"
-                       "    }\n"
-                       "}\n"
-                       "$acontrol$var has$capitalized_name$:Bool {\n"
-                       "    get {\n"
-                       "        return builderResult.has$capitalized_name$\n"
-                       "    }\n"
-                       "}\n"
-                       "fileprivate var $name$Builder_:$type$.Builder! {\n"
-                       "    didSet {\n"
-                       "        builderResult.has$capitalized_name$ = true\n"
-                       "    }\n"
-                       "}\n"
-                       "$acontrolFunc$ func get$capitalized_name$Builder() -> $type$.Builder {\n"
-                       "    if $name$Builder_ == nil {\n"
-                       "        $name$Builder_ = $type$.Builder()\n"
-                       "        builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
-                       "        if $name_reserved$ != nil {\n"
-                       "            try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
-                       "        }\n"
-                       "    }\n"
-                       "    return $name$Builder_\n"
-                       "}\n"
-                       "@discardableResult\n"
-                       "$acontrol$func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
-                       "    self.$name_reserved$ = value\n"
-                       "    return self\n"
-                       "}\n"
-                       "@discardableResult\n"
-                       "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
-                       "    if builderResult.has$capitalized_name$ {\n"
-                       "        builderResult.$name_reserved$ = try $type$.builderWithPrototype(prototype:builderResult.$name_reserved$).mergeFrom(other: value).buildPartial()\n"
-                       "    } else {\n"
-                       "        builderResult.$name_reserved$ = value\n"
-                       "    }\n"
-                       "    builderResult.has$capitalized_name$ = true\n"
-                       "    return self\n"
-                       "}\n"
-                       "@discardableResult\n"
-                       "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
-                       "    $name$Builder_ = nil\n"
-                       "    builderResult.has$capitalized_name$ = false\n"
-                       "    builderResult.$name_reserved$ = nil\n"
-                       "    return self\n"
-                       "}\n"
-                       );
+
+        bool isResponse = false;
+                bool isRequest = false;
+                string nameS = this->descriptor_->name();
+                if (nameS == "IGP_request") {
+                    isRequest = true;
+                }else if (nameS == "IGP_response") {
+                    isResponse = true;
+                }
+
+        if (isRequest) {
+            printer->Print(variables_,
+                           "$acontrol$var $name_reserved$:$type$! {\n"
+                           "    get {\n"
+                           "        if $name$Builder_ != nil {\n"
+                           "            builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
+                           "        }\n"
+                           "        return builderResult.$name_reserved$\n"
+                           "    }\n"
+                           "    set (value) {\n"
+                           "        builderResult.has$capitalized_name$ = true\n"
+                           "        builderResult.$name_reserved$ = value\n"
+                           "    }\n"
+                           "}\n"
+                           "$acontrol$var has$capitalized_name$:Bool {\n"
+                           "    get {\n"
+                           "        return builderResult.has$capitalized_name$\n"
+                           "    }\n"
+                           "}\n"
+                           "fileprivate var $name$Builder_:$type$.Builder! {\n"
+                           "    didSet {\n"
+                           "        builderResult.has$capitalized_name$ = true\n"
+                           "    }\n"
+                           "}\n"
+                           "$acontrolFunc$ func get$capitalized_name$Builder() -> $type$.Builder {\n"
+                           "    if $name$Builder_ == nil {\n"
+                           "        $name$Builder_ = $type$.Builder()\n"
+                           "        builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
+                           "        if $name_reserved$ != nil {\n"
+                           "            try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
+                           "        }\n"
+                           "    }\n"
+                           "    return $name$Builder_\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrol$override func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
+                           "    self.$name_reserved$ = value\n"
+                           "    return self\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
+                           "    if builderResult.has$capitalized_name$ {\n"
+                           "        builderResult.$name_reserved$ = try $type$.builderWithPrototype(prototype:builderResult.$name_reserved$).mergeFrom(other: value).buildPartial()\n"
+                           "    } else {\n"
+                           "        builderResult.$name_reserved$ = value\n"
+                           "    }\n"
+                           "    builderResult.has$capitalized_name$ = true\n"
+                           "    return self\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
+                           "    $name$Builder_ = nil\n"
+                           "    builderResult.has$capitalized_name$ = false\n"
+                           "    builderResult.$name_reserved$ = nil\n"
+                           "    return self\n"
+                           "}\n"
+                           );
+        }else{
+            printer->Print(variables_,
+                           "$acontrol$var $name_reserved$:$type$! {\n"
+                           "    get {\n"
+                           "        if $name$Builder_ != nil {\n"
+                           "            builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
+                           "        }\n"
+                           "        return builderResult.$name_reserved$\n"
+                           "    }\n"
+                           "    set (value) {\n"
+                           "        builderResult.has$capitalized_name$ = true\n"
+                           "        builderResult.$name_reserved$ = value\n"
+                           "    }\n"
+                           "}\n"
+                           "$acontrol$var has$capitalized_name$:Bool {\n"
+                           "    get {\n"
+                           "        return builderResult.has$capitalized_name$\n"
+                           "    }\n"
+                           "}\n"
+                           "fileprivate var $name$Builder_:$type$.Builder! {\n"
+                           "    didSet {\n"
+                           "        builderResult.has$capitalized_name$ = true\n"
+                           "    }\n"
+                           "}\n"
+                           "$acontrolFunc$ func get$capitalized_name$Builder() -> $type$.Builder {\n"
+                           "    if $name$Builder_ == nil {\n"
+                           "        $name$Builder_ = $type$.Builder()\n"
+                           "        builderResult.$name_reserved$ = $name$Builder_.getMessage()\n"
+                           "        if $name_reserved$ != nil {\n"
+                           "            try! $name$Builder_.mergeFrom(other: $name_reserved$)\n"
+                           "        }\n"
+                           "    }\n"
+                           "    return $name$Builder_\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrol$func set$capitalized_name$(_ value:$type$!) -> $containing_class$.Builder {\n"
+                           "    self.$name_reserved$ = value\n"
+                           "    return self\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrolFunc$ func merge$capitalized_name$(value:$type$) throws -> $containing_class$.Builder {\n"
+                           "    if builderResult.has$capitalized_name$ {\n"
+                           "        builderResult.$name_reserved$ = try $type$.builderWithPrototype(prototype:builderResult.$name_reserved$).mergeFrom(other: value).buildPartial()\n"
+                           "    } else {\n"
+                           "        builderResult.$name_reserved$ = value\n"
+                           "    }\n"
+                           "    builderResult.has$capitalized_name$ = true\n"
+                           "    return self\n"
+                           "}\n"
+                           "@discardableResult\n"
+                           "$acontrolFunc$ func clear$capitalized_name$() -> $containing_class$.Builder {\n"
+                           "    $name$Builder_ = nil\n"
+                           "    builderResult.has$capitalized_name$ = false\n"
+                           "    builderResult.$name_reserved$ = nil\n"
+                           "    return self\n"
+                           "}\n"
+                           );
+        }
     }
     
     void MessageFieldGenerator::GenerateMergingCodeSource(io::Printer* printer) const {
@@ -266,7 +335,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    output += \"\\(indent) }\\n\"\n"
                        "}\n");
     }
-    
+
     
     void MessageFieldGenerator::GenerateJSONEncodeCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -283,7 +352,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,
                        "}\n");
     }
-    
+
     
     void MessageFieldGenerator::GenerateIsEqualCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
@@ -334,7 +403,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void RepeatedMessageFieldGenerator::GenerateSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\": return self.$name_reserved$\n");
     }
-    
+
     void RepeatedMessageFieldGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"case \"$name_reserved$\":\n");
         XCodeStandartIndent(printer);
@@ -346,16 +415,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         printer->Print(variables_,"self.$name_reserved$ = newSubscriptValue\n");
         XCodeStandartOutdent(printer);
     }
-    
-    
+
+
     void RepeatedMessageFieldGenerator::GenerateInitializationSource(io::Printer* printer) const {
-        
+
     }
-    
+
     
     void RepeatedMessageFieldGenerator::GenerateMembersSource(io::Printer* printer) const {
         
-        
+
     }
     
     

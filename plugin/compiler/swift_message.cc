@@ -36,7 +36,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     using internal::WireFormat;
     using internal::WireFormatLite;
     using namespace std;
-    
+
     namespace {
         
         void SetMapVariables(const Descriptor* descriptor, std::map<string, string>* variables) {
@@ -183,7 +183,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
     }
     
-    
+
     void MessageGenerator::GenerateExtensionRegistrationSource(io::Printer* printer) {
         for (int i = 0; i < descriptor_->extension_count(); i++) {
             ExtensionGenerator(ClassNameExtensions(descriptor_), descriptor_->extension(i))
@@ -208,14 +208,48 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             printer->Print(comments.c_str());
         }
 
+
+
+        bool isResponse = false;
+        bool isRequest = false;
+
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            try {
+                string nameS = descriptor_->field(i)->name();
+                if (nameS == "IGP_request") {
+                    isRequest = true;
+                }else if (nameS == "IGP_response") {
+                    isResponse = true;
+                }
+                //const char* name = nameS.c_str();
+                //printer->Print(name);
+            } catch (int e) {
+
+            }
+        }
+
+
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class $className$ : ExtendableMessage$errorType$ {\n"
                           );
         } else {
-            printer->Print(variables_,
-                           "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
-                           );
+
+            if (isRequest) {
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
+                               );
+            } else if (isResponse){
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedResponseMessage$errorType$ {\n"
+                               );
+            } else {
+                printer->Print(variables_,
+                               "final $acontrol$ class $className$ : GeneratedMessage$errorType$ {\n"
+                               );
+            }
+
+
         }
         XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ typealias BuilderType = $classNameReturnedType$.Builder\n");
@@ -234,9 +268,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         //Oneof
         
         
-        
+        printer->Print("\n\n//iGap Properties declaration start\n\n");
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
             string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
+
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
             printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.OneOf$storageName$NotSet\n",
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
@@ -249,7 +284,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                            "classname", classNames);
         }
-        
+        printer->Print("\n\n//iGap Properties declaration end\n\n");
+
         ////
         
         
@@ -266,32 +302,47 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         ///
         
         
-        
+
         for (int i = 0; i < descriptor_->field_count(); i++) {
-            field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            string nameS = descriptor_->field(i)->name();
+//            const char* name = nameS.c_str();
+//            printer->Print("\n\n//iGAAAAAAp ");
+//            printer->Print(name);
+//            printer->Print("\n");
+
+            if (nameS == "IGP_request" && isRequest) {
+                field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            } else if (nameS == "IGP_response" && isResponse) {
+
+            } else {
+                field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
+            }
+
+
         }
-        
         
         for (int i = 0; i < descriptor_->extension_count(); i++) {
             ExtensionGenerator(ClassNameExtensions(descriptor_), descriptor_->extension(i)).GenerateMembersSource(printer);
         }
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
+
             field_generators_.get(descriptor_->field(i)).GenerateMembersSource(printer);
         }
         
+
         printer->Print(variables_,"required $acontrol$ init() {\n");
         
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
-         
+
+
             field_generators_.get(descriptor_->field(i)).GenerateInitializationSource(printer);
         }
         
         printer->Print("    super.init()\n"
                        "}\n");
-        
-        
+
         GenerateIsInitializedSource(printer);
         GenerateMessageSerializationMethodsSource(printer);
     
@@ -507,7 +558,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsDataCast)\n"
                        "}\n");
     }
-    
+
 
     void MessageGenerator::GenerateMessageIsEqualSource(io::Printer* printer) {
         scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
@@ -639,12 +690,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "$acontrol$ class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> $classNameReturnedType$ {\n"
                        "    return try $classNameReturnedType$.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()\n"
                        "}\n");
-        
-      
+
+
         XCodeStandartOutdent(printer);
-        
+
         GenerateSubscript(printer);
-        
+
         printer->Print("}\n");
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             MessageGenerator(descriptor_->nested_type(i)).GenerateParseFromMethodsSource(printer);
@@ -653,18 +704,19 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void MessageGenerator::GenerateBuilderExtensions(io::Printer* printer) {
         printer->Print(variables_,"extension $classNameReturnedType$.Builder: GeneratedMessageBuilderProtocol {\n");
         XCodeStandartIndent(printer);
+
         printer->Print(variables_,"$acontrol$ typealias GeneratedMessageType = $classNameReturnedType$\n");
-        
+
         GenerateSetSubscript(printer);
-        
+
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             MessageGenerator(descriptor_->nested_type(i)).GenerateBuilderExtensions(printer);
         }
-        
+
     }
-    
+
     void MessageGenerator::GenerateSubscript(io::Printer* printer) const {
         XCodeStandartIndent(printer);
         printer->Print(variables_,"$acontrol$ subscript(key: String) -> Any? {\n");
@@ -679,12 +731,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         } else {
             printer->Print("return nil\n");
         }
-        
+
         XCodeStandartOutdent(printer);
         printer->Print("}\n");
         XCodeStandartOutdent(printer);
     }
-    
+
     void MessageGenerator::GenerateSetSubscript(io::Printer* printer) const {
         printer->Print(variables_,"$acontrol$ subscript(key: String) -> Any? {\n");
         XCodeStandartIndent(printer);
@@ -768,13 +820,44 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateBuilderSource(io::Printer* printer) {
-        
+        bool isResponse = false;
+        bool isRequest = false;
+
+        for (int i = 0; i < descriptor_->field_count(); i++) {
+            try {
+                string nameS = descriptor_->field(i)->name();
+                if (nameS == "IGP_request") {
+                    isRequest = true;
+                }else if (nameS == "IGP_response") {
+                    isResponse = true;
+                }
+                //const char* name = nameS.c_str();
+                //printer->Print(name);
+            } catch (int e) {
+
+            }
+        }
+
+
+
+
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(variables_,
                            "final $acontrol$ class Builder : ExtendableMessageBuilder {\n");
         } else {
-            printer->Print(variables_,
-                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
+
+            if (isRequest) {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedRequestMessageBuilder {\n");
+            } else if (isResponse) {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedResponseMessageBuilder {\n");
+            } else {
+                printer->Print(variables_,
+                               "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
+            }
+//            printer->Print(variables_,
+//                           "final $acontrol$ class Builder : GeneratedMessageBuilder {\n");
         }
         
         XCodeStandartIndent(printer);
@@ -797,11 +880,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
-        
+
     }
-    
-   
-    
+
+
+
     
     void MessageGenerator::GenerateCommonBuilderMethodsSource(io::Printer* printer) {
         
