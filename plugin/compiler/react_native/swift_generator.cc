@@ -42,7 +42,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
 
-        static map<string,string> packages;
+        static std::map<string,string> packages;
         
         vector< pair<string, string> > options;
         ParseGeneratorParameter(parameter, &options);

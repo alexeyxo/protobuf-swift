@@ -26,6 +26,7 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
     
     string DefaultValueRealm(const FieldDescriptor* field) {
         
@@ -97,7 +98,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameRealm(const Descriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkerRealm(descriptor->containing_type());
+            name += "";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
+    string ClassNameRealm(const EnumDescriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkerRealm(descriptor->containing_type());
             name += "";
         }
         string className = FileClassPrefix(descriptor->file());
@@ -126,6 +137,28 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return SafeName(name + SafeName(className));
     }
     
+    string ClassNameRealmReturned(const EnumDescriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorker(descriptor->containing_type());
+            name += ".";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
+    
+    string ClassNameWorkerRealm(const Descriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkerRealm(descriptor->containing_type());
+            name += "";
+        }
+        name += FileClassPrefix(descriptor->file());
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name);
+    }
+    
     bool NeedGenerateRealmFileClass(const FileDescriptor* file) {
         if (file->options().HasExtension(swift_file_options)) {
             SwiftFileOptions options = file->options().GetExtension(swift_file_options);
@@ -142,6 +175,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     bool NeedGenerateRealmClass(const Descriptor* message) {
         if (message->options().HasExtension(swift_message_options)) {
             SwiftMessageOptions options = message->options().GetExtension(swift_message_options);
+            return options.generate_realm_object();
+        }
+        return false;
+    }
+    
+    bool NeedGenerateRealmClass(const EnumDescriptor* message) {
+        if (message->options().HasExtension(swift_enum_options)) {
+            SwiftEnumOptions options = message->options().GetExtension(swift_enum_options);
             return options.generate_realm_object();
         }
         return false;

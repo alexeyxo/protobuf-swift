@@ -36,7 +36,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        void SetMapVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             
             
             std::string name = UnderscoresToCamelCase(descriptor);
@@ -63,7 +63,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             //JSON
             (*variables)["json_name"] = descriptor->json_name();
 //            (*variables)["to_json_value_key"] = ToJSONValue(key_descriptor, name);
-            (*variables)["to_json_value_value"] = ToJSONValue(value_descriptor, "value" + capname);
+            (*variables)["to_json_value_value"] = ToJSONValueRepeated(value_descriptor, "value" + capname);
             (*variables)["from_json_value"] = FromJSONValue(value_descriptor, "value" + capname);
             (*variables)["from_json_key_value"] = FromJSONMapKeyValue(key_descriptor, "key" + capname);
             (*variables)["json_casting_type_value"] = JSONCastingValue(value_descriptor);
@@ -89,7 +89,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             comments = BuildCommentsString(location);
             printer->Print(comments.c_str());
         }
-        if (descriptor_->options().deprecated()) {
+        if (descriptor_->options().deprecated() && !IsDescriptorFile(descriptor_->file())) {
              printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
         }
         printer->Print(variables_,"$acontrol$fileprivate(set) var $name_reserved$:$type$ = $default$\n\n");

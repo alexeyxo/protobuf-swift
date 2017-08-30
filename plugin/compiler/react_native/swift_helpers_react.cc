@@ -26,6 +26,7 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
     
     string DefaultValueReact(const FieldDescriptor* field) {
         
@@ -129,7 +130,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameReactReturnType(const Descriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkers(descriptor->containing_type());
             name += ".";
         }
         string className = FileClassPrefix(descriptor->file());
@@ -139,7 +140,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameReactReturnType(const EnumDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkers(descriptor->containing_type());
             name += ".";
         }
         string className = FileClassPrefix(descriptor->file());
@@ -150,7 +151,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameReactReturnType(const FieldDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkers(descriptor->containing_type());
             name += ".";
         }
         string className = FileClassPrefix(descriptor->file());
@@ -163,7 +164,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     string ClassNameReactWorker(const Descriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
-            name += ClassNameWorker(descriptor->containing_type());
+            name += ClassNameWorkers(descriptor->containing_type());
+            name += "_";
+        }
+        name += FileClassPrefix(descriptor->file());
+        name += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name);
+    }
+    
+    string ClassNameWorkers(const Descriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkers(descriptor->containing_type());
             name += "_";
         }
         name += FileClassPrefix(descriptor->file());

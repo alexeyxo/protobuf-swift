@@ -23,7 +23,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/io/printer.h>
 
-#define SWIFT_PROTOBUF_VERSION "3.0.16"
+#define SWIFT_PROTOBUF_VERSION "3.0.22"
 
 namespace google {
     namespace protobuf {
@@ -35,6 +35,7 @@ namespace google {
                 string ClassNameReact(const FieldDescriptor* descriptor);
                 string ClassNameReact(const EnumDescriptor* descriptor);
                 string ClassNameReactWorker(const Descriptor* descriptor);
+                string ClassNameWorkers(const Descriptor* descriptor);
                 
                 string ClassNameReactReturnType(const Descriptor* descriptor);
                 string ClassNameReactReturnType(const FieldDescriptor* descriptor);

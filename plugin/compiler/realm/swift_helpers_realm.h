@@ -23,7 +23,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/io/printer.h>
 
-#define SWIFT_PROTOBUF_VERSION "3.0.16"
+#define SWIFT_PROTOBUF_VERSION "3.0.22"
 
 namespace google {
     namespace protobuf {
@@ -31,12 +31,16 @@ namespace google {
             namespace swift {
                
                 //Realm
-                string ClassNameRealm(const Descriptor* descriptor);
                 string ClassNameRealm(const FieldDescriptor* descriptor);
+                string ClassNameRealm(const Descriptor* descriptor);
+                string ClassNameRealm(const EnumDescriptor* descriptor);
                 string ClassNameRealmReturned(const Descriptor* descriptor);
+                string ClassNameRealmReturned(const EnumDescriptor* descriptor);
+                string ClassNameWorkerRealm(const Descriptor* descriptor);
                 
                 bool NeedGenerateRealmFileClass(const FileDescriptor* file);
                 bool NeedGenerateRealmClass(const Descriptor* message);
+                bool NeedGenerateRealmClass(const EnumDescriptor* message);
                 
                 string RealmPrimaryKey(const Descriptor* message);
                 string RealmIndexedPropertie(const Descriptor* message);

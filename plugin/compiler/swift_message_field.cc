@@ -29,8 +29,8 @@
 namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
-        void SetMessageVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
-
+        void SetMessageVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
+            
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["name"] = name;
@@ -86,7 +86,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-        if (descriptor_->options().deprecated()) {
+        if (descriptor_->options().deprecated() && !IsDescriptorFile(descriptor_->file())) {
              printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
         }
         if (isOneOfField(descriptor_)) {
@@ -394,7 +394,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void RepeatedMessageFieldGenerator::GenerateVariablesSource(io::Printer* printer) const {
-        if (descriptor_->options().deprecated()) {
+        if (descriptor_->options().deprecated() && !IsDescriptorFile(descriptor_->file())) {
             printer->Print(variables_ ,"@available(*, deprecated:0.1, message:\"$name_reserved$ is marked as \\\"Deprecated\\\"\")\n");
         }
         printer->Print(variables_, "$acontrol$fileprivate(set) var $name_reserved$:Array<$type$>  = Array<$type$>()\n");

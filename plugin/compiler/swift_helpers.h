@@ -23,7 +23,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/io/printer.h>
 
-#define SWIFT_PROTOBUF_VERSION "3.0.16"
+#define SWIFT_PROTOBUF_VERSION "3.0.22"
 
 namespace google {
     namespace protobuf {
@@ -182,6 +182,8 @@ namespace google {
                 string FromJSONValueAdditional(const FieldDescriptor* field, string value);
                 string FromJSONMapKeyValue(const FieldDescriptor* field, string value);
                 string ToJSONValue(const FieldDescriptor* field, string value);
+                string ToJSONValueRepeated(const FieldDescriptor* field, string value);
+                
                 string ToJSONValueRepeatedStorageType(const FieldDescriptor* field);
                 
             }  // namespace swift

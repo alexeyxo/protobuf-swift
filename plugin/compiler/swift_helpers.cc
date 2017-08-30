@@ -28,6 +28,8 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
+    
     namespace {
         const string& FieldName(const FieldDescriptor* field) {
             if (field->type() == FieldDescriptor::TYPE_GROUP) {
@@ -110,7 +112,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
 
     bool isCompileForFramework(const FileDescriptor* file) {
-        if (IsBootstrapFile(file)) {
+        if (IsBootstrapFile(file) ) {
             return false;
         }
         else if (file->options().HasExtension(swift_file_options)) {
@@ -874,14 +876,18 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     string SafeName(const string& name) {
+    
         string result = name;
-        if (result == "description" || result == "debugDescription" || result ==  "hashValue")
-        {
-            return  result + "_";
+        if (result == "description" || result == "debugDescription" || result ==  "hashValue") {
+            return  result += "_";
+        }
+        if (result == "Type") {
+            return "ProtoType";
         }
         if (kKeywords.count(result) > 0) {
             result = "`" + result + "`";
         }
+        
         return result;
     }
 
@@ -1161,6 +1167,34 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_FIXED32 : return "UInt(" + value + ")";
             case FieldDescriptor::TYPE_SFIXED32: return "Int(" + value + ")";
                 
+            case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + "!)\"";
+            case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + "!)\"";
+            case FieldDescriptor::TYPE_SINT64  : return "\"\\(" + value + "!)\"";
+            case FieldDescriptor::TYPE_FIXED64 : return "\"\\(" + value + "!)\"";
+            case FieldDescriptor::TYPE_SFIXED64: return "\"\\(" + value + "!)\"";
+                
+            case FieldDescriptor::TYPE_FLOAT   : return "Float(" + value + ")";
+            case FieldDescriptor::TYPE_DOUBLE  : return "Double(" + value + ")";
+            case FieldDescriptor::TYPE_BOOL    : return value;
+            case FieldDescriptor::TYPE_STRING  : return value;
+            case FieldDescriptor::TYPE_BYTES   : return value + ".base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))";
+            case FieldDescriptor::TYPE_ENUM: return value + ".toString()";
+            case FieldDescriptor::TYPE_GROUP:
+            case FieldDescriptor::TYPE_MESSAGE: return "try " + value + ".encode()";
+
+        }
+        GOOGLE_LOG(FATAL) << "Can't get here.";
+        return NULL;
+    }
+    
+    string ToJSONValueRepeated(const FieldDescriptor* field, string value) {
+        switch (field->type()) {
+            case FieldDescriptor::TYPE_INT32   : return "Int(" + value + ")";
+            case FieldDescriptor::TYPE_UINT32  : return "UInt(" + value + ")";
+            case FieldDescriptor::TYPE_SINT32  : return "Int(" + value + ")";
+            case FieldDescriptor::TYPE_FIXED32 : return "UInt(" + value + ")";
+            case FieldDescriptor::TYPE_SFIXED32: return "Int(" + value + ")";
+                
             case FieldDescriptor::TYPE_INT64   : return "\"\\(" + value + ")\"";
             case FieldDescriptor::TYPE_UINT64  : return "\"\\(" + value + ")\"";
             case FieldDescriptor::TYPE_SINT64  : return "\"\\(" + value + ")\"";
@@ -1175,7 +1209,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             case FieldDescriptor::TYPE_ENUM: return value + ".toString()";
             case FieldDescriptor::TYPE_GROUP:
             case FieldDescriptor::TYPE_MESSAGE: return "try " + value + ".encode()";
-
+                
         }
         GOOGLE_LOG(FATAL) << "Can't get here.";
         return NULL;
