@@ -3496,7 +3496,7 @@ public extension ProtobufUnittest {
                     return builderResult.bar
                 }
                 set (value) {
-                    builderResult.hasBar = true
+                    builderResult.hasBar = value != nil
                     builderResult.bar = value
                 }
             }
@@ -3575,7 +3575,7 @@ public extension ProtobufUnittest {
                     return builderResult.fred
                 }
                 set (value) {
-                    builderResult.hasFred = true
+                    builderResult.hasFred = value != nil
                     builderResult.fred = value
                 }
             }
@@ -4163,7 +4163,7 @@ public extension ProtobufUnittest {
                     return builderResult.complexOptionType5
                 }
                 set (value) {
-                    builderResult.hasComplexOptionType5 = true
+                    builderResult.hasComplexOptionType5 = value != nil
                     builderResult.complexOptionType5 = value
                 }
             }
@@ -5365,7 +5365,7 @@ public extension ProtobufUnittest {
                     return builderResult.sub
                 }
                 set (value) {
-                    builderResult.hasSub = true
+                    builderResult.hasSub = value != nil
                     builderResult.sub = value
                 }
             }
@@ -5420,7 +5420,7 @@ public extension ProtobufUnittest {
                     return builderResult.file
                 }
                 set (value) {
-                    builderResult.hasFile = true
+                    builderResult.hasFile = value != nil
                     builderResult.file = value
                 }
             }
@@ -5475,7 +5475,7 @@ public extension ProtobufUnittest {
                     return builderResult.mset
                 }
                 set (value) {
-                    builderResult.hasMset = true
+                    builderResult.hasMset = value != nil
                     builderResult.mset = value
                 }
             }

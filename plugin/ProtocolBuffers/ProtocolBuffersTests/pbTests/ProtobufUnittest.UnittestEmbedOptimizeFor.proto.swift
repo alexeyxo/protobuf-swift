@@ -197,7 +197,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalMessage = true
+                    builderResult.hasOptionalMessage = value != nil
                     builderResult.optionalMessage = value
                 }
             }

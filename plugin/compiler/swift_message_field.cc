@@ -157,7 +157,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "        return builderResult.$name_reserved$\n"
                        "    }\n"
                        "    set (value) {\n"
-                       "        builderResult.has$capitalized_name$ = true\n"
+                       "        builderResult.has$capitalized_name$ = value != nil\n"
                        "        builderResult.$name_reserved$ = value\n"
                        "    }\n"
                        "}\n"

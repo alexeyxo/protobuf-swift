@@ -4372,7 +4372,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }
@@ -4426,7 +4426,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -4480,7 +4480,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -4534,7 +4534,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -4714,7 +4714,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -4768,7 +4768,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -5799,7 +5799,7 @@ public extension ProtobufUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -7080,7 +7080,7 @@ public extension ProtobufUnittest {
                     return builderResult.child
                 }
                 set (value) {
-                    builderResult.hasChild = true
+                    builderResult.hasChild = value != nil
                     builderResult.child = value
                 }
             }
@@ -7134,7 +7134,7 @@ public extension ProtobufUnittest {
                     return builderResult.payload
                 }
                 set (value) {
-                    builderResult.hasPayload = true
+                    builderResult.hasPayload = value != nil
                     builderResult.payload = value
                 }
             }
@@ -10883,7 +10883,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalMessage = true
+                    builderResult.hasOptionalMessage = value != nil
                     builderResult.optionalMessage = value
                 }
             }
@@ -11213,7 +11213,7 @@ public extension ProtobufUnittest {
                     return builderResult.foreignNested
                 }
                 set (value) {
-                    builderResult.hasForeignNested = true
+                    builderResult.hasForeignNested = value != nil
                     builderResult.foreignNested = value
                 }
             }
@@ -12286,7 +12286,7 @@ public extension ProtobufUnittest {
                     return builderResult.a
                 }
                 set (value) {
-                    builderResult.hasA = true
+                    builderResult.hasA = value != nil
                     builderResult.a = value
                 }
             }
@@ -12581,7 +12581,7 @@ public extension ProtobufUnittest {
                     return builderResult.bb
                 }
                 set (value) {
-                    builderResult.hasBb = true
+                    builderResult.hasBb = value != nil
                     builderResult.bb = value
                 }
             }
@@ -12858,7 +12858,7 @@ public extension ProtobufUnittest {
                     return builderResult.a
                 }
                 set (value) {
-                    builderResult.hasA = true
+                    builderResult.hasA = value != nil
                     builderResult.a = value
                 }
             }
@@ -13676,7 +13676,7 @@ public extension ProtobufUnittest {
                     return builderResult.foo
                 }
                 set (value) {
-                    builderResult.hasFoo = true
+                    builderResult.hasFoo = value != nil
                     builderResult.foo = value
                 }
             }
@@ -13730,7 +13730,7 @@ public extension ProtobufUnittest {
                     return builderResult.bar
                 }
                 set (value) {
-                    builderResult.hasBar = true
+                    builderResult.hasBar = value != nil
                     builderResult.bar = value
                 }
             }
@@ -14015,7 +14015,7 @@ public extension ProtobufUnittest {
                     return builderResult.subMessage
                 }
                 set (value) {
-                    builderResult.hasSubMessage = true
+                    builderResult.hasSubMessage = value != nil
                     builderResult.subMessage = value
                 }
             }
@@ -14273,7 +14273,7 @@ public extension ProtobufUnittest {
                     return builderResult.subMessage
                 }
                 set (value) {
-                    builderResult.hasSubMessage = true
+                    builderResult.hasSubMessage = value != nil
                     builderResult.subMessage = value
                 }
             }
@@ -14821,7 +14821,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -15415,7 +15415,7 @@ public extension ProtobufUnittest {
                     return builderResult.messageField
                 }
                 set (value) {
-                    builderResult.hasMessageField = true
+                    builderResult.hasMessageField = value != nil
                     builderResult.messageField = value
                 }
             }
@@ -16402,7 +16402,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -21043,7 +21043,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -21097,7 +21097,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -21781,7 +21781,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -21835,7 +21835,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -23591,7 +23591,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -23645,7 +23645,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -23699,7 +23699,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooLazyMessage
                 }
                 set (value) {
-                    builderResult.hasFooLazyMessage = true
+                    builderResult.hasFooLazyMessage = value != nil
                     builderResult.fooLazyMessage = value
                 }
             }
@@ -24741,7 +24741,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -27982,7 +27982,7 @@ public extension ProtobufUnittest {
                     return builderResult.messageExtension
                 }
                 set (value) {
-                    builderResult.hasMessageExtension = true
+                    builderResult.hasMessageExtension = value != nil
                     builderResult.messageExtension = value
                 }
             }
@@ -28036,7 +28036,7 @@ public extension ProtobufUnittest {
                     return builderResult.dynamicMessageExtension
                 }
                 set (value) {
-                    builderResult.hasDynamicMessageExtension = true
+                    builderResult.hasDynamicMessageExtension = value != nil
                     builderResult.dynamicMessageExtension = value
                 }
             }
@@ -28990,7 +28990,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -29254,7 +29254,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -30091,7 +30091,7 @@ public extension ProtobufUnittest {
                         return builderResult.optionalGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasOptionalGroupAllTypes = true
+                        builderResult.hasOptionalGroupAllTypes = value != nil
                         builderResult.optionalGroupAllTypes = value
                     }
                 }
@@ -30355,7 +30355,7 @@ public extension ProtobufUnittest {
                         return builderResult.repeatedGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasRepeatedGroupAllTypes = true
+                        builderResult.hasRepeatedGroupAllTypes = value != nil
                         builderResult.repeatedGroupAllTypes = value
                     }
                 }
@@ -30718,7 +30718,7 @@ public extension ProtobufUnittest {
                     return builderResult.requiredAllTypes
                 }
                 set (value) {
-                    builderResult.hasRequiredAllTypes = true
+                    builderResult.hasRequiredAllTypes = value != nil
                     builderResult.requiredAllTypes = value
                 }
             }
@@ -30772,7 +30772,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalAllTypes
                 }
                 set (value) {
-                    builderResult.hasOptionalAllTypes = true
+                    builderResult.hasOptionalAllTypes = value != nil
                     builderResult.optionalAllTypes = value
                 }
             }
@@ -30844,7 +30844,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }

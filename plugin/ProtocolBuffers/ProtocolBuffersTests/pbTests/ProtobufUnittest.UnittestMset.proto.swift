@@ -347,7 +347,7 @@ public extension ProtobufUnittest {
                     return builderResult.messageSet
                 }
                 set (value) {
-                    builderResult.hasMessageSet = true
+                    builderResult.hasMessageSet = value != nil
                     builderResult.messageSet = value
                 }
             }

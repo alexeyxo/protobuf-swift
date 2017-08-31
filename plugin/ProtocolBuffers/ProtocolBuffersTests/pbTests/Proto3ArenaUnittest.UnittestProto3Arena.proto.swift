@@ -2250,7 +2250,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -2304,7 +2304,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -2358,7 +2358,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -2513,7 +2513,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -2567,7 +2567,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -3061,7 +3061,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -6406,7 +6406,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.child
                 }
                 set (value) {
-                    builderResult.hasChild = true
+                    builderResult.hasChild = value != nil
                     builderResult.child = value
                 }
             }
@@ -6460,7 +6460,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.payload
                 }
                 set (value) {
-                    builderResult.hasPayload = true
+                    builderResult.hasPayload = value != nil
                     builderResult.payload = value
                 }
             }

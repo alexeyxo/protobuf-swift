@@ -3111,7 +3111,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }
@@ -3165,7 +3165,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -3219,7 +3219,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -3273,7 +3273,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -3453,7 +3453,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -3507,7 +3507,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.optionalMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalMessage = true
+                    builderResult.hasOptionalMessage = value != nil
                     builderResult.optionalMessage = value
                 }
             }
@@ -4538,7 +4538,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -4642,7 +4642,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.lazyOneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasLazyOneofNestedMessage = true
+                    builderResult.hasLazyOneofNestedMessage = value != nil
                     builderResult.lazyOneofNestedMessage = value
                 }
             }
@@ -6055,7 +6055,7 @@ public extension ProtobufUnittestNoArena {
                     return builderResult.arenaMessage
                 }
                 set (value) {
-                    builderResult.hasArenaMessage = true
+                    builderResult.hasArenaMessage = value != nil
                     builderResult.arenaMessage = value
                 }
             }

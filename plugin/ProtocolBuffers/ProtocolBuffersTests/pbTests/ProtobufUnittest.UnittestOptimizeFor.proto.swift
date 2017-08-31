@@ -333,7 +333,7 @@ public extension ProtobufUnittest {
                     return builderResult.msg
                 }
                 set (value) {
-                    builderResult.hasMsg = true
+                    builderResult.hasMsg = value != nil
                     builderResult.msg = value
                 }
             }
@@ -899,7 +899,7 @@ public extension ProtobufUnittest {
                     return builderResult.o
                 }
                 set (value) {
-                    builderResult.hasO = true
+                    builderResult.hasO = value != nil
                     builderResult.o = value
                 }
             }

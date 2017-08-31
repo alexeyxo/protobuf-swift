@@ -2208,7 +2208,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -2262,7 +2262,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -2316,7 +2316,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.optionalProto2Message
                 }
                 set (value) {
-                    builderResult.hasOptionalProto2Message = true
+                    builderResult.hasOptionalProto2Message = value != nil
                     builderResult.optionalProto2Message = value
                 }
             }
@@ -2473,7 +2473,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -2967,7 +2967,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -3981,7 +3981,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return builderResult.proto2
                 }
                 set (value) {
-                    builderResult.hasProto2 = true
+                    builderResult.hasProto2 = value != nil
                     builderResult.proto2 = value
                 }
             }
