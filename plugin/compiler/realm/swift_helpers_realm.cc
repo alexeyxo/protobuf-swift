@@ -216,8 +216,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     if (indexed != "") {
                         indexed += ",";
                     }
-                    indexed += "\"" + UnderscoresToCamelCase(field) + "\"";
+                    if (UnderscoresToCamelCase(field) != RealmPrimaryKey(message)) {
+                        indexed += "\"" + UnderscoresToCamelCase(field) + "\"";
+                    }
                 }
+            }
+        }
+        if (RealmPrimaryKey(message) != "") {
+            if (indexed != "") {
+                indexed += ",\"" + RealmPrimaryKey(message) + "\"";
+            } else {
+                return "\"" + RealmPrimaryKey(message) + "\"";
             }
         }
         return indexed;

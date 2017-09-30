@@ -1545,7 +1545,7 @@ public extension SwiftProtobufUnittest {
                         return builderResult.value
                     }
                     set (value) {
-                        builderResult.hasValue = true
+                        builderResult.hasValue = value != nil
                         builderResult.value = value
                     }
                 }

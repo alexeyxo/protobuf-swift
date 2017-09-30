@@ -705,7 +705,7 @@ public extension Google.Protobuf.Compiler {
                     return builderResult.compilerVersion
                 }
                 set (value) {
-                    builderResult.hasCompilerVersion = true
+                    builderResult.hasCompilerVersion = value != nil
                     builderResult.compilerVersion = value
                 }
             }

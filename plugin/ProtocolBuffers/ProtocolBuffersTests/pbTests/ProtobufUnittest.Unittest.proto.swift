@@ -2151,51 +2151,74 @@ public extension ProtobufUnittest {
 
         /// For oneof test
         public enum OneofField {
-            case OneOfOneofFieldNotSet
+            case oneOfOneofFieldNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfOneofFieldNotSet: return false
+                case .oneOfOneofFieldNotSet: return false
                 default: return true
                 }
             }
-            case OneofUint32(UInt32)
+            case oneofUint32(UInt32)
 
             public static func getOneofUint32(_ value:OneofField) -> UInt32? {
                 switch value {
-                case .OneofUint32(let enumValue): return enumValue
+                case .oneofUint32(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case OneofNestedMessage(ProtobufUnittest.TestAllTypes.NestedMessage)
+            public func getOneofUint32() -> UInt32? {
+                switch self {
+                case .oneofUint32(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofNestedMessage(ProtobufUnittest.TestAllTypes.NestedMessage)
 
             public static func getOneofNestedMessage(_ value:OneofField) -> ProtobufUnittest.TestAllTypes.NestedMessage? {
                 switch value {
-                case .OneofNestedMessage(let enumValue):
-                    return enumValue
-                    default: return nil
-                }
-            }
-            case OneofString(String)
-
-            public static func getOneofString(_ value:OneofField) -> String? {
-                switch value {
-                case .OneofString(let enumValue): return enumValue
+                case .oneofNestedMessage(let messageValue): return messageValue
                 default: return nil
                 }
             }
-            case OneofBytes(Data)
+            public func getOneofNestedMessage() -> ProtobufUnittest.TestAllTypes.NestedMessage? {
+                switch self {
+                case .oneofNestedMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case oneofString(String)
+
+            public static func getOneofString(_ value:OneofField) -> String? {
+                switch value {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofString() -> String? {
+                switch self {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofBytes(Data)
 
             public static func getOneofBytes(_ value:OneofField) -> Data? {
                 switch value {
-                case .OneofBytes(let enumValue): return enumValue
+                case .oneofBytes(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofBytes() -> Data? {
+                switch self {
+                case .oneofBytes(let otherValue): return otherValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneOfOneofFieldNotSet
+        fileprivate var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.oneOfOneofFieldNotSet
         public func getOneOfOneofField() ->  TestAllTypes.OneofField {
             let copyObjectOneofField = storageOneofField
             return copyObjectOneofField
@@ -2410,15 +2433,12 @@ public extension ProtobufUnittest {
                 return TestAllTypes.OneofField.getOneofUint32(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofUint32(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofUint32(newvalue)
             }
         }
         public fileprivate(set) var hasOneofUint32:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofUint32(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2428,15 +2448,12 @@ public extension ProtobufUnittest {
                 return TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofNestedMessage(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofNestedMessage(newvalue)
             }
         }
         public fileprivate(set) var hasOneofNestedMessage:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2446,15 +2463,12 @@ public extension ProtobufUnittest {
                 return TestAllTypes.OneofField.getOneofString(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofString(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofString(newvalue)
             }
         }
         public fileprivate(set) var hasOneofString:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofString(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2464,15 +2478,12 @@ public extension ProtobufUnittest {
                 return TestAllTypes.OneofField.getOneofBytes(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofBytes(newvalue)
             }
         }
         public fileprivate(set) var hasOneofBytes:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofBytes(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -3988,6 +3999,10 @@ public extension ProtobufUnittest {
             required override public init () {
                 super.init()
             }
+            public func setOneofField(_ oneOf:TestAllTypes.OneofField) ->  ProtobufUnittest.TestAllTypes.Builder {
+                builderResult.storageOneofField = oneOf
+                return self
+            }
             /// Singular
             public var optionalInt32:Int32 {
                 get {
@@ -4372,7 +4387,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }
@@ -4426,7 +4441,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -4480,7 +4495,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -4534,7 +4549,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -4714,7 +4729,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -4768,7 +4783,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -5799,7 +5814,7 @@ public extension ProtobufUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -7080,7 +7095,7 @@ public extension ProtobufUnittest {
                     return builderResult.child
                 }
                 set (value) {
-                    builderResult.hasChild = true
+                    builderResult.hasChild = value != nil
                     builderResult.child = value
                 }
             }
@@ -7134,7 +7149,7 @@ public extension ProtobufUnittest {
                     return builderResult.payload
                 }
                 set (value) {
-                    builderResult.hasPayload = true
+                    builderResult.hasPayload = value != nil
                     builderResult.payload = value
                 }
             }
@@ -10883,7 +10898,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalMessage = true
+                    builderResult.hasOptionalMessage = value != nil
                     builderResult.optionalMessage = value
                 }
             }
@@ -11213,7 +11228,7 @@ public extension ProtobufUnittest {
                     return builderResult.foreignNested
                 }
                 set (value) {
-                    builderResult.hasForeignNested = true
+                    builderResult.hasForeignNested = value != nil
                     builderResult.foreignNested = value
                 }
             }
@@ -12286,7 +12301,7 @@ public extension ProtobufUnittest {
                     return builderResult.a
                 }
                 set (value) {
-                    builderResult.hasA = true
+                    builderResult.hasA = value != nil
                     builderResult.a = value
                 }
             }
@@ -12581,7 +12596,7 @@ public extension ProtobufUnittest {
                     return builderResult.bb
                 }
                 set (value) {
-                    builderResult.hasBb = true
+                    builderResult.hasBb = value != nil
                     builderResult.bb = value
                 }
             }
@@ -12858,7 +12873,7 @@ public extension ProtobufUnittest {
                     return builderResult.a
                 }
                 set (value) {
-                    builderResult.hasA = true
+                    builderResult.hasA = value != nil
                     builderResult.a = value
                 }
             }
@@ -13676,7 +13691,7 @@ public extension ProtobufUnittest {
                     return builderResult.foo
                 }
                 set (value) {
-                    builderResult.hasFoo = true
+                    builderResult.hasFoo = value != nil
                     builderResult.foo = value
                 }
             }
@@ -13730,7 +13745,7 @@ public extension ProtobufUnittest {
                     return builderResult.bar
                 }
                 set (value) {
-                    builderResult.hasBar = true
+                    builderResult.hasBar = value != nil
                     builderResult.bar = value
                 }
             }
@@ -14015,7 +14030,7 @@ public extension ProtobufUnittest {
                     return builderResult.subMessage
                 }
                 set (value) {
-                    builderResult.hasSubMessage = true
+                    builderResult.hasSubMessage = value != nil
                     builderResult.subMessage = value
                 }
             }
@@ -14273,7 +14288,7 @@ public extension ProtobufUnittest {
                     return builderResult.subMessage
                 }
                 set (value) {
-                    builderResult.hasSubMessage = true
+                    builderResult.hasSubMessage = value != nil
                     builderResult.subMessage = value
                 }
             }
@@ -14821,7 +14836,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -15415,7 +15430,7 @@ public extension ProtobufUnittest {
                     return builderResult.messageField
                 }
                 set (value) {
-                    builderResult.hasMessageField = true
+                    builderResult.hasMessageField = value != nil
                     builderResult.messageField = value
                 }
             }
@@ -16402,7 +16417,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -20702,52 +20717,74 @@ public extension ProtobufUnittest {
         //OneOf declaration start
 
         public enum Foo {
-            case OneOfFooNotSet
+            case oneOfFooNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfFooNotSet: return false
+                case .oneOfFooNotSet: return false
                 default: return true
                 }
             }
-            case FooInt(Int32)
+            case fooInt(Int32)
 
             public static func getFooInt(_ value:Foo) -> Int32? {
                 switch value {
-                case .FooInt(let enumValue): return enumValue
+                case .fooInt(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooString(String)
+            public func getFooInt() -> Int32? {
+                switch self {
+                case .fooInt(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooString(String)
 
             public static func getFooString(_ value:Foo) -> String? {
                 switch value {
-                case .FooString(let enumValue): return enumValue
+                case .fooString(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooMessage(ProtobufUnittest.TestAllTypes)
+            public func getFooString() -> String? {
+                switch self {
+                case .fooString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooMessage(ProtobufUnittest.TestAllTypes)
 
             public static func getFooMessage(_ value:Foo) -> ProtobufUnittest.TestAllTypes? {
                 switch value {
-                case .FooMessage(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
                 }
             }
-            case FooGroup(ProtobufUnittest.TestOneof.FooGroup)
+            public func getFooMessage() -> ProtobufUnittest.TestAllTypes? {
+                switch self {
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case fooGroup(ProtobufUnittest.TestOneof.FooGroup)
 
             public static func getFooGroup(_ value:Foo) -> ProtobufUnittest.TestOneof.FooGroup? {
                 switch value {
-                case .FooGroup(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooGroup(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            public func getFooGroup() -> ProtobufUnittest.TestOneof.FooGroup? {
+                switch self {
+                case .fooGroup(let messageValue): return messageValue
+                default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageFoo:TestOneof.Foo =  TestOneof.Foo.OneOfFooNotSet
+        fileprivate var storageFoo:TestOneof.Foo =  TestOneof.Foo.oneOfFooNotSet
         public func getOneOfFoo() ->  TestOneof.Foo {
             let copyObjectFoo = storageFoo
             return copyObjectFoo
@@ -20757,15 +20794,12 @@ public extension ProtobufUnittest {
                 return TestOneof.Foo.getFooInt(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof.Foo.FooInt(newvalue)
+                storageFoo = TestOneof.Foo.fooInt(newvalue)
             }
         }
         public fileprivate(set) var hasFooInt:Bool {
             get {
-                guard let _ = TestOneof.Foo.getFooInt(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof.Foo.getFooInt(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -20775,15 +20809,12 @@ public extension ProtobufUnittest {
                 return TestOneof.Foo.getFooString(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof.Foo.FooString(newvalue)
+                storageFoo = TestOneof.Foo.fooString(newvalue)
             }
         }
         public fileprivate(set) var hasFooString:Bool {
             get {
-                guard let _ = TestOneof.Foo.getFooString(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof.Foo.getFooString(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -20793,15 +20824,12 @@ public extension ProtobufUnittest {
                 return TestOneof.Foo.getFooMessage(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof.Foo.FooMessage(newvalue)
+                storageFoo = TestOneof.Foo.fooMessage(newvalue)
             }
         }
         public fileprivate(set) var hasFooMessage:Bool {
             get {
-                guard let _ = TestOneof.Foo.getFooMessage(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof.Foo.getFooMessage(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -20811,15 +20839,12 @@ public extension ProtobufUnittest {
                 return TestOneof.Foo.getFooGroup(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof.Foo.FooGroup(newvalue)
+                storageFoo = TestOneof.Foo.fooGroup(newvalue)
             }
         }
         public fileprivate(set) var hasFooGroup:Bool {
             get {
-                guard let _ = TestOneof.Foo.getFooGroup(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof.Foo.getFooGroup(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -20985,6 +21010,10 @@ public extension ProtobufUnittest {
             required override public init () {
                 super.init()
             }
+            public func setFoo(_ oneOf:TestOneof.Foo) ->  ProtobufUnittest.TestOneof.Builder {
+                builderResult.storageFoo = oneOf
+                return self
+            }
             public var fooInt:Int32 {
                 get {
                     return builderResult.fooInt
@@ -21043,7 +21072,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -21097,7 +21126,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -21781,7 +21810,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -21835,7 +21864,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -22591,93 +22620,144 @@ public extension ProtobufUnittest {
         //OneOf declaration start
 
         public enum Foo {
-            case OneOfFooNotSet
+            case oneOfFooNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfFooNotSet: return false
+                case .oneOfFooNotSet: return false
                 default: return true
                 }
             }
-            case FooInt(Int32)
+            case fooInt(Int32)
 
             public static func getFooInt(_ value:Foo) -> Int32? {
                 switch value {
-                case .FooInt(let enumValue): return enumValue
+                case .fooInt(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooString(String)
+            public func getFooInt() -> Int32? {
+                switch self {
+                case .fooInt(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooString(String)
 
             public static func getFooString(_ value:Foo) -> String? {
                 switch value {
-                case .FooString(let enumValue): return enumValue
+                case .fooString(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooCord(String)
+            public func getFooString() -> String? {
+                switch self {
+                case .fooString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooCord(String)
 
             public static func getFooCord(_ value:Foo) -> String? {
                 switch value {
-                case .FooCord(let enumValue): return enumValue
+                case .fooCord(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooStringPiece(String)
+            public func getFooCord() -> String? {
+                switch self {
+                case .fooCord(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooStringPiece(String)
 
             public static func getFooStringPiece(_ value:Foo) -> String? {
                 switch value {
-                case .FooStringPiece(let enumValue): return enumValue
+                case .fooStringPiece(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooBytes(Data)
+            public func getFooStringPiece() -> String? {
+                switch self {
+                case .fooStringPiece(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooBytes(Data)
 
             public static func getFooBytes(_ value:Foo) -> Data? {
                 switch value {
-                case .FooBytes(let enumValue): return enumValue
+                case .fooBytes(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooEnum(ProtobufUnittest.TestOneof2.NestedEnum)
+            public func getFooBytes() -> Data? {
+                switch self {
+                case .fooBytes(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooEnum(ProtobufUnittest.TestOneof2.NestedEnum)
 
             public static func getFooEnum(_ value:Foo) -> ProtobufUnittest.TestOneof2.NestedEnum? {
                 switch value {
-                case .FooEnum(let enumValue): return enumValue
+                case .fooEnum(let enumValue): return enumValue
                 default: return nil
                 }
             }
-            case FooMessage(ProtobufUnittest.TestOneof2.NestedMessage)
+            public func getFooEnum() -> ProtobufUnittest.TestOneof2.NestedEnum? {
+                switch self {
+                case .fooEnum(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            case fooMessage(ProtobufUnittest.TestOneof2.NestedMessage)
 
             public static func getFooMessage(_ value:Foo) -> ProtobufUnittest.TestOneof2.NestedMessage? {
                 switch value {
-                case .FooMessage(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
                 }
             }
-            case FooGroup(ProtobufUnittest.TestOneof2.FooGroup)
+            public func getFooMessage() -> ProtobufUnittest.TestOneof2.NestedMessage? {
+                switch self {
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case fooGroup(ProtobufUnittest.TestOneof2.FooGroup)
 
             public static func getFooGroup(_ value:Foo) -> ProtobufUnittest.TestOneof2.FooGroup? {
                 switch value {
-                case .FooGroup(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooGroup(let messageValue): return messageValue
+                default: return nil
                 }
             }
-            case FooLazyMessage(ProtobufUnittest.TestOneof2.NestedMessage)
+            public func getFooGroup() -> ProtobufUnittest.TestOneof2.FooGroup? {
+                switch self {
+                case .fooGroup(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case fooLazyMessage(ProtobufUnittest.TestOneof2.NestedMessage)
 
             public static func getFooLazyMessage(_ value:Foo) -> ProtobufUnittest.TestOneof2.NestedMessage? {
                 switch value {
-                case .FooLazyMessage(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooLazyMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            public func getFooLazyMessage() -> ProtobufUnittest.TestOneof2.NestedMessage? {
+                switch self {
+                case .fooLazyMessage(let messageValue): return messageValue
+                default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.OneOfFooNotSet
+        fileprivate var storageFoo:TestOneof2.Foo =  TestOneof2.Foo.oneOfFooNotSet
         public func getOneOfFoo() ->  TestOneof2.Foo {
             let copyObjectFoo = storageFoo
             return copyObjectFoo
@@ -22687,66 +22767,102 @@ public extension ProtobufUnittest {
         //OneOf declaration start
 
         public enum Bar {
-            case OneOfBarNotSet
+            case oneOfBarNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfBarNotSet: return false
+                case .oneOfBarNotSet: return false
                 default: return true
                 }
             }
-            case BarInt(Int32)
+            case barInt(Int32)
 
             public static func getBarInt(_ value:Bar) -> Int32? {
                 switch value {
-                case .BarInt(let enumValue): return enumValue
+                case .barInt(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BarString(String)
+            public func getBarInt() -> Int32? {
+                switch self {
+                case .barInt(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case barString(String)
 
             public static func getBarString(_ value:Bar) -> String? {
                 switch value {
-                case .BarString(let enumValue): return enumValue
+                case .barString(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BarCord(String)
+            public func getBarString() -> String? {
+                switch self {
+                case .barString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case barCord(String)
 
             public static func getBarCord(_ value:Bar) -> String? {
                 switch value {
-                case .BarCord(let enumValue): return enumValue
+                case .barCord(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BarStringPiece(String)
+            public func getBarCord() -> String? {
+                switch self {
+                case .barCord(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case barStringPiece(String)
 
             public static func getBarStringPiece(_ value:Bar) -> String? {
                 switch value {
-                case .BarStringPiece(let enumValue): return enumValue
+                case .barStringPiece(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BarBytes(Data)
+            public func getBarStringPiece() -> String? {
+                switch self {
+                case .barStringPiece(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case barBytes(Data)
 
             public static func getBarBytes(_ value:Bar) -> Data? {
                 switch value {
-                case .BarBytes(let enumValue): return enumValue
+                case .barBytes(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BarEnum(ProtobufUnittest.TestOneof2.NestedEnum)
+            public func getBarBytes() -> Data? {
+                switch self {
+                case .barBytes(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case barEnum(ProtobufUnittest.TestOneof2.NestedEnum)
 
             public static func getBarEnum(_ value:Bar) -> ProtobufUnittest.TestOneof2.NestedEnum? {
                 switch value {
-                case .BarEnum(let enumValue): return enumValue
+                case .barEnum(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            public func getBarEnum() -> ProtobufUnittest.TestOneof2.NestedEnum? {
+                switch self {
+                case .barEnum(let enumValue): return enumValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageBar:TestOneof2.Bar =  TestOneof2.Bar.OneOfBarNotSet
+        fileprivate var storageBar:TestOneof2.Bar =  TestOneof2.Bar.oneOfBarNotSet
         public func getOneOfBar() ->  TestOneof2.Bar {
             let copyObjectBar = storageBar
             return copyObjectBar
@@ -22798,15 +22914,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooInt(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooInt(newvalue)
+                storageFoo = TestOneof2.Foo.fooInt(newvalue)
             }
         }
         public fileprivate(set) var hasFooInt:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooInt(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooInt(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22816,15 +22929,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooString(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooString(newvalue)
+                storageFoo = TestOneof2.Foo.fooString(newvalue)
             }
         }
         public fileprivate(set) var hasFooString:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooString(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooString(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22834,15 +22944,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooCord(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooCord(newvalue)
+                storageFoo = TestOneof2.Foo.fooCord(newvalue)
             }
         }
         public fileprivate(set) var hasFooCord:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooCord(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooCord(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22852,15 +22959,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooStringPiece(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooStringPiece(newvalue)
+                storageFoo = TestOneof2.Foo.fooStringPiece(newvalue)
             }
         }
         public fileprivate(set) var hasFooStringPiece:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooStringPiece(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooStringPiece(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22870,15 +22974,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooBytes(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooBytes(newvalue)
+                storageFoo = TestOneof2.Foo.fooBytes(newvalue)
             }
         }
         public fileprivate(set) var hasFooBytes:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooBytes(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooBytes(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22888,15 +22989,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooEnum(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooEnum(newvalue)
+                storageFoo = TestOneof2.Foo.fooEnum(newvalue)
             }
         }
         public fileprivate(set) var hasFooEnum:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooEnum(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooEnum(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22906,15 +23004,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooMessage(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooMessage(newvalue)
+                storageFoo = TestOneof2.Foo.fooMessage(newvalue)
             }
         }
         public fileprivate(set) var hasFooMessage:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooMessage(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooMessage(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22924,15 +23019,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooGroup(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooGroup(newvalue)
+                storageFoo = TestOneof2.Foo.fooGroup(newvalue)
             }
         }
         public fileprivate(set) var hasFooGroup:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooGroup(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooGroup(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22942,15 +23034,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Foo.getFooLazyMessage(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestOneof2.Foo.FooLazyMessage(newvalue)
+                storageFoo = TestOneof2.Foo.fooLazyMessage(newvalue)
             }
         }
         public fileprivate(set) var hasFooLazyMessage:Bool {
             get {
-                guard let _ = TestOneof2.Foo.getFooLazyMessage(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Foo.getFooLazyMessage(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -22960,15 +23049,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarInt(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarInt(newvalue)
+                storageBar = TestOneof2.Bar.barInt(newvalue)
             }
         }
         public fileprivate(set) var hasBarInt:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarInt(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarInt(storageBar) != nil
             }
             set(newValue) {
             }
@@ -22978,15 +23064,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarString(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarString(newvalue)
+                storageBar = TestOneof2.Bar.barString(newvalue)
             }
         }
         public fileprivate(set) var hasBarString:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarString(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarString(storageBar) != nil
             }
             set(newValue) {
             }
@@ -22996,15 +23079,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarCord(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarCord(newvalue)
+                storageBar = TestOneof2.Bar.barCord(newvalue)
             }
         }
         public fileprivate(set) var hasBarCord:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarCord(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarCord(storageBar) != nil
             }
             set(newValue) {
             }
@@ -23014,15 +23094,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarStringPiece(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarStringPiece(newvalue)
+                storageBar = TestOneof2.Bar.barStringPiece(newvalue)
             }
         }
         public fileprivate(set) var hasBarStringPiece:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarStringPiece(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarStringPiece(storageBar) != nil
             }
             set(newValue) {
             }
@@ -23032,15 +23109,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarBytes(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarBytes(newvalue)
+                storageBar = TestOneof2.Bar.barBytes(newvalue)
             }
         }
         public fileprivate(set) var hasBarBytes:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarBytes(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarBytes(storageBar) != nil
             }
             set(newValue) {
             }
@@ -23050,15 +23124,12 @@ public extension ProtobufUnittest {
                 return TestOneof2.Bar.getBarEnum(storageBar)
             }
             set (newvalue) {
-                storageBar = TestOneof2.Bar.BarEnum(newvalue)
+                storageBar = TestOneof2.Bar.barEnum(newvalue)
             }
         }
         public fileprivate(set) var hasBarEnum:Bool {
             get {
-                guard let _ = TestOneof2.Bar.getBarEnum(storageBar) else {
-                    return false
-                }
-                return true
+                return TestOneof2.Bar.getBarEnum(storageBar) != nil
             }
             set(newValue) {
             }
@@ -23433,6 +23504,14 @@ public extension ProtobufUnittest {
             required override public init () {
                 super.init()
             }
+            public func setFoo(_ oneOf:TestOneof2.Foo) ->  ProtobufUnittest.TestOneof2.Builder {
+                builderResult.storageFoo = oneOf
+                return self
+            }
+            public func setBar(_ oneOf:TestOneof2.Bar) ->  ProtobufUnittest.TestOneof2.Builder {
+                builderResult.storageBar = oneOf
+                return self
+            }
             public var fooInt:Int32 {
                 get {
                     return builderResult.fooInt
@@ -23591,7 +23670,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -23645,7 +23724,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooGroup
                 }
                 set (value) {
-                    builderResult.hasFooGroup = true
+                    builderResult.hasFooGroup = value != nil
                     builderResult.fooGroup = value
                 }
             }
@@ -23699,7 +23778,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooLazyMessage
                 }
                 set (value) {
-                    builderResult.hasFooLazyMessage = true
+                    builderResult.hasFooLazyMessage = value != nil
                     builderResult.fooLazyMessage = value
                 }
             }
@@ -24445,43 +24524,60 @@ public extension ProtobufUnittest {
         //OneOf declaration start
 
         public enum Foo {
-            case OneOfFooNotSet
+            case oneOfFooNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfFooNotSet: return false
+                case .oneOfFooNotSet: return false
                 default: return true
                 }
             }
-            case FooInt(Int32)
+            case fooInt(Int32)
 
             public static func getFooInt(_ value:Foo) -> Int32? {
                 switch value {
-                case .FooInt(let enumValue): return enumValue
+                case .fooInt(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooString(String)
+            public func getFooInt() -> Int32? {
+                switch self {
+                case .fooInt(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooString(String)
 
             public static func getFooString(_ value:Foo) -> String? {
                 switch value {
-                case .FooString(let enumValue): return enumValue
+                case .fooString(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case FooMessage(ProtobufUnittest.TestRequiredOneof.NestedMessage)
+            public func getFooString() -> String? {
+                switch self {
+                case .fooString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case fooMessage(ProtobufUnittest.TestRequiredOneof.NestedMessage)
 
             public static func getFooMessage(_ value:Foo) -> ProtobufUnittest.TestRequiredOneof.NestedMessage? {
                 switch value {
-                case .FooMessage(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            public func getFooMessage() -> ProtobufUnittest.TestRequiredOneof.NestedMessage? {
+                switch self {
+                case .fooMessage(let messageValue): return messageValue
+                default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.OneOfFooNotSet
+        fileprivate var storageFoo:TestRequiredOneof.Foo =  TestRequiredOneof.Foo.oneOfFooNotSet
         public func getOneOfFoo() ->  TestRequiredOneof.Foo {
             let copyObjectFoo = storageFoo
             return copyObjectFoo
@@ -24491,15 +24587,12 @@ public extension ProtobufUnittest {
                 return TestRequiredOneof.Foo.getFooInt(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestRequiredOneof.Foo.FooInt(newvalue)
+                storageFoo = TestRequiredOneof.Foo.fooInt(newvalue)
             }
         }
         public fileprivate(set) var hasFooInt:Bool {
             get {
-                guard let _ = TestRequiredOneof.Foo.getFooInt(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestRequiredOneof.Foo.getFooInt(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -24509,15 +24602,12 @@ public extension ProtobufUnittest {
                 return TestRequiredOneof.Foo.getFooString(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestRequiredOneof.Foo.FooString(newvalue)
+                storageFoo = TestRequiredOneof.Foo.fooString(newvalue)
             }
         }
         public fileprivate(set) var hasFooString:Bool {
             get {
-                guard let _ = TestRequiredOneof.Foo.getFooString(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestRequiredOneof.Foo.getFooString(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -24527,15 +24617,12 @@ public extension ProtobufUnittest {
                 return TestRequiredOneof.Foo.getFooMessage(storageFoo)
             }
             set (newvalue) {
-                storageFoo = TestRequiredOneof.Foo.FooMessage(newvalue)
+                storageFoo = TestRequiredOneof.Foo.fooMessage(newvalue)
             }
         }
         public fileprivate(set) var hasFooMessage:Bool {
             get {
-                guard let _ = TestRequiredOneof.Foo.getFooMessage(storageFoo) else {
-                    return false
-                }
-                return true
+                return TestRequiredOneof.Foo.getFooMessage(storageFoo) != nil
             }
             set(newValue) {
             }
@@ -24683,6 +24770,10 @@ public extension ProtobufUnittest {
             required override public init () {
                 super.init()
             }
+            public func setFoo(_ oneOf:TestRequiredOneof.Foo) ->  ProtobufUnittest.TestRequiredOneof.Builder {
+                builderResult.storageFoo = oneOf
+                return self
+            }
             public var fooInt:Int32 {
                 get {
                     return builderResult.fooInt
@@ -24741,7 +24832,7 @@ public extension ProtobufUnittest {
                     return builderResult.fooMessage
                 }
                 set (value) {
-                    builderResult.hasFooMessage = true
+                    builderResult.hasFooMessage = value != nil
                     builderResult.fooMessage = value
                 }
             }
@@ -27982,7 +28073,7 @@ public extension ProtobufUnittest {
                     return builderResult.messageExtension
                 }
                 set (value) {
-                    builderResult.hasMessageExtension = true
+                    builderResult.hasMessageExtension = value != nil
                     builderResult.messageExtension = value
                 }
             }
@@ -28036,7 +28127,7 @@ public extension ProtobufUnittest {
                     return builderResult.dynamicMessageExtension
                 }
                 set (value) {
-                    builderResult.hasDynamicMessageExtension = true
+                    builderResult.hasDynamicMessageExtension = value != nil
                     builderResult.dynamicMessageExtension = value
                 }
             }
@@ -28990,7 +29081,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -29254,7 +29345,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -30091,7 +30182,7 @@ public extension ProtobufUnittest {
                         return builderResult.optionalGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasOptionalGroupAllTypes = true
+                        builderResult.hasOptionalGroupAllTypes = value != nil
                         builderResult.optionalGroupAllTypes = value
                     }
                 }
@@ -30355,7 +30446,7 @@ public extension ProtobufUnittest {
                         return builderResult.repeatedGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasRepeatedGroupAllTypes = true
+                        builderResult.hasRepeatedGroupAllTypes = value != nil
                         builderResult.repeatedGroupAllTypes = value
                     }
                 }
@@ -30718,7 +30809,7 @@ public extension ProtobufUnittest {
                     return builderResult.requiredAllTypes
                 }
                 set (value) {
-                    builderResult.hasRequiredAllTypes = true
+                    builderResult.hasRequiredAllTypes = value != nil
                     builderResult.requiredAllTypes = value
                 }
             }
@@ -30772,7 +30863,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalAllTypes
                 }
                 set (value) {
-                    builderResult.hasOptionalAllTypes = true
+                    builderResult.hasOptionalAllTypes = value != nil
                     builderResult.optionalAllTypes = value
                 }
             }
@@ -30844,7 +30935,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }

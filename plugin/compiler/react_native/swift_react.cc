@@ -105,6 +105,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     case SWIFT_TYPE_ENUM:
                         printer->Print("$name$:Array<$type$>\n",
                                        "name", UnderscoresToCamelCase(field),
@@ -126,6 +127,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     case SWIFT_TYPE_ENUM:
                             printer->Print("$name$:$type$\n",
                                            "name", UnderscoresToCamelCase(field),
@@ -173,6 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     default: continue;
                 }
                 
@@ -185,6 +188,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     default:
                         continue;
                 }

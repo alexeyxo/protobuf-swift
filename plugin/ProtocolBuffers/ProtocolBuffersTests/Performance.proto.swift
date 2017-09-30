@@ -170,7 +170,7 @@ final internal class PBUser : GeneratedMessage {
                 return builderResult.group
             }
             set (value) {
-                builderResult.hasGroup = true
+                builderResult.hasGroup = value != nil
                 builderResult.group = value
             }
         }
@@ -462,7 +462,7 @@ final internal class PBGroup : GeneratedMessage {
                 return builderResult.owner
             }
             set (value) {
-                builderResult.hasOwner = true
+                builderResult.hasOwner = value != nil
                 builderResult.owner = value
             }
         }
@@ -2322,7 +2322,7 @@ final internal class PBBar : GeneratedMessage {
                 return builderResult.foo
             }
             set (value) {
-                builderResult.hasFoo = true
+                builderResult.hasFoo = value != nil
                 builderResult.foo = value
             }
         }
@@ -2581,7 +2581,7 @@ final internal class PBBaz : GeneratedMessage {
                 return builderResult.bar
             }
             set (value) {
-                builderResult.hasBar = true
+                builderResult.hasBar = value != nil
                 builderResult.bar = value
             }
         }

@@ -233,12 +233,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         //Oneof
         
-        
-        
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
             string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
-            printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.OneOf$storageName$NotSet\n",
+            printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.oneOf$storageName$NotSet\n",
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                            "classname", classNames);
             printer->Print("$acontrol$ func getOneOf$storageName$() ->  $classname$ {\n"
@@ -256,7 +254,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         ///Enums
         
         for (int i = 0; i < descriptor_->enum_type_count(); i++) {
-            
             XCodeStandartIndent(printer);
             EnumGenerator(descriptor_->enum_type(i)).GenerateSource(printer);
             XCodeStandartOutdent(printer);
@@ -264,8 +261,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         ///
-        
-        
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
@@ -787,9 +782,27 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "required override $acontrol$ init () {\n"
                        "    super.init()\n"
                        "}\n");
+        
+        //Oneof
+        
+        for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
+            string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
+            
+            printer->Print("$acontrol$ func set$storageName$(_ oneOf:$classname$) ->  $classNameReturnedType$.Builder {\n"
+                           "    builderResult.storage$storageName$ = oneOf\n"
+                           "    return self\n"
+                           "}\n",
+                           "acontrol", GetAccessControlType(descriptor_->file()),
+                           "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
+                           "classname", classNames,
+                           "classNameReturnedType",ClassNameReturedType(descriptor_));
+        }
+        
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
         }
+        
+    
         
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);

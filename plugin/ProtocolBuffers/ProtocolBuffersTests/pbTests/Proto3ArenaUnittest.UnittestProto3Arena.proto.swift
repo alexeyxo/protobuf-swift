@@ -369,51 +369,74 @@ public extension Proto3ArenaUnittest {
         //OneOf declaration start
 
         public enum OneofField {
-            case OneOfOneofFieldNotSet
+            case oneOfOneofFieldNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfOneofFieldNotSet: return false
+                case .oneOfOneofFieldNotSet: return false
                 default: return true
                 }
             }
-            case OneofUint32(UInt32)
+            case oneofUint32(UInt32)
 
             public static func getOneofUint32(_ value:OneofField) -> UInt32? {
                 switch value {
-                case .OneofUint32(let enumValue): return enumValue
+                case .oneofUint32(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case OneofNestedMessage(Proto3ArenaUnittest.TestAllTypes.NestedMessage)
+            public func getOneofUint32() -> UInt32? {
+                switch self {
+                case .oneofUint32(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofNestedMessage(Proto3ArenaUnittest.TestAllTypes.NestedMessage)
 
             public static func getOneofNestedMessage(_ value:OneofField) -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
                 switch value {
-                case .OneofNestedMessage(let enumValue):
-                    return enumValue
-                    default: return nil
-                }
-            }
-            case OneofString(String)
-
-            public static func getOneofString(_ value:OneofField) -> String? {
-                switch value {
-                case .OneofString(let enumValue): return enumValue
+                case .oneofNestedMessage(let messageValue): return messageValue
                 default: return nil
                 }
             }
-            case OneofBytes(Data)
+            public func getOneofNestedMessage() -> Proto3ArenaUnittest.TestAllTypes.NestedMessage? {
+                switch self {
+                case .oneofNestedMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case oneofString(String)
+
+            public static func getOneofString(_ value:OneofField) -> String? {
+                switch value {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofString() -> String? {
+                switch self {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofBytes(Data)
 
             public static func getOneofBytes(_ value:OneofField) -> Data? {
                 switch value {
-                case .OneofBytes(let enumValue): return enumValue
+                case .oneofBytes(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofBytes() -> Data? {
+                switch self {
+                case .oneofBytes(let otherValue): return otherValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.OneOfOneofFieldNotSet
+        fileprivate var storageOneofField:TestAllTypes.OneofField =  TestAllTypes.OneofField.oneOfOneofFieldNotSet
         public func getOneOfOneofField() ->  TestAllTypes.OneofField {
             let copyObjectOneofField = storageOneofField
             return copyObjectOneofField
@@ -580,15 +603,12 @@ public extension Proto3ArenaUnittest {
                 return TestAllTypes.OneofField.getOneofUint32(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofUint32(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofUint32(newvalue)
             }
         }
         public fileprivate(set) var hasOneofUint32:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofUint32(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofUint32(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -598,15 +618,12 @@ public extension Proto3ArenaUnittest {
                 return TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofNestedMessage(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofNestedMessage(newvalue)
             }
         }
         public fileprivate(set) var hasOneofNestedMessage:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofNestedMessage(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -616,15 +633,12 @@ public extension Proto3ArenaUnittest {
                 return TestAllTypes.OneofField.getOneofString(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofString(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofString(newvalue)
             }
         }
         public fileprivate(set) var hasOneofString:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofString(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofString(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -634,15 +648,12 @@ public extension Proto3ArenaUnittest {
                 return TestAllTypes.OneofField.getOneofBytes(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypes.OneofField.OneofBytes(newvalue)
+                storageOneofField = TestAllTypes.OneofField.oneofBytes(newvalue)
             }
         }
         public fileprivate(set) var hasOneofBytes:Bool {
             get {
-                guard let _ = TestAllTypes.OneofField.getOneofBytes(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypes.OneofField.getOneofBytes(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -1866,6 +1877,10 @@ public extension Proto3ArenaUnittest {
             required override public init () {
                 super.init()
             }
+            public func setOneofField(_ oneOf:TestAllTypes.OneofField) ->  Proto3ArenaUnittest.TestAllTypes.Builder {
+                builderResult.storageOneofField = oneOf
+                return self
+            }
             /// Singular
             public var optionalInt32:Int32 {
                 get {
@@ -2250,7 +2265,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -2304,7 +2319,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -2358,7 +2373,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -2513,7 +2528,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -2567,7 +2582,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -3061,7 +3076,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -6406,7 +6421,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.child
                 }
                 set (value) {
-                    builderResult.hasChild = true
+                    builderResult.hasChild = value != nil
                     builderResult.child = value
                 }
             }
@@ -6460,7 +6475,7 @@ public extension Proto3ArenaUnittest {
                     return builderResult.payload
                 }
                 set (value) {
-                    builderResult.hasPayload = true
+                    builderResult.hasPayload = value != nil
                     builderResult.payload = value
                 }
             }

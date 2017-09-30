@@ -377,7 +377,7 @@ public extension Google.Protobuf {
                     return builderResult.sourceContext
                 }
                 set (value) {
-                    builderResult.hasSourceContext = true
+                    builderResult.hasSourceContext = value != nil
                     builderResult.sourceContext = value
                 }
             }

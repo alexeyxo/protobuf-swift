@@ -342,7 +342,7 @@ public extension Google.Protobuf {
                     return builderResult.sourceContext
                 }
                 set (value) {
-                    builderResult.hasSourceContext = true
+                    builderResult.hasSourceContext = value != nil
                     builderResult.sourceContext = value
                 }
             }
@@ -1610,7 +1610,7 @@ public extension Google.Protobuf {
                     return builderResult.sourceContext
                 }
                 set (value) {
-                    builderResult.hasSourceContext = true
+                    builderResult.hasSourceContext = value != nil
                     builderResult.sourceContext = value
                 }
             }
@@ -2297,7 +2297,7 @@ public extension Google.Protobuf {
                     return builderResult.value
                 }
                 set (value) {
-                    builderResult.hasValue = true
+                    builderResult.hasValue = value != nil
                     builderResult.value = value
                 }
             }

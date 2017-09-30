@@ -895,7 +895,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -953,7 +953,7 @@ public extension Google.Protobuf {
                     return builderResult.sourceCodeInfo
                 }
                 set (value) {
-                    builderResult.hasSourceCodeInfo = true
+                    builderResult.hasSourceCodeInfo = value != nil
                     builderResult.sourceCodeInfo = value
                 }
             }
@@ -2372,7 +2372,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -3413,7 +3413,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -3816,7 +3816,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -4187,7 +4187,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -4565,7 +4565,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -4947,7 +4947,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }
@@ -5413,7 +5413,7 @@ public extension Google.Protobuf {
                     return builderResult.options
                 }
                 set (value) {
-                    builderResult.hasOptions = true
+                    builderResult.hasOptions = value != nil
                     builderResult.options = value
                 }
             }

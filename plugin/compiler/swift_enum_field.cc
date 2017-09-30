@@ -102,17 +102,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "        return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "    }\n"
                            "    set (newvalue) {\n"
-                           "        storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "        storage$oneof_name$ = $oneof_class_name$.$name$(newvalue)\n"
                            "    }\n"
                            "}\n");
             
             printer->Print(variables_,
                            "$acontrol$fileprivate(set) var has$capitalized_name$:Bool {\n"
                            "    get {\n"
-                           "        guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
-                           "            return false\n"
-                           "        }\n"
-                           "        return true\n"
+                           "        return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) != nil\n"
                            "    }\n"
                            "    set(newValue) {\n"
                            "    }\n"

@@ -503,7 +503,7 @@ final public class UserProfile : GeneratedMessage {
                     return builderResult.profile
                 }
                 set (value) {
-                    builderResult.hasProfile = true
+                    builderResult.hasProfile = value != nil
                     builderResult.profile = value
                 }
             }
@@ -582,7 +582,7 @@ final public class UserProfile : GeneratedMessage {
                     return builderResult.exception
                 }
                 set (value) {
-                    builderResult.hasException = true
+                    builderResult.hasException = value != nil
                     builderResult.exception = value
                 }
             }

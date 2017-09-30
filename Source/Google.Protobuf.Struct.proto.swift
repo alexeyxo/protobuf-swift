@@ -256,7 +256,7 @@ public extension Google.Protobuf {
                         return builderResult.value
                     }
                     set (value) {
-                        builderResult.hasValue = true
+                        builderResult.hasValue = value != nil
                         builderResult.value = value
                     }
                 }
@@ -650,68 +650,102 @@ public extension Google.Protobuf {
         //OneOf declaration start
 
         public enum Kind {
-            case OneOfKindNotSet
+            case oneOfKindNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfKindNotSet: return false
+                case .oneOfKindNotSet: return false
                 default: return true
                 }
             }
-            case NullValue(Google.Protobuf.NullValue)
+            case nullValue(Google.Protobuf.NullValue)
 
             public static func getNullValue(_ value:Kind) -> Google.Protobuf.NullValue? {
                 switch value {
-                case .NullValue(let enumValue): return enumValue
+                case .nullValue(let enumValue): return enumValue
                 default: return nil
                 }
             }
-            case NumberValue(Double)
+            public func getNullValue() -> Google.Protobuf.NullValue? {
+                switch self {
+                case .nullValue(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            case numberValue(Double)
 
             public static func getNumberValue(_ value:Kind) -> Double? {
                 switch value {
-                case .NumberValue(let enumValue): return enumValue
+                case .numberValue(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case StringValue(String)
+            public func getNumberValue() -> Double? {
+                switch self {
+                case .numberValue(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case stringValue(String)
 
             public static func getStringValue(_ value:Kind) -> String? {
                 switch value {
-                case .StringValue(let enumValue): return enumValue
+                case .stringValue(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case BoolValue(Bool)
+            public func getStringValue() -> String? {
+                switch self {
+                case .stringValue(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case boolValue(Bool)
 
             public static func getBoolValue(_ value:Kind) -> Bool? {
                 switch value {
-                case .BoolValue(let enumValue): return enumValue
+                case .boolValue(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case StructValue(Google.Protobuf.Struct)
+            public func getBoolValue() -> Bool? {
+                switch self {
+                case .boolValue(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case structValue(Google.Protobuf.Struct)
 
             public static func getStructValue(_ value:Kind) -> Google.Protobuf.Struct? {
                 switch value {
-                case .StructValue(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .structValue(let messageValue): return messageValue
+                default: return nil
                 }
             }
-            case ListValue(Google.Protobuf.ListValue)
+            public func getStructValue() -> Google.Protobuf.Struct? {
+                switch self {
+                case .structValue(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case listValue(Google.Protobuf.ListValue)
 
             public static func getListValue(_ value:Kind) -> Google.Protobuf.ListValue? {
                 switch value {
-                case .ListValue(let enumValue):
-                    return enumValue
-                    default: return nil
+                case .listValue(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            public func getListValue() -> Google.Protobuf.ListValue? {
+                switch self {
+                case .listValue(let messageValue): return messageValue
+                default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageKind:Value.Kind =  Value.Kind.OneOfKindNotSet
+        fileprivate var storageKind:Value.Kind =  Value.Kind.oneOfKindNotSet
         public func getOneOfKind() ->  Value.Kind {
             let copyObjectKind = storageKind
             return copyObjectKind
@@ -721,15 +755,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getNullValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.NullValue(newvalue)
+                storageKind = Value.Kind.nullValue(newvalue)
             }
         }
         public fileprivate(set) var hasNullValue:Bool {
             get {
-                guard let _ = Value.Kind.getNullValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getNullValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -740,15 +771,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getNumberValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.NumberValue(newvalue)
+                storageKind = Value.Kind.numberValue(newvalue)
             }
         }
         public fileprivate(set) var hasNumberValue:Bool {
             get {
-                guard let _ = Value.Kind.getNumberValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getNumberValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -759,15 +787,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getStringValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.StringValue(newvalue)
+                storageKind = Value.Kind.stringValue(newvalue)
             }
         }
         public fileprivate(set) var hasStringValue:Bool {
             get {
-                guard let _ = Value.Kind.getStringValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getStringValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -778,15 +803,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getBoolValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.BoolValue(newvalue)
+                storageKind = Value.Kind.boolValue(newvalue)
             }
         }
         public fileprivate(set) var hasBoolValue:Bool {
             get {
-                guard let _ = Value.Kind.getBoolValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getBoolValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -796,15 +818,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getStructValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.StructValue(newvalue)
+                storageKind = Value.Kind.structValue(newvalue)
             }
         }
         public fileprivate(set) var hasStructValue:Bool {
             get {
-                guard let _ = Value.Kind.getStructValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getStructValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -814,15 +833,12 @@ public extension Google.Protobuf {
                 return Value.Kind.getListValue(storageKind)
             }
             set (newvalue) {
-                storageKind = Value.Kind.ListValue(newvalue)
+                storageKind = Value.Kind.listValue(newvalue)
             }
         }
         public fileprivate(set) var hasListValue:Bool {
             get {
-                guard let _ = Value.Kind.getListValue(storageKind) else {
-                    return false
-                }
-                return true
+                return Value.Kind.getListValue(storageKind) != nil
             }
             set(newValue) {
             }
@@ -1018,6 +1034,10 @@ public extension Google.Protobuf {
             required override public init () {
                 super.init()
             }
+            public func setKind(_ oneOf:Value.Kind) ->  Google.Protobuf.Value.Builder {
+                builderResult.storageKind = oneOf
+                return self
+            }
             /// Represents a null value.
                 public var nullValue:Google.Protobuf.NullValue {
                     get {
@@ -1131,7 +1151,7 @@ public extension Google.Protobuf {
                     return builderResult.structValue
                 }
                 set (value) {
-                    builderResult.hasStructValue = true
+                    builderResult.hasStructValue = value != nil
                     builderResult.structValue = value
                 }
             }
@@ -1186,7 +1206,7 @@ public extension Google.Protobuf {
                     return builderResult.listValue
                 }
                 set (value) {
-                    builderResult.hasListValue = true
+                    builderResult.hasListValue = value != nil
                     builderResult.listValue = value
                 }
             }

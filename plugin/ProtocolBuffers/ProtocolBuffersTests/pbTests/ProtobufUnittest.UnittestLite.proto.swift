@@ -1838,51 +1838,74 @@ public extension ProtobufUnittest {
 
         /// For oneof test
         public enum OneofField {
-            case OneOfOneofFieldNotSet
+            case oneOfOneofFieldNotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfOneofFieldNotSet: return false
+                case .oneOfOneofFieldNotSet: return false
                 default: return true
                 }
             }
-            case OneofUint32(UInt32)
+            case oneofUint32(UInt32)
 
             public static func getOneofUint32(_ value:OneofField) -> UInt32? {
                 switch value {
-                case .OneofUint32(let enumValue): return enumValue
+                case .oneofUint32(let otherValue): return otherValue
                 default: return nil
                 }
             }
-            case OneofNestedMessage(ProtobufUnittest.TestAllTypesLite.NestedMessage)
+            public func getOneofUint32() -> UInt32? {
+                switch self {
+                case .oneofUint32(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofNestedMessage(ProtobufUnittest.TestAllTypesLite.NestedMessage)
 
             public static func getOneofNestedMessage(_ value:OneofField) -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
                 switch value {
-                case .OneofNestedMessage(let enumValue):
-                    return enumValue
-                    default: return nil
-                }
-            }
-            case OneofString(String)
-
-            public static func getOneofString(_ value:OneofField) -> String? {
-                switch value {
-                case .OneofString(let enumValue): return enumValue
+                case .oneofNestedMessage(let messageValue): return messageValue
                 default: return nil
                 }
             }
-            case OneofBytes(Data)
+            public func getOneofNestedMessage() -> ProtobufUnittest.TestAllTypesLite.NestedMessage? {
+                switch self {
+                case .oneofNestedMessage(let messageValue): return messageValue
+                default: return nil
+                }
+            }
+            case oneofString(String)
+
+            public static func getOneofString(_ value:OneofField) -> String? {
+                switch value {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofString() -> String? {
+                switch self {
+                case .oneofString(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            case oneofBytes(Data)
 
             public static func getOneofBytes(_ value:OneofField) -> Data? {
                 switch value {
-                case .OneofBytes(let enumValue): return enumValue
+                case .oneofBytes(let otherValue): return otherValue
+                default: return nil
+                }
+            }
+            public func getOneofBytes() -> Data? {
+                switch self {
+                case .oneofBytes(let otherValue): return otherValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageOneofField:TestAllTypesLite.OneofField =  TestAllTypesLite.OneofField.OneOfOneofFieldNotSet
+        fileprivate var storageOneofField:TestAllTypesLite.OneofField =  TestAllTypesLite.OneofField.oneOfOneofFieldNotSet
         public func getOneOfOneofField() ->  TestAllTypesLite.OneofField {
             let copyObjectOneofField = storageOneofField
             return copyObjectOneofField
@@ -2091,15 +2114,12 @@ public extension ProtobufUnittest {
                 return TestAllTypesLite.OneofField.getOneofUint32(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypesLite.OneofField.OneofUint32(newvalue)
+                storageOneofField = TestAllTypesLite.OneofField.oneofUint32(newvalue)
             }
         }
         public fileprivate(set) var hasOneofUint32:Bool {
             get {
-                guard let _ = TestAllTypesLite.OneofField.getOneofUint32(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypesLite.OneofField.getOneofUint32(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2109,15 +2129,12 @@ public extension ProtobufUnittest {
                 return TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypesLite.OneofField.OneofNestedMessage(newvalue)
+                storageOneofField = TestAllTypesLite.OneofField.oneofNestedMessage(newvalue)
             }
         }
         public fileprivate(set) var hasOneofNestedMessage:Bool {
             get {
-                guard let _ = TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypesLite.OneofField.getOneofNestedMessage(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2127,15 +2144,12 @@ public extension ProtobufUnittest {
                 return TestAllTypesLite.OneofField.getOneofString(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypesLite.OneofField.OneofString(newvalue)
+                storageOneofField = TestAllTypesLite.OneofField.oneofString(newvalue)
             }
         }
         public fileprivate(set) var hasOneofString:Bool {
             get {
-                guard let _ = TestAllTypesLite.OneofField.getOneofString(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypesLite.OneofField.getOneofString(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -2145,15 +2159,12 @@ public extension ProtobufUnittest {
                 return TestAllTypesLite.OneofField.getOneofBytes(storageOneofField)
             }
             set (newvalue) {
-                storageOneofField = TestAllTypesLite.OneofField.OneofBytes(newvalue)
+                storageOneofField = TestAllTypesLite.OneofField.oneofBytes(newvalue)
             }
         }
         public fileprivate(set) var hasOneofBytes:Bool {
             get {
-                guard let _ = TestAllTypesLite.OneofField.getOneofBytes(storageOneofField) else {
-                    return false
-                }
-                return true
+                return TestAllTypesLite.OneofField.getOneofBytes(storageOneofField) != nil
             }
             set(newValue) {
             }
@@ -3669,6 +3680,10 @@ public extension ProtobufUnittest {
             required override public init () {
                 super.init()
             }
+            public func setOneofField(_ oneOf:TestAllTypesLite.OneofField) ->  ProtobufUnittest.TestAllTypesLite.Builder {
+                builderResult.storageOneofField = oneOf
+                return self
+            }
             /// Singular
             public var optionalInt32:Int32 {
                 get {
@@ -4053,7 +4068,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }
@@ -4107,7 +4122,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalNestedMessage = true
+                    builderResult.hasOptionalNestedMessage = value != nil
                     builderResult.optionalNestedMessage = value
                 }
             }
@@ -4161,7 +4176,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalForeignMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalForeignMessage = true
+                    builderResult.hasOptionalForeignMessage = value != nil
                     builderResult.optionalForeignMessage = value
                 }
             }
@@ -4215,7 +4230,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalImportMessage = true
+                    builderResult.hasOptionalImportMessage = value != nil
                     builderResult.optionalImportMessage = value
                 }
             }
@@ -4395,7 +4410,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalPublicImportMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalPublicImportMessage = true
+                    builderResult.hasOptionalPublicImportMessage = value != nil
                     builderResult.optionalPublicImportMessage = value
                 }
             }
@@ -4449,7 +4464,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalLazyMessage
                 }
                 set (value) {
-                    builderResult.hasOptionalLazyMessage = true
+                    builderResult.hasOptionalLazyMessage = value != nil
                     builderResult.optionalLazyMessage = value
                 }
             }
@@ -5480,7 +5495,7 @@ public extension ProtobufUnittest {
                     return builderResult.oneofNestedMessage
                 }
                 set (value) {
-                    builderResult.hasOneofNestedMessage = true
+                    builderResult.hasOneofNestedMessage = value != nil
                     builderResult.oneofNestedMessage = value
                 }
             }
@@ -9288,7 +9303,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -9552,7 +9567,7 @@ public extension ProtobufUnittest {
                             return builderResult.field1
                         }
                         set (value) {
-                            builderResult.hasField1 = true
+                            builderResult.hasField1 = value != nil
                             builderResult.field1 = value
                         }
                     }
@@ -10389,7 +10404,7 @@ public extension ProtobufUnittest {
                         return builderResult.optionalGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasOptionalGroupAllTypes = true
+                        builderResult.hasOptionalGroupAllTypes = value != nil
                         builderResult.optionalGroupAllTypes = value
                     }
                 }
@@ -10653,7 +10668,7 @@ public extension ProtobufUnittest {
                         return builderResult.repeatedGroupAllTypes
                     }
                     set (value) {
-                        builderResult.hasRepeatedGroupAllTypes = true
+                        builderResult.hasRepeatedGroupAllTypes = value != nil
                         builderResult.repeatedGroupAllTypes = value
                     }
                 }
@@ -11016,7 +11031,7 @@ public extension ProtobufUnittest {
                     return builderResult.requiredAllTypes
                 }
                 set (value) {
-                    builderResult.hasRequiredAllTypes = true
+                    builderResult.hasRequiredAllTypes = value != nil
                     builderResult.requiredAllTypes = value
                 }
             }
@@ -11070,7 +11085,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalAllTypes
                 }
                 set (value) {
-                    builderResult.hasOptionalAllTypes = true
+                    builderResult.hasOptionalAllTypes = value != nil
                     builderResult.optionalAllTypes = value
                 }
             }
@@ -11142,7 +11157,7 @@ public extension ProtobufUnittest {
                     return builderResult.optionalGroup
                 }
                 set (value) {
-                    builderResult.hasOptionalGroup = true
+                    builderResult.hasOptionalGroup = value != nil
                     builderResult.optionalGroup = value
                 }
             }

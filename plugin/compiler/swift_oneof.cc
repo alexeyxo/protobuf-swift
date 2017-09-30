@@ -56,12 +56,12 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         
         XCodeStandartIndent(printer);
-        printer->Print("case OneOf$classname$NotSet\n\n",
+        printer->Print("case oneOf$classname$NotSet\n\n",
                        "classname",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
         
         printer->Print("$acontrol$ func checkOneOfIsSet() -> Bool {\n"
                        "    switch self {\n"
-                       "    case .OneOf$classname$NotSet: return false\n"
+                       "    case .oneOf$classname$NotSet: return false\n"
                        "    default: return true\n"
                        "    }\n"
                        "}\n",
@@ -80,20 +80,31 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 
                 string classNames = ClassNameReturedType(fieldType->message_type());
                 printer->Print("case $name$($type$)\n\n",
-                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
                                "type",classNames);
                 
                 
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$camelCaseName$(_ value:$type$) -> $fieldType$? {\n"
                                "    switch value {\n"
-                               "    case .$name$(let enumValue):\n"
-                               "        return enumValue\n"
-                               "        default: return nil\n"
+                               "    case .$name$(let messageValue): return messageValue\n"
+                               "    default: return nil\n"
                                "    }\n"
                                "}\n",
-                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
+                               "fieldType",classNames,
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                printer->Print("$acontrol$ ","acontrol", acControl);
+                printer->Print("func get$camelCaseName$() -> $fieldType$? {\n"
+                               "    switch self {\n"
+                               "    case .$name$(let messageValue): return messageValue\n"
+                               "    default: return nil\n"
+                               "    }\n"
+                               "}\n",
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "fieldType",classNames,
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
@@ -102,34 +113,58 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 const FieldDescriptor* enumDesc = descriptor_->field(i);
                 string type = ClassNameReturedType(enumDesc->enum_type());
                 printer->Print("case $name$($type$)\n\n",
-                               "name",UnderscoresToCapitalizedCamelCase(enumDesc->name()),
+                               "name",UnderscoresToCamelCase(enumDesc),
                                "type",type);
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$camelCaseName$(_ value:$type$) -> $fieldType$? {\n"
                                "    switch value {\n"
                                "    case .$name$(let enumValue): return enumValue\n"
                                "    default: return nil\n"
                                "    }\n"
                                "}\n",
-                               "name",SafeName(UnderscoresToCapitalizedCamelCase(enumDesc->name())),
+                               "name",SafeName(UnderscoresToCamelCase(enumDesc)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
+                               "fieldType",type,
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                printer->Print("$acontrol$ ","acontrol", acControl);
+                printer->Print("func get$camelCaseName$() -> $fieldType$? {\n"
+                               "    switch self {\n"
+                               "    case .$name$(let enumValue): return enumValue\n"
+                               "    default: return nil\n"
+                               "    }\n"
+                               "}\n",
+                               "name",SafeName(UnderscoresToCamelCase(enumDesc)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "fieldType",type,
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }
             else
             {
                 printer->Print("case $name$($type$)\n\n",
-                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType->name())),
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
                                "type",PrimitiveTypeName(fieldType));
                 
                 printer->Print("$acontrol$ ","acontrol", acControl);
-                printer->Print("static func get$name$(_ value:$type$) -> $fieldType$? {\n"
+                printer->Print("static func get$camelCaseName$(_ value:$type$) -> $fieldType$? {\n"
                                "    switch value {\n"
-                               "    case .$name$(let enumValue): return enumValue\n"
+                               "    case .$name$(let otherValue): return otherValue\n"
                                "    default: return nil\n"
                                "    }\n"
                                "}\n",
-                               "name",SafeName(UnderscoresToCapitalizedCamelCase(fieldType->name())),
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
+                               "fieldType",PrimitiveTypeName(fieldType),
+                               "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
+                printer->Print("$acontrol$ ","acontrol", acControl);
+                printer->Print("func get$camelCaseName$() -> $fieldType$? {\n"
+                               "    switch self {\n"
+                               "    case .$name$(let otherValue): return otherValue\n"
+                               "    default: return nil\n"
+                               "    }\n"
+                               "}\n",
+                               "name",SafeName(UnderscoresToCamelCase(fieldType)),
+                               "camelCaseName",SafeName(UnderscoresToCapitalizedCamelCase(fieldType)),
                                "fieldType",PrimitiveTypeName(fieldType),
                                "type",UnderscoresToCapitalizedCamelCase(descriptor_->name()));
             }

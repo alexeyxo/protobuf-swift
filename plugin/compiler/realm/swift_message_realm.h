@@ -55,8 +55,12 @@ namespace google {
                     void GeneratePrimitiveTypes(io::Printer* printer);
                     void GeneratePBToRealmExtension(io::Printer* printer);
                     void GenerateRealmRepresenterExtension(io::Printer* printer);
+                    void GenerateRealmRepresenterExtensionMap(io::Printer* printer);
                     void GenerateStaticInnerTypes(io::Printer* printer, const Descriptor* field);
                     void GenerateStaticInnerTypes(io::Printer* printer, const EnumDescriptor* field);
+                    void GeneratePBToRealmExtensionOneOf(io::Printer* printer, const FieldDescriptor *field);
+                    void GeneratePBToRealmExtensionFields(io::Printer* printer, const FieldDescriptor *field);
+                    
                   
                 };
             }  // namespace swift

@@ -133,34 +133,46 @@ public extension Proto3PreserveUnknownEnumUnittest {
         //OneOf declaration start
 
         public enum O {
-            case OneOfONotSet
+            case oneOfONotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfONotSet: return false
+                case .oneOfONotSet: return false
                 default: return true
                 }
             }
-            case OneofE1(Proto3PreserveUnknownEnumUnittest.MyEnum)
+            case oneofE1(Proto3PreserveUnknownEnumUnittest.MyEnum)
 
             public static func getOneofE1(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
                 switch value {
-                case .OneofE1(let enumValue): return enumValue
+                case .oneofE1(let enumValue): return enumValue
                 default: return nil
                 }
             }
-            case OneofE2(Proto3PreserveUnknownEnumUnittest.MyEnum)
+            public func getOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
+                switch self {
+                case .oneofE1(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            case oneofE2(Proto3PreserveUnknownEnumUnittest.MyEnum)
 
             public static func getOneofE2(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
                 switch value {
-                case .OneofE2(let enumValue): return enumValue
+                case .oneofE2(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            public func getOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyEnum? {
+                switch self {
+                case .oneofE2(let enumValue): return enumValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageO:MyMessage.O =  MyMessage.O.OneOfONotSet
+        fileprivate var storageO:MyMessage.O =  MyMessage.O.oneOfONotSet
         public func getOneOfO() ->  MyMessage.O {
             let copyObjectO = storageO
             return copyObjectO
@@ -178,15 +190,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 return MyMessage.O.getOneofE1(storageO)
             }
             set (newvalue) {
-                storageO = MyMessage.O.OneofE1(newvalue)
+                storageO = MyMessage.O.oneofE1(newvalue)
             }
         }
         public fileprivate(set) var hasOneofE1:Bool {
             get {
-                guard let _ = MyMessage.O.getOneofE1(storageO) else {
-                    return false
-                }
-                return true
+                return MyMessage.O.getOneofE1(storageO) != nil
             }
             set(newValue) {
             }
@@ -196,15 +205,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 return MyMessage.O.getOneofE2(storageO)
             }
             set (newvalue) {
-                storageO = MyMessage.O.OneofE2(newvalue)
+                storageO = MyMessage.O.oneofE2(newvalue)
             }
         }
         public fileprivate(set) var hasOneofE2:Bool {
             get {
-                guard let _ = MyMessage.O.getOneofE2(storageO) else {
-                    return false
-                }
-                return true
+                return MyMessage.O.getOneofE2(storageO) != nil
             }
             set(newValue) {
             }
@@ -434,6 +440,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
             required override public init () {
                 super.init()
+            }
+            public func setO(_ oneOf:MyMessage.O) ->  Proto3PreserveUnknownEnumUnittest.MyMessage.Builder {
+                builderResult.storageO = oneOf
+                return self
             }
                 public var e:Proto3PreserveUnknownEnumUnittest.MyEnum {
                     get {
@@ -768,34 +778,46 @@ public extension Proto3PreserveUnknownEnumUnittest {
         //OneOf declaration start
 
         public enum O {
-            case OneOfONotSet
+            case oneOfONotSet
 
             public func checkOneOfIsSet() -> Bool {
                 switch self {
-                case .OneOfONotSet: return false
+                case .oneOfONotSet: return false
                 default: return true
                 }
             }
-            case OneofE1(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
+            case oneofE1(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
 
             public static func getOneofE1(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
                 switch value {
-                case .OneofE1(let enumValue): return enumValue
+                case .oneofE1(let enumValue): return enumValue
                 default: return nil
                 }
             }
-            case OneofE2(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
+            public func getOneofE1() -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
+                switch self {
+                case .oneofE1(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            case oneofE2(Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra)
 
             public static func getOneofE2(_ value:O) -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
                 switch value {
-                case .OneofE2(let enumValue): return enumValue
+                case .oneofE2(let enumValue): return enumValue
+                default: return nil
+                }
+            }
+            public func getOneofE2() -> Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra? {
+                switch self {
+                case .oneofE2(let enumValue): return enumValue
                 default: return nil
                 }
             }
         }
         //OneOf declaration end
 
-        fileprivate var storageO:MyMessagePlusExtra.O =  MyMessagePlusExtra.O.OneOfONotSet
+        fileprivate var storageO:MyMessagePlusExtra.O =  MyMessagePlusExtra.O.oneOfONotSet
         public func getOneOfO() ->  MyMessagePlusExtra.O {
             let copyObjectO = storageO
             return copyObjectO
@@ -813,15 +835,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 return MyMessagePlusExtra.O.getOneofE1(storageO)
             }
             set (newvalue) {
-                storageO = MyMessagePlusExtra.O.OneofE1(newvalue)
+                storageO = MyMessagePlusExtra.O.oneofE1(newvalue)
             }
         }
         public fileprivate(set) var hasOneofE1:Bool {
             get {
-                guard let _ = MyMessagePlusExtra.O.getOneofE1(storageO) else {
-                    return false
-                }
-                return true
+                return MyMessagePlusExtra.O.getOneofE1(storageO) != nil
             }
             set(newValue) {
             }
@@ -831,15 +850,12 @@ public extension Proto3PreserveUnknownEnumUnittest {
                 return MyMessagePlusExtra.O.getOneofE2(storageO)
             }
             set (newvalue) {
-                storageO = MyMessagePlusExtra.O.OneofE2(newvalue)
+                storageO = MyMessagePlusExtra.O.oneofE2(newvalue)
             }
         }
         public fileprivate(set) var hasOneofE2:Bool {
             get {
-                guard let _ = MyMessagePlusExtra.O.getOneofE2(storageO) else {
-                    return false
-                }
-                return true
+                return MyMessagePlusExtra.O.getOneofE2(storageO) != nil
             }
             set(newValue) {
             }
@@ -1069,6 +1085,10 @@ public extension Proto3PreserveUnknownEnumUnittest {
 
             required override public init () {
                 super.init()
+            }
+            public func setO(_ oneOf:MyMessagePlusExtra.O) ->  Proto3PreserveUnknownEnumUnittest.MyMessagePlusExtra.Builder {
+                builderResult.storageO = oneOf
+                return self
             }
                 public var e:Proto3PreserveUnknownEnumUnittest.MyEnumPlusExtra {
                     get {
