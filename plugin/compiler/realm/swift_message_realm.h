@@ -15,8 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef swift_REACT_H
-#define swift_REACT_H
+#ifndef swift_REALM_H
+#define swift_REALM_H
 
 #include <string>
 #include <map>
@@ -35,25 +35,31 @@ namespace google {
         namespace compiler {
             namespace swift {
                 
-                class ReactGenerator {
+                class RealmMessageGenerator {
                 public:
-                    explicit ReactGenerator(const Descriptor* descriptor);
-                    ~ReactGenerator();
+                    explicit RealmMessageGenerator(const Descriptor* descriptor);
+                    ~RealmMessageGenerator();
     
                     void GenerateSource(io::Printer* printer);
-                    void GenerateSourceImport(io::Printer* printer);
                     
                     const Descriptor* descriptor_;
 
                     std::map<string, string> variables_;
                     
-                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ReactGenerator);
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RealmMessageGenerator);
         
                 private:
+                    
+                    void GeneratePrimaryKey(io::Printer* printer);
+                    void GenerateIndexedProperties(io::Printer* printer);
                     void GeneratePrimitiveTypes(io::Printer* printer);
+                    void GeneratePBToRealmExtension(io::Printer* printer);
+                    void GenerateRealmRepresenterExtension(io::Printer* printer);
+                    void GenerateRealmRepresenterExtensionMap(io::Printer* printer);
                     void GenerateStaticInnerTypes(io::Printer* printer, const Descriptor* field);
                     void GenerateStaticInnerTypes(io::Printer* printer, const EnumDescriptor* field);
-                    void GenerateConstructor(io::Printer* printer);
+                    void GeneratePBToRealmExtensionOneOf(io::Printer* printer, const FieldDescriptor *field);
+                    void GeneratePBToRealmExtensionFields(io::Printer* printer, const FieldDescriptor *field);
                     
                   
                 };
@@ -62,4 +68,4 @@ namespace google {
     }  // namespace protobuf
 }  // namespace google
 
-#endif // swift_REACT_H
+#endif // swift_REALM_H

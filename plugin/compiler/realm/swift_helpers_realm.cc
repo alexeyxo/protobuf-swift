@@ -26,6 +26,7 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
     
     string DefaultValueRealm(const FieldDescriptor* field) {
         
@@ -104,6 +105,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         className += UnderscoresToCapitalizedCamelCase(descriptor->name());
         return SafeName(name + SafeName(className));
     }
+    string ClassNameRealm(const EnumDescriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorkerRealm(descriptor->containing_type());
+            name += "";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
     string ClassNameRealm(const FieldDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
@@ -116,6 +127,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     string ClassNameRealmReturned(const Descriptor* descriptor) {
+        string name = "";
+        if (descriptor->containing_type() != NULL) {
+            name += ClassNameWorker(descriptor->containing_type());
+            name += ".";
+        }
+        string className = FileClassPrefix(descriptor->file());
+        className += UnderscoresToCapitalizedCamelCase(descriptor->name());
+        return SafeName(name + SafeName(className));
+    }
+    
+    string ClassNameRealmReturned(const EnumDescriptor* descriptor) {
         string name = "";
         if (descriptor->containing_type() != NULL) {
             name += ClassNameWorker(descriptor->containing_type());
@@ -158,6 +180,14 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return false;
     }
     
+    bool NeedGenerateRealmClass(const EnumDescriptor* message) {
+        if (message->options().HasExtension(swift_enum_options)) {
+            SwiftEnumOptions options = message->options().GetExtension(swift_enum_options);
+            return options.generate_realm_object();
+        }
+        return false;
+    }
+    
     string RealmPrimaryKey(const Descriptor* message) {
         for (int i = 0; i< message->field_count(); i++) {
             const FieldDescriptor *field = message->field(i);
@@ -186,8 +216,17 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                     if (indexed != "") {
                         indexed += ",";
                     }
-                    indexed += "\"" + UnderscoresToCamelCase(field) + "\"";
+                    if (UnderscoresToCamelCase(field) != RealmPrimaryKey(message)) {
+                        indexed += "\"" + UnderscoresToCamelCase(field) + "\"";
+                    }
                 }
+            }
+        }
+        if (RealmPrimaryKey(message) != "") {
+            if (indexed != "") {
+                indexed += ",\"" + RealmPrimaryKey(message) + "\"";
+            } else {
+                return "\"" + RealmPrimaryKey(message) + "\"";
             }
         }
         return indexed;

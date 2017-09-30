@@ -20,6 +20,14 @@ class ProtocolBuffersTests: XCTestCase {
     }
     
     func testPerformance() {
+//        let builder = AppSharedDialog.Builder()
+//        builder.setId(123456789)
+//        let build = try! builder.build()
+//        let js = try! build.encode()
+//        let js2 = try! AppSharedDialog.decode(jsonMap: js)
+//        print(js2)
+    
+        
 //        var originalBuilder = PBPerfomance.Builder()
 //        originalBuilder.setInts(Int32(-32))
 //                       .setInts64(Int64(-64))

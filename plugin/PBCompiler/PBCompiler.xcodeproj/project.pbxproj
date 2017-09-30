@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F20C36C1F4DCE1500167D7F /* swift_enum_realm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F20C36A1F4DCE1500167D7F /* swift_enum_realm.cc */; };
 		3F6112741D85AB9500DE3C9D /* descriptor.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F6112231D85AB9500DE3C9D /* descriptor.pb.cc */; };
 		3F6112751D85AB9500DE3C9D /* swift-descriptor.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F6112331D85AB9500DE3C9D /* swift-descriptor.pb.cc */; };
 		3F6112761D85AB9500DE3C9D /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F6112541D85AB9500DE3C9D /* main.cc */; };
@@ -32,7 +33,7 @@
 		3F99B78C1E953CB20030784C /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7661E953CB20030784C /* main.cc */; };
 		3F99B7951E953CB20030784C /* swift_file.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7741E953CB20030784C /* swift_file.cc */; };
 		3F99B7971E953CB20030784C /* swift_generator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7771E953CB20030784C /* swift_generator.cc */; };
-		3F99B79C1E953CB20030784C /* swift_realm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7801E953CB20030784C /* swift_realm.cc */; };
+		3F99B79C1E953CB20030784C /* swift_message_realm.cc in Sources */ = {isa = PBXBuildFile; fileRef = 3F99B7801E953CB20030784C /* swift_message_realm.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3F20C36A1F4DCE1500167D7F /* swift_enum_realm.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_enum_realm.cc; sourceTree = "<group>"; };
+		3F20C36B1F4DCE1500167D7F /* swift_enum_realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_enum_realm.h; sourceTree = "<group>"; };
 		3F6111791D85A7E000DE3C9D /* PBCompiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PBCompiler; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F61121F1D85AB9500DE3C9D /* .dirstamp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .dirstamp; sourceTree = "<group>"; };
 		3F6112201D85AB9500DE3C9D /* any.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = any.proto; sourceTree = "<group>"; };
@@ -148,8 +151,8 @@
 		3F99B7751E953CB20030784C /* swift_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_file.h; sourceTree = "<group>"; };
 		3F99B7771E953CB20030784C /* swift_generator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_generator.cc; sourceTree = "<group>"; };
 		3F99B7781E953CB20030784C /* swift_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_generator.h; sourceTree = "<group>"; };
-		3F99B7801E953CB20030784C /* swift_realm.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_realm.cc; sourceTree = "<group>"; };
-		3F99B7811E953CB20030784C /* swift_realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_realm.h; sourceTree = "<group>"; };
+		3F99B7801E953CB20030784C /* swift_message_realm.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = swift_message_realm.cc; sourceTree = "<group>"; };
+		3F99B7811E953CB20030784C /* swift_message_realm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swift_message_realm.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,8 +349,10 @@
 				3F99B7751E953CB20030784C /* swift_file.h */,
 				3F99B7771E953CB20030784C /* swift_generator.cc */,
 				3F99B7781E953CB20030784C /* swift_generator.h */,
-				3F99B7801E953CB20030784C /* swift_realm.cc */,
-				3F99B7811E953CB20030784C /* swift_realm.h */,
+				3F20C36A1F4DCE1500167D7F /* swift_enum_realm.cc */,
+				3F20C36B1F4DCE1500167D7F /* swift_enum_realm.h */,
+				3F99B7801E953CB20030784C /* swift_message_realm.cc */,
+				3F99B7811E953CB20030784C /* swift_message_realm.h */,
 			);
 			path = realm;
 			sourceTree = "<group>";
@@ -422,7 +427,7 @@
 				3F70C8831E9CF3ED00C57091 /* swift_helpers_realm.cc in Sources */,
 				3F61127E1D85AB9500DE3C9D /* swift_map_field.cc in Sources */,
 				3F99B7971E953CB20030784C /* swift_generator.cc in Sources */,
-				3F99B79C1E953CB20030784C /* swift_realm.cc in Sources */,
+				3F99B79C1E953CB20030784C /* swift_message_realm.cc in Sources */,
 				3F6112821D85AB9500DE3C9D /* swift_primitive_field.cc in Sources */,
 				3F6112801D85AB9500DE3C9D /* swift_message_field.cc in Sources */,
 				3F61127A1D85AB9500DE3C9D /* swift_field.cc in Sources */,
@@ -430,6 +435,7 @@
 				3F6112811D85AB9500DE3C9D /* swift_oneof.cc in Sources */,
 				3F6112791D85AB9500DE3C9D /* swift_extension.cc in Sources */,
 				3F61127D1D85AB9500DE3C9D /* swift_helpers.cc in Sources */,
+				3F20C36C1F4DCE1500167D7F /* swift_enum_realm.cc in Sources */,
 				3F61127B1D85AB9500DE3C9D /* swift_file.cc in Sources */,
 				3F6112751D85AB9500DE3C9D /* swift-descriptor.pb.cc in Sources */,
 				3F6112781D85AB9500DE3C9D /* swift_enum_field.cc in Sources */,

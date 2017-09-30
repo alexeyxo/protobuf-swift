@@ -35,10 +35,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     using internal::WireFormat;
     using internal::WireFormatLite;
+    using namespace std;
     
     namespace {
         
-        void SetMapVariables(const Descriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const Descriptor* descriptor, std::map<string, string>* variables) {
             (*variables)["acontrol"] = GetAccessControlType(descriptor->file());
             (*variables)["className"] =  ClassName(descriptor);
             (*variables)["errorType"] = HasOptionForGenerateErrors(descriptor) ? ", Error" : "";
@@ -144,7 +145,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void MessageGenerator::GenerateStaticVariablesInitialization(io::Printer* printer) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["index"] = SimpleItoa(descriptor_->index());
         vars["className"] = ClassName(descriptor_);
         
@@ -158,7 +159,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateStaticVariablesSource(io::Printer* printer) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["index"] = SimpleItoa(descriptor_->index());
         vars["classname"] = ClassName(descriptor_);
         
@@ -171,7 +172,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void MessageGenerator::GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass) {
-        map<string, string> vars;
+        std::map<string, string> vars;
         vars["index"] = SimpleItoa(descriptor_->index());
         vars["className"] = ClassName(descriptor_);
         for (int i = 0; i < descriptor_->extension_count(); i++) {
@@ -179,15 +180,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
             MessageGenerator(descriptor_->nested_type(i)).GenerateGlobalStaticVariablesSource(printer, rootclass);
-        }
-    }
-    
-    
-    void MessageGenerator::DetermineDependencies(set<string>* dependencies) {
-        
-        for (int i = 0; i < descriptor_->nested_type_count(); i++) {
-            
-            MessageGenerator(descriptor_->nested_type(i)).DetermineDependencies(dependencies);
         }
     }
     
@@ -241,12 +233,10 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         //Oneof
         
-        
-        
         for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
             string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
             OneofGenerator(descriptor_->oneof_decl(i)).GenerateSource(printer);
-            printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.OneOf$storageName$NotSet\n",
+            printer->Print("fileprivate var storage$storageName$:$classname$ =  $classname$.oneOf$storageName$NotSet\n",
                            "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
                            "classname", classNames);
             printer->Print("$acontrol$ func getOneOf$storageName$() ->  $classname$ {\n"
@@ -264,7 +254,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         ///Enums
         
         for (int i = 0; i < descriptor_->enum_type_count(); i++) {
-            
             XCodeStandartIndent(printer);
             EnumGenerator(descriptor_->enum_type(i)).GenerateSource(printer);
             XCodeStandartOutdent(printer);
@@ -272,8 +261,6 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         
         ///
-        
-        
         
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateVariablesSource(printer);
@@ -795,9 +782,27 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "required override $acontrol$ init () {\n"
                        "    super.init()\n"
                        "}\n");
+        
+        //Oneof
+        
+        for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
+            string classNames = ClassNameOneof(descriptor_->oneof_decl(i));
+            
+            printer->Print("$acontrol$ func set$storageName$(_ oneOf:$classname$) ->  $classNameReturnedType$.Builder {\n"
+                           "    builderResult.storage$storageName$ = oneOf\n"
+                           "    return self\n"
+                           "}\n",
+                           "acontrol", GetAccessControlType(descriptor_->file()),
+                           "storageName", UnderscoresToCapitalizedCamelCase(descriptor_->oneof_decl(i)->name()),
+                           "classname", classNames,
+                           "classNameReturnedType",ClassNameReturedType(descriptor_));
+        }
+        
         for (int i = 0; i < descriptor_->field_count(); i++) {
             field_generators_.get(descriptor_->field(i)).GenerateBuilderMembersSource(printer);
         }
+        
+    
         
         GenerateCommonBuilderMethodsSource(printer);
         GenerateBuilderParsingMethodsSource(printer);
@@ -970,7 +975,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             if (field->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE &&
                 HasRequiredFields(field->message_type())) {
                 
-                map<string,string> vars;
+                std::map<string,string> vars;
                 vars["type"] = ClassName(field->message_type());
                 vars["name"] = UnderscoresToCamelCase(field);
                 vars["name_reserved"] = SafeName(UnderscoresToCamelCase(field));

@@ -46,7 +46,6 @@ namespace google {
                     void GenerateSource(io::Printer* printer);
                     void GenerateMessageIsEqualSource(io::Printer* printer);
                     void GenerateExtensionRegistrationSource(io::Printer* printer);
-                    void DetermineDependencies(set<string>* dependencies);
                     void GenerateGlobalStaticVariablesSource(io::Printer* printer, string rootclass);
                     void GenerateParseFromMethodsSource(io::Printer* printer);
                     void GenerateSubscript(io::Printer* printer) const;
@@ -96,7 +95,7 @@ namespace google {
                     const Descriptor* descriptor_;
                     FieldGeneratorMap field_generators_;
 
-                    map<string, string> variables_;
+                    std::map<string, string> variables_;
                     
                     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MessageGenerator);
         

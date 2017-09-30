@@ -15,8 +15,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef swift_REALM_H
-#define swift_REALM_H
+#ifndef swift_ENUM_REALM_H
+#define swift_ENUM_REALM_H
 
 #include <string>
 #include <map>
@@ -35,28 +35,22 @@ namespace google {
         namespace compiler {
             namespace swift {
                 
-                class RealmGenerator {
+                class RealmEnumGenerator {
                 public:
-                    explicit RealmGenerator(const Descriptor* descriptor);
-                    ~RealmGenerator();
+                    explicit RealmEnumGenerator(const EnumDescriptor* descriptor);
+                    ~RealmEnumGenerator();
     
                     void GenerateSource(io::Printer* printer);
                     
-                    const Descriptor* descriptor_;
+                    const EnumDescriptor* descriptor_;
 
-                    map<string, string> variables_;
+                    std::map<string, string> variables_;
                     
-                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RealmGenerator);
+                    GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(RealmEnumGenerator);
         
                 private:
-                    
-                    void GeneratePrimaryKey(io::Printer* printer);
-                    void GenerateIndexedProperties(io::Printer* printer);
-                    void GeneratePrimitiveTypes(io::Printer* printer);
                     void GeneratePBToRealmExtension(io::Printer* printer);
                     void GenerateRealmRepresenterExtension(io::Printer* printer);
-                    void GenerateStaticInnerTypes(io::Printer* printer, const Descriptor* field);
-                  
                 };
             }  // namespace swift
         }  // namespace compiler

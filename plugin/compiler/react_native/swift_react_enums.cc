@@ -35,7 +35,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        void SetMapVariables(const EnumDescriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const EnumDescriptor* descriptor, std::map<string, string>* variables) {
             (*variables)["classNameReaсt"] = ClassNameReact(descriptor);
         }
         

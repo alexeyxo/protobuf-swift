@@ -26,6 +26,7 @@
 
 
 namespace google { namespace protobuf { namespace compiler { namespace swift {
+    using namespace std;
     
     string DefaultValueReact(const FieldDescriptor* field) {
         

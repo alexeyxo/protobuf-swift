@@ -74,7 +74,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             return -1;
         }
         
-        void SetPrimitiveVariables(const FieldDescriptor* descriptor, map<string, string>* variables) {
+        void SetPrimitiveVariables(const FieldDescriptor* descriptor, std::map<string, string>* variables) {
             std::string name = UnderscoresToCamelCase(descriptor);
             std::string capname = UnderscoresToCapitalizedCamelCase(descriptor);
             (*variables)["containing_class"] = ClassNameReturedType(descriptor->containing_type());
@@ -89,7 +89,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["json_name"] = descriptor->json_name();
             (*variables)["to_json_value"] = SafeName(ToJSONValue(descriptor, name));
             (*variables)["to_json_value_repeated_storage_type"] = ToJSONValueRepeatedStorageType(descriptor);
-            (*variables)["to_json_value_repeated"] = ToJSONValue(descriptor, "oneValue" + capname);
+            (*variables)["to_json_value_repeated"] = ToJSONValueRepeated(descriptor, "oneValue" + capname);
             (*variables)["from_json_value"] = FromJSONValue(descriptor, "jsonValue" + capname);
             (*variables)["from_json_value_repeated"] = FromJSONValue(descriptor, "oneValue" + capname);
             (*variables)["json_casting_type"] = JSONCastingValue(descriptor);
@@ -161,16 +161,13 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                            "        return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$)\n"
                            "    }\n"
                            "    set (newvalue) {\n"
-                           "        storage$oneof_name$ = $oneof_class_name$.$capitalized_name$(newvalue)\n"
+                           "        storage$oneof_name$ = $oneof_class_name$.$name$(newvalue)\n"
                            "    }\n"
                            "}\n");
             printer->Print(variables_,
                            "$acontrol$fileprivate(set) var has$capitalized_name$:Bool {\n"
                            "    get {\n"
-                           "        guard let _ = $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) else {\n"
-                           "            return false\n"
-                           "        }\n"
-                           "        return true\n"
+                           "        return $oneof_class_name$.get$capitalized_name$(storage$oneof_name$) != nil\n"
                            "    }\n"
                            "    set(newValue) {\n"
                            "    }\n"

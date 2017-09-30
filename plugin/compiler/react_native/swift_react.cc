@@ -35,7 +35,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     namespace {
         
-        void SetMapVariables(const Descriptor* descriptor, map<string, string>* variables) {
+        void SetMapVariables(const Descriptor* descriptor, std::map<string, string>* variables) {
             (*variables)["classNameReaсt"] = ClassNameReact(descriptor);
             
       
@@ -105,6 +105,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     case SWIFT_TYPE_ENUM:
                         printer->Print("$name$:Array<$type$>\n",
                                        "name", UnderscoresToCamelCase(field),
@@ -126,6 +127,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     case SWIFT_TYPE_ENUM:
                             printer->Print("$name$:$type$\n",
                                            "name", UnderscoresToCamelCase(field),
@@ -173,6 +175,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     default: continue;
                 }
                 
@@ -185,6 +188,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "type", ClassNameReactReturnType(field->message_type())
                                        );
                         break;
+                    case SWIFT_TYPE_MAP: break;
                     default:
                         continue;
                 }
