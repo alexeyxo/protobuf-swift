@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0900"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F85569819C71BCF003802F2"
+               BlueprintIdentifier = "ProtocolBuffers::ProtocolBuffers"
                BuildableName = "ProtocolBuffers.framework"
                BlueprintName = "ProtocolBuffers"
-               ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
-               BuildableName = "ProtocolBuffersTests.xctest"
-               BlueprintName = "UnitTesting"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F8556A319C71BCF003802F2"
-               BuildableName = "ProtocolBuffersTests.xctest"
-               BlueprintName = "UnitTesting"
+               BlueprintIdentifier = "3FA8D1B51F7FD01F00FE77C3"
+               BuildableName = "UnitTest.xctest"
+               BlueprintName = "UnitTest"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,7 +43,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F85569819C71BCF003802F2"
+            BlueprintIdentifier = "ProtocolBuffers::ProtocolBuffers"
             BuildableName = "ProtocolBuffers.framework"
             BlueprintName = "ProtocolBuffers"
             ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
@@ -80,7 +66,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F85569819C71BCF003802F2"
+            BlueprintIdentifier = "ProtocolBuffers::ProtocolBuffers"
             BuildableName = "ProtocolBuffers.framework"
             BlueprintName = "ProtocolBuffers"
             ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
@@ -98,7 +84,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3F85569819C71BCF003802F2"
+            BlueprintIdentifier = "ProtocolBuffers::ProtocolBuffers"
             BuildableName = "ProtocolBuffers.framework"
             BlueprintName = "ProtocolBuffers"
             ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
