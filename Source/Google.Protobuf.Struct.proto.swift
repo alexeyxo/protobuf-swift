@@ -602,10 +602,7 @@ public extension Google.Protobuf {
                 if let jsonValueFields = jsonMap["fields"] as? Dictionary<String, Dictionary<String,Any>> {
                     var mapFields = Dictionary<String, Google.Protobuf.Value>()
                     for (keyFields, valueFields) in jsonValueFields {
-                        guard let keyFromFields = String(keyFields) else {
-                            throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
-                        }
-                        mapFields[keyFromFields] = try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:valueFields).build()
+                        mapFields[keyFields] = try Google.Protobuf.Value.Builder.decodeToBuilder(jsonMap:valueFields).build()
 
                     }
                     resultDecodedBuilder.fields = mapFields
