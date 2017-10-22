@@ -50,6 +50,7 @@ namespace google {
                 string PrimitiveTypeCastingRealmRepresent(const FieldDescriptor* field);
                 string PrimitiveTypeRealmOptionalVariable(const FieldDescriptor* field);
                 string DefaultValueRealm(const FieldDescriptor* field);
+                string AdditionalClassName(const Descriptor* message);
                 //
                 
             }  // namespace swift

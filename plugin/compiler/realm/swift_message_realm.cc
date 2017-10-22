@@ -43,6 +43,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             (*variables)["classNameRealmReturned"] = ClassNameRealmReturned(descriptor);
             (*variables)["classNameRealm"] = ClassNameRealm(descriptor);
             (*variables)["fileName"] = FileClassName(descriptor->file());
+            (*variables)["additionalClassName"] = AdditionalClassName(descriptor);
+            
         }
         
     }  // namespace
@@ -65,7 +67,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             const EnumDescriptor* desc = descriptor_->enum_type(i);
             RealmEnumGenerator(desc).GenerateSource(printer);
         }
+        GenerateClass(printer);
+        //Nested Types
+        for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+            RealmMessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
+        }
+        GeneratePBToRealmExtension(printer);
         
+    }
+    
+    void RealmMessageGenerator::GenerateClass(io::Printer* printer) {
         printer->Print(variables_,"$acontrol$ class $classNameRealm$:Object {\n");
         XCodeStandartIndent(printer);
         for (int i = 0; i < descriptor_->nested_type_count(); i++) {
@@ -82,12 +93,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
         
-        //Nested Types
-        for (int i = 0; i < descriptor_->nested_type_count(); i++) {
-            RealmMessageGenerator(descriptor_->nested_type(i)).GenerateSource(printer);
+        if (variables_["additionalClassName"] != "") {
+            printer->Print(variables_,"$acontrol$ class $additionalClassName$:Object {\n");
+            XCodeStandartIndent(printer);
+            for (int i = 0; i < descriptor_->nested_type_count(); i++) {
+                const Descriptor* field = descriptor_->nested_type(i);
+                GenerateStaticInnerTypes(printer, field);
+            }
+            for (int i = 0; i < descriptor_->enum_type_count(); i++) {
+                const EnumDescriptor* desc = descriptor_->enum_type(i);
+                GenerateStaticInnerTypes(printer, desc);
+            }
+            GeneratePrimaryKey(printer);
+            GenerateIndexedProperties(printer);
+            GeneratePrimitiveTypes(printer);
+            XCodeStandartOutdent(printer);
+            printer->Print("}\n\n");
         }
-        GeneratePBToRealmExtension(printer);
-        
     }
     
     void RealmMessageGenerator::GeneratePrimitiveTypes(io::Printer* printer) {
@@ -240,6 +262,35 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         }
         XCodeStandartOutdent(printer);
         printer->Print("}\n\n");
+        
+        if (variables_["additionalClassName"] != "") {
+            printer->Print(variables_,"extension $additionalClassName$:ProtoRealm {\n");
+            XCodeStandartIndent(printer);
+            printer->Print(variables_,"$acontrol$ typealias PBType = $classNameReturnedType$\n");
+            printer->Print(variables_,"$acontrol$ typealias RMObject = $additionalClassName$\n");
+            printer->Print(variables_,"$acontrol$ static func map(_ proto: $classNameReturnedType$) -> $additionalClassName$ {\n");
+            XCodeStandartIndent(printer);
+            printer->Print(variables_, "let rmModel = $additionalClassName$()\n");
+            for (int i = 0; i < descriptor_->field_count(); i++) {
+                const FieldDescriptor* field = descriptor_->field(i);
+                if (!isOneOfField(field)) {
+                    GeneratePBToRealmExtensionFields(printer, field);
+                } else {
+                    GeneratePBToRealmExtensionOneOf(printer, field);
+                }
+            }
+            printer->Print("return rmModel\n");
+            XCodeStandartOutdent(printer);
+            printer->Print("}\n");
+            if (descriptor_->options().map_entry()) {
+                GenerateRealmRepresenterExtensionMap(printer);
+            } else {
+                GenerateRealmRepresenterExtension(printer);
+            }
+            XCodeStandartOutdent(printer);
+            printer->Print("}\n\n");
+        }
+        
     }
     void RealmMessageGenerator::GeneratePBToRealmExtensionFields(io::Printer* printer, const FieldDescriptor *field) {
         switch (GetSwiftType(field)) {

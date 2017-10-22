@@ -180,6 +180,16 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return false;
     }
     
+    string AdditionalClassName(const Descriptor* message) {
+        if (message->options().HasExtension(swift_message_options)) {
+            SwiftMessageOptions options = message->options().GetExtension(swift_message_options);
+            if (options.has_additional_class_name()) {
+                return options.additional_class_name();
+            }
+        }
+        return "";
+    }
+    
     bool NeedGenerateRealmClass(const EnumDescriptor* message) {
         if (message->options().HasExtension(swift_enum_options)) {
             SwiftEnumOptions options = message->options().GetExtension(swift_enum_options);

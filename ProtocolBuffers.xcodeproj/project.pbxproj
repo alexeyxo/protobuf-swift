@@ -60,6 +60,7 @@
 		3F9997AB1F879E220016C76C /* ProtobufUnittest.UnittestOptimizeFor.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99978E1F879E220016C76C /* ProtobufUnittest.UnittestOptimizeFor.proto.swift */; };
 		3F9997AC1F879E220016C76C /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F99978F1F879E220016C76C /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */; };
 		3F9997AD1F879E220016C76C /* ProtobufUnittest.UnittestCustomOptions.proto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9997901F879E220016C76C /* ProtobufUnittest.UnittestCustomOptions.proto.swift */; };
+		3F9CF4EE1F974FEC00C8F705 /* PluginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CF4ED1F974FEC00C8F705 /* PluginTest.swift */; };
 		OBJ_44 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_50 /* AbstractMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* AbstractMessage.swift */; };
 		OBJ_51 /* CodedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CodedInputStream.swift */; };
@@ -153,6 +154,7 @@
 		3F99978E1F879E220016C76C /* ProtobufUnittest.UnittestOptimizeFor.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.UnittestOptimizeFor.proto.swift; sourceTree = "<group>"; };
 		3F99978F1F879E220016C76C /* Proto3ArenaUnittest.UnittestProto3Arena.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Proto3ArenaUnittest.UnittestProto3Arena.proto.swift; sourceTree = "<group>"; };
 		3F9997901F879E220016C76C /* ProtobufUnittest.UnittestCustomOptions.proto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufUnittest.UnittestCustomOptions.proto.swift; sourceTree = "<group>"; };
+		3F9CF4ED1F974FEC00C8F705 /* PluginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PluginTest.swift; path = plugin/Tests/PluginTest.swift; sourceTree = "<group>"; };
 		OBJ_10 /* CodedOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedOutputStream.swift; sourceTree = "<group>"; };
 		OBJ_11 /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreateExtensionField.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ExtendableMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendableMessage.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				3F99971B1F879A670016C76C /* TestUtilities.swift */,
 				3F99971D1F879A680016C76C /* UnknowFieldsTests.swift */,
 				3F99971C1F879A670016C76C /* WireFormatTests.swift */,
+				3F9CF4ED1F974FEC00C8F705 /* PluginTest.swift */,
 				3F9997731F879E220016C76C /* pbTests */,
 				3F9996EA1F879A660016C76C /* testdata */,
 			);
@@ -458,6 +461,7 @@
 				3F9997231F879BB30016C76C /* MapFieldsTests.swift in Sources */,
 				3F9997981F879E220016C76C /* ProtobufUnittest.UnittestLiteImportsNonlite.proto.swift in Sources */,
 				3F9997A51F879E220016C76C /* Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.proto.swift in Sources */,
+				3F9CF4EE1F974FEC00C8F705 /* PluginTest.swift in Sources */,
 				3F9997941F879E220016C76C /* Proto2ArenaUnittest.UnittestNoArenaImport.proto.swift in Sources */,
 				3F9997471F879C1D0016C76C /* TestUtilities.swift in Sources */,
 				3F9997201F879BB30016C76C /* CodedOuputStreamTests.swift in Sources */,

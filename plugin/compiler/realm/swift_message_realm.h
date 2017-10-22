@@ -60,6 +60,7 @@ namespace google {
                     void GenerateStaticInnerTypes(io::Printer* printer, const EnumDescriptor* field);
                     void GeneratePBToRealmExtensionOneOf(io::Printer* printer, const FieldDescriptor *field);
                     void GeneratePBToRealmExtensionFields(io::Printer* printer, const FieldDescriptor *field);
+                    void GenerateClass(io::Printer* printer);
                     
                   
                 };
