@@ -176,15 +176,15 @@ void TableStruct::InitDefaultsImpl() {
     ::google::protobuf::SwiftFileOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::FieldOptions::internal_default_instance(),
-    510986, 11, false, false,
+    5100986, 11, false, false,
     ::google::protobuf::SwiftFieldOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::MessageOptions::internal_default_instance(),
-    510985, 11, false, false,
+    5100985, 11, false, false,
     ::google::protobuf::SwiftMessageOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::EnumOptions::internal_default_instance(),
-    510984, 11, false, false,
+    5100984, 11, false, false,
     ::google::protobuf::SwiftEnumOptions::internal_default_instance());
 }
 
@@ -221,18 +221,18 @@ void AddDescriptorsImpl() {
       "\n\025RealmOverrideRepeated\022\014\n\010OVERRIDE\020\000\022\n\n"
       "\006APPEND\020\001:^\n\022swift_file_options\022\034.google"
       ".protobuf.FileOptions\030\273\253\267\002 \001(\0132!.google."
-      "protobuf.SwiftFileOptions:`\n\023swift_field"
+      "protobuf.SwiftFileOptions:a\n\023swift_field"
       "_options\022\035.google.protobuf.FieldOptions\030"
-      "\212\230\037 \001(\0132\".google.protobuf.SwiftFieldOpti"
-      "ons:f\n\025swift_message_options\022\037.google.pr"
-      "otobuf.MessageOptions\030\211\230\037 \001(\0132$.google.p"
-      "rotobuf.SwiftMessageOptions:]\n\022swift_enu"
-      "m_options\022\034.google.protobuf.EnumOptions\030"
-      "\210\230\037 \001(\0132!.google.protobuf.SwiftEnumOptio"
-      "nsB\016\332\333\272\023\002\030\000\332\333\272\023\002\020\001"
+      "\272\253\267\002 \001(\0132\".google.protobuf.SwiftFieldOpt"
+      "ions:g\n\025swift_message_options\022\037.google.p"
+      "rotobuf.MessageOptions\030\271\253\267\002 \001(\0132$.google"
+      ".protobuf.SwiftMessageOptions:^\n\022swift_e"
+      "num_options\022\034.google.protobuf.EnumOption"
+      "s\030\270\253\267\002 \001(\0132!.google.protobuf.SwiftEnumOp"
+      "tionsB\016\332\333\272\023\002\030\000\332\333\272\023\002\020\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1338);
+      descriptor, 1341);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_google_2fprotobuf_2fdescriptor_2eproto::AddDescriptors();

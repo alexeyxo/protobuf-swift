@@ -679,15 +679,15 @@ static const int kSwiftFileOptionsFieldNumber = 5100987;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options;
-static const int kSwiftFieldOptionsFieldNumber = 510986;
+static const int kSwiftFieldOptionsFieldNumber = 5100986;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFieldOptions >, 11, false >
   swift_field_options;
-static const int kSwiftMessageOptionsFieldNumber = 510985;
+static const int kSwiftMessageOptionsFieldNumber = 5100985;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftMessageOptions >, 11, false >
   swift_message_options;
-static const int kSwiftEnumOptionsFieldNumber = 510984;
+static const int kSwiftEnumOptionsFieldNumber = 5100984;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftEnumOptions >, 11, false >
   swift_enum_options;
