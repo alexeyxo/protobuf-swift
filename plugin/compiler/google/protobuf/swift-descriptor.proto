@@ -23,6 +23,13 @@ enum AccessControl {
   InternalEntities = 0;
   PublicEntities = 1;
 }
+
+message LinkedObject {
+  required string fieldName = 1;
+  required string fromType = 2;
+  required string propertyName = 3;
+}
+
 message SwiftFileOptions {
   optional string class_prefix = 1;
   optional AccessControl entities_access_control = 2 [default = PublicEntities];
@@ -37,6 +44,7 @@ message SwiftMessageOptions {
   optional bool generate_realm_object = 2 [default = false];
   optional bool generate_react = 3 [default = false];
   optional string additional_class_name = 4;
+  repeated LinkedObject linkedObjects = 5;
 }
 
 enum RealmOverrideRepeated {

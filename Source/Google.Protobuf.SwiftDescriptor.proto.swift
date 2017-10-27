@@ -141,6 +141,337 @@ public extension Google.Protobuf {
 
     //Enum type declaration end 
 
+    final public class LinkedObject : GeneratedMessage {
+        public typealias BuilderType = Google.Protobuf.LinkedObject.Builder
+
+        public static func == (lhs: Google.Protobuf.LinkedObject, rhs: Google.Protobuf.LinkedObject) -> Bool {
+            if lhs === rhs {
+                return true
+            }
+            var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+            fieldCheck = fieldCheck && (lhs.hasFieldName == rhs.hasFieldName) && (!lhs.hasFieldName || lhs.fieldName == rhs.fieldName)
+            fieldCheck = fieldCheck && (lhs.hasFromType == rhs.hasFromType) && (!lhs.hasFromType || lhs.fromType == rhs.fromType)
+            fieldCheck = fieldCheck && (lhs.hasPropertyName == rhs.hasPropertyName) && (!lhs.hasPropertyName || lhs.propertyName == rhs.propertyName)
+            fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+            return fieldCheck
+        }
+
+        public fileprivate(set) var fieldName:String! = nil
+        public fileprivate(set) var hasFieldName:Bool = false
+
+        public fileprivate(set) var fromType:String! = nil
+        public fileprivate(set) var hasFromType:Bool = false
+
+        public fileprivate(set) var propertyName:String! = nil
+        public fileprivate(set) var hasPropertyName:Bool = false
+
+        required public init() {
+            super.init()
+        }
+        override public func isInitialized() -> Bool {
+            if !hasFieldName {
+                return false
+            }
+            if !hasFromType {
+                return false
+            }
+            if !hasPropertyName {
+                return false
+            }
+            return true
+        }
+        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+            if hasFieldName {
+                try codedOutputStream.writeString(fieldNumber: 1, value:fieldName)
+            }
+            if hasFromType {
+                try codedOutputStream.writeString(fieldNumber: 2, value:fromType)
+            }
+            if hasPropertyName {
+                try codedOutputStream.writeString(fieldNumber: 3, value:propertyName)
+            }
+            try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        }
+        override public func serializedSize() -> Int32 {
+            var serialize_size:Int32 = memoizedSerializedSize
+            if serialize_size != -1 {
+             return serialize_size
+            }
+
+            serialize_size = 0
+            if hasFieldName {
+                serialize_size += fieldName.computeStringSize(fieldNumber: 1)
+            }
+            if hasFromType {
+                serialize_size += fromType.computeStringSize(fieldNumber: 2)
+            }
+            if hasPropertyName {
+                serialize_size += propertyName.computeStringSize(fieldNumber: 3)
+            }
+            serialize_size += unknownFields.serializedSize()
+            memoizedSerializedSize = serialize_size
+            return serialize_size
+        }
+        public class func getBuilder() -> Google.Protobuf.LinkedObject.Builder {
+            return Google.Protobuf.LinkedObject.classBuilder() as! Google.Protobuf.LinkedObject.Builder
+        }
+        public func getBuilder() -> Google.Protobuf.LinkedObject.Builder {
+            return classBuilder() as! Google.Protobuf.LinkedObject.Builder
+        }
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.LinkedObject.Builder()
+        }
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.LinkedObject.Builder()
+        }
+        public func toBuilder() throws -> Google.Protobuf.LinkedObject.Builder {
+            return try Google.Protobuf.LinkedObject.builderWithPrototype(prototype:self)
+        }
+        public class func builderWithPrototype(prototype:Google.Protobuf.LinkedObject) throws -> Google.Protobuf.LinkedObject.Builder {
+            return try Google.Protobuf.LinkedObject.Builder().mergeFrom(other:prototype)
+        }
+        override public func encode() throws -> Dictionary<String,Any> {
+            guard isInitialized() else {
+                throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
+            }
+
+            var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
+            if hasFieldName {
+                jsonMap["fieldName"] = fieldName
+            }
+            if hasFromType {
+                jsonMap["fromType"] = fromType
+            }
+            if hasPropertyName {
+                jsonMap["propertyName"] = propertyName
+            }
+            return jsonMap
+        }
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.LinkedObject {
+            return try Google.Protobuf.LinkedObject.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+        }
+        override class public func fromJSON(data:Data) throws -> Google.Protobuf.LinkedObject {
+            return try Google.Protobuf.LinkedObject.Builder.fromJSONToBuilder(data:data).build()
+        }
+        override public func getDescription(indent:String) throws -> String {
+            var output = ""
+            if hasFieldName {
+                output += "\(indent) fieldName: \(fieldName) \n"
+            }
+            if hasFromType {
+                output += "\(indent) fromType: \(fromType) \n"
+            }
+            if hasPropertyName {
+                output += "\(indent) propertyName: \(propertyName) \n"
+            }
+            output += unknownFields.getDescription(indent: indent)
+            return output
+        }
+        override public var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                if hasFieldName {
+                    hashCode = (hashCode &* 31) &+ fieldName.hashValue
+                }
+                if hasFromType {
+                    hashCode = (hashCode &* 31) &+ fromType.hashValue
+                }
+                if hasPropertyName {
+                    hashCode = (hashCode &* 31) &+ propertyName.hashValue
+                }
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override public class func className() -> String {
+            return "Google.Protobuf.LinkedObject"
+        }
+        override public func className() -> String {
+            return "Google.Protobuf.LinkedObject"
+        }
+        //Meta information declaration end
+
+        final public class Builder : GeneratedMessageBuilder {
+            fileprivate var builderResult:Google.Protobuf.LinkedObject = Google.Protobuf.LinkedObject()
+            public func getMessage() -> Google.Protobuf.LinkedObject {
+                return builderResult
+            }
+
+            required override public init () {
+                super.init()
+            }
+            public var fieldName:String {
+                get {
+                    return builderResult.fieldName
+                }
+                set (value) {
+                    builderResult.hasFieldName = true
+                    builderResult.fieldName = value
+                }
+            }
+            public var hasFieldName:Bool {
+                get {
+                    return builderResult.hasFieldName
+                }
+            }
+            @discardableResult
+            public func setFieldName(_ value:String) -> Google.Protobuf.LinkedObject.Builder {
+                self.fieldName = value
+                return self
+            }
+            @discardableResult
+            public func clearFieldName() -> Google.Protobuf.LinkedObject.Builder{
+                builderResult.hasFieldName = false
+                builderResult.fieldName = nil
+                return self
+            }
+            public var fromType:String {
+                get {
+                    return builderResult.fromType
+                }
+                set (value) {
+                    builderResult.hasFromType = true
+                    builderResult.fromType = value
+                }
+            }
+            public var hasFromType:Bool {
+                get {
+                    return builderResult.hasFromType
+                }
+            }
+            @discardableResult
+            public func setFromType(_ value:String) -> Google.Protobuf.LinkedObject.Builder {
+                self.fromType = value
+                return self
+            }
+            @discardableResult
+            public func clearFromType() -> Google.Protobuf.LinkedObject.Builder{
+                builderResult.hasFromType = false
+                builderResult.fromType = nil
+                return self
+            }
+            public var propertyName:String {
+                get {
+                    return builderResult.propertyName
+                }
+                set (value) {
+                    builderResult.hasPropertyName = true
+                    builderResult.propertyName = value
+                }
+            }
+            public var hasPropertyName:Bool {
+                get {
+                    return builderResult.hasPropertyName
+                }
+            }
+            @discardableResult
+            public func setPropertyName(_ value:String) -> Google.Protobuf.LinkedObject.Builder {
+                self.propertyName = value
+                return self
+            }
+            @discardableResult
+            public func clearPropertyName() -> Google.Protobuf.LinkedObject.Builder{
+                builderResult.hasPropertyName = false
+                builderResult.propertyName = nil
+                return self
+            }
+            override public var internalGetResult:GeneratedMessage {
+                get {
+                    return builderResult
+                }
+            }
+            @discardableResult
+            override public func clear() -> Google.Protobuf.LinkedObject.Builder {
+                builderResult = Google.Protobuf.LinkedObject()
+                return self
+            }
+            override public func clone() throws -> Google.Protobuf.LinkedObject.Builder {
+                return try Google.Protobuf.LinkedObject.builderWithPrototype(prototype:builderResult)
+            }
+            override public func build() throws -> Google.Protobuf.LinkedObject {
+                try checkInitialized()
+                return buildPartial()
+            }
+            public func buildPartial() -> Google.Protobuf.LinkedObject {
+                let returnMe:Google.Protobuf.LinkedObject = builderResult
+                return returnMe
+            }
+            @discardableResult
+            public func mergeFrom(other:Google.Protobuf.LinkedObject) throws -> Google.Protobuf.LinkedObject.Builder {
+                if other == Google.Protobuf.LinkedObject() {
+                    return self
+                }
+                if other.hasFieldName {
+                    fieldName = other.fieldName
+                }
+                if other.hasFromType {
+                    fromType = other.fromType
+                }
+                if other.hasPropertyName {
+                    propertyName = other.propertyName
+                }
+                try merge(unknownField: other.unknownFields)
+                return self
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.LinkedObject.Builder {
+                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.LinkedObject.Builder {
+                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
+                while (true) {
+                    let protobufTag = try codedInputStream.readTag()
+                    switch protobufTag {
+                    case 0: 
+                        self.unknownFields = try unknownFieldsBuilder.build()
+                        return self
+
+                    case 10:
+                        fieldName = try codedInputStream.readString()
+
+                    case 18:
+                        fromType = try codedInputStream.readString()
+
+                    case 26:
+                        propertyName = try codedInputStream.readString()
+
+                    default:
+                        if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                            unknownFields = try unknownFieldsBuilder.build()
+                            return self
+                        }
+                    }
+                }
+            }
+            class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.LinkedObject.Builder {
+                let resultDecodedBuilder = Google.Protobuf.LinkedObject.Builder()
+                if let jsonValueFieldName = jsonMap["fieldName"] as? String {
+                    resultDecodedBuilder.fieldName = jsonValueFieldName
+                }
+                if let jsonValueFromType = jsonMap["fromType"] as? String {
+                    resultDecodedBuilder.fromType = jsonValueFromType
+                }
+                if let jsonValuePropertyName = jsonMap["propertyName"] as? String {
+                    resultDecodedBuilder.propertyName = jsonValuePropertyName
+                }
+                return resultDecodedBuilder
+            }
+            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.LinkedObject.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
+                  throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
+                return try Google.Protobuf.LinkedObject.Builder.decodeToBuilder(jsonMap:jsDataCast)
+            }
+        }
+
+    }
+
     final public class SwiftFileOptions : GeneratedMessage {
         public typealias BuilderType = Google.Protobuf.SwiftFileOptions.Builder
 
@@ -638,6 +969,7 @@ public extension Google.Protobuf {
             fieldCheck = fieldCheck && (lhs.hasGenerateRealmObject == rhs.hasGenerateRealmObject) && (!lhs.hasGenerateRealmObject || lhs.generateRealmObject == rhs.generateRealmObject)
             fieldCheck = fieldCheck && (lhs.hasGenerateReact == rhs.hasGenerateReact) && (!lhs.hasGenerateReact || lhs.generateReact == rhs.generateReact)
             fieldCheck = fieldCheck && (lhs.hasAdditionalClassName == rhs.hasAdditionalClassName) && (!lhs.hasAdditionalClassName || lhs.additionalClassName == rhs.additionalClassName)
+            fieldCheck = fieldCheck && (lhs.linkedObjects == rhs.linkedObjects)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
             return fieldCheck
         }
@@ -654,10 +986,21 @@ public extension Google.Protobuf {
         public fileprivate(set) var additionalClassName:String! = nil
         public fileprivate(set) var hasAdditionalClassName:Bool = false
 
+        public fileprivate(set) var linkedObjects:Array<Google.Protobuf.LinkedObject>  = Array<Google.Protobuf.LinkedObject>()
         required public init() {
             super.init()
         }
         override public func isInitialized() -> Bool {
+            var isInitLinkedObjects:Bool = true
+            for oneElementLinkedObjects in linkedObjects {
+                if !oneElementLinkedObjects.isInitialized() {
+                    isInitLinkedObjects = false
+                    break 
+                }
+            }
+            if !isInitLinkedObjects {
+                return isInitLinkedObjects
+            }
             return true
         }
         override public func writeTo(codedOutputStream: CodedOutputStream) throws {
@@ -672,6 +1015,9 @@ public extension Google.Protobuf {
             }
             if hasAdditionalClassName {
                 try codedOutputStream.writeString(fieldNumber: 4, value:additionalClassName)
+            }
+            for oneElementLinkedObjects in linkedObjects {
+                  try codedOutputStream.writeMessage(fieldNumber: 5, value:oneElementLinkedObjects)
             }
             try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
@@ -693,6 +1039,9 @@ public extension Google.Protobuf {
             }
             if hasAdditionalClassName {
                 serialize_size += additionalClassName.computeStringSize(fieldNumber: 4)
+            }
+            for oneElementLinkedObjects in linkedObjects {
+                serialize_size += oneElementLinkedObjects.computeMessageSize(fieldNumber: 5)
             }
             serialize_size += unknownFields.serializedSize()
             memoizedSerializedSize = serialize_size
@@ -734,6 +1083,14 @@ public extension Google.Protobuf {
             if hasAdditionalClassName {
                 jsonMap["additionalClassName"] = additionalClassName
             }
+            if !linkedObjects.isEmpty {
+                var jsonArrayLinkedObjects:Array<Dictionary<String,Any>> = []
+                for oneValueLinkedObjects in linkedObjects {
+                    let ecodedMessageLinkedObjects = try oneValueLinkedObjects.encode()
+                    jsonArrayLinkedObjects.append(ecodedMessageLinkedObjects)
+                }
+                jsonMap["linkedObjects"] = jsonArrayLinkedObjects
+            }
             return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.SwiftMessageOptions {
@@ -756,6 +1113,13 @@ public extension Google.Protobuf {
             if hasAdditionalClassName {
                 output += "\(indent) additionalClassName: \(additionalClassName) \n"
             }
+            var linkedObjectsElementIndex:Int = 0
+            for oneElementLinkedObjects in linkedObjects {
+                output += "\(indent) linkedObjects[\(linkedObjectsElementIndex)] {\n"
+                output += try oneElementLinkedObjects.getDescription(indent: "\(indent)  ")
+                output += "\(indent)}\n"
+                linkedObjectsElementIndex += 1
+            }
             output += unknownFields.getDescription(indent: indent)
             return output
         }
@@ -773,6 +1137,9 @@ public extension Google.Protobuf {
                 }
                 if hasAdditionalClassName {
                     hashCode = (hashCode &* 31) &+ additionalClassName.hashValue
+                }
+                for oneElementLinkedObjects in linkedObjects {
+                    hashCode = (hashCode &* 31) &+ oneElementLinkedObjects.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -899,6 +1266,24 @@ public extension Google.Protobuf {
                 builderResult.additionalClassName = nil
                 return self
             }
+            public var linkedObjects:Array<Google.Protobuf.LinkedObject> {
+                get {
+                    return builderResult.linkedObjects
+                }
+                set (value) {
+                    builderResult.linkedObjects = value
+                }
+            }
+            @discardableResult
+            public func setLinkedObjects(_ value:Array<Google.Protobuf.LinkedObject>) -> Google.Protobuf.SwiftMessageOptions.Builder {
+                self.linkedObjects = value
+                return self
+            }
+            @discardableResult
+            public func clearLinkedObjects() -> Google.Protobuf.SwiftMessageOptions.Builder {
+                builderResult.linkedObjects.removeAll(keepingCapacity: false)
+                return self
+            }
             override public var internalGetResult:GeneratedMessage {
                 get {
                     return builderResult
@@ -937,6 +1322,9 @@ public extension Google.Protobuf {
                 if other.hasAdditionalClassName {
                     additionalClassName = other.additionalClassName
                 }
+                if !other.linkedObjects.isEmpty  {
+                     builderResult.linkedObjects += other.linkedObjects
+                }
                 try merge(unknownField: other.unknownFields)
                 return self
             }
@@ -966,6 +1354,11 @@ public extension Google.Protobuf {
                     case 34:
                         additionalClassName = try codedInputStream.readString()
 
+                    case 42:
+                        let subBuilder = Google.Protobuf.LinkedObject.Builder()
+                        try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                        linkedObjects.append(subBuilder.buildPartial())
+
                     default:
                         if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                             unknownFields = try unknownFieldsBuilder.build()
@@ -987,6 +1380,15 @@ public extension Google.Protobuf {
                 }
                 if let jsonValueAdditionalClassName = jsonMap["additionalClassName"] as? String {
                     resultDecodedBuilder.additionalClassName = jsonValueAdditionalClassName
+                }
+                if let jsonValueLinkedObjects = jsonMap["linkedObjects"] as? Array<Dictionary<String,Any>> {
+                    var jsonArrayLinkedObjects:Array<Google.Protobuf.LinkedObject> = []
+                    for oneValueLinkedObjects in jsonValueLinkedObjects {
+                        let messageFromStringLinkedObjects = try Google.Protobuf.LinkedObject.Builder.decodeToBuilder(jsonMap:oneValueLinkedObjects).build()
+
+                        jsonArrayLinkedObjects.append(messageFromStringLinkedObjects)
+                    }
+                    resultDecodedBuilder.linkedObjects = jsonArrayLinkedObjects
                 }
                 return resultDecodedBuilder
             }
@@ -1650,6 +2052,77 @@ public extension Google.Protobuf {
     }
 
 }
+extension Google.Protobuf.LinkedObject: GeneratedMessageProtocol {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.LinkedObject> {
+        var mergedArray = Array<Google.Protobuf.LinkedObject>()
+        while let value = try parseDelimitedFrom(inputStream: inputStream) {
+          mergedArray.append(value)
+        }
+        return mergedArray
+    }
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.LinkedObject? {
+        return try Google.Protobuf.LinkedObject.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+    }
+    public class func parseFrom(data: Data) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.SwiftDescriptorRoot.default.extensionRegistry).build()
+    }
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(inputStream: inputStream).build()
+    }
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.LinkedObject {
+        return try Google.Protobuf.LinkedObject.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public subscript(key: String) -> Any? {
+        switch key {
+        case "fieldName": return self.fieldName
+        case "fromType": return self.fromType
+        case "propertyName": return self.propertyName
+        default: return nil
+        }
+    }
+}
+extension Google.Protobuf.LinkedObject.Builder: GeneratedMessageBuilderProtocol {
+    public typealias GeneratedMessageType = Google.Protobuf.LinkedObject
+    public subscript(key: String) -> Any? {
+        get { 
+            switch key {
+            case "fieldName": return self.fieldName
+            case "fromType": return self.fromType
+            case "propertyName": return self.propertyName
+            default: return nil
+            }
+        }
+        set (newSubscriptValue) { 
+            switch key {
+            case "fieldName":
+                guard let newSubscriptValue = newSubscriptValue as? String else {
+                    return
+                }
+                self.fieldName = newSubscriptValue
+            case "fromType":
+                guard let newSubscriptValue = newSubscriptValue as? String else {
+                    return
+                }
+                self.fromType = newSubscriptValue
+            case "propertyName":
+                guard let newSubscriptValue = newSubscriptValue as? String else {
+                    return
+                }
+                self.propertyName = newSubscriptValue
+            default: return
+            }
+        }
+    }
+}
 extension Google.Protobuf.SwiftFileOptions: GeneratedMessageProtocol {
     public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.SwiftFileOptions> {
         var mergedArray = Array<Google.Protobuf.SwiftFileOptions>()
@@ -1777,6 +2250,7 @@ extension Google.Protobuf.SwiftMessageOptions: GeneratedMessageProtocol {
         case "generateRealmObject": return self.generateRealmObject
         case "generateReact": return self.generateReact
         case "additionalClassName": return self.additionalClassName
+        case "linkedObjects": return self.linkedObjects
         default: return nil
         }
     }
@@ -1790,6 +2264,7 @@ extension Google.Protobuf.SwiftMessageOptions.Builder: GeneratedMessageBuilderPr
             case "generateRealmObject": return self.generateRealmObject
             case "generateReact": return self.generateReact
             case "additionalClassName": return self.additionalClassName
+            case "linkedObjects": return self.linkedObjects
             default: return nil
             }
         }
@@ -1815,6 +2290,11 @@ extension Google.Protobuf.SwiftMessageOptions.Builder: GeneratedMessageBuilderPr
                     return
                 }
                 self.additionalClassName = newSubscriptValue
+            case "linkedObjects":
+                guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.LinkedObject> else {
+                    return
+                }
+                self.linkedObjects = newSubscriptValue
             default: return
             }
         }

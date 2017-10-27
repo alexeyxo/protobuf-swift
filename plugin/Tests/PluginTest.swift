@@ -20,8 +20,10 @@ class PluginTest: XCTestCase {
         generate.forEach({ file in
             file.messageType.forEach({ message in
                 if message.options != nil {
-                    if message.options.hasExtension(extensions: Google.Protobuf.SwiftDescriptorRoot.swiftMessageOptions()), let option = message.options.getExtension(extensions: Google.Protobuf.SwiftDescriptorRoot.swiftMessageOptions()) as? Google.Protobuf.SwiftMessageOptions {
-                        print(option.generateRealmObject)
+                    if message.options.hasExtension(extensions: Google.Protobuf.SwiftDescriptorRoot.swiftMessageOptions()) {
+                        if let option = message.options.getExtension(extensions: Google.Protobuf.SwiftDescriptorRoot.swiftMessageOptions()) as? Google.Protobuf.SwiftMessageOptions {
+                            print(option.generateRealmObject)
+                        }
                     }
                 }
             })
