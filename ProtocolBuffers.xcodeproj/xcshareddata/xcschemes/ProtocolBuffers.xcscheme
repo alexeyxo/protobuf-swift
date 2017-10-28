@@ -38,41 +38,6 @@
                BlueprintName = "Tests"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "CodedInputStreamTests">
-               </Test>
-               <Test
-                  Identifier = "CodedOuputStreamTests">
-               </Test>
-               <Test
-                  Identifier = "ErrorHandlingTest">
-               </Test>
-               <Test
-                  Identifier = "GeneratedMessageTests">
-               </Test>
-               <Test
-                  Identifier = "MapFieldsTests">
-               </Test>
-               <Test
-                  Identifier = "MessageTests">
-               </Test>
-               <Test
-                  Identifier = "ProtocolBuffersTests">
-               </Test>
-               <Test
-                  Identifier = "RegularPointEqualityTest">
-               </Test>
-               <Test
-                  Identifier = "SizeTest">
-               </Test>
-               <Test
-                  Identifier = "UnknowFieldsTests">
-               </Test>
-               <Test
-                  Identifier = "WireFormatTests">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
