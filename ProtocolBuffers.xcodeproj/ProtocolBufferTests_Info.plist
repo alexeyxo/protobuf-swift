@@ -12,7 +12,7 @@
   <key>CFBundleName</key>
   <string>$(PRODUCT_NAME)</string>
   <key>CFBundlePackageType</key>
-  <string>FMWK</string>
+  <string>BNDL</string>
   <key>CFBundleShortVersionString</key>
   <string>1.0</string>
   <key>CFBundleSignature</key>
