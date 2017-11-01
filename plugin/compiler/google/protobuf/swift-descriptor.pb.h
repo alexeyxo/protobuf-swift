@@ -34,6 +34,9 @@
 // @@protoc_insertion_point(includes)
 namespace google {
 namespace protobuf {
+class LinkedObject;
+class LinkedObjectDefaultTypeInternal;
+extern LinkedObjectDefaultTypeInternal _LinkedObject_default_instance_;
 class SwiftEnumOptions;
 class SwiftEnumOptionsDefaultTypeInternal;
 extern SwiftEnumOptionsDefaultTypeInternal _SwiftEnumOptions_default_instance_;
@@ -107,6 +110,161 @@ inline bool RealmOverrideRepeated_Parse(
 }
 // ===================================================================
 
+class LinkedObject : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.LinkedObject) */ {
+ public:
+  LinkedObject();
+  virtual ~LinkedObject();
+
+  LinkedObject(const LinkedObject& from);
+
+  inline LinkedObject& operator=(const LinkedObject& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LinkedObject(LinkedObject&& from) noexcept
+    : LinkedObject() {
+    *this = ::std::move(from);
+  }
+
+  inline LinkedObject& operator=(LinkedObject&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LinkedObject& default_instance();
+
+  static inline const LinkedObject* internal_default_instance() {
+    return reinterpret_cast<const LinkedObject*>(
+               &_LinkedObject_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    0;
+
+  void Swap(LinkedObject* other);
+  friend void swap(LinkedObject& a, LinkedObject& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LinkedObject* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  LinkedObject* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LinkedObject& from);
+  void MergeFrom(const LinkedObject& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LinkedObject* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string fieldName = 1;
+  bool has_fieldname() const;
+  void clear_fieldname();
+  static const int kFieldNameFieldNumber = 1;
+  const ::std::string& fieldname() const;
+  void set_fieldname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_fieldname(::std::string&& value);
+  #endif
+  void set_fieldname(const char* value);
+  void set_fieldname(const char* value, size_t size);
+  ::std::string* mutable_fieldname();
+  ::std::string* release_fieldname();
+  void set_allocated_fieldname(::std::string* fieldname);
+
+  // required string fromType = 2;
+  bool has_fromtype() const;
+  void clear_fromtype();
+  static const int kFromTypeFieldNumber = 2;
+  const ::std::string& fromtype() const;
+  void set_fromtype(const ::std::string& value);
+  #if LANG_CXX11
+  void set_fromtype(::std::string&& value);
+  #endif
+  void set_fromtype(const char* value);
+  void set_fromtype(const char* value, size_t size);
+  ::std::string* mutable_fromtype();
+  ::std::string* release_fromtype();
+  void set_allocated_fromtype(::std::string* fromtype);
+
+  // required string propertyName = 3;
+  bool has_propertyname() const;
+  void clear_propertyname();
+  static const int kPropertyNameFieldNumber = 3;
+  const ::std::string& propertyname() const;
+  void set_propertyname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_propertyname(::std::string&& value);
+  #endif
+  void set_propertyname(const char* value);
+  void set_propertyname(const char* value, size_t size);
+  ::std::string* mutable_propertyname();
+  ::std::string* release_propertyname();
+  void set_allocated_propertyname(::std::string* propertyname);
+
+  // @@protoc_insertion_point(class_scope:google.protobuf.LinkedObject)
+ private:
+  void set_has_fieldname();
+  void clear_has_fieldname();
+  void set_has_fromtype();
+  void clear_has_fromtype();
+  void set_has_propertyname();
+  void clear_has_propertyname();
+
+  // helper for ByteSizeLong()
+  size_t RequiredFieldsByteSizeFallback() const;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr fieldname_;
+  ::google::protobuf::internal::ArenaStringPtr fromtype_;
+  ::google::protobuf::internal::ArenaStringPtr propertyname_;
+  friend struct protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class SwiftFileOptions : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:google.protobuf.SwiftFileOptions) */ {
  public:
   SwiftFileOptions();
@@ -148,7 +306,7 @@ class SwiftFileOptions : public ::google::protobuf::Message /* @@protoc_insertio
                &_SwiftFileOptions_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    0;
+    1;
 
   void Swap(SwiftFileOptions* other);
   friend void swap(SwiftFileOptions& a, SwiftFileOptions& b) {
@@ -314,7 +472,7 @@ class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_inser
                &_SwiftMessageOptions_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(SwiftMessageOptions* other);
   friend void swap(SwiftMessageOptions& a, SwiftMessageOptions& b) {
@@ -361,6 +519,33 @@ class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_inser
 
   // accessors -------------------------------------------------------
 
+  // repeated .google.protobuf.LinkedObject linkedObjects = 5;
+  int linkedobjects_size() const;
+  void clear_linkedobjects();
+  static const int kLinkedObjectsFieldNumber = 5;
+  const ::google::protobuf::LinkedObject& linkedobjects(int index) const;
+  ::google::protobuf::LinkedObject* mutable_linkedobjects(int index);
+  ::google::protobuf::LinkedObject* add_linkedobjects();
+  ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >*
+      mutable_linkedobjects();
+  const ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >&
+      linkedobjects() const;
+
+  // optional string additional_class_name = 4;
+  bool has_additional_class_name() const;
+  void clear_additional_class_name();
+  static const int kAdditionalClassNameFieldNumber = 4;
+  const ::std::string& additional_class_name() const;
+  void set_additional_class_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_additional_class_name(::std::string&& value);
+  #endif
+  void set_additional_class_name(const char* value);
+  void set_additional_class_name(const char* value, size_t size);
+  ::std::string* mutable_additional_class_name();
+  ::std::string* release_additional_class_name();
+  void set_allocated_additional_class_name(::std::string* additional_class_name);
+
   // optional bool generate_error_type = 1 [default = false];
   bool has_generate_error_type() const;
   void clear_generate_error_type();
@@ -375,10 +560,10 @@ class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_inser
   bool generate_realm_object() const;
   void set_generate_realm_object(bool value);
 
-  // optional bool generate_react = 5 [default = false];
+  // optional bool generate_react = 3 [default = false];
   bool has_generate_react() const;
   void clear_generate_react();
-  static const int kGenerateReactFieldNumber = 5;
+  static const int kGenerateReactFieldNumber = 3;
   bool generate_react() const;
   void set_generate_react(bool value);
 
@@ -390,10 +575,14 @@ class SwiftMessageOptions : public ::google::protobuf::Message /* @@protoc_inser
   void clear_has_generate_realm_object();
   void set_has_generate_react();
   void clear_has_generate_react();
+  void set_has_additional_class_name();
+  void clear_has_additional_class_name();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject > linkedobjects_;
+  ::google::protobuf::internal::ArenaStringPtr additional_class_name_;
   bool generate_error_type_;
   bool generate_realm_object_;
   bool generate_react_;
@@ -442,7 +631,7 @@ class SwiftFieldOptions : public ::google::protobuf::Message /* @@protoc_inserti
                &_SwiftFieldOptions_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(SwiftFieldOptions* other);
   friend void swap(SwiftFieldOptions& a, SwiftFieldOptions& b) {
@@ -570,7 +759,7 @@ class SwiftEnumOptions : public ::google::protobuf::Message /* @@protoc_insertio
                &_SwiftEnumOptions_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(SwiftEnumOptions* other);
   friend void swap(SwiftEnumOptions& a, SwiftEnumOptions& b) {
@@ -657,19 +846,19 @@ class SwiftEnumOptions : public ::google::protobuf::Message /* @@protoc_insertio
 };
 // ===================================================================
 
-static const int kSwiftFileOptionsFieldNumber = 5092014;
+static const int kSwiftFileOptionsFieldNumber = 5100987;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FileOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFileOptions >, 11, false >
   swift_file_options;
-static const int kSwiftFieldOptionsFieldNumber = 5092015;
+static const int kSwiftFieldOptionsFieldNumber = 5100986;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::FieldOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftFieldOptions >, 11, false >
   swift_field_options;
-static const int kSwiftMessageOptionsFieldNumber = 5092016;
+static const int kSwiftMessageOptionsFieldNumber = 5100985;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::MessageOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftMessageOptions >, 11, false >
   swift_message_options;
-static const int kSwiftEnumOptionsFieldNumber = 5092015;
+static const int kSwiftEnumOptionsFieldNumber = 5100984;
 extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::EnumOptions,
     ::google::protobuf::internal::MessageTypeTraits< ::google::protobuf::SwiftEnumOptions >, 11, false >
   swift_enum_options;
@@ -681,6 +870,199 @@ extern ::google::protobuf::internal::ExtensionIdentifier< ::google::protobuf::En
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// LinkedObject
+
+// required string fieldName = 1;
+inline bool LinkedObject::has_fieldname() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LinkedObject::set_has_fieldname() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LinkedObject::clear_has_fieldname() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LinkedObject::clear_fieldname() {
+  fieldname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fieldname();
+}
+inline const ::std::string& LinkedObject::fieldname() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.fieldName)
+  return fieldname_.GetNoArena();
+}
+inline void LinkedObject::set_fieldname(const ::std::string& value) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.fieldName)
+}
+#if LANG_CXX11
+inline void LinkedObject::set_fieldname(::std::string&& value) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.fieldName)
+}
+#endif
+inline void LinkedObject::set_fieldname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.fieldName)
+}
+inline void LinkedObject::set_fieldname(const char* value, size_t size) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.fieldName)
+}
+inline ::std::string* LinkedObject::mutable_fieldname() {
+  set_has_fieldname();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.fieldName)
+  return fieldname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LinkedObject::release_fieldname() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.fieldName)
+  clear_has_fieldname();
+  return fieldname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LinkedObject::set_allocated_fieldname(::std::string* fieldname) {
+  if (fieldname != NULL) {
+    set_has_fieldname();
+  } else {
+    clear_has_fieldname();
+  }
+  fieldname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fieldname);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.fieldName)
+}
+
+// required string fromType = 2;
+inline bool LinkedObject::has_fromtype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LinkedObject::set_has_fromtype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LinkedObject::clear_has_fromtype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LinkedObject::clear_fromtype() {
+  fromtype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fromtype();
+}
+inline const ::std::string& LinkedObject::fromtype() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.fromType)
+  return fromtype_.GetNoArena();
+}
+inline void LinkedObject::set_fromtype(const ::std::string& value) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.fromType)
+}
+#if LANG_CXX11
+inline void LinkedObject::set_fromtype(::std::string&& value) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.fromType)
+}
+#endif
+inline void LinkedObject::set_fromtype(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.fromType)
+}
+inline void LinkedObject::set_fromtype(const char* value, size_t size) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.fromType)
+}
+inline ::std::string* LinkedObject::mutable_fromtype() {
+  set_has_fromtype();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.fromType)
+  return fromtype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LinkedObject::release_fromtype() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.fromType)
+  clear_has_fromtype();
+  return fromtype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LinkedObject::set_allocated_fromtype(::std::string* fromtype) {
+  if (fromtype != NULL) {
+    set_has_fromtype();
+  } else {
+    clear_has_fromtype();
+  }
+  fromtype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fromtype);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.fromType)
+}
+
+// required string propertyName = 3;
+inline bool LinkedObject::has_propertyname() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LinkedObject::set_has_propertyname() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LinkedObject::clear_has_propertyname() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LinkedObject::clear_propertyname() {
+  propertyname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_propertyname();
+}
+inline const ::std::string& LinkedObject::propertyname() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.propertyName)
+  return propertyname_.GetNoArena();
+}
+inline void LinkedObject::set_propertyname(const ::std::string& value) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.propertyName)
+}
+#if LANG_CXX11
+inline void LinkedObject::set_propertyname(::std::string&& value) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.propertyName)
+}
+#endif
+inline void LinkedObject::set_propertyname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.propertyName)
+}
+inline void LinkedObject::set_propertyname(const char* value, size_t size) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.propertyName)
+}
+inline ::std::string* LinkedObject::mutable_propertyname() {
+  set_has_propertyname();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.propertyName)
+  return propertyname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LinkedObject::release_propertyname() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.propertyName)
+  clear_has_propertyname();
+  return propertyname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LinkedObject::set_allocated_propertyname(::std::string* propertyname) {
+  if (propertyname != NULL) {
+    set_has_propertyname();
+  } else {
+    clear_has_propertyname();
+  }
+  propertyname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), propertyname);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.propertyName)
+}
+
+// -------------------------------------------------------------------
+
 // SwiftFileOptions
 
 // optional string class_prefix = 1;
@@ -873,13 +1255,13 @@ inline void SwiftFileOptions::set_generate_react(bool value) {
 
 // optional bool generate_error_type = 1 [default = false];
 inline bool SwiftMessageOptions::has_generate_error_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void SwiftMessageOptions::set_has_generate_error_type() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void SwiftMessageOptions::clear_has_generate_error_type() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void SwiftMessageOptions::clear_generate_error_type() {
   generate_error_type_ = false;
@@ -897,13 +1279,13 @@ inline void SwiftMessageOptions::set_generate_error_type(bool value) {
 
 // optional bool generate_realm_object = 2 [default = false];
 inline bool SwiftMessageOptions::has_generate_realm_object() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void SwiftMessageOptions::set_has_generate_realm_object() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void SwiftMessageOptions::clear_has_generate_realm_object() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void SwiftMessageOptions::clear_generate_realm_object() {
   generate_realm_object_ = false;
@@ -919,15 +1301,15 @@ inline void SwiftMessageOptions::set_generate_realm_object(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_realm_object)
 }
 
-// optional bool generate_react = 5 [default = false];
+// optional bool generate_react = 3 [default = false];
 inline bool SwiftMessageOptions::has_generate_react() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void SwiftMessageOptions::set_has_generate_react() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void SwiftMessageOptions::clear_has_generate_react() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void SwiftMessageOptions::clear_generate_react() {
   generate_react_ = false;
@@ -941,6 +1323,99 @@ inline void SwiftMessageOptions::set_generate_react(bool value) {
   set_has_generate_react();
   generate_react_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_react)
+}
+
+// optional string additional_class_name = 4;
+inline bool SwiftMessageOptions::has_additional_class_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SwiftMessageOptions::set_has_additional_class_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SwiftMessageOptions::clear_has_additional_class_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SwiftMessageOptions::clear_additional_class_name() {
+  additional_class_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_additional_class_name();
+}
+inline const ::std::string& SwiftMessageOptions::additional_class_name() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.additional_class_name)
+  return additional_class_name_.GetNoArena();
+}
+inline void SwiftMessageOptions::set_additional_class_name(const ::std::string& value) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+#if LANG_CXX11
+inline void SwiftMessageOptions::set_additional_class_name(::std::string&& value) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+#endif
+inline void SwiftMessageOptions::set_additional_class_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+inline void SwiftMessageOptions::set_additional_class_name(const char* value, size_t size) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+inline ::std::string* SwiftMessageOptions::mutable_additional_class_name() {
+  set_has_additional_class_name();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.SwiftMessageOptions.additional_class_name)
+  return additional_class_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SwiftMessageOptions::release_additional_class_name() {
+  // @@protoc_insertion_point(field_release:google.protobuf.SwiftMessageOptions.additional_class_name)
+  clear_has_additional_class_name();
+  return additional_class_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SwiftMessageOptions::set_allocated_additional_class_name(::std::string* additional_class_name) {
+  if (additional_class_name != NULL) {
+    set_has_additional_class_name();
+  } else {
+    clear_has_additional_class_name();
+  }
+  additional_class_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), additional_class_name);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+
+// repeated .google.protobuf.LinkedObject linkedObjects = 5;
+inline int SwiftMessageOptions::linkedobjects_size() const {
+  return linkedobjects_.size();
+}
+inline void SwiftMessageOptions::clear_linkedobjects() {
+  linkedobjects_.Clear();
+}
+inline const ::google::protobuf::LinkedObject& SwiftMessageOptions::linkedobjects(int index) const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Get(index);
+}
+inline ::google::protobuf::LinkedObject* SwiftMessageOptions::mutable_linkedobjects(int index) {
+  // @@protoc_insertion_point(field_mutable:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Mutable(index);
+}
+inline ::google::protobuf::LinkedObject* SwiftMessageOptions::add_linkedobjects() {
+  // @@protoc_insertion_point(field_add:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >*
+SwiftMessageOptions::mutable_linkedobjects() {
+  // @@protoc_insertion_point(field_mutable_list:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return &linkedobjects_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >&
+SwiftMessageOptions::linkedobjects() const {
+  // @@protoc_insertion_point(field_list:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_;
 }
 
 // -------------------------------------------------------------------
@@ -1100,6 +1575,8 @@ inline void SwiftEnumOptions::set_generate_realm_object(bool value) {
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

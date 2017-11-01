@@ -19,6 +19,11 @@
 
 namespace google {
 namespace protobuf {
+class LinkedObjectDefaultTypeInternal {
+public:
+ ::google::protobuf::internal::ExplicitlyConstructed<LinkedObject>
+     _instance;
+} _LinkedObject_default_instance_;
 class SwiftFileOptionsDefaultTypeInternal {
 public:
  ::google::protobuf::internal::ExplicitlyConstructed<SwiftFileOptions>
@@ -45,7 +50,7 @@ namespace protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[4];
+::google::protobuf::Metadata file_level_metadata[5];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 }  // namespace
@@ -65,9 +70,21 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
   { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
+  { NULL, NULL, 0, -1, -1, -1, -1, NULL, false },
 };
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LinkedObject, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LinkedObject, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LinkedObject, fieldname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LinkedObject, fromtype_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LinkedObject, propertyname_),
+  0,
+  1,
+  2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFileOptions, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -93,9 +110,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_error_type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_realm_object_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, generate_react_),
-  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, additional_class_name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftMessageOptions, linkedobjects_),
   1,
   2,
+  3,
+  0,
+  ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SwiftFieldOptions, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -120,13 +141,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_ATTRIBUTE_SECTION
   2,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 11, sizeof(SwiftFileOptions)},
-  { 17, 25, sizeof(SwiftMessageOptions)},
-  { 28, 36, sizeof(SwiftFieldOptions)},
-  { 39, 47, sizeof(SwiftEnumOptions)},
+  { 0, 8, sizeof(LinkedObject)},
+  { 11, 22, sizeof(SwiftFileOptions)},
+  { 28, 38, sizeof(SwiftMessageOptions)},
+  { 43, 51, sizeof(SwiftFieldOptions)},
+  { 54, 62, sizeof(SwiftEnumOptions)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&_LinkedObject_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftFileOptions_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftMessageOptions_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_SwiftFieldOptions_default_instance_),
@@ -151,7 +174,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 4);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 5);
 }
 
 }  // namespace
@@ -160,7 +183,9 @@ void TableStruct::InitDefaultsImpl() {
 
   ::google::protobuf::internal::InitProtobufDefaults();
   ::google::protobuf::protobuf_google_2fprotobuf_2fdescriptor_2eproto::InitDefaults();
-  _SwiftFileOptions_default_instance_._instance.DefaultConstruct();
+  _LinkedObject_default_instance_._instance.DefaultConstruct();
+  ::google::protobuf::internal::OnShutdownDestroyMessage(
+      &_LinkedObject_default_instance_);_SwiftFileOptions_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_SwiftFileOptions_default_instance_);_SwiftMessageOptions_default_instance_._instance.DefaultConstruct();
   ::google::protobuf::internal::OnShutdownDestroyMessage(
@@ -170,19 +195,19 @@ void TableStruct::InitDefaultsImpl() {
   ::google::protobuf::internal::OnShutdownDestroyMessage(
       &_SwiftEnumOptions_default_instance_);::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::FileOptions::internal_default_instance(),
-    5092014, 11, false, false,
+    5100987, 11, false, false,
     ::google::protobuf::SwiftFileOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::FieldOptions::internal_default_instance(),
-    5092015, 11, false, false,
+    5100986, 11, false, false,
     ::google::protobuf::SwiftFieldOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::MessageOptions::internal_default_instance(),
-    5092016, 11, false, false,
+    5100985, 11, false, false,
     ::google::protobuf::SwiftMessageOptions::internal_default_instance());
   ::google::protobuf::internal::ExtensionSet::RegisterMessageExtension(
     ::google::protobuf::EnumOptions::internal_default_instance(),
-    5092015, 11, false, false,
+    5100984, 11, false, false,
     ::google::protobuf::SwiftEnumOptions::internal_default_instance());
 }
 
@@ -196,40 +221,44 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n&google/protobuf/swift-descriptor.proto"
       "\022\017google.protobuf\032 google/protobuf/descr"
-      "iptor.proto\"\204\002\n\020SwiftFileOptions\022\024\n\014clas"
-      "s_prefix\030\001 \001(\t\022O\n\027entities_access_contro"
-      "l\030\002 \001(\0162\036.google.protobuf.AccessControl:"
-      "\016PublicEntities\022#\n\025compile_for_framework"
-      "\030\003 \001(\010:\004true\022\036\n\017generate_struct\030\004 \001(\010:\005f"
-      "alse\022%\n\026generate_realm_objects\030\005 \001(\010:\005fa"
-      "lse\022\035\n\016generate_react\030\006 \001(\010:\005false\"~\n\023Sw"
-      "iftMessageOptions\022\"\n\023generate_error_type"
-      "\030\001 \001(\010:\005false\022$\n\025generate_realm_object\030\002"
-      " \001(\010:\005false\022\035\n\016generate_react\030\005 \001(\010:\005fal"
-      "se\"\261\001\n\021SwiftFieldOptions\022&\n\027realm_indexe"
-      "d_propertie\030\001 \001(\010:\005false\022 \n\021realm_primar"
-      "y_key\030\002 \001(\010:\005false\022R\n\030realm_override_pro"
-      "pertie\030\003 \001(\0162&.google.protobuf.RealmOver"
-      "rideRepeated:\010OVERRIDE\"{\n\020SwiftEnumOptio"
-      "ns\022\"\n\023generate_error_type\030\001 \001(\010:\005false\022\035"
-      "\n\016generate_react\030\002 \001(\010:\005false\022$\n\025generat"
-      "e_realm_object\030\003 \001(\010:\005false*9\n\rAccessCon"
-      "trol\022\024\n\020InternalEntities\020\000\022\022\n\016PublicEnti"
-      "ties\020\001*1\n\025RealmOverrideRepeated\022\014\n\010OVERR"
-      "IDE\020\000\022\n\n\006APPEND\020\001:^\n\022swift_file_options\022"
-      "\034.google.protobuf.FileOptions\030\256\345\266\002 \001(\0132!"
-      ".google.protobuf.SwiftFileOptions:a\n\023swi"
-      "ft_field_options\022\035.google.protobuf.Field"
-      "Options\030\257\345\266\002 \001(\0132\".google.protobuf.Swift"
-      "FieldOptions:g\n\025swift_message_options\022\037."
-      "google.protobuf.MessageOptions\030\260\345\266\002 \001(\0132"
-      "$.google.protobuf.SwiftMessageOptions:^\n"
-      "\022swift_enum_options\022\034.google.protobuf.En"
-      "umOptions\030\257\345\266\002 \001(\0132!.google.protobuf.Swi"
-      "ftEnumOptionsB\016\362\252\266\023\002\030\000\362\252\266\023\002\020\001"
+      "iptor.proto\"I\n\014LinkedObject\022\021\n\tfieldName"
+      "\030\001 \002(\t\022\020\n\010fromType\030\002 \002(\t\022\024\n\014propertyName"
+      "\030\003 \002(\t\"\204\002\n\020SwiftFileOptions\022\024\n\014class_pre"
+      "fix\030\001 \001(\t\022O\n\027entities_access_control\030\002 \001"
+      "(\0162\036.google.protobuf.AccessControl:\016Publ"
+      "icEntities\022#\n\025compile_for_framework\030\003 \001("
+      "\010:\004true\022\036\n\017generate_struct\030\004 \001(\010:\005false\022"
+      "%\n\026generate_realm_objects\030\005 \001(\010:\005false\022\035"
+      "\n\016generate_react\030\006 \001(\010:\005false\"\323\001\n\023SwiftM"
+      "essageOptions\022\"\n\023generate_error_type\030\001 \001"
+      "(\010:\005false\022$\n\025generate_realm_object\030\002 \001(\010"
+      ":\005false\022\035\n\016generate_react\030\003 \001(\010:\005false\022\035"
+      "\n\025additional_class_name\030\004 \001(\t\0224\n\rlinkedO"
+      "bjects\030\005 \003(\0132\035.google.protobuf.LinkedObj"
+      "ect\"\261\001\n\021SwiftFieldOptions\022&\n\027realm_index"
+      "ed_propertie\030\001 \001(\010:\005false\022 \n\021realm_prima"
+      "ry_key\030\002 \001(\010:\005false\022R\n\030realm_override_pr"
+      "opertie\030\003 \001(\0162&.google.protobuf.RealmOve"
+      "rrideRepeated:\010OVERRIDE\"{\n\020SwiftEnumOpti"
+      "ons\022\"\n\023generate_error_type\030\001 \001(\010:\005false\022"
+      "\035\n\016generate_react\030\002 \001(\010:\005false\022$\n\025genera"
+      "te_realm_object\030\003 \001(\010:\005false*9\n\rAccessCo"
+      "ntrol\022\024\n\020InternalEntities\020\000\022\022\n\016PublicEnt"
+      "ities\020\001*1\n\025RealmOverrideRepeated\022\014\n\010OVER"
+      "RIDE\020\000\022\n\n\006APPEND\020\001:^\n\022swift_file_options"
+      "\022\034.google.protobuf.FileOptions\030\273\253\267\002 \001(\0132"
+      "!.google.protobuf.SwiftFileOptions:a\n\023sw"
+      "ift_field_options\022\035.google.protobuf.Fiel"
+      "dOptions\030\272\253\267\002 \001(\0132\".google.protobuf.Swif"
+      "tFieldOptions:g\n\025swift_message_options\022\037"
+      ".google.protobuf.MessageOptions\030\271\253\267\002 \001(\013"
+      "2$.google.protobuf.SwiftMessageOptions:^"
+      "\n\022swift_enum_options\022\034.google.protobuf.E"
+      "numOptions\030\270\253\267\002 \001(\0132!.google.protobuf.Sw"
+      "iftEnumOptionsB\016\332\333\272\023\002\030\000\332\333\272\023\002\020\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1309);
+      descriptor, 1470);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "google/protobuf/swift-descriptor.proto", &protobuf_RegisterTypes);
   ::google::protobuf::protobuf_google_2fprotobuf_2fdescriptor_2eproto::AddDescriptors();
@@ -277,6 +306,613 @@ bool RealmOverrideRepeated_IsValid(int value) {
   }
 }
 
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LinkedObject::kFieldNameFieldNumber;
+const int LinkedObject::kFromTypeFieldNumber;
+const int LinkedObject::kPropertyNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LinkedObject::LinkedObject()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:google.protobuf.LinkedObject)
+}
+LinkedObject::LinkedObject(const LinkedObject& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  fieldname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_fieldname()) {
+    fieldname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fieldname_);
+  }
+  fromtype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_fromtype()) {
+    fromtype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fromtype_);
+  }
+  propertyname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_propertyname()) {
+    propertyname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.propertyname_);
+  }
+  // @@protoc_insertion_point(copy_constructor:google.protobuf.LinkedObject)
+}
+
+void LinkedObject::SharedCtor() {
+  _cached_size_ = 0;
+  fieldname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fromtype_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  propertyname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+LinkedObject::~LinkedObject() {
+  // @@protoc_insertion_point(destructor:google.protobuf.LinkedObject)
+  SharedDtor();
+}
+
+void LinkedObject::SharedDtor() {
+  fieldname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fromtype_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  propertyname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void LinkedObject::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LinkedObject::descriptor() {
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LinkedObject& LinkedObject::default_instance() {
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+LinkedObject* LinkedObject::New(::google::protobuf::Arena* arena) const {
+  LinkedObject* n = new LinkedObject;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void LinkedObject::Clear() {
+// @@protoc_insertion_point(message_clear_start:google.protobuf.LinkedObject)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(!fieldname_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*fieldname_.UnsafeRawStringPointer())->clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(!fromtype_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*fromtype_.UnsafeRawStringPointer())->clear();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(!propertyname_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*propertyname_.UnsafeRawStringPointer())->clear();
+    }
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool LinkedObject::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:google.protobuf.LinkedObject)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string fieldName = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fieldname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->fieldname().data(), static_cast<int>(this->fieldname().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "google.protobuf.LinkedObject.fieldName");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required string fromType = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fromtype()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->fromtype().data(), static_cast<int>(this->fromtype().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "google.protobuf.LinkedObject.fromType");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // required string propertyName = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_propertyname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->propertyname().data(), static_cast<int>(this->propertyname().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "google.protobuf.LinkedObject.propertyName");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:google.protobuf.LinkedObject)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:google.protobuf.LinkedObject)
+  return false;
+#undef DO_
+}
+
+void LinkedObject::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:google.protobuf.LinkedObject)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required string fieldName = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->fieldname().data(), static_cast<int>(this->fieldname().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.fieldName");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->fieldname(), output);
+  }
+
+  // required string fromType = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->fromtype().data(), static_cast<int>(this->fromtype().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.fromType");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->fromtype(), output);
+  }
+
+  // required string propertyName = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->propertyname().data(), static_cast<int>(this->propertyname().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.propertyName");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->propertyname(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:google.protobuf.LinkedObject)
+}
+
+::google::protobuf::uint8* LinkedObject::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:google.protobuf.LinkedObject)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // required string fieldName = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->fieldname().data(), static_cast<int>(this->fieldname().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.fieldName");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->fieldname(), target);
+  }
+
+  // required string fromType = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->fromtype().data(), static_cast<int>(this->fromtype().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.fromType");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->fromtype(), target);
+  }
+
+  // required string propertyName = 3;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->propertyname().data(), static_cast<int>(this->propertyname().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.LinkedObject.propertyName");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->propertyname(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:google.protobuf.LinkedObject)
+  return target;
+}
+
+size_t LinkedObject::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:google.protobuf.LinkedObject)
+  size_t total_size = 0;
+
+  if (has_fieldname()) {
+    // required string fieldName = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fieldname());
+  }
+
+  if (has_fromtype()) {
+    // required string fromType = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fromtype());
+  }
+
+  if (has_propertyname()) {
+    // required string propertyName = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->propertyname());
+  }
+
+  return total_size;
+}
+size_t LinkedObject::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:google.protobuf.LinkedObject)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  if (((_has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
+    // required string fieldName = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fieldname());
+
+    // required string fromType = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fromtype());
+
+    // required string propertyName = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->propertyname());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LinkedObject::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:google.protobuf.LinkedObject)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LinkedObject* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LinkedObject>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:google.protobuf.LinkedObject)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:google.protobuf.LinkedObject)
+    MergeFrom(*source);
+  }
+}
+
+void LinkedObject::MergeFrom(const LinkedObject& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:google.protobuf.LinkedObject)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 7u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_fieldname();
+      fieldname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fieldname_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      set_has_fromtype();
+      fromtype_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fromtype_);
+    }
+    if (cached_has_bits & 0x00000004u) {
+      set_has_propertyname();
+      propertyname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.propertyname_);
+    }
+  }
+}
+
+void LinkedObject::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:google.protobuf.LinkedObject)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LinkedObject::CopyFrom(const LinkedObject& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:google.protobuf.LinkedObject)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LinkedObject::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000007) != 0x00000007) return false;
+  return true;
+}
+
+void LinkedObject::Swap(LinkedObject* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LinkedObject::InternalSwap(LinkedObject* other) {
+  using std::swap;
+  fieldname_.Swap(&other->fieldname_);
+  fromtype_.Swap(&other->fromtype_);
+  propertyname_.Swap(&other->propertyname_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata LinkedObject::GetMetadata() const {
+  protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_google_2fprotobuf_2fswift_2ddescriptor_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// LinkedObject
+
+// required string fieldName = 1;
+bool LinkedObject::has_fieldname() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void LinkedObject::set_has_fieldname() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void LinkedObject::clear_has_fieldname() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void LinkedObject::clear_fieldname() {
+  fieldname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fieldname();
+}
+const ::std::string& LinkedObject::fieldname() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.fieldName)
+  return fieldname_.GetNoArena();
+}
+void LinkedObject::set_fieldname(const ::std::string& value) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.fieldName)
+}
+#if LANG_CXX11
+void LinkedObject::set_fieldname(::std::string&& value) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.fieldName)
+}
+#endif
+void LinkedObject::set_fieldname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.fieldName)
+}
+void LinkedObject::set_fieldname(const char* value, size_t size) {
+  set_has_fieldname();
+  fieldname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.fieldName)
+}
+::std::string* LinkedObject::mutable_fieldname() {
+  set_has_fieldname();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.fieldName)
+  return fieldname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LinkedObject::release_fieldname() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.fieldName)
+  clear_has_fieldname();
+  return fieldname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LinkedObject::set_allocated_fieldname(::std::string* fieldname) {
+  if (fieldname != NULL) {
+    set_has_fieldname();
+  } else {
+    clear_has_fieldname();
+  }
+  fieldname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fieldname);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.fieldName)
+}
+
+// required string fromType = 2;
+bool LinkedObject::has_fromtype() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void LinkedObject::set_has_fromtype() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void LinkedObject::clear_has_fromtype() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void LinkedObject::clear_fromtype() {
+  fromtype_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_fromtype();
+}
+const ::std::string& LinkedObject::fromtype() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.fromType)
+  return fromtype_.GetNoArena();
+}
+void LinkedObject::set_fromtype(const ::std::string& value) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.fromType)
+}
+#if LANG_CXX11
+void LinkedObject::set_fromtype(::std::string&& value) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.fromType)
+}
+#endif
+void LinkedObject::set_fromtype(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.fromType)
+}
+void LinkedObject::set_fromtype(const char* value, size_t size) {
+  set_has_fromtype();
+  fromtype_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.fromType)
+}
+::std::string* LinkedObject::mutable_fromtype() {
+  set_has_fromtype();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.fromType)
+  return fromtype_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LinkedObject::release_fromtype() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.fromType)
+  clear_has_fromtype();
+  return fromtype_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LinkedObject::set_allocated_fromtype(::std::string* fromtype) {
+  if (fromtype != NULL) {
+    set_has_fromtype();
+  } else {
+    clear_has_fromtype();
+  }
+  fromtype_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fromtype);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.fromType)
+}
+
+// required string propertyName = 3;
+bool LinkedObject::has_propertyname() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void LinkedObject::set_has_propertyname() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void LinkedObject::clear_has_propertyname() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void LinkedObject::clear_propertyname() {
+  propertyname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_propertyname();
+}
+const ::std::string& LinkedObject::propertyname() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.LinkedObject.propertyName)
+  return propertyname_.GetNoArena();
+}
+void LinkedObject::set_propertyname(const ::std::string& value) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.LinkedObject.propertyName)
+}
+#if LANG_CXX11
+void LinkedObject::set_propertyname(::std::string&& value) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.LinkedObject.propertyName)
+}
+#endif
+void LinkedObject::set_propertyname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.LinkedObject.propertyName)
+}
+void LinkedObject::set_propertyname(const char* value, size_t size) {
+  set_has_propertyname();
+  propertyname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.LinkedObject.propertyName)
+}
+::std::string* LinkedObject::mutable_propertyname() {
+  set_has_propertyname();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.LinkedObject.propertyName)
+  return propertyname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* LinkedObject::release_propertyname() {
+  // @@protoc_insertion_point(field_release:google.protobuf.LinkedObject.propertyName)
+  clear_has_propertyname();
+  return propertyname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void LinkedObject::set_allocated_propertyname(::std::string* propertyname) {
+  if (propertyname != NULL) {
+    set_has_propertyname();
+  } else {
+    clear_has_propertyname();
+  }
+  propertyname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), propertyname);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.LinkedObject.propertyName)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // ===================================================================
 
@@ -935,6 +1571,8 @@ void SwiftFileOptions::set_generate_react(bool value) {
 const int SwiftMessageOptions::kGenerateErrorTypeFieldNumber;
 const int SwiftMessageOptions::kGenerateRealmObjectFieldNumber;
 const int SwiftMessageOptions::kGenerateReactFieldNumber;
+const int SwiftMessageOptions::kAdditionalClassNameFieldNumber;
+const int SwiftMessageOptions::kLinkedObjectsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SwiftMessageOptions::SwiftMessageOptions()
@@ -949,8 +1587,13 @@ SwiftMessageOptions::SwiftMessageOptions(const SwiftMessageOptions& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
-      _cached_size_(0) {
+      _cached_size_(0),
+      linkedobjects_(from.linkedobjects_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  additional_class_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_additional_class_name()) {
+    additional_class_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.additional_class_name_);
+  }
   ::memcpy(&generate_error_type_, &from.generate_error_type_,
     static_cast<size_t>(reinterpret_cast<char*>(&generate_react_) -
     reinterpret_cast<char*>(&generate_error_type_)) + sizeof(generate_react_));
@@ -959,6 +1602,7 @@ SwiftMessageOptions::SwiftMessageOptions(const SwiftMessageOptions& from)
 
 void SwiftMessageOptions::SharedCtor() {
   _cached_size_ = 0;
+  additional_class_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&generate_error_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&generate_react_) -
       reinterpret_cast<char*>(&generate_error_type_)) + sizeof(generate_react_));
@@ -970,6 +1614,7 @@ SwiftMessageOptions::~SwiftMessageOptions() {
 }
 
 void SwiftMessageOptions::SharedDtor() {
+  additional_class_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void SwiftMessageOptions::SetCachedSize(int size) const {
@@ -1001,8 +1646,13 @@ void SwiftMessageOptions::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  linkedobjects_.Clear();
+  if (has_additional_class_name()) {
+    GOOGLE_DCHECK(!additional_class_name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*additional_class_name_.UnsafeRawStringPointer())->clear();
+  }
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 7u) {
+  if (cached_has_bits & 14u) {
     ::memset(&generate_error_type_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&generate_react_) -
         reinterpret_cast<char*>(&generate_error_type_)) + sizeof(generate_react_));
@@ -1049,14 +1699,42 @@ bool SwiftMessageOptions::MergePartialFromCodedStream(
         break;
       }
 
-      // optional bool generate_react = 5 [default = false];
-      case 5: {
+      // optional bool generate_react = 3 [default = false];
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           set_has_generate_react();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
                  input, &generate_react_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional string additional_class_name = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_additional_class_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->additional_class_name().data(), static_cast<int>(this->additional_class_name().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "google.protobuf.SwiftMessageOptions.additional_class_name");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .google.protobuf.LinkedObject linkedObjects = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_linkedobjects()));
         } else {
           goto handle_unusual;
         }
@@ -1091,18 +1769,35 @@ void SwiftMessageOptions::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->generate_error_type(), output);
   }
 
   // optional bool generate_realm_object = 2 [default = false];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->generate_realm_object(), output);
   }
 
-  // optional bool generate_react = 5 [default = false];
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->generate_react(), output);
+  // optional bool generate_react = 3 [default = false];
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->generate_react(), output);
+  }
+
+  // optional string additional_class_name = 4;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->additional_class_name().data(), static_cast<int>(this->additional_class_name().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.SwiftMessageOptions.additional_class_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->additional_class_name(), output);
+  }
+
+  // repeated .google.protobuf.LinkedObject linkedObjects = 5;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->linkedobjects_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->linkedobjects(static_cast<int>(i)), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1121,18 +1816,37 @@ void SwiftMessageOptions::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // optional bool generate_error_type = 1 [default = false];
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->generate_error_type(), target);
   }
 
   // optional bool generate_realm_object = 2 [default = false];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->generate_realm_object(), target);
   }
 
-  // optional bool generate_react = 5 [default = false];
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->generate_react(), target);
+  // optional bool generate_react = 3 [default = false];
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->generate_react(), target);
+  }
+
+  // optional string additional_class_name = 4;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->additional_class_name().data(), static_cast<int>(this->additional_class_name().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "google.protobuf.SwiftMessageOptions.additional_class_name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->additional_class_name(), target);
+  }
+
+  // repeated .google.protobuf.LinkedObject linkedObjects = 5;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->linkedobjects_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, this->linkedobjects(static_cast<int>(i)), deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1152,7 +1866,25 @@ size_t SwiftMessageOptions::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (_has_bits_[0 / 32] & 7u) {
+  // repeated .google.protobuf.LinkedObject linkedObjects = 5;
+  {
+    unsigned int count = static_cast<unsigned int>(this->linkedobjects_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->linkedobjects(static_cast<int>(i)));
+    }
+  }
+
+  if (_has_bits_[0 / 32] & 15u) {
+    // optional string additional_class_name = 4;
+    if (has_additional_class_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->additional_class_name());
+    }
+
     // optional bool generate_error_type = 1 [default = false];
     if (has_generate_error_type()) {
       total_size += 1 + 1;
@@ -1163,7 +1895,7 @@ size_t SwiftMessageOptions::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool generate_react = 5 [default = false];
+    // optional bool generate_react = 3 [default = false];
     if (has_generate_react()) {
       total_size += 1 + 1;
     }
@@ -1198,15 +1930,20 @@ void SwiftMessageOptions::MergeFrom(const SwiftMessageOptions& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  linkedobjects_.MergeFrom(from.linkedobjects_);
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 7u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
-      generate_error_type_ = from.generate_error_type_;
+      set_has_additional_class_name();
+      additional_class_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.additional_class_name_);
     }
     if (cached_has_bits & 0x00000002u) {
-      generate_realm_object_ = from.generate_realm_object_;
+      generate_error_type_ = from.generate_error_type_;
     }
     if (cached_has_bits & 0x00000004u) {
+      generate_realm_object_ = from.generate_realm_object_;
+    }
+    if (cached_has_bits & 0x00000008u) {
       generate_react_ = from.generate_react_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1228,6 +1965,7 @@ void SwiftMessageOptions::CopyFrom(const SwiftMessageOptions& from) {
 }
 
 bool SwiftMessageOptions::IsInitialized() const {
+  if (!::google::protobuf::internal::AllAreInitialized(this->linkedobjects())) return false;
   return true;
 }
 
@@ -1237,6 +1975,8 @@ void SwiftMessageOptions::Swap(SwiftMessageOptions* other) {
 }
 void SwiftMessageOptions::InternalSwap(SwiftMessageOptions* other) {
   using std::swap;
+  linkedobjects_.InternalSwap(&other->linkedobjects_);
+  additional_class_name_.Swap(&other->additional_class_name_);
   swap(generate_error_type_, other->generate_error_type_);
   swap(generate_realm_object_, other->generate_realm_object_);
   swap(generate_react_, other->generate_react_);
@@ -1255,13 +1995,13 @@ void SwiftMessageOptions::InternalSwap(SwiftMessageOptions* other) {
 
 // optional bool generate_error_type = 1 [default = false];
 bool SwiftMessageOptions::has_generate_error_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 void SwiftMessageOptions::set_has_generate_error_type() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 void SwiftMessageOptions::clear_has_generate_error_type() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 void SwiftMessageOptions::clear_generate_error_type() {
   generate_error_type_ = false;
@@ -1279,13 +2019,13 @@ void SwiftMessageOptions::set_generate_error_type(bool value) {
 
 // optional bool generate_realm_object = 2 [default = false];
 bool SwiftMessageOptions::has_generate_realm_object() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 void SwiftMessageOptions::set_has_generate_realm_object() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 void SwiftMessageOptions::clear_has_generate_realm_object() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 void SwiftMessageOptions::clear_generate_realm_object() {
   generate_realm_object_ = false;
@@ -1301,15 +2041,15 @@ void SwiftMessageOptions::set_generate_realm_object(bool value) {
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_realm_object)
 }
 
-// optional bool generate_react = 5 [default = false];
+// optional bool generate_react = 3 [default = false];
 bool SwiftMessageOptions::has_generate_react() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 void SwiftMessageOptions::set_has_generate_react() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 void SwiftMessageOptions::clear_has_generate_react() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 void SwiftMessageOptions::clear_generate_react() {
   generate_react_ = false;
@@ -1323,6 +2063,99 @@ void SwiftMessageOptions::set_generate_react(bool value) {
   set_has_generate_react();
   generate_react_ = value;
   // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.generate_react)
+}
+
+// optional string additional_class_name = 4;
+bool SwiftMessageOptions::has_additional_class_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void SwiftMessageOptions::set_has_additional_class_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void SwiftMessageOptions::clear_has_additional_class_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void SwiftMessageOptions::clear_additional_class_name() {
+  additional_class_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_additional_class_name();
+}
+const ::std::string& SwiftMessageOptions::additional_class_name() const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.additional_class_name)
+  return additional_class_name_.GetNoArena();
+}
+void SwiftMessageOptions::set_additional_class_name(const ::std::string& value) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+#if LANG_CXX11
+void SwiftMessageOptions::set_additional_class_name(::std::string&& value) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+#endif
+void SwiftMessageOptions::set_additional_class_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+void SwiftMessageOptions::set_additional_class_name(const char* value, size_t size) {
+  set_has_additional_class_name();
+  additional_class_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+::std::string* SwiftMessageOptions::mutable_additional_class_name() {
+  set_has_additional_class_name();
+  // @@protoc_insertion_point(field_mutable:google.protobuf.SwiftMessageOptions.additional_class_name)
+  return additional_class_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* SwiftMessageOptions::release_additional_class_name() {
+  // @@protoc_insertion_point(field_release:google.protobuf.SwiftMessageOptions.additional_class_name)
+  clear_has_additional_class_name();
+  return additional_class_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void SwiftMessageOptions::set_allocated_additional_class_name(::std::string* additional_class_name) {
+  if (additional_class_name != NULL) {
+    set_has_additional_class_name();
+  } else {
+    clear_has_additional_class_name();
+  }
+  additional_class_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), additional_class_name);
+  // @@protoc_insertion_point(field_set_allocated:google.protobuf.SwiftMessageOptions.additional_class_name)
+}
+
+// repeated .google.protobuf.LinkedObject linkedObjects = 5;
+int SwiftMessageOptions::linkedobjects_size() const {
+  return linkedobjects_.size();
+}
+void SwiftMessageOptions::clear_linkedobjects() {
+  linkedobjects_.Clear();
+}
+const ::google::protobuf::LinkedObject& SwiftMessageOptions::linkedobjects(int index) const {
+  // @@protoc_insertion_point(field_get:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Get(index);
+}
+::google::protobuf::LinkedObject* SwiftMessageOptions::mutable_linkedobjects(int index) {
+  // @@protoc_insertion_point(field_mutable:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Mutable(index);
+}
+::google::protobuf::LinkedObject* SwiftMessageOptions::add_linkedobjects() {
+  // @@protoc_insertion_point(field_add:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >*
+SwiftMessageOptions::mutable_linkedobjects() {
+  // @@protoc_insertion_point(field_mutable_list:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return &linkedobjects_;
+}
+const ::google::protobuf::RepeatedPtrField< ::google::protobuf::LinkedObject >&
+SwiftMessageOptions::linkedobjects() const {
+  // @@protoc_insertion_point(field_list:google.protobuf.SwiftMessageOptions.linkedObjects)
+  return linkedobjects_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

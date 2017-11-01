@@ -23,6 +23,13 @@ enum AccessControl {
   InternalEntities = 0;
   PublicEntities = 1;
 }
+
+message LinkedObject {
+  required string fieldName = 1;
+  required string fromType = 2;
+  required string propertyName = 3;
+}
+
 message SwiftFileOptions {
   optional string class_prefix = 1;
   optional AccessControl entities_access_control = 2 [default = PublicEntities];
@@ -35,7 +42,9 @@ message SwiftFileOptions {
 message SwiftMessageOptions {
   optional bool generate_error_type = 1 [default = false];
   optional bool generate_realm_object = 2 [default = false];
-  optional bool generate_react = 5 [default = false];
+  optional bool generate_react = 3 [default = false];
+  optional string additional_class_name = 4;
+  repeated LinkedObject linkedObjects = 5;
 }
 
 enum RealmOverrideRepeated {
@@ -55,19 +64,19 @@ message SwiftEnumOptions {
 }
 
 extend google.protobuf.FileOptions {
-  optional SwiftFileOptions swift_file_options = 5092014;
+  optional SwiftFileOptions swift_file_options = 5100987;
 }
 
 extend google.protobuf.FieldOptions {
-  optional SwiftFieldOptions swift_field_options = 5092015;
+  optional SwiftFieldOptions swift_field_options = 5100986;
 }
 
 extend google.protobuf.MessageOptions {
-  optional SwiftMessageOptions swift_message_options = 5092016;
+  optional SwiftMessageOptions swift_message_options = 5100985;
 }
 
 extend google.protobuf.EnumOptions {
-  optional SwiftEnumOptions swift_enum_options = 5092015;
+  optional SwiftEnumOptions swift_enum_options = 5100984;
 }
 
 option (.google.protobuf.swift_file_options).compile_for_framework = false;

@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3FA8D1B51F7FD01F00FE77C3"
-               BuildableName = "UnitTest.xctest"
-               BlueprintName = "UnitTest"
+               BlueprintIdentifier = "3F9996DB1F879A470016C76C"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
                ReferencedContainer = "container:ProtocolBuffers.xcodeproj">
             </BuildableReference>
          </TestableReference>
