@@ -1293,6 +1293,7 @@ public extension Google.Protobuf {
                 var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
                 fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
                 fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
+                fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
                 fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
                 return fieldCheck
             }
@@ -1303,10 +1304,17 @@ public extension Google.Protobuf {
             public fileprivate(set) var end:Int32! = nil
             public fileprivate(set) var hasEnd:Bool = false
 
+            public fileprivate(set) var options:Google.Protobuf.ExtensionRangeOptions!
+            public fileprivate(set) var hasOptions:Bool = false
             required public init() {
                 super.init()
             }
             override public func isInitialized() -> Bool {
+                if hasOptions {
+                    if !options.isInitialized() {
+                        return false
+                    }
+                }
                 return true
             }
             override public func writeTo(codedOutputStream: CodedOutputStream) throws {
@@ -1315,6 +1323,9 @@ public extension Google.Protobuf {
                 }
                 if hasEnd {
                     try codedOutputStream.writeInt32(fieldNumber: 2, value:end)
+                }
+                if hasOptions {
+                    try codedOutputStream.writeMessage(fieldNumber: 3, value:options)
                 }
                 try unknownFields.writeTo(codedOutputStream: codedOutputStream)
             }
@@ -1330,6 +1341,11 @@ public extension Google.Protobuf {
                 }
                 if hasEnd {
                     serialize_size += end.computeInt32Size(fieldNumber: 2)
+                }
+                if hasOptions {
+                    if let varSizeoptions = options?.computeMessageSize(fieldNumber: 3) {
+                        serialize_size += varSizeoptions
+                    }
                 }
                 serialize_size += unknownFields.serializedSize()
                 memoizedSerializedSize = serialize_size
@@ -1365,6 +1381,9 @@ public extension Google.Protobuf {
                 if hasEnd {
                     jsonMap["end"] = Int(end)
                 }
+                if hasOptions {
+                    jsonMap["options"] = try options.encode()
+                }
                 return jsonMap
             }
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.DescriptorProto.ExtensionRange {
@@ -1381,6 +1400,13 @@ public extension Google.Protobuf {
                 if hasEnd {
                     output += "\(indent) end: \(end) \n"
                 }
+                if hasOptions {
+                    output += "\(indent) options {\n"
+                    if let outDescOptions = options {
+                        output += try outDescOptions.getDescription(indent: "\(indent)  ")
+                    }
+                    output += "\(indent) }\n"
+                }
                 output += unknownFields.getDescription(indent: indent)
                 return output
             }
@@ -1392,6 +1418,11 @@ public extension Google.Protobuf {
                     }
                     if hasEnd {
                         hashCode = (hashCode &* 31) &+ end.hashValue
+                    }
+                    if hasOptions {
+                        if let hashValueoptions = options?.hashValue {
+                            hashCode = (hashCode &* 31) &+ hashValueoptions
+                        }
                     }
                     hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                     return hashCode
@@ -1468,6 +1499,60 @@ public extension Google.Protobuf {
                     builderResult.end = nil
                     return self
                 }
+                public var options:Google.Protobuf.ExtensionRangeOptions! {
+                    get {
+                        if optionsBuilder_ != nil {
+                            builderResult.options = optionsBuilder_.getMessage()
+                        }
+                        return builderResult.options
+                    }
+                    set (value) {
+                        builderResult.hasOptions = value != nil
+                        builderResult.options = value
+                    }
+                }
+                public var hasOptions:Bool {
+                    get {
+                        return builderResult.hasOptions
+                    }
+                }
+                fileprivate var optionsBuilder_:Google.Protobuf.ExtensionRangeOptions.Builder! {
+                    didSet {
+                        builderResult.hasOptions = true
+                    }
+                }
+                public func getOptionsBuilder() -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                    if optionsBuilder_ == nil {
+                        optionsBuilder_ = Google.Protobuf.ExtensionRangeOptions.Builder()
+                        builderResult.options = optionsBuilder_.getMessage()
+                        if options != nil {
+                            try! optionsBuilder_.mergeFrom(other: options)
+                        }
+                    }
+                    return optionsBuilder_
+                }
+                @discardableResult
+                public func setOptions(_ value:Google.Protobuf.ExtensionRangeOptions!) -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
+                    self.options = value
+                    return self
+                }
+                @discardableResult
+                public func mergeOptions(value:Google.Protobuf.ExtensionRangeOptions) throws -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
+                    if builderResult.hasOptions {
+                        builderResult.options = try Google.Protobuf.ExtensionRangeOptions.builderWithPrototype(prototype:builderResult.options).mergeFrom(other: value).buildPartial()
+                    } else {
+                        builderResult.options = value
+                    }
+                    builderResult.hasOptions = true
+                    return self
+                }
+                @discardableResult
+                public func clearOptions() -> Google.Protobuf.DescriptorProto.ExtensionRange.Builder {
+                    optionsBuilder_ = nil
+                    builderResult.hasOptions = false
+                    builderResult.options = nil
+                    return self
+                }
                 override public var internalGetResult:GeneratedMessage {
                     get {
                         return builderResult
@@ -1500,6 +1585,9 @@ public extension Google.Protobuf {
                     if other.hasEnd {
                         end = other.end
                     }
+                    if (other.hasOptions) {
+                        try mergeOptions(value: other.options)
+                    }
                     try merge(unknownField: other.unknownFields)
                     return self
                 }
@@ -1523,6 +1611,14 @@ public extension Google.Protobuf {
                         case 16:
                             end = try codedInputStream.readInt32()
 
+                        case 26:
+                            let subBuilder:Google.Protobuf.ExtensionRangeOptions.Builder = Google.Protobuf.ExtensionRangeOptions.Builder()
+                            if hasOptions {
+                                try subBuilder.mergeFrom(other: options)
+                            }
+                            try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
+                            options = subBuilder.buildPartial()
+
                         default:
                             if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                                 unknownFields = try unknownFieldsBuilder.build()
@@ -1542,6 +1638,10 @@ public extension Google.Protobuf {
                         resultDecodedBuilder.end = Int32(jsonValueEnd)
                     } else if let jsonValueEnd = jsonMap["end"] as? String {
                         resultDecodedBuilder.end = Int32(jsonValueEnd)!
+                    }
+                    if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
+                        resultDecodedBuilder.options = try Google.Protobuf.ExtensionRangeOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
+
                     }
                     return resultDecodedBuilder
                 }
@@ -1902,6 +2002,16 @@ public extension Google.Protobuf {
             }
             if !isInitEnumType {
                 return isInitEnumType
+            }
+            var isInitExtensionRange:Bool = true
+            for oneElementExtensionRange in extensionRange {
+                if !oneElementExtensionRange.isInitialized() {
+                    isInitExtensionRange = false
+                    break 
+                }
+            }
+            if !isInitExtensionRange {
+                return isInitExtensionRange
             }
             var isInitOneofDecl:Bool = true
             for oneElementOneofDecl in oneofDecl {
@@ -2673,6 +2783,250 @@ public extension Google.Protobuf {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
                 return try Google.Protobuf.DescriptorProto.Builder.decodeToBuilder(jsonMap:jsDataCast)
+            }
+        }
+
+    }
+
+    final public class ExtensionRangeOptions : ExtendableMessage {
+        public typealias BuilderType = Google.Protobuf.ExtensionRangeOptions.Builder
+
+        public static func == (lhs: Google.Protobuf.ExtensionRangeOptions, rhs: Google.Protobuf.ExtensionRangeOptions) -> Bool {
+            if lhs === rhs {
+                return true
+            }
+            var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+            fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
+            fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
+            fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+            return fieldCheck
+        }
+
+        public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
+        required public init() {
+            super.init()
+        }
+        override public func isInitialized() -> Bool {
+            var isInitUninterpretedOption:Bool = true
+            for oneElementUninterpretedOption in uninterpretedOption {
+                if !oneElementUninterpretedOption.isInitialized() {
+                    isInitUninterpretedOption = false
+                    break 
+                }
+            }
+            if !isInitUninterpretedOption {
+                return isInitUninterpretedOption
+            }
+            if !extensionsAreInitialized() {
+                return false
+            }
+            return true
+        }
+        override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+            for oneElementUninterpretedOption in uninterpretedOption {
+                  try codedOutputStream.writeMessage(fieldNumber: 999, value:oneElementUninterpretedOption)
+            }
+            try writeExtensionsTo(codedOutputStream: codedOutputStream, startInclusive:1000, endExclusive:536870912)
+            try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+        }
+        override public func serializedSize() -> Int32 {
+            var serialize_size:Int32 = memoizedSerializedSize
+            if serialize_size != -1 {
+             return serialize_size
+            }
+
+            serialize_size = 0
+            for oneElementUninterpretedOption in uninterpretedOption {
+                serialize_size += oneElementUninterpretedOption.computeMessageSize(fieldNumber: 999)
+            }
+            serialize_size += extensionsSerializedSize()
+            serialize_size += unknownFields.serializedSize()
+            memoizedSerializedSize = serialize_size
+            return serialize_size
+        }
+        public class func getBuilder() -> Google.Protobuf.ExtensionRangeOptions.Builder {
+            return Google.Protobuf.ExtensionRangeOptions.classBuilder() as! Google.Protobuf.ExtensionRangeOptions.Builder
+        }
+        public func getBuilder() -> Google.Protobuf.ExtensionRangeOptions.Builder {
+            return classBuilder() as! Google.Protobuf.ExtensionRangeOptions.Builder
+        }
+        override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.ExtensionRangeOptions.Builder()
+        }
+        override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+            return Google.Protobuf.ExtensionRangeOptions.Builder()
+        }
+        public func toBuilder() throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+            return try Google.Protobuf.ExtensionRangeOptions.builderWithPrototype(prototype:self)
+        }
+        public class func builderWithPrototype(prototype:Google.Protobuf.ExtensionRangeOptions) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+            return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(other:prototype)
+        }
+        override public func encode() throws -> Dictionary<String,Any> {
+            guard isInitialized() else {
+                throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
+            }
+
+            var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
+            if !uninterpretedOption.isEmpty {
+                var jsonArrayUninterpretedOption:Array<Dictionary<String,Any>> = []
+                for oneValueUninterpretedOption in uninterpretedOption {
+                    let ecodedMessageUninterpretedOption = try oneValueUninterpretedOption.encode()
+                    jsonArrayUninterpretedOption.append(ecodedMessageUninterpretedOption)
+                }
+                jsonMap["uninterpretedOption"] = jsonArrayUninterpretedOption
+            }
+            return jsonMap
+        }
+        override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ExtensionRangeOptions {
+            return try Google.Protobuf.ExtensionRangeOptions.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+        }
+        override class public func fromJSON(data:Data) throws -> Google.Protobuf.ExtensionRangeOptions {
+            return try Google.Protobuf.ExtensionRangeOptions.Builder.fromJSONToBuilder(data:data).build()
+        }
+        override public func getDescription(indent:String) throws -> String {
+            var output = ""
+            var uninterpretedOptionElementIndex:Int = 0
+            for oneElementUninterpretedOption in uninterpretedOption {
+                output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
+                output += try oneElementUninterpretedOption.getDescription(indent: "\(indent)  ")
+                output += "\(indent)}\n"
+                uninterpretedOptionElementIndex += 1
+            }
+            output += try getExtensionDescription(startInclusive:1000, endExclusive:536870912, indent:indent)
+            output += unknownFields.getDescription(indent: indent)
+            return output
+        }
+        override public var hashValue:Int {
+            get {
+                var hashCode:Int = 7
+                for oneElementUninterpretedOption in uninterpretedOption {
+                    hashCode = (hashCode &* 31) &+ oneElementUninterpretedOption.hashValue
+                }
+                hashCode = (hashCode &* 31) &+ Int(hashExtensionsFrom(startInclusive: 1000, endExclusive:536870912))
+                hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                return hashCode
+            }
+        }
+
+
+        //Meta information declaration start
+
+        override public class func className() -> String {
+            return "Google.Protobuf.ExtensionRangeOptions"
+        }
+        override public func className() -> String {
+            return "Google.Protobuf.ExtensionRangeOptions"
+        }
+        //Meta information declaration end
+
+        final public class Builder : ExtendableMessageBuilder {
+            fileprivate var builderResult:Google.Protobuf.ExtensionRangeOptions = Google.Protobuf.ExtensionRangeOptions()
+            public func getMessage() -> Google.Protobuf.ExtensionRangeOptions {
+                return builderResult
+            }
+
+            required override public init () {
+                super.init()
+            }
+            /// The parser stores options it doesn't recognize here. See above.
+            public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
+                get {
+                    return builderResult.uninterpretedOption
+                }
+                set (value) {
+                    builderResult.uninterpretedOption = value
+                }
+            }
+            @discardableResult
+            public func setUninterpretedOption(_ value:Array<Google.Protobuf.UninterpretedOption>) -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                self.uninterpretedOption = value
+                return self
+            }
+            @discardableResult
+            public func clearUninterpretedOption() -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                builderResult.uninterpretedOption.removeAll(keepingCapacity: false)
+                return self
+            }
+            override public var internalGetResult:ExtendableMessage {
+                get {
+                    return builderResult
+                }
+            }
+            @discardableResult
+            override public func clear() -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                builderResult = Google.Protobuf.ExtensionRangeOptions()
+                return self
+            }
+            override public func clone() throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                return try Google.Protobuf.ExtensionRangeOptions.builderWithPrototype(prototype:builderResult)
+            }
+            override public func build() throws -> Google.Protobuf.ExtensionRangeOptions {
+                try checkInitialized()
+                return buildPartial()
+            }
+            public func buildPartial() -> Google.Protobuf.ExtensionRangeOptions {
+                let returnMe:Google.Protobuf.ExtensionRangeOptions = builderResult
+                return returnMe
+            }
+            @discardableResult
+            public func mergeFrom(other:Google.Protobuf.ExtensionRangeOptions) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                if other == Google.Protobuf.ExtensionRangeOptions() {
+                    return self
+                }
+                if !other.uninterpretedOption.isEmpty  {
+                     builderResult.uninterpretedOption += other.uninterpretedOption
+                }
+                try mergeExtensionFields(other: other)
+                try merge(unknownField: other.unknownFields)
+                return self
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+            }
+            @discardableResult
+            override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
+                while (true) {
+                    let protobufTag = try codedInputStream.readTag()
+                    switch protobufTag {
+                    case 0: 
+                        self.unknownFields = try unknownFieldsBuilder.build()
+                        return self
+
+                    case 7994:
+                        let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
+                        try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                        uninterpretedOption.append(subBuilder.buildPartial())
+
+                    default:
+                        if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                            unknownFields = try unknownFieldsBuilder.build()
+                            return self
+                        }
+                    }
+                }
+            }
+            class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                let resultDecodedBuilder = Google.Protobuf.ExtensionRangeOptions.Builder()
+                if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
+                    var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []
+                    for oneValueUninterpretedOption in jsonValueUninterpretedOption {
+                        let messageFromStringUninterpretedOption = try Google.Protobuf.UninterpretedOption.Builder.decodeToBuilder(jsonMap:oneValueUninterpretedOption).build()
+
+                        jsonArrayUninterpretedOption.append(messageFromStringUninterpretedOption)
+                    }
+                    resultDecodedBuilder.uninterpretedOption = jsonArrayUninterpretedOption
+                }
+                return resultDecodedBuilder
+            }
+            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.ExtensionRangeOptions.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
+                  throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                }
+                return try Google.Protobuf.ExtensionRangeOptions.Builder.decodeToBuilder(jsonMap:jsDataCast)
             }
         }
 
@@ -3964,9 +4318,299 @@ public extension Google.Protobuf {
             fieldCheck = fieldCheck && (lhs.hasName == rhs.hasName) && (!lhs.hasName || lhs.name == rhs.name)
             fieldCheck = fieldCheck && (lhs.value == rhs.value)
             fieldCheck = fieldCheck && (lhs.hasOptions == rhs.hasOptions) && (!lhs.hasOptions || lhs.options == rhs.options)
+            fieldCheck = fieldCheck && (lhs.reservedRange == rhs.reservedRange)
+            fieldCheck = fieldCheck && (lhs.reservedName == rhs.reservedName)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
             return fieldCheck
         }
+
+
+
+        //Nested type declaration start
+
+        /// Range of reserved numeric values. Reserved values may not be used by
+        /// entries in the same enum. Reserved ranges may not overlap.
+        /// Note that this is distinct from DescriptorProto.ReservedRange in that it
+        /// is inclusive such that it can appropriately represent the entire int32
+        /// domain.
+        final public class EnumReservedRange : GeneratedMessage {
+            public typealias BuilderType = Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder
+
+            public static func == (lhs: Google.Protobuf.EnumDescriptorProto.EnumReservedRange, rhs: Google.Protobuf.EnumDescriptorProto.EnumReservedRange) -> Bool {
+                if lhs === rhs {
+                    return true
+                }
+                var fieldCheck:Bool = (lhs.hashValue == rhs.hashValue)
+                fieldCheck = fieldCheck && (lhs.hasStart == rhs.hasStart) && (!lhs.hasStart || lhs.start == rhs.start)
+                fieldCheck = fieldCheck && (lhs.hasEnd == rhs.hasEnd) && (!lhs.hasEnd || lhs.end == rhs.end)
+                fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
+                return fieldCheck
+            }
+
+            /// Inclusive.
+            public fileprivate(set) var start:Int32! = nil
+            public fileprivate(set) var hasStart:Bool = false
+
+            /// Inclusive.
+            public fileprivate(set) var end:Int32! = nil
+            public fileprivate(set) var hasEnd:Bool = false
+
+            required public init() {
+                super.init()
+            }
+            override public func isInitialized() -> Bool {
+                return true
+            }
+            override public func writeTo(codedOutputStream: CodedOutputStream) throws {
+                if hasStart {
+                    try codedOutputStream.writeInt32(fieldNumber: 1, value:start)
+                }
+                if hasEnd {
+                    try codedOutputStream.writeInt32(fieldNumber: 2, value:end)
+                }
+                try unknownFields.writeTo(codedOutputStream: codedOutputStream)
+            }
+            override public func serializedSize() -> Int32 {
+                var serialize_size:Int32 = memoizedSerializedSize
+                if serialize_size != -1 {
+                 return serialize_size
+                }
+
+                serialize_size = 0
+                if hasStart {
+                    serialize_size += start.computeInt32Size(fieldNumber: 1)
+                }
+                if hasEnd {
+                    serialize_size += end.computeInt32Size(fieldNumber: 2)
+                }
+                serialize_size += unknownFields.serializedSize()
+                memoizedSerializedSize = serialize_size
+                return serialize_size
+            }
+            public class func getBuilder() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                return Google.Protobuf.EnumDescriptorProto.EnumReservedRange.classBuilder() as! Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder
+            }
+            public func getBuilder() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                return classBuilder() as! Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder
+            }
+            override public class func classBuilder() -> ProtocolBuffersMessageBuilder {
+                return Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder()
+            }
+            override public func classBuilder() -> ProtocolBuffersMessageBuilder {
+                return Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder()
+            }
+            public func toBuilder() throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.builderWithPrototype(prototype:self)
+            }
+            public class func builderWithPrototype(prototype:Google.Protobuf.EnumDescriptorProto.EnumReservedRange) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(other:prototype)
+            }
+            override public func encode() throws -> Dictionary<String,Any> {
+                guard isInitialized() else {
+                    throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
+                }
+
+                var jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()
+                if hasStart {
+                    jsonMap["start"] = Int(start)
+                }
+                if hasEnd {
+                    jsonMap["end"] = Int(end)
+                }
+                return jsonMap
+            }
+            override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+                return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder.decodeToBuilder(jsonMap:jsonMap).build()
+            }
+            override class public func fromJSON(data:Data) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+                return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder.fromJSONToBuilder(data:data).build()
+            }
+            override public func getDescription(indent:String) throws -> String {
+                var output = ""
+                if hasStart {
+                    output += "\(indent) start: \(start) \n"
+                }
+                if hasEnd {
+                    output += "\(indent) end: \(end) \n"
+                }
+                output += unknownFields.getDescription(indent: indent)
+                return output
+            }
+            override public var hashValue:Int {
+                get {
+                    var hashCode:Int = 7
+                    if hasStart {
+                        hashCode = (hashCode &* 31) &+ start.hashValue
+                    }
+                    if hasEnd {
+                        hashCode = (hashCode &* 31) &+ end.hashValue
+                    }
+                    hashCode = (hashCode &* 31) &+  unknownFields.hashValue
+                    return hashCode
+                }
+            }
+
+
+            //Meta information declaration start
+
+            override public class func className() -> String {
+                return "Google.Protobuf.EnumDescriptorProto.EnumReservedRange"
+            }
+            override public func className() -> String {
+                return "Google.Protobuf.EnumDescriptorProto.EnumReservedRange"
+            }
+            //Meta information declaration end
+
+            final public class Builder : GeneratedMessageBuilder {
+                fileprivate var builderResult:Google.Protobuf.EnumDescriptorProto.EnumReservedRange = Google.Protobuf.EnumDescriptorProto.EnumReservedRange()
+                public func getMessage() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+                    return builderResult
+                }
+
+                required override public init () {
+                    super.init()
+                }
+                /// Inclusive.
+                public var start:Int32 {
+                    get {
+                        return builderResult.start
+                    }
+                    set (value) {
+                        builderResult.hasStart = true
+                        builderResult.start = value
+                    }
+                }
+                public var hasStart:Bool {
+                    get {
+                        return builderResult.hasStart
+                    }
+                }
+                @discardableResult
+                public func setStart(_ value:Int32) -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    self.start = value
+                    return self
+                }
+                @discardableResult
+                public func clearStart() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder{
+                    builderResult.hasStart = false
+                    builderResult.start = nil
+                    return self
+                }
+                /// Inclusive.
+                public var end:Int32 {
+                    get {
+                        return builderResult.end
+                    }
+                    set (value) {
+                        builderResult.hasEnd = true
+                        builderResult.end = value
+                    }
+                }
+                public var hasEnd:Bool {
+                    get {
+                        return builderResult.hasEnd
+                    }
+                }
+                @discardableResult
+                public func setEnd(_ value:Int32) -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    self.end = value
+                    return self
+                }
+                @discardableResult
+                public func clearEnd() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder{
+                    builderResult.hasEnd = false
+                    builderResult.end = nil
+                    return self
+                }
+                override public var internalGetResult:GeneratedMessage {
+                    get {
+                        return builderResult
+                    }
+                }
+                @discardableResult
+                override public func clear() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    builderResult = Google.Protobuf.EnumDescriptorProto.EnumReservedRange()
+                    return self
+                }
+                override public func clone() throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.builderWithPrototype(prototype:builderResult)
+                }
+                override public func build() throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+                    try checkInitialized()
+                    return buildPartial()
+                }
+                public func buildPartial() -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+                    let returnMe:Google.Protobuf.EnumDescriptorProto.EnumReservedRange = builderResult
+                    return returnMe
+                }
+                @discardableResult
+                public func mergeFrom(other:Google.Protobuf.EnumDescriptorProto.EnumReservedRange) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    if other == Google.Protobuf.EnumDescriptorProto.EnumReservedRange() {
+                        return self
+                    }
+                    if other.hasStart {
+                        start = other.start
+                    }
+                    if other.hasEnd {
+                        end = other.end
+                    }
+                    try merge(unknownField: other.unknownFields)
+                    return self
+                }
+                @discardableResult
+                override public func mergeFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    return try mergeFrom(codedInputStream: codedInputStream, extensionRegistry:ExtensionRegistry())
+                }
+                @discardableResult
+                override public func mergeFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    let unknownFieldsBuilder:UnknownFieldSet.Builder = try UnknownFieldSet.builderWithUnknownFields(copyFrom:self.unknownFields)
+                    while (true) {
+                        let protobufTag = try codedInputStream.readTag()
+                        switch protobufTag {
+                        case 0: 
+                            self.unknownFields = try unknownFieldsBuilder.build()
+                            return self
+
+                        case 8:
+                            start = try codedInputStream.readInt32()
+
+                        case 16:
+                            end = try codedInputStream.readInt32()
+
+                        default:
+                            if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
+                                unknownFields = try unknownFieldsBuilder.build()
+                                return self
+                            }
+                        }
+                    }
+                }
+                class override public func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    let resultDecodedBuilder = Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder()
+                    if let jsonValueStart = jsonMap["start"] as? Int {
+                        resultDecodedBuilder.start = Int32(jsonValueStart)
+                    } else if let jsonValueStart = jsonMap["start"] as? String {
+                        resultDecodedBuilder.start = Int32(jsonValueStart)!
+                    }
+                    if let jsonValueEnd = jsonMap["end"] as? Int {
+                        resultDecodedBuilder.end = Int32(jsonValueEnd)
+                    } else if let jsonValueEnd = jsonMap["end"] as? String {
+                        resultDecodedBuilder.end = Int32(jsonValueEnd)!
+                    }
+                    return resultDecodedBuilder
+                }
+                override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                    guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
+                      throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
+                    }
+                    return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder.decodeToBuilder(jsonMap:jsDataCast)
+                }
+            }
+
+        }
+
+        //Nested type declaration end
 
         public fileprivate(set) var name:String! = nil
         public fileprivate(set) var hasName:Bool = false
@@ -3974,6 +4618,10 @@ public extension Google.Protobuf {
         public fileprivate(set) var value:Array<Google.Protobuf.EnumValueDescriptorProto>  = Array<Google.Protobuf.EnumValueDescriptorProto>()
         public fileprivate(set) var options:Google.Protobuf.EnumOptions!
         public fileprivate(set) var hasOptions:Bool = false
+        public fileprivate(set) var reservedRange:Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange>  = Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange>()
+        /// Reserved enum value names, which may not be reused. A given name may only
+        /// be reserved once.
+        public fileprivate(set) var reservedName:Array<String> = Array<String>()
         required public init() {
             super.init()
         }
@@ -4005,6 +4653,14 @@ public extension Google.Protobuf {
             if hasOptions {
                 try codedOutputStream.writeMessage(fieldNumber: 3, value:options)
             }
+            for oneElementReservedRange in reservedRange {
+                  try codedOutputStream.writeMessage(fieldNumber: 4, value:oneElementReservedRange)
+            }
+            if !reservedName.isEmpty {
+                for oneValuereservedName in reservedName {
+                    try codedOutputStream.writeString(fieldNumber: 5, value:oneValuereservedName)
+                }
+            }
             try unknownFields.writeTo(codedOutputStream: codedOutputStream)
         }
         override public func serializedSize() -> Int32 {
@@ -4025,6 +4681,15 @@ public extension Google.Protobuf {
                     serialize_size += varSizeoptions
                 }
             }
+            for oneElementReservedRange in reservedRange {
+                serialize_size += oneElementReservedRange.computeMessageSize(fieldNumber: 4)
+            }
+            var dataSizeReservedName:Int32 = 0
+            for oneValuereservedName in reservedName {
+                dataSizeReservedName += oneValuereservedName.computeStringSizeNoTag()
+            }
+            serialize_size += dataSizeReservedName
+            serialize_size += 1 * Int32(reservedName.count)
             serialize_size += unknownFields.serializedSize()
             memoizedSerializedSize = serialize_size
             return serialize_size
@@ -4067,6 +4732,21 @@ public extension Google.Protobuf {
             if hasOptions {
                 jsonMap["options"] = try options.encode()
             }
+            if !reservedRange.isEmpty {
+                var jsonArrayReservedRange:Array<Dictionary<String,Any>> = []
+                for oneValueReservedRange in reservedRange {
+                    let ecodedMessageReservedRange = try oneValueReservedRange.encode()
+                    jsonArrayReservedRange.append(ecodedMessageReservedRange)
+                }
+                jsonMap["reservedRange"] = jsonArrayReservedRange
+            }
+            if !reservedName.isEmpty {
+                var jsonArrayReservedName:Array<String> = []
+                for oneValueReservedName in reservedName {
+                    jsonArrayReservedName.append(oneValueReservedName)
+                }
+                jsonMap["reservedName"] = jsonArrayReservedName
+            }
             return jsonMap
         }
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumDescriptorProto {
@@ -4094,6 +4774,18 @@ public extension Google.Protobuf {
                 }
                 output += "\(indent) }\n"
             }
+            var reservedRangeElementIndex:Int = 0
+            for oneElementReservedRange in reservedRange {
+                output += "\(indent) reservedRange[\(reservedRangeElementIndex)] {\n"
+                output += try oneElementReservedRange.getDescription(indent: "\(indent)  ")
+                output += "\(indent)}\n"
+                reservedRangeElementIndex += 1
+            }
+            var reservedNameElementIndex:Int = 0
+            for oneValueReservedName in reservedName  {
+                output += "\(indent) reservedName[\(reservedNameElementIndex)]: \(oneValueReservedName)\n"
+                reservedNameElementIndex += 1
+            }
             output += unknownFields.getDescription(indent: indent)
             return output
         }
@@ -4110,6 +4802,12 @@ public extension Google.Protobuf {
                     if let hashValueoptions = options?.hashValue {
                         hashCode = (hashCode &* 31) &+ hashValueoptions
                     }
+                }
+                for oneElementReservedRange in reservedRange {
+                    hashCode = (hashCode &* 31) &+ oneElementReservedRange.hashValue
+                }
+                for oneValueReservedName in reservedName {
+                    hashCode = (hashCode &* 31) &+ oneValueReservedName.hashValue
                 }
                 hashCode = (hashCode &* 31) &+  unknownFields.hashValue
                 return hashCode
@@ -4233,6 +4931,47 @@ public extension Google.Protobuf {
                 builderResult.options = nil
                 return self
             }
+            /// Range of reserved numeric values. Reserved numeric values may not be used
+            /// by enum values in the same enum declaration. Reserved ranges may not
+            /// overlap.
+            public var reservedRange:Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange> {
+                get {
+                    return builderResult.reservedRange
+                }
+                set (value) {
+                    builderResult.reservedRange = value
+                }
+            }
+            @discardableResult
+            public func setReservedRange(_ value:Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange>) -> Google.Protobuf.EnumDescriptorProto.Builder {
+                self.reservedRange = value
+                return self
+            }
+            @discardableResult
+            public func clearReservedRange() -> Google.Protobuf.EnumDescriptorProto.Builder {
+                builderResult.reservedRange.removeAll(keepingCapacity: false)
+                return self
+            }
+            /// Reserved enum value names, which may not be reused. A given name may only
+            /// be reserved once.
+            public var reservedName:Array<String> {
+                get {
+                    return builderResult.reservedName
+                }
+                set (array) {
+                    builderResult.reservedName = array
+                }
+            }
+            @discardableResult
+            public func setReservedName(_ value:Array<String>) -> Google.Protobuf.EnumDescriptorProto.Builder {
+                self.reservedName = value
+                return self
+            }
+            @discardableResult
+            public func clearReservedName() -> Google.Protobuf.EnumDescriptorProto.Builder {
+                builderResult.reservedName.removeAll(keepingCapacity: false)
+                return self
+            }
             override public var internalGetResult:GeneratedMessage {
                 get {
                     return builderResult
@@ -4268,6 +5007,12 @@ public extension Google.Protobuf {
                 if (other.hasOptions) {
                     try mergeOptions(value: other.options)
                 }
+                if !other.reservedRange.isEmpty  {
+                     builderResult.reservedRange += other.reservedRange
+                }
+                if !other.reservedName.isEmpty {
+                    builderResult.reservedName += other.reservedName
+                }
                 try merge(unknownField: other.unknownFields)
                 return self
             }
@@ -4301,6 +5046,14 @@ public extension Google.Protobuf {
                         try codedInputStream.readMessage(builder: subBuilder, extensionRegistry:extensionRegistry)
                         options = subBuilder.buildPartial()
 
+                    case 34:
+                        let subBuilder = Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder()
+                        try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
+                        reservedRange.append(subBuilder.buildPartial())
+
+                    case 42:
+                        reservedName += [try codedInputStream.readString()]
+
                     default:
                         if (!(try parse(codedInputStream:codedInputStream, unknownFields:unknownFieldsBuilder, extensionRegistry:extensionRegistry, tag:protobufTag))) {
                             unknownFields = try unknownFieldsBuilder.build()
@@ -4326,6 +5079,22 @@ public extension Google.Protobuf {
                 if let jsonValueOptions = jsonMap["options"] as? Dictionary<String,Any> {
                     resultDecodedBuilder.options = try Google.Protobuf.EnumOptions.Builder.decodeToBuilder(jsonMap:jsonValueOptions).build()
 
+                }
+                if let jsonValueReservedRange = jsonMap["reservedRange"] as? Array<Dictionary<String,Any>> {
+                    var jsonArrayReservedRange:Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange> = []
+                    for oneValueReservedRange in jsonValueReservedRange {
+                        let messageFromStringReservedRange = try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder.decodeToBuilder(jsonMap:oneValueReservedRange).build()
+
+                        jsonArrayReservedRange.append(messageFromStringReservedRange)
+                    }
+                    resultDecodedBuilder.reservedRange = jsonArrayReservedRange
+                }
+                if let jsonValueReservedName = jsonMap["reservedName"] as? Array<String> {
+                    var jsonArrayReservedName:Array<String> = []
+                    for oneValueReservedName in jsonValueReservedName {
+                        jsonArrayReservedName.append(oneValueReservedName)
+                    }
+                    resultDecodedBuilder.reservedName = jsonArrayReservedName
                 }
                 return resultDecodedBuilder
             }
@@ -5661,6 +6430,8 @@ public extension Google.Protobuf {
             fieldCheck = fieldCheck && (lhs.hasCsharpNamespace == rhs.hasCsharpNamespace) && (!lhs.hasCsharpNamespace || lhs.csharpNamespace == rhs.csharpNamespace)
             fieldCheck = fieldCheck && (lhs.hasSwiftPrefix == rhs.hasSwiftPrefix) && (!lhs.hasSwiftPrefix || lhs.swiftPrefix == rhs.swiftPrefix)
             fieldCheck = fieldCheck && (lhs.hasPhpClassPrefix == rhs.hasPhpClassPrefix) && (!lhs.hasPhpClassPrefix || lhs.phpClassPrefix == rhs.phpClassPrefix)
+            fieldCheck = fieldCheck && (lhs.hasPhpNamespace == rhs.hasPhpNamespace) && (!lhs.hasPhpNamespace || lhs.phpNamespace == rhs.phpNamespace)
+            fieldCheck = fieldCheck && (lhs.hasPhpGenericServices == rhs.hasPhpGenericServices) && (!lhs.hasPhpGenericServices || lhs.phpGenericServices == rhs.phpGenericServices)
             fieldCheck = fieldCheck && (lhs.uninterpretedOption == rhs.uninterpretedOption)
             fieldCheck = fieldCheck && lhs.isEqualExtensionsInOther(otherMessage: rhs, startInclusive:1000, endExclusive:536870912)
             fieldCheck = (fieldCheck && (lhs.unknownFields == rhs.unknownFields))
@@ -5780,6 +6551,9 @@ public extension Google.Protobuf {
         public fileprivate(set) var pyGenericServices:Bool! = false
         public fileprivate(set) var hasPyGenericServices:Bool = false
 
+        public fileprivate(set) var phpGenericServices:Bool! = false
+        public fileprivate(set) var hasPhpGenericServices:Bool = false
+
         /// Is this file deprecated?
         /// Depending on the target platform, this can emit Deprecated annotations
         /// for everything in the file, or it will be completely ignored; in the very
@@ -5812,6 +6586,12 @@ public extension Google.Protobuf {
         /// from this .proto. Default is empty.
         public fileprivate(set) var phpClassPrefix:String! = nil
         public fileprivate(set) var hasPhpClassPrefix:Bool = false
+
+        /// Use this option to change the namespace of php generated classes. Default
+        /// is empty. When this option is empty, the package name will be used for
+        /// determining the namespace.
+        public fileprivate(set) var phpNamespace:String! = nil
+        public fileprivate(set) var hasPhpNamespace:Bool = false
 
         public fileprivate(set) var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption>  = Array<Google.Protobuf.UninterpretedOption>()
         required public init() {
@@ -5882,6 +6662,12 @@ public extension Google.Protobuf {
             if hasPhpClassPrefix {
                 try codedOutputStream.writeString(fieldNumber: 40, value:phpClassPrefix)
             }
+            if hasPhpNamespace {
+                try codedOutputStream.writeString(fieldNumber: 41, value:phpNamespace)
+            }
+            if hasPhpGenericServices {
+                try codedOutputStream.writeBool(fieldNumber: 42, value:phpGenericServices)
+            }
             for oneElementUninterpretedOption in uninterpretedOption {
                   try codedOutputStream.writeMessage(fieldNumber: 999, value:oneElementUninterpretedOption)
             }
@@ -5942,6 +6728,12 @@ public extension Google.Protobuf {
             }
             if hasPhpClassPrefix {
                 serialize_size += phpClassPrefix.computeStringSize(fieldNumber: 40)
+            }
+            if hasPhpNamespace {
+                serialize_size += phpNamespace.computeStringSize(fieldNumber: 41)
+            }
+            if hasPhpGenericServices {
+                serialize_size += phpGenericServices.computeBoolSize(fieldNumber: 42)
             }
             for oneElementUninterpretedOption in uninterpretedOption {
                 serialize_size += oneElementUninterpretedOption.computeMessageSize(fieldNumber: 999)
@@ -6005,6 +6797,9 @@ public extension Google.Protobuf {
             if hasPyGenericServices {
                 jsonMap["pyGenericServices"] = pyGenericServices
             }
+            if hasPhpGenericServices {
+                jsonMap["phpGenericServices"] = phpGenericServices
+            }
             if hasDeprecated {
                 jsonMap["deprecated"] = deprecated
             }
@@ -6022,6 +6817,9 @@ public extension Google.Protobuf {
             }
             if hasPhpClassPrefix {
                 jsonMap["phpClassPrefix"] = phpClassPrefix
+            }
+            if hasPhpNamespace {
+                jsonMap["phpNamespace"] = phpNamespace
             }
             if !uninterpretedOption.isEmpty {
                 var jsonArrayUninterpretedOption:Array<Dictionary<String,Any>> = []
@@ -6089,6 +6887,12 @@ public extension Google.Protobuf {
             if hasPhpClassPrefix {
                 output += "\(indent) phpClassPrefix: \(phpClassPrefix) \n"
             }
+            if hasPhpNamespace {
+                output += "\(indent) phpNamespace: \(phpNamespace) \n"
+            }
+            if hasPhpGenericServices {
+                output += "\(indent) phpGenericServices: \(phpGenericServices) \n"
+            }
             var uninterpretedOptionElementIndex:Int = 0
             for oneElementUninterpretedOption in uninterpretedOption {
                 output += "\(indent) uninterpretedOption[\(uninterpretedOptionElementIndex)] {\n"
@@ -6150,6 +6954,12 @@ public extension Google.Protobuf {
                 }
                 if hasPhpClassPrefix {
                     hashCode = (hashCode &* 31) &+ phpClassPrefix.hashValue
+                }
+                if hasPhpNamespace {
+                    hashCode = (hashCode &* 31) &+ phpNamespace.hashValue
+                }
+                if hasPhpGenericServices {
+                    hashCode = (hashCode &* 31) &+ phpGenericServices.hashValue
                 }
                 for oneElementUninterpretedOption in uninterpretedOption {
                     hashCode = (hashCode &* 31) &+ oneElementUninterpretedOption.hashValue
@@ -6466,6 +7276,31 @@ public extension Google.Protobuf {
                 builderResult.pyGenericServices = false
                 return self
             }
+            public var phpGenericServices:Bool {
+                get {
+                    return builderResult.phpGenericServices
+                }
+                set (value) {
+                    builderResult.hasPhpGenericServices = true
+                    builderResult.phpGenericServices = value
+                }
+            }
+            public var hasPhpGenericServices:Bool {
+                get {
+                    return builderResult.hasPhpGenericServices
+                }
+            }
+            @discardableResult
+            public func setPhpGenericServices(_ value:Bool) -> Google.Protobuf.FileOptions.Builder {
+                self.phpGenericServices = value
+                return self
+            }
+            @discardableResult
+            public func clearPhpGenericServices() -> Google.Protobuf.FileOptions.Builder{
+                builderResult.hasPhpGenericServices = false
+                builderResult.phpGenericServices = false
+                return self
+            }
             /// Is this file deprecated?
             /// Depending on the target platform, this can emit Deprecated annotations
             /// for everything in the file, or it will be completely ignored; in the very
@@ -6631,7 +7466,36 @@ public extension Google.Protobuf {
                 builderResult.phpClassPrefix = nil
                 return self
             }
-            /// The parser stores options it doesn't recognize here. See above.
+            /// Use this option to change the namespace of php generated classes. Default
+            /// is empty. When this option is empty, the package name will be used for
+            /// determining the namespace.
+            public var phpNamespace:String {
+                get {
+                    return builderResult.phpNamespace
+                }
+                set (value) {
+                    builderResult.hasPhpNamespace = true
+                    builderResult.phpNamespace = value
+                }
+            }
+            public var hasPhpNamespace:Bool {
+                get {
+                    return builderResult.hasPhpNamespace
+                }
+            }
+            @discardableResult
+            public func setPhpNamespace(_ value:String) -> Google.Protobuf.FileOptions.Builder {
+                self.phpNamespace = value
+                return self
+            }
+            @discardableResult
+            public func clearPhpNamespace() -> Google.Protobuf.FileOptions.Builder{
+                builderResult.hasPhpNamespace = false
+                builderResult.phpNamespace = nil
+                return self
+            }
+            /// The parser stores options it doesn't recognize here.
+            /// See the documentation for the "Options" section above.
             public var uninterpretedOption:Array<Google.Protobuf.UninterpretedOption> {
                 get {
                     return builderResult.uninterpretedOption
@@ -6706,6 +7570,9 @@ public extension Google.Protobuf {
                 if other.hasPyGenericServices {
                     pyGenericServices = other.pyGenericServices
                 }
+                if other.hasPhpGenericServices {
+                    phpGenericServices = other.phpGenericServices
+                }
                 if other.hasDeprecated {
                     deprecated = other.deprecated
                 }
@@ -6723,6 +7590,9 @@ public extension Google.Protobuf {
                 }
                 if other.hasPhpClassPrefix {
                     phpClassPrefix = other.phpClassPrefix
+                }
+                if other.hasPhpNamespace {
+                    phpNamespace = other.phpNamespace
                 }
                 if !other.uninterpretedOption.isEmpty  {
                      builderResult.uninterpretedOption += other.uninterpretedOption
@@ -6798,6 +7668,12 @@ public extension Google.Protobuf {
                     case 322:
                         phpClassPrefix = try codedInputStream.readString()
 
+                    case 330:
+                        phpNamespace = try codedInputStream.readString()
+
+                    case 336:
+                        phpGenericServices = try codedInputStream.readBool()
+
                     case 7994:
                         let subBuilder = Google.Protobuf.UninterpretedOption.Builder()
                         try codedInputStream.readMessage(builder: subBuilder,extensionRegistry:extensionRegistry)
@@ -6843,6 +7719,9 @@ public extension Google.Protobuf {
                 if let jsonValuePyGenericServices = jsonMap["pyGenericServices"] as? Bool {
                     resultDecodedBuilder.pyGenericServices = jsonValuePyGenericServices
                 }
+                if let jsonValuePhpGenericServices = jsonMap["phpGenericServices"] as? Bool {
+                    resultDecodedBuilder.phpGenericServices = jsonValuePhpGenericServices
+                }
                 if let jsonValueDeprecated = jsonMap["deprecated"] as? Bool {
                     resultDecodedBuilder.deprecated = jsonValueDeprecated
                 }
@@ -6860,6 +7739,9 @@ public extension Google.Protobuf {
                 }
                 if let jsonValuePhpClassPrefix = jsonMap["phpClassPrefix"] as? String {
                     resultDecodedBuilder.phpClassPrefix = jsonValuePhpClassPrefix
+                }
+                if let jsonValuePhpNamespace = jsonMap["phpNamespace"] as? String {
+                    resultDecodedBuilder.phpNamespace = jsonValuePhpNamespace
                 }
                 if let jsonValueUninterpretedOption = jsonMap["uninterpretedOption"] as? Array<Dictionary<String,Any>> {
                     var jsonArrayUninterpretedOption:Array<Google.Protobuf.UninterpretedOption> = []
@@ -7857,13 +8739,14 @@ public extension Google.Protobuf {
             }
             /// The jstype option determines the JavaScript type used for values of the
             /// field.  The option is permitted only for 64 bit integral and fixed types
-            /// (int64, uint64, sint64, fixed64, sfixed64).  By default these types are
-            /// represented as JavaScript strings.  This avoids loss of precision that can
-            /// happen when a large value is converted to a floating point JavaScript
-            /// numbers.  Specifying JS_NUMBER for the jstype causes the generated
-            /// JavaScript code to use the JavaScript "number" type instead of strings.
-            /// This option is an enum to permit additional types to be added,
-            /// e.g. goog.math.Integer.
+            /// (int64, uint64, sint64, fixed64, sfixed64).  A field with jstype JS_STRING
+            /// is represented as JavaScript string, which avoids loss of precision that
+            /// can happen when a large value is converted to a floating point JavaScript.
+            /// Specifying JS_NUMBER for the jstype causes the generated JavaScript code to
+            /// use the JavaScript "number" type.  The behavior of the default option
+            /// JS_NORMAL is implementation dependent.
+            /// This option is an enum to permit additional types to be added, e.g.
+            /// goog.math.Integer.
                 public var jstype:Google.Protobuf.FieldOptions.Jstype {
                     get {
                         return builderResult.jstype
@@ -12426,6 +13309,7 @@ extension Google.Protobuf.DescriptorProto.ExtensionRange: GeneratedMessageProtoc
         switch key {
         case "start": return self.start
         case "end": return self.end
+        case "options": return self.options
         default: return nil
         }
     }
@@ -12549,6 +13433,7 @@ extension Google.Protobuf.DescriptorProto.ExtensionRange.Builder: GeneratedMessa
             switch key {
             case "start": return self.start
             case "end": return self.end
+            case "options": return self.options
             default: return nil
             }
         }
@@ -12564,6 +13449,11 @@ extension Google.Protobuf.DescriptorProto.ExtensionRange.Builder: GeneratedMessa
                     return
                 }
                 self.end = newSubscriptValue
+            case "options":
+                guard let newSubscriptValue = newSubscriptValue as? Google.Protobuf.ExtensionRangeOptions else {
+                    return
+                }
+                self.options = newSubscriptValue
             default: return
             }
         }
@@ -12591,6 +13481,63 @@ extension Google.Protobuf.DescriptorProto.ReservedRange.Builder: GeneratedMessag
                     return
                 }
                 self.end = newSubscriptValue
+            default: return
+            }
+        }
+    }
+}
+extension Google.Protobuf.ExtensionRangeOptions: GeneratedMessageProtocol {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.ExtensionRangeOptions> {
+        var mergedArray = Array<Google.Protobuf.ExtensionRangeOptions>()
+        while let value = try parseDelimitedFrom(inputStream: inputStream) {
+          mergedArray.append(value)
+        }
+        return mergedArray
+    }
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.ExtensionRangeOptions? {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+    }
+    public class func parseFrom(data: Data) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DescriptorRoot.default.extensionRegistry).build()
+    }
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(inputStream: inputStream).build()
+    }
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.ExtensionRangeOptions {
+        return try Google.Protobuf.ExtensionRangeOptions.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public subscript(key: String) -> Any? {
+        switch key {
+        case "uninterpretedOption": return self.uninterpretedOption
+        default: return nil
+        }
+    }
+}
+extension Google.Protobuf.ExtensionRangeOptions.Builder: GeneratedMessageBuilderProtocol {
+    public typealias GeneratedMessageType = Google.Protobuf.ExtensionRangeOptions
+    public subscript(key: String) -> Any? {
+        get { 
+            switch key {
+            case "uninterpretedOption": return self.uninterpretedOption
+            default: return nil
+            }
+        }
+        set (newSubscriptValue) { 
+            switch key {
+            case "uninterpretedOption":
+                guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
+                    return
+                }
+                self.uninterpretedOption = newSubscriptValue
             default: return
             }
         }
@@ -12814,6 +13761,45 @@ extension Google.Protobuf.EnumDescriptorProto: GeneratedMessageProtocol {
         case "name": return self.name
         case "value": return self.value
         case "options": return self.options
+        case "reservedRange": return self.reservedRange
+        case "reservedName": return self.reservedName
+        default: return nil
+        }
+    }
+}
+extension Google.Protobuf.EnumDescriptorProto.EnumReservedRange: GeneratedMessageProtocol {
+    public class func parseArrayDelimitedFrom(inputStream: InputStream) throws -> Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange> {
+        var mergedArray = Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange>()
+        while let value = try parseDelimitedFrom(inputStream: inputStream) {
+          mergedArray.append(value)
+        }
+        return mergedArray
+    }
+    public class func parseDelimitedFrom(inputStream: InputStream) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange? {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeDelimitedFrom(inputStream: inputStream)?.build()
+    }
+    public class func parseFrom(data: Data) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(data: data, extensionRegistry:Google.Protobuf.DescriptorRoot.default.extensionRegistry).build()
+    }
+    public class func parseFrom(data: Data, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(data: data, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(inputStream: InputStream) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(inputStream: inputStream).build()
+    }
+    public class func parseFrom(inputStream: InputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(inputStream: inputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(codedInputStream: codedInputStream).build()
+    }
+    public class func parseFrom(codedInputStream: CodedInputStream, extensionRegistry:ExtensionRegistry) throws -> Google.Protobuf.EnumDescriptorProto.EnumReservedRange {
+        return try Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder().mergeFrom(codedInputStream: codedInputStream, extensionRegistry:extensionRegistry).build()
+    }
+    public subscript(key: String) -> Any? {
+        switch key {
+        case "start": return self.start
+        case "end": return self.end
         default: return nil
         }
     }
@@ -12826,6 +13812,8 @@ extension Google.Protobuf.EnumDescriptorProto.Builder: GeneratedMessageBuilderPr
             case "name": return self.name
             case "value": return self.value
             case "options": return self.options
+            case "reservedRange": return self.reservedRange
+            case "reservedName": return self.reservedName
             default: return nil
             }
         }
@@ -12846,6 +13834,43 @@ extension Google.Protobuf.EnumDescriptorProto.Builder: GeneratedMessageBuilderPr
                     return
                 }
                 self.options = newSubscriptValue
+            case "reservedRange":
+                guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.EnumDescriptorProto.EnumReservedRange> else {
+                    return
+                }
+                self.reservedRange = newSubscriptValue
+            case "reservedName":
+                guard let newSubscriptValue = newSubscriptValue as? Array<String> else {
+                    return
+                }
+                self.reservedName = newSubscriptValue
+            default: return
+            }
+        }
+    }
+}
+extension Google.Protobuf.EnumDescriptorProto.EnumReservedRange.Builder: GeneratedMessageBuilderProtocol {
+    public typealias GeneratedMessageType = Google.Protobuf.EnumDescriptorProto.EnumReservedRange
+    public subscript(key: String) -> Any? {
+        get { 
+            switch key {
+            case "start": return self.start
+            case "end": return self.end
+            default: return nil
+            }
+        }
+        set (newSubscriptValue) { 
+            switch key {
+            case "start":
+                guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+                    return
+                }
+                self.start = newSubscriptValue
+            case "end":
+                guard let newSubscriptValue = newSubscriptValue as? Int32 else {
+                    return
+                }
+                self.end = newSubscriptValue
             default: return
             }
         }
@@ -13126,12 +14151,14 @@ extension Google.Protobuf.FileOptions: GeneratedMessageProtocol {
         case "ccGenericServices": return self.ccGenericServices
         case "javaGenericServices": return self.javaGenericServices
         case "pyGenericServices": return self.pyGenericServices
+        case "phpGenericServices": return self.phpGenericServices
         case "deprecated": return self.deprecated
         case "ccEnableArenas": return self.ccEnableArenas
         case "objcClassPrefix": return self.objcClassPrefix
         case "csharpNamespace": return self.csharpNamespace
         case "swiftPrefix": return self.swiftPrefix
         case "phpClassPrefix": return self.phpClassPrefix
+        case "phpNamespace": return self.phpNamespace
         case "uninterpretedOption": return self.uninterpretedOption
         default: return nil
         }
@@ -13152,12 +14179,14 @@ extension Google.Protobuf.FileOptions.Builder: GeneratedMessageBuilderProtocol {
             case "ccGenericServices": return self.ccGenericServices
             case "javaGenericServices": return self.javaGenericServices
             case "pyGenericServices": return self.pyGenericServices
+            case "phpGenericServices": return self.phpGenericServices
             case "deprecated": return self.deprecated
             case "ccEnableArenas": return self.ccEnableArenas
             case "objcClassPrefix": return self.objcClassPrefix
             case "csharpNamespace": return self.csharpNamespace
             case "swiftPrefix": return self.swiftPrefix
             case "phpClassPrefix": return self.phpClassPrefix
+            case "phpNamespace": return self.phpNamespace
             case "uninterpretedOption": return self.uninterpretedOption
             default: return nil
             }
@@ -13214,6 +14243,11 @@ extension Google.Protobuf.FileOptions.Builder: GeneratedMessageBuilderProtocol {
                     return
                 }
                 self.pyGenericServices = newSubscriptValue
+            case "phpGenericServices":
+                guard let newSubscriptValue = newSubscriptValue as? Bool else {
+                    return
+                }
+                self.phpGenericServices = newSubscriptValue
             case "deprecated":
                 guard let newSubscriptValue = newSubscriptValue as? Bool else {
                     return
@@ -13244,6 +14278,11 @@ extension Google.Protobuf.FileOptions.Builder: GeneratedMessageBuilderProtocol {
                     return
                 }
                 self.phpClassPrefix = newSubscriptValue
+            case "phpNamespace":
+                guard let newSubscriptValue = newSubscriptValue as? String else {
+                    return
+                }
+                self.phpNamespace = newSubscriptValue
             case "uninterpretedOption":
                 guard let newSubscriptValue = newSubscriptValue as? Array<Google.Protobuf.UninterpretedOption> else {
                     return
