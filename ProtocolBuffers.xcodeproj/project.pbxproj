@@ -92,14 +92,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F2F4E861FAA3829005FFAFD /* PBXContainerItemProxy */ = {
+		3F130A3F1FAB2CFA00E29F61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "ProtocolBuffers::ProtocolBuffers";
 			remoteInfo = ProtocolBuffers;
 		};
-		3F2F4E871FAA382A005FFAFD /* PBXContainerItemProxy */ = {
+		3F130A401FAB2CFB00E29F61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -109,17 +109,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3F90B9881FAA3D7500097883 /* text_format_unittest_data_oneof_implemented.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data_oneof_implemented.txt; sourceTree = "<group>"; };
-		3F90B9891FAA3D7500097883 /* text_format_unittest_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data.txt; sourceTree = "<group>"; };
-		3F90B98A1FAA3D7500097883 /* text_format_unittest_data_pointy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data_pointy.txt; sourceTree = "<group>"; };
-		3F90B98B1FAA3D7500097883 /* text_format_unittest_extensions_data_pointy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data_pointy.txt; sourceTree = "<group>"; };
-		3F90B98C1FAA3D7500097883 /* delimitedFile.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = delimitedFile.dat; sourceTree = "<group>"; };
-		3F90B98D1FAA3D7500097883 /* golden_message_oneof_implemented */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_message_oneof_implemented; sourceTree = "<group>"; };
-		3F90B98E1FAA3D7500097883 /* bad_utf8_string */ = {isa = PBXFileReference; lastKnownFileType = file; path = bad_utf8_string; sourceTree = "<group>"; };
-		3F90B98F1FAA3D7500097883 /* text_format_unittest_data_pointy_oneof.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_data_pointy_oneof.txt; sourceTree = "<group>"; };
-		3F90B9901FAA3D7500097883 /* golden_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_message; sourceTree = "<group>"; };
-		3F90B9911FAA3D7500097883 /* text_format_unittest_extensions_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text_format_unittest_extensions_data.txt; sourceTree = "<group>"; };
-		3F90B9921FAA3D7500097883 /* golden_packed_fields_message */ = {isa = PBXFileReference; lastKnownFileType = file; path = golden_packed_fields_message; sourceTree = "<group>"; };
 		OBJ_10 /* CodedInputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedInputStream.swift; sourceTree = "<group>"; };
 		OBJ_11 /* CodedOutputStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedOutputStream.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ConcreateExtensionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreateExtensionField.swift; sourceTree = "<group>"; };
@@ -214,24 +203,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F90B9871FAA3D7500097883 /* testdata */ = {
-			isa = PBXGroup;
-			children = (
-				3F90B9881FAA3D7500097883 /* text_format_unittest_data_oneof_implemented.txt */,
-				3F90B9891FAA3D7500097883 /* text_format_unittest_data.txt */,
-				3F90B98A1FAA3D7500097883 /* text_format_unittest_data_pointy.txt */,
-				3F90B98B1FAA3D7500097883 /* text_format_unittest_extensions_data_pointy.txt */,
-				3F90B98C1FAA3D7500097883 /* delimitedFile.dat */,
-				3F90B98D1FAA3D7500097883 /* golden_message_oneof_implemented */,
-				3F90B98E1FAA3D7500097883 /* bad_utf8_string */,
-				3F90B98F1FAA3D7500097883 /* text_format_unittest_data_pointy_oneof.txt */,
-				3F90B9901FAA3D7500097883 /* golden_message */,
-				3F90B9911FAA3D7500097883 /* text_format_unittest_extensions_data.txt */,
-				3F90B9921FAA3D7500097883 /* golden_packed_fields_message */,
-			);
-			path = testdata;
-			sourceTree = "<group>";
-		};
 		OBJ_32 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +237,6 @@
 		OBJ_48 /* pbTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F90B9871FAA3D7500097883 /* testdata */,
 				OBJ_49 /* Bar.Foo.proto.swift */,
 				OBJ_50 /* Baz.Foo.proto.swift */,
 				OBJ_51 /* Google.Protobuf.NoGenericServicesTest.UnittestNoGenericServices.proto.swift */,
@@ -300,7 +270,7 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -312,6 +282,7 @@
 				OBJ_81 /* DerivedData */,
 				OBJ_82 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -426,7 +397,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
+			mainGroup = OBJ_5 /*  */;
 			productRefGroup = OBJ_82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -534,12 +505,12 @@
 		OBJ_141 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ProtocolBuffers::ProtocolBuffers" /* ProtocolBuffers */;
-			targetProxy = 3F2F4E861FAA3829005FFAFD /* PBXContainerItemProxy */;
+			targetProxy = 3F130A3F1FAB2CFA00E29F61 /* PBXContainerItemProxy */;
 		};
 		OBJ_175 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "ProtocolBuffers::ProtocolBufferTests" /* ProtocolBufferTests */;
-			targetProxy = 3F2F4E871FAA382A005FFAFD /* PBXContainerItemProxy */;
+			targetProxy = 3F130A401FAB2CFB00E29F61 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
