@@ -35,7 +35,7 @@ public enum ProtocolBuffersError: Error {
 public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     var unknownFields:UnknownFieldSet{get}
     func serializedSize() -> Int32
-    func isInitialized() -> Bool
+    func isInitialized() throws
     func writeTo(codedOutputStream:CodedOutputStream) throws
     func writeTo(outputStream:OutputStream) throws
     func data() throws -> Data
@@ -53,7 +53,7 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
 public protocol ProtocolBuffersMessageBuilder {
      var unknownFields:UnknownFieldSet{get set}
      func clear() -> Self
-     func isInitialized()-> Bool
+     func isInitialized() throws
      func build() throws -> AbstractProtocolBuffersMessage
      func merge(unknownField:UnknownFieldSet) throws -> Self
      func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self
@@ -90,8 +90,7 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         catch {}
         return Data(bytes: stream.buffer.buffer, count: Int(ser_size))
     }
-    open func isInitialized() -> Bool {
-        return false
+    open func isInitialized() throws {
     }
     open func serializedSize() -> Int32 {
         return 0
@@ -173,8 +172,7 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         return self
     }
     
-    open func isInitialized() -> Bool {
-        return false
+    open func isInitialized() throws {
     }
     @discardableResult
     open func mergeFrom(codedInputStream:CodedInputStream) throws ->  Self {

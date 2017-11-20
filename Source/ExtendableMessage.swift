@@ -44,38 +44,28 @@ open class ExtendableMessage : GeneratedMessage
     }
     //
     
-    public func isInitialized(object:Any) -> Bool
+    public func isInitialized(object:Any) throws
     {
         switch object
         {
         case let array as Array<Any>:
-            for child in array
-            {
-                if (!isInitialized(object: child))
-                {
-                    return false
-                }
+            for child in array {
+                try isInitialized(object: child)
             }
         case let array as Array<GeneratedMessage>:
-            for child in array
-            {
-                if (!isInitialized(object: child))
-                {
-                    return false
-                }
+            for child in array {
+                try isInitialized(object: child)
             }
         case let message as GeneratedMessage:
-            return message.isInitialized()
+            try message.isInitialized()
         default:
-            return true
+            return
         }
-        
-        return true
     }
     
-    open func extensionsAreInitialized() -> Bool {
+    open func extensionsAreInitialized() throws {
         let arr = Array(extensionMap.values)
-        return isInitialized(object:arr)
+        try isInitialized(object:arr)
     }
     
     internal func ensureExtensionIsRegistered(extensions:ConcreateExtensionField)
@@ -291,31 +281,21 @@ open class ExtendableMessageBuilder:GeneratedMessageBuilder
     }
     
     
-    override open func checkInitialized() throws
-    {
+    override open func checkInitialized() throws {
         let result = internalGetResult
-        if (!result.isInitialized())
-        {
-            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
-        }
+        try result.isInitialized()
     }
     
-    override open func checkInitializedParsed() throws
-    {
+    override open func checkInitializedParsed() throws {
         let result = internalGetResult
-        if (!result.isInitialized())
-        {
-            throw ProtocolBuffersError.invalidProtocolBuffer("Uninitialized Message")
-        }
+        try result.isInitialized()
     }
     
-    override open func isInitialized() -> Bool
-    {
-        return internalGetResult.isInitialized()
+    override open func isInitialized() throws {
+        try internalGetResult.isInitialized()
     }
     @discardableResult
-    override open func merge(unknownField: UnknownFieldSet) throws -> Self
-    {
+    override open func merge(unknownField: UnknownFieldSet) throws -> Self {
         let result:GeneratedMessage = internalGetResult
         result.unknownFields = try UnknownFieldSet.builderWithUnknownFields(copyFrom: result.unknownFields).merge(unknownFields: unknownField).build()
         return self

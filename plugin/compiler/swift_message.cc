@@ -446,9 +446,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         XCodeStandartIndent(printer);
         
-        printer->Print("guard isInitialized() else {\n"
-                       "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Uninitialized Message\")\n"
-                       "}\n\n");
+        printer->Print("try isInitialized()\n");
         
         if (descriptor_->field_count() == 0) {
             printer->Print("let jsonMap:Dictionary<String,Any> = Dictionary<String,Any>()\n");
@@ -956,7 +954,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateIsInitializedSource(io::Printer* printer) {
         printer->Print(variables_,
-                       "override $acontrol$ func isInitialized() -> Bool {\n");
+                       "override $acontrol$ func isInitialized() throws {\n");
         XCodeStandartIndent(printer);
       
         for (int i = 0; i < descriptor_->field_count(); i++) {
@@ -964,9 +962,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
             
             if (field->is_required()) {
                 printer->Print("if !has$capitalized_name$ {\n"
-                               "    return false\n"
+                               "    throw ProtocolBuffersError.invalidProtocolBuffer(\"Uninitialized Message \\($classNameReturnedType$.self): field \\\"$fieldName$\\\" mark required\")\n"
                                "}\n",
-                               "capitalized_name", UnderscoresToCapitalizedCamelCase(field));
+                               "capitalized_name", UnderscoresToCapitalizedCamelCase(field),
+                               "classNameReturnedType", ClassNameReturedType(descriptor_),
+                               "fieldName", UnderscoresToCamelCase(field));
             }
         }
         
@@ -984,30 +984,22 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 switch (field->label()) {
                     case FieldDescriptor::LABEL_REQUIRED:
                         printer->Print(vars,
-                                       "if !$name_reserved$.isInitialized() {\n"
-                                       "    return false\n"
-                                       "}\n");
+                                       "try $name_reserved$.isInitialized()\n");
                         break;
                     case FieldDescriptor::LABEL_OPTIONAL:
                         printer->Print(vars,
                                        "if has$capitalized_name$ {\n"
-                                       "    if !$name_reserved$.isInitialized() {\n"
-                                       "        return false\n"
-                                       "    }\n"
+                                       "    try $name_reserved$.isInitialized()\n"
                                        "}\n");
                         break;
                     case FieldDescriptor::LABEL_REPEATED:
                         printer->Print(vars,
-                                       "var isInit$capitalized_name$:Bool = true\n"
                                        "for oneElement$capitalized_name$ in $name_reserved$ {\n"
-                                       "    if !oneElement$capitalized_name$.isInitialized() {\n"
-                                       "        isInit$capitalized_name$ = false\n"
-                                       "        break \n"
-                                       "    }\n"
+                                       "    try oneElement$capitalized_name$.isInitialized()\n"
                                        "}\n"
-                                       "if !isInit$capitalized_name$ {\n"
-                                       "    return isInit$capitalized_name$\n"
-                                       "}\n"
+//                                       "if !isInit$capitalized_name$ {\n"
+//                                       "    return isInit$capitalized_name$\n"
+//                                       "}\n"
                                        );
                         break;
                 }
@@ -1016,15 +1008,11 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         if (descriptor_->extension_range_count() > 0) {
             printer->Print(
-                           "if !extensionsAreInitialized() {\n"
-                           "    return false\n"
-                           "}\n");
+                           "try extensionsAreInitialized()");
         }
         
         XCodeStandartOutdent(printer);
-        printer->Print(
-                       "    return true\n"
-                       "}\n");
+        printer->Print("}\n");
     }
 }  // namespace swift
 }  // namespace compiler

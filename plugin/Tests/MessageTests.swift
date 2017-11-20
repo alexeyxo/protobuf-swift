@@ -90,53 +90,52 @@ class MessageTests: XCTestCase {
     func testRequired()
     {
         let builder = ProtobufUnittest.TestRequired.Builder()
-        XCTAssertFalse(builder.isInitialized(), "")
+        try XCTAssertThrowsError(builder.isInitialized())
         builder.a = 1
-        XCTAssertFalse(builder.isInitialized(), "")
+        try XCTAssertThrowsError(builder.isInitialized())
         builder.b = 1
-        XCTAssertFalse(builder.isInitialized(), "")
+        try XCTAssertThrowsError(builder.isInitialized())
         builder.c = 1
-        XCTAssertTrue(builder.isInitialized(), "")
+        try XCTAssertNoThrow(builder.isInitialized())
     }
     
     func testRequiredForeign() {
         
         let builder = ProtobufUnittest.TestRequiredForeign.Builder()
         
-        XCTAssertTrue(builder.isInitialized(), "")
+        try XCTAssertNoThrow(builder.isInitialized())
         
         builder.optionalMessage = testRequiredUninitialized()
-        XCTAssertFalse(builder.isInitialized(), "")
+        try XCTAssertThrowsError(builder.isInitialized())
         
         do {
             builder.optionalMessage = try testRequiredInitialized()
-            XCTAssertTrue(builder.isInitialized(), "")
+            try XCTAssertNoThrow(builder.isInitialized())
+        } catch {
+            XCTAssertFalse(true)
         }
-        catch
-        {
-            XCTFail("testRequiredForeign")
-        }
+    
         
         builder.repeatedMessage += [testRequiredUninitialized()]
-        XCTAssertFalse(builder.isInitialized(), "")
+        try XCTAssertThrowsError(builder.isInitialized())
     }
     
     func testRequiredExtension() {
         let builder = ProtobufUnittest.TestAllExtensions.Builder()
-        XCTAssertTrue(builder.isInitialized(), "")
+        try XCTAssertNoThrow(builder.isInitialized())
         
         do {
             _ = try builder.setExtension(extensions: ProtobufUnittest.TestRequired.single(), value:testRequiredUninitialized())
-            XCTAssertFalse(builder.isInitialized(), "")
+            try XCTAssertThrowsError(builder.isInitialized())
         
             _ = try builder.setExtension(extensions: ProtobufUnittest.TestRequired.single(), value:testRequiredInitialized())
-            XCTAssertTrue(builder.isInitialized(), "")
+            try XCTAssertNoThrow(builder.isInitialized())
         
             _ = try builder.addExtension(extensions: ProtobufUnittest.TestRequired.multi(), value:testRequiredUninitialized())
-            XCTAssertFalse(builder.isInitialized(), "")
+            try XCTAssertThrowsError(builder.isInitialized())
         
             _ = try builder.setExtension(extensions:ProtobufUnittest.TestRequired.multi(), index:0, value:testRequiredInitialized())
-            XCTAssertTrue(builder.isInitialized(), "")
+            try XCTAssertNoThrow(builder.isInitialized())
         }
         catch {
             XCTFail("testRequiredExtension")
@@ -145,7 +144,7 @@ class MessageTests: XCTestCase {
     
     func testBuildPartial() {
         let message = ProtobufUnittest.TestRequired.Builder().buildPartial()
-        XCTAssertFalse(message.isInitialized(), "")
+        try XCTAssertThrowsError(message.isInitialized())
     }
     
     func testBuildNestedPartial() {
@@ -154,7 +153,7 @@ class MessageTests: XCTestCase {
         message.optionalMessage = testRequiredUninitialized()
         message.repeatedMessage += [testRequiredUninitialized()]
         message.repeatedMessage += [testRequiredUninitialized()]
-        XCTAssertFalse(message.buildPartial().isInitialized(), "")
+        try XCTAssertThrowsError(message.buildPartial().isInitialized())
     }
     
     
