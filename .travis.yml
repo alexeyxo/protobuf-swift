@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode8
 before_install:
-  - brew install protobuf
+  - brew install https://raw.githubusercontent.com/paulirish/homebrew-versions-1/master/protobuf260.rb
 #  - brew uninstall xctool
 #  - brew install xctool --HEAD
 
