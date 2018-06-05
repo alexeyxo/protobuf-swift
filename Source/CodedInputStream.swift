@@ -481,8 +481,9 @@ public class CodedInputStream {
         let size = Int(try readRawVarint32())
         if size < bufferSize - bufferPos && size > 0 {
 //            let pointer = UnsafeMutablePointerInt8From(data: buffer)
-            let unsafeRaw = UnsafeRawPointer(&buffer+bufferPos)
-            let data = Data(bytes: unsafeRaw, count: size)
+//            let unsafeRaw = UnsafeRawPointer(&buffer+bufferPos)
+//            let data = Data(bytes: unsafeRaw, count: size)
+            let data = Data(bytes: buffer[bufferPos..<bufferPos+size])
             bufferPos += size
             return data
         } else {
