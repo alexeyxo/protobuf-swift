@@ -92,8 +92,8 @@ public extension ProtobufUnittestImport {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> ProtobufUnittestImport.PublicImportMessageLite {
             return try ProtobufUnittestImport.PublicImportMessageLite.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> ProtobufUnittestImport.PublicImportMessageLite {
-            return try ProtobufUnittestImport.PublicImportMessageLite.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> ProtobufUnittestImport.PublicImportMessageLite {
+            return try ProtobufUnittestImport.PublicImportMessageLite.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -225,8 +225,8 @@ public extension ProtobufUnittestImport {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

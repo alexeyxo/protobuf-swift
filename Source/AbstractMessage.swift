@@ -45,8 +45,8 @@ public protocol ProtocolBuffersMessage:ProtocolBuffersMessageInit {
     //JSON
     func encode() throws -> Dictionary<String,Any>
     static func decode(jsonMap:Dictionary<String,Any>) throws -> Self
-    func toJSON() throws -> Data
-    static func fromJSON(data:Data) throws -> Self
+    func toJSON(options: JSONSerialization.WritingOptions) throws -> Data
+    static func fromJSON(data:Data, options: JSONSerialization.ReadingOptions) throws -> Self
     
 }
 
@@ -66,7 +66,7 @@ public protocol ProtocolBuffersMessageBuilder {
      func mergeDelimitedFrom(inputStream:InputStream) throws -> Self?
     
     static func decodeToBuilder(jsonMap:Dictionary<String,Any>) throws -> Self
-    static func fromJSONToBuilder(data:Data) throws -> Self
+    static func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions) throws -> Self
     
 }
 
@@ -141,12 +141,12 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    open func toJSON() throws -> Data {
-        let json = try JSONSerialization.data(withJSONObject: encode())
+    open func toJSON(options: JSONSerialization.WritingOptions = []) throws -> Data {
+        let json = try JSONSerialization.data(withJSONObject: encode(), options:options)
         return json
     }
     
-    open class func fromJSON(data:Data) throws -> Self {
+    open class func fromJSON(data:Data, options: JSONSerialization.ReadingOptions) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
@@ -238,7 +238,7 @@ open class AbstractProtocolBuffersMessageBuilder:ProtocolBuffersMessageBuilder {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
     
-    open class func fromJSONToBuilder(data: Data) throws -> Self {
+    open class func fromJSONToBuilder(data: Data, options: JSONSerialization.ReadingOptions = []) throws -> Self {
         throw ProtocolBuffersError.obvious("JSON Encoding/Decoding available only in syntax=\"proto3\"")
     }
 

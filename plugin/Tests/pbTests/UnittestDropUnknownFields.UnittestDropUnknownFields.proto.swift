@@ -146,8 +146,8 @@ public extension UnittestDropUnknownFields {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.Foo {
             return try UnittestDropUnknownFields.Foo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> UnittestDropUnknownFields.Foo {
-            return try UnittestDropUnknownFields.Foo.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UnittestDropUnknownFields.Foo {
+            return try UnittestDropUnknownFields.Foo.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -324,8 +324,8 @@ public extension UnittestDropUnknownFields {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> UnittestDropUnknownFields.Foo.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UnittestDropUnknownFields.Foo.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -476,8 +476,8 @@ public extension UnittestDropUnknownFields {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UnittestDropUnknownFields.FooWithExtraFields {
             return try UnittestDropUnknownFields.FooWithExtraFields.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> UnittestDropUnknownFields.FooWithExtraFields {
-            return try UnittestDropUnknownFields.FooWithExtraFields.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UnittestDropUnknownFields.FooWithExtraFields {
+            return try UnittestDropUnknownFields.FooWithExtraFields.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -696,8 +696,8 @@ public extension UnittestDropUnknownFields {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UnittestDropUnknownFields.FooWithExtraFields.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

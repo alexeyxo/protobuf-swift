@@ -104,8 +104,8 @@ final internal class PBUser : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBUser {
         return try PBUser.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBUser {
-        return try PBUser.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBUser {
+        return try PBUser.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -316,8 +316,8 @@ final internal class PBUser : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBUser.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBUser.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -398,8 +398,8 @@ final internal class PBGroup : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBGroup {
         return try PBGroup.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBGroup {
-        return try PBGroup.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBGroup {
+        return try PBGroup.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -570,8 +570,8 @@ final internal class PBGroup : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBGroup.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBGroup.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -657,8 +657,8 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBPerfomanceBatch {
         return try PBPerfomanceBatch.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBPerfomanceBatch {
-        return try PBPerfomanceBatch.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBPerfomanceBatch {
+        return try PBPerfomanceBatch.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -793,8 +793,8 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBPerfomanceBatch.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBPerfomanceBatch.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -964,8 +964,8 @@ final internal class PBPerfomance : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBPerfomance {
         return try PBPerfomance.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBPerfomance {
-        return try PBPerfomance.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBPerfomance {
+        return try PBPerfomance.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -1343,8 +1343,8 @@ final internal class PBPerfomance : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBPerfomance.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBPerfomance.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -1443,8 +1443,8 @@ final internal class PBProtoPoint : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBProtoPoint {
         return try PBProtoPoint.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBProtoPoint {
-        return try PBProtoPoint.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBProtoPoint {
+        return try PBProtoPoint.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -1618,8 +1618,8 @@ final internal class PBProtoPoint : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBProtoPoint.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBProtoPoint.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -1749,8 +1749,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBIceCreamCone {
         return try PBIceCreamCone.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBIceCreamCone {
-        return try PBIceCreamCone.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBIceCreamCone {
+        return try PBIceCreamCone.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -1927,8 +1927,8 @@ final internal class PBIceCreamCone : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBIceCreamCone.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBIceCreamCone.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2010,8 +2010,8 @@ final internal class PBFoo : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBFoo {
         return try PBFoo.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBFoo {
-        return try PBFoo.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBFoo {
+        return try PBFoo.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -2144,8 +2144,8 @@ final internal class PBFoo : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBFoo.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBFoo.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2226,8 +2226,8 @@ final internal class PBBar : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBBar {
         return try PBBar.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBBar {
-        return try PBBar.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBBar {
+        return try PBBar.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -2399,8 +2399,8 @@ final internal class PBBar : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBBar.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBBar.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2481,8 +2481,8 @@ final internal class PBBaz : GeneratedMessage {
     override class internal func decode(jsonMap:Dictionary<String,Any>) throws -> PBBaz {
         return try PBBaz.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class internal func fromJSON(data:Data) throws -> PBBaz {
-        return try PBBaz.Builder.fromJSONToBuilder(data:data).build()
+    override class internal func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBBaz {
+        return try PBBaz.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
@@ -2654,8 +2654,8 @@ final internal class PBBaz : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class internal func fromJSONToBuilder(data:Data) throws -> PBBaz.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class internal func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> PBBaz.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }

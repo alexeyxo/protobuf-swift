@@ -92,8 +92,8 @@ public extension SwiftProtobufUnittest {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MapMessageValue {
             return try SwiftProtobufUnittest.MapMessageValue.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MapMessageValue {
-            return try SwiftProtobufUnittest.MapMessageValue.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MapMessageValue {
+            return try SwiftProtobufUnittest.MapMessageValue.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -225,8 +225,8 @@ public extension SwiftProtobufUnittest {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MapMessageValue.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -341,8 +341,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -516,8 +516,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32Int32Entry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -616,8 +616,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -791,8 +791,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt64Int64Entry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -891,8 +891,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -1062,8 +1062,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringStringEntry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -1162,8 +1162,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -1333,8 +1333,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringBytesEntry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -1434,8 +1434,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -1646,8 +1646,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapStringMessageEntry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -1745,8 +1745,8 @@ public extension SwiftProtobufUnittest {
             override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
                 return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.decodeToBuilder(jsonMap:jsonMap).build()
             }
-            override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
-                return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.fromJSONToBuilder(data:data).build()
+            override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry {
+                return try SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder.fromJSONToBuilder(data:data, options:options).build()
             }
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
@@ -1923,8 +1923,8 @@ public extension SwiftProtobufUnittest {
                     }
                     return resultDecodedBuilder
                 }
-                override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data)
+                override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.MapInt32EnumEntry.Builder {
+                    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -2151,8 +2151,8 @@ public extension SwiftProtobufUnittest {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> SwiftProtobufUnittest.MessageContainsMap {
             return try SwiftProtobufUnittest.MessageContainsMap.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap {
-            return try SwiftProtobufUnittest.MessageContainsMap.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap {
+            return try SwiftProtobufUnittest.MessageContainsMap.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -2552,8 +2552,8 @@ public extension SwiftProtobufUnittest {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> SwiftProtobufUnittest.MessageContainsMap.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

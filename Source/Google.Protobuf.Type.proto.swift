@@ -163,8 +163,8 @@ public extension Google.Protobuf {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.ProtoType {
             return try Google.Protobuf.ProtoType.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.ProtoType {
-            return try Google.Protobuf.ProtoType.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.ProtoType {
+            return try Google.Protobuf.ProtoType.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -510,8 +510,8 @@ public extension Google.Protobuf {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.ProtoType.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.ProtoType.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -883,8 +883,8 @@ public extension Google.Protobuf {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Field {
             return try Google.Protobuf.Field.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.Field {
-            return try Google.Protobuf.Field.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Field {
+            return try Google.Protobuf.Field.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -1322,8 +1322,8 @@ public extension Google.Protobuf {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Field.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Field.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -1451,8 +1451,8 @@ public extension Google.Protobuf {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Enum {
             return try Google.Protobuf.Enum.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.Enum {
-            return try Google.Protobuf.Enum.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Enum {
+            return try Google.Protobuf.Enum.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -1757,8 +1757,8 @@ public extension Google.Protobuf {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Enum.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Enum.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -1870,8 +1870,8 @@ public extension Google.Protobuf {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.EnumValue {
             return try Google.Protobuf.EnumValue.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.EnumValue {
-            return try Google.Protobuf.EnumValue.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.EnumValue {
+            return try Google.Protobuf.EnumValue.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -2091,8 +2091,8 @@ public extension Google.Protobuf {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.EnumValue.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.EnumValue.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -2188,8 +2188,8 @@ public extension Google.Protobuf {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.Option {
             return try Google.Protobuf.Option.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.Option {
-            return try Google.Protobuf.Option.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Option {
+            return try Google.Protobuf.Option.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -2402,8 +2402,8 @@ public extension Google.Protobuf {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.Option.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.Option.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

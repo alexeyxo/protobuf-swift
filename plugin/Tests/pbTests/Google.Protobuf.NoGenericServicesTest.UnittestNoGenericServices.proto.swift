@@ -140,8 +140,8 @@ public extension Google.Protobuf.NoGenericServicesTest {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
             return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
-            return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage {
+            return try Google.Protobuf.NoGenericServicesTest.TestMessage.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -276,8 +276,8 @@ public extension Google.Protobuf.NoGenericServicesTest {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> Google.Protobuf.NoGenericServicesTest.TestMessage.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

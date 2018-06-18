@@ -171,8 +171,8 @@ final public class UserProfile : GeneratedMessage {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Request {
             return try UserProfile.Request.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> UserProfile.Request {
-            return try UserProfile.Request.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Request {
+            return try UserProfile.Request.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -302,8 +302,8 @@ final public class UserProfile : GeneratedMessage {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Request.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Request.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -419,8 +419,8 @@ final public class UserProfile : GeneratedMessage {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Response {
             return try UserProfile.Response.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> UserProfile.Response {
-            return try UserProfile.Response.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Response {
+            return try UserProfile.Response.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -717,8 +717,8 @@ final public class UserProfile : GeneratedMessage {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Response.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Response.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -823,8 +823,8 @@ final public class UserProfile : GeneratedMessage {
         override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile.Exception {
             return try UserProfile.Exception.Builder.decodeToBuilder(jsonMap:jsonMap).build()
         }
-        override class public func fromJSON(data:Data) throws -> UserProfile.Exception {
-            return try UserProfile.Exception.Builder.fromJSONToBuilder(data:data).build()
+        override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Exception {
+            return try UserProfile.Exception.Builder.fromJSONToBuilder(data:data, options:options).build()
         }
         override public func getDescription(indent:String) throws -> String {
             var output = ""
@@ -996,8 +996,8 @@ final public class UserProfile : GeneratedMessage {
                 }
                 return resultDecodedBuilder
             }
-            override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Exception.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data)
+            override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Exception.Builder {
+                let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -1090,8 +1090,8 @@ final public class UserProfile : GeneratedMessage {
     override class public func decode(jsonMap:Dictionary<String,Any>) throws -> UserProfile {
         return try UserProfile.Builder.decodeToBuilder(jsonMap:jsonMap).build()
     }
-    override class public func fromJSON(data:Data) throws -> UserProfile {
-        return try UserProfile.Builder.fromJSONToBuilder(data:data).build()
+    override class public func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile {
+        return try UserProfile.Builder.fromJSONToBuilder(data:data, options:options).build()
     }
     override public func getDescription(indent:String) throws -> String {
         var output = ""
@@ -1301,8 +1301,8 @@ final public class UserProfile : GeneratedMessage {
             }
             return resultDecodedBuilder
         }
-        override class public func fromJSONToBuilder(data:Data) throws -> UserProfile.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data)
+        override class public func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> UserProfile.Builder {
+            let jsonData = try JSONSerialization.jsonObject(with:data, options: options)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }

@@ -469,8 +469,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "    return try $classNameReturnedType$.Builder.decodeToBuilder(jsonMap:jsonMap).build()\n"
                        "}\n");
         
-        printer->Print(variables_,"override class $acontrol$ func fromJSON(data:Data) throws -> $classNameReturnedType$ {\n"
-                       "    return try $classNameReturnedType$.Builder.fromJSONToBuilder(data:data).build()\n"
+        printer->Print(variables_,"override class $acontrol$ func fromJSON(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> $classNameReturnedType$ {\n"
+                       "    return try $classNameReturnedType$.Builder.fromJSONToBuilder(data:data, options:options).build()\n"
                        "}\n");
     }
     
@@ -492,8 +492,8 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                        "}\n");
         
         printer->Print(variables_,
-                       "override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
-                       "    let jsonData = try JSONSerialization.jsonObject(with:data)\n"
+                       "override class $acontrol$ func fromJSONToBuilder(data:Data, options: JSONSerialization.ReadingOptions = []) throws -> $classNameReturnedType$.Builder {\n"
+                       "    let jsonData = try JSONSerialization.jsonObject(with:data, options: options)\n"
                        "    guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
                        "      throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
                        "    }\n"
