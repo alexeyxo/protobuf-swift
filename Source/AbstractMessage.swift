@@ -142,7 +142,7 @@ open class AbstractProtocolBuffersMessage:Hashable, ProtocolBuffersMessage {
     }
     
     open func toJSON() throws -> Data {
-        let json = try JSONSerialization.data(withJSONObject: encode(), options: JSONSerialization.WritingOptions(rawValue: 0))
+        let json = try JSONSerialization.data(withJSONObject: encode())
         return json
     }
     

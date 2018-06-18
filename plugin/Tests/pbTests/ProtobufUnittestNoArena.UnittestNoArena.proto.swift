@@ -370,7 +370,7 @@ public extension ProtobufUnittestNoArena {
                     return resultDecodedBuilder
                 }
                 override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.TestAllTypes.NestedMessage.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                    let jsonData = try JSONSerialization.jsonObject(with:data)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -590,7 +590,7 @@ public extension ProtobufUnittestNoArena {
                     return resultDecodedBuilder
                 }
                 override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.TestAllTypes.OptionalGroup.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                    let jsonData = try JSONSerialization.jsonObject(with:data)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -810,7 +810,7 @@ public extension ProtobufUnittestNoArena {
                     return resultDecodedBuilder
                 }
                 override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.TestAllTypes.RepeatedGroup.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                    let jsonData = try JSONSerialization.jsonObject(with:data)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -5695,7 +5695,7 @@ public extension ProtobufUnittestNoArena {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.TestAllTypes.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -5911,7 +5911,7 @@ public extension ProtobufUnittestNoArena {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.ForeignMessage.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -6165,7 +6165,7 @@ public extension ProtobufUnittestNoArena {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestNoArena.TestNoArenaMessage.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

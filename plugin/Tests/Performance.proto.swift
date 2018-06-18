@@ -317,7 +317,7 @@ final internal class PBUser : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBUser.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -571,7 +571,7 @@ final internal class PBGroup : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBGroup.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -794,7 +794,7 @@ final internal class PBPerfomanceBatch : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBPerfomanceBatch.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -1344,7 +1344,7 @@ final internal class PBPerfomance : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBPerfomance.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -1619,7 +1619,7 @@ final internal class PBProtoPoint : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBProtoPoint.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -1928,7 +1928,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBIceCreamCone.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2145,7 +2145,7 @@ final internal class PBFoo : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBFoo.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2400,7 +2400,7 @@ final internal class PBBar : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBBar.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }
@@ -2655,7 +2655,7 @@ final internal class PBBaz : GeneratedMessage {
             return resultDecodedBuilder
         }
         override class internal func fromJSONToBuilder(data:Data) throws -> PBBaz.Builder {
-            let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+            let jsonData = try JSONSerialization.jsonObject(with:data)
             guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
               throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
             }

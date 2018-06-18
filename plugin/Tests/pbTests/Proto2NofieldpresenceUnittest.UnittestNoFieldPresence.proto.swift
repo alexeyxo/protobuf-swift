@@ -337,7 +337,7 @@ public extension Proto2NofieldpresenceUnittest {
                     return resultDecodedBuilder
                 }
                 override class public func fromJSONToBuilder(data:Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.NestedMessage.Builder {
-                    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                    let jsonData = try JSONSerialization.jsonObject(with:data)
                     guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                       throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                     }
@@ -3842,7 +3842,7 @@ public extension Proto2NofieldpresenceUnittest {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> Proto2NofieldpresenceUnittest.TestAllTypes.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -4099,7 +4099,7 @@ public extension Proto2NofieldpresenceUnittest {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> Proto2NofieldpresenceUnittest.TestProto2Required.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }
@@ -4315,7 +4315,7 @@ public extension Proto2NofieldpresenceUnittest {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> Proto2NofieldpresenceUnittest.ForeignMessage.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

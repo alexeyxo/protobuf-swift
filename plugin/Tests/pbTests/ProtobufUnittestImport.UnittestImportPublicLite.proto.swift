@@ -226,7 +226,7 @@ public extension ProtobufUnittestImport {
                 return resultDecodedBuilder
             }
             override class public func fromJSONToBuilder(data:Data) throws -> ProtobufUnittestImport.PublicImportMessageLite.Builder {
-                let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))
+                let jsonData = try JSONSerialization.jsonObject(with:data)
                 guard let jsDataCast = jsonData as? Dictionary<String,Any> else {
                   throw ProtocolBuffersError.invalidProtocolBuffer("Invalid JSON data")
                 }

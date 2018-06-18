@@ -493,7 +493,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         
         printer->Print(variables_,
                        "override class $acontrol$ func fromJSONToBuilder(data:Data) throws -> $classNameReturnedType$.Builder {\n"
-                       "    let jsonData = try JSONSerialization.jsonObject(with:data, options: JSONSerialization.ReadingOptions(rawValue: 0))\n"
+                       "    let jsonData = try JSONSerialization.jsonObject(with:data)\n"
                        "    guard let jsDataCast = jsonData as? Dictionary<String,Any> else {\n"
                        "      throw ProtocolBuffersError.invalidProtocolBuffer(\"Invalid JSON data\")\n"
                        "    }\n"
