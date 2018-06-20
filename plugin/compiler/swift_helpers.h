@@ -19,6 +19,7 @@
 #define swift_HELPERS_H
 
 #include <string>
+#include <vector>
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/descriptor.pb.h>
 #include <google/protobuf/io/printer.h>
@@ -58,12 +59,12 @@ namespace google {
                 string ClassNameWorker(const Descriptor* descriptor);
                 
                 //Packages
-                vector<string> FullNameSplit(const FileDescriptor* file);
+                std::vector<string> FullNameSplit(const FileDescriptor* file);
                 string FullName(const FileDescriptor* file);
-                string FullName(const vector<string> splitVector);
+                string FullName(const std::vector<string> splitVector);
                 string PackageName(const Descriptor* descriptor);
                 string PackageName(const EnumDescriptor* descriptor);
-                string PackageExtensionName(const vector<string> splitVector);
+                string PackageExtensionName(const std::vector<string> splitVector);
                 ///
                 
                 bool IsBootstrapFile(const FileDescriptor* file);
@@ -173,7 +174,7 @@ namespace google {
                     return file->options().optimize_for() != FileOptions::LITE_RUNTIME;
                 }
                 
-                vector<string> Split(const string strs, const string delimiter, bool camelCase);
+                std::vector<string> Split(const string strs, const string delimiter, bool camelCase);
                 
                 //JSON
                 string JSONCastingValue(const FieldDescriptor* field);

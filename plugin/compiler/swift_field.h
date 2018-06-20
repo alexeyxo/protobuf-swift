@@ -71,9 +71,9 @@ namespace google {
                     
                 private:
                     const Descriptor* descriptor_;
-                    scoped_array<scoped_ptr<FieldGenerator> > field_generators_;
-                    scoped_array<scoped_ptr<FieldGenerator> > extension_generators_;
-                    scoped_array<scoped_ptr<FieldGenerator> > oneof_generators_;
+                    std::unique_ptr<std::unique_ptr<FieldGenerator>[]> field_generators_;
+                    std::unique_ptr<std::unique_ptr<FieldGenerator>[]> extension_generators_;
+                    std::unique_ptr<std::unique_ptr<FieldGenerator>[]> oneof_generators_;
                     
                     static FieldGenerator* MakeGenerator(const FieldDescriptor* field);
                     

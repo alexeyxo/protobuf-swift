@@ -22,7 +22,7 @@
 
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/descriptor.pb.h>
-#include <google/protobuf/stubs/strutil.h>
+
 
 #include "swift_helpers.h"
 

@@ -18,6 +18,7 @@
 #include "swift_message.h"
 
 #include <algorithm>
+#include <vector>
 #include <google/protobuf/stubs/hash.h>
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/io/printer.h>
@@ -199,7 +200,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     void MessageGenerator::GenerateSource(io::Printer* printer) {
         
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByType(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByType(descriptor_));
 
         SourceLocation location;
         if (descriptor_->GetSourceLocation(&location)) {
@@ -337,9 +338,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateMessageSerializationMethodsSource(io::Printer* printer) {
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByNumber(descriptor_));
         
-        vector<const Descriptor::ExtensionRange*> sorted_extensions;
+        std::vector<const Descriptor::ExtensionRange*> sorted_extensions;
         for (int i = 0; i < descriptor_->extension_range_count(); ++i) {
             sorted_extensions.push_back(descriptor_->extension_range(i));
         }
@@ -406,9 +407,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     }
     
     void MessageGenerator::GenerateMessageDescriptionSource(io::Printer* printer) {
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByNumber(descriptor_));
         
-        vector<const Descriptor::ExtensionRange*> sorted_extensions;
+        std::vector<const Descriptor::ExtensionRange*> sorted_extensions;
         for (int i = 0; i < descriptor_->extension_range_count(); ++i) {
             sorted_extensions.push_back(descriptor_->extension_range(i));
         }
@@ -503,9 +504,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
 
     void MessageGenerator::GenerateMessageIsEqualSource(io::Printer* printer) {
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByNumber(descriptor_));
         
-        vector<const Descriptor::ExtensionRange*> sorted_extensions;
+        std::vector<const Descriptor::ExtensionRange*> sorted_extensions;
         for (int i = 0; i < descriptor_->extension_range_count(); ++i) {
             sorted_extensions.push_back(descriptor_->extension_range(i));
         }
@@ -558,9 +559,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     
     
     void MessageGenerator::GenerateMessageHashSource(io::Printer* printer) {
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByNumber(descriptor_));
         
-        vector<const Descriptor::ExtensionRange*> sorted_extensions;
+        std::vector<const Descriptor::ExtensionRange*> sorted_extensions;
         for (int i = 0; i < descriptor_->extension_range_count(); ++i) {
             sorted_extensions.push_back(descriptor_->extension_range(i));
         }
@@ -890,7 +891,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     //////////////////////////////////////////////////////////
     
     void MessageGenerator::GenerateBuilderParsingMethodsSource(io::Printer* printer) {
-        scoped_array<const FieldDescriptor*> sorted_fields(SortFieldsByNumber(descriptor_));
+        std::unique_ptr<const FieldDescriptor*[]> sorted_fields(SortFieldsByNumber(descriptor_));
         
         printer->Print(variables_,
                        "@discardableResult\n"

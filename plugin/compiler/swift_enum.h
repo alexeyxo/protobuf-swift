@@ -21,6 +21,7 @@
 #include <string>
 #include <set>
 #include <vector>
+#include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/descriptor.h>
 
 namespace google {
@@ -49,13 +50,13 @@ namespace google {
                     void GenerateInit(io::Printer* printer);
                     void GenerateMethodThrow(io::Printer* printer);
                     void GenerateHash(io::Printer* printer);
-                    vector<const EnumValueDescriptor*> canonical_values_;
+                    std::vector<const EnumValueDescriptor*> canonical_values_;
                     
                     struct Alias {
                         const EnumValueDescriptor* value;
                         const EnumValueDescriptor* canonical_value;
                     };
-                    vector<Alias> aliases_;
+                    std::vector<Alias> aliases_;
                     
                     GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(EnumGenerator);
                 };

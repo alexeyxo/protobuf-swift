@@ -44,7 +44,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
         static std::map<string,string> packages;
         
-        vector< pair<string, string> > options;
+        std::vector<std::pair<string, string> > options;
         ParseGeneratorParameter(parameter, &options);
 
         for (int i = 0; i < options.size(); i++) {
@@ -63,9 +63,9 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                 package_name = FullName(file);
             }
             
-            vector<string> tokens = FullNameSplit(file);
+            std::vector<string> tokens = FullNameSplit(file);
             
-            scoped_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(package_name + UnderscoresToCapitalizedCamelCase(UnderscoresToCapitalizedCamelCase(filepath)) + ".proto.swift"));
+            std::unique_ptr<io::ZeroCopyOutputStream> output(generator_context->Open(package_name + UnderscoresToCapitalizedCamelCase(UnderscoresToCapitalizedCamelCase(filepath)) + ".proto.swift"));
             io::Printer printer(output.get(), '$');
             
             

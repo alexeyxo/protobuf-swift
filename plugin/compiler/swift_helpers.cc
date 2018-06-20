@@ -45,7 +45,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
 
 
     string UnderscoresToCapitalizedCamelCase(const string& input) {
-        vector<string> values;
+        std::vector<string> values;
         string current;
 
         bool last_char_was_number = false;
@@ -370,20 +370,20 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return FullName(FullNameSplit(file));
     }
 
-    vector<string> FullNameSplit(const FileDescriptor* file)
+    std::vector<string> FullNameSplit(const FileDescriptor* file)
     {
         const string& delimiters = ".";
         string str = file->package();
         return Split(str, delimiters, true);
     }
     
-    vector<string> Split(const string strs, const string delimiter, bool camelCase) {
+    std::vector<string> Split(const string strs, const string delimiter, bool camelCase) {
         const string& delimiters = delimiter;
         string str = strs;
         
         string prefix = "";//FileClassPrefix(file);  //Class prefix
         
-        vector<string> tokens;
+        std::vector<string> tokens;
         
         string::size_type lastPos = str.find_first_not_of(delimiters, 0);
         string::size_type pos     = str.find_first_of(delimiters, lastPos);
@@ -400,7 +400,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         return tokens;
     }
 
-    string PackageExtensionName(const vector<string> splitVector)
+    string PackageExtensionName(const std::vector<string> splitVector)
     {
         string result;
         for (int i = 0; i < splitVector.size(); i++) {
@@ -978,7 +978,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
         if (comments.empty())
             return comments;
 
-        vector<string> lines;
+        std::vector<string> lines;
         SplitStringUsing(comments, "\n", &lines);
         while (!lines.empty() && lines.back().empty())
             lines.pop_back();

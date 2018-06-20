@@ -46,7 +46,7 @@ namespace google { namespace protobuf { namespace compiler {namespace swift {
     void FileGenerator::GenerateSource(io::Printer* printer) {
         FileGenerator file_generator(file_);
 
-        vector<string> tokens = FullNameSplit(file_);
+        std::vector<string> tokens = FullNameSplit(file_);
    
         //fields
         for (int i = 0; i < file_->extension_count(); i++) {

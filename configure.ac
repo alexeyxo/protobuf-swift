@@ -46,7 +46,7 @@ and '-Llibdir' to LDFLAGS.
 
 If you did not specify a prefix when installing
 protobuf, try
-  './configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib'
+  './configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib -std=c++11'
 In some 64-bit environments, try LDFLAGS=-L/usr/local/lib64.
 ])])
 pbc_savelibs="$LIBS"
@@ -61,6 +61,7 @@ ERROR:
 protobuf test program failed to link:
 perhaps you need to add -Llibdir to your LDFLAGS.])])
 LIBS="$pbc_savelibs"
+CXXFLAGS="$CXXFLAGS -std=c++11 -g"
 
 AC_CONFIG_FILES([Makefile plugin/compiler/Makefile])
 AC_OUTPUT
