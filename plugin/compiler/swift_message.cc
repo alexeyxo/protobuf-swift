@@ -994,14 +994,23 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
                                        "}\n");
                         break;
                     case FieldDescriptor::LABEL_REPEATED:
-                        printer->Print(vars,
-                                       "for oneElement$capitalized_name$ in $name_reserved$ {\n"
-                                       "    try oneElement$capitalized_name$.isInitialized()\n"
-                                       "}\n"
-//                                       "if !isInit$capitalized_name$ {\n"
-//                                       "    return isInit$capitalized_name$\n"
-//                                       "}\n"
-                                       );
+                        if (field->is_map()) {
+                            printer->Print(vars,
+                                           "for (_, oneElement$capitalized_name$) in $name_reserved$ {\n"
+                                           "    try oneElement$capitalized_name$.isInitialized()\n"
+                                           "}\n"
+                                           );
+                        } else {
+                            printer->Print(vars,
+                                           "for oneElement$capitalized_name$ in $name_reserved$ {\n"
+                                           "    try oneElement$capitalized_name$.isInitialized()\n"
+                                           "}\n"
+                                           //                                       "if !isInit$capitalized_name$ {\n"
+                                           //                                       "    return isInit$capitalized_name$\n"
+                                           //                                       "}\n"
+                                           );
+                        }
+                        
                         break;
                 }
             }
