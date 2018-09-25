@@ -180,7 +180,7 @@
 		OBJ_80 /* m4 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = m4; sourceTree = SOURCE_ROOT; };
 		OBJ_81 /* DerivedData */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DerivedData; sourceTree = SOURCE_ROOT; };
 		OBJ_9 /* AbstractMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMessage.swift; sourceTree = "<group>"; };
-		"ProtocolBuffers::ProtocolBufferTests::Product" /* ProtocolBufferTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProtocolBufferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"ProtocolBuffers::ProtocolBufferTests::Product" /* ProtocolBufferTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ProtocolBufferTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		"ProtocolBuffers::ProtocolBuffers::Product" /* ProtocolBuffers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProtocolBuffers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -270,7 +270,7 @@
 			path = pbTests;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -282,7 +282,6 @@
 				OBJ_81 /* DerivedData */,
 				OBJ_82 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -389,6 +388,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					"ProtocolBuffers::ProtocolBufferTests" = {
+						LastSwiftMigration = 1000;
+					};
+					"ProtocolBuffers::ProtocolBuffers" = {
+						LastSwiftMigration = 1000;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "ProtocolBuffers" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -397,7 +404,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -532,7 +539,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ProtocolBuffers;
 			};
 			name = Debug;
@@ -554,7 +561,7 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ProtocolBuffers;
 			};
 			name = Release;
@@ -650,7 +657,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ProtocolBufferTests;
 			};
 			name = Debug;
@@ -668,7 +675,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ProtocolBufferTests;
 			};
 			name = Release;
