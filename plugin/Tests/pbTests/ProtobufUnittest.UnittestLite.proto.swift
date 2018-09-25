@@ -1240,7 +1240,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasBb {
-                    output += "\(indent) bb: \(bb) \n"
+                    output += "\(indent) bb: \(String(describing: bb)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -1460,7 +1460,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasA {
-                    output += "\(indent) a: \(a) \n"
+                    output += "\(indent) a: \(String(describing: a)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -1680,7 +1680,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasA {
-                    output += "\(indent) a: \(a) \n"
+                    output += "\(indent) a: \(String(describing: a)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -3082,49 +3082,49 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasOptionalInt32 {
-                output += "\(indent) optionalInt32: \(optionalInt32) \n"
+                output += "\(indent) optionalInt32: \(String(describing: optionalInt32)) \n"
             }
             if hasOptionalInt64 {
-                output += "\(indent) optionalInt64: \(optionalInt64) \n"
+                output += "\(indent) optionalInt64: \(String(describing: optionalInt64)) \n"
             }
             if hasOptionalUint32 {
-                output += "\(indent) optionalUint32: \(optionalUint32) \n"
+                output += "\(indent) optionalUint32: \(String(describing: optionalUint32)) \n"
             }
             if hasOptionalUint64 {
-                output += "\(indent) optionalUint64: \(optionalUint64) \n"
+                output += "\(indent) optionalUint64: \(String(describing: optionalUint64)) \n"
             }
             if hasOptionalSint32 {
-                output += "\(indent) optionalSint32: \(optionalSint32) \n"
+                output += "\(indent) optionalSint32: \(String(describing: optionalSint32)) \n"
             }
             if hasOptionalSint64 {
-                output += "\(indent) optionalSint64: \(optionalSint64) \n"
+                output += "\(indent) optionalSint64: \(String(describing: optionalSint64)) \n"
             }
             if hasOptionalFixed32 {
-                output += "\(indent) optionalFixed32: \(optionalFixed32) \n"
+                output += "\(indent) optionalFixed32: \(String(describing: optionalFixed32)) \n"
             }
             if hasOptionalFixed64 {
-                output += "\(indent) optionalFixed64: \(optionalFixed64) \n"
+                output += "\(indent) optionalFixed64: \(String(describing: optionalFixed64)) \n"
             }
             if hasOptionalSfixed32 {
-                output += "\(indent) optionalSfixed32: \(optionalSfixed32) \n"
+                output += "\(indent) optionalSfixed32: \(String(describing: optionalSfixed32)) \n"
             }
             if hasOptionalSfixed64 {
-                output += "\(indent) optionalSfixed64: \(optionalSfixed64) \n"
+                output += "\(indent) optionalSfixed64: \(String(describing: optionalSfixed64)) \n"
             }
             if hasOptionalFloat {
-                output += "\(indent) optionalFloat: \(optionalFloat) \n"
+                output += "\(indent) optionalFloat: \(String(describing: optionalFloat)) \n"
             }
             if hasOptionalDouble {
-                output += "\(indent) optionalDouble: \(optionalDouble) \n"
+                output += "\(indent) optionalDouble: \(String(describing: optionalDouble)) \n"
             }
             if hasOptionalBool {
-                output += "\(indent) optionalBool: \(optionalBool) \n"
+                output += "\(indent) optionalBool: \(String(describing: optionalBool)) \n"
             }
             if hasOptionalString {
-                output += "\(indent) optionalString: \(optionalString) \n"
+                output += "\(indent) optionalString: \(String(describing: optionalString)) \n"
             }
             if hasOptionalBytes {
-                output += "\(indent) optionalBytes: \(optionalBytes) \n"
+                output += "\(indent) optionalBytes: \(String(describing: optionalBytes)) \n"
             }
             if hasOptionalGroup {
                 output += "\(indent) optionalGroup {\n"
@@ -3164,10 +3164,10 @@ public extension ProtobufUnittest {
                 output += "\(indent) optionalImportEnum: \(optionalImportEnum.description)\n"
             }
             if hasOptionalStringPiece {
-                output += "\(indent) optionalStringPiece: \(optionalStringPiece) \n"
+                output += "\(indent) optionalStringPiece: \(String(describing: optionalStringPiece)) \n"
             }
             if hasOptionalCord {
-                output += "\(indent) optionalCord: \(optionalCord) \n"
+                output += "\(indent) optionalCord: \(String(describing: optionalCord)) \n"
             }
             if hasOptionalPublicImportMessage {
                 output += "\(indent) optionalPublicImportMessage {\n"
@@ -3319,49 +3319,49 @@ public extension ProtobufUnittest {
                 repeatedLazyMessageElementIndex += 1
             }
             if hasDefaultInt32 {
-                output += "\(indent) defaultInt32: \(defaultInt32) \n"
+                output += "\(indent) defaultInt32: \(String(describing: defaultInt32)) \n"
             }
             if hasDefaultInt64 {
-                output += "\(indent) defaultInt64: \(defaultInt64) \n"
+                output += "\(indent) defaultInt64: \(String(describing: defaultInt64)) \n"
             }
             if hasDefaultUint32 {
-                output += "\(indent) defaultUint32: \(defaultUint32) \n"
+                output += "\(indent) defaultUint32: \(String(describing: defaultUint32)) \n"
             }
             if hasDefaultUint64 {
-                output += "\(indent) defaultUint64: \(defaultUint64) \n"
+                output += "\(indent) defaultUint64: \(String(describing: defaultUint64)) \n"
             }
             if hasDefaultSint32 {
-                output += "\(indent) defaultSint32: \(defaultSint32) \n"
+                output += "\(indent) defaultSint32: \(String(describing: defaultSint32)) \n"
             }
             if hasDefaultSint64 {
-                output += "\(indent) defaultSint64: \(defaultSint64) \n"
+                output += "\(indent) defaultSint64: \(String(describing: defaultSint64)) \n"
             }
             if hasDefaultFixed32 {
-                output += "\(indent) defaultFixed32: \(defaultFixed32) \n"
+                output += "\(indent) defaultFixed32: \(String(describing: defaultFixed32)) \n"
             }
             if hasDefaultFixed64 {
-                output += "\(indent) defaultFixed64: \(defaultFixed64) \n"
+                output += "\(indent) defaultFixed64: \(String(describing: defaultFixed64)) \n"
             }
             if hasDefaultSfixed32 {
-                output += "\(indent) defaultSfixed32: \(defaultSfixed32) \n"
+                output += "\(indent) defaultSfixed32: \(String(describing: defaultSfixed32)) \n"
             }
             if hasDefaultSfixed64 {
-                output += "\(indent) defaultSfixed64: \(defaultSfixed64) \n"
+                output += "\(indent) defaultSfixed64: \(String(describing: defaultSfixed64)) \n"
             }
             if hasDefaultFloat {
-                output += "\(indent) defaultFloat: \(defaultFloat) \n"
+                output += "\(indent) defaultFloat: \(String(describing: defaultFloat)) \n"
             }
             if hasDefaultDouble {
-                output += "\(indent) defaultDouble: \(defaultDouble) \n"
+                output += "\(indent) defaultDouble: \(String(describing: defaultDouble)) \n"
             }
             if hasDefaultBool {
-                output += "\(indent) defaultBool: \(defaultBool) \n"
+                output += "\(indent) defaultBool: \(String(describing: defaultBool)) \n"
             }
             if hasDefaultString {
-                output += "\(indent) defaultString: \(defaultString) \n"
+                output += "\(indent) defaultString: \(String(describing: defaultString)) \n"
             }
             if hasDefaultBytes {
-                output += "\(indent) defaultBytes: \(defaultBytes) \n"
+                output += "\(indent) defaultBytes: \(String(describing: defaultBytes)) \n"
             }
             if (hasDefaultNestedEnum) {
                 output += "\(indent) defaultNestedEnum: \(defaultNestedEnum.description)\n"
@@ -3373,13 +3373,13 @@ public extension ProtobufUnittest {
                 output += "\(indent) defaultImportEnum: \(defaultImportEnum.description)\n"
             }
             if hasDefaultStringPiece {
-                output += "\(indent) defaultStringPiece: \(defaultStringPiece) \n"
+                output += "\(indent) defaultStringPiece: \(String(describing: defaultStringPiece)) \n"
             }
             if hasDefaultCord {
-                output += "\(indent) defaultCord: \(defaultCord) \n"
+                output += "\(indent) defaultCord: \(String(describing: defaultCord)) \n"
             }
             if hasOneofUint32 {
-                output += "\(indent) oneofUint32: \(oneofUint32) \n"
+                output += "\(indent) oneofUint32: \(String(describing: oneofUint32)) \n"
             }
             if hasOneofNestedMessage {
                 output += "\(indent) oneofNestedMessage {\n"
@@ -3389,10 +3389,10 @@ public extension ProtobufUnittest {
                 output += "\(indent) }\n"
             }
             if hasOneofString {
-                output += "\(indent) oneofString: \(oneofString) \n"
+                output += "\(indent) oneofString: \(String(describing: oneofString)) \n"
             }
             if hasOneofBytes {
-                output += "\(indent) oneofBytes: \(oneofBytes) \n"
+                output += "\(indent) oneofBytes: \(String(describing: oneofBytes)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -6652,7 +6652,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasC {
-                output += "\(indent) c: \(c) \n"
+                output += "\(indent) c: \(String(describing: c)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -8176,7 +8176,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasA {
-                output += "\(indent) a: \(a) \n"
+                output += "\(indent) a: \(String(describing: a)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -8390,7 +8390,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasA {
-                output += "\(indent) a: \(a) \n"
+                output += "\(indent) a: \(String(describing: a)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -8934,7 +8934,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasDeprecatedField {
-                output += "\(indent) deprecatedField: \(deprecatedField) \n"
+                output += "\(indent) deprecatedField: \(String(describing: deprecatedField)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

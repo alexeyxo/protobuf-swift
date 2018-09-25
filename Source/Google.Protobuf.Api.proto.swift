@@ -180,7 +180,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             var methodsElementIndex:Int = 0
             for oneElementMethods in methods {
@@ -197,7 +197,7 @@ public extension Google.Protobuf {
                 optionsElementIndex += 1
             }
             if hasVersion {
-                output += "\(indent) version: \(version) \n"
+                output += "\(indent) version: \(String(describing: version)) \n"
             }
             if hasSourceContext {
                 output += "\(indent) sourceContext {\n"
@@ -702,19 +702,19 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             if hasRequestTypeUrl {
-                output += "\(indent) requestTypeUrl: \(requestTypeUrl) \n"
+                output += "\(indent) requestTypeUrl: \(String(describing: requestTypeUrl)) \n"
             }
             if hasRequestStreaming {
-                output += "\(indent) requestStreaming: \(requestStreaming) \n"
+                output += "\(indent) requestStreaming: \(String(describing: requestStreaming)) \n"
             }
             if hasResponseTypeUrl {
-                output += "\(indent) responseTypeUrl: \(responseTypeUrl) \n"
+                output += "\(indent) responseTypeUrl: \(String(describing: responseTypeUrl)) \n"
             }
             if hasResponseStreaming {
-                output += "\(indent) responseStreaming: \(responseStreaming) \n"
+                output += "\(indent) responseStreaming: \(String(describing: responseStreaming)) \n"
             }
             var optionsElementIndex:Int = 0
             for oneElementOptions in options {

@@ -99,7 +99,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -316,7 +316,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -533,7 +533,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -750,7 +750,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -967,7 +967,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1184,7 +1184,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1401,7 +1401,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1616,7 +1616,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1831,7 +1831,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValue {
-                output += "\(indent) value: \(value) \n"
+                output += "\(indent) value: \(String(describing: value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

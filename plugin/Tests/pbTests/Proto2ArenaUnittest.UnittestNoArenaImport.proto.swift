@@ -98,7 +98,7 @@ public extension Proto2ArenaUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasD {
-                output += "\(indent) d: \(d) \n"
+                output += "\(indent) d: \(String(describing: d)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

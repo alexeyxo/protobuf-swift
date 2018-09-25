@@ -209,7 +209,7 @@ public extension Proto2NofieldpresenceUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasBb {
-                    output += "\(indent) bb: \(bb) \n"
+                    output += "\(indent) bb: \(String(describing: bb)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -1411,49 +1411,49 @@ public extension Proto2NofieldpresenceUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasOptionalInt32 {
-                output += "\(indent) optionalInt32: \(optionalInt32) \n"
+                output += "\(indent) optionalInt32: \(String(describing: optionalInt32)) \n"
             }
             if hasOptionalInt64 {
-                output += "\(indent) optionalInt64: \(optionalInt64) \n"
+                output += "\(indent) optionalInt64: \(String(describing: optionalInt64)) \n"
             }
             if hasOptionalUint32 {
-                output += "\(indent) optionalUint32: \(optionalUint32) \n"
+                output += "\(indent) optionalUint32: \(String(describing: optionalUint32)) \n"
             }
             if hasOptionalUint64 {
-                output += "\(indent) optionalUint64: \(optionalUint64) \n"
+                output += "\(indent) optionalUint64: \(String(describing: optionalUint64)) \n"
             }
             if hasOptionalSint32 {
-                output += "\(indent) optionalSint32: \(optionalSint32) \n"
+                output += "\(indent) optionalSint32: \(String(describing: optionalSint32)) \n"
             }
             if hasOptionalSint64 {
-                output += "\(indent) optionalSint64: \(optionalSint64) \n"
+                output += "\(indent) optionalSint64: \(String(describing: optionalSint64)) \n"
             }
             if hasOptionalFixed32 {
-                output += "\(indent) optionalFixed32: \(optionalFixed32) \n"
+                output += "\(indent) optionalFixed32: \(String(describing: optionalFixed32)) \n"
             }
             if hasOptionalFixed64 {
-                output += "\(indent) optionalFixed64: \(optionalFixed64) \n"
+                output += "\(indent) optionalFixed64: \(String(describing: optionalFixed64)) \n"
             }
             if hasOptionalSfixed32 {
-                output += "\(indent) optionalSfixed32: \(optionalSfixed32) \n"
+                output += "\(indent) optionalSfixed32: \(String(describing: optionalSfixed32)) \n"
             }
             if hasOptionalSfixed64 {
-                output += "\(indent) optionalSfixed64: \(optionalSfixed64) \n"
+                output += "\(indent) optionalSfixed64: \(String(describing: optionalSfixed64)) \n"
             }
             if hasOptionalFloat {
-                output += "\(indent) optionalFloat: \(optionalFloat) \n"
+                output += "\(indent) optionalFloat: \(String(describing: optionalFloat)) \n"
             }
             if hasOptionalDouble {
-                output += "\(indent) optionalDouble: \(optionalDouble) \n"
+                output += "\(indent) optionalDouble: \(String(describing: optionalDouble)) \n"
             }
             if hasOptionalBool {
-                output += "\(indent) optionalBool: \(optionalBool) \n"
+                output += "\(indent) optionalBool: \(String(describing: optionalBool)) \n"
             }
             if hasOptionalString {
-                output += "\(indent) optionalString: \(optionalString) \n"
+                output += "\(indent) optionalString: \(String(describing: optionalString)) \n"
             }
             if hasOptionalBytes {
-                output += "\(indent) optionalBytes: \(optionalBytes) \n"
+                output += "\(indent) optionalBytes: \(String(describing: optionalBytes)) \n"
             }
             if hasOptionalNestedMessage {
                 output += "\(indent) optionalNestedMessage {\n"
@@ -1483,10 +1483,10 @@ public extension Proto2NofieldpresenceUnittest {
                 output += "\(indent) optionalForeignEnum: \(optionalForeignEnum.description)\n"
             }
             if hasOptionalStringPiece {
-                output += "\(indent) optionalStringPiece: \(optionalStringPiece) \n"
+                output += "\(indent) optionalStringPiece: \(String(describing: optionalStringPiece)) \n"
             }
             if hasOptionalCord {
-                output += "\(indent) optionalCord: \(optionalCord) \n"
+                output += "\(indent) optionalCord: \(String(describing: optionalCord)) \n"
             }
             if hasOptionalLazyMessage {
                 output += "\(indent) optionalLazyMessage {\n"
@@ -1619,7 +1619,7 @@ public extension Proto2NofieldpresenceUnittest {
                 repeatedLazyMessageElementIndex += 1
             }
             if hasOneofUint32 {
-                output += "\(indent) oneofUint32: \(oneofUint32) \n"
+                output += "\(indent) oneofUint32: \(String(describing: oneofUint32)) \n"
             }
             if hasOneofNestedMessage {
                 output += "\(indent) oneofNestedMessage {\n"
@@ -1629,7 +1629,7 @@ public extension Proto2NofieldpresenceUnittest {
                 output += "\(indent) }\n"
             }
             if hasOneofString {
-                output += "\(indent) oneofString: \(oneofString) \n"
+                output += "\(indent) oneofString: \(String(describing: oneofString)) \n"
             }
             if (hasOneofEnum) {
                 output += "\(indent) oneofEnum: \(oneofEnum.description)\n"
@@ -4187,7 +4187,7 @@ public extension Proto2NofieldpresenceUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasC {
-                output += "\(indent) c: \(c) \n"
+                output += "\(indent) c: \(String(describing: c)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

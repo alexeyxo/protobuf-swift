@@ -152,7 +152,7 @@ public extension UnittestDropUnknownFields {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasInt32Value {
-                output += "\(indent) int32Value: \(int32Value) \n"
+                output += "\(indent) int32Value: \(String(describing: int32Value)) \n"
             }
             if (hasEnumValue) {
                 output += "\(indent) enumValue: \(enumValue.description)\n"
@@ -482,13 +482,13 @@ public extension UnittestDropUnknownFields {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasInt32Value {
-                output += "\(indent) int32Value: \(int32Value) \n"
+                output += "\(indent) int32Value: \(String(describing: int32Value)) \n"
             }
             if (hasEnumValue) {
                 output += "\(indent) enumValue: \(enumValue.description)\n"
             }
             if hasExtraInt32Value {
-                output += "\(indent) extraInt32Value: \(extraInt32Value) \n"
+                output += "\(indent) extraInt32Value: \(String(describing: extraInt32Value)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

@@ -109,10 +109,10 @@ final public class UnitTestStruct : GeneratedMessage {
     override public func getDescription(indent:String) throws -> String {
         var output = ""
         if hasTestStr {
-            output += "\(indent) testStr: \(testStr) \n"
+            output += "\(indent) testStr: \(String(describing: testStr)) \n"
         }
         if hasTestInt {
-            output += "\(indent) testInt: \(testInt) \n"
+            output += "\(indent) testInt: \(String(describing: testInt)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output

@@ -101,7 +101,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasFileName {
-                output += "\(indent) fileName: \(fileName) \n"
+                output += "\(indent) fileName: \(String(describing: fileName)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

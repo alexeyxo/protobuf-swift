@@ -146,7 +146,7 @@ public extension Google.Protobuf.NoGenericServicesTest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasA {
-                output += "\(indent) a: \(a) \n"
+                output += "\(indent) a: \(String(describing: a)) \n"
             }
             output += try getExtensionDescription(startInclusive:1000, endExclusive:536870912, indent:indent)
             output += unknownFields.getDescription(indent: indent)

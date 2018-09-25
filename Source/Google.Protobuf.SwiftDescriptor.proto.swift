@@ -252,13 +252,13 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasFieldName {
-                output += "\(indent) fieldName: \(fieldName) \n"
+                output += "\(indent) fieldName: \(String(describing: fieldName)) \n"
             }
             if hasFromType {
-                output += "\(indent) fromType: \(fromType) \n"
+                output += "\(indent) fromType: \(String(describing: fromType)) \n"
             }
             if hasPropertyName {
-                output += "\(indent) propertyName: \(propertyName) \n"
+                output += "\(indent) propertyName: \(String(describing: propertyName)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -608,22 +608,22 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasClassPrefix {
-                output += "\(indent) classPrefix: \(classPrefix) \n"
+                output += "\(indent) classPrefix: \(String(describing: classPrefix)) \n"
             }
             if (hasEntitiesAccessControl) {
                 output += "\(indent) entitiesAccessControl: \(entitiesAccessControl.description)\n"
             }
             if hasCompileForFramework {
-                output += "\(indent) compileForFramework: \(compileForFramework) \n"
+                output += "\(indent) compileForFramework: \(String(describing: compileForFramework)) \n"
             }
             if hasGenerateStruct {
-                output += "\(indent) generateStruct: \(generateStruct) \n"
+                output += "\(indent) generateStruct: \(String(describing: generateStruct)) \n"
             }
             if hasGenerateRealmObjects {
-                output += "\(indent) generateRealmObjects: \(generateRealmObjects) \n"
+                output += "\(indent) generateRealmObjects: \(String(describing: generateRealmObjects)) \n"
             }
             if hasGenerateReact {
-                output += "\(indent) generateReact: \(generateReact) \n"
+                output += "\(indent) generateReact: \(String(describing: generateReact)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1083,16 +1083,16 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasGenerateErrorType {
-                output += "\(indent) generateErrorType: \(generateErrorType) \n"
+                output += "\(indent) generateErrorType: \(String(describing: generateErrorType)) \n"
             }
             if hasGenerateRealmObject {
-                output += "\(indent) generateRealmObject: \(generateRealmObject) \n"
+                output += "\(indent) generateRealmObject: \(String(describing: generateRealmObject)) \n"
             }
             if hasGenerateReact {
-                output += "\(indent) generateReact: \(generateReact) \n"
+                output += "\(indent) generateReact: \(String(describing: generateReact)) \n"
             }
             if hasAdditionalClassName {
-                output += "\(indent) additionalClassName: \(additionalClassName) \n"
+                output += "\(indent) additionalClassName: \(String(describing: additionalClassName)) \n"
             }
             var linkedObjectsElementIndex:Int = 0
             for oneElementLinkedObjects in linkedObjects {
@@ -1485,10 +1485,10 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasRealmIndexedPropertie {
-                output += "\(indent) realmIndexedPropertie: \(realmIndexedPropertie) \n"
+                output += "\(indent) realmIndexedPropertie: \(String(describing: realmIndexedPropertie)) \n"
             }
             if hasRealmPrimaryKey {
-                output += "\(indent) realmPrimaryKey: \(realmPrimaryKey) \n"
+                output += "\(indent) realmPrimaryKey: \(String(describing: realmPrimaryKey)) \n"
             }
             if (hasRealmOverridePropertie) {
                 output += "\(indent) realmOverridePropertie: \(realmOverridePropertie.description)\n"
@@ -1808,13 +1808,13 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasGenerateErrorType {
-                output += "\(indent) generateErrorType: \(generateErrorType) \n"
+                output += "\(indent) generateErrorType: \(String(describing: generateErrorType)) \n"
             }
             if hasGenerateReact {
-                output += "\(indent) generateReact: \(generateReact) \n"
+                output += "\(indent) generateReact: \(String(describing: generateReact)) \n"
             }
             if hasGenerateRealmObject {
-                output += "\(indent) generateRealmObject: \(generateRealmObject) \n"
+                output += "\(indent) generateRealmObject: \(String(describing: generateRealmObject)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

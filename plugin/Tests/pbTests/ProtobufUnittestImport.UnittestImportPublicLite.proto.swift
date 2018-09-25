@@ -98,7 +98,7 @@ public extension ProtobufUnittestImport {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasE {
-                output += "\(indent) e: \(e) \n"
+                output += "\(indent) e: \(String(describing: e)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

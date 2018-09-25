@@ -237,13 +237,13 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasI {
-                output += "\(indent) i: \(i) \n"
+                output += "\(indent) i: \(String(describing: i)) \n"
             }
             if hasIntegerField {
-                output += "\(indent) integerField: \(integerField) \n"
+                output += "\(indent) integerField: \(String(describing: integerField)) \n"
             }
             if hasStringField {
-                output += "\(indent) stringField: \(stringField) \n"
+                output += "\(indent) stringField: \(String(describing: stringField)) \n"
             }
             if hasMsg {
                 output += "\(indent) msg {\n"
@@ -624,7 +624,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasX {
-                output += "\(indent) x: \(x) \n"
+                output += "\(indent) x: \(String(describing: x)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output

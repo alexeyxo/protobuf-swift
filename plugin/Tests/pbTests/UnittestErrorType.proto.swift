@@ -177,7 +177,7 @@ final public class UserProfile : GeneratedMessage {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasUserId {
-                output += "\(indent) userId: \(userId) \n"
+                output += "\(indent) userId: \(String(describing: userId)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -829,10 +829,10 @@ final public class UserProfile : GeneratedMessage {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasErrorCode {
-                output += "\(indent) errorCode: \(errorCode) \n"
+                output += "\(indent) errorCode: \(String(describing: errorCode)) \n"
             }
             if hasErrorDescription {
-                output += "\(indent) errorDescription: \(errorDescription) \n"
+                output += "\(indent) errorDescription: \(String(describing: errorDescription)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -1096,13 +1096,13 @@ final public class UserProfile : GeneratedMessage {
     override public func getDescription(indent:String) throws -> String {
         var output = ""
         if hasFirstName {
-            output += "\(indent) firstName: \(firstName) \n"
+            output += "\(indent) firstName: \(String(describing: firstName)) \n"
         }
         if hasLastName {
-            output += "\(indent) lastName: \(lastName) \n"
+            output += "\(indent) lastName: \(String(describing: lastName)) \n"
         }
         if hasAvatarUrl {
-            output += "\(indent) avatarUrl: \(avatarUrl) \n"
+            output += "\(indent) avatarUrl: \(String(describing: avatarUrl)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output

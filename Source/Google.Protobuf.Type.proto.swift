@@ -169,7 +169,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             var fieldsElementIndex:Int = 0
             for oneElementFields in fields {
@@ -895,19 +895,19 @@ public extension Google.Protobuf {
                 output += "\(indent) cardinality: \(cardinality.description)\n"
             }
             if hasNumber {
-                output += "\(indent) number: \(number) \n"
+                output += "\(indent) number: \(String(describing: number)) \n"
             }
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             if hasTypeUrl {
-                output += "\(indent) typeUrl: \(typeUrl) \n"
+                output += "\(indent) typeUrl: \(String(describing: typeUrl)) \n"
             }
             if hasOneofIndex {
-                output += "\(indent) oneofIndex: \(oneofIndex) \n"
+                output += "\(indent) oneofIndex: \(String(describing: oneofIndex)) \n"
             }
             if hasPacked {
-                output += "\(indent) packed: \(packed) \n"
+                output += "\(indent) packed: \(String(describing: packed)) \n"
             }
             var optionsElementIndex:Int = 0
             for oneElementOptions in options {
@@ -1457,7 +1457,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             var enumvalueElementIndex:Int = 0
             for oneElementEnumvalue in enumvalue {
@@ -1876,10 +1876,10 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             if hasNumber {
-                output += "\(indent) number: \(number) \n"
+                output += "\(indent) number: \(String(describing: number)) \n"
             }
             var optionsElementIndex:Int = 0
             for oneElementOptions in options {
@@ -2194,7 +2194,7 @@ public extension Google.Protobuf {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasName {
-                output += "\(indent) name: \(name) \n"
+                output += "\(indent) name: \(String(describing: name)) \n"
             }
             if hasValue {
                 output += "\(indent) value {\n"

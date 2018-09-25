@@ -117,7 +117,7 @@ final internal class PBUser : GeneratedMessage {
             output += "\(indent) }\n"
         }
         if hasGroupName {
-            output += "\(indent) groupName: \(groupName) \n"
+            output += "\(indent) groupName: \(String(describing: groupName)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output
@@ -970,25 +970,25 @@ final internal class PBPerfomance : GeneratedMessage {
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
         if hasInts {
-            output += "\(indent) ints: \(ints) \n"
+            output += "\(indent) ints: \(String(describing: ints)) \n"
         }
         if hasInts64 {
-            output += "\(indent) ints64: \(ints64) \n"
+            output += "\(indent) ints64: \(String(describing: ints64)) \n"
         }
         if hasDoubles {
-            output += "\(indent) doubles: \(doubles) \n"
+            output += "\(indent) doubles: \(String(describing: doubles)) \n"
         }
         if hasFloats {
-            output += "\(indent) floats: \(floats) \n"
+            output += "\(indent) floats: \(String(describing: floats)) \n"
         }
         if hasStr {
-            output += "\(indent) str: \(str) \n"
+            output += "\(indent) str: \(String(describing: str)) \n"
         }
         if hasBytes {
-            output += "\(indent) bytes: \(bytes) \n"
+            output += "\(indent) bytes: \(String(describing: bytes)) \n"
         }
         if hasDescription {
-            output += "\(indent) description: \(description_) \n"
+            output += "\(indent) description: \(String(describing: description_)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output
@@ -1449,10 +1449,10 @@ final internal class PBProtoPoint : GeneratedMessage {
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
         if hasLatitude {
-            output += "\(indent) latitude: \(latitude) \n"
+            output += "\(indent) latitude: \(String(describing: latitude)) \n"
         }
         if hasLongitude {
-            output += "\(indent) longitude: \(longitude) \n"
+            output += "\(indent) longitude: \(String(describing: longitude)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output
@@ -1755,7 +1755,7 @@ final internal class PBIceCreamCone : GeneratedMessage {
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
         if hasScoops {
-            output += "\(indent) scoops: \(scoops) \n"
+            output += "\(indent) scoops: \(String(describing: scoops)) \n"
         }
         if (hasFlavor) {
             output += "\(indent) flavor: \(flavor.description)\n"
@@ -2016,7 +2016,7 @@ final internal class PBFoo : GeneratedMessage {
     override internal func getDescription(indent:String) throws -> String {
         var output = ""
         if hasVal {
-            output += "\(indent) val: \(val) \n"
+            output += "\(indent) val: \(String(describing: val)) \n"
         }
         output += unknownFields.getDescription(indent: indent)
         return output

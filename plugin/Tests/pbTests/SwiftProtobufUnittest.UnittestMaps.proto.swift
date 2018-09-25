@@ -98,7 +98,7 @@ public extension SwiftProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasValueInMapMessage {
-                output += "\(indent) valueInMapMessage: \(valueInMapMessage) \n"
+                output += "\(indent) valueInMapMessage: \(String(describing: valueInMapMessage)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -347,10 +347,10 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if hasValue {
-                    output += "\(indent) value: \(value) \n"
+                    output += "\(indent) value: \(String(describing: value)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -622,10 +622,10 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if hasValue {
-                    output += "\(indent) value: \(value) \n"
+                    output += "\(indent) value: \(String(describing: value)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -897,10 +897,10 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if hasValue {
-                    output += "\(indent) value: \(value) \n"
+                    output += "\(indent) value: \(String(describing: value)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -1168,10 +1168,10 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if hasValue {
-                    output += "\(indent) value: \(value) \n"
+                    output += "\(indent) value: \(String(describing: value)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -1440,7 +1440,7 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if hasValue {
                     output += "\(indent) value {\n"
@@ -1751,7 +1751,7 @@ public extension SwiftProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasKey {
-                    output += "\(indent) key: \(key) \n"
+                    output += "\(indent) key: \(String(describing: key)) \n"
                 }
                 if (hasValue) {
                     output += "\(indent) value: \(value.description)\n"

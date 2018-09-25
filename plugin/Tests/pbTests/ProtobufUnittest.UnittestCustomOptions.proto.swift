@@ -685,7 +685,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasField1 {
-                output += "\(indent) field1: \(field1) \n"
+                output += "\(indent) field1: \(String(describing: field1)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -2735,13 +2735,13 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasFoo {
-                output += "\(indent) foo: \(foo) \n"
+                output += "\(indent) foo: \(String(describing: foo)) \n"
             }
             if hasFoo2 {
-                output += "\(indent) foo2: \(foo2) \n"
+                output += "\(indent) foo2: \(String(describing: foo2)) \n"
             }
             if hasFoo3 {
-                output += "\(indent) foo3: \(foo3) \n"
+                output += "\(indent) foo3: \(String(describing: foo3)) \n"
             }
             var foo4ElementIndex:Int = 0
             for oneValueFoo4 in foo4  {
@@ -3099,7 +3099,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasWaldo {
-                    output += "\(indent) waldo: \(waldo) \n"
+                    output += "\(indent) waldo: \(String(describing: waldo)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -3355,7 +3355,7 @@ public extension ProtobufUnittest {
                 output += "\(indent) }\n"
             }
             if hasBaz {
-                output += "\(indent) baz: \(baz) \n"
+                output += "\(indent) baz: \(String(describing: baz)) \n"
             }
             if hasFred {
                 output += "\(indent) fred {\n"
@@ -3790,7 +3790,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasPlugh {
-                    output += "\(indent) plugh: \(plugh) \n"
+                    output += "\(indent) plugh: \(String(describing: plugh)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output
@@ -4006,7 +4006,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasQux {
-                output += "\(indent) qux: \(qux) \n"
+                output += "\(indent) qux: \(String(describing: qux)) \n"
             }
             if hasComplexOptionType5 {
                 output += "\(indent) complexOptionType5 {\n"
@@ -4301,7 +4301,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasXyzzy {
-                output += "\(indent) xyzzy: \(xyzzy) \n"
+                output += "\(indent) xyzzy: \(String(describing: xyzzy)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -4843,7 +4843,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasS {
-                output += "\(indent) s: \(s) \n"
+                output += "\(indent) s: \(String(describing: s)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -5123,10 +5123,10 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasI {
-                output += "\(indent) i: \(i) \n"
+                output += "\(indent) i: \(String(describing: i)) \n"
             }
             if hasS {
-                output += "\(indent) s: \(s) \n"
+                output += "\(indent) s: \(String(describing: s)) \n"
             }
             if hasSub {
                 output += "\(indent) sub {\n"
@@ -5623,7 +5623,7 @@ public extension ProtobufUnittest {
         override public func getDescription(indent:String) throws -> String {
             var output = ""
             if hasFieldname {
-                output += "\(indent) fieldname: \(fieldname) \n"
+                output += "\(indent) fieldname: \(String(describing: fieldname)) \n"
             }
             output += unknownFields.getDescription(indent: indent)
             return output
@@ -5854,7 +5854,7 @@ public extension ProtobufUnittest {
             override public func getDescription(indent:String) throws -> String {
                 var output = ""
                 if hasNestedField {
-                    output += "\(indent) nestedField: \(nestedField) \n"
+                    output += "\(indent) nestedField: \(String(describing: nestedField)) \n"
                 }
                 output += unknownFields.getDescription(indent: indent)
                 return output

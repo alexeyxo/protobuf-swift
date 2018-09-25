@@ -273,7 +273,7 @@ namespace google { namespace protobuf { namespace compiler { namespace swift {
     void PrimitiveFieldGenerator::GenerateDescriptionCodeSource(io::Printer* printer) const {
         printer->Print(variables_,
                        "if has$capitalized_name$ {\n"
-                       "    output += \"\\(indent) $name$: \\($name_reserved$) \\n\"\n");
+                       "    output += \"\\(indent) $name$: \\(String(describing: $name_reserved$)) \\n\"\n");
         printer->Print(variables_,
                        "}\n");
     }
