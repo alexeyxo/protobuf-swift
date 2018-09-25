@@ -35,20 +35,7 @@ AC_FUNC_STRTOD
 AC_CHECK_FUNCS([ftruncate memset mkdir strchr strerror strtol])
 
 # Locate the protobuf library.
-AC_CHECK_HEADER(google/protobuf/stubs/common.h,,
-                [AC_MSG_ERROR([
-ERROR: protobuf headers are required.
 
-You must either install protobuf from google,
-or if you have it installed in a custom location
-you must add '-Iincludedir' to CXXFLAGS
-and '-Llibdir' to LDFLAGS.
-
-If you did not specify a prefix when installing
-protobuf, try
-  './configure CXXFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib -std=c++11'
-In some 64-bit environments, try LDFLAGS=-L/usr/local/lib64.
-])])
 pbc_savelibs="$LIBS"
 LIBS="$LIBS -lprotoc -lprotobuf -lpthread"
 CFLAGS="$CFLAGS -DOBJC_ARC"
