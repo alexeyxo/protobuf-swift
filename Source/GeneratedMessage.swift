@@ -29,7 +29,7 @@ public protocol GeneratedMessageProtocol: ProtocolBuffersMessage {
 }
 
 
-public protocol GeneratedEnum:RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible, Hashable {
+public protocol GeneratedEnum:RawRepresentable, CustomDebugStringConvertible, CustomStringConvertible, Hashable, CaseIterable {
     func toString() -> String
     static func fromString(_ str:String) throws -> Self
 }
