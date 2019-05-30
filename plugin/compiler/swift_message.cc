@@ -24,7 +24,11 @@
 #include <google/protobuf/io/printer.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format.h>
+#if PROTOBUF_VERSION < 3008000
 #include <google/protobuf/wire_format_lite_inl.h>
+#else
+#include <google/protobuf/wire_format_lite.h>
+#endif
 #include <google/protobuf/descriptor.pb.h>
 
 #include "swift_enum.h"

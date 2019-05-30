@@ -8,7 +8,11 @@
 #include <google/protobuf/stubs/common.h>
 #include <google/protobuf/stubs/port.h>
 #include <google/protobuf/io/coded_stream.h>
+#if PROTOBUF_VERSION < 3008000
 #include <google/protobuf/wire_format_lite_inl.h>
+#else
+#include <google/protobuf/wire_format_lite.h>
+#endif
 #include <google/protobuf/descriptor.h>
 #include <google/protobuf/generated_message_reflection.h>
 #include <google/protobuf/reflection_ops.h>
